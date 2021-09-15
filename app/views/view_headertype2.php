@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Header</title>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-   
+	<!-- <title>Header</title> -->
+	<script src="https://kit.fontawesome.com/1681f9ce3f.js" crossorigin="anonymous"></script>
+    
+
     <style>
-
-
-  
 *{
     margin: 0;
     padding: 0;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-   
-   
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* 
 
 
 /*navigation*/
 nav{
-    width: 100%;
+width: 100%;
 height: 80px;
-background-color: rgb(4, 30, 92);
+background-color: #184A78;
 position: fixed;
-z-index: 1000;
+text-transform: uppercase;
 
 }
 nav h1{
@@ -80,13 +76,13 @@ nav ul li a{
     text-decoration: none;
     color: white;
     font-size: 18px;
-display: block;
- 
+    display: block;
+ text-transform: uppercase;
       font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-weight: 400px;
 }
 nav ul li a:hover{
-    color: blanchedalmond;
+    color: #D78B2E;
 
 }
 nav ul ul{
@@ -95,76 +91,118 @@ nav ul ul{
     top: 60px;
     display: none;
 }
-nav ul li:hover>ul{
-    display: block ;
-}  
-nav ul ul li{
-position: relative;
-display:list-item;
-float: none;
-width: 200px;
-background-color: rgb(4, 30, 92);
 
-margin-left: 10px;
-
-}
  nav ul ul  ul li{
 position: relative;
 top: -0px;
 
  }
-label #s1,label #s2{
-    font-size: 30px;
-    color: black;
-    float: right;
-    line-height: 60px;
-    margin-right: 30px;
-    cursor:pointer;
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
     display: none;
-}
+    position: absolute;
+  background: #184A78;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {color: #D78B2E;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
 
-#res-menu{
-    display: none;
-
-}
-
-/
-@media(max-width:800px) {
+@media(max-width:600px) {
     
-    /* nav{
+    nav{
           border-bottom:2px white;
-    } */
+    }
+
+   
     nav h1{
-        font-size:20px;
-
-    letter-spacing: 2px;
-
-    }
-    nav h3{
-        font-size: 10px;
-        letter-spacing: 0;
-
-    }
-} 
+    
+  
+    font-size: 24px;
+   margin-left: 16px;
+    letter-spacing: 1px;
 
 
+}
+nav h3{
 
+   
+    margin-top: 35px;
+    color: white;
+    font-size: 15px;
+    margin-left: 16px;
+    letter-spacing: 0px;
+    
+}
 
+i{
+    width: 1px;
+    margin-top: 50px;
+}
+.dropdown-content {
+    
+    position: absolute;
+  background: #184A78;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: small;
+  }
+  
+}
 
+  
+  
     </style>
 </head>
 <body>
 <!--Navigation-->
     <nav>
-        <input type="checkbox" id="res-menu">
-        
+      
         <h1>Himalee Dairy Produts</h1>
         <h3>Everyone Needs Milk. Dairy always Good Choice</h3>
         <ul>
-          <li><a href=""><i class="fas fa-home"></i></a> </li>
-            <li><a href=""><i class="fas fa-bell"></i></a> </li>
-            <li><a href=""><i class="fas fa-user-circle"></i></a> </li>
-           
+         
+            <li><a href=""><i class="fas fa-home" id="s3"></i></a></li>
+            
+            <div class="dropdown">
+            
+              <li><a href=""><i class="fas fa-user-circle" id="s3"></i></a></li>
+              <div class="dropdown-content">
+              <a href="#">edit profile</a>
+              <a href="#">view profile</a>
+              <a href="#">logout</a>
+              </div>
+            </div>
+            
+                    <li><a href="#"><i class="fas fa-bell fa-large" id="s4"></i></li></a>
         </ul>
         
      </nav>
