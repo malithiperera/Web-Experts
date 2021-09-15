@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php
-require 'view_headerType1.html';
+require 'view_headerType.php';
     ?>
     <div class="login">
     
@@ -43,7 +43,7 @@ require 'view_headerType1.html';
 </div>
 
 <div class="footer1">
-<?php require 'view_footer.html'; ?>
+<?php require 'view_footer.php'; ?>
 
 </div>
 
