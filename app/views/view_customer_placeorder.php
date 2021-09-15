@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Display all records from Database</title>
+  <title>Bill</title>
   <style>
         
         /* *{
