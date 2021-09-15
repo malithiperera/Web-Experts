@@ -25,7 +25,7 @@ body{
 nav{
     width: 100%;
 height: 80px;
-background-color: rgb(4, 30, 92);
+background-color: #184A78;
 position: fixed;
 z-index: 1000;
 
