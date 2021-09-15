@@ -128,7 +128,7 @@ top: -0px;
   }
   
 
-@media(max-width:600px) {
+@media(max-width:700px) {
     
     nav{
           border-bottom:2px white;
