@@ -72,8 +72,8 @@ border-radius:15px;
 }
 
 .footer1{
-    position: absolute;
-    bottom: 0px;
-    top: 1000px;
+    position: relative;
+    
+    /* top: 1000px; */
     width: 100vw;
     }
