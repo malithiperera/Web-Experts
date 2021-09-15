@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="styles.css">
 
     <title>forget</title>
+    <link rel="stylesheet" href="../../public/styles/view_forgetpassword.css">
 </head>
 <body>
     <?php
 require 'view_headerType.php';
     ?>
     <div class="container" id="form">
-<img src="pass.jpg" alt="" class="avatar">
+<img src="../../public/images/password.jpg" alt="" class="avatar">
 
 <h1>Forget Password</h1>
 <form action="../login/index.php" onsubmit=" return checkpassword()"  method="POST" autocomplete="off">
@@ -35,7 +36,15 @@ require 'view_headerType.php';
   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
 </div>
 </div>
-<script src="script.js"></script>
+<script src="../../Web-Experts/public/java script/view_forgetpassword.js"></script>
+
+
+
+
+
+
+
+
 </body>
 <div class="footer1">
 <?php require_once 'view_footer.php'; ?>
