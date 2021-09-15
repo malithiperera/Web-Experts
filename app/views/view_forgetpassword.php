@@ -36,14 +36,7 @@ require 'view_headerType.php';
   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
 </div>
 </div>
-<script src="../../Web-Experts/public/java script/view_forgetpassword.js"></script>
-
-
-
-
-
-
-
+<script src="../../public/java script/view_forgetpassword.js"></script>
 
 </body>
 <div class="footer1">
