@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-require 'view_headerType.html';
+require 'view_headerType.php';
     ?>
     <div class="container" id="form">
 <img src="pass.jpg" alt="" class="avatar">
@@ -38,6 +38,6 @@ require 'view_headerType.html';
 <script src="script.js"></script>
 </body>
 <div class="footer1">
-<?php require_once 'view_footer.html'; ?>
+<?php require_once 'view_footer.php'; ?>
 </div>
 </html>
