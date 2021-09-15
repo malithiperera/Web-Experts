@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../public/styles/view_login.css">
     <title>Login</title>
 </head>
 <body>
     <?php
-require 'view_headerType1.html';
+require 'view_headerType.php';
     ?>
     <div class="login">
     
@@ -43,7 +43,7 @@ require 'view_headerType1.html';
 </div>
 
 <div class="footer1">
-<?php require 'view_footer.html'; ?>
+<?php require 'view_footer.php'; ?>
 
 </div>
 
