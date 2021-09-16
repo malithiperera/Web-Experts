@@ -24,7 +24,9 @@
         ]);
 
         var options = {
-          title: 'Sales Summary'
+          title: 'Sales Summary',
+          'backgroundColor': 'transparent'
+
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -47,7 +49,7 @@
     <div class="container">
 
 <div class="left-sub">
-<div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="piechart"></div>
 </div>
 
 <div class="right-sub">
