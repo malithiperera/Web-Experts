@@ -20,7 +20,7 @@ body{
 .header{
     position: absolute;
     top: 0;
-    z-index: 1000;
+    z-index: 5000;
 }
 .footer1{
     position: relative;
