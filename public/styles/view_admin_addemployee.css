@@ -82,12 +82,14 @@ width: 300px;
    height: 30px;
   
    border-radius: 20px;
-   
+   text-align: center;
    border:none;
    outline: none;
  
 }
-
+input:focus{
+  text-align: center;
+}
 
 h3{
     margin: 20px;
