@@ -62,7 +62,7 @@
         display: flex;
         flex-wrap: wrap;
         top:100px;
-        left: 80px;
+        left: 50px;
         z-index: 999;
     }
     .card{
@@ -103,8 +103,10 @@
         top:180px;
         left:13px;
         z-index: 2000;
+        display:list-item;
         display:flex;
         flex-direction:column;
+        font-size:16px;
     }
     .icons > i{
         padding-bottom:50px;
@@ -123,6 +125,12 @@
     }
     .labels > p:hover{
         color:#184A78;
+    }
+    .chart{
+        margin-top:100px;
+        margin-left:100px;
+        width:400px;
+        height:400px;
     }
 </style>
 <body>
@@ -191,7 +199,11 @@
             <p>10</p>
         </div>
 
-        <canvas id="myChart" width="50px" height="50px"></canvas>
+        <div class="chart">
+            <canvas id="myChart"></canvas>
+        </div>
+
+       
 
     </div>
 
@@ -203,6 +215,7 @@
         <i class="fas fa-user-plus fa-lg"></i>
         <i class="fas fa-user-minus fa-lg"></i>
         <i class="fas fa-map-marker-alt fa-lg"></i>
+        
     </div>
 
     
@@ -230,7 +243,7 @@ var myChart = new Chart(ctx, {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 50, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
