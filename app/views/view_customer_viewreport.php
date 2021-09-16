@@ -6,6 +6,36 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>View Report</title>
     <link rel="stylesheet" href="../../public/styles/view_customer_viewreport.css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Sales', 'product'],
+          ['Himalee Ice cream',     110],
+          ['Yoghurt',      80],
+          ['Special Curd',  90],
+          ['Fresh Milk', 170],
+          ['Yelly Yoghurt',    90]
+        ]);
+
+        var options = {
+          title: 'Sales Summary'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
 </head>
 <body>
     <div class="header">
@@ -17,7 +47,7 @@
     <div class="container">
 
 <div class="left-sub">
-<h3>This div contains the report</h3>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
 </div>
 
 <div class="right-sub">
