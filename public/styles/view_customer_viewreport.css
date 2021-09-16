@@ -82,6 +82,7 @@ label{
 select{
     background-color: #2277B2;
     height: 40px;
+    outline: none;
     color: #fff;
    /* margin-top: 20px; */
    width: 200px;
@@ -94,6 +95,8 @@ input{
     background-color: rgb(51, 111, 163);
     border: 2px solid #fff;
     height: 40px;
+    outline: none;
+   
     width: 200px;
 }
 #piechart{
