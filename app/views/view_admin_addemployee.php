@@ -26,7 +26,7 @@ require 'view_headertype2.php';
 <div class="container">
 <div class="div1" id="div1">
     <h3>Admin Registration</h3>
-    <form action="/action_page.php">
+    <form action="/action_page.php" onsubmit=" return validate()"  >
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -48,7 +48,7 @@ require 'view_headertype2.php';
           <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
           
       
-          <button type="submit" class="registerbtn">Register</button>
+          <button type="submit" class="registerbtn" id="validate" onsubmit="validate()">Register</button>
         </div>
         
        
@@ -57,7 +57,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div2" id="div2">
     <h3>Sales Representative Registration</h3>
-    <form action="/action_page.php">
+    <form action="/action_page.php" onsubmit=" return validate()">
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -79,7 +79,7 @@ require 'view_headertype2.php';
           <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
           
       
-          <button type="submit" class="registerbtn">Register</button>
+          <button type="submit" class="registerbtn" id="validate" onsubmit="validate()">Register</button>
         </div>
         
        
@@ -88,7 +88,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div3" id="div3">
     <h3>Stock Manager Registration</h3>
-    <form action="/action_page.php">
+    <form action="/action_page.php" onsubmit=" return validate()">
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -110,7 +110,7 @@ require 'view_headertype2.php';
           <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
           
       
-          <button type="submit" class="registerbtn">Register</button>
+          <button type="submit" class="registerbtn" id="validate" onsubmit="validate()">Register</button>
         </div>
         
        

@@ -25,3 +25,15 @@ div1.style.visibility="hidden";;
 div3.style.visibility="visible";
 div2.style.visibility="hidden";;
 }
+
+function validate(){
+alert("Hello")
+return false;
+    const tel=getElementById("tel");
+}
+// if(validate.length!=10)
+// {
+//     alert("Enter a valid phone number");
+//     return false;
+// }
+// }
