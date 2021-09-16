@@ -80,6 +80,14 @@
         margin-top : 10px;
         z-index: 999;
     }
+    .graph1_background{
+        position:absolute;
+        top:280px;
+        left:30px;
+        width:1200px;
+        height:430px;
+        background-color:white;
+    }
     .graph1{
         position:absolute;
         top:300px;
@@ -183,7 +191,7 @@
             <p>10</p>
         </div>
     
-
+    <div class="graph1_background"></div>
     <div class="graph1">
         <svg width="1110" height="391" viewBox="0 0 1110 391" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M252 37L254.058 390" stroke="#2277B2" stroke-width="5"/>
