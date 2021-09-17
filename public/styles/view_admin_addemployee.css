@@ -58,7 +58,7 @@
     height: 500px;
    
     color: white;
-    
+   
     border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 
@@ -81,7 +81,7 @@ width: 300px;
    margin: 10px;
    height: 30px;
   
-   border-radius: 20px;
+   border-radius: 5px;
    text-align: center;
    border:none;
    outline: none;
@@ -101,16 +101,18 @@ label{
    
 }
 
-form button{
-    width: 400px;
+.content button{
+  float: center;
+    width: 200px;
     height: 40px;
     background-color:#2277B2;
-    border-radius: 20px;
+    border-radius: 10px;
     outline: none;
     color: #fff;
     border: none;
     cursor: pointer;
     margin: 40px;
+    margin-left: 150px;
     
     box-shadow: 1px 1px 1px 1px;
 }
