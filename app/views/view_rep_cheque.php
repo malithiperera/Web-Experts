@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_rep_cheque.css">
-    <link rel="stylesheet" href="cheque.css">
     <title>ChequePayment</title>
 </head>
 
