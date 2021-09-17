@@ -26,13 +26,12 @@
             position : absolute;
             width: 100%;
             height: 500px;
-            top: -420px;
+            top: -420px;          
         }
         img{
             position : absolute;
             width: 1519px;
             height: auto;
-            
         }
         .getStarted{
             position: absolute;

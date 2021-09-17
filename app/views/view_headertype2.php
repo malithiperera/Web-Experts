@@ -9,6 +9,7 @@
 *{
     margin: 0;
     padding: 0;
+    z-index: 3000;
 }
 
 body{
@@ -128,7 +129,7 @@ top: -0px;
   }
   
 
-@media(max-width:600px) {
+@media(max-width:700px) {
     
     nav{
           border-bottom:2px white;
