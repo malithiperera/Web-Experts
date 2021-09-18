@@ -86,6 +86,7 @@ z-index: 1000;
     display: inline-block;
     height: 40px;
     width: 40px; 
+    color:#fff;
     background-color: rgba(255,255,255,0.2);
     margin: 0 10px 10px 0;
 text-align: center;
