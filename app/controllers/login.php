@@ -7,57 +7,36 @@ class login extends controller{
     }
 
     public function home(){
-        $this->view->render('home_view');
+        $this->view->render('view_newhome');
+        
     }
 
     public function login(){
-        $this->view->render('logIn_view');
+        $this->view->render('view_login');
     }
 
-    public function actor(){
-        $this->model('home_model');
-        $email = $_POST['email'];
+    public function loginSubmit(){
+        $username = $_POST['username'];
         $password = $_POST['password'];
-        $true1 = 0;
-        $true2 = 0;
-
-        //check is admin
-        $this->view->users = $this->model->isAdmin($email);
-
-        if ($this->view->users->num_rows > 0) {
-        // output data of each row
-         while($row = $this->view->users->fetch_assoc()) {
-            if($row["password"] == $password){
-                $true1 = 1;
-            }
-            }
-         } 
-         if($true1 == 1){
-            $this->view->render("adminHome_view");
-         }
+        $this->model('home_model');
+        // $this->view->render('test');
+        // $this->view->users = $this->model->validate($username, $password);
+        $users = $this->model->validate($username, $password);
+        $count = mysqli_num_rows($users);
         
-        //check is customer
-        $this->view->users = $this->model->isCustomer($email);
-
-        if ($this->view->users->num_rows > 0) {
-        // output data of each row
-         while($row = $this->view->users->fetch_assoc()) {
-            if($row["password"] == $password){
-                $true2 = 1;
-            }
-            }
-         } 
-         if($true2 == 1){
-            $this->view->render("customerHome_view");
-         }
+        // echo $row['position'];
+        // // echo $users;
+        if($count == 1){
+            $row = $users -> fetch_assoc();
+            $viewname = "_1_view_".$row['position']."Home";
+            $this->view->render($viewname);
+        }
+        else{
+            $this->view->error = "error";
+            $this->view->render('view_login');
+        }
     }
 
-    public function help(){
-        $this->view->render('help_view');
-    }
-
-    public function forgetPassword(){
-        $this->view->render('forgetPassword_view');
-    }
+    
 
 }
