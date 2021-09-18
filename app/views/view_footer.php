@@ -87,7 +87,7 @@ z-index: 1000;
     height: 40px;
     width: 40px; 
     color:#fff;
-    background-color: rgba(255,255,255,0.2);
+    /* background-color: rgba(255,255,255,0.2); */
     margin: 0 10px 10px 0;
 text-align: center;
 line-height: 40px;
@@ -95,8 +95,12 @@ border-radius: 50%;
 }
 .footer-col .social a:hover{
     color: #24262b;
-    background-color: white;
+    background-color: grey;
 }
+.footer-col .social a i{
+   font-size:20px;
+}
+
 .design{
     text-align: center;
     margin-top: 20px;

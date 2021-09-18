@@ -98,6 +98,11 @@
                 <span class="fas fa-phone"></span>
                 <input type="number" placeholder="number">
             </div>
+            <div class="inputBox">
+            
+                <span class="far fa-comment-alt"></span>
+                <input type="text" placeholder="Messege">
+            </div>
             <input type="submit" value="contact now" class="btn">
         </form>
 
