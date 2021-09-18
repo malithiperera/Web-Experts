@@ -37,6 +37,11 @@ class login extends controller{
         }
     }
 
+    //forget password
+    public function forgetPassword(){
+        //view name to this>>>>>>>
+        $this->view->render('view_forgetpassword');
+    }
     
 
 }

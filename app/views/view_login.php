@@ -40,7 +40,7 @@ require 'view_headerType.php';
 
  <button class="signin-button">Login</button>  
  <div class="link">
-     <a href="sendmail.php">Forget Password?</a>
+     <a href="forgetPassword">Forget Password?</a>
  </div>
 
 
