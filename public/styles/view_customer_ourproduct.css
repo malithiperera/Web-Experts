@@ -6,12 +6,13 @@
 }
 
 body{
-    position: relative;
+    /* position: relative; */
     width: 100vw;
     /* height: 900px; */
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     background: #e4e1df;
+    z-index: -1000;
 
 }
 
@@ -20,8 +21,9 @@ body{
     height: 100px;
 }
 .header{
-    position: relative;
+    position: absolute;
     top: 0;
+    z-index:5000;
 }
 
 .container{
