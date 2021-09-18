@@ -43,7 +43,7 @@
     <div class="content">
         <h3>Himalee Dairy Products</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.</p>
-        <a href="#" class="btn">Get started</a>
+        <a href="view_login.php" class="btn">Get started</a>
     </div>
 
 </section>
@@ -66,7 +66,7 @@
             <h3>Why Our Dairy Prodcuts Special?</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui ea ullam, enim tempora ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil voluptas culpa! Neque consectetur obcaecati sapiente?</p>
-            <a href="#" class="btn">learn more</a>
+           
         </div>
 
     </div>
