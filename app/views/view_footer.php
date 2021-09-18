@@ -12,6 +12,7 @@
 body{
     line-height: 1.5;
     font-family: 'Poppins',sans-serif ;
+    width:100vw;
 }
 *{
     margin: 0;

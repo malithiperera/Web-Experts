@@ -16,7 +16,7 @@ require 'view_headertype2.php';
  ?>
   </div>
 <div class="container">
-<div class="sub-container">
+<!-- <div class="sub-container"> -->
 <div class="orders">
     <h3>My Orders</h3>
     <table>
@@ -93,7 +93,7 @@ require 'view_headertype2.php';
 
 
 
-</div>
+<!-- </div> -->
 
 
 
