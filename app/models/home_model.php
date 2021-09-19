@@ -2,6 +2,7 @@
 
 require '../app/core/model.php';
 
+
 class home_model extends model{
 
     function __construct(){
@@ -9,14 +10,9 @@ class home_model extends model{
     }
 
    public function validate($username1, $password1){
-        // require_once '../app/core/database.php';
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "himalee";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        
+    require '../app/core/database.php';
+    
         $sql = "SELECT * FROM users WHERE email = '$username1' and password = '$password1'";
         
         $result = $conn->query($sql);
