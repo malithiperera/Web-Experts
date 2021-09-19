@@ -4,33 +4,61 @@
   <title>Bill</title>
   <style>
         
-        /* *{
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-        } */
+       
         body{
             background-color: #e4e1df;
+            position: absolute;
+         
+          
+        }
+        header{
+          top:0;
+          position: absolute;
+          z-index:4000;
         }
         .container{
-            
+      
+          margin-top:100px;
            display: flex;
            justify-content: center;
            align-items: center;
+        
+           position: relative;
         }
      table{
-       width: 600px;
+       width: 100%;
+       padding:20px;
      }
      th{
          background-color:#184A78;
          color: white;
+         padding:10px;
+         text-transform:uppercase;
      }
 td{
-    background-color: #2277B2;
+  background-color: rgb(88, 88, 88);
     text-align: center;
+    padding:6px;
+    color:#fff;
+    font-size:20px;
 
 }
+h2{
+text-align:center;
+padding:5px;
+font-size:30px;
+}
+.subcontainer{
+  width:100vw;
+  /* background:red; */
+  height:100vw;
+  /* display:flex;
+ 
+  
+  flex-direction:column; */
+  flex-wrap:wrap;
 
+}
 .subcontainer button{
     float: center;
     background-color: #2277B2;
@@ -39,13 +67,13 @@ td{
     width: 30%;
     height: 40px;
     color:#fff;
-    border-radius: 20px;
-    transition-duration: 0.4s;
-    display: inline-block;
+    border-radius: 10px;
+    transition-duration: 0.4s ease;
+    /* display: inline-block; */
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
@@ -64,6 +92,15 @@ button:active {
 
 </head>
 <body>
+
+
+
+<section>
+<header>
+<?php
+require 'view_headertype2.php';
+?>
+</header>
 <div class="container">
     <div class="subcontainer">
 <h2>Bill</h2>

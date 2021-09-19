@@ -43,7 +43,7 @@
     <div class="content">
         <h3>Himalee Dairy Products</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.</p>
-        <a href="view_login.php" class="btn">Get started</a>
+        <a href="login" class="btn">Get started</a>
     </div>
 
 </section>
@@ -97,6 +97,11 @@
             <div class="inputBox">
                 <span class="fas fa-phone"></span>
                 <input type="number" placeholder="number">
+            </div>
+            <div class="inputBox">
+            
+                <span class="far fa-comment-alt"></span>
+                <input type="text" placeholder="Messege">
             </div>
             <input type="submit" value="contact now" class="btn">
         </form>
