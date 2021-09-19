@@ -6,6 +6,10 @@ class login extends controller{
         parent::__construct();
     }
 
+    public function index(){
+        echo "404 ERROR";
+    }
+
     public function home(){
         $this->view->render('view_newhome');
         
