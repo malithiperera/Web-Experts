@@ -16,10 +16,24 @@
         font-family:Arial, Helvetica, sans-serif;
         color:white;
     }
+
     body{
+        
         position: relative;
-        background-color:#D8E9EB;
+        background-color:#e4e1df;
     }
+    html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+}
     .sideBar{
         position : fixed;
         top: 100px;
@@ -47,6 +61,7 @@
         background-color:#2277B2;
         visibility : hidden;
         z-index: 1000;
+        cursor:pointer;
     }
     .closeBar{
         position : absolute;
@@ -56,10 +71,7 @@
         background-color:#184A78;
         z-index: 1000;
     }
-    /* .container{
-        display: flex;
-        flex-direction: column;
-    } */
+    
     .cards{
         position: relative;
         display: flex;
@@ -80,7 +92,8 @@
         margin-bottom : 40px;
         text-align:center;
         z-index: 999;
-        border-radius:20px;
+        cursor:pointer;
+        border-radius:10px;
     }
     .card > p{
         margin-top : 10px;
@@ -92,24 +105,8 @@
     /* color:  #184A78; */
     cursor:pointer:
     }
-    .graph1_background{
-        position:absolute;
-        top:280px;
-        left:30px;
-        width:1200px;
-        height:430px;
-        background-color:white;
-    }
-    .graph1{
-        position:absolute;
-        top:300px;
-        left:40px;
-    }
-    .graph2{
-        position: absolute;
-        top: 750px;
-        left:180px;
-    }
+    
+    
     .icons{
         position:fixed;
         top:180px;
@@ -147,26 +144,110 @@
 
     .divup{
        
-        /* margin-top: 90px;  */
+     
      display:flex;
         justify-content:center; */
-       /* margin-top:130px; */
-       z-index: 999;
+       
+       
         padding:40px;
         border-radius:20px;
+        display:flex;
+        flex-wrap:wrap;
+        margin-left:40px;
         text-transform: capitalize;
+        color:#184A78; 
+        z-index:0;
+        margin-left:180px;
     }
     .detail{
         width:100px;
         text-align:center;
-        height:80px;
+        height:100px;
         padding:10px;
-        margin-top:150px;
-        right:0;
-        /* border-radius:20px; */
+        margin-top:90px;
+      
+      
+        z-index:0;
+        background:white;
+       
         text-transform:capitalize;
+    }
+        .detail p{
+            color:#184A78;
+            font-size:20px;
+            font-weight:300;
+        }
+
+        .detail:hover{
+            background:#184A78;
+            
+        }
+        .detail:hover>*{
+            color:#fff;
+        }
+        .product{
+
+        }
+    .footer1{
+        width:120vw;
+        position:relative;
+    }
+    section{
+    padding:2rem 7%;
+}
+    .menu{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        z-index:0;
+     position: relative;
 
     }
+ 
+    .menu .box-container{
+      
+        margin-left:180px;
+    display: flex;
+    flex-wrap:wrap;
+   
+    gap:0.9rem;
+}
+
+
+
+.menu .box-container .box{
+    width:300px;
+   height:300px;
+    padding:2rem;
+    text-align: center;
+    
+}
+h2{
+    color:black;
+    text-align:center;
+    margin-top:50px;
+    text-transform:uppercase;
+    font-size:35px;
+}
+.menu .box-container .box img{
+    height: 13rem;
+}
+
+.menu .box-container .box h3{
+    color: black;
+    font-size: 1.5rem;
+    padding:1rem 0;
+}
+
+.menu .box-container .box:hover{
+    background:#184A78;
+    transform: scale(1.1);
+}
+
+.menu .box-container .box:hover > *{
+    color:#fff;
+}
+
 </style>
 <body>
     <?php require 'view_headerType2.php';  ?>
@@ -206,11 +287,11 @@
     </div>
     <div class="container">
     <div class="divup">
-    <div class="detail" style="background-color:#2277B2; width: 300px;">
+    <div class="detail" style="width: 300px;">
         <p>ROOT</p>
         <p>Kandy Kurunagala Road</p>
     </div>
-    <div class="detail" style="background-color:#2277B2; width: 300px">
+    <div class="detail" style="width: 300px">
         <p>SALES REP</p>
         <p>MR.Bandara</p>
         <p>contact:0718292839</p>
@@ -240,14 +321,11 @@
             <p>Pending Payments</p>
             <p>10</p>
         </div>
-        <!-- <div class="card" style="background-color:#184A78;">
-            <p>OVERDUE DELIVERIES</p>
-            <p>10</p>
-        </div> -->
+     
 
-        <div class="chart">
+        <!-- <div class="chart">
             <canvas id="myChart"></canvas>
-        </div>
+        </div> -->
 
        
     </div>
@@ -262,7 +340,65 @@
         
         
     </div>
+    <!-- <div class="headd">
+    <h1 class="heading"> our <span>menu</span> </h1>
+    </div> -->
+    <h2>Product Category</h2>
+<section class="menu" id="menu">
 
+
+
+<div class="box-container">
+
+ 
+
+    <div class="box">
+        <img src="../../public/images/h_icecream.jpg" alt="">
+        <h3>Himalee Ice Creams</h3>
+      
+        
+    </div>
+    <div class="box">
+        <img src="../../public/images/curd.jpg"alt="">
+        <h3>Himalee Curd Items</h3>
+        
+    </div>
+
+    <div class="box">
+        <img src="../../public/images/h_freshmilk.jpg"alt="">
+        <h3>Hiamlee Fresh Milk Products</h3>
+       
+       
+    </div>
+
+    <div class="box">
+        <img src="../../public/images/h_yoghurt.jpg" alt="">
+        <h3>Hiamlee Fresh Yoghurd Products</h3>
+      
+      
+    </div>
+
+    <div class="box">
+        <img src="../../public/images/h_curd.jpg"alt="">
+        <h3>tasty and healty</h3>
+      
+      
+    </div>
+
+    <div class="box">
+        <img src="../../public/images/h_icecream.jpg" alt="">
+        <h3>tasty and healty</h3>
+       
+       
+    </div>
+
+</div>
+
+
+
+
+
+</section>
     <div class="footer1">
 <?php require 'view_footer.php'; ?>
 
