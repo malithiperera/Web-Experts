@@ -91,7 +91,7 @@ button:hover{
 <body>
     <div class="header">
     <?php
-require 'header.html';
+require 'view_ headerType.php';
 
 ?>
 </div>
