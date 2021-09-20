@@ -36,10 +36,10 @@
          text-transform:uppercase;
      }
 td{
-  background-color: rgb(88, 88, 88);
+  background-color: #fff;
     text-align: center;
     padding:6px;
-    color:#fff;
+    color:black;
     font-size:20px;
 
 }
@@ -59,19 +59,23 @@ font-size:30px;
   flex-wrap:wrap;
 
 }
+input{
+  border:none;
+  outline:none;
+}
 .subcontainer button{
     float: center;
     background-color: #2277B2;
     border:none;
     outline: none;
-    width: 30%;
+    width: 10%;
     height: 40px;
     color:#fff;
     border-radius: 10px;
     transition-duration: 0.4s ease;
-    /* display: inline-block; */
+    margin-left:50px;
   font-size: 16px;
-  margin: 4px 2px;
+  /* margin: 4px 2px; */
   cursor: pointer;
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
@@ -136,7 +140,7 @@ while($data = mysqli_fetch_array($records))
     <td>.<?php echo $data['product_id']; ?></td>
     <td><?php echo $data['name']; ?></td>
     <td><div id="unitprice"><?php echo $data['unit_price']; ?></div></td>
-    <td><div contenteditable="true" id="amount"></div>
+    <td><input type="text" ></div>
 </td>
     <td><div></div id="total">800</td>
   </tr>	
