@@ -119,7 +119,9 @@ require 'view_headertype2.php';
 
 </div>
 </div>
+<div class="message">
 <?php 
+
 
     //succuss message here>>>>>>>>
     if(isset($this->added)){
@@ -136,8 +138,10 @@ require 'view_headertype2.php';
         <?php }
         unset($this->added);
     }
+  
     
 ?>
+  </div>
 
 <script src="../../public/java script/view_admin_addemployee.js"></script>
 
