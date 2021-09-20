@@ -120,10 +120,12 @@
         left:55px;
         top:180px;
     }
-    .labels > p{
+    .labels > a{
         padding-bottom:46px;
+        display:block;
+        text-decoration:none;
     }
-    .labels > p:hover{
+    .labels > a:hover{
         color:#184A78;
     }
     .chart{
@@ -157,13 +159,21 @@
    
     <div class="openBar" id="openBar">
         <div class="labels">
-            <p>PRODUCTS</p>
+            <!-- <p>PRODUCTS</p>
             <p>CUSTOMERS</p>
             <p>SALES REPS</p>
             <p>REPORTS</p>
             <p>ADD USER</p>
             <p>REMOVE USER</p>
-            <p>ROUTES</p>
+            <p>ROUTES</p> -->
+
+            <a href="#">PRODUCTS</a>
+            <a href="#">CUSTOMERS</a>
+            <a href="#">SALES REPS</a>
+            <a href="#">REPORTS</a>
+            <a href="../admin/add_user">ADD USER</a>
+            <a href="#">REMOVE USER</a>
+            <a href="#">ROUTES</a>
             </div>
     </div>
 

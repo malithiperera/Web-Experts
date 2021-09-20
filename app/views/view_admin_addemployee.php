@@ -26,7 +26,7 @@ require 'view_headertype2.php';
 <div class="container">
 <div class="div1" id="div1">
     <h3>Admin Registration</h3>
-    <form action="/action_page.php" onsubmit=" return validate()"  >
+    <form method="post" action="register_admin">
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -119,6 +119,21 @@ require 'view_headertype2.php';
 
 </div>
 </div>
+<?php 
+
+    //succuss message here>>>>>>>>
+    if(isset($this->added)){
+        if($this->added == 1){
+            echo "succussfully added";
+        }
+        else if($this->added == 2){
+            echo "something error";
+        }
+        unset($this->added);
+    }
+    
+?>
+
 <script src="../../public/java script/view_admin_addemployee.js"></script>
 
 
