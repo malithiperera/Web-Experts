@@ -60,6 +60,8 @@
         .container2 input{
             color: #184A78;
             border-radius: 20px;
+            height:20px;
+            width:120px;
             outline: none;
             padding-left: 10px;
         }

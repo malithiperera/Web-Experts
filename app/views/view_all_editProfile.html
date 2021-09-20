@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color:#D8E9EB;
+        }
+        .container{
+            position: relative;
+            top: 150px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            /* flex-direction: column; */
+        }
+        .container1{
+            width: 720px;
+            height: 600px;
+            background-color: green;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .subcontainer1{
+            margin: 10px;
+            width: 700px;
+            height: 30px;
+            background-color: yellow;
+            text-align: center;
+        }
+        .subcontainer2{
+            margin: 10px;
+            width: 700px;
+            height: 450px;
+            background-color: red;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .labels{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .inputs{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;   
+        }
+        .inputs input{
+            color: #184A78;
+        }
+        .edit_button{
+            float: right;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .edit_button button{
+            color: #184A78;
+        }
+        .subcontainer3{
+            margin: 10px;
+            width: 700px;
+            height: 50px;
+            background-color: orange;
+        }
+        @media screen and (max-width: 720px) {
+            .container{
+                flex-direction: column;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container1">
+            <div class="subcontainer1">
+                <p>example@gmail.com</p>
+            </div>
+            <div class="subcontainer2">
+                <div class="labels">
+                    <label for="name">NAME : </label>
+                    <label for="email">EMAIL : </label>
+                    <label for="dob">DATE OF BIRTH : </label>
+                    <label for="tele">TELE : </label>
+                    <label for="nic">NIC : </label>
+                    <label for="address">ADDRESS : </label>
+                </div>
+                <div class="inputs">
+                    <input type="text" name="name" value="Example Name" readonly>
+                    <input type="text" name="name" value="Example Name" readonly>               
+                    <input type="text" name="name" value="Example Name" readonly>               
+                    <input type="text" name="name" value="Example Name" readonly>                
+                    <input type="text" name="name" value="Example Name" readonly>                
+                    <input type="text" name="name" value="Example Name" readonly>
+                </div>
+                <div class="edit_button">
+                    <button>edit</button>
+                    <button>edit</button>
+                    <button>edit</button>
+                    <button>edit</button>
+                    <button>edit</button>
+                    <button>edit</button>
+                </div>
+               
+            </div>
+            <div class="subcontainer3">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
