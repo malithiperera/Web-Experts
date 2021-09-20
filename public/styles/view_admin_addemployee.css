@@ -157,6 +157,16 @@ button:hover{
     background-color: #D7CEC8;
     color:  #184A78;
 }
+
+.sucess{
+  background-color: green;
+  color: #fff;
+}
+
+.error{
+  background-color: red;
+  color:#fff;
+}
 @media screen and (max-width: 550px) {
 
   .div1{

@@ -57,7 +57,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div2" id="div2">
     <h3>Sales Representative Registration</h3>
-    <form action="/action_page.php" onsubmit=" return validate()">
+    <form action="register_salesrep" method="post">
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -124,11 +124,16 @@ require 'view_headertype2.php';
     //succuss message here>>>>>>>>
     if(isset($this->added)){
         if($this->added == 1){
-            echo "succussfully added";
-        }
-        else if($this->added == 2){
-            echo "something error";
-        }
+            ?>
+            <div class="sucess">
+            <p>Employee Added Succesfully</p>
+            </div>
+       <?php }
+        else if($this->added == 2){?>
+          <div class="error">
+            <p>Error:Try Again</p>
+            </div>
+        <?php }
         unset($this->added);
     }
     
