@@ -94,7 +94,18 @@ button:active {
 }
     </style>
 
+<script>
+        function myfunc(val)
+        {
+          
+          var y= document.getElementsByClassName("temp").value;
+            var x=val*y;
+            document.document.getElementsByClassName("tot").value=x;
+        }
+    </script>
+
 </head>
+
 <body>
 
 
@@ -137,12 +148,14 @@ while($data = mysqli_fetch_array($records))
 {
 ?>
   <tr>
-    <td>.<?php echo $data['product_id']; ?></td>
-    <td><?php echo $data['name']; ?></td>
-    <td><div id="unitprice"><?php echo $data['unit_price']; ?></div></td>
-    <td><input type="text" ></div>
+    
+    <td>.<?php echo $data[0]; ?></td>
+    <td><?php echo $data[1]; ?></td>
+    <td><input type="text" value="<?php echo $data[2];?> "id="temp" class="temp" readonly></td>
+    
+    <td><input type="text" id="amount" class="amount"  value="10" onkeyup="myfunc(this.value);" ></div>
 </td>
-    <td><div></div id="total">800</td>
+    <td><input id="tot"  class="tot" value="20"readonly></td>
   </tr>	
 <?php
 }
@@ -153,27 +166,7 @@ while($data = mysqli_fetch_array($records))
 <button>Place Order</button>
 </div>
 </div>
+<!-- <script src="../../public/java script/view_bill.js"></script> -->
 
-<script>
-function myfunc() {
-    
-//   var tot=document.getElementById("total").value;
- 
-  var myInput = document.getElementById("amount");
-var letter = document.getElementById("unitprice");
-
-
-
-}
-
-// When the user clicks outside of the password field, hide the message box
-myInput.onblur = function() {
-  document.getElementById("total").value=900;
-}
-
-
-
-
-</script>
 </body>
 </html>

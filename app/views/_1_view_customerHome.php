@@ -39,36 +39,43 @@ html::-webkit-scrollbar-thumb{
         top: 100px;
         left: 5px;
         z-index: 1001;
+       
     }
     .open{
         position : absolute;
         top:5px;
         left:4px;
-        z-index: 1002;
+        z-index: 2999;
+        
     }
     .close{
         position : absolute;
         top:5px;
         left:3px;
-        z-index: 1002;
+        z-index: 3000;
         visibility : hidden;
     }
-    .openBar{
+    .openBar {
         position : absolute;
         top:0;
         width:200px;
-        height: 550px;
+        height: 500px;
         background-color:#2277B2;
         visibility : hidden;
         z-index: 1000;
+        border-radius:5px;
         cursor:pointer;
+    }
+    .openbar a{
+        display:block;
+        text-decoration:none;
     }
     .closeBar{
         position : absolute;
         top:0;
         width:42px;
-        height: 550px;
-        background-color:#184A78;
+        height: 500px;
+        background-color:rgb(180, 161, 161);
         z-index: 1000;
     }
     
@@ -77,7 +84,7 @@ html::-webkit-scrollbar-thumb{
         display: flex;
         flex-wrap: wrap;
         top:50px;
-        left: 50px;
+        /* left: 50px; */
         z-index: 999;
         /* margin-left: 150px; */
         justify-content: center;
@@ -87,7 +94,7 @@ html::-webkit-scrollbar-thumb{
         width: 200px;
         height: 80px;
         background-color: #2277B2;
-        margin-left: 20px;
+        /* margin-left: 20px; */
         margin-right: 20px;
         margin-bottom : 40px;
         text-align:center;
@@ -117,10 +124,10 @@ html::-webkit-scrollbar-thumb{
         flex-direction:column;
         font-size:16px;
     }
-    .icons >  i{
+    .icons >  a{
         padding-bottom:50px;
     }
-    .icons > i:hover{
+    .icons > a i:hover{
         color:#2277B2;
     }
     .labels{
@@ -129,23 +136,30 @@ html::-webkit-scrollbar-thumb{
         left:55px;
         top:180px;
     }
-    .labels > p{
+.labels a{
+    text-decoration:none;
+}
+
+    .labels > a p{
         padding-bottom:46px;
+        
     }
-    .labels > p:hover{
+    .labels >  a p:hover{
         color:#184A78;
     }
-    .chart{
-        margin-top:100px;
-        margin-left:100px;
-        width:400px;
-        height:400px;
+    .open i{
+        color:black;
+        margin-left:10px;
+    }
+    .close i{
+        color:black;
+        margin-left:10px;
     }
 
     .divup{
        
      
-     display:flex;
+          display:flex;
         justify-content:center; */
        
        
@@ -153,11 +167,11 @@ html::-webkit-scrollbar-thumb{
         border-radius:20px;
         display:flex;
         flex-wrap:wrap;
-        margin-left:40px;
+        
         text-transform: capitalize;
         color:#184A78; 
         z-index:0;
-        margin-left:180px;
+        
     }
     .detail{
         width:100px;
@@ -189,27 +203,29 @@ html::-webkit-scrollbar-thumb{
 
         }
     .footer1{
-        width:120vw;
+    
         position:relative;
+        z-index:1;
     }
     section{
     padding:2rem 7%;
 }
     .menu{
         display:flex;
-        flex-direction:column;
+        /* flex-direction:column; */
         justify-content:center;
         z-index:0;
+        
      position: relative;
 
     }
  
     .menu .box-container{
       
-        margin-left:180px;
+   
     display: flex;
     flex-wrap:wrap;
-   
+   justify-content:center;
     gap:0.9rem;
 }
 
@@ -223,61 +239,80 @@ html::-webkit-scrollbar-thumb{
     
 }
 h2{
-    color:black;
+    color:#184A78;
     text-align:center;
     margin-top:50px;
     text-transform:uppercase;
     font-size:35px;
+    text-decoration:italic;
 }
 .menu .box-container .box img{
     height: 13rem;
+    width:250px;
 }
 
 .menu .box-container .box h3{
-    color: black;
+    color:#184A78;
     font-size: 1.5rem;
     padding:1rem 0;
+    font-style: italic;
+
 }
 
 .menu .box-container .box:hover{
-    background:#184A78;
+    background:#fff;
     transform: scale(1.1);
 }
 
 .menu .box-container .box:hover > *{
-    color:#fff;
+    /* color:#fff; */
 }
 
+@media(max-width:400px){
+    .menu .box-container .box h3{
+    
+    font-size: 1rem;
+    padding:1rem 0;
+  
+
+}
+h2{
+    font-size:1.5rem;
+}
+
+.closebar{
+    height:900px;
+}
+.icons >  a{
+        padding-bottom:10px;
+    }
+
+}
 </style>
 <body>
     <?php require 'view_headerType2.php';  ?>
 
     <div class="sideBar">
     <div class="close" id="close">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5.6842 5.6842L30.3158 30.3158" stroke="white" stroke-width="2"/>
-        <path d="M30.0451 5.41351L5.14288 30.3158" stroke="white" stroke-width="2"/>
-        <circle cx="18" cy="18" r="17" stroke="white" stroke-width="2"/>
-        </svg>
+        
+        <i class="fas fa-times" margin-left:5></i>
+      
  
         </div>
 
     <div class="open" id="open">
-        <svg width="31" height="23" viewBox="0 0 31 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 1H31" stroke="white" stroke-width="2"/>
-        <path d="M0 22H31" stroke="white" stroke-width="2"/>
-        <path d="M0 11H31" stroke="white" stroke-width="2"/>
-        </svg>
+    <i class="fa fa-bars"></i>
+        
 
     </div> 
    
     <div class="openBar" id="openBar">
         <div class="labels">
-            <p>PLACE ORDER</p>
-            <p>PAY NOW</p>
-            <p>MY ORDERS</p>
-            <p>OUR PRODUCTS</p>
-            <p>VIEW REPORT</p>
+            <a href=""><p>PLACE ORDER</p></a>
+            <a href=""><p>PAY NOW</p></a>
+            <a href=""><p>MY ORDERS</p></a>
+            <a href=""><p>OUR PRODUCTS</p></a>
+            <a href=""><p>VIEW REPORT</p></a>
            
             </div>
     </div>
@@ -299,7 +334,7 @@ h2{
 </div>
     
     </div>
-    <div class="cards">
+    <div class="cards" id="cards">
         <div class="card">
             <p>KINDS OF PRODUCTS</p>
             <p>10</p>
@@ -323,27 +358,24 @@ h2{
         </div>
      
 
-        <!-- <div class="chart">
-            <canvas id="myChart"></canvas>
-        </div> -->
-
+     
        
     </div>
     </div>
 
     <div class="icons">
-         <i class="fas fa-cart-plus"></i>
-         <i class="far fa-credit-card"></i>
-         <i class="fas fa-shopping-cart"></i>
-         <i class="fas fa-ice-cream"></i>
-        <i class="fas fa-chart-line fa-lg"></i>
+        <a href=""><i class="fas fa-cart-plus"></i></a> 
+         <a href=""><i class="far fa-credit-card"></i></a>
+         <a href=""><i class="fas fa-shopping-cart"></i></a>
+         <a href=""><i class="fas fa-ice-cream"></i></a>
+        <a href=""><i class="fas fa-chart-line fa-lg"></i></a>
         
         
     </div>
     <!-- <div class="headd">
     <h1 class="heading"> our <span>menu</span> </h1>
     </div> -->
-    <h2>Product Category</h2>
+    <h2>We Provide You...</h2>
 <section class="menu" id="menu">
 
 
@@ -354,40 +386,40 @@ h2{
 
     <div class="box">
         <img src="../../public/images/h_icecream.jpg" alt="">
-        <h3>Himalee Ice Creams</h3>
+        <h3>Ice Creams</h3>
       
         
     </div>
     <div class="box">
         <img src="../../public/images/curd.jpg"alt="">
-        <h3>Himalee Curd Items</h3>
+        <h3>Curd Items</h3>
         
     </div>
 
     <div class="box">
         <img src="../../public/images/h_freshmilk.jpg"alt="">
-        <h3>Hiamlee Fresh Milk Products</h3>
+        <h3>Fresh Milk </h3>
        
        
     </div>
 
     <div class="box">
         <img src="../../public/images/h_yoghurt.jpg" alt="">
-        <h3>Hiamlee Fresh Yoghurd Products</h3>
+        <h3>Yoghurd Products</h3>
       
       
     </div>
 
     <div class="box">
-        <img src="../../public/images/h_curd.jpg"alt="">
-        <h3>tasty and healty</h3>
+        <img src="../../public/images/milk_beve.jpg"alt="">
+        <h3>Milk Beverages</h3>
       
       
     </div>
 
     <div class="box">
-        <img src="../../public/images/h_icecream.jpg" alt="">
-        <h3>tasty and healty</h3>
+        <img src="../../public/images/cheese.jpg" alt="">
+        <h3>Cheese</h3>
        
        
     </div>
@@ -409,6 +441,7 @@ h2{
             document.getElementById('open').style.visibility = "hidden";
             document.getElementById('close').style.visibility = "visible";
             document.getElementById('openBar').style.visibility = "visible";
+            document.getElementById('cards').style.marginLeft = "170px";
             
         });
 
@@ -416,6 +449,7 @@ h2{
             document.getElementById('open').style.visibility = "visible";
             document.getElementById('close').style.visibility = "hidden";
             document.getElementById('openBar').style.visibility = "hidden";
+            document.getElementById('cards').style.marginLeft = "0";
         });
     </script>
 

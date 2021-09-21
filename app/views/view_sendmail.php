@@ -89,12 +89,7 @@ button:hover{
     </style>
 </head>
 <body>
-    <div class="header">
-    <?php
-require 'view_ headerType.php';
 
-?>
-</div>
     <div class="container">
 <div class="form">
 
