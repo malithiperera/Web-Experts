@@ -98,9 +98,9 @@ button:active {
         function myfunc(val)
         {
           
-          var y= document.getElementsByClassName("temp").value;
+          var y= document.getElementById("temp").value;
             var x=val*y;
-            document.document.getElementsByClassName("tot").value=x;
+          document.getElementById("tot").value=x;
         }
     </script>
 
@@ -149,17 +149,16 @@ while($data = mysqli_fetch_array($records))
 ?>
   <tr>
     
-    <td>.<?php echo $data[0]; ?></td>
-    <td><?php echo $data[1]; ?></td>
-    <td><input type="text" value="<?php echo $data[2];?> "id="temp" class="temp" readonly></td>
-    
-    <td><input type="text" id="amount" class="amount"  value="10" onkeyup="myfunc(this.value);" ></div>
+    <td>.<?php echo $data['product_id']; ?></td>
+    <td><?php echo $data['name']; ?></td>
+
+    <td><input type="text" value="<?php echo $data['unit_price'];?> "id="temp" class="temp" readonly></td>
+ 
+    <td><input type="text" id="amount"onkeyup="myfunc(this.value);" ></div>
 </td>
-    <td><input id="tot"  class="tot" value="20"readonly></td>
+    <td><input id="tot" readonly></td>
   </tr>	
-<?php
-}
-?>
+
 </table>
 
 <?php mysqli_close($conn); // Close connection ?>

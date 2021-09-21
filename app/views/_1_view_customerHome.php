@@ -20,10 +20,11 @@
     body{
         
         position: relative;
-        background-color:#e4e1df;
+        background-color:#fff;
     }
     html::-webkit-scrollbar{
     width: .8rem;
+    height:0.9rem;
 }
 
 html::-webkit-scrollbar-track{
@@ -32,7 +33,7 @@ html::-webkit-scrollbar-track{
 
 html::-webkit-scrollbar-thumb{
     background: grey;
-    border-radius: 5rem;
+    border-radius: 3rem;
 }
     .sideBar{
         position : fixed;
@@ -75,7 +76,7 @@ html::-webkit-scrollbar-thumb{
         top:0;
         width:42px;
         height: 500px;
-        background-color:rgb(180, 161, 161);
+        background-color:#2277B2;
         z-index: 1000;
     }
     
@@ -148,11 +149,11 @@ html::-webkit-scrollbar-thumb{
         color:#184A78;
     }
     .open i{
-        color:black;
+        color:#fff;
         margin-left:10px;
     }
     .close i{
-        color:black;
+        color:#fff;
         margin-left:10px;
     }
 
