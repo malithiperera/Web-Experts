@@ -48,7 +48,7 @@ require 'view_headertype2.php';
           <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
           
       
-          <button type="submit" class="registerbtn" id="validate" onsubmit="validate()">Register</button>
+          <button type="submit" class="registerbtn" id="validate" name="submit" onsubmit="validate()">Register</button>
         </div>
         
        
