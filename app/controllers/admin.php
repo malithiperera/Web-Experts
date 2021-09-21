@@ -19,7 +19,14 @@ class admin extends controller{
         
         $this->model('register_model');
         $this->view->added = $this->model->register_user('admin', $name, $nic, $dob, $email, $address, $tele);
+        unset($name);
+        unset($nic);
+        unset($dob);
+        unset($email);
+        unset($address);
+        unset($tele);
         $this->view->render('view_admin_addemployee');
+        
     }
 
     public function createPassword(){
