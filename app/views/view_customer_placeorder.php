@@ -158,7 +158,9 @@ while($data = mysqli_fetch_array($records))
 </td>
     <td><input id="tot" readonly></td>
   </tr>	
-
+<?php
+}
+?>
 </table>
 
 <?php mysqli_close($conn); // Close connection ?>

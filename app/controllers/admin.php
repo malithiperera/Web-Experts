@@ -45,7 +45,7 @@ class admin extends controller{
             $this->view->added = $this->model->register_user('admin', $name, $nic, $dob, $email, $address, $tele, $verificationCode);
             unset($_POST['submit']);
         }
-        $this->send_mail($name, $email, $verificationCode);
+    $this->send_mail($name, $email, $verificationCode);
         $this->view->render('view_admin_addemployee');
         
         

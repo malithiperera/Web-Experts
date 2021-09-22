@@ -78,7 +78,9 @@ require 'view_headertype2.php';
  </div>
     </section>
 
-
+<div class="btn">
+    <button onclick="">Back</button>
+</div>
     <div class="footer1">
 <?php require 'view_footer.php'; ?>
 

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -309,11 +312,11 @@ h2{
    
     <div class="openBar" id="openBar">
         <div class="labels">
-            <a href=""><p>PLACE ORDER</p></a>
+            <a href="../customer/place_order"><p>PLACE ORDER</p></a>
             <a href=""><p>PAY NOW</p></a>
-            <a href=""><p>MY ORDERS</p></a>
-            <a href=""><p>OUR PRODUCTS</p></a>
-            <a href=""><p>VIEW REPORT</p></a>
+            <a href="../customer/my_order"><p>MY ORDERS</p></a>
+            <a href="../customer/our_products"><p>OUR PRODUCTS</p></a>
+            <a href="../customer/view_report"><p>VIEW REPORT</p></a>
            
             </div>
     </div>
@@ -325,7 +328,7 @@ h2{
     <div class="divup">
     <div class="detail" style="width: 300px;">
         <p>ROOT</p>
-        <p>Kandy Kurunagala Road</p>
+        <p><?php echo $_SESSION['email']; ?></p>
     </div>
     <div class="detail" style="width: 300px">
         <p>SALES REP</p>
@@ -452,11 +455,15 @@ h2{
             document.getElementById('openBar').style.visibility = "hidden";
             document.getElementById('cards').style.marginLeft = "0";
         });
+
+
+alert("Hello");
+      
     </script>
 
 
 
-</script>
+
 
 </body>
 </html>
