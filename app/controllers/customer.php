@@ -28,11 +28,11 @@ public function view_report()
 }
 
 
-public function get_details()
+public function view_details($mail)
 {
-session_start();
-$email=$_SESSION['email'];
-
+// session_start();
+// $email=$_SESSION['email'];
+echo "Hello";
 }
 
 }

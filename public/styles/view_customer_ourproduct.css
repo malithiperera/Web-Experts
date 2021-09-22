@@ -36,9 +36,9 @@ body{
 
 .card{
     margin-top: 100px; 
-    background-color: rgb(255, 255, 255);
-    width: 220px;
-    height: 400px;
+    background-color: rgb(211, 155, 155);
+    width: 200px;
+    height: 320px;
 margin: 10px;
 border-radius:15px;
 
@@ -46,10 +46,14 @@ border-radius:15px;
 }
 .card-image{
     background-color: wheat;
-    height: 220px;
+    height: 200px;
     margin-bottom: 15px;
     overflow: hidden;
     border-radius: 15px 15px 0 0;
+}
+.card-image img{
+    width: 200px;
+    height: 200px; ;
 }
 .card h2{
     padding: 10px;
@@ -79,3 +83,120 @@ border-radius:15px;
     /* top: 1000px; */
     width: 100vw;
     }
+
+
+
+ 
+.logo{
+    margin-top: 80px;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background:url(
+        "../../public/images/back-ice.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+   
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+
+.logo .content{
+   
+    max-width: 60rem;
+}
+
+.logo .content h3{
+    
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 60px;
+    text-transform: uppercase;
+    color:#080808;
+}
+
+/* .logo .content p{
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding:1rem 0;
+    color:#eee;
+}    */
+
+/* .yoghurt{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+
+/* .yoghurt h4{
+    tex
+} */
+
+.yoghurt .main-card{
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem; */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+
+}
+.yoghurt h4{
+text-align: center;
+padding: 20px;
+font-size: 30px;
+text-transform: uppercase;
+}
+.yoghurt h4 span{
+    color: #184A78;
+}
+
+.icecream .main-card{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+
+}
+.icecream h4{
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+    }
+    .icecream h4 span{
+        color: #184A78;
+    }
+    .curd .main-card{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap:wrap;
+    
+    }
+    .curd h4{
+        text-align: center;
+        padding: 20px;
+        font-size: 30px;
+        text-transform: uppercase;
+        }
+        .curd h4 span{
+            color: #184A78;
+        }
+
+
+  .btn button{
+      background-color: #184A78;
+      width: 100px;
+      border: 1px #fff solid;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+  }      
+  .btn button:hover{
+      background-color: #0434b9;
+  }

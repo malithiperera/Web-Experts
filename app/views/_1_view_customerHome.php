@@ -1,6 +1,6 @@
 <?php
 session_start();
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -313,7 +313,7 @@ h2{
     <div class="openBar" id="openBar">
         <div class="labels">
             <a href="../customer/place_order"><p>PLACE ORDER</p></a>
-            <a href=""><p>PAY NOW</p></a>
+            <a href="../customer/my_order"><p>PAY NOW</p></a>
             <a href="../customer/my_order"><p>MY ORDERS</p></a>
             <a href="../customer/our_products"><p>OUR PRODUCTS</p></a>
             <a href="../customer/view_report"><p>VIEW REPORT</p></a>
@@ -368,11 +368,11 @@ h2{
     </div>
 
     <div class="icons">
-        <a href=""><i class="fas fa-cart-plus"></i></a> 
-         <a href=""><i class="far fa-credit-card"></i></a>
-         <a href=""><i class="fas fa-shopping-cart"></i></a>
-         <a href=""><i class="fas fa-ice-cream"></i></a>
-        <a href=""><i class="fas fa-chart-line fa-lg"></i></a>
+        <a href="../customer/place_order"><i class="fas fa-cart-plus"></i></a> 
+         <a href="../customer/my_order"><i class="far fa-credit-card"></i></a>
+         <a href="../customer/my_order"><i class="fas fa-shopping-cart"></i></a>
+         <a href="../customer/our_products"><i class="fas fa-ice-cream"></i></a>
+        <a href="../customer/view_report"><i class="fas fa-chart-line fa-lg"></i></a>
         
         
     </div>
