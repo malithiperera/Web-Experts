@@ -41,7 +41,7 @@
 <section class="home" id="home">
 
     <div class="content">
-        <h3>Himalee Dairy Products</h3>
+        <h3 data-text="Himalee Dairy Products">Himalee <br> Dairy  Products</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.</p>
         <a href="login" class="btn">Get started</a>
     </div>

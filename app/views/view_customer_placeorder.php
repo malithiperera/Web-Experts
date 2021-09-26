@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,18 +133,10 @@ require 'view_headertype2.php';
 
 <?php
 
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="Himalee";
 
-$conn=new mysqli($servername,$username,$password,$dbname);
 
-if($conn->connect_error){
-    die("Connection Failed" .$conn->connect_error);
-}
 
-$records = mysqli_query($conn,"SELECT product_id,name,unit_price FROM product"); // fetch data from database
+ 
 
 while($data = mysqli_fetch_array($records))
 {

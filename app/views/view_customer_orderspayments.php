@@ -60,30 +60,35 @@ require 'view_headertype2.php';
     <th>Amount</th>
     <th>Delivery No</th>
     <th>date</th>
+    <th>Pay now</th>
   </tr>
   <tr>
     <td>Order1</td>
     <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
     <td>Del01</td>
     <td>2019.7.9</td>
+    <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   <tr>
     <td>Order1</td>
     <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
     <td>Del01</td>
     <td>2019.7.9</td>
+    <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   <tr>
     <td>Order1</td>
     <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
     <td>Del01</td>
     <td>2019.7.9</td>
+    <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   <tr>
     <td>Order1</td>
     <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
     <td>Del01</td>
     <td>2019.7.9</td>
+    <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   
   

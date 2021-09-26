@@ -112,6 +112,7 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
+    position: relative;
     background:url(
         "../../public/images/homes.jpg") no-repeat;
     background-size: cover;
@@ -127,8 +128,11 @@ section{
 .home .content h3{
     font-size: 6rem;
     text-transform: uppercase;
-    color:#184A78;
+    color:transparent;
+    -webkit-text-stroke: 0.4vw #184A78;
+    text-transform: uppercase;
 }
+
 
 .home .content p{
     font-size: 2rem;

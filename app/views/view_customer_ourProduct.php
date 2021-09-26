@@ -113,7 +113,8 @@ require 'view_headertype2.php';
         </section>
 
 <div class="btn">
-    <button onclick="">Back</button>
+    <a href="../customer/back_cus_home">Back</a>
+    <!-- <button onclick="">Back</button> -->
     <div class="footer1">
 <?php require 'view_footer.php'; ?>
 

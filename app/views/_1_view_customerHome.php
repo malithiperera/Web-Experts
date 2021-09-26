@@ -457,8 +457,6 @@ h2{
         });
 
 
-alert("Hello");
-      
     </script>
 
 
