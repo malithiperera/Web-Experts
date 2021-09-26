@@ -117,7 +117,9 @@ section{
     background-size: cover;
     background-position: center;
 }
-
+.home:hover{
+    transform: scale(1.1);
+}
 .home .content{
     max-width: 60rem;
 }

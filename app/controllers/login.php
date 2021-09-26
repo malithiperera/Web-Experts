@@ -27,14 +27,23 @@ class login extends controller{
         // $this->view->users = $this->model->validate($username, $password);
         $users = $this->model->validate($username, $password);
         $count = mysqli_num_rows($users);
-        
+         
         // echo $row['position'];
         // // echo $users;
+        
         if($count == 1){
+            
             $row = $users -> fetch_assoc();
+<<<<<<< HEAD
             $viewname = "_1_view_".$row['position']."Home";
             
+=======
+          
+             $viewname = "_1_view_".$row['position']."Home";
+>>>>>>> f4b7bbc673532f735a02b2bf8910371d4278f7c0
             $this->view->render($viewname);
+            $_SESSION['email']=$row['email'];
+          
         }
         else{
             $this->view->error = "error";

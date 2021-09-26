@@ -86,17 +86,17 @@ select{
     color: #fff;
    /* margin-top: 20px; */
    width: 200px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 2px solid #fff;
 }
 input{
     /* margin-top:20px; */
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: rgb(51, 111, 163);
     border: 2px solid #fff;
     height: 40px;
     outline: none;
-   
+   color:#fff;
     width: 200px;
 }
 #piechart{
@@ -108,10 +108,10 @@ button{
     margin-top: 50px;
     width: 200px;
     height: 40px;
-    background-color:#2277B2;
-    border-radius: 20px;
+    background-color:#184A78;
+    border-radius: 10px;
     outline: none;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     box-shadow: #fff;
     cursor: pointer;
 }

@@ -12,22 +12,27 @@
 </head>
 <body>
     <div class="body">
-        <div class="header">
+    <div class="header">
         <?php
 require 'view_headertype2.php';
 ?>
 
         </div>
-        <div class="search">
-    <p>Hello</p>
-</div>
+    
+        <section class="logo">
+            <div class="content">
+        <h3>Our Products</h3>
+      
+       
+    </div>
 
-<br>
-<br>
-    <section class="container">
-        
- <div class="card">
-     <div class="card-image">Image1<img src="download.jpg" alt=""></div>
+        </section>
+
+        <section class="yoghurt">
+            <h4>Yoghurts <span>Products </span></h4>
+            <div class="main-card">
+        <div class="card">
+     <div class="card-image"><img src="Himalee/curd.jpg" alt="" ></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
@@ -46,39 +51,69 @@ require 'view_headertype2.php';
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
- <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
+
  </div>
- <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
-    </section>
+        </section>
 
 
+        <section class="icecream">
+            <h4>Ice Cream <span>Products </span></h4>
+            <div class="main-card">
+        <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+    
+ </div>
+ <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+    
+ </div>
+ <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+    
+ </div>
+ <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
+ </div>
+
+ </div>
+        </section>
+
+
+
+        <section class="curd">
+            <h4>Curd <span>Products </span></h4>
+            <div class="main-card">
+        <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
+ </div>
+ <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
+ </div>
+ <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
+ </div>
+ <div class="card">
+     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <h2>Himalee Yoghurd</h2>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
+ </div>
+
+ </div>
+        </section>
+
+<div class="btn">
+    <button onclick="">Back</button>
     <div class="footer1">
 <?php require 'view_footer.php'; ?>
 
