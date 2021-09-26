@@ -13,12 +13,16 @@ class salesRep extends controller{
         $email = $_POST['email'];
         $address = $_POST['add'];
         $tele = $_POST['tel'];
+        $verificationCode=sha1($email);
 
+        if(isset($_POST['submit'])){
         $this->model('register_model');
-        $this->view->added = $this->model->register_user('salesrep', $name, $nic, $dob, $email, $address, $tele);
+        $this->view->added = $this->model->register_user('salesrep', $name, $nic, $dob, $email, $address, $tele,$verificationCode);
+        
         $this->view->render('view_admin_addemployee');
 
     }
+}
 
 }
 

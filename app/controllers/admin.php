@@ -21,7 +21,7 @@ class admin extends controller{
             $body .= "<a href=".$url.">Click Me</a>";
             $header = "From : {$sender}\r\nContent-Type:text/html;";
     
-            $send_mail_result = mail($to, $subject, $body, $header);
+            $send_mail_result = mail($sender,$to, $subject, $body, $header);
             if($send_mail_result){
                 echo "succuss";
             }
