@@ -108,10 +108,10 @@
         flex-direction:column;
         font-size:16px;
     }
-    .icons > i{
+    .icons > a{
         padding-bottom:50px;
     }
-    .icons > i:hover{
+    .icons > a:hover i{
         color:#2277B2;
     }
     .labels{
@@ -121,7 +121,7 @@
         top:180px;
     }
     .labels > a{
-        padding-bottom:46px;
+        padding-bottom:50px;
         display:block;
         text-decoration:none;
     }
@@ -159,13 +159,7 @@
    
     <div class="openBar" id="openBar">
         <div class="labels">
-            <!-- <p>PRODUCTS</p>
-            <p>CUSTOMERS</p>
-            <p>SALES REPS</p>
-            <p>REPORTS</p>
-            <p>ADD USER</p>
-            <p>REMOVE USER</p>
-            <p>ROUTES</p> -->
+           
 
             <a href="#">PRODUCTS</a>
             <a href="#">CUSTOMERS</a>
@@ -218,13 +212,20 @@
     </div>
 
     <div class="icons">
-        <i class="fas fa-luggage-cart fa-lg"></i>
-        <i class="fas fa-landmark fa-lg"></i>
-        <i class="fas fa-user-tie fa-lg"></i>
-        <i class="fas fa-chart-line fa-lg"></i>
-        <i class="fas fa-user-plus fa-lg"></i>
-        <i class="fas fa-user-minus fa-lg"></i>
-        <i class="fas fa-map-marker-alt fa-lg"></i>
+        <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
+        <a href="#"><i class="fas fa-landmark fa-lg"></i></a>
+        <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
+        <a href="#"><i class="fas fa-chart-line fa-lg"></i></a>
+        <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
+        <a href="#"><i class="fas fa-user-minus fa-lg"></i></a>
+        <a href="#"><i class="fas fa-map-marker-alt fa-lg"></i></a>
+        
+        
+        
+        
+        
+        
+        
         
     </div>
 

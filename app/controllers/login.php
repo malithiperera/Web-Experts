@@ -33,6 +33,7 @@ class login extends controller{
         if($count == 1){
             $row = $users -> fetch_assoc();
             $viewname = "_1_view_".$row['position']."Home";
+            
             $this->view->render($viewname);
         }
         else{
@@ -46,6 +47,7 @@ class login extends controller{
         //view name to this>>>>>>>
         $this->view->render('view_forgetpassword');
     }
+
     
 
 }

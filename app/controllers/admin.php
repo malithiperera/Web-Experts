@@ -51,10 +51,50 @@ class admin extends controller{
         
     }
 
-    
 
     public function createPassword(){
-        $this->view->render('view_createpassword');
+
+        $this->model('register_model');
+        $url = $_GET['code'];
+
+        
+        // print($url);
+        $resultset = $this->model->email_verification($url);
+        if(mysqli_num_rows($resultset) > 0){
+            $this->view->url = $url;
+            $this->view->render('view_createpassword');
+            
+        }
+        
+        // print($resultset);
+        
+    }
+
+
+
+    public function confirmPassword(){
+        $newPassword = $_POST['newPassword'];
+        $confirmPassword = $_POST['confirmPassword'];
+
+        
+
+        if(isset($_POST['submit'])){
+            if($newPassword == $confirmPassword){
+                
+                $this->model('register_model');
+                $global_url = $_GET['code'];
+                $check = $this->model->activeUser($global_url, $newPassword);
+                if($check == 1){
+                    $this->view->render('_1_view_adminHome');
+                }
+                else{
+                    echo "something error";
+                }
+            }
+        }
+        
+
+        
     }
 
 }
