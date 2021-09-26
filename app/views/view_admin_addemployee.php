@@ -125,18 +125,20 @@ require 'view_headertype2.php';
 
     //succuss message here>>>>>>>>
     if(isset($this->added)){
-        if($this->added == 1){
+
+        $check = $this->added;
+        if($check == 1){
             ?>
             <div class="sucess">
             <p>Employee Added Succesfully</p>
             </div>
        <?php }
-        else if($this->added == 2){?>
+        else if($check == 2){?>
           <div class="error">
             <p>Error:Try Again</p>
             </div>
         <?php }
-        unset($this->added);
+        unset($check);
     }
   
     
