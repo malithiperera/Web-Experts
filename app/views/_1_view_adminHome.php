@@ -166,8 +166,8 @@
             <a href="#">SALES REPS</a>
             <a href="#">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>
-            <a href="#">REMOVE USER</a>
-            <a href="#">ROUTES</a>
+            <a href="../admin/remove_user">REMOVE USER</a>
+            <a href="../admin/routes">ROUTES</a>
             </div>
     </div>
 
@@ -217,8 +217,8 @@
         <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
         <a href="#"><i class="fas fa-chart-line fa-lg"></i></a>
         <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
-        <a href="#"><i class="fas fa-user-minus fa-lg"></i></a>
-        <a href="#"><i class="fas fa-map-marker-alt fa-lg"></i></a>
+        <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
+        <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
         
         
         
