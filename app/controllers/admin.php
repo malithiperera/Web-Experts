@@ -67,16 +67,11 @@ class admin extends controller{
         $this->model('register_model');
         $url = $_GET['code'];
 
-        
-        // print($url);
         $resultset = $this->model->email_verification($url);
         if(mysqli_num_rows($resultset) > 0){
             $this->view->url = $url;
-            $this->view->render('view_createpassword');
-            
+            $this->view->render('view_createpassword');   
         }
-        
-        // print($resultset);
         
     }
 
@@ -84,9 +79,7 @@ class admin extends controller{
 
     public function confirmPassword(){
         $newPassword = $_POST['newPassword'];
-        $confirmPassword = $_POST['confirmPassword'];
-
-        
+        $confirmPassword = $_POST['confirmPassword']; 
 
         if(isset($_POST['submit'])){
             if($newPassword == $confirmPassword){
@@ -101,12 +94,8 @@ class admin extends controller{
                     echo "something error";
                 }
             }
-        }
-        
-
-        
+        }      
     }
-
 }
 
 ?>
