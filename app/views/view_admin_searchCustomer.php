@@ -22,7 +22,7 @@
             top:100px;
             right:10px;
         }
-        .search_bar > .fas{
+        .search_bar > a .fas{
             position:absolute;
             color:black;
             right:13px;
@@ -45,7 +45,8 @@
 
     <div class="search_bar">
         <input type="text" name="search">
-        <i class="fas fa-search"></i>
+        <a href="customerProfile"><i class="fas fa-search"></i></a>
+        
     </div>
     
     

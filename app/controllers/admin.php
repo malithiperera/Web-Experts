@@ -113,6 +113,18 @@ class admin extends controller{
     public function routeProfile(){
         $this->view->render('view_admin_routeProfile');
     }
+
+    public function searchCustomer(){
+        $this->view->render('view_admin_searchCustomer');
+    }
+
+    public function customerProfile(){
+        $this->view->render('view_admin_customerProfile');
+    }
+
+    public function viewReport(){
+        $this->view->render('view_customer_viewreport');
+    }
 }
 
 ?>
