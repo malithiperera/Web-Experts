@@ -57,7 +57,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div2" id="div2">
     <h3>Sales Representative Registration</h3>
-    <form action="register_salesrep" method="post">
+    <form action="../register_salesrep" method="post">
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
