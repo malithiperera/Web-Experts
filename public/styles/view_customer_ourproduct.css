@@ -188,7 +188,7 @@ text-transform: uppercase;
         }
 
 
-  .btn button{
+  /* .btn button{
       background-color: #184A78;
       width: 100px;
       border: 1px #fff solid;
@@ -199,4 +199,17 @@ text-transform: uppercase;
   }      
   .btn button:hover{
       background-color: #0434b9;
+  } */
+
+  .btn a{
+      width: 100px;
+      height: 20px;
+      padding: 10px;
+      margin: 20px;
+      /* margin-bottom: 200px; */
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fff;
+      text-decoration: none;
+      background-color: #184A78;
   }

@@ -70,7 +70,7 @@ td{
     padding: 5px;
     
     margin-left: 20px;
-    background-color:  #8a8a8a;
+    background-color:  #4d4747;
 }
 td:hover{
     background: #184A78;
@@ -82,8 +82,8 @@ tr a{
 }
 
  table   td i{color: #fff;
-    padding-left: 20px;
-
+    /* padding-left: 20px; */
+  
 } 
 
 

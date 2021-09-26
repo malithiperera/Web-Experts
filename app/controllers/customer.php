@@ -10,7 +10,10 @@ class customer extends controller{
          {
          $this->view->render('_1_view_customerHome');
           }
+
         public function place_order(){
+            // $this->model->place_order();
+
              $this->view->render('view_customer_placeorder');
              }
             public function my_order(){
@@ -34,6 +37,11 @@ public function view_details($mail)
 // $email=$_SESSION['email'];
 echo "Hello";
 }
+public function back_cus_home()
+{
+    $this->view->render('_1_view_customerHome');
+}
+
 
 }
 
