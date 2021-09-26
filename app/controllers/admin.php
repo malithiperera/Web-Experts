@@ -32,23 +32,33 @@ class admin extends controller{
 
     public function register_admin(){
 
-            $name = $_POST['name'];
+        $name = $_POST['name'];
             $nic = $_POST['nic'];
             $dob = $_POST['dob'];
             $email = $_POST['email'];
             $address = $_POST['add'];
             $tele = $_POST['tel'];
-            $verificationCode = sha1($email);
+            $verificationCode = sha1($email);  
 
         if(isset($_POST['submit'])){
             $this->model('register_model');
             $this->view->added = $this->model->register_user('admin', $name, $nic, $dob, $email, $address, $tele, $verificationCode);
-            unset($_POST['submit']);
+            if($this->view->added == 1){
+                $this->send_mail($name, $email, $verificationCode);
+                header('Location: http://localhost/web-Experts/public/admin/addEmployee?succuss='.true);   
+            }
+            else{
+                echo $this->view->added;
+            }
+        }    
+    }
+
+    public function addEmployee(){
+        if($_GET['succuss'] == true){
+            $this->view->added = 1;
+            $this->view->render('view_admin_addemployee');
         }
-    $this->send_mail($name, $email, $verificationCode);
-        $this->view->render('view_admin_addemployee');
-        
-        
+        $_GET['succuss'] = 'false';
     }
 
 
