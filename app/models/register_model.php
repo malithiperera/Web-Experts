@@ -9,14 +9,16 @@ require '../app/core/model.php';
 
      public function register_user($tablename, $name, $nic, $dob, $email, $address, $tele, $verificationCode){
         require '../app/core/database.php';
-        $sql = "INSERT INTO $tablename (name, address, email, DOB, NIC, TELE, verificationCode, active)
-                VALUES ('$name', '$address', '$email', '$dob', '$nic', '$tele', '$verificationCode', 'pending');";
+        $sql = "INSERT INTO $tablename (name, email, DOB, NIC, address, TELE, verificationCode, active)
+                VALUES ('$name', '$email', '$dob', '$nic', '$address', '$tele', '$verificationCode', 'pending');";
+
         
+
         if(mysqli_query($conn, $sql) == true){
             return 1;
         }
         else{
-            return 2;
+            return mysqli_error($conn);
         }
      }
 
