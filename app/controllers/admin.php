@@ -88,13 +88,42 @@ class admin extends controller{
                 $global_url = $_GET['code'];
                 $check = $this->model->activeUser($global_url, $newPassword);
                 if($check == 1){
-                    $this->view->render('_1_view_adminHome');
+                    header('Location: http://localhost/web-Experts/public/admin/renderAdminHome');
                 }
                 else{
                     echo "something error";
                 }
             }
         }      
+    }
+
+    public function renderAdminHome(){
+        $this->view->render('_1_view_adminHome');
+    }
+
+
+    public function remove_user(){
+        $this->view->render('view_admin_removeEmployee');
+    }
+
+    public function routes(){
+        $this->view->render('view_admin_routes');
+    }
+
+    public function routeProfile(){
+        $this->view->render('view_admin_routeProfile');
+    }
+
+    public function searchCustomer(){
+        $this->view->render('view_admin_searchCustomer');
+    }
+
+    public function customerProfile(){
+        $this->view->render('view_admin_customerProfile');
+    }
+
+    public function viewReport(){
+        $this->view->render('view_customer_viewreport');
     }
 }
 

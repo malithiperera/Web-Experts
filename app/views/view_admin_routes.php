@@ -52,6 +52,12 @@
             padding-top:10px;
             padding-bottom:10px;
         }
+        tr td a{
+            text-decoration:none;
+        }
+        tr td a:hover{
+            text-decoration:underline;
+        }
         .buttons{
             position:relative;
             width:100%;
@@ -86,13 +92,14 @@
                     <th>DESTINATION</th>
                     <th>ROAD</th>
                 </thead>
+                
                 <?php
                     for($i = 0 ; $i < 100 ; $i++){
                         echo "<tr>
-                            <td>route1</td>
-                            <td>rep1</td>
-                            <td>des1</td>
-                            <td>road1</td>
+                            <td><a href='../admin/routeProfile'>route1</a></td>
+                            <td><a href='../admin/routeProfile'>rep1</a></td>
+                            <td><a href='../admin/routeProfile'>des1</a></td>
+                            <td><a href='../admin/routeProfile'>road1</a></td>
                         </tr>";
                     }
                 ?>
