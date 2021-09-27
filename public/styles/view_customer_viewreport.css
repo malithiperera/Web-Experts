@@ -29,22 +29,26 @@ body{
     width: 100vw;
     }
 .right-sub{
-    width: 40%;
-    background-color: rgb(51, 111, 163);
+    width: 30%;
+    background-color: rgb(253, 253, 253);
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     height:500px;
-    color: #fff;
+    color: rgb(3, 3, 3);
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     /* justify-content: center; */
     align-items: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     flex-direction: column;
 }
 .left-sub{
     width: 70%;
     height:500px;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     
@@ -76,14 +80,15 @@ h2{
 
 label{
     margin-top: 10px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size:20px;
 }
 select{
-    background-color: #2277B2;
+    background-color: #ffffff;
     height: 40px;
     outline: none;
-    color: #fff;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
    /* margin-top: 20px; */
    width: 200px;
     border-radius: 10px;
@@ -92,11 +97,12 @@ select{
 input{
     /* margin-top:20px; */
     border-radius: 10px;
-    background-color: rgb(51, 111, 163);
+    background-color: rgb(255, 255, 255);
     border: 2px solid #fff;
     height: 40px;
     outline: none;
-   color:#fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+   color:rgb(0, 0, 0);
     width: 200px;
 }
 #piechart{
