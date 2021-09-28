@@ -19,6 +19,17 @@ class home_model extends model{
         return $result;
    }
 
+   public function resetMail($email,$link)
+   {
+    require '../app/core/database.php';
+$query="UPDATE users SET active='false',verification='$link' WHERE email='$email'";
+$conn->query($query);
+       
+$sql="SELECT email,name from users WHERE email='$email'";
+$result=$conn->query($sql);
+return $result;
+   }
+
 }
 
 ?>

@@ -24,26 +24,28 @@ require 'view_headertype2.php';
     <th>Order No</th>
     <th>Amount</th>
     <th>Date</th>
+    <th colspan="2">Edit</th>
   </tr>
   <tr>
     <td><a href="#">Order1</a></td>
     <td>Rs.700</a></td>
     <td>2019.7.9</td>
+    <td><a href="edit" class="edit">Edit</a></td>
+    <td><a href="edit" class="delete">Delete</a></td>
   </tr>
   <tr>
     <td>Order1</td>
     <td>Rs.700</td>
     <td>2019.7.9</td>
+    <td><a href="edit" class="edit">Edit</a></td>
+    <td><a href="edit" class="delete">Delete</a></td>
   </tr>
   <tr>
     <td>Order1</td>
     <td>Rs.700</td>
     <td>2019.7.9</td>
-  </tr>
-  <tr>
-    <td>Order1</td>
-    <td>Rs.700</td>
-    <td>2019.7.9</td>
+    <td><a href="edit" class="edit">Edit</a></td>
+    <td><a href="edit" class="delete">Delete</a></td>
   </tr>
   
   
@@ -64,28 +66,28 @@ require 'view_headertype2.php';
   </tr>
   <tr>
     <td>Order1</td>
-    <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
+    <td>Rs.700</td>
     <td>Del01</td>
     <td>2019.7.9</td>
     <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   <tr>
     <td>Order1</td>
-    <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
+    <td>Rs.700</td>
     <td>Del01</td>
     <td>2019.7.9</td>
     <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   <tr>
     <td>Order1</td>
-    <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
+    <td>Rs.700</td>
     <td>Del01</td>
     <td>2019.7.9</td>
     <td><a href=""><i class="fas fa-credit-card"></i></td>
   </tr>
   <tr>
     <td>Order1</td>
-    <td>Rs.700<a href=""><i class="fas fa-credit-card"></i></td>
+    <td>Rs.700</td>
     <td>Del01</td>
     <td>2019.7.9</td>
     <td><a href=""><i class="fas fa-credit-card"></i></td>
@@ -118,7 +120,9 @@ require 'view_headertype2.php';
 
 
 
-
+<div class="btn">
+<button><a href="../customer/back_cus_home">Back</a></button>
+</div>
 
  
 </body>

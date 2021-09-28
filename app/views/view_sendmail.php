@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +44,7 @@ body{
     flex-direction: column;
     background-color: #184A78;
     height: 400px;
-    width: 400px;
+    width: 450px;
     border-radius: 20px;
 
 }
@@ -55,7 +58,7 @@ input{
     margin: 30px;
     padding: 10px;
 
-    width:90%;
+    width:80%;
 border: none;
 outline: none;
 border:1px solid rgb(36, 36, 116);
@@ -92,21 +95,26 @@ button:hover{
 
     <div class="container">
 <div class="form">
+    <form action="resetMail" method="post">
 
 <p>
     Enter your user account's verified email address and we will send you a password reset link.
 </p>
 
-<input type="text" placeholder="Enter Your email Address" name="mail" id="mail">
+<input type="text" placeholder="Enter Your email Address" name="email" id="mail">
 
-<button onclick=mail()>Send password reset link</button>
+<button onclick=mail() name='submit'>Send password reset link</button>
 
 </div>
 
 
+</form>
 
-
-
+<?php
+if(isset($_SESSION['error'])){
+echo $_SESSION['error'];
+}
+?>
 
     </div>
 </body>

@@ -96,8 +96,8 @@ html::-webkit-scrollbar-thumb{
     }
     .card{
         width: 200px;
-        height: 80px;
-        background-color: #2277B2;
+        height: 100px;
+        /* background-color: #2277B2; */
         /* margin-left: 20px; */
         margin-right: 20px;
         margin-bottom : 40px;
@@ -105,15 +105,24 @@ html::-webkit-scrollbar-thumb{
         z-index: 999;
         cursor:pointer;
         border-radius:10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        
     }
     .card > p{
         margin-top : 10px;
         z-index: 999;
+        color:#184A78;
+        font-weight:600;
+        text-transform:uppercase;
+    }
+    .cards .card i{
+        color:#184A78;
+        font-size:25px;
     }
 
     .card:hover{
         background-color: #D7CEC8;
-    /* color:  #184A78; */
+    color:  #184A78;
     cursor:pointer:
     }
     
@@ -187,22 +196,18 @@ html::-webkit-scrollbar-thumb{
       
         z-index:0;
         background:white;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
        
         text-transform:capitalize;
     }
         .detail p{
             color:#184A78;
             font-size:20px;
-            font-weight:300;
+            font-weight:600;
         }
 
-        .detail:hover{
-            background:#184A78;
-            
-        }
-        .detail:hover>*{
-            color:#fff;
-        }
+        
+        
         .product{
 
         }
@@ -240,6 +245,7 @@ html::-webkit-scrollbar-thumb{
    height:300px;
     padding:2rem;
     text-align: center;
+  
     
 }
 h2{
@@ -269,8 +275,16 @@ h2{
 }
 
 .menu .box-container .box:hover > *{
-    /* color:#fff; */
+    color:#fff;
 }
+
+.container .divup .detail i{
+      color:#184A78;
+      width:100px;
+      font-size: 40px;;
+    
+      
+    }
 
 @media(max-width:400px){
     .menu .box-container .box h3{
@@ -280,16 +294,33 @@ h2{
   
 
 }
+.cards .card i{
+        color:#184A78;
+        font-size:25px;
+        margin-top:-10px;
+    }
 h2{
     font-size:1.5rem;
 }
 
+.container .divup .detail i{
+      color:#184A78;
+      width:100px;
+      font-size: 30px;;
+      margin-top:-10px;
+    
+      
+    }
+    .card{
+        margin-left:10px;
+    }
 .closebar{
     height:900px;
 }
 .icons >  a{
         padding-bottom:10px;
     }
+
 
 }
 </style>
@@ -327,8 +358,8 @@ h2{
     <div class="container">
     <div class="divup">
     <div class="detail" style="width: 300px;">
-        <p>ROOT</p>
-        <p><?php echo $_SESSION['email']; ?></p>
+        <p><i class="fas fa-map-marker-alt"></i><br>ROOT</p>
+        <p></p>
     </div>
     <div class="detail" style="width: 300px">
         <p>SALES REP</p>
@@ -340,24 +371,24 @@ h2{
     </div>
     <div class="cards" id="cards">
         <div class="card">
-            <p>KINDS OF PRODUCTS</p>
+            <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
             <p>10</p>
             
         </div>
-        <div class="card" style="background-color:#184A78;">
-            <p>Pending deliveries</p>
+        <div class="card" >
+            <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
             <p>1</p>
         </div>
         <div class="card">
-            <p>Overdue Payment</p>
-            <p>10</p>
-        </div>
-        <div class="card" style="background-color:#184A78;">
-            <p>Pending Cheque</p>
+            <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
             <p>10</p>
         </div>
         <div class="card">
-            <p>Pending Payments</p>
+            <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
+            <p>10</p>
+        </div>
+        <div class="card">
+            <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
             <p>10</p>
         </div>
      

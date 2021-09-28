@@ -38,6 +38,16 @@ require '../app/core/model.php';
             return 0;
           }
      }
+
+
+
+     public function forgetverification($url)
+     {require '../app/core/database.php';
+        $sql = "SELECT * FROM users WHERE verificationCode='$url'";
+        $result = $conn->query($sql);
+        return $result;
+
+     }
  }
 
 ?>
