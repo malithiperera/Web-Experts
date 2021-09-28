@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +110,11 @@ button:hover{
 
 </form>
 
-
+<?php
+if(isset($_SESSION['error'])){
+echo $_SESSION['error'];
+}
+?>
 
     </div>
 </body>

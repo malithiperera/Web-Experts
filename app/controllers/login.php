@@ -81,7 +81,9 @@ class login extends controller{
         
                 $send_mail_result = mail($to, $subject, $body, $header);
                 if($send_mail_result){
-                    echo "succuss";
+                    $_SESSION['error']="Reset Link send to your email..Please Check the email";
+                    $this->view->render('view_sendmail',$_SESSION['error']);
+                  
                   
                  
                 }
