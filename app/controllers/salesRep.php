@@ -22,7 +22,10 @@ class salesRep extends controller{
         $this->view->render('view_admin_addemployee');
 
     }
+
+    
 }
+
 
 }
 

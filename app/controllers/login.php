@@ -23,27 +23,25 @@ class login extends controller{
         $username = $_POST['username'];
         $password = $_POST['password'];
         $this->model('home_model');
-        // $this->view->render('test');
-        // $this->view->users = $this->model->validate($username, $password);
+        
         $users = $this->model->validate($username, $password);
         $count = mysqli_num_rows($users);
          
-        // echo $row['position'];
-        // // echo $users;
-        
         if($count == 1){
             
             $row = $users -> fetch_assoc();
 
             $viewname = "_1_view_".$row['position']."Home";
-            $this->view->render($viewname);
-            $_SESSION['email']=$row['email'];
+            header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
           
         }
         else{
-            $this->view->error = "error";
-            $this->view->render('view_login');
+            header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
         }
+    }
+
+    public function adminHome(){
+        $this->view->render($_GET['viewname']);
     }
 
     //forget password
@@ -52,6 +50,12 @@ class login extends controller{
         $this->view->render('view_forgetpassword');
     }
 
-    
+    public function errorPage(){
+        $this->view->render('view_all_errorPage');
+    } 
+
+    public function test(){
+        $this->view->render('test');
+    }
 
 }
