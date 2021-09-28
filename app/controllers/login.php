@@ -27,19 +27,10 @@ class login extends controller{
         $users = $this->model->validate($username, $password);
         $count = mysqli_num_rows($users);
          
-        if($count == 1){
-            
+        if($count == 1){           
             $row = $users -> fetch_assoc();
-
             $viewname = "_1_view_".$row['position']."Home";
-<<<<<<< HEAD
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
-=======
-            $_SESSION['email']=$row['email'];
-            $this->view->render($viewname);
-            
->>>>>>> d1d8260da276944045af7c83fcaaa5935cc63aa9
-          
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
@@ -57,16 +48,17 @@ class login extends controller{
 
     }
 
-<<<<<<< HEAD
+
     public function errorPage(){
         $this->view->render('view_all_errorPage');
     } 
 
     public function test(){
         $this->view->render('test');
-=======
-    public function resetMail()
-    { $this->model('home_model');
+    }
+
+    public function resetMail(){ 
+        $this->model('home_model');
         $email=$_POST['email'];
 
         $reseturl=sha1($email);
@@ -94,23 +86,15 @@ class login extends controller{
                 if($send_mail_result){
                     $_SESSION['error']="Reset Link send to your email..Please Check the email";
                     $this->view->render('view_sendmail',$_SESSION['error']);
-                  
-                  
-                 
                 }
                 else{
                     echo "error";
                 }
+             }
+        
+        
         }
-        
-        
->>>>>>> d1d8260da276944045af7c83fcaaa5935cc63aa9
     }
-
-    }
-
-
-
 
     public function createPassword(){
         $this->view->render('view_createpassword');
@@ -123,7 +107,6 @@ class login extends controller{
 
             $this->view->url = $url;
             $this->view->render('view_createpassword');   
-        }
-        
+        }  
     }
 }
