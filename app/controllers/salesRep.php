@@ -76,6 +76,8 @@ public function register_admin(){
             echo $this->view->added;
         }
     }
+
+    
 }
 else{
     $_SESSION['error']="User_id or email already exists";
@@ -104,6 +106,7 @@ public function createPassword(){
     }
     
 }
+
 
 
 }

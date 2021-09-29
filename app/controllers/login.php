@@ -23,28 +23,22 @@ class login extends controller{
         $username = $_POST['username'];
         $password = $_POST['password'];
         $this->model('home_model');
-        // $this->view->render('test');
-        // $this->view->users = $this->model->validate($username, $password);
+        
         $users = $this->model->validate($username, $password);
         $count = mysqli_num_rows($users);
          
-        // echo $row['position'];
-        // // echo $users;
-        
-        if($count == 1){
-            
+        if($count == 1){           
             $row = $users -> fetch_assoc();
-
             $viewname = "_1_view_".$row['position']."Home";
-            $_SESSION['email']=$row['email'];
-            $this->view->render($viewname);
-            
-          
+            header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
         }
         else{
-            $this->view->error = "error";
-            $this->view->render('view_login');
+            header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
         }
+    }
+
+    public function adminHome(){
+        $this->view->render($_GET['viewname']);
     }
 
     //forget password
@@ -54,8 +48,17 @@ class login extends controller{
 
     }
 
-    public function resetMail()
-    { $this->model('home_model');
+
+    public function errorPage(){
+        $this->view->render('view_all_errorPage');
+    } 
+
+    public function test(){
+        $this->view->render('test');
+    }
+
+    public function resetMail(){ 
+        $this->model('home_model');
         $email=$_POST['email'];
 
         $reseturl=sha1($email);
@@ -83,22 +86,15 @@ class login extends controller{
                 if($send_mail_result){
                     $_SESSION['error']="Reset Link send to your email..Please Check the email";
                     $this->view->render('view_sendmail',$_SESSION['error']);
-                  
-                  
-                 
                 }
                 else{
                     echo "error";
                 }
+             }
+        
+        
         }
-        
-        
     }
-
-    }
-
-
-
 
     public function createPassword(){
         $this->view->render('view_createpassword');
@@ -111,7 +107,6 @@ class login extends controller{
 
             $this->view->url = $url;
             $this->view->render('view_createpassword');   
-        }
-        
+        }  
     }
 }

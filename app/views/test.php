@@ -7,6 +7,34 @@
     <title>Document</title>
 </head>
 <body>
-    <?php echo $this->error; ?>
+
+    <div class="container" id="container" >
+        <p>dienth</p>
+    </div>
+
+    <?php
+    
+    $test = 1;
+    if($test == 1){
+        echo '<script>
+            window.onload = function(){
+                setTimeout(() => {
+                  document.getElementById("container").innerHTML = "Tharushan";
+                }, 300);
+             }
+        </script>';
+    }
+
+    
+    
+    ?>
+    
+    <!-- <script>
+        window.onload = function(){
+            setTimeout(() => {
+                document.getElementById('container').innerHTML = "Tharushan";
+            }, 300);
+        }
+    </script> -->
 </body>
 </html>
