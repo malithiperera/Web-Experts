@@ -92,7 +92,7 @@ require 'view_headerType.php';
         </div>
     </div>
 </div>
-<<<<<<< HEAD
+
 
 <?php  
     if(isset($_GET['succuss'])){
@@ -118,14 +118,18 @@ require 'view_headerType.php';
 ?>
 
         
+<<<<<<< HEAD
+
+=======
 =======
 >>>>>>> 8003919406e124d5c17f936965efc893bdbba944
+>>>>>>> cb7fcf0d49b96798a05404660597ad4b0f75ccdf
 <script>
    function enable(){
        document.getElementById("password").attr("readonly",false);
    }
 </script>
->>>>>>> d1d8260da276944045af7c83fcaaa5935cc63aa9
+
 
 </body>
 
