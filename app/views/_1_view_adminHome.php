@@ -257,7 +257,7 @@ var myChart = new Chart(ctx, {
         labels: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'],
         datasets: [{
             label: 'best selling items',
-            data: [12, 19, 50, 5, 2, 3],
+            data: [12, 19, 50, 20, 40, 34],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -295,7 +295,7 @@ var myChart2 = new Chart(ctx, {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         datasets: [{
             label: 'overall business of the year',
-            data: [12, 19, 50, 5, 2, 3],
+            data: [12, 19, 50, 5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
