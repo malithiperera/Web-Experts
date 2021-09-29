@@ -5,7 +5,7 @@
 }
 body{
     position: relative;
-    width: 100vw;
+    /* width: 100vw; */
     height: 750px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;

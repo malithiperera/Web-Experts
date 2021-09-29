@@ -18,11 +18,11 @@
     }
     body{
         position: relative;
-        background-color:#D8E9EB;
+        /* background-color:#D8E9EB; */
     }
     .sideBar{
         position : fixed;
-        top: 100px;
+        top: 50px;
         left: 5px;
         z-index: 1001;
     }
@@ -68,17 +68,19 @@
     .card{
         width: 200px;
         height: 80px;
-        background-color: #2277B2;
         margin-left: 20px;
         margin-right: 20px;
         margin-bottom : 40px;
         text-align:center;
         z-index: 999;
         border-radius:20px;
+        box-shadow:2px 2px #888888;
+        
     }
     .card > p{
         margin-top : 10px;
         z-index: 999;
+        color:#184A78;
     }
     .graph1_background{
         position:absolute;
@@ -100,7 +102,7 @@
     }
     .icons{
         position:fixed;
-        top:180px;
+        top:130px;
         left:13px;
         z-index: 2000;
         display:list-item;
@@ -118,7 +120,7 @@
         position:fixed;
         z-index: 2000;
         left:55px;
-        top:180px;
+        top:130px;
     }
     .labels > a{
         padding-bottom:50px;
@@ -128,15 +130,21 @@
     .labels > a:hover{
         color:#184A78;
     }
-    .chart{
+    .chart1{
         margin-top:100px;
         margin-left:100px;
         width:400px;
         height:400px;
     }
+    .chart2{
+        margin-top:100px;
+        margin-left:50px;
+        width:400px;
+        height:400px;
+    }
 </style>
 <body>
-    <?php require 'view_headerType2.php';  ?>
+    
 
     <div class="sideBar">
     <div class="close" id="close">
@@ -182,7 +190,7 @@
             <p>10</p>
             
         </div>
-        <div class="card" style="background-color:#6C2E6D;">
+        <div class="card">
             <p>REGISTERED SALES REPS</p>
             <p>10</p>
         </div>
@@ -190,7 +198,7 @@
             <p>REGISTERED CUSTOMERS</p>
             <p>10</p>
         </div>
-        <div class="card" style="background-color:#6C2E6D;">
+        <div class="card">
             <p>COVERING ROUTES</p>
             <p>10</p>
         </div>
@@ -198,15 +206,17 @@
             <p>PENDING ORDERS</p>
             <p>10</p>
         </div>
-        <div class="card" style="background-color:#6C2E6D;">
+        <div class="card">
             <p>OVERDUE DELIVERIES</p>
             <p>10</p>
         </div>
 
-        <div class="chart">
-            <canvas id="myChart"></canvas>
+        <div class="chart1">
+            <canvas id="myChart1"></canvas>
         </div>
-
+        <div class="chart2">
+            <canvas id="myChart2"></canvas>
+        </div>
        
 
     </div>
@@ -219,13 +229,6 @@
         <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
         <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
         <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
-        
-        
-        
-        
-        
-        
-        
         
     </div>
 
@@ -247,14 +250,14 @@
 
 
 <script>
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart1').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 50, 5, 2, 3],
+            label: 'best selling items',
+            data: [12, 19, 50, 20, 40, 34],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -282,6 +285,47 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+            label: 'overall business of the year',
+            data: [12, 19, 50, 5],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
 </script>
 
 </body>
