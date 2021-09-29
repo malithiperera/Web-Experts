@@ -75,6 +75,9 @@ require 'view_headerType.php';
 
 
 
+<<<<<<< HEAD
+
+=======
 <div class="errorNotification" id="errorNotification">
     <div class="message">
         sorry, something wrong with your usernameor password!
@@ -115,7 +118,12 @@ require 'view_headerType.php';
 ?>
 
         
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 8003919406e124d5c17f936965efc893bdbba944
+>>>>>>> cb7fcf0d49b96798a05404660597ad4b0f75ccdf
 <script>
    function enable(){
        document.getElementById("password").attr("readonly",false);

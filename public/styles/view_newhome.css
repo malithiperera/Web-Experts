@@ -129,7 +129,7 @@ section{
     font-size: 6rem;
     text-transform: uppercase;
     color:transparent;
-    -webkit-text-stroke: 0.4vw #184A78;
+   color:#184A78;
     text-transform: uppercase;
 }
 

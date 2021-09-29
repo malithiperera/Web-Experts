@@ -1,498 +1,242 @@
-<?php
-session_start();
- ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer_Home</title>
-</head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-
-<style>
-    *{
-        margin:0;
-        padding:0;
-        font-family:Arial, Helvetica, sans-serif;
-        color:white;
-    }
-
-    body{
-        
-        position: relative;
-        background-color:#fff;
-    }
-    html::-webkit-scrollbar{
-    width: .8rem;
-    height:0.9rem;
-}
-
-html::-webkit-scrollbar-track{
-    background: transparent;
-}
-
-html::-webkit-scrollbar-thumb{
-    background: grey;
-    border-radius: 3rem;
-}
-    .sideBar{
-        position : fixed;
-        top: 100px;
-        left: 5px;
-        z-index: 1001;
-       
-    }
-    .open{
-        position : absolute;
-        top:5px;
-        left:4px;
-        z-index: 2999;
-        
-    }
-    .close{
-        position : absolute;
-        top:5px;
-        left:3px;
-        z-index: 3000;
-        visibility : hidden;
-    }
-    .openBar {
-        position : absolute;
-        top:0;
-        width:200px;
-        height: 500px;
-        background-color:#2277B2;
-        visibility : hidden;
-        z-index: 1000;
-        border-radius:5px;
-        cursor:pointer;
-    }
-    .openbar a{
-        display:block;
-        text-decoration:none;
-    }
-    .closeBar{
-        position : absolute;
-        top:0;
-        width:42px;
-        height: 500px;
-        background-color:#2277B2;
-        z-index: 1000;
-    }
-    
-    .cards{
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        top:50px;
-        /* left: 50px; */
-        z-index: 999;
-        /* margin-left: 150px; */
-        justify-content: center;
-       
-    }
-    .card{
-        width: 200px;
-        height: 100px;
-        /* background-color: #2277B2; */
-        /* margin-left: 20px; */
-        margin-right: 20px;
-        margin-bottom : 40px;
-        text-align:center;
-        z-index: 999;
-        cursor:pointer;
-        border-radius:10px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        
-    }
-    .card > p{
-        margin-top : 10px;
-        z-index: 999;
-        color:#184A78;
-        font-weight:600;
-        text-transform:uppercase;
-    }
-    .cards .card i{
-        color:#184A78;
-        font-size:25px;
-    }
-
-    .card:hover{
-        background-color: #D7CEC8;
-    color:  #184A78;
-    cursor:pointer:
-    }
-    
-    
-    .icons{
-        position:fixed;
-        top:180px;
-        left:13px;
-        z-index: 2000;
-        display:list-item;
-        display:flex;
-        flex-direction:column;
-        font-size:16px;
-    }
-    .icons >  a{
-        padding-bottom:50px;
-    }
-    .icons > a i:hover{
-        color:#2277B2;
-    }
-    .labels{
-        position:fixed;
-        z-index: 2000;
-        left:55px;
-        top:180px;
-    }
-.labels a{
-    text-decoration:none;
-}
-
-    .labels > a p{
-        padding-bottom:46px;
-        
-    }
-    .labels >  a p:hover{
-        color:#184A78;
-    }
-    .open i{
-        color:#fff;
-        margin-left:10px;
-    }
-    .close i{
-        color:#fff;
-        margin-left:10px;
-    }
-
-    .divup{
-       
+    <title>Home </title>
+    <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
-          display:flex;
-        justify-content:center; */
-       
-       
-        padding:40px;
-        border-radius:20px;
-        display:flex;
-        flex-wrap:wrap;
-        
-        text-transform: capitalize;
-        color:#184A78; 
-        z-index:0;
-        
-    }
-    .detail{
-        width:100px;
-        text-align:center;
-        height:100px;
-        padding:10px;
-        margin-top:90px;
-      
-      
-        z-index:0;
-        background:white;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-       
-        text-transform:capitalize;
-    }
-        .detail p{
-            color:#184A78;
-            font-size:20px;
-            font-weight:600;
-        }
-
-        
-        
-        .product{
-
-        }
-    .footer1{
-    
-        position:relative;
-        z-index:1;
-    }
-    section{
-    padding:2rem 7%;
-}
-    .menu{
-        display:flex;
-        /* flex-direction:column; */
-        justify-content:center;
-        z-index:0;
-        
-     position: relative;
-
-    }
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     <script type="text/javascript">
+       google.charts.load('current', {'packages':['corechart']});
+       google.charts.setOnLoadCallback(drawChart);
  
-    .menu .box-container{
-      
-   
-    display: flex;
-    flex-wrap:wrap;
-   justify-content:center;
-    gap:0.9rem;
-}
-
-
-
-.menu .box-container .box{
-    width:300px;
-   height:300px;
-    padding:2rem;
-    text-align: center;
-  
-    
-}
-h2{
-    color:#184A78;
-    text-align:center;
-    margin-top:50px;
-    text-transform:uppercase;
-    font-size:35px;
-    text-decoration:italic;
-}
-.menu .box-container .box img{
-    height: 13rem;
-    width:250px;
-}
-
-.menu .box-container .box h3{
-    color:#184A78;
-    font-size: 1.5rem;
-    padding:1rem 0;
-    font-style: italic;
-
-}
-
-.menu .box-container .box:hover{
-    background:#fff;
-    transform: scale(1.1);
-}
-
-.menu .box-container .box:hover > *{
-    color:#fff;
-}
-
-.container .divup .detail i{
-      color:#184A78;
-      width:100px;
-      font-size: 40px;;
-    
-      
-    }
-
-@media(max-width:400px){
-    .menu .box-container .box h3{
-    
-    font-size: 1rem;
-    padding:1rem 0;
-  
-
-}
-.cards .card i{
-        color:#184A78;
-        font-size:25px;
-        margin-top:-10px;
-    }
-h2{
-    font-size:1.5rem;
-}
-
-.container .divup .detail i{
-      color:#184A78;
-      width:100px;
-      font-size: 30px;;
-      margin-top:-10px;
-    
-      
-    }
-    .card{
-        margin-left:10px;
-    }
-.closebar{
-    height:900px;
-}
-.icons >  a{
-        padding-bottom:10px;
-    }
-
-
-}
-</style>
+       function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+           ['Year', 'Sales', 'Expenses'],
+           ['2004',  1000,      400],
+           ['2005',  1170,      460],
+           ['2006',  660,       1120],
+           ['2007',  1030,      540]
+         ]);
+ 
+         var options = {
+           title: 'Company Performance',
+           curveType: 'function',
+           legend: { position: 'bottom' }
+         };
+ 
+         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+ 
+         chart.draw(data, options);
+       }
+</script>
+   </head>
 <body>
-    <?php require 'view_headerType2.php';  ?>
-
-    <div class="sideBar">
-    <div class="close" id="close">
-        
-        <i class="fas fa-times" margin-left:5></i>
+  <div class="sidebar">
+    <div class="logo-details">
       
- 
-        </div>
-
-    <div class="open" id="open">
-    <i class="fa fa-bars"></i>
+        <div class="logo_name">Himalee Dairy Product</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <!-- <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li> -->
+      <li>
+        <a href="#">
+          <i class='bx bx-home' ></i>
+          <span class="links_name">Home</span>
+        </a>
+         <span class="tooltip">Home</span>
+      </li>
+      <li>
+       <a href="../customer/place_order">
         
+        <i class='bx bxs-cart-add'></i>
+         <span class="links_name">Place Order</span>
+       </a>
+       <span class="tooltip">Place Order</span>
+     </li>
+     <li>
+       <a href="../customer/my_order">
+        <i class='bx bx-cart-alt' ></i>
+         <span class="links_name">Orders</span>
+       </a>
+       <span class="tooltip">Orders</span>
+     </li>
+     <li>
+       <a href="../customer/my_order">
+        <i class='bx bx-credit-card'></i>
+         <span class="links_name">Payments</span>
+       </a>
+       <span class="tooltip">Paymnets</span>
+     </li>
+     <li>
+       <a href="../customer/our_products">
+        <i class="fas fa-ice-cream"></i>
+         <span class="links_name">Our Products</span>
+       </a>
+       <span class="tooltip">Our Products</span>
+     </li>
+     <li>
+       <a href="#">
+        <i class='bx bx-bell'></i>
+         <span class="links_name">Notification</span>
+       </a>
+       <span class="tooltip">Notification</span>
+     </li>
+     <li>
+       <a href="#">
+        <i class='bx bxs-truck' ></i>
+         <span class="links_name">Confirmation</span>
+       </a>
+       <span class="tooltip">Confirmation</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name">ABC</div>
+             <div class="job">Customer</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
 
-    </div> 
-   
-    <div class="openBar" id="openBar">
-        <div class="labels">
-            <a href="../customer/place_order"><p>PLACE ORDER</p></a>
-            <a href="../customer/my_order"><p>PAY NOW</p></a>
-            <a href="../customer/my_order"><p>MY ORDERS</p></a>
-            <a href="../customer/our_products"><p>OUR PRODUCTS</p></a>
-            <a href="../customer/view_report"><p>VIEW REPORT</p></a>
-           
+  <section class="home-section">
+    <section class="cards-section">
+            <div class="cards">
+              <div class="card">
+                <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
+                <p>10</p>
+              </div>
+              <div class="card" >
+                <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
+                <p>1</p>
             </div>
-    </div>
+            <div class="card">
+                <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
+                <p>10</p>
+            </div>
+            <div class="card">
+                <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
+                <p>10</p>
+            </div>
+            <div class="card">
+                <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
+                <p>10</p>
+            </div>
 
-    <div class="closeBar" id="closeBar"></div>
+
+            </div>
+     </section>
+
+       <section class="detail">
+         <div class="left">
+           <div class="graph">
+           <h3>Sales Summary</h3>
            
-    </div>
-    <div class="container">
-    <div class="divup">
-    <div class="detail" style="width: 300px;">
-        <p><i class="fas fa-map-marker-alt"></i><br>ROOT</p>
-        <p></p>
-    </div>
-    <div class="detail" style="width: 300px">
-        <p>SALES REP</p>
-        <p>MR.Bandara</p>
-        <p>contact:0718292839</p>
-    </div>
-</div>
-    
-    </div>
-    <div class="cards" id="cards">
-        <div class="card">
-            <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-            <p>10</p>
-            
-        </div>
-        <div class="card" >
-            <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-            <p>1</p>
-        </div>
-        <div class="card">
-            <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
-            <p>10</p>
-        </div>
-        <div class="card">
-            <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
-            <p>10</p>
-        </div>
-        <div class="card">
-            <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
-            <p>10</p>
-        </div>
-     
+           <div id="curve_chart" style="width: 400px; height: 400px"></div>
+          </div>
+           <div class="discount">
+             <h3>New discount Prodcuts</h3>
+             <div class="item">
+              <p>H201 Ice cream 80g-10%</p>
+             </div>
+             <div class="item">
+              <p>H201 Ice cream 80g-10%</p>
+             </div>
+             <div class="item">
+              <p>H201 Ice cream 80g-10%</p>
+             </div>
+             <div class="item">
+              <p>H201 Ice cream 80g-10%</p>
+             </div>
+             
 
-     
-       
-    </div>
-    </div>
-
-    <div class="icons">
-        <a href="../customer/place_order"><i class="fas fa-cart-plus"></i></a> 
-         <a href="../customer/my_order"><i class="far fa-credit-card"></i></a>
-         <a href="../customer/my_order"><i class="fas fa-shopping-cart"></i></a>
-         <a href="../customer/our_products"><i class="fas fa-ice-cream"></i></a>
-        <a href="../customer/view_report"><i class="fas fa-chart-line fa-lg"></i></a>
-        
-        
-    </div>
-    <!-- <div class="headd">
-    <h1 class="heading"> our <span>menu</span> </h1>
-    </div> -->
-    <h2>We Provide You...</h2>
-<section class="menu" id="menu">
-
-
-
-<div class="box-container">
-
- 
-
-    <div class="box">
-        <img src="../../public/images/h_icecream.jpg" alt="">
-        <h3>Ice Creams</h3>
-      
-        
-    </div>
-    <div class="box">
-        <img src="../../public/images/curd.jpg"alt="">
-        <h3>Curd Items</h3>
-        
-    </div>
-
-    <div class="box">
-        <img src="../../public/images/h_freshmilk.jpg"alt="">
-        <h3>Fresh Milk </h3>
-       
-       
-    </div>
-
-    <div class="box">
-        <img src="../../public/images/h_yoghurt.jpg" alt="">
-        <h3>Yoghurd Products</h3>
-      
-      
-    </div>
-
-    <div class="box">
-        <img src="../../public/images/milk_beve.jpg"alt="">
-        <h3>Milk Beverages</h3>
-      
-      
-    </div>
-
-    <div class="box">
-        <img src="../../public/images/cheese.jpg" alt="">
-        <h3>Cheese</h3>
-       
-       
-    </div>
-
-</div>
+           </div>
+         </div>
+         <div class="right">
+           <div class="orders">
+             <h2>Pending Orders</h2>
+             <div class="field">
+               <div class="order-no">
+              <p class="onum">001</p>
+              <p class="date">2019.09.19</p>
+              </div>
+              <div class="content">
+              <a href="">view</a>
+              </div>
+              </div>
+              <div class="field">
+                <div class="order-no">
+               <p class="onum">001</p>
+               <p class="date">2019.09.19</p>
+               </div>
+               <div class="content">
+               <a href="">view</a>
+               </div>
+               </div>
+               <div class="field">
+                <div class="order-no">
+               <p class="onum">001</p>
+               <p class="date">2019.09.19</p>
+               </div>
+               <div class="content">
+               <a href="">view</a>
+               </div>
+               </div>
+               <div class="field"><a href="">go to page</a></div>
+              </div>
+             
+         <div class="payment">
+          <h2>Due Payment</h2>
+          <div class="field">
+            <div class="order-no">
+           <p class="onum">001</p>
+           <p class="date"> Due to 2019.09.19</p>
+           </div>
+           <div class="content">
+           <a href="">view</a>
+           </div>
+           </div>
+           <div class="field">
+            <div class="order-no">
+           <p class="onum">001</p>
+           <p class="date"> Due to 2019.09.19</p>
+           </div>
+           <div class="content">
+           <a href="">view</a>
+           </div>
+           </div>
+           <div class="field"><a href="">go to page</a></div>
+         </div>
+         
+        </div> 
+         </section>
 
 
+  </section>
 
-
-
-</section>
-    <div class="footer1">
-<?php require 'view_footer.php'; ?>
-
-</div>
-
-    <script>
-        document.getElementById('open').addEventListener("click", function(){
-            document.getElementById('open').style.visibility = "hidden";
-            document.getElementById('close').style.visibility = "visible";
-            document.getElementById('openBar').style.visibility = "visible";
-            document.getElementById('cards').style.marginLeft = "170px";
-            
-        });
-
-        document.getElementById('close').addEventListener("click", function(){
-            document.getElementById('open').style.visibility = "visible";
-            document.getElementById('close').style.visibility = "hidden";
-            document.getElementById('openBar').style.visibility = "hidden";
-            document.getElementById('cards').style.marginLeft = "0";
-        });
-
-
-    </script>
-
-
-
-
+  
+  <script src="../../public/java script/view_customer_Home.js"></script>
+  
 
 </body>
 </html>
