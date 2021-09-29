@@ -126,9 +126,5 @@ require 'view_headertype2.php';
 
  
 </body>
-<div class="footer1">
-        <?php
-       require 'view_footer.php';
-        ?>
-   </div>
+
 </html>

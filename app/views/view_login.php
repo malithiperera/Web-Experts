@@ -62,10 +62,7 @@ require 'view_headerType.php';
 </div>
 
 
-<div class="footer1">
-<?php require 'view_footer.php'; ?>
 
-</div>
 <script>
    function enable(){
        document.getElementById("password").attr("readonly",false);
