@@ -69,14 +69,14 @@
         <i class='bx bx-cart-alt' ></i>
          <span class="links_name">Orders</span>
        </a>
-       <span class="tooltip">Orders</span>
+       <span class="tooltip">Orders and payments</span>
      </li>
      <li>
        <a href="../customer/my_order">
-        <i class='bx bx-credit-card'></i>
-         <span class="links_name">Payments</span>
+       <i class='bx bx-line-chart'></i>
+         <span class="links_name">Reports</span>
        </a>
-       <span class="tooltip">Paymnets</span>
+       <span class="tooltip">Reports</span>
      </li>
      <li>
        <a href="../customer/our_products">
@@ -202,7 +202,7 @@
                <a href="">view</a>
                </div>
                </div>
-               <div class="field"><a href="">go to page</a></div>
+               <div class="field"><a href="../customer/my_order">go to page</a></div>
               </div>
              
          <div class="payment">
@@ -225,7 +225,7 @@
            <a href="">view</a>
            </div>
            </div>
-           <div class="field"><a href="">go to page</a></div>
+           <div class="field"><a href="../customer/my_order">go to page</a></div>
          </div>
          
         </div> 
