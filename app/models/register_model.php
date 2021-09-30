@@ -61,10 +61,9 @@ require '../app/core/model.php';
      {
         require '../app/core/database.php';
          $query="SELECT * FROM users WHERE email='$email' OR user_id='$userid'";
-       $result=$conn->query($query);
-    // //    $row=$result->fetch_assoc();
-    //    $count=mysqli_num_rows($result);
-       return $result;
+         $result=$conn->query($query);
+
+         return $result;
      }
  }
 
