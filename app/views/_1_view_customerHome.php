@@ -86,7 +86,7 @@
        <span class="tooltip">Our Products</span>
      </li>
      <li>
-       <a href="#">
+       <a href="../customer/view_notification">
         <i class='bx bx-bell'></i>
          <span class="links_name">Notification</span>
        </a>
