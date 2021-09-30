@@ -22,7 +22,7 @@ class home_model extends model{
    public function resetMail($email,$link)
    {
     require '../app/core/database.php';
-$query="UPDATE users SET active='false',verification_code='$link' WHERE email='$email'";
+$query="UPDATE user SET active='false',verification_code='$link' WHERE email='$email'";
 $conn->query($query);
        
 $sql="SELECT email,name from user WHERE email='$email'";
