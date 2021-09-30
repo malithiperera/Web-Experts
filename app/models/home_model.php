@@ -13,7 +13,7 @@ class home_model extends model{
         
     require '../app/core/database.php';
     
-        $sql = "SELECT * FROM users WHERE email = '$username1' and password = '$password1'";
+        $sql = "SELECT * FROM user WHERE email = '$username1' and password = '$password1'";
         
         $result = $conn->query($sql);
         return $result;
@@ -22,10 +22,10 @@ class home_model extends model{
    public function resetMail($email,$link)
    {
     require '../app/core/database.php';
-$query="UPDATE users SET active='false',verification='$link' WHERE email='$email'";
+$query="UPDATE users SET active='false',verification_code='$link' WHERE email='$email'";
 $conn->query($query);
        
-$sql="SELECT email,name from users WHERE email='$email'";
+$sql="SELECT email,name from user WHERE email='$email'";
 $result=$conn->query($sql);
 return $result;
    }

@@ -71,7 +71,7 @@
 .sidebar li{
   position: relative;
   margin: 8px 0;
-  list-style: none;
+  list-style: none; 
 }
 .sidebar li .tooltip{
   position: absolute;
@@ -99,23 +99,8 @@
 .sidebar.open li .tooltip{
   display: none;
 }
-.sidebar input{
-  font-size: 15px;
-  color: #FFF;
-  font-weight: 400;
-  outline: none;
-  height: 50px;
-  width: 100%;
-  width: 50px;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  background: #1d1b31;
-}
-.sidebar.open input{
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
+
+
 .sidebar .bx-search{
   position: absolute;
   top: 50%;

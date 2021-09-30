@@ -30,6 +30,10 @@ public function view_report()
     $this->view->render('view_customer_viewreport');
 }
 
+public function view_notification(){
+    $this->view->render('view_all_notification');
+}
+
 
 public function view_details($mail)
 {
