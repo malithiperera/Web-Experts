@@ -28,10 +28,14 @@ class login extends controller{
          
         if($count == 1){           
             $row = $users -> fetch_assoc();
+
             $viewname = "_1_view_".$row['type']."Home";
 
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
+            
+
             // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
+
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
@@ -57,7 +61,7 @@ class login extends controller{
     } 
 
     public function test(){
-        $this->view->render('test');
+        $this->view->render('view_all_notification');
     }
 
     public function resetMail(){ 
