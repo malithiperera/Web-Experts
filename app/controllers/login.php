@@ -28,18 +28,14 @@ class login extends controller{
          
         if($count == 1){           
             $row = $users -> fetch_assoc();
-<<<<<<< HEAD
 
-=======
->>>>>>> bc693f8d2654cbc1f37688f0cab62e481af857c0
             $viewname = "_1_view_".$row['type']."Home";
 
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
-<<<<<<< HEAD
             
-=======
+
             // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
->>>>>>> bc693f8d2654cbc1f37688f0cab62e481af857c0
+
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
@@ -53,7 +49,6 @@ class login extends controller{
 
     //forget password
     
->>>>>>> bc693f8d2654cbc1f37688f0cab62e481af857c0
     public function forgetPassword(){
         //view name to this>>>>>>>
         $this->view->render('view_sendmail');
