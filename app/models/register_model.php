@@ -60,7 +60,7 @@ require '../app/core/model.php';
      public function checkmail($email,$userid)
      {
         require '../app/core/database.php';
-         $query="SELECT * FROM users WHERE email='$email' OR user_id='$userid'";
+         $query="SELECT * FROM user WHERE email='$email' OR user_id='$userid'";
          $result=$conn->query($query);
 
          return $result;

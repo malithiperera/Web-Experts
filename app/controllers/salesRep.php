@@ -28,7 +28,7 @@ class salesRep extends controller{
 
 public function register_admin(){
 
-    $name = $_POST['name'];
+        $name = $_POST['name'];
         $nic = $_POST['nic'];
         $dob = $_POST['dob'];
         $email = $_POST['email'];
