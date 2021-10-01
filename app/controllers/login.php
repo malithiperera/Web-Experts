@@ -29,7 +29,7 @@ class login extends controller{
          
         if($count == 1){           
             $row = $users -> fetch_assoc();
-            $viewname = "_1_view_".$row['position']."Home";
+            $viewname = "_1_view_".$row['type']."Home";
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
         }
         else{
