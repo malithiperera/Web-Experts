@@ -48,10 +48,6 @@ class login extends controller{
 
     public function adminHome(){
         $this->view->render($_GET['viewname']);
-<<<<<<< HEAD
-    }
-
-=======
         // $this->view->render($viewname);
     }
 
