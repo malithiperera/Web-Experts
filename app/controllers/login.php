@@ -29,21 +29,22 @@ class login extends controller{
         if($count == 1){           
             $row = $users -> fetch_assoc();
             $viewname = "_1_view_".$row['type']."Home";
-            
-            // header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
-            header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
+
+            header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
+            // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
         }
     }
 
-    public function adminHome($viewname){
-        // $this->view->render($_GET['viewname']);
-        $this->view->render($viewname);
+    public function adminHome(){
+        $this->view->render($_GET['viewname']);
+        // $this->view->render($viewname);
     }
 
     //forget password
+    
     public function forgetPassword(){
         //view name to this>>>>>>>
         $this->view->render('view_sendmail');

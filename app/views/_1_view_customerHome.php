@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Home </title>
     <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
-    
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -73,7 +72,7 @@
        <span class="tooltip">Orders and payments</span>
      </li>
      <li>
-       <a href="../customer/my_order">
+       <a href="../customer/view_report">
        <i class='bx bx-line-chart'></i>
          <span class="links_name">Reports</span>
        </a>
@@ -95,14 +94,14 @@
      </li>
      <li>
        <a href="#">
-        <i class='bx bxs-truck' ></i>
-         <span class="links_name">Confirmation</span>
+       <i class="far fa-user-circle"></i>
+         <span class="links_name">Profile</span>
        </a>
-       <span class="tooltip">Confirmation</span>
+       <span class="tooltip">Profile</span>
      </li>
      <li>
        <a href="#">
-         <i class='bx bx-cog' ></i>
+       <i class="fas fa-sign-out-alt"></i>
          <span class="links_name">Logout</span>
        </a>
        <span class="tooltip">Logout</span>
@@ -115,7 +114,7 @@
              <div class="job">Customer</div>
            </div>
          </div>
-         <i class='bx bx-log-out' id="log_out" ></i>
+         <i class="fas fa-store" id="log_out"></i>
      </li>
     </ul>
   </div>
