@@ -45,8 +45,11 @@
             flex-direction:column;
         }
         .icons a{
-            margin-bottom:60px;
+            margin-bottom:30px;
             margin-left: 20px;
+        }
+        .icons a:hover{
+            color:#1d1b31;
         }
         .links{
             position:absolute;
@@ -57,9 +60,12 @@
             width:250px;
         }
         .links a{
-            margin-bottom:60px;
-            margin-left:100px;
+            margin-bottom:30px;
+            margin-left:80px;
             text-decoration:none;
+        }
+        .links a i .fas:hover{
+            color:#1d1b31;
         }
         .sidebar_footer{
             position:absolute;
@@ -68,7 +74,7 @@
             width:100%;
             height:60px;
         }
-        .fa-sign-out-alt{
+        .fa-building{
             position:absolute;
             top:20px;
             right:10px;
@@ -159,6 +165,9 @@
             <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
             <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
+            <a href="#"><i class="fas fa-bell fa-lg"></i></a>
+            <a href="#"><i class="fas fa-user-alt fa-lg"></i></a>
+            <a href="#"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </div>
 
         <div class="links">
@@ -169,10 +178,13 @@
             <a href="../admin/add_user">ADD USER</a>
             <a href="../admin/remove_user">REMOVE USER</a>
             <a href="../admin/routes">ROUTES</a>
+            <a href="#">NOTIFICATION</a>
+            <a href="#">PROFILE</a>
+            <a href="#">LOG OUT</a>
         </div>
         <div class="sidebar_footer">
             <div class="footerIcon">
-                <i class="fas fa-sign-out-alt fa-lg"></i>
+            <i class="fas fa-building fa-lg"></i>
                 <p class="username">username@gmail.com</p>
             </div>
         </div>
