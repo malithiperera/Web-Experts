@@ -42,16 +42,17 @@ body{
    
     align-items: center;
     flex-direction: column;
-    background-color: #184A78;
+    background-color: #fff;
     height: 400px;
     width: 450px;
     border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 
 }
 
 p{
     margin-top: 20px;
-    color: #fff;
+    color: black;
     padding: 20px;
 }
 input{
@@ -63,7 +64,7 @@ border: none;
 outline: none;
 border:1px solid rgb(36, 36, 116);
 color:white;
-background-color: #184A78;
+background: transparent;
 
 }
 
@@ -79,7 +80,7 @@ button{
     width: 80%;
     height: 40px;
     box-shadow: none;
-    background-color: #2277B2;
+    background-color: #184A78;
     color: #fff;
     outline: none;
     border: none;

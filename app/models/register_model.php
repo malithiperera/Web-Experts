@@ -28,6 +28,13 @@ require '../app/core/model.php';
          $result = $conn->query($sql);
          return $result;
      }
+     public function email_verification1($url){
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM salesrep WHERE verificationCode='$url'";
+        $result = $conn->query($sql);
+        return $result;
+    }
+
 
      public function activeUser($global_url, $newPassword){
         require '../app/core/database.php';
@@ -47,6 +54,16 @@ require '../app/core/model.php';
         $result = $conn->query($sql);
         return $result;
 
+     }
+
+
+     public function checkmail($email,$userid)
+     {
+        require '../app/core/database.php';
+         $query="SELECT * FROM users WHERE email='$email' OR user_id='$userid'";
+         $result=$conn->query($query);
+
+         return $result;
      }
  }
 

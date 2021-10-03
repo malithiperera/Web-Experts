@@ -170,7 +170,7 @@
            
 
             <a href="#">PRODUCTS</a>
-            <a href="../admin/searchCustomer">CUSTOMERS</a>
+            <a href="../../admin/searchCustomer">CUSTOMERS</a>
             <a href="#">SALES REPS</a>
             <a href="../admin/viewReport">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>

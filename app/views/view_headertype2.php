@@ -152,7 +152,7 @@ nav h3{
    
     margin-top: 35px;
     color: white;
-    font-size: 15px;
+    font-size: 10px;
     margin-left: 16px;
     letter-spacing: 0px;
     
@@ -190,7 +190,7 @@ i{
     <nav>
       
         <h1>Himalee Dairy Produts</h1>
-        <h3>Everyone Needs Milk. Dairy always Good Choice</h3>
+        <h3>Everyone Needs Milk. Dairy always a Good Choice</h3>
         <ul>
          
             <li><a href=""><i class="fas fa-home" id="s3"></i></a></li>
