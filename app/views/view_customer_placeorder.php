@@ -138,15 +138,15 @@ require 'view_headertype2.php';
 
  
 
-while($data = mysqli_fetch_array($records))
+while($data = mysqli_fetch_array($this->added))
 {
 ?>
   <tr>
     
-    <td>.<?php echo $data['product_id']; ?></td>
-    <td><?php echo $data['name']; ?></td>
-
-    <td><input type="text" value="<?php echo $data['unit_price'];?> "id="temp" class="temp" readonly></td>
+    <td><?php echo $data['product_id']; ?></td>
+    <td><?php echo $data['product_name']; ?></td>
+    <td><?php echo $data['price']; ?></td>
+    
  
     <td><input type="text" id="amount"onkeyup="myfunc(this.value);" ></div>
 </td>
@@ -157,7 +157,7 @@ while($data = mysqli_fetch_array($records))
 ?>
 </table>
 
-<?php mysqli_close($conn); // Close connection ?>
+
 <button>Place Order</button>
 </div>
 </div>
