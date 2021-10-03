@@ -107,7 +107,15 @@ public function createPassword(){
     
 }
 
-
+public function view_report(){
+    $this->view->render('view_customer_viewreport');
+}
+public function achievements(){
+    $this->view->render('view_rep_achievements');
+}
+public function customer_registration(){
+    $this->view->render('view_rep_customerRegistration');
+}
 
 }
 
