@@ -208,7 +208,29 @@ Ulankulama Dairies (Pvt) Ltd is a limited Liability company which incorporated u
 
 </section>
 
-
+<section class="mission">
+<h1 class="heading"> <span>Our</span> Vission  </h1>
+    <div class="row">
+        <div class="content">
+    <p>
+    Our Vision is to become the leading preferred dairy company in Sri Lanka. By keeping to our vision, we strive to become</p>
+    </div>
+    <div class="content">
+        <div class="con">
+        <i class="fas fa-star"></i>
+        The preferred buyer of milk
+        </div>
+        <div class="con">
+        <i class="fas fa-star"></i>
+        The preferred supplier of dairy products
+        </div>
+        <div class="con">
+        <i class="fas fa-star"></i>
+        The preferred employer in the dairy industry
+        </div>
+    </div>
+    </div>
+</section>
 
 
 <section class="contact" id="contact">

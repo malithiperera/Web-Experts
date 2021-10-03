@@ -475,3 +475,26 @@ align-items: center;
         transform: scale(1);
     }
 }
+.mission .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+  }
+  .mission .row p{
+  color: #fff;
+  font-size: 20px;
+  }
+  .mission .row .content{
+      display: flex;
+      color: #fff;
+  }
+  .mission .row .content .con{
+padding: 20px;
+font-size: 20px;
+  }
+  .mission .row .content i{
+      font-size: 20px;
+      color: #fff;
+  }
