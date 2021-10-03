@@ -116,7 +116,9 @@ public function achievements(){
 public function customer_registration(){
     $this->view->render('view_rep_customerRegistration');
 }
-
+public function customer_home(){
+    $this->view->render('view_rep_customerHome');
+}
 }
 
 ?>

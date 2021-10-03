@@ -27,7 +27,7 @@
          <span class="tooltip">Customer Registration</span>
       </li>
       <li>
-        <a href="#">
+      <a href="../salesRep/customer_home">
           <i class='bx bx-user' ></i>
           <span class="links_name">Customer Profile</span>
         </a>
