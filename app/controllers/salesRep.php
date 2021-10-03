@@ -119,6 +119,18 @@ public function customer_registration(){
 public function customer_home(){
     $this->view->render('view_rep_customerHome');
 }
+public function home(){
+    $this->view->render('_1_view_repHome');
+}
+public function returns(){
+    $this->view->render('view_rep_return');
+}
+public function cashPayment(){
+    $this->view->render('view_rep_cash');
+}
+public function chequePayment(){
+    $this->view->render('view_rep_cheque');
+}
 }
 
 ?>

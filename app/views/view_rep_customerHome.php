@@ -20,7 +20,7 @@
     </div>
     <ul class="nav-list">
         <li>
-            <a href="#">
+            <a href="../salesRep/home">
               <i class='bx bx-home' ></i>
               <span class="links_name">Home</span>
             </a>
@@ -36,21 +36,21 @@
        <span class="tooltip">Place Order</span>
      </li>
      <li>
-       <a href="../customer/view_report">
+     <a href="../salesRep/returns">
        <i class='bx bx-line-chart'></i>
          <span class="links_name">Returns</span>
        </a>
        <span class="tooltip">Returns</span>
      </li>
      <li>
-       <a href="../customer/view_notification">
+     <a href="../salesRep/cashPayment">
         <i class='bx bx-bell'></i>
          <span class="links_name">Cash Payment</span>
        </a>
        <span class="tooltip">Cash Payment</span>
      </li>
      <li>
-      <a href="#">
+     <a href="../salesRep/chequePayment">
         <i class='bx bx-heart' ></i>
         <span class="links_name">Cheque Payment</span>
       </a>
