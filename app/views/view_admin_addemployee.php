@@ -29,25 +29,25 @@ require 'view_headertype2.php';
     <form method="post" action="register_admin">
         <div class="content">
          
-          <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+          <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
           <input type="text" placeholder="Name" name="name" id="name" required>
           <br>
-          <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
+          <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
           <input type="text" placeholder="Name" name="userid" id="userid" required>
           <br>
-          <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
+          <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label><br>
           <input type="text" placeholder="nic" name="nic" id="nic" required>
           <br>
-          <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
+          <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label><br>
           <input type="date" placeholder="dob" name="dob" id="dob" required>
           <br>
-          <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+          <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
           <input type="text" placeholder="Enter Email" name="email" id="email" required>
       <br>
-          <label for="psw"><b>Address&nbsp;</b></label>
+          <label for="psw"><b>Address&nbsp;</b></label><br>
           <input type="address" placeholder="address" name="add" id="add" required>
       <br>
-          <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+          <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
           <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
           
       
