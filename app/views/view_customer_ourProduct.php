@@ -22,11 +22,8 @@ require 'view_headertype2.php';
         <section class="logo">
             <div class="content">
         <h3>Our Products</h3>
-      
-       
-    </div>
-
-        </section>
+          </div>
+         </section>
 
         <section class="yoghurt">
             <h4>Yoghurts <span>Products </span></h4>
