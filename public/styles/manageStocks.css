@@ -1,0 +1,148 @@
+.sec_1 {                                                            /* container of all sections (product name) */
+    width: 90%;
+    height: 550px;
+    /*background-color: aqua;*/
+    margin: auto;
+    position: relative;
+
+}
+.leg_productName {                                                  /* 'product name' text*/
+    margin: auto;
+    font-size: xx-large;
+
+}
+.mainFieldSet {                                                     /* product name fieldset */
+    height: 500px;
+    border-radius: 30px;
+
+}
+.backBtn {                                                          /* back button */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 40px;
+    font-size: large;
+    background-color: #184A78;
+    color: white;
+
+}
+.inStock {                                                          /* 'in stock' division */
+    /*background-color: greenyellow;*/
+    width: 60%;
+    height: 150px;
+    margin: auto;
+    position: relative;
+    
+}
+.input_inStock, .input_discount, .input_buy, .input_get {            /* input boxes of 'in stock' and 'Discount'  'Buy'and 'Get' */
+    padding: 10px;
+    width: 100px;
+    
+}
+.label_inStock, .label_discount, .label_buy, .label_get {           /* 'In Stock' and 'Discount' texts */
+    padding: 0px;
+    font-size: x-large;
+
+}
+.addBtn, .removeBtn {                                               /* '+' button and '-' button in 'in stock' */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: xx-large;
+    background-color: white;
+
+}
+.withRep {                                                          /* 'With Rep' division */
+    width: 50%;
+    height: 290px;
+    /*background-color: aquamarine;*/
+    
+}
+table, td, th {
+    border: 1px solid;
+    border-collapse: collapse;
+    
+}
+tr {
+    height: 30px;
+}
+table {
+    margin: auto;
+    width: 90%;
+
+}
+.text_withRep {                                                     /* 'With Rep' text */
+    position: relative;
+    left: 10%;
+
+}
+.discount {                                                         /* 'Discount division */
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 200px;
+    
+}
+.leg_discount {                                                     /* legend 'Discount' (text) */
+    margin: auto;
+    font-size: x-large;
+    
+}
+.fieldSet_discount {                                                /* fieldset 'Discount' */
+    border-radius: 25px;
+    width: 90%;
+
+}
+.or {                                                               /* 'OR' text in 'Discount' */
+    position: absolute;
+    right: 50%;
+
+}
+.input_discount, .label_discount, .input_buy, .input_get, .label_buy, .label_get{
+    position: relative;
+    left: 20px;
+}
+.inputAdd {                                                         /* input text of "+" */
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    /*background-color: black;*/
+    visibility: hidden;
+
+}
+.inputRemove {          /* input textbox of "-" */
+    width: 300px;
+    height: 120px;
+    border-radius: 10px;
+    /*background-color: black;*/
+    /*visibility: hidden;*/
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
+.divInputRemove {                   /* division of the form of "-" */
+    /*background-color: blueviolet;*/
+    width: 320px;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+}
+.removeStocksFieldset {         /* fieldset of the text box of "-" */
+    width: 315px;
+    height: 144px;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+
+}
+.inputRemoveReason {        /* input text of " reason " in "-" */
+    height: 100px;
+    padding: 1px;
+    align-items: center;
+
+}
