@@ -1,8 +1,9 @@
-
-  body{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  
+body{
     width: 100vw;
     
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins" , sans-serif;
     color: black;
     background: #ffffff;
     
@@ -36,7 +37,7 @@
 .div1{
     background-color: #ffffff;
     width: 500px;
-    height: 520px;
+    height: 700px;
     /* display: flex;
     flex-direction: column; */
     margin-right: -500px;
@@ -57,7 +58,7 @@
 .div2{
     background-color: #ffffff;
     width: 500px;
-    height: 520px;
+    height: 700px;
    
     color: rgb(0, 0, 0);
    
@@ -69,7 +70,7 @@
 .div3{
     background-color: #ffffff;
     width: 500px;
-    height: 520px;
+    height: 700px;
    
     color: rgb(0, 0, 0);
    
@@ -81,15 +82,16 @@
 
 input{
     
-width: 300px;
-   margin: 10px;
+width: 400px;
+   margin-bottom:30px;
+   margin-left: 60px;
    height: 30px;
   
-   border-radius: 5px;
-   text-align: center;
+
+   
    border:none;
    outline: none;
-   border:2px solid black;
+   border-bottom:2px solid black;
  
 }
 input:focus{
@@ -102,7 +104,9 @@ h3{
     font-size: 20px;
 }
 label{
-    margin: 20px;
+    margin:30px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
    
 }
 
@@ -110,7 +114,7 @@ label{
   float: center;
     width: 200px;
     height: 40px;
-    background-color:#2277B2;
+    background-color:#184A78;
     border-radius: 10px;
     outline: none;
     color: #fff;
@@ -122,9 +126,9 @@ label{
     
     box-shadow: 1px 1px 1px 1px;
 }
-::-webkit-input-placeholder {
+/* ::-webkit-input-placeholder {
    text-align: center;
-}
+} */
 .btn-group{
     display: flex;
  width: 500px;
@@ -135,7 +139,7 @@ label{
   border-top-left-radius: 20px;
 }
 input[type="date"]{
-  text-align:center;
+
 }
 button:hover{
     
@@ -144,18 +148,21 @@ button:hover{
    }
 
    .btn-group button {
-  background-color: #184A78; 
+  background-color: #ffffff; 
   border: 1px solid #ffffff; 
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   padding: 10px 24px;
-  margin-bottom: 20px;
+ 
   cursor: pointer; 
   width: 100%; 
   display: block;
  
 
 }
-
+.btn-group button .admin{
+  border-top-left-radius: 10px;
+  background-color: #184A78;
+}
 .btn-group button:not(:last-child) {
   border-bottom: none; 
 }

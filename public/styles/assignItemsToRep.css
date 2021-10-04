@@ -1,0 +1,92 @@
+table {                             /* table */
+    margin: auto;
+    width: 80%;
+    align-items: center;
+
+}
+table, td , th{
+    border: 1px rgb(63, 49, 49) solid;
+    border-collapse: collapse;
+}
+.mainFieldset {                     /* fieldset */
+    border-radius: 10px;
+    width: 95%;
+    margin: auto;
+
+}
+.legendRepName {                /* text 'rep name' */
+    margin: auto;
+
+}
+tr {
+    height: 30px;
+
+}
+.btnDelete {                                /* delete btn */
+    position: relative;
+    right: -70px;
+    background-color: #d82828;
+    border-color: #d82828;
+
+}
+.btnEdit {                                  /* edit btn */
+    position: relative;
+    left: 70px;
+    background-color: #0fa8b3;
+    border-color: #0fa8b3;
+
+}
+.btnDelete, .btnEdit, .btnAdd, .btnUpdate{
+    width: 50px;
+    height: 30px;
+    
+    color: aliceblue;
+    border-radius: 5px;
+    
+}
+.formDiv {                                                   /* division of the form */
+   position: relative;
+   left: 350px;
+
+}
+.inputProdutId {                                    /* input box of 'product  id' */
+    position: relative;
+    left: 35px;
+
+}
+.inputQuantity {                                           /* input box of 'quantity' */
+    position: relative;
+    left: 46px;
+
+}
+.inputProdutName {                                  /* input box of 'product name' */
+    position: relative;
+    left: 10px;
+
+}
+.btnAdd, .btnUpdate {                                               /* btn 'add' , btn 'update' */
+    position: relative;
+    left: 231px;
+    background-color: #184A78;
+    border-color: #184A78;
+
+}
+.formFieldset {                                                     /* form fieldset */
+    width: 30%;
+    border-radius: 10px;
+    /*margin: auto; */
+
+}
+.labelProductId, .labelProductName, .labelQuantity {            /* labels of form */
+    position: relative;
+    left: 10px;
+
+}
+.legendAddHere {
+    margin: auto;
+    
+}
+.editLink, .deleteLink {                    /* links inside 'delete' and 'edit' buttons */
+    color: white;
+
+}

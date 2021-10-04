@@ -61,8 +61,9 @@ require 'view_headerType.php';
      
 </div>
 </div>
-
+<div class="button">
  <button class="signin-button">Login</button>  
+ </div>
  <div class="link">
      <a href="forgetPassword">Forget Password?</a>
  </div>
