@@ -64,7 +64,7 @@ class login extends controller{
     } 
 
     public function test(){
-        $this->view->render('view_all_notification');
+        $this->view->render('test');
     }
 
     public function resetMail(){ 
@@ -121,9 +121,7 @@ class login extends controller{
     }
 
     public function logout(){
-        // $_SESSION = [];
-        // header("Location: http://localhost/web-Experts/public/login/login");
-        // $_SESSION['username'] = "dienth";
+        
         session_start();
         session_unset();
         session_destroy();

@@ -90,43 +90,8 @@
         </div>
     </div>
 
-    <div class="nav_bar">
-        <div class="close_bar" id="close_bar">
-            <div class="open" id="open">
-                <svg width="31" height="23" viewBox="0 0 31 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 1H31" stroke="white" stroke-width="2"/>
-                <path d="M0 22H31" stroke="white" stroke-width="2"/>
-                <path d="M0 11H31" stroke="white" stroke-width="2"/>
-                </svg>
-            </div>
-                <div class="close" id="close">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.6842 5.6842L30.3158 30.3158" stroke="white" stroke-width="2"/>
-                    <path d="M30.0451 5.41351L5.14288 30.3158" stroke="white" stroke-width="2"/>
-                    <circle cx="18" cy="18" r="17" stroke="white" stroke-width="2"/>
-                    </svg>
-                
-                </div>
-        </div>
-        <div class="open_bar" id="open_bar">
-            
-        </div>
-    </div>
+    
 
-    <script>
-        document.getElementById('open').addEventListener("click", function(){
-            document.getElementById('open_bar').style.visibility = "visible";
-            document.getElementById('open').style.visibility = "hidden";
-            document.getElementById('close').style.visibility = "visible";
-        });
-
-        document.getElementById('close').addEventListener("click", function(){
-            document.getElementById('open_bar').style.visibility = "hidden";
-            document.getElementById('open').style.visibility = "visible";
-            document.getElementById('close').style.visibility = "hidden";
-        });
-
-    </script>
-
+    
 </body>
 </html>

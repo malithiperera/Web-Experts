@@ -32,19 +32,23 @@ class admin extends controller{
 
     public function register_admin(){
 
+            $user_id = $_POST['userid'];
             $name = $_POST['name'];
-            $nic = $_POST['nic'];
-            $dob = $_POST['dob'];
             $email = $_POST['email'];
+            $verificationCode = sha1($email); 
+            $type = "admin";
+            $active = "pending";
+            $nic = $_POST['nic'];
             $address = $_POST['add'];
+            $dob = $_POST['dob'];
             $tele = $_POST['tel'];
+
            
-            $verificationCode = sha1($email);  
+             
 
         if(isset($_POST['submit'])){
             $this->model('register_model');
-            $this->view->added = $this->model->register_user('admin', $name, $nic, $dob, $email, $address, $tele, $verificationCode);
-           
+            $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele);
             if($this->view->added == 1){
                 $this->send_mail($name, $email, $verificationCode);
                 header('Location: http://localhost/web-Experts/public/admin/addEmployee?succuss='.true);   
@@ -68,11 +72,10 @@ class admin extends controller{
 
         $this->model('register_model');
         $url = $_GET['code'];
-
         $resultset = $this->model->email_verification($url);
-        // $rowcount=$resultset->fetch_assoc();
 
-        if($resultset->num_rows > 0){
+        $rowcount=$resultset->num_rows;
+        if($rowcount==1){
             $this->view->url = $url;
             $this->view->render('view_createpassword');   
         }
