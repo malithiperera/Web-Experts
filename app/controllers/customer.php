@@ -33,6 +33,9 @@ public function view_report()
 public function view_notification(){
     $this->view->render('view_all_notification');
 }
+public function profile(){
+    $this->view->render('view_all_editProfile');
+}
 
 
 public function view_details($mail)

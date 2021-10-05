@@ -21,7 +21,7 @@ class admin extends controller{
             $body .= "<a href=".$url.">Click Me</a>";
             $header = "From : {$sender}\r\nContent-Type:text/html;";
     
-            $send_mail_result = mail($sender,$to, $subject, $body, $header);
+            $send_mail_result = mail($to, $subject, $body, $header);
             if($send_mail_result){
                 echo "succuss";
             }
@@ -44,7 +44,7 @@ class admin extends controller{
         if(isset($_POST['submit'])){
             $this->model('register_model');
             $this->view->added = $this->model->register_user('admin', $name, $nic, $dob, $email, $address, $tele, $verificationCode);
-            echo $name,$nic,$dob,$address;
+           
             if($this->view->added == 1){
                 $this->send_mail($name, $email, $verificationCode);
                 header('Location: http://localhost/web-Experts/public/admin/addEmployee?succuss='.true);   
@@ -70,8 +70,9 @@ class admin extends controller{
         $url = $_GET['code'];
 
         $resultset = $this->model->email_verification($url);
-        $rowcount=mysqli_num_rows($resultset);
-        if($rowcount==1){
+        // $rowcount=$resultset->fetch_assoc();
+
+        if($resultset->num_rows > 0){
             $this->view->url = $url;
             $this->view->render('view_createpassword');   
         }
