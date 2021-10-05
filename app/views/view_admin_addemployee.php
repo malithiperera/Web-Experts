@@ -29,7 +29,7 @@ require 'view_headertype2.php';
     <form method="post" action="register_admin">
         <div class="content">
          
-          <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+          <label for="name"><b>Name</b></label><br>
           <input type="text" placeholder="Name" name="name" id="name" required>
           <br>
           <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
