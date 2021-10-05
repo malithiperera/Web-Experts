@@ -26,13 +26,16 @@ class login extends controller{
         $users = $this->model->validate($username, $password);
         $count = mysqli_num_rows($users);
          
-        if($count == 1){           
+        if($count == 1){    
+            
             $row = $users -> fetch_assoc();
-
+        
             $viewname = "_1_view_".$row['type']."Home";
+            session_start();
+            $_SESSION['username'] = $username;
 
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
-            
+           
 
             // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
 
@@ -115,5 +118,15 @@ class login extends controller{
             $this->view->url = $url;
             $this->view->render('view_createpassword');   
         }  
+    }
+
+    public function logout(){
+        // $_SESSION = [];
+        // header("Location: http://localhost/web-Experts/public/login/login");
+        // $_SESSION['username'] = "dienth";
+        session_start();
+        session_unset();
+        session_destroy();
+        header("Location: http://localhost/web-Experts/public/login/login");
     }
 }

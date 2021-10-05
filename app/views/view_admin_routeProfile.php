@@ -9,7 +9,7 @@
         *{
             margin: 0;
             padding: 0;
-            color: white;
+            color: #184A78;
             font-family: Arial, Helvetica, sans-serif;
         }
         body{
@@ -17,13 +17,14 @@
             width: 100%;
             display: flex;
             justify-content: center;
+            background-color:#D8E9EB;
         }
         .container1{
             position: relative;
             top:150px;
             width: 500px;
             height: 500px;
-            background-color: blue;
+            background-color: white;
             border-radius: 20px;
         }
         .container1 > p{
@@ -39,7 +40,7 @@
             position:absolute;
             top: 160px;
             left: 25px;
-            background-color: green;
+            background-color: #D8E9EB;
             width: 450px;
             height: 300px;
             border-radius: 20px;
