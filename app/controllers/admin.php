@@ -112,13 +112,13 @@ class admin extends controller{
     public function routes(){
         $this->view->render('view_admin_routes');
     }
+    public function add_route(){
+        //adding process here
+        header("Location: http://localhost/web-Experts/public/admin/routes");
+    }
 
     public function routeProfile(){
         $this->view->render('view_admin_routeProfile');
-    }
-
-    public function searchCustomer(){
-        $this->view->render('view_admin_searchCustomer');
     }
 
     public function customerProfile(){
@@ -128,6 +128,19 @@ class admin extends controller{
     public function viewReport(){
         $this->view->render('view_customer_viewreport');
     }
+
+    public function notification(){
+        $this->view->render('view_all_notification');
+    }
+
+    public function profile(){
+        $this->view->render('view_all_editProfile');
+    }
+
+    public function logout(){
+        
+    }
+
 }
 
 ?>

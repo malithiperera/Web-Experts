@@ -16,14 +16,14 @@
             color: white;
         }
         body{
-            
+            /* opacity:50%; */
         }
         .sidebar{
             position:fixed;
-            /* width: 250px; */
             width:80px;
             height: 100vh;
             background-color: #184A78;
+            /* opacity:50%; */
         }
         .sidebar > p{
             margin-left:10px;
@@ -48,7 +48,7 @@
             margin-bottom:30px;
             margin-left: 20px;
         }
-        .icons a:hover{
+        .icons a i .fas:hover{
             color:#1d1b31;
         }
         .links{
@@ -64,7 +64,7 @@
             margin-left:80px;
             text-decoration:none;
         }
-        .links a i .fas:hover{
+        .links a:hover{
             color:#1d1b31;
         }
         .sidebar_footer{
@@ -90,6 +90,7 @@
            width: calc(100% - 80px);
            display:flex;
            flex-direction:column;
+           /* opacity:50%; */
        }
        .cards{
            display:flex;
@@ -149,9 +150,71 @@
         color:#184A78;
         margin-left:20px;
        }
+       .popup{
+        position:fixed;
+        top:70px;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        visibility: hidden;
+       }
+       .search_customer{
+           width:400px;
+           height:250px;
+           background-color:white;
+           border:1px solid #184A78;
+           border-radius:20px;
+       }
+       .search_bar input{
+           position:relative;
+           top:20px;
+           left:68px;
+           width:250px;
+           height:30px;
+           border-radius:20px;
+           padding-left:20px;
+           color:#184A78;
+       }
+       .fa-search{
+           position:relative;
+           left:35px;
+           top:23px;
+           color:#184A78;
+       }
+       .search_customer p, .search_customer select, .search_customer select option{
+           color:#184A78;
+       }
+       .search_customer select{
+           width:100px;
+           height:30px;
+       }
+       .search_by_route{
+           position:relative;
+           top:80px;
+           left:50px;
+       }
+       .select_route{
+           float:left;
+           margin-right:70px;
+       }
+       .search_by_route a{
+           position:relative;
+           border:1px solid #184A78;
+           border-radius:18px;
+           top:30px;
+           left:120px;
+           color:#184A78;
+           text-decoration:none;
+           padding:8px;
+       }
+       .search_by_route a:hover{
+           background-color:#184A78;
+           color:white;
+       }
     </style>
 </head>
 <body>
+
 
     <div class="sidebar">
         <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
@@ -159,27 +222,27 @@
         <i class="fas fa-align-right fa-lg"></i>
         <div class="icons">
             <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
-            <a href="../admin/searchCustomer"><i class="fas fa-landmark fa-lg"></i></a>
+            <a href="#" onclick="popup_message()"><i class="fas fa-landmark fa-lg"></i></a>
             <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
             <a href="../admin/viewReport"><i class="fas fa-chart-line fa-lg"></i></a>
             <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
             <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
-            <a href="#"><i class="fas fa-bell fa-lg"></i></a>
-            <a href="#"><i class="fas fa-user-alt fa-lg"></i></a>
+            <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
+            <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
             <a href="#"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </div>
 
         <div class="links">
             <a href="#">PRODUCTS</a>
-            <a href="../admin/searchCustomer">CUSTOMERS</a>
+            <a href="#" onclick="popup_message()">CUSTOMERS</a>
             <a href="#">SALES REPS</a>
             <a href="../admin/viewReport">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>
             <a href="../admin/remove_user">REMOVE USER</a>
             <a href="../admin/routes">ROUTES</a>
-            <a href="#">NOTIFICATION</a>
-            <a href="#">PROFILE</a>
+            <a href="../admin/notification">NOTIFICATION</a>
+            <a href="../admin/profile">PROFILE</a>
             <a href="#">LOG OUT</a>
         </div>
         <div class="sidebar_footer">
@@ -189,6 +252,8 @@
             </div>
         </div>
     </div>
+
+    
     
     <div class="container">
        <div class="cards">
@@ -252,6 +317,42 @@
             
        </div>
     </div>
+
+    <div class="popup" onload="loadImage()">
+    
+        <div class="search_customer">
+            <div class="search_bar">
+                <input type="text">
+                <i class="fas fa-search fa-lg"></i>
+            </div>
+            <div class="search_by_route">
+                
+                <div class="select_route">
+                <p>Select Route : </p>
+                    <select name="cars" id="cars">
+                        <option>route 1</option>
+                        <option>route 2</option>
+                        <option>route 3</option>
+                        <option>route 4</option>
+                    </select>
+                </div>
+                
+                
+                <div class="select_customer">
+                <p>Select Customer : </p>
+                    <select name="cars" id="cars">
+                        <option>customer 1</option>
+                        <option>customer 2</option>
+                        <option>customer 3</option>
+                        <option>customer 4</option>
+                    </select>
+                </div>
+
+                <a href="../admin/customerProfile">GO...</a>
+            </div>
+        </div>
+    </div>
+    
         
     
     <!-- scripts for side bar -->
@@ -371,8 +472,33 @@
         });
     </script>
 
+        <!-- script for popup message -->
+    <script>
+        let popup = document.querySelector(".popup");
+        let in_popup = document.querySelector(".search_customer")
+
+        function popup_message(){
+            popup.style.visibility = "visible";
+            sidebar.style.opacity = "30%";
+            container.style.opacity = "30%";
+        }
 
         
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.visibility = "hidden";
+                sidebar.style.opacity = "100%";
+                container.style.opacity = "100%";
+            }
+        }
+           
+        
+    </script>
+
+     
 
 </body>
+
+
+
 </html>

@@ -10,7 +10,7 @@
             margin:0;
             padding:0;
             font-family: Arial, Helvetica, sans-serif;
-            color: white;
+            color: #184A78;
         }
         .header{
             z-index: 3000;
@@ -37,13 +37,13 @@
             z-index: 2000;
         }
         tr{
-            background-color:green;
+            background-color:white;
         }
         thead th{
             padding-left:100px;
             padding-right:100px;
             text-align:center;
-            background-color:blue;
+            background-color:white;
             padding-top:10px;
             padding-bottom:10px;
         }
@@ -68,13 +68,21 @@
         button{
             width:100px;
             height:30px;
-            background-color:blue;
+            background-color:white;
             border-radius:20px;
         }
         #back{
             position:fixed;
             top:90vh;
             right:20px;
+        }
+        .new_added_row{
+            position:relative;
+            left:100px;
+            top:-50px;
+        }
+        .new_added_row input{
+            padding:10px;
         }
     </style>
 </head>
@@ -84,7 +92,23 @@
     <?php require 'view_headerType2.php'; ?>
     </div>
     <div class="content">
+
+        <div class="buttons">
+            <p>Add new Route</p>
+            
+            <!-- <button id="edit">EDIT</button> -->
+        </div>
+
+        <form class="new_added_row" method="post" action="add_route">
+            <!-- <input type="text" name="route_id" placeholder="Route Id" id="route_id" required> -->
+            <input type="text" name="sales_rep" placeholder="Sales Rep" id="sales_rep">
+            <input type="text" name="destination" placeholder="Destination" id="destination" required>
+            <input type="text" name="route_name" placeholder="Route Name" id="route_name" required>
+            <input type="submit" name="submit">
+        </form>       
+
         <div class="table">
+
             <table>
                 <thead>
                     <th>ROUTE ID</th>
@@ -103,15 +127,14 @@
                         </tr>";
                     }
                 ?>
+               
             </table>
         </div>
-        <div class="buttons">
-            <button id="add">ADD</button>
-            <button id="edit">EDIT</button>
-        </div>
+        
     </div>
     <button id="back">BACK</button>
     
+   
     
 </body>
 </html>
