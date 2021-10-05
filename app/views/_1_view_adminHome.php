@@ -1,3 +1,11 @@
+<?php session_start(); 
+
+ if(!isset($_SESSION['username'])){
+     header("Location:http://localhost/web-Experts/public/login/index");
+ }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -230,7 +238,7 @@
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
             <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
             <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
-            <a href="#"><i class="fas fa-sign-out-alt fa-lg"></i></a>
+            <a href="logout"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </div>
 
         <div class="links">
@@ -243,12 +251,12 @@
             <a href="../admin/routes">ROUTES</a>
             <a href="../admin/notification">NOTIFICATION</a>
             <a href="../admin/profile">PROFILE</a>
-            <a href="#">LOG OUT</a>
+            <a href="logout">LOG OUT</a>
         </div>
         <div class="sidebar_footer">
             <div class="footerIcon">
             <i class="fas fa-building fa-lg"></i>
-                <p class="username">username@gmail.com</p>
+                <p class="username"><?php echo $_SESSION['username'];?></p>
             </div>
         </div>
     </div>
