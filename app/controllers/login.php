@@ -71,10 +71,10 @@ class login extends controller{
         $this->model('home_model');
         $email=$_POST['email'];
 
-        $reseturl=sha1($email);
+        $verificationCode = sha1($email); 
         if(isset($_POST['submit'])){
         
-            $result = $this->model->resetMail($email,$reseturl);
+            $result = $this->model->resetMail($email,$verificationCode );
            
             $count=mysqli_num_rows($result);
             $row = $result -> fetch_assoc();
@@ -83,7 +83,7 @@ class login extends controller{
             {
                
                 //  echo $reseturl;
-                $url = 'http://localhost/web-Experts/public/login/createPassword?code='.$reseturl;
+                $url = 'http://localhost/web-Experts/public/admin/createPassword?code='.$verificationCode;
                 $to = $email;
                 $sender = "himaleedairyproducts@gmail.com";
                 $subject = "Reset email address";

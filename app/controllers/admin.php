@@ -95,7 +95,7 @@ class admin extends controller{
                 $global_url = $_GET['code'];
                 $check = $this->model->activeUser($global_url, $newPassword);
                 if($check == 1){
-                    header('Location: http://localhost/web-Experts/public/admin/renderAdminHome');
+                    header('Location: http://localhost/web-Experts/public/login/login');
                 }
                 else{
                     echo "something error";
