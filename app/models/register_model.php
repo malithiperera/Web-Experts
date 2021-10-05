@@ -7,10 +7,11 @@ require '../app/core/model.php';
          parent:: __construct();
      }
 
-     public function register_user($tablename, $name, $nic, $dob, $email, $address, $tele, $verificationCode){
+     public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele){
+        
         require '../app/core/database.php';
-        $sql = "INSERT INTO $tablename (name, email, DOB, NIC, address, TELE, verificationCode, active)
-                VALUES ('$name', '$email', '$dob', '$nic', '$address', '$tele', '$verificationCode', 'pending');";
+        $sql = "INSERT INTO user (user_id, name, email, verification_code, type, active, nic, address, dob, tel)
+                VALUES ('$user_id', '$name', '$email', '$verificationCode', '$type', '$active', '$nic', '$address', '$dob', '$tele');";
 
         
 
@@ -24,21 +25,16 @@ require '../app/core/model.php';
 
      public function email_verification($url){
          require '../app/core/database.php';
-         $sql = "SELECT * FROM admin WHERE verificationCode='$url'";
+         $sql = "SELECT * FROM user WHERE verification_code='$url'";
          $result = $conn->query($sql);
          return $result;
      }
-     public function email_verification1($url){
-        require '../app/core/database.php';
-        $sql = "SELECT * FROM salesrep WHERE verificationCode='$url'";
-        $result = $conn->query($sql);
-        return $result;
-    }
+     
 
 
      public function activeUser($global_url, $newPassword){
         require '../app/core/database.php';
-        $sql = "UPDATE admin SET password = '$newPassword', active = 'active', verificationCode = 0 WHERE verificationCode = '$global_url'";
+        $sql = "UPDATE user SET password = '$newPassword', active = 'active', verification_code = 0 WHERE verification_code = '$global_url'";
         if ($conn->query($sql) === TRUE) {
             return 1;
           } else {
