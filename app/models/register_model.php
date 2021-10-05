@@ -9,8 +9,8 @@ require '../app/core/model.php';
 
      public function register_user($tablename, $name, $nic, $dob, $email, $address, $tele, $verificationCode){
         require '../app/core/database.php';
-        $sql = "INSERT INTO $tablename (name, email, DOB, NIC, address, TELE, verificationCode, active)
-                VALUES ('$name', '$email', '$dob', '$nic', '$address', '$tele', '$verificationCode', 'pending');";
+        $sql = "INSERT INTO user (name, email, dob, nic, address, tel, verification_code, active,type)
+                VALUES ('$name', '$email', '$dob', '$nic', '$address', '$tele', '$verificationCode', 'pending','$tablename');";
 
         
 
@@ -24,7 +24,7 @@ require '../app/core/model.php';
 
      public function email_verification($url){
          require '../app/core/database.php';
-         $sql = "SELECT * FROM admin WHERE verificationCode='$url'";
+         $sql = "SELECT * FROM user WHERE verificationCode='$url'";
          $result = $conn->query($sql);
          return $result;
      }
