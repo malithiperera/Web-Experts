@@ -103,6 +103,9 @@ public function cashPayment(){
 public function chequePayment(){
     $this->view->render('view_rep_cheque');
 }
+public function profile(){
+    $this->view->render('view_all_editProfile');
+}
 }
 
 ?>
