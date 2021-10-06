@@ -13,7 +13,7 @@
             color: #184A78;
         }
         body{
-            background-color: #D8E9EB;
+            background-color: #fff;
         }
         .header{
             z-index: 3000;
@@ -22,11 +22,13 @@
             position:relative;
             top: 120px;
             z-index: 1;
+            padding-left:10px;
         }
         .container{
+            padding:20px;
             position: relative;
             top: 150px;
-            width: 100%;
+            width: 95%;
             display: flex;
             flex-direction: column;
             z-index: 1;
@@ -34,16 +36,20 @@
         .subcontainer1{
             width: 100%;
             height: 60px;
-            /* background-color: green; */
             border: 1px solid black;
             display: flex;
             justify-content: space-evenly;
+            background:#184A78;
+            
         }
         .category{ 
             text-align: center;
+          
+           
         }
         .category p{
             margin-top: 8px;
+            color:#fff;
         }
         .subcontainer2{
             display: flex;
@@ -137,13 +143,7 @@
                               Debitis laudantium perspiciatis unde.
                         </div>
                         <div class='delete'>
-                            <svg width='16' height='24' viewBox='0 0 16 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                            <rect y='2.58069' width='16' height='20.9893' rx='5' fill='#184A78'/>
-                            <rect width='16' height='2.06452' rx='1.03226' fill='#184A78'/>
-                            <rect x='3' y='5' width='2' height='16' rx='1' fill='white'/>
-                            <rect x='7' y='5' width='2' height='16' rx='1' fill='white'/>
-                            <rect x='11' y='5' width='2' height='16' rx='1' fill='white'/>
-                        </svg>
+                       <a> <i class='fas fa-trash'></i></a>
                         
                         </div>
                       </div>";
