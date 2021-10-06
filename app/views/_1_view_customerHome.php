@@ -134,33 +134,33 @@ if(!isset($_SESSION['username'])){
     <div class="top">
     <div class="card-1">
                 <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
-                <p></p>
+                <p id="top-detail"><?php echo $_SESSION['userid'] ;?></p>
               </div>
               <div class="card-1">
                 <p><i class="fas fa-map-marker"></i><br>Route</p>
-                <p>Kakirawa West</p>
+                <p id="top-detail">Kakirawa West</p>
               </div>
     </div>
             <div class="cards">
               <div class="card">
                 <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
               </div>
               <div class="card" >
                 <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-                <p>1</p>
+                <p id="top-detail">1</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
             </div>
 
 

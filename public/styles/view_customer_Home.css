@@ -224,7 +224,7 @@
     justify-content: center;
   }
   .card-1{
-    background-color: #bebebe;
+    background-color: #cfcccc;
     width: 300px;
     padding: 10px;
     margin-right: 20px;
@@ -257,6 +257,11 @@
   border-radius:10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   
+}
+#top-detail{
+  color:rgb(45, 211, 45);
+  font-size: 25px;
+  font-weight: 700;
 }
 .sidebar.open ~ .home-section{
   left: 250px;

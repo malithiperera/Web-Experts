@@ -34,7 +34,7 @@ class login extends controller{
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['userid']=$row['user_id'];
-
+// echo $_SESSION['userid'];
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
            
 
