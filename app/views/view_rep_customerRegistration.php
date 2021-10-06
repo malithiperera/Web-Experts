@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    
+    <!-- <?php require 'view_headerType2.php';  ?> -->
     <div class="container">
         <div class="sub-container">
             <div class="title1">Customer Registration</div>
