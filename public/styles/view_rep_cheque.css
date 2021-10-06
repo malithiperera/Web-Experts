@@ -11,12 +11,15 @@
     left: 0px;
 
 
-    background:  white;
+    
 }
 body{
     margin: 0px;
+    position: relative;
+    background:  white;
 }
 .sub-container{
+    margin-top: 60px;
     padding: 40px;
     background-color: white;
     width: 500px;
