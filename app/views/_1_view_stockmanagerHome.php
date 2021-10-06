@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../../public/styles/viewStocks.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {
@@ -131,21 +132,18 @@
                     <p>10</p>
                 </div>
                 <div class="card">
-                    <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
+                    <p><i class="fas fa-user-tie"></i></i><br>No of Sales rep</p>
                     <p>1</p>
                 </div>
                 <div class="card">
-                    <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
+                    <p><i class="fab fa-product-hunt"></i></i><br>Categories</p>
                     <p>10</p>
                 </div>
                 <div class="card">
-                    <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
+                    <p><i class="fas fa-envelope"></i><br>Rep Requests</p>
                     <p>10</p>
                 </div>
-                <div class="card">
-                    <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
-                    <p>10</p>
-                </div>
+                
 
 
             </div>

@@ -369,7 +369,10 @@ table {
 
 }
 th {
-    text-align: left;           /* allign th in to left*/
+    text-align: left;  
+    background-color: #184A78;    
+    color: #fff;  
+    text-align: center;   /* allign th in to left*/
 
 }
 table, th, td {
