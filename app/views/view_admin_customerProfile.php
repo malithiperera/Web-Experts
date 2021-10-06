@@ -1,3 +1,11 @@
+<?php session_start(); 
+
+ if(!isset($_SESSION['username'])){
+     header("Location:http://localhost/web-Experts/public/login/index");
+ }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,93 +13,365 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    
     <style>
         *{
             margin:0;
             padding:0;
-            color:white;
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
         }
         body{
-            position:relative; 
-            background-color:#D8E9EB;  
+            /* opacity:50%; */
         }
-        .cards{
-            position:absolute;
-            top:100px;
-            left:400px;
-            display:flex;
-            flex-direction:row;  
-            flex-wrap:wrap;
-        }
-        .card{
-            background-color:blue;
-            width:200px;
-            height:80px;
-            margin-right:50px;
-            margin-bottom:20px;
-            border-radius:20px;
-            text-align:center;
-        }
-        .card > p{
-            margin-top:10px;
-        }
-        .nav_bar{
-            position:absolute;
-            top:100px;
-        }
-        .close_bar{
+        .sidebar{
             position:fixed;
-            width:45px;
-            height:550px;
-            background-color:black;
-            z-index: 2;
+            width:80px;
+            height: 100vh;
+            background-color: #184A78;
+            /* opacity:50%; */
         }
-        .open{
-            margin:5px;
-        }
-        .open_bar{
-            position:fixed;
-            width:200px;
-            height:550px;
-            background-color:blue;
+        .sidebar > p{
+            margin-left:10px;
+            letter-spacing:5px;
             visibility:hidden;
-            z-index: 1;
         }
-        .close{
+        .sidebar > i{
             position:absolute;
-            top:0px;
-            left:0px;
-            margin:5px;
-            visibility: hidden;
+            top:5px;
+            right:35px;
         }
+        .fa-align-right{
+            visibility:hidden;
+        }
+        .icons{
+            position:absolute;
+            top:100px;
+            display:flex;
+            flex-direction:column;
+        }
+        .icons a{
+            margin-bottom:30px;
+            margin-left: 20px;
+        }
+        .icons a i .fas:hover{
+            color:#1d1b31;
+        }
+        .links{
+            position:absolute;
+            top:150px;
+            display:flex;
+            flex-direction:column;
+            visibility:hidden;
+            width:250px;
+        }
+        .links a{
+            margin-bottom:50px;
+            margin-left:30px;
+            text-decoration:none;
+        }
+        .links a:hover{
+            color:#1d1b31;
+        }
+        .sidebar_footer{
+            position:absolute;
+            bottom:0;
+            background-color:#1d1b31;
+            width:100%;
+            height:60px;
+        }
+        .fa-building{
+            position:absolute;
+            top:20px;
+            right:10px;
+        }
+        .footerIcon p{
+            margin-top:20px;
+            margin-left:10px;
+            visibility:hidden;
+        }
+       .container{
+           position:relative;
+           left:80px;
+           width: calc(100% - 80px);
+           display:flex;
+           flex-direction:column;
+           /* opacity:50%; */
+       }
+       .cards{
+           display:flex;
+           flex-wrap:wrap;
+           justify-content:center;
+           text-align:center;
+           margin-top:30px;
+       }
+       .card{
+           flex: 2 0 150px;
+           width:200px;
+           height:100px;
+           box-shadow:2px 2px 2px 2px #888888;
+           margin-right:10px;
+           margin-left:10px;
+           margin-bottom:20px;
+           border-radius:20px;
+       }
+       .card > p{
+        color:#184A78;
+        margin-top:10px;
+       }
+       .tables{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        flex-wrap:nowrap;
+       }
+       .sub_tabels{
+            margin-top:40px;
+       }
+       .tables p{
+        color:#184A78;
+        margin-bottom:30px;
+       }
+       .table1{
+        margin-bottom:30px;
+       }
+       .table2{
 
+       }
+       table{
+        border:1px solid #184A78;
+       }
+       table thead{
+
+       }
+       table thead th{
+        color:#184A78;
+        padding:10px;
+        border:1px solid #184A78;
+       }
+       tr{
+
+       }
+       tr td{
+        color:#184A78;
+        padding:10px;
+        border:1px solid #184A78;
+       }
     </style>
 </head>
 <body>
-   <?php require 'view_headerType2.php'; ?>
 
-    <div class="cards">
-        <div class="card">
-            <p>ROUTE</p>
-            <P>r1</P>
+
+    <div class="sidebar">
+        <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
+        <i class="fas fa-bars fa-lg"></i>
+        <i class="fas fa-align-right fa-lg"></i>
+        <!-- <div class="icons">
+            <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
+            <a href="#" onclick="popup_message()"><i class="fas fa-landmark fa-lg"></i></a>
+            <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
+            <a href="../admin/viewReport"><i class="fas fa-chart-line fa-lg"></i></a>
+            <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
+            <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
+            <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
+            <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
+            <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
+            <a href="logout"><i class="fas fa-sign-out-alt fa-lg"></i></a>
+        </div> -->
+
+        <div class="links">
+            <a href="#">REPORTS</a>
+            <a href="#">UPDATE STATUS</a>
+            <a href="#">UPDATE CREDIT PERIOD</a>
+            <a href="#">UPDATE CHEQUE STATUS</a>
+            <a href="#">SEND WARNING</a>
+            
         </div>
-        <div class="card">
-            <p>OVERDUE PAYMENTS</p>
-            <P>10</P>
-        </div>
-        <div class="card">
-            <p>STATUS</p>
-            <P>active</P>
-        </div>
-        <div class="card">
-            <p>CREDIT PAYMENT</p>
-            <P>10 days</P>
+        <div class="sidebar_footer">
+            <div class="footerIcon">
+            <i class="fas fa-building fa-lg"></i>
+                <p class="username"><?php echo $_SESSION['username'];?></p>
+            </div>
         </div>
     </div>
 
     
-
     
+    <div class="container">
+       <div class="cards">
+       
+            <div class="card">
+                <p>ROUTE</p>
+                <p>R1</p>  
+            </div>
+
+            <div class="card">
+                <p>OVERDUE PAYMENTS</p>
+                <p>10</p>
+            </div>
+
+            <div class="card">
+                <p>PENDING PAYMENTS</p>
+                <p>10</p>
+            </div>
+
+            <div class="card">
+                <p>RETURNED CHEQUES</p>
+                <p>10</p>
+            </div>
+
+            <div class="card">
+                <p>STATUS</p>
+                <p>active</p>
+            </div>
+
+            <div class="card">
+                <p>CREDIT PERIOD</p>
+                <p>2 weeks</p>
+            </div>
+       </div>
+
+       <div class="tables">
+           <div class="sub_tabels">
+
+                <p>ORDERS</p>
+
+                <div class="table1">
+                    <table>
+                        <thead>
+                            <th>ORDER NO</th>
+                            <th>AMOUNT</th>
+                            <th>DATE</th>
+                        </thead>
+                        <?php
+
+                        for($i = 0 ; $i < 3 ; $i++){
+                            echo '<tr>
+                            <td>001</td>
+                            <td>1000</td>
+                            <td>30.12.2021</td>
+                            </tr>';
+                            }
+             
+                        ?>
+                    </table>
+
+                </div>
+
+                <p>PAYMENTS</p>
+
+                <div class="table2">
+                    <table>
+                        <thead>
+                            <th>ORDER NO</th>
+                            <th>AMOUNT</th>
+                            <th>DELIVERY NO</th>
+                            <th>DATE</th>
+                        </thead>
+                        <?php
+        
+                        for($i = 0 ; $i < 4 ; $i++){
+                            echo '<tr>
+                            <td>001</td>
+                            <td>1000</td>
+                            <td>001</td>
+                            <td>30.12.2021</td>
+                            </tr>';
+                        }
+
+                        ?>
+        
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- scripts for side bar -->
+    <script>
+        let openbtn = document.querySelector(".fa-bars");
+        let closebtn = document.querySelector(".fa-align-right")
+        let sidebar = document.querySelector(".sidebar");
+        let company_name = document.querySelector("#company_name");
+        let links = document.querySelector(".links");
+        let username = document.querySelector(".username");
+        let container = document.querySelector(".container");
+
+        openbtn.addEventListener("click", function(){
+            
+             let widthdiv = 80;
+             let opacity = 0;
+             
+            var id = setInterval(frame, 10);
+
+            function frame(){
+                if(sidebar.style.width == "250px"){
+                    var id1 = setInterval(frame1, 10);
+                    opacity = 0;
+                    function frame1(){
+                        if(opacity == 100){
+                            clearInterval(id1);
+                        }
+                        else{
+                            links.style.visibility = "visible";
+                            company_name.style.visibility = "visible";
+                            username.style.visibility = "visible";
+                            opacity = opacity + 10;
+                            links.style.opacity = opacity+"%";
+                            company_name.style.opacity = opacity+"%";
+                            username.style.opacity = opacity+"%";
+                            
+                        }
+                    }
+                    clearInterval(id);
+                }
+                else{
+                    widthdiv = widthdiv + 10;
+                    sidebar.style.width = widthdiv+"px";
+                    container.style.left = widthdiv+"px";
+                    container.style.setProperty('width', 'calc(100% - '+widthdiv+'px)');
+                }
+            }
+
+            openbtn.style.visibility = "hidden";
+            closebtn.style.visibility = "visible";
+            closebtn.style.right = "5px";
+        });
+
+        closebtn.addEventListener("click", function(){
+            let widthdiv = 250;
+            let opacity = 100;
+
+            var id = setInterval(frame, 20);
+
+            function frame(){
+                if(sidebar.style.width == "80px"){
+                    clearInterval(id);
+                }
+                else{
+                    widthdiv = widthdiv - 10;
+                    sidebar.style.width = widthdiv+"px";
+                    container.style.left = widthdiv+"px";
+                    opacity = opacity - 10;
+                    company_name.style.opacity = opacity + "%";
+                    links.style.opacity = opacity+"%";
+                    username.style.opacity = opacity+"%";
+                    container.style.setProperty('width', 'calc((100%-250px) - '+widthdiv+'px)');
+                }
+            }
+
+            closebtn.style.visibility = "hidden";
+            openbtn.style.visibility = "visible";
+        });
+    </script>
+
+
 </body>
+
 </html>

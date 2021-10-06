@@ -141,8 +141,8 @@ class admin extends controller{
         $this->view->render('view_all_editProfile');
     }
 
-    public function logout(){
-        
+    public function add_new_cus(){
+        $this->view->render('view_rep_customerRegistration');
     }
 
 }
