@@ -240,7 +240,7 @@ Ulankulama Dairies (Pvt) Ltd is a limited Liability company which incorporated u
 
     <div class="row">
 
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1629452077891!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.8233424750074!2d80.56424471414502!3d8.11946210480667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afc916405e78cdb%3A0x2f94cb88fd2d71c6!2sHimalee%20Dairy%20Farms%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1633425328622!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
         <form action="">
             <h3>get in touch</h3>

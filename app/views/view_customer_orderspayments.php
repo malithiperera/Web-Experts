@@ -24,7 +24,7 @@ require 'view_headertype2.php';
     <th>Order No</th>
     <th>Amount</th>
     <th>Date</th>
-    <th colspan="2">Edit</th>
+    <th colspan="2" >Action</th>
   </tr>
   <tr>
     <td><a href="#">Order1</a></td>
@@ -55,7 +55,7 @@ require 'view_headertype2.php';
 
 
 <div class="payment">
-    <h3>My Payment</h3>
+    <h3>My Payments</h3>
     <table>
   <tr>
     <th>Order No</th>

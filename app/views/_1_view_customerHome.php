@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+?>
+
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
@@ -5,9 +12,11 @@
     <meta charset="UTF-8">
     <title>Home </title>
     <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -93,14 +102,14 @@
        <span class="tooltip">Notification</span>
      </li>
      <li>
-       <a href="#">
+       <a href="../customer/profile">
        <i class="far fa-user-circle"></i>
          <span class="links_name">Profile</span>
        </a>
        <span class="tooltip">Profile</span>
      </li>
      <li>
-       <a href="#">
+       <a href="logout">
        <i class="fas fa-sign-out-alt"></i>
          <span class="links_name">Logout</span>
        </a>
@@ -110,7 +119,7 @@
          <div class="profile-details">
            <img src="profile.jpg" alt="profileImg">
            <div class="name_job">
-             <div class="name">ABC</div>
+             <div class="name"><?php echo $_SESSION['username'];?></div>
              <div class="job">Customer</div>
            </div>
          </div>
@@ -121,26 +130,37 @@
 
   <section class="home-section">
     <section class="cards-section">
+
+    <div class="top">
+    <div class="card-1">
+                <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
+                <p id="top-detail"><?php echo $_SESSION['userid'] ;?></p>
+              </div>
+              <div class="card-1">
+                <p><i class="fas fa-map-marker"></i><br>Route</p>
+                <p id="top-detail">Kakirawa West</p>
+              </div>
+    </div>
             <div class="cards">
               <div class="card">
                 <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
               </div>
               <div class="card" >
                 <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-                <p>1</p>
+                <p id="top-detail">1</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
-                <p>10</p>
+                <p id="top-detail">10</p>
             </div>
 
 
@@ -149,26 +169,28 @@
 
        <section class="detail">
          <div class="left">
-           <div class="graph">
+
+          
+           <div class="discount">
+             <h3>New discount Prodcuts</h3>
+             
+             <div class="item">
+              <p>H201 Ice cream 80g-10% </p>
+              <a href="">View Product</a>
+             </div>
+             <div class="item">
+              <p>H201 Ice cream 80g-10% </p>
+              <a href="">View Product</a>
+             </div>
+             <div class="item">
+              <p>H201 Ice cream 80g-10% </p>
+              <a href="">View Product</a>
+             </div>
+             <div class="graph">
            <h3>Sales Summary</h3>
            
            <div id="curve_chart" style="width: 400px; height: 400px"></div>
           </div>
-           <div class="discount">
-             <h3>New discount Prodcuts</h3>
-             <div class="item">
-              <p>H201 Ice cream 80g-10%</p>
-             </div>
-             <div class="item">
-              <p>H201 Ice cream 80g-10%</p>
-             </div>
-             <div class="item">
-              <p>H201 Ice cream 80g-10%</p>
-             </div>
-             <div class="item">
-              <p>H201 Ice cream 80g-10%</p>
-             </div>
-             
 
            </div>
          </div>

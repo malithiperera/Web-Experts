@@ -29,22 +29,22 @@ require 'view_headertype2.php';
             <h4>Yoghurts <span>Products </span></h4>
             <div class="main-card">
         <div class="card">
-     <div class="card-image"><img src="Himalee/curd.jpg" alt="" ></div>
+     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt="" ></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
@@ -57,22 +57,22 @@ require 'view_headertype2.php';
             <h4>Ice Cream <span>Products </span></h4>
             <div class="main-card">
         <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
     
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
     
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
     
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
@@ -86,22 +86,22 @@ require 'view_headertype2.php';
             <h4>Curd <span>Products </span></h4>
             <div class="main-card">
         <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>
  <div class="card">
-     <div class="card-image"><img src="download.jpg" alt=""></div>
+     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
      <h2>Himalee Yoghurd</h2>
      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
  </div>

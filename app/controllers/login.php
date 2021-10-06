@@ -33,7 +33,8 @@ class login extends controller{
             $viewname = "_1_view_".$row['type']."Home";
             session_start();
             $_SESSION['username'] = $username;
-
+            $_SESSION['userid']=$row['user_id'];
+// echo $_SESSION['userid'];
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
            
 
@@ -64,17 +65,17 @@ class login extends controller{
     } 
 
     public function test(){
-        $this->view->render('view_all_notification');
+        $this->view->render('test');
     }
 
     public function resetMail(){ 
         $this->model('home_model');
         $email=$_POST['email'];
 
-        $reseturl=sha1($email);
+        $verificationCode = sha1($email); 
         if(isset($_POST['submit'])){
         
-            $result = $this->model->resetMail($email,$reseturl);
+            $result = $this->model->resetMail($email,$verificationCode );
            
             $count=mysqli_num_rows($result);
             $row = $result -> fetch_assoc();
@@ -82,8 +83,9 @@ class login extends controller{
             if($count==1)
             {
                
+                
                 //  echo $reseturl;
-                $url = 'http://localhost/web-Experts/public/login/createPassword?code='.$reseturl;
+                $url = 'http://localhost/web-Experts/public/admin/createPassword?code='.$verificationCode;
                 $to = $email;
                 $sender = "himaleedairyproducts@gmail.com";
                 $subject = "Reset email address";
@@ -121,9 +123,7 @@ class login extends controller{
     }
 
     public function logout(){
-        // $_SESSION = [];
-        // header("Location: http://localhost/web-Experts/public/login/login");
-        // $_SESSION['username'] = "dienth";
+        
         session_start();
         session_unset();
         session_destroy();

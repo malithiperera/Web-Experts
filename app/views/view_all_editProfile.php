@@ -1,3 +1,10 @@
+<?php session_start(); 
+
+ if(!isset($_SESSION['username'])){
+     header("Location:http://localhost/web-Experts/public/login/index");
+ }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +32,7 @@
             display: flex;
             justify-content: center;
             /* flex-direction: column; */
+            border-radius:5px;
             flex-wrap: wrap;
             z-index: 1;
         }
@@ -37,11 +45,13 @@
             justify-content: center;
             margin-bottom: 20px;
             flex-wrap: wrap;
+            border-radius:5px;
         }
         .subcontainer1{
             margin: 10px;
             width: 700px;
             height: 30px;
+            border-radius:5px;
             /* background-color: #D8E9EB; */
             text-align: center;
             flex-wrap: wrap;
@@ -49,19 +59,24 @@
         .subcontainer1 p{
             color: #184A78;
             margin-top: 5px;
+            font-weight:600;
+            font-size:20px
         }
         .subcontainer2{
             margin: 10px;
             width: 700px;
             height: 450px;
+            
             background-color: #D8E9EB;
             display: flex;
+            border-radius:10px;
             justify-content: space-evenly;
             flex-wrap: wrap;
         }
         .labels{
             margin-top: 20px;
             display: flex;
+            /* padding:20px; */
             flex-direction: column;
         }
         .labels label{
@@ -81,19 +96,27 @@
             border: none;
             outline: none;
         }
+     input.editclass{
+            background:white;
+            /* padding:5px; */
+        }
         .edit_button{
             float: right;
             display: flex;
             flex-direction: column;
             margin-top: 20px;
+            cursor:pointer;
         }
-        .edit_button button{
+        .edit_button button {
             color: #184A78;
             margin-bottom: 22px;
             border: transparent;
             outline: transparent;
-            background-color: transparent;
+            background-color: none;
             margin-top: 2px;   
+        }
+        i{
+            color: #184A78;
         }
         .edit_button button:hover{
            color: red;
@@ -108,10 +131,11 @@
         }
         .subcontainer3 button{
             background-color: #184A78;
-            width: 70px;
+            width: 200px;
             height: 40px;
+            :
             margin-top: 5px;
-            border-radius: 20px;
+            border-radius: 5px;
            
         }
         @media screen and (max-width: 720px) {
@@ -138,7 +162,7 @@
     <div class="container">
         <div class="container1">
             <div class="subcontainer1">
-                <p>example@gmail.com</p>
+                <p><?php echo $_SESSION['username'] ;?></p>
             </div>
             <div class="subcontainer2">
                 <div class="labels">
@@ -158,12 +182,12 @@
                     <input type="text" name="address" id="address" value="Kandy" readonly>
                 </div>
                 <div class="edit_button">
-                    <button onclick="name_change()">edit</button>
-                    <button onclick="email()">edit</button>
-                    <button onclick="dob()">edit</button>
-                    <button onclick="tele()">edit</button>
-                    <button onclick="nic()">edit</button>
-                    <button onclick="address()">edit</button>
+                    <button onclick="name_change()"><i class="fas fa-pen"></i></button>
+                    <button onclick="email()"><i class="fas fa-pen"></i></button>
+                    <button onclick="dob()"><i class="fas fa-pen"></i></button>
+                    <button onclick="tele()"><i class="fas fa-pen"></i></button>
+                    <button onclick="nic()"><i class="fas fa-pen"></i></button>
+                    <button onclick="address()"><i class="fas fa-pen"></i></button>
                 </div>
                
             </div>
@@ -176,21 +200,28 @@
     <script>
         function name_change(){
             document.getElementById('name').removeAttribute('readonly');
+            document.getElementById('name').classList.add("editclass");
+            
         }
         function email(){
             document.getElementById('email').removeAttribute('readonly');
+            document.getElementById('email').classList.add("editclass");
         }
         function dob(){
             document.getElementById('dob').removeAttribute('readonly');
+            document.getElementById('dob').classList.add("editclass");
         }
         function tele(){
             document.getElementById('tele').removeAttribute('readonly');
+            document.getElementById('tele').classList.add("editclass");
         }
         function nic(){
             document.getElementById('nic').removeAttribute('readonly');
+            document.getElementById('nic').classList.add("editclass");
         }
         function address(){
             document.getElementById('address').removeAttribute('readonly');
+            document.getElementById('address').classList.add("editclass");
         }
     </script>
 

@@ -38,14 +38,14 @@ body{
     margin-top: 100px; 
     background-color: rgb(211, 155, 155);
     width: 200px;
-    height: 320px;
+    height: 340px;
 margin: 10px;
 border-radius:15px;
 
 
 }
 .card-image{
-    background-color: wheat;
+    background-color: rgb(255, 255, 255);
     height: 200px;
     margin-bottom: 15px;
     overflow: hidden;

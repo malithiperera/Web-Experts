@@ -20,8 +20,8 @@
                 <tr>
                 <td>dineth</td>
                 <td>100</td>
-                <td><input type=\"text\" id=\"in\" onkeyup=\"setTot(this.value, {$i});\"></td>
-                <td><input type=\"text\" id=\"('in'{$i})\"></td>
+                <td><input type=\"text\" id=\"qty_$i\" onkeyup=\"setTot(this.value, $i);\"></td>
+                <td><input type=\"text\" id=\"ttp_$i\"></td>
                 </tr>
                 ";
             }
@@ -38,13 +38,9 @@
 
     <script>
 
-        id2 = document.getElementById("in2");
-
         function setTot(value, i){
-            var x = value*2;
-            var b = "('in'i)";
-
-            document.getElementById(b).value = typeof b;
+            let id = document.getElementById(`ttp_${i}`);
+            id.value = value*3;
         }
     </script>
 
