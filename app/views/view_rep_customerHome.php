@@ -37,21 +37,21 @@
      </li>
      <li>
      <a href="../salesRep/returns">
-       <i class='bx bx-line-chart'></i>
+     <i class="fas fa-exchange-alt"></i>
          <span class="links_name">Returns</span>
        </a>
        <span class="tooltip">Returns</span>
      </li>
      <li>
      <a href="../salesRep/cashPayment">
-        <i class='bx bx-bell'></i>
+     <i class="fas fa-money-bill-alt"></i>
          <span class="links_name">Cash Payment</span>
        </a>
        <span class="tooltip">Cash Payment</span>
      </li>
      <li>
      <a href="../salesRep/chequePayment">
-        <i class='bx bx-heart' ></i>
+     <i class="fas fa-money-check-alt"></i>
         <span class="links_name">Cheque Payment</span>
       </a>
       <span class="tooltip">Cheque Payment</span>
