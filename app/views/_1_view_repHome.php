@@ -57,13 +57,14 @@
      </li>
      <li>
      <a href="../salesRep/achievements">
-        <i class='bx bx-heart' ></i>
+        
+        <i class="fas fa-trophy"></i>
         <span class="links_name">Achievements</span>
       </a>
       <span class="tooltip">Achievements</span>
     </li>
      <li>
-       <a href="#">
+       <a href="../salesRep/profile">
        <i class="far fa-user-circle"></i>
          <span class="links_name">Profile</span>
        </a>
@@ -100,15 +101,15 @@
                 <p>1</p>
             </div>
             <div class="card">
-                <p><i class="fas fa-exclamation-circle"></i><br>No of Customers</p>
+                <p><i class="fas fa-users"></i><br>No of Customers</p>
                 <p>10</p>
             </div>
             <div class="card">
-                <p><i class="fas fa-money-check"></i><br>No of Routes</p>
+                <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
                 <p>10</p>
             </div>
             <div class="card">
-                <p><i class="fas fa-money-bill-alt"></i><br>Target</p>
+                <p><i class="fas fa-trophy"></i><br>Target</p>
                 <p>10</p>
             </div>
 
