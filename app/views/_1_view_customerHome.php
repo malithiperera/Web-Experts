@@ -130,6 +130,17 @@ if(!isset($_SESSION['username'])){
 
   <section class="home-section">
     <section class="cards-section">
+
+    <div class="top">
+    <div class="card-1">
+                <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
+                <p></p>
+              </div>
+              <div class="card-1">
+                <p><i class="fas fa-map-marker"></i><br>Route</p>
+                <p>Kakirawa West</p>
+              </div>
+    </div>
             <div class="cards">
               <div class="card">
                 <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>

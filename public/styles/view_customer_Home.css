@@ -218,7 +218,22 @@
   z-index: 2;
 }
 
-  
+.top{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .card-1{
+    background-color: #bebebe;
+    width: 300px;
+    padding: 10px;
+    margin-right: 20px;
+    text-align:center;
+  z-index: 999;
+  cursor:pointer;
+  border-radius:10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  }
 .cards{
   position: relative;
   display: flex;
@@ -313,9 +328,12 @@ p{
  a{
   color: rgb(255, 255, 255);
   text-decoration: none;
- 
+ }
+  .field{
+margin-left:40px;
+  }
   
-}
+
 .field a{
   color: #11101d;
 text-align: center;
@@ -340,10 +358,19 @@ text-align: center;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 30px;
-  height: 300px;
+  /* height: 300px; */
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   margin-bottom: 20px;
+}
+.orders h2{
+  text-transform: uppercase;
+  padding: 10px;
+ 
+}
+.payment h2{
+  text-transform: uppercase;
+  padding: 10px;
 }
 .payment{
   display: flex;
@@ -471,6 +498,10 @@ align-items: center;
   }
   .orders{
     width: 400px;
+    margin-right: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .payment{
     width: 400px;

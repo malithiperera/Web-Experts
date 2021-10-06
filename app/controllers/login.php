@@ -33,6 +33,7 @@ class login extends controller{
             $viewname = "_1_view_".$row['type']."Home";
             session_start();
             $_SESSION['username'] = $username;
+            $_SESSION['userid']=$row['user_id'];
 
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
            
@@ -82,6 +83,7 @@ class login extends controller{
             if($count==1)
             {
                
+                
                 //  echo $reseturl;
                 $url = 'http://localhost/web-Experts/public/admin/createPassword?code='.$verificationCode;
                 $to = $email;
