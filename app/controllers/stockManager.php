@@ -3,7 +3,7 @@
 class stockManager extends controller{
 
     function __construct(){
-        parent::__conostruct();
+        parent::__construct();
     }
     public function register_stockmanager(){
         $name = $_POST['name'];
@@ -20,6 +20,18 @@ class stockManager extends controller{
     }
 
    
+public function add_product()
+{
+
+    $this->view->render('view_stockmanager_addproduct');
+}
+
+public function product_profile()
+{
+    $this->view->render('manageStocks');
+}
+
+
 }
 
 ?>

@@ -73,56 +73,56 @@
             <li>
                 <a href="#">
                     <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
+                    <span class="links_name">Notification</span>
                 </a>
-                <span class="tooltip">Messages</span>
+                <span class="tooltip">Notification</span>
             </li>
             <li>
                 <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Analytics</span>
+                <i class="fas fa-chart-line"></i>
+                    <span class="links_name">View Reports</span>
                 </a>
-                <span class="tooltip">Analytics</span>
+                <span class="tooltip">View Reports</span>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#">
                     <i class='bx bx-folder'></i>
                     <span class="links_name">File Manager</span>
                 </a>
                 <span class="tooltip">Files</span>
-            </li>
+            </li> -->
             <li>
                 <a href="#">
-                    <i class='bx bx-cart-alt'></i>
-                    <span class="links_name">Order</span>
+                <i class="fas fa-user"></i>
+                    <span class="links_name">Profile</span>
                 </a>
-                <span class="tooltip">Order</span>
+                <span class="tooltip">Profile</span>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#">
-                    <i class='bx bx-heart'></i>
-                    <span class="links_name">Saved</span>
+                <i class='bx bx-log-out' id="log_out">
+                    <span class="links_name">Log out</span>
                 </a>
-                <span class="tooltip">Saved</span>
-            </li>
-            <li>
+                <span class="tooltip">Log out</span>
+            </li> -->
+            <!-- <li>
                 <a href="#">
                     <i class='bx bx-cog'></i>
                     <span class="links_name">Setting</span>
                 </a>
                 <span class="tooltip">Setting</span>
-            </li>
+            </li> -->
             <li class="profile">
                 <div class="profile-details">
-                    <img src="profile.jpg" alt="profileImg">
+                    <!-- <img src="profile.jpg" alt="profileImg"> -->
                     <div class="name_job">
-                        <div class="name">Prem Shahi</div>
-                        <div class="job">Web designer</div>
+                        <div class="name">M.Bandara</div>
+                        <div class="job">Stock Manager</div>
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>
-            </li>
-        </ul>
+            </li> 
+        </ul> 
     </div>
     <section class="home-section">
         <section class="cards-section">
@@ -229,7 +229,7 @@
                 </tr>
 
                 <tr>
-                    <td>1</td>
+                    <td><a href="../stockManager/product_profile">1</a></td>
                     <td>test</td>
                     <td>1000</td>
                     <td>100</td>
@@ -258,7 +258,7 @@
             </table>
 
             <div class="add"><br><br><br><br>
-                <button class="add">Add</button><br>
+               <a href="../stockManager/add_product"><button class="add" >Add</button><br></a> 
 
             </div>
 
@@ -269,7 +269,7 @@
     </section>
 
 
-    <script src="script.js"></script>
+    <script src="../../public/java script/viewStocks.js"></script>
 
 
 </body>
