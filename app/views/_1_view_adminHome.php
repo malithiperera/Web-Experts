@@ -128,9 +128,10 @@
         margin-left:20px;
        }
        .charts{
-           width:400px;
-           height:400px;
-           margin-right: 200px;
+           width:900px;
+           height:1000px;
+           margin-left: 100px;
+           margin-top:40px;
        }
        .subcontainer2{
         display:flex;
