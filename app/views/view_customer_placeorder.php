@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -29,7 +34,9 @@
         }
      table{
        width: 100%;
-       padding:20px;
+       padding-right:90px;
+       padding-left:90px;
+       padding-bottom:20px;
      }
      th{
          background-color:#184A78;
@@ -75,7 +82,7 @@ input{
     color:#fff;
     border-radius: 10px;
     transition-duration: 0.4s ease;
-    margin-left:50px;
+    margin-left:100px;
   font-size: 16px;
   /* margin: 4px 2px; */
   cursor: pointer;
@@ -93,6 +100,27 @@ button:active {
   
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+.total {
+padding:20px;
+float:right;
+margin:40px;
+}
+.total input{
+  padding:15px;
+  border:2px solid black;
+}
+.detail{
+  padding:20px;
+}
+.detail input{
+  height:30px;
+  color:green;
+  text-align:center;
+  font-weight:600;
+}
+.detail label{
+  font-size:20px;
 }
     </style>
 
@@ -121,14 +149,20 @@ require 'view_headertype2.php';
 <div class="container">
     <div class="subcontainer">
 <h2>Bill</h2>
-
+<div class="detail">
+  <label for="">Customer Id</label>
+  <input type="text" value="<?php echo $_SESSION['userid'] ; ?>"readonly>
+  <label for="">Route Id</label>
+  <input type="text">
+</div>
 <table>
   <tr>
     <th>product Id</th>
     <th>Name</th>
     <th>Unit Price</th>
+    <th>Discount</th>
     <th>Quantity</th>
-    <th>Total price</th>
+    <th>Amount</th>
   </tr>
 
 <?php
@@ -146,7 +180,7 @@ while($data = mysqli_fetch_array($this->added))
     <td><?php echo $data['product_id']; ?></td>
     <td><?php echo $data['product_name']; ?></td>
     <td><?php echo $data['price']; ?></td>
-    
+    <td><?php echo $data['discount']; ?></td>
  
     <td><input type="text" id="amount"onkeyup="myfunc(this.value);" ></div>
 </td>
@@ -156,7 +190,10 @@ while($data = mysqli_fetch_array($this->added))
 }
 ?>
 </table>
-
+<div class="total">
+<label for="Total price">Total Price</label>
+<input type="text">
+</div>
 
 <button>Place Order</button>
 </div>

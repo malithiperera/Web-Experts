@@ -15,7 +15,7 @@
    <div class="sidebar">
     <div class="logo-details">
       
-        <div class="logo_name">Himalee Dairy Product</div>
+        <div class="logo_name">Himalee Dairy Products</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">

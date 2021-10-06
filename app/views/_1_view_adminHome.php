@@ -168,7 +168,7 @@
        }
        .search_customer{
            width:400px;
-           height:250px;
+           height:280px;
            background-color:white;
            border:1px solid #184A78;
            border-radius:20px;
@@ -219,6 +219,14 @@
            background-color:#184A78;
            color:white;
        }
+       .add_new_cus a{
+           position:relative;
+           top:150px;
+           left:130px;
+           text-decoration:none;
+           color:#184A78;
+       }
+       
     </style>
 </head>
 <body>
@@ -326,7 +334,7 @@
        </div>
     </div>
 
-    <div class="popup" onload="loadImage()">
+    <div class="popup">
     
         <div class="search_customer">
             <div class="search_bar">
@@ -358,8 +366,13 @@
 
                 <a href="../admin/customerProfile">GO...</a>
             </div>
+            <div class="add_new_cus">
+                <a href="../admin/add_new_cus">Add New Customer</a>
+            </div>
         </div>
     </div>
+
+    
     
         
     

@@ -45,7 +45,7 @@ border-radius:15px;
 
 }
 .card-image{
-    background-color: wheat;
+    background-color: rgb(255, 255, 255);
     height: 200px;
     margin-bottom: 15px;
     overflow: hidden;

@@ -134,11 +134,11 @@ if(!isset($_SESSION['username'])){
     <div class="top">
     <div class="card-1">
                 <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
-                <p id="top-detail"><?php echo $_SESSION['userid'] ;?></p>
+                <p id="top-detail-1"><?php echo $_SESSION['userid'] ;?></p>
               </div>
               <div class="card-1">
                 <p><i class="fas fa-map-marker"></i><br>Route</p>
-                <p id="top-detail">Kakirawa West</p>
+                <p id="top-detail-1">Kakirawa West</p>
               </div>
     </div>
             <div class="cards">
