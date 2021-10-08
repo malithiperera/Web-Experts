@@ -48,17 +48,15 @@
         }
         .icons{
             position:absolute;
-            top:100px;
+            top:108px;
             display:flex;
             flex-direction:column;
         }
         .icons a{
-            margin-bottom:30px;
+            margin-bottom:40px;
             margin-left: 20px;
         }
-        .icons a i .fas:hover{
-            color:#1d1b31;
-        }
+        
         .links{
             position:absolute;
             top:100px;
@@ -71,9 +69,14 @@
             margin-bottom:30px;
             margin-left:80px;
             text-decoration:none;
+            width:130px;
+            padding:5px;
+            border-radius:10px;
+            padding-left:15px;
         }
         .links a:hover{
             color:#1d1b31;
+            background-color:white;
         }
         .sidebar_footer{
             position:absolute;
