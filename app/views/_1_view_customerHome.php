@@ -133,12 +133,16 @@ if(!isset($_SESSION['username'])){
 
     <div class="top">
     <div class="card-1">
-                <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
+                <p><i class="fas fa-user-tie"></i><br>Customer Id</p>
                 <p id="top-detail-1"><?php echo $_SESSION['userid'] ;?></p>
               </div>
               <div class="card-1">
                 <p><i class="fas fa-map-marker"></i><br>Route</p>
                 <p id="top-detail-1">Kakirawa West</p>
+              </div>
+              <div class="card-1">
+                <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
+                <p id="top-detail-1">M.R Perera</p>
               </div>
     </div>
             <div class="cards">
@@ -195,6 +199,7 @@ if(!isset($_SESSION['username'])){
            </div>
          </div>
          <div class="right">
+         
            <div class="orders">
              <h2>Pending Orders</h2>
              <div class="field">
@@ -205,6 +210,7 @@ if(!isset($_SESSION['username'])){
               <div class="content">
               <a href="">view</a>
               </div>
+              
               </div>
               <div class="field">
                 <div class="order-no">
@@ -224,8 +230,9 @@ if(!isset($_SESSION['username'])){
                <a href="">view</a>
                </div>
                </div>
-               <div class="field"><a href="../customer/my_order">go to page</a></div>
+               <div class="field"><button onclick=pop_func()>View Orders</button>
               </div>
+      </div>
              
          <div class="payment">
           <h2>Due Payment</h2>
@@ -251,6 +258,7 @@ if(!isset($_SESSION['username'])){
          </div>
          
         </div> 
+        
          </section>
 
 
@@ -258,7 +266,7 @@ if(!isset($_SESSION['username'])){
 
   
   <script src="../../public/java script/view_customer_Home.js"></script>
-  
+ 
 
 </body>
 </html>

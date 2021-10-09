@@ -21,5 +21,13 @@ function menuBtnChange() {
  }
 }
 
+function pop_func()
+{
+  
+  let blur = document.querySelector(".orders");
+ 
+blur.classList.toggle('active');
 
+
+}
 
