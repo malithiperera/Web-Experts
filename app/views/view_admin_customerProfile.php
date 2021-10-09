@@ -48,16 +48,13 @@
         }
         .icons{
             position:absolute;
-            top:100px;
+            top:150px;
             display:flex;
             flex-direction:column;
         }
         .icons a{
-            margin-bottom:30px;
+            margin-bottom:50px;
             margin-left: 20px;
-        }
-        .icons a i .fas:hover{
-            color:#1d1b31;
         }
         .links{
             position:absolute;
@@ -69,7 +66,8 @@
         }
         .links a{
             margin-bottom:50px;
-            margin-left:30px;
+            margin-left:60px;
+            width:230px;
             text-decoration:none;
         }
         .links a:hover{
@@ -159,6 +157,40 @@
         padding:10px;
         border:1px solid #184A78;
        }
+       .popup_send_warning{
+           position:fixed;
+           top:100px;
+           width:100%;
+           display:flex;
+           justify-content:center;
+           z-index: 1000;
+           visibility:hidden;
+       }
+       .send_warning_message{
+           width:400px;
+           height:350px;
+           background-color:white;
+           border:4px solid #184A78;
+           border-radius:20px;
+       }
+       .send_warning_message label{
+           color:#184A78;
+           display:block;
+           margin:20px;
+       }
+       
+       .send_warning_message input, .send_warning_message textarea{
+           color:#184A78;
+       }
+       .message_input{
+           margin-left:10px;
+       }
+       .submit{
+           margin-top:30px;
+           padding:5px;
+           border-radius:20px;
+           margin-left:160px;
+       }
     </style>
 </head>
 <body>
@@ -168,25 +200,20 @@
         <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
         <i class="fas fa-bars fa-lg"></i>
         <i class="fas fa-align-right fa-lg"></i>
-        <!-- <div class="icons">
+        <div class="icons">
             <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
-            <a href="#" onclick="popup_message()"><i class="fas fa-landmark fa-lg"></i></a>
+            <a href="#"><i class="fas fa-landmark fa-lg"></i></a>
             <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
-            <a href="../admin/viewReport"><i class="fas fa-chart-line fa-lg"></i></a>
-            <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
-            <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
-            <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
-            <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
-            <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
-            <a href="logout"><i class="fas fa-sign-out-alt fa-lg"></i></a>
-        </div> -->
+            <a href="#"><i class="fas fa-chart-line fa-lg"></i></a>
+            <a href="#"><i class="fas fa-user-plus fa-lg"></i></a>
+        </div>
 
         <div class="links">
             <a href="#">REPORTS</a>
             <a href="#">UPDATE STATUS</a>
             <a href="#">UPDATE CREDIT PERIOD</a>
             <a href="#">UPDATE CHEQUE STATUS</a>
-            <a href="#">SEND WARNING</a>
+            <a href="#" onclick="send_warning()">SEND WARNING</a>
             
         </div>
         <div class="sidebar_footer">
@@ -195,6 +222,17 @@
                 <p class="username"><?php echo $_SESSION['username'];?></p>
             </div>
         </div>
+    </div>
+
+    <div class="popup_send_warning">
+       <div class="send_warning_message">
+            <form action="#" method="post"></form>
+            <label for="" class="cus_id">Customer Id : 0001</label>
+            <label for="" class="cus_name">Customer Name : Kamal</label>          
+            <label for="" class="message_label">Message : </label>
+            <textarea name="message" rows="5" cols="50" placeholder="Type Message Here..." class="message_input"></textarea>
+            <input type="submit" name="submit" class="submit">
+       </div>
     </div>
 
     
@@ -311,7 +349,7 @@
             var id = setInterval(frame, 10);
 
             function frame(){
-                if(sidebar.style.width == "250px"){
+                if(sidebar.style.width == "300px"){
                     var id1 = setInterval(frame1, 10);
                     opacity = 0;
                     function frame1(){
@@ -345,7 +383,7 @@
         });
 
         closebtn.addEventListener("click", function(){
-            let widthdiv = 250;
+            let widthdiv = 300;
             let opacity = 100;
 
             var id = setInterval(frame, 20);
@@ -369,6 +407,25 @@
             closebtn.style.visibility = "hidden";
             openbtn.style.visibility = "visible";
         });
+    </script>
+
+    <!-- script for send warning -->
+    <script>
+        let popup_send_warning = document.querySelector(".popup_send_warning");
+        
+        function send_warning(){
+            popup_send_warning.style.visibility = "visible";
+            sidebar.style.opacity = "30%";
+            container.style.opacity = "30%";
+        }
+        window.onclick = function(event) {
+            if (event.target == popup_send_warning) {
+                popup_send_warning.style.visibility = "hidden";
+                sidebar.style.opacity = "100%";
+                container.style.opacity = "100%";
+            }
+        }
+
     </script>
 
 

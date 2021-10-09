@@ -21,7 +21,7 @@
                 <label class="label_inStock" for="quantity">In Stock</label><br>
                 <input class="input_inStock" type="text" name="quantity" id="quantity">
 
-                <script src="manageStocks.js"></script>
+                <script src="../../public/java script/manageStocks.js"></script>
 
                 <button class="addBtn" onclick="showHideAdd ()">+</button>
                 <button class="removeBtn" onclick="showHideRemove ()">-</button><br><br>

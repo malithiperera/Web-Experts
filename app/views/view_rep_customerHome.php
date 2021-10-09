@@ -72,19 +72,19 @@
     <section class="cards-section">
             <div class="cards">
               <div class="card">
-                <p><br>Customer ID</p>
+                <p><i class="fas fa-user"></i><br>Customer ID</p>
                 <p id="result">C1025</p>
               </div>
               <div class="card">
-                <p><br>Route ID</p>
+                <p><i class="fas fa-map-marker-alt"></i><br>Route ID</p>
                 <p id="result">103</p>
             </div>
               <div class="card" >
-                <p><br>Status</p>
+                <p><i class="fas fa-toggle-on"></i><br>Status</p>
                 <p id="result">Active</p>
             </div>
             <div class="card">
-                <p><br>Credit Period</p>
+                <p><i class="fas fa-credit-card"></i><br>Credit Period</p>
                 <p id="result">30 days</p>
             </div>
             
