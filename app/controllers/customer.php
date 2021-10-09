@@ -27,7 +27,7 @@ class customer extends controller{
     
 public function view_report()
 {
-    $this->view->render('view_customer_viewreport');
+    $this->view->render('test1');
 }
 
 public function view_notification(){

@@ -29,24 +29,25 @@ body{
 .container{
     /* margin-top: 100px; */
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
      margin-bottom: 40px; 
 }
 
 .card{
     margin-top: 100px; 
-    background-color: rgb(211, 155, 155);
-    width: 200px;
-    height: 340px;
+    background-color: rgb(6, 24, 87);
+    width: 300px;
+    height: 440px;
 margin: 10px;
 border-radius:15px;
+color: #fff;
 
 
 }
 .card-image{
     background-color: rgb(255, 255, 255);
-    height: 200px;
+    height: 250px;
     margin-bottom: 15px;
     overflow: hidden;
     border-radius: 15px 15px 0 0;
@@ -140,7 +141,7 @@ border-radius:15px;
     gap:1.5rem; */
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap:wrap;
 
 }
@@ -157,7 +158,7 @@ text-transform: uppercase;
 .icecream .main-card{
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap:wrap;
 
 }
@@ -173,7 +174,7 @@ text-transform: uppercase;
     .curd .main-card{
         margin-top: 20px;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-wrap:wrap;
     
     }
