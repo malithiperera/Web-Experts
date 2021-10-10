@@ -166,20 +166,20 @@
            z-index: 1000;
            visibility:hidden;
        }
-       .send_warning_message{
+       .send_warning_message, .cheque_status_form{
            width:400px;
            height:350px;
            background-color:white;
            border:4px solid #184A78;
            border-radius:20px;
        }
-       .send_warning_message label{
+       .send_warning_message label, .popup_cheque_status label{
            color:#184A78;
            display:block;
            margin:20px;
        }
        
-       .send_warning_message input, .send_warning_message textarea{
+       .send_warning_message input, .send_warning_message textarea, .popup_cheque_status input, .popup_cheque_status textarea{
            color:#184A78;
        }
        .message_input{
@@ -191,6 +191,16 @@
            border-radius:20px;
            margin-left:160px;
        }
+       .popup_cheque_status{
+           position:fixed;
+           top:100px;
+           width:100%;
+           display:flex;
+           justify-content:center;
+           z-index: 1000;
+           visibility:hidden;
+       }
+       
     </style>
 </head>
 <body>
@@ -235,7 +245,17 @@
        </div>
     </div>
 
-    
+    <div class="popup_cheque_status">
+        <div class="cheque_status_form">
+            <label for="">Cheque Number : 982962641</label>
+            <label for="">Bank : Bank Of Ceylon</label>
+            <label for="">Bank Branch : Andiambalama</label>
+            <label for="">Change Status : </label>
+            <label for="">if returned : </label>
+            <textarea name="reason" id="reason" cols="50" rows="5"></textarea>
+        </div>
+        
+    </div>
     
     <div class="container">
        <div class="cards">
