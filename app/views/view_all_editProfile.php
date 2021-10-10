@@ -20,14 +20,14 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         body{
-            background-color:#D8E9EB;
+            background-color:#ffffff;
         }
         .header{
             z-index: 3000;
         }
         .container{
             position: relative;
-            top: 100px;
+            top: 120px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -44,17 +44,20 @@
             flex-direction: column;
             justify-content: center;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+           
             border-radius:5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
         .subcontainer1{
-            margin: 10px;
+            position: relative;
+            margin-left: 300px;
             width: 700px;
             height: 30px;
             border-radius:5px;
-            /* background-color: #D8E9EB; */
-            text-align: center;
-            flex-wrap: wrap;
+            display:flex;
+            flex-direction:column;
+            justify-content:center; 
+        
         }
         .subcontainer1 p{
             color: #184A78;
@@ -64,10 +67,13 @@
         }
         .subcontainer2{
             margin: 10px;
+            margin-top:50px;
             width: 700px;
-            height: 450px;
+            height: hidden;
+           
             
             background-color: #D8E9EB;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             display: flex;
             border-radius:10px;
             justify-content: space-evenly;
@@ -76,22 +82,41 @@
         .labels{
             margin-top: 20px;
             display: flex;
-            /* padding:20px; */
+           
             flex-direction: column;
         }
         .labels label{
             margin-bottom: 20px;
             color: #184A78;
+            padding:15px;
         }
         .inputs{
             margin-top: 20px;
             display: flex;
             flex-direction: column;   
         }
+        .photo{
+            margin-left:10px;
+            height:60px;
+            width:60px;
+            background-color: transparent;
+            border-radius:50%;
+            border:2px solid black;
+        }
+        .photo img{
+            height:60px;
+            width:60px;
+            border-radius:50%;
+        }
+        .name p{
+            display:flex;
+
+        }
         .inputs input{
             color: #184A78;
             margin-bottom: 22px;
             margin-top: 1px;
+            padding: 15px;
             background-color: transparent;
             border: none;
             outline: none;
@@ -105,6 +130,7 @@
             display: flex;
             flex-direction: column;
             margin-top: 20px;
+        
             cursor:pointer;
         }
         .edit_button button {
@@ -112,7 +138,8 @@
             margin-bottom: 22px;
             border: transparent;
             outline: transparent;
-            background-color: none;
+            background-color: transparent;
+            padding:15px;
             margin-top: 2px;   
         }
         i{
@@ -133,7 +160,7 @@
             background-color: #184A78;
             width: 200px;
             height: 40px;
-            :
+            
             margin-top: 5px;
             border-radius: 5px;
            
@@ -162,7 +189,10 @@
     <div class="container">
         <div class="container1">
             <div class="subcontainer1">
+            <div class="photo"><img src="../../public/images/profile.png" alt=""> </div>
+            <div class="name">
                 <p><?php echo $_SESSION['username'] ;?></p>
+    </div>
             </div>
             <div class="subcontainer2">
                 <div class="labels">
