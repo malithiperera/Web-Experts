@@ -30,6 +30,18 @@ $result=$conn->query($sql);
 return $result;
    }
 
+   public function customer_home_detail_check($userid){
+    require '../app/core/database.php';
+    $sql="SELECT * FROM orders WHERE cus_id='$userid' AND status='pending' ";
+    $query=mysqli_query($conn,$sql);
+    if($query==true)
+    {
+        
+        return $query;
+    }
+ 
+}
+
 }
 
 ?>

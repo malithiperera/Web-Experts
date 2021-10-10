@@ -90,10 +90,6 @@
 
 
     </div>
-    <div class="footer">
-        <?php
-        require 'view_footer.php';
-        ?>
-    </div>
+   
 </body>
 </html>

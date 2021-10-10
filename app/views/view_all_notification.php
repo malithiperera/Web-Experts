@@ -1,121 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #184A78;
-        }
-        body{
-            background-color: #fff;
-        }
-        .header{
-            z-index: 3000;
-        }
-        h1{
-            position:relative;
-            top: 120px;
-            z-index: 1;
-            padding-left:10px;
-        }
-        .container{
-            padding:20px;
-            position: relative;
-            top: 150px;
-            width: 95%;
-            display: flex;
-            flex-direction: column;
-            z-index: 1;
-        }
-        .subcontainer1{
-            width: 100%;
-            height: 60px;
-            border: 1px solid black;
-            display: flex;
-            justify-content: space-evenly;
-            background:#184A78;
-            
-        }
-        .category{ 
-            text-align: center;
-          
-           
-        }
-        .category p{
-            margin-top: 8px;
-            color:#fff;
-        }
-        .subcontainer2{
-            display: flex;
-            flex-direction: column;
-        }
-        .notification{
-            width: 100%;
-            height: 40px;
-            border: 1px solid black;
-            display:flex;
-        }
-        .from{
-            width:60px;
-            margin-top:10px;
-            margin-bottom:10px;
-            margin-left:150px;
-            overflow:hidden;
-            text-overflow:ellipsis;
-            white-space:nowrap;
-        }
-        .header_notification{
-            width:250px;
-            margin-top:10px;
-            margin-bottom:10px;
-            margin-left:30px;
-            overflow:hidden;
-            text-overflow:ellipsis;
-            white-space:nowrap;
-        }
-        .message_notification{
-            width:800px;
-            margin-top:10px;
-            margin-bottom:10px;
-            overflow:hidden;
-            text-overflow:ellipsis;
-            margin-left:30px;
-            white-space: nowrap; 
-        }
-        .delete{
-            margin-top:10px;
-            margin-left:30px;
-        }
-    </style>
-</head>
-<body>
-        <div class="header">
-            <?php require 'view_headerType2.php'; ?>
-        </div>
-        
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+?>
 
-    <h1>NOTIFICATIONS</h1>
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Home </title>
+    <link rel="stylesheet" href="../../public/styles/view_all_notification.css">
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+     
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      
+        <div class="logo_name">Himalee Dairy Product</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <!-- <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li> -->
+      <li>
+        <a href="#">
+          <i class='bx bx-home' ></i>
+          <span class="links_name">Home</span>
+        </a>
+         <span class="tooltip">Home</span>
+      </li>
+      <li>
+       <a href="../orders/create_bill">
+        
+       <i class="fas fa-truck"></i>
+         <span class="links_name">Confirmations</span>
+       </a>
+       <span class="tooltip">Confirmations</span>
+     </li>
+     <li>
+       <a href="../customer/my_order">
+       <i class="fas fa-file-invoice"></i>
+         <span class="links_name">Bills</span>
+       </a>
+       <span class="tooltip">Bills</span>
+     </li>
+     <li>
+       <a href="../customer/view_report">
+       <i class="fas fa-percentage"></i>
+         <span class="links_name">Discounts</span>
+       </a>
+       <span class="tooltip">Discounts</span>
+     </li>
+     <li>
+       <a href="../customer/our_products">
+       <i class="fas fa-envelope-open-text"></i>
+         <span class="links_name">Others</span>
+       </a>
+       <span class="tooltip">Others</span>
+     </li>
+     
+     <li>
+       <a href="../customer/profile">
+       <i class="far fa-user-circle"></i>
+         <span class="links_name">Profile</span>
+       </a>
+       <span class="tooltip">Profile</span>
+     </li>
+     <li>
+       <a href="logout">
+       <i class="fas fa-sign-out-alt"></i>
+         <span class="links_name">Logout</span>
+       </a>
+       <span class="tooltip">Logout</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="profile.jpg" alt="profileImg">
+           <div class="name_job">
+             <div class="name"><?php echo $_SESSION['username'];?></div>
+             <div class="job">Customer</div>
+           </div>
+         </div>
+         <i class="fas fa-store" id="log_out"></i>
+     </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+  <!-- <h1>NOTIFICATIONS</h1> -->
     <div class="container">
-        <div class="subcontainer1">
-            <div class="category">
-                <p>PAYMENTS</p>
-                <p>10</p>
-            </div>
-            <div class="category">
-                <p>BILLS</p>
-                <p>10</p>
-            </div>
-            <div class="category">
-                <p>OTHER</p>
-                <p>10</p>
-            </div>
-        </div>
+       
         <div class="subcontainer2">
             <?php
             
@@ -143,8 +130,13 @@
                               Debitis laudantium perspiciatis unde.
                         </div>
                         <div class='delete'>
-                       <a> <i class='fas fa-trash'></i></a>
                         
+                        <div class='trash'>
+                       <a> <i class='fas fa-trash'></i></a>
+                       </div>
+                       <div class='trash'>
+                       <a>  <i class='fas fa-archive'></i></a>
+                       </div>
                         </div>
                       </div>";
             }
@@ -155,9 +147,11 @@
         </div>
     </div>
     
-
-
-   
+  </section>
+  
+  
+  <script src="../../public/java script/view_customer_Home.js"></script>
 </body>
 </html>
+
 

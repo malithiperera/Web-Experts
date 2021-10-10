@@ -6,6 +6,19 @@ class login extends controller{
         parent::__construct();
     }
 
+
+
+    public function customer_home($userid)
+    {
+        echo $userid;
+        
+        $result=$this->model->customer_home_detail_check($userid);
+       
+        session_start();
+    
+        // $this->view->render("view_customer_placeorder");
+    }
+
     public function index(){
         echo "404 ERROR";
     }
@@ -35,11 +48,14 @@ class login extends controller{
             $_SESSION['username'] = $username;
             $_SESSION['userid']=$row['user_id'];
 // echo $_SESSION['userid'];
+ 
+
+// $this->view->render('')
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
            
 
             // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
-
+           
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
@@ -65,7 +81,49 @@ class login extends controller{
     } 
 
     public function test(){
-        $this->view->render('test');
+        $this->view->render('test2');
+    }
+
+    //this is the point
+    public function test2(){
+
+        /*if(isset($_POST['data'])){
+            $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+            echo json_encode($age);
+        }
+        else{
+            $age = array("dineth"=>35, "Ben"=>37, "Joe"=>43);
+            echo json_encode($age);
+        }*/
+        $data = [];
+        if($_SERVER['REQUEST_METHOD'] !== 'POST')
+        {
+            $data['statusCode'] = 405;
+            $data['success'] = false;
+            $data['messages'] = 'Method not allowed';
+            echo json_encode($data);
+            exit;
+        }
+
+        if(!($body = json_decode(file_get_contents('php://input'))))
+        {
+            $data['statusCode'] = 400;
+            $data['success'] = false;
+            $data['messages'] = 'Invalid request body';
+            echo json_encode($data);
+            exit;
+        }
+
+        $data['statusCode'] = 200;
+        $data['success'] = true;
+        $data['messages'] = 'Request Success';
+        $data['data'] = [
+            'dineth' => 35,
+            'ben' => 37
+        ];
+        echo json_encode($data);
+        exit;
+        
     }
 
     public function resetMail(){ 
@@ -129,4 +187,7 @@ class login extends controller{
         session_destroy();
         header("Location: http://localhost/web-Experts/public/login/login");
     }
+
+
+   
 }

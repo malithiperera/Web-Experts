@@ -24,10 +24,21 @@ function menuBtnChange() {
 function pop_func()
 {
   
-  let blur = document.querySelector(".orders");
+  let blur = document.querySelector(".home-section");
  
-blur.classList.toggle('active');
+// blur.classList.toggle('active');
 
+let pop_up=document.querySelector(".pop-up");
 
+pop_up.style.visibility="visible";
+blur.style.opacity="0.5";
+
+window.onclick = function(event) {
+  if (event.target == pop_up) {
+      pop_up.style.visibility = "hidden";
+      // sidebar.style.opacity = "100%";
+      blur.style.opacity = "100%";
+  }
+}
 }
 
