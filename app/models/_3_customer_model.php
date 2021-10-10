@@ -21,6 +21,15 @@ public function place_order()
 
 }
 
-
+public function customer_home_detail_check($userid){
+    $sql="SELECT * FROM order WHERE cus_id='$userid' AND status='pending'";
+    $query=mysqli_query($conn,$sql);
+    if($query==true)
+    {
+        $data=mysqli_fetch_array($query);
+        return $data;
+    }
+ 
+}
     
 }

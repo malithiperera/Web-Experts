@@ -6,6 +6,19 @@ class login extends controller{
         parent::__construct();
     }
 
+
+
+    public function customer_home($userid)
+    {
+        echo $userid;
+        
+        $result=$this->model->customer_home_detail_check($userid);
+       
+        session_start();
+    
+        // $this->view->render("view_customer_placeorder");
+    }
+
     public function index(){
         echo "404 ERROR";
     }
@@ -35,11 +48,14 @@ class login extends controller{
             $_SESSION['username'] = $username;
             $_SESSION['userid']=$row['user_id'];
 // echo $_SESSION['userid'];
+ 
+
+// $this->view->render('')
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
            
 
             // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
-
+           
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
@@ -129,4 +145,7 @@ class login extends controller{
         session_destroy();
         header("Location: http://localhost/web-Experts/public/login/login");
     }
+
+
+   
 }

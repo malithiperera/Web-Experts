@@ -201,10 +201,12 @@ if(!isset($_SESSION['username'])){
          <div class="right">
          
            <div class="orders">
+
              <h2>Pending Orders</h2>
+
              <div class="field">
                <div class="order-no">
-              <p class="onum">001</p>
+              <p class="onum"></p>
               <p class="date">2019.09.19</p>
               </div>
               <div class="content">
@@ -212,8 +214,8 @@ if(!isset($_SESSION['username'])){
               </div>
               
               </div>
-              <div class="field">
-                <div class="order-no">
+
+                <!-- <div class="order-no">
                <p class="onum">001</p>
                <p class="date">2019.09.19</p>
                </div>
@@ -229,7 +231,7 @@ if(!isset($_SESSION['username'])){
                <div class="content">
                <a href="">view</a>
                </div>
-               </div>
+               </div> -->
                <div class="field"><button onclick=pop_func()>View Orders</button>
               </div>
       </div>
@@ -260,10 +262,28 @@ if(!isset($_SESSION['username'])){
         </div> 
         
          </section>
-
-
+        
+        
   </section>
+ 
+  <div class="pop-up">
+<div class="order-pop">
+<table>
+  <tr>
+    <th>Order Id</th>
+    <th>Irder Date</th>
+    <th>Order Id</th>
+    <th>Irder Date</th>
+  </tr>
+  <tr>
+    <td>009</td>
+    <td>99888</td>
+    <td>0890</td>
+  </tr>
+</table>
+</div>   
 
+</div> 
   
   <script src="../../public/java script/view_customer_Home.js"></script>
  
