@@ -253,6 +253,13 @@
             document.getElementById('address').removeAttribute('readonly');
             document.getElementById('address').classList.add("editclass");
         }
+        window.onclick = function(event) {
+  if (event.target == name) {
+    document.getElementById('address').classList.remove("editclass");
+    //   // sidebar.style.opacity = "100%";
+    //   blur.style.opacity = "100%";
+  }
+}
     </script>
 
 </body>

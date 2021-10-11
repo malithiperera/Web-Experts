@@ -100,6 +100,17 @@
   display: none;
 }
 
+#payhere-payment {
+  background:none;
+  outline: none;
+  border: none;
+  
+}
+#payhere-payment i{
+  color:rgb(0, 0, 0);
+  font-size: 20px;
+}
+
 
 .sidebar .bx-search{
   position: absolute;
@@ -470,8 +481,20 @@ align-items: center;
 .pop-up-orders.visible{
   opacity: 1;
 }
+.edit{
+  color: rgb(255, 255, 255);
+  background-color: green;
+  /* border: 1px solid black; */
+  width: 60px;
+  border-radius: 5px;
+}
 
+.delete{
+  background-color: red;
+  width: 60px;
+  border-radius: 5px;
 
+}
 
 
 @media(max-width:990px) and (min-width:752px ){
@@ -581,6 +604,7 @@ align-items: center;
   z-index: 1000000;
 visibility: hidden;
   color: #fff;
+ 
   
   
 }
@@ -588,18 +612,80 @@ visibility: hidden;
   margin-top: 100px;
   background-color: rgb(255, 255, 255);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 700px;
   height: 500px;
   z-index: 1000000;
   color: #11101d;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 
 }
 .pop-up .order-pop table{
   color: rgb(0, 0, 0);
 }
-
+.confirm{
+  width: 400px;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.confirm h2{
+  color: rgb(240, 74, 74);
+  text-transform: uppercase;
+}
+.confirm button{
+  background-color: rgb(35,143,59);
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  
+}
+.confirm a{
+  color:rgb(0, 0, 0);
+}
 /* div:not(.pop-up) > div {
   opacity: 0.5;
 } */
+
+th{
+  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+
+}
+
+table th {
+  color: #000000;
+  background: #4FC3A1;
+}
+
+
+table th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+td{
+  padding: 5px;
+  background-color: rgb(216, 216, 216);
+  text-align: center;
+}
+.order-pop h3{
+  padding: 25px;
+}
+.show{
+  background: #184A78;
+  color: #fff;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+}
