@@ -5,12 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Home </title>
-    <link rel="stylesheet" href="style.css">
     <!-- Box icons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../../public/styles/viewStocks.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -79,7 +77,7 @@
             </li>
             <li>
                 <a href="#">
-                <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-chart-line"></i>
                     <span class="links_name">View Reports</span>
                 </a>
                 <span class="tooltip">View Reports</span>
@@ -93,7 +91,7 @@
             </li> -->
             <li>
                 <a href="#">
-                <i class="fas fa-user"></i>
+                    <i class="fas fa-user"></i>
                     <span class="links_name">Profile</span>
                 </a>
                 <span class="tooltip">Profile</span>
@@ -121,8 +119,8 @@
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>
-            </li> 
-        </ul> 
+            </li>
+        </ul>
     </div>
     <section class="home-section">
         <section class="cards-section">
@@ -143,7 +141,7 @@
                     <p><i class="fas fa-envelope"></i><br>Rep Requests</p>
                     <p>10</p>
                 </div>
-                
+
 
 
             </div>
@@ -221,44 +219,52 @@
         </div> -->
 
             <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Product</th>
-                    <th>Current Stock</th>
-                    <th>Unit Price</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Product</th>
+                        <th>Current Stock</th>
+                        <th>Unit Price</th>
 
-                <tr>
-                    <td><a href="../stockManager/product_profile">1</a></td>
-                    <td>test</td>
-                    <td>1000</td>
-                    <td>100</td>
-                </tr>
+                    </tr>
 
-                <tr>
-                    <td>1</td>
-                    <td>test</td>
-                    <td>1000</td>
-                    <td>100</td>
-                </tr>
+                </thead>
 
-                <tr>
-                    <td>1</td>
-                    <td>test</td>
-                    <td>1000</td>
-                    <td>100</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td><a href="../stockManager/product_profile">1</a></td>
+                        <td><a href="../stockManager/product_profile">test_1</a></td>
+                        <td>1000</td>
+                        <td>100</td>
+                    </tr>
 
-                <tr>
-                    <td>1</td>
-                    <td>test</td>
-                    <td>1000</td>
-                    <td>100</td>
-                </tr>
+                    <tr>
+                        <td><a href="../stockManager/product_profile">2</a></td>
+                        <td><a href="../stockManager/product_profile">test_2</a></td>
+                        <td>2000</td>
+                        <td>200</td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="../stockManager/product_profile">3</a></td>
+                        <td><a href="../stockManager/product_profile">test_3</a></td>
+                        <td>3000</td>
+                        <td>300</td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="../stockManager/product_profile">4</a></td>
+                        <td><a href="../stockManager/product_profile">test_4</a></td>
+                        <td>4000</td>
+                        <td>400</td>
+                    </tr>
+
+                </tbody>
+
             </table>
 
             <div class="add"><br><br><br><br>
-               <a href="../stockManager/add_product"><button class="add" >Add</button><br></a> 
+                <a href="../stockManager/add_product"><button class="add">Add</button><br></a>
 
             </div>
 

@@ -25,15 +25,26 @@
     font-size: large;
     background-color: #184A78;
     color: white;
+    border-radius: 10px;
 
 }
 .inStock {                                                          /* 'in stock' division */
     /*background-color: greenyellow;*/
-    width: 60%;
-    height: 150px;
-    margin: auto;
+    width: 20%;
+    height: 33%;
+    /*margin: auto; */
     position: relative;
+    left: 10%;
     
+}
+.input_inStock {                                            /* input of " in stock " */
+    width: 40%;
+    /*background-color: black;*/
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    border-color: white;
+    
+
 }
 .input_inStock, .input_discount, .input_buy, .input_get {            /* input boxes of 'in stock' and 'Discount'  'Buy'and 'Get' */
     padding: 10px;
@@ -50,9 +61,20 @@
     height: 40px;
     border-radius: 50%;
     font-size: xx-large;
-    background-color: white;
+    background-color: #184A78;
+    color: white;
+
+}/*
+.addBtn {
+    position: absolute;
+    left: 60%;
 
 }
+.removeBtn {
+    position: absolute;
+    right: 5%;
+
+}*/
 .withRep {                                                          /* 'With Rep' division */
     width: 50%;
     height: 290px;
@@ -60,24 +82,35 @@
     
 }
 table, td, th {
-    border: 1px solid;
+    border: 0px solid;
     border-collapse: collapse;
     
 }
 tr {
     height: 30px;
+    border-bottom: 1px solid #dddd;
+
+}
+tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+
 }
 table {
     margin: auto;
     width: 90%;
 
 }
+thead {
+    background-color: #184A78;
+    color: white;
+    text-align: left;
+}
 .text_withRep {                                                     /* 'With Rep' text */
     position: relative;
-    left: 10%;
+    left: 5%;
 
 }
-.discount {                                                         /* 'Discount division */
+.discount {                                                         /* 'Discount' division */
     width: 50%;
     position: absolute;
     right: 0;
@@ -96,53 +129,160 @@ table {
 }
 .or {                                                               /* 'OR' text in 'Discount' */
     position: absolute;
-    right: 50%;
+    left: 25%;
 
-}
-.input_discount, .label_discount, .input_buy, .input_get, .label_buy, .label_get{
-    position: relative;
-    left: 20px;
 }
 .inputAdd {                                                         /* input text of "+" */
-    width: 200px;
-    height: 60px;
+    width: 50%;
+    height: 25%;
     border-radius: 10px;
-    /*background-color: black;*/
+    background-color: #dddd;
     visibility: hidden;
-
-}
-.inputRemove {          /* input textbox of "-" */
-    width: 300px;
-    height: 120px;
-    border-radius: 10px;
-    /*background-color: black;*/
-    /*visibility: hidden;*/
     position: absolute;
-    top: 20px;
-    right: 20px;
+    bottom: 10%;
+    right: 0%;
 
 }
-.divInputRemove {                   /* division of the form of "-" */
-    /*background-color: blueviolet;*/
-    width: 320px;
-    height: 150px;
+
+.divInputRemove {                                                   /* division of the form of "-" */
+    /* background-color: blueviolet; */
+    width: 30%;                         
+    height: 25%;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 10%;
+    left: 30%;
 
 }
-.removeStocksFieldset {         /* fieldset of the text box of "-" */
-    width: 315px;
-    height: 144px;
+.removeStocksFieldset {                                             /* fieldset of the text box of "-" */
+    width: 80%;
+    height: 80%;
     border-radius: 10px;
     position: absolute;
-    right: 0;
+    left: 0%;
     visibility: hidden;
+    padding: 10PX 10px;
+    background-color: #dddd;
 
 }
-.inputRemoveReason {        /* input text of " reason " in "-" */
-    height: 100px;
+.inputRemoveQuantity {                                          /* input text of " quantity " in " - " */
+    width: 70%;
+    position: absolute;
+    left: 25%;
+
+}
+.inputRemoveReason {                                                /* input text of " reason " in "-" */
+    width: 70%;
+    height: 40%;         
     padding: 1px;
     align-items: center;
+    position: absolute;
+    left: 25%;
+
+}
+.div_currentPrice {                                    /* division "current price" */
+    /* background-color: darkcyan; */
+    position: absolute;
+    right: 8%;
+    top: 10%;
+    width: 30%;
+    height: 7%;
+    padding: 1%;
+    font-size: x-large;
+
+}
+.input_currentPrice {                     /* input field of " current Price " */
+    width: 23%;
+    height: 80%;
+    font-size: large;
+    border-color: #f3f3f3;
+    background-color: #f3f3f3;
+
+}
+.btn_change {                                   /* btn " change " */
+    width: 25%;
+    height: 45%;
+    position: absolute;
+    right: 5%;
+    background-color: #165692;
+    color: aliceblue;
+    border-radius: 10px;
+
+}
+.div_newPrice {                                                     /* division of " newPrice " */
+    background-color: #dddd;
+    position: absolute;
+    right: 8%;
+    top: 20%;
+    width: 30%;
+    padding: 1%;
+    height: 7%;
+    visibility: hidden;
+    font-size: x-large;
+
+}
+.input_newPrice {                                  /* input field of " new Price " */   
+    width: 22%;
+    height: 50%;
+    position: absolute;
+    left: 41%;
+    font-size: large;
+    border-color: #f3f3f3;
+
+}
+.btn_update {                                   /* btn " update " */
+    width: 25%;
+    height: 45%;
+    position: absolute;
+    right: 5%;
+    background-color: #165692;
+    color: aliceblue;
+    border-radius: 10px;
+
+}
+.input_discount, .input_buy, .input_get {               /* inputs of " percentage ", " buy ", "get " */
+    width: 10%;
+
+}
+.label_discount {                       /* lable of " percentage " */
+    position: absolute;
+    left: 6%;
+
+}
+.input_discount {
+    position: absolute;
+    left: 6%;
+    border-radius: 10px;
+    border-color: #f3f3f3;
+    background-color: #dddd;
+    
+}
+.input_buy {
+    position: absolute;
+    left: 45%;
+    top: 75%;
+
+}
+.label_get {
+    position: absolute;
+    right: 30%;
+    top: 77%;
+
+}
+.input_get {
+    position: absolute;
+    right: 12%;
+    top: 75%;
+
+}
+.label_buy {                                    /* lable of " buy " */
+    position: absolute;
+    right: 60%;
+    top: 77%;
+
+}
+.input_buy, .input_get {
+    border-color: white;
+    background-color: #dddd;
+    border-radius: 10px;
 
 }

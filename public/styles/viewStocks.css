@@ -368,15 +368,14 @@ table {
     top: 50px;
 
 }
-th {
-    text-align: left;  
-    background-color: #184A78;    
-    color: #fff;  
-    text-align: center;   /* allign th in to left*/
+thead th {
+    text-align: left;           /* allign th in to left*/
+    background-color: #2277B2;
+    color: #fff;
 
 }
 table, th, td {
-    border: 1px solid #000; 
+    border: 0px solid #000; 
     border-collapse: collapse;      /* remove the space between borders */
 
 }
@@ -384,15 +383,35 @@ th, td {
     padding: 10px;
 
 }
-.add {
+.add {                                  /* add button */
     position: absolute;
     left: 10%;
     top: 55%;
+    color: #FFF;
+    border-radius: 10px;
+    background-color: #2277B2;
+    border-color:  #2277B2;
+
 }
 button {
     font-size: large;
     background-color: #2277B2;
     width: 100px;
     height: 40px;
+
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddd;
+  
+}
+a {
+  text-decoration: none;
+  color: black;
 
 }
