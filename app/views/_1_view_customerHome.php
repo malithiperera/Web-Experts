@@ -18,7 +18,7 @@ if(!isset($_SESSION['username'])){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     
+     <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      <script type="text/javascript">
        google.charts.load('current', {'packages':['corechart']});
@@ -73,13 +73,7 @@ if(!isset($_SESSION['username'])){
        </a>
        <span class="tooltip">Place Order</span>
      </li>
-     <li>
-       <a href="../customer/my_order">
-        <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Orders</span>
-       </a>
-       <span class="tooltip">Orders and payments</span>
-     </li>
+     
      <li>
        <a href="../customer/view_report">
        <i class='bx bx-line-chart'></i>
@@ -199,7 +193,19 @@ if(!isset($_SESSION['username'])){
            </div>
          </div>
          <div class="right">
-         
+
+          <div class="confirm">
+          <h2>Confirmations</h2>
+          <br>
+      
+          <div class="content">
+          <a href=""><p>Order 1</p></a>
+           </div>
+          
+          <button>Confirm</button>
+          
+           </div>
+           
            <div class="orders">
 
              <h2>Pending Orders</h2>
@@ -232,7 +238,7 @@ if(!isset($_SESSION['username'])){
                <a href="">view</a>
                </div>
                </div> -->
-               <div class="field"><button onclick=pop_func()>View Orders</button>
+               <div class="field"><button onclick=pop_func() class="show">Show more</button>
               </div>
       </div>
              
@@ -256,8 +262,9 @@ if(!isset($_SESSION['username'])){
            <a href="">view</a>
            </div>
            </div>
-           <div class="field"><a href="../customer/my_order">go to page</a></div>
+           <div class="field"><button onclick=pop_func() class="show">Show more</button>
          </div>
+         
          
         </div> 
         
@@ -268,22 +275,96 @@ if(!isset($_SESSION['username'])){
  
   <div class="pop-up">
 <div class="order-pop">
+  <h3>Pending orders</h3>
 <table>
   <tr>
     <th>Order Id</th>
-    <th>Irder Date</th>
-    <th>Order Id</th>
-    <th>Irder Date</th>
+    <th>Order Date</th>
+    <th>Amount</th>
+    <th colspan="2"></th>
   </tr>
   <tr>
-    <td>009</td>
-    <td>99888</td>
-    <td>0890</td>
+    <td>001</td>
+    <td>09.10.2021</td>
+    <td>12000</td>
+    <td><button class="edit"><a >Edit</a></button></td>
+    <td><button class="delete"><a >Delete</a></button></td>
+    
+  </tr>
+</table>
+<br>
+<h3>Due Payments</h3>
+<table class="Payments">
+  <tr>
+    <th>Order Id</th>
+    <th>Deliver ID</th>
+    <th>Due Date</th>
+    <th>Amount</th>
+    <th>Pay Now</th>
+  </tr>
+  <tr>
+    <td>001</td>
+    <td>09.10.2021</td>
+    <td>09.10.2021</td>
+    <td>12000</td>
+    <td><button type="submit" id="payhere-payment" ><i class="fas fa-credit-card"></button></td>
+   
+    
   </tr>
 </table>
 </div>   
 
 </div> 
+<script>
+  // Called when user completed the payment. It can be a successful payment or failure
+  payhere.onCompleted = function onCompleted(orderId) {
+        console.log("Payment completed. OrderID:" + orderId);
+        //Note: validate the payment and show success or failure page to the customer
+    };
+
+    // Called when user closes the payment without completing
+    payhere.onDismissed = function onDismissed() {
+        //Note: Prompt user to pay again or show an error page
+        console.log("Payment dismissed");
+    };
+
+    // Called when error happens when initializing payment such as invalid parameters
+    payhere.onError = function onError(error) {
+        // Note: show an error page
+        console.log("Error:"  + error);
+    };
+
+    // Put the payment variables here
+    var payment = {
+        "sandbox": true,
+        "merchant_id": "1218797",    // Replace your Merchant ID
+        "return_url": undefined,     // Important
+        "cancel_url": undefined,     // Important
+        "notify_url": "http://sample.com/notify",
+        "order_id": "ItemNo12345",
+        "items": "Door bell wireles",
+        "amount": "1000.00",
+        "currency": "LKR",
+        "first_name": "Saman",
+        "last_name": "Perera",
+        "email": "samanp@gmail.com",
+        "phone": "0771234567",
+        "address": "No.1, Galle Road",
+        "city": "Colombo",
+        "country": "Sri Lanka",
+        "delivery_address": "No. 46, Galle road, Kalutara South",
+        "delivery_city": "Kalutara",
+        "delivery_country": "Sri Lanka",
+        "custom_1": "",
+        "custom_2": ""
+    };
+
+    // Show the payhere.js popup, when "PayHere Pay" is clicked
+    document.getElementById('payhere-payment').onclick = function (e) {
+        payhere.startPayment(payment);
+    };
+
+</script>
   
   <script src="../../public/java script/view_customer_Home.js"></script>
  
