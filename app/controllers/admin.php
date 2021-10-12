@@ -114,11 +114,29 @@ class admin extends controller{
     }
 
     public function routes(){
+        // 1 get data
+        $this->model('_1_admin_model');
+        // print_r($this->model->load_route()); 
+        // 2 pass view
+        $this->view->result = $this->model->load_route();
+        // 3 render view
+        if(isset($_GET['success'])){
+            echo "successfully added";
+        }
         $this->view->render('view_admin_routes');
     }
     public function add_route(){
         //adding process here
-        header("Location: http://localhost/web-Experts/public/admin/routes");
+        $route_id = $_POST['route_id'];
+        $name = $_POST['route_name'];
+        $destination = $_POST['destination'];
+
+        $this->model('_1_admin_model');
+        $result = $this->model->insert_route($route_id, $name, $destination);
+        if($result == 1){
+            header("Location: http://localhost/web-Experts/public/admin/routes?success=1");
+        }
+        
     }
 
     public function routeProfile(){

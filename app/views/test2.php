@@ -9,6 +9,11 @@
 <body>
 
     <input type="text" onkeyup="fetchText(this.value)">
+    <div class="suggestions">
+        <ul>
+
+        </ul>
+    </div>
     <input type="text" id="product_name">
     <input type="text" id="type">
     
@@ -18,28 +23,9 @@
 
     async function fetchText(value) {
 
-        // const data = { username: 'example' };
+        suggestions = document.querySelector(".suggestions");
 
-        //     //POST request with body equal on data in JSON format
-        //     fetch('http://localhost/web-Experts/public/login/test2', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data),
-        //     }) 
-        //     .then((response) => response.json())
-        //     //Then with the data from the response in JSON...
-        //     .then((data) => {
-        //     console.log('Success:', data);
-        //     })
-        //     //Then with the error genereted...
-        //     .catch((error) => {
-        //     console.error('Error:', error);
-        //     });
-
-
-        let reqBody = {username: 'example'};
+        let reqBody = {product: value};
         const getData = async reqBody => {
             let res = await fetch('http://localhost/web-Experts/public/login/test2', 
             {
@@ -55,13 +41,25 @@
 
         getData(reqBody).then(data => {
             console.log(data);
+            suggestions.innerHTML = ``;
+            data.forEach(myFunction);
+            
+            function myFunction(item) {
+                suggestions.innerHTML += `<li><a href="#" onclick="select_row(${item['unit_price']}, ${item['discount']})">${item['product_name']}</a></li>`;
+            }
+
         }).catch(reason => {
             console.log(reason);
         })
-            
     }
         
-       
+     function select_row(unit_price, discount){
+        $product_name = document.querySelector("#product_name");
+        $type = document.querySelector("#type");
+
+        $product_name.value = unit_price;
+        $type.value = discount;
+     }  
     </script>
 </body>
 </html>
