@@ -14,7 +14,7 @@ class customer extends controller{
         public function place_order(){
             // $this->model->place_order();
 
-             $this->view->render('view_customer_placeorder');
+             $this->view->render('test2');
              }
             public function my_order(){
         $this->view->render('view_customer_orderspayments');
@@ -27,7 +27,7 @@ class customer extends controller{
     
 public function view_report()
 {
-    $this->view->render('test1');
+    $this->view->render('test2');
 }
 
 public function view_notification(){

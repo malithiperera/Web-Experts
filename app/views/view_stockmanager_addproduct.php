@@ -21,7 +21,7 @@ require 'view_headertype2.php';
     <div class="container">
 <div class="form">
     <h3>Product Profile</h3>
-<form action="../product/add_product"  method="post" autocomplete="off">
+<form action="../product/add_product"  method="post" autocomplete="off" enctype="multipart/form-data">
 
 <p>Product Id</p>
 <input type="text" name="id" required>

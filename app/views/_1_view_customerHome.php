@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if(!isset($_SESSION['username'])){
   header("Location:http://localhost/web-Experts/public/login/index");
 }
@@ -171,7 +171,8 @@ if(!isset($_SESSION['username'])){
           
            <div class="discount">
              <h3>New discount Prodcuts</h3>
-             
+    <?php print_r($this->added) ?>
+
              <div class="item">
               <p>H201 Ice cream 80g-10% </p>
               <a href="">View Product</a>
