@@ -87,42 +87,48 @@ class login extends controller{
     //this is the point
     public function test2(){
 
-        /*if(isset($_POST['data'])){
-            $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
-            echo json_encode($age);
-        }
-        else{
-            $age = array("dineth"=>35, "Ben"=>37, "Joe"=>43);
-            echo json_encode($age);
-        }*/
-        $data = [];
-        if($_SERVER['REQUEST_METHOD'] !== 'POST')
-        {
-            $data['statusCode'] = 405;
-            $data['success'] = false;
-            $data['messages'] = 'Method not allowed';
-            echo json_encode($data);
-            exit;
-        }
+        // $data = [];
+        // if($_SERVER['REQUEST_METHOD'] !== 'POST')
+        // {
+        //     $data['statusCode'] = 405;
+        //     $data['success'] = false;
+        //     $data['messages'] = 'Method not allowed';
+        //     echo json_encode($data);
+        //     exit;
+        // }
 
-        if(!($body = json_decode(file_get_contents('php://input'))))
-        {
-            $data['statusCode'] = 400;
-            $data['success'] = false;
-            $data['messages'] = 'Invalid request body';
-            echo json_encode($data);
-            exit;
-        }
+        // if(!($body = json_decode(file_get_contents('php://input'))))
+        // {
+        //     $data['statusCode'] = 400;
+        //     $data['success'] = false;
+        //     $data['messages'] = 'Invalid request body';
+        //     echo json_encode($data);
+        //     exit;
+        // }
 
-        $data['statusCode'] = 200;
-        $data['success'] = true;
-        $data['messages'] = 'Request Success';
-        $data['data'] = [
-            'dineth' => 35,
-            'ben' => 37
-        ];
+        $body = json_decode(file_get_contents('php://input'));
+        $product_name = $body->product;
+        
+        //call to model
+        $this->model('home_model');
+        $result_set = $this->model->search_items($product_name);
+        
+        
+       $data = [];
+    //    $data = $result_set->fetch_assoc();
+       while ( $row = $result_set->fetch_assoc() )
+        {
+            $data[] = $row;
+        }
+    //    $data['name'] = 'dienth';
+
+        // $data['data'] = [
+        //     'return_value' => $product_name
+            
+        // ];
         echo json_encode($data);
         exit;
+       
         
     }
 
