@@ -101,7 +101,18 @@
             
         </tr>
         </thead>
-        <tbody>
+        <?php
+        if($this->result->num_rows>0){
+          while($row=$this->result->fetch_assoc()){
+            echo"<tr>
+                    <td>".$row['orders_id']."</td>
+                    <td>".$row['orders_date']."</td>
+                    <td>".$row['amount']."</td>
+                  </tr>";
+          }
+        }
+      ?>
+        <!-- <tbody>
         <tr>
             
             <td >14501</td>
@@ -141,7 +152,7 @@
   <th>22000</th>
 </tr>
 
-        <tbody>
+        <tbody> -->
     </table>
 </div>
 <h2>DELIVERED</h2>
@@ -155,50 +166,61 @@
             
         </tr>
         </thead>
-        <tbody>
-        <tr>
+        <?php
+        if($this->result->num_rows>0){
+          while($row=$this->result->fetch_assoc()){
+            echo"<tr>
+                    <td>".$row['orders_id']."</td>
+                    <td>".$row['orders_date']."</td>
+                    <td>".$row['amount']."</td>
+                  </tr>";
+          }
+        }
+      ?>
+<!-- //       <tbody>
+//         <tr>
             
-            <td >10256</td>
-            <td>2020.05.23</td>
-            <th>15000</th>
+//             <td >10256</td>
+//             <td>2020.05.23</td>
+//             <th>15000</th>
             
-        </tr>
+//         </tr>
         
-        <tr>
-          <td >10456</td>
-          <td>2020.06.12</td>
-          <th>25000</th>
+//         <tr>
+//           <td >10456</td>
+//           <td>2020.06.12</td>
+//           <th>25000</th>
           
-      </tr>
+//       </tr>
       
-      <tr>
-        <td >11654</td>
-        <td>2020.06.21</td>
-        <th>17000</th>
-    </tr>
+//       <tr>
+//         <td >11654</td>
+//         <td>2020.06.21</td>
+//         <th>17000</th>
+//     </tr>
     
-    <tr>
-      <td>11945</td>
-      <td>2020.07.13</td>
-      <th>18000</th>
-  </tr>
+//     <tr>
+//       <td>11945</td>
+//       <td>2020.07.13</td>
+//       <th>18000</th>
+//   </tr>
  
-  <tr>
-    <td>12564</td>
-    <td>2020.08.03</td>
-    <th>12000</th>
-</tr>
+//   <tr>
+//     <td>12564</td>
+//     <td>2020.08.03</td>
+//     <th>12000</th>
+// </tr>
 
-<tr>
-  <td>12997</td>
-  <td>2020.09.16</td>
-  <th>22000</th>
-</tr>
+// <tr>
+//   <td>12997</td>
+//   <td>2020.09.16</td>
+//   <th>22000</th>
+// </tr>
 
-        <tbody>
+// </tbody>  -->
     </table>
 </div>
-
+<div ><input type="submit" value="Back" id="confirm"></div>
   
 <script src="../../public/java script/view_rep_Home.js"></script>
   
