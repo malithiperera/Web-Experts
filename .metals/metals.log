@@ -161,3 +161,4 @@ INFO: Unsupported notification method: $/setTrace
 [0m2021.10.14 07:10:40 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
 Oct 14, 2021 9:35:59 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+[0m2021.10.14 10:53:12 INFO  shutting down Metals[0m
