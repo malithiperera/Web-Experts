@@ -16,7 +16,7 @@ public function add_product()
     $des=$_POST["des"];
     $price=$_POST["price"];
     // File upload path
-    $targetDir = "../../public/images/uploads/";
+    $targetDir = "../../Web-Experts/public/images/uploads/";
     $fileName = basename($_FILES["file"]["name"]);
     echo $id,$cat;
     $targetFilePath = $targetDir . $fileName;
@@ -41,35 +41,34 @@ public function add_product()
             if($result){
                 $error= "Record Successfuly added";
                 $_SESSION["error"] = $error;
-                header("location: index.php");
-              header("Location:index.php");
+               
            
           
             }
             else{
                 $error = "File upload failed, please try again.";
                 $_SESSION["error"] = $error;
-                header("location: index.php");
-                echo mysqli_error($db);
+               
+              
                
             } 
 }
 else{
     $error = "Sorry, there was an error uploading your file.";
     $_SESSION["error"] = $error;
-    header("location: index.php");
+   
 }
 }
 else{
     $error = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
     $_SESSION["error"] = $error;
-    header("location: index.php"); 
+   
 }
 }
 else{
     $error = 'Please select a file to upload.';
     $_SESSION["error"] = $error;
-    header("location: index.php"); 
+    
     
     
 }

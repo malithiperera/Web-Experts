@@ -12,20 +12,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Home</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
         *{
             margin:0;
             padding:0;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Poppins" , sans-serif;
             color: white;
         }
         body{
             /* opacity:50%; */
         }
+        /* scroll bar */
+html::-webkit-scrollbar{
+    width: .8rem;
+    
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #184A78;
+    border-radius: 2rem;
+}
+
         .sidebar{
             position:fixed;
             width:80px;
@@ -114,14 +130,14 @@
            flex: 2 0 150px;
            width:200px;
            height:100px;
-           box-shadow:2px 2px 2px 2px #888888;
+           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
            margin-right:10px;
            margin-left:10px;
            margin-bottom:20px;
-           border-radius:20px;
+           border-radius:10px;
        }
        .card > p{
-        color:#184A78;
+        color:black;
         margin-top:10px;
        }
        .subcontainer1{
@@ -143,24 +159,28 @@
        .reps{
            width:300px;
            height:300px;
-           border-radius:20px;
-           box-shadow:2px 2px 2px 2px #888888;
+           border-radius:10px;
+           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
            margin-right:20px;
-           margin-bottom:20px;
+           margin-bottom:10px;
+           padding-bottom:20px;
        }
        .reps > p{
-        color:#184A78;
+        color:black;
         margin-left:20px;
+        text-align:center;
        }
        .customers{
             width:300px;
             height:300px;
-            border-radius:20px;
-            box-shadow:2px 2px 2px 2px #888888;
+            border-radius:10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            padding-bottom:20px;
        }
        .customers > p{
-        color:#184A78;
+        color:black;
         margin-left:20px;
+        text-align:center;
        }
        .popup{
         position:fixed;
@@ -175,7 +195,7 @@
            height:280px;
            background-color:white;
            border:1px solid #184A78;
-           border-radius:20px;
+           border-radius:10px;
        }
        .search_bar input{
            position:relative;
@@ -183,8 +203,9 @@
            left:68px;
            width:250px;
            height:30px;
-           border-radius:20px;
+           border-radius:10px;
            padding-left:20px;
+          
            color:#184A78;
        }
        .fa-search{
@@ -231,6 +252,23 @@
            color:#184A78;
        }
        
+       .card i{
+           color:black;
+       }
+       #count{
+        color:rgb(45, 211, 45);
+  font-size: 25px;
+  font-weight: 700;
+  margin-top:-10px;
+
+       }
+       h3{
+           color:black;
+           padding:10px;
+           margin-top:10px;
+           text-align:center;
+           text-transform:uppercase;
+       }
     </style>
 </head>
 <body>
@@ -279,29 +317,29 @@
        <div class="cards">
        
         <div class="card">
-            <p>KINDS OF PRODUCTS</p>
-            <p>10</p>
+            <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
+            <p id="count">10</p>
             
         </div>
         <div class="card">
-            <p>REGISTERED SALES REPS</p>
-            <p>10</p>
+            <p><i class="fas fa-users"></i><br>REGISTERED SALES REPS</p>
+            <p id="count">10</p>
         </div>
         <div class="card">
-            <p>REGISTERED CUSTOMERS</p>
-            <p>10</p>
+            <p><i class="fas fa-store"></i><br>REGISTERED CUSTOMERS</p>
+            <p id="count">10</p>
         </div>
         <div class="card">
-            <p>COVERING ROUTES</p>
-            <p>10</p>
+            <p><i class="fas fa-route"></i><br>COVERING ROUTES</p>
+            <p id="count">10</p>
         </div>
         <div class="card">
-            <p>PENDING ORDERS</p>
-            <p>10</p>
+            <p><i class="fas fa-file-invoice-dollar"></i><br>PENDING ORDERS</p>
+            <p id="count">10</p>
         </div>
         <div class="card">
-            <p>OVERDUE DELIVERIES</p>
-            <p>10</p>
+            <p><i class="fas fa-truck"></i><br>OVERDUE DELIVERIES</p>
+            <p id="count">10</p>
         </div>
 
        </div>
@@ -312,7 +350,7 @@
             </div>
             <div class="subcontainer2">
                 <div class="reps">
-                    <p></br>Online Sales Reps</br></br></p>
+                    <h3>Online Sales Rep</h3>
                     <?php
                         for($i = 0 ; $i < 10 ; $i++){
                             echo "
@@ -323,7 +361,7 @@
                     ?>
                 </div>
                 <div class="customers">
-                    <p></br>Online Sales Reps</br></br></p>
+                    <h3>Online Customers</h3>
                         <?php
                             for($i = 0 ; $i < 10 ; $i++){
                              echo "

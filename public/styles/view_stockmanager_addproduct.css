@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-    background: #e4e1df;
+    background: #ffffff;
     position: relative;
 height: 700px;
 }
@@ -22,7 +22,7 @@ h3{
 }
 .form{
     width: 450px;
-    height: 550px;
+    height: 600px;
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -31,6 +31,7 @@ h3{
     z-index: 0;
     color: rgb(0, 0, 0);
     border-radius: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .container input{
     margin-bottom: 20px;

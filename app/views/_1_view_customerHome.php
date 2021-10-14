@@ -1,16 +1,16 @@
 <?php
-
+session_start();
 if(!isset($_SESSION['username'])){
   header("Location:http://localhost/web-Experts/public/login/index");
 }
 ?>
 
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Home </title>
+    <title>Customer Home </title>
     <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
 
     <!-- Boxicons CDN Link -->
