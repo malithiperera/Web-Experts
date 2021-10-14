@@ -39,7 +39,7 @@ require 'view_headertype2.php';
 <div class="card">
      <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
      <h2><?php echo $data['product_name'] ?></h2>
-     <p><?php echo $data['product_id'] ?></p>
+     <p>Product Id:<?php echo $data['product_id'] ?></p>
      <p><?php echo $data['description'] ?></p>
      <p>Rs.<?php echo $data['price'] ?></p>
  </div>
@@ -64,7 +64,7 @@ require 'view_headertype2.php';
 <div class="card">
      <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
      <h2><?php echo $data['product_name'] ?></h2>
-     <p><?php echo $data['product_id'] ?></p>
+     <p>Product Id:<?php echo $data['product_id'] ?></p>
      <p><?php echo $data['description'] ?></p>
      <p>Rs.<?php echo $data['price'] ?></p>
  </div>
@@ -91,7 +91,7 @@ require 'view_headertype2.php';
 <div class="card">
      <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
      <h2><?php echo $data['product_name'] ?></h2>
-     <p><?php echo $data['product_id'] ?></p>
+     <p>Product Id:<?php echo $data['product_id'] ?></p>
      <p><?php echo $data['description'] ?></p>
      <p>Rs.<?php echo $data['price'] ?></p>
  </div>
@@ -103,7 +103,7 @@ require 'view_headertype2.php';
 </div>
     </section>
 
-    <section class="curd">
+    <!-- <section class="curd">
             <h4>Fresh Milk <span>Products </span></h4>
             <div class="main-card">
 <?php
@@ -116,10 +116,7 @@ require 'view_headertype2.php';
 
 <div class="card">
      <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
-     <h2><?php echo $data['product_name'] ?></h2>
-     <p><?php echo $data['product_id'] ?></p>
-     <p><?php echo $data['description'] ?></p>
-     <p>Rs.<?php echo $data['price'] ?></p>
+     
  </div>
 <?php }
 
@@ -127,7 +124,7 @@ require 'view_headertype2.php';
   ?>
 
 </div>
-    </section>
+    </section> -->
 
 <div class="btn">
     <a href="../customer/back_cus_home">Back</a>
