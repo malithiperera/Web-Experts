@@ -22,10 +22,20 @@ class customer extends controller{
      
             public function our_products()
             {
-                $this->view->render('view_customer_ourProduct');
-            }
+                $this->model('product_model');
+                $query= $this->model->display_product_id('iceCream');
+                 $this->view->added=$query;
+                 $query1= $this->model->display_product_id('Yoghurt');
+                 $this->view->added1=$query1;
+                 $query2= $this->model->display_product_id('Curd');
+                 $this->view->added2=$query2;
+                 $query3= $this->model->display_product_id('Milk');
+                 $this->view->added3=$query3;
+             $this->view->render('view_customer_ourProduct');
+                 }
     
-public function view_report()
+    
+            public function view_report()
 {
     $this->view->render('test2');
 }
@@ -52,4 +62,4 @@ public function back_cus_home()
 
 }
 
-?>
+?> 

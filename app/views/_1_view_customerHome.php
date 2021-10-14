@@ -1,12 +1,12 @@
 <?php
-
+session_start();
 if(!isset($_SESSION['username'])){
   header("Location:http://localhost/web-Experts/public/login/index");
 }
 ?>
 
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">

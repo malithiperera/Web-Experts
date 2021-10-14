@@ -29,8 +29,8 @@ require 'view_headertype2.php';
 <input type="text" name="name" required>
 <p>Category</p>
 <select name="category" id="type">
-    <option value="Yoghurt">Yoghurd</option>
-    <option value="IceCream">IceCream</option>
+    <option value="Yoghurt">Yoghurt</option>
+    <option value="IceCream">Ice Cream</option>
     <option value="Curd">Curd</option>
     <option value="Milk">Freash Milk</option>
   </select>
