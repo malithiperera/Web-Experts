@@ -157,7 +157,7 @@
         padding:10px;
         border:1px solid #184A78;
        }
-       .popup_send_warning{
+       .popup_send_warning, .popup_update_status{
            position:fixed;
            top:100px;
            width:100%;
@@ -166,21 +166,32 @@
            z-index: 1000;
            visibility:hidden;
        }
-       .send_warning_message{
+       .popup_update_status{
+           visibility:visible;
+       }
+       .send_warning_message, .update_status_form{
            width:400px;
            height:350px;
            background-color:white;
            border:4px solid #184A78;
            border-radius:20px;
        }
-       .send_warning_message label{
+       .update_status_form{
+           height:400px;
+       }
+       .send_warning_message label, .update_status_form label{
            color:#184A78;
            display:block;
            margin:20px;
        }
        
-       .send_warning_message input, .send_warning_message textarea{
+       .send_warning_message input, .update_status_form input, 
+       .send_warning_message textarea, .update_status_form textarea{
            color:#184A78;
+       }
+       .update_status_form input{
+           padding:5px;
+           margin-left:10px;
        }
        .message_input{
            margin-left:10px;
@@ -191,7 +202,9 @@
            border-radius:20px;
            margin-left:160px;
        }
-       
+       .update_status_form .submit{
+           margin-left:160px;
+       }
        
     </style>
 </head>
@@ -237,7 +250,23 @@
        </div>
     </div>
 
-   
+    <div class="popup_update_status">
+        <div class="update_status_form">
+            <form action="#" method="post">
+
+                <label for="">Current Status : </label>
+                <input type="text" name="current_status" value="Active" readonly>
+
+                <label for="">New Status : </label>
+                <input type="text" name="new_status" placeholder="New Status" >
+
+                <label for="">Reason : </label>
+                <textarea name="message" rows="5" cols="50" placeholder="Type reason Here..." class="message_input"></textarea>
+
+                <input type="submit" name="submit" class="submit">
+            </form>
+        </div>
+    </div>
     
     <div class="container">
        <div class="cards">

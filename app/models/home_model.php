@@ -37,6 +37,18 @@ class home_model extends model{
        return $result;
    }
 
+   public function place_order($value){
+    require '../app/core/database.php';
+        $sql = "INSERT INTO place_order_for_test
+                VALUES('$value[0]', '$value[1]', '$value[2]', '$value[3]')";
+        if($conn->query($sql) == TRUE){
+            return 1;
+        }
+        else{
+            return mysqli_error($conn);
+        }
+   }
+
    public function customer_home_detail_check($userid){
     require '../app/core/database.php';
     $sql="SELECT * FROM orders WHERE cus_id='$userid' AND status='pending' ";

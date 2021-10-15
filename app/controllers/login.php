@@ -132,6 +132,23 @@ class login extends controller{
         
     }
 
+    public function place_order(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+        $this->model('home_model');
+
+        foreach($recieved_data as $value){
+            $result = $this->model->place_order($value);
+            echo $result;
+        }
+        // print $recieved_data;
+
+        // $this->model('home_model');
+        // $this->model->place_order($recieved_data);
+        
+    }
+
     public function resetMail(){ 
         $this->model('home_model');
         $email=$_POST['email'];
