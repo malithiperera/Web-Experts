@@ -89,6 +89,9 @@ public function customer_registration(){
     $this->view->render('view_rep_customerRegistration');
 }
 public function customer_home(){
+    $this->model('_2_salesrep_model');
+    $this->view->result=$this->model->not_delivered();
+    // $this->view->result=$this->model->load_route();
     $this->view->render('view_rep_customerHome');
 }
 public function home(){
@@ -105,6 +108,9 @@ public function chequePayment(){
 }
 public function profile(){
     $this->view->render('view_all_editProfile');
+}
+public function product_list(){
+    $this->view->render('view_rep_productList');
 }
 }
 

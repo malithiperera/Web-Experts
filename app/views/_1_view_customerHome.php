@@ -6,11 +6,11 @@ if(!isset($_SESSION['username'])){
 ?>
 
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Home </title>
+    <title>Customer Home </title>
     <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
 
     <!-- Boxicons CDN Link -->
@@ -171,7 +171,8 @@ if(!isset($_SESSION['username'])){
           
            <div class="discount">
              <h3>New discount Prodcuts</h3>
-             
+    <?php print_r($this->added) ?>
+
              <div class="item">
               <p>H201 Ice cream 80g-10% </p>
               <a href="">View Product</a>
