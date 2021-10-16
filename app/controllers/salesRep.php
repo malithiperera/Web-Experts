@@ -109,6 +109,9 @@ public function chequePayment(){
 public function profile(){
     $this->view->render('view_all_editProfile');
 }
+public function product_list(){
+    $this->view->render('view_rep_productList');
+}
 }
 
 ?>
