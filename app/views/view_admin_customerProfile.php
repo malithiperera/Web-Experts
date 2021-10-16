@@ -17,10 +17,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
         *{
             margin:0;
             padding:0;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Poppins" , sans-serif;
             color: white;
         }
         body{
@@ -109,14 +110,14 @@
            flex: 2 0 150px;
            width:200px;
            height:100px;
-           box-shadow:2px 2px 2px 2px #888888;
+           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
            margin-right:10px;
            margin-left:10px;
            margin-bottom:20px;
-           border-radius:20px;
+           border-radius:10px;
        }
        .card > p{
-        color:#184A78;
+        color:black;
         margin-top:10px;
        }
        .tables{
@@ -139,7 +140,8 @@
 
        }
        table{
-        border:1px solid #184A78;
+        border:none;
+        outline:none;
        }
        table thead{
 
@@ -147,15 +149,25 @@
        table thead th{
         color:#184A78;
         padding:10px;
-        border:1px solid #184A78;
+       
        }
-       tr{
-
-       }
+       table th {
+  color: #000000;
+  background: #4FC3A1;
+}
+table th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+td{
+  padding: 5px;
+  background-color: #fff;
+  text-align: center;
+}
        tr td{
         color:#184A78;
         padding:10px;
-        border:1px solid #184A78;
+      
        }
        .popup_send_warning, .popup_update_status{
            position:fixed;
@@ -174,7 +186,7 @@
            height:350px;
            background-color:white;
            border:4px solid #184A78;
-           border-radius:20px;
+           border-radius:10px;
        }
        .update_status_form{
            height:400px;
@@ -202,10 +214,24 @@
            border-radius:20px;
            margin-left:160px;
        }
+<<<<<<< HEAD
+       .card i{
+          color:black;
+       }
+       #top{
+           color:green;
+           font-weight:700;
+           font-size:20px;
+       }
+       h2{
+           color:black;
+       }
+=======
        .update_status_form .submit{
            margin-left:160px;
        }
        
+>>>>>>> af623bd5741c8ca9a0bb7e42e066a2caf242ff71
     </style>
 </head>
 <body>
@@ -272,40 +298,40 @@
        <div class="cards">
        
             <div class="card">
-                <p>ROUTE</p>
-                <p>R1</p>  
+                <p><i class="fas fa-route"></i><br>ROUTE</p>
+                <p id="top">R1</p>  
             </div>
 
             <div class="card">
-                <p>OVERDUE PAYMENTS</p>
-                <p>10</p>
+                <p><i class="fas fa-money-bill-alt"></i><br>OVERDUE PAYMENTS</p>
+                <p id="top">10</p>
             </div>
 
             <div class="card">
-                <p>PENDING PAYMENTS</p>
-                <p>10</p>
+                <p><i class="fas fa-money-bill-alt"></i><br>PENDING PAYMENTS</p>
+                <p id="top">10</p>
             </div>
 
             <div class="card">
-                <p>RETURNED CHEQUES</p>
-                <p>10</p>
+                <p><i class="fas fa-money-check-alt"></i><br>RETURNED CHEQUES</p>
+                <p id="top">10</p>
             </div>
 
             <div class="card">
-                <p>STATUS</p>
-                <p>active</p>
+                <p><i class="fas fa-globe"></i><br>STATUS</p>
+                <p id="top">active</p>
             </div>
 
             <div class="card">
-                <p>CREDIT PERIOD</p>
-                <p>2 weeks</p>
+                <p><i class="fas fa-hourglass-start"></i><br>CREDIT PERIOD</p>
+                <p id="top">2 weeks</p>
             </div>
        </div>
 
        <div class="tables">
            <div class="sub_tabels">
 
-                <p>ORDERS</p>
+                <h2>Orders</h2>
 
                 <div class="table1">
                     <table>
@@ -329,7 +355,7 @@
 
                 </div>
 
-                <p>PAYMENTS</p>
+               <h2>Payments</h2>
 
                 <div class="table2">
                     <table>
