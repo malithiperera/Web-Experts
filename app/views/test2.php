@@ -79,6 +79,7 @@
            width:100%;
            display:flex;
            justify-content:center;
+           visibility:hidden;
        }
        .subconfirmation{
            width:400px;
