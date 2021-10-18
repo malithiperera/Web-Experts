@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if(!isset($_SESSION['username'])){
   header("Location:http://localhost/web-Experts/public/login/index");
 }
@@ -171,7 +171,7 @@ if(!isset($_SESSION['username'])){
           
            <div class="discount">
              <h3>New discount Prodcuts</h3>
-    <?php print_r($this->added) ?>
+    
 
              <div class="item">
               <p>H201 Ice cream 80g-10% </p>
@@ -211,61 +211,45 @@ if(!isset($_SESSION['username'])){
 
              <h2>Pending Orders</h2>
 
-             <div class="field">
-               <div class="order-no">
-              <p class="onum"></p>
-              <p class="date">2019.09.19</p>
-              </div>
-              <div class="content">
-              <a href="">view</a>
-              </div>
-              
-              </div>
+             <?php  
+            foreach($this->added as $data)
+            {?>
+            <div class="field">
+            <div class="order-no">
+           <p class="onum"><?php echo $data['order_id'];?></p>
+           <p class="date"> <?php echo $data['date'];?></p>
+           </div>
+           <div class="content">
+           <a href="">view</a>
+           </div>
+           </div>
+           <?php } ?>
+           
 
-                <!-- <div class="order-no">
-               <p class="onum">001</p>
-               <p class="date">2019.09.19</p>
-               </div>
-               <div class="content">
-               <a href="">view</a>
-               </div>
-               </div>
-               <div class="field">
-                <div class="order-no">
-               <p class="onum">001</p>
-               <p class="date">2019.09.19</p>
-               </div>
-               <div class="content">
-               <a href="">view</a>
-               </div>
-               </div> -->
+               
                <div class="field"><button onclick=pop_func() class="show">Show more</button>
               </div>
       </div>
              
          <div class="payment">
           <h2>Due Payment</h2>
-          <div class="field">
+          
+      
+         
+            <div class="field">
             <div class="order-no">
            <p class="onum">001</p>
-           <p class="date"> Due to 2019.09.19</p>
+           <p class="date"></p>
            </div>
            <div class="content">
            <a href="">view</a>
            </div>
            </div>
-           <div class="field">
-            <div class="order-no">
-           <p class="onum">001</p>
-           <p class="date"> Due to 2019.09.19</p>
-           </div>
-           <div class="content">
-           <a href="">view</a>
-           </div>
-           </div>
+           
+           
            <div class="field"><button onclick=pop_func() class="show">Show more</button>
          </div>
-         
+       
          
         </div> 
         
@@ -276,7 +260,7 @@ if(!isset($_SESSION['username'])){
  
   <div class="pop-up">
 <div class="order-pop">
-  <h3>Pending orders</h3>
+ <h3>Pending orders</h3>
 <table>
   <tr>
     <th>Order Id</th>
@@ -284,14 +268,19 @@ if(!isset($_SESSION['username'])){
     <th>Amount</th>
     <th colspan="2"></th>
   </tr>
+  <?php foreach($this->added as $row){?>
+
+  
   <tr>
-    <td>001</td>
-    <td>09.10.2021</td>
+    <td><?php $row['order_id'] ;  ?></td>
+    <td><?php $row['date'] ;?></td>
     <td>12000</td>
     <td><button class="edit"><a >Edit</a></button></td>
     <td><button class="delete"><a >Delete</a></button></td>
     
   </tr>
+
+  <?php } ?>
 </table>
 <br>
 <h3>Due Payments</h3>

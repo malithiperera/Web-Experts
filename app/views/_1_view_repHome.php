@@ -44,8 +44,8 @@
 </div>
       </li>
       <li>
-       <a href="../orders/create_bill">
-        
+       <!-- <a href="../orders/create_bill"> -->
+       <a href="../salesRep/place_order">
         <i class='bx bxs-cart-add'></i>
          <span class="links_name">Place Order</span>
        </a>

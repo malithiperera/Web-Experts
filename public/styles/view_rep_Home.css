@@ -515,7 +515,7 @@ h2{
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color:#1d1b31;
 }
 
 /* Add some hover effects to buttons */

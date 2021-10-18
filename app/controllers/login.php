@@ -10,11 +10,13 @@ class login extends controller{
 
     public function customer_home($userid)
     {
-        echo $userid;
         
         $result=$this->model->customer_home_detail_check($userid);
+        $this->view->added=$result;
+        $this->view->added1=$result;
+        $this->view->render('_1_view_customerHome');
        
-        session_start();
+      
     
         // $this->view->render("view_customer_placeorder");
     }
@@ -47,15 +49,20 @@ class login extends controller{
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['userid']=$row['user_id'];
+
+            if($row['type']=='customer'){
+             
+              $this->customer_home($_SESSION['userid']);
+              }
 // echo $_SESSION['userid'];
  
-
+else{
 // $this->view->render('')
             header('Location: http://localhost/web-Experts/public/login/adminHome?viewname='.$viewname);
            
 
             // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
-           
+} 
         }
         else{
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
