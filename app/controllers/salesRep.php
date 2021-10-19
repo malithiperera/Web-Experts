@@ -101,9 +101,13 @@ public function returns(){
     $this->view->render('view_rep_return');
 }
 public function cashPayment(){
+    $this->model('_2_salesrep_model');
+    $this->view->result=$this->model->cash_payment();
     $this->view->render('view_rep_cash');
 }
 public function chequePayment(){
+    $this->model('_2_salesrep_model');
+    $this->view->result=$this->model->cash_payment();
     $this->view->render('view_rep_cheque');
 }
 public function profile(){
@@ -114,6 +118,18 @@ public function product_list(){
 }
 public function place_order(){
     $this->view->render('test2');
+}
+public function amount(){
+    $data=[];
+    $body=json_decode(file_get_contents('php://input'));
+    $order_id=$body->order_id;
+    $this->model('_2_salesrep_model');
+    $result=$this->model->order_amount($order_id);
+    while ($row=$result->fetch_assoc()){
+        $data[]=$row;
+    }
+    echo json_encode($data);
+    exit;
 }
 }
 

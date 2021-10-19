@@ -20,6 +20,19 @@ class _2_salesrep_model extends model{
         $result = $conn->query($sql);
         return $result;
     }
+    
+    public function cash_payment(){
+        require '../app/core/database.php';
+        $sql = "SELECT orders_id FROM orders WHERE status='D'";
+        $result = $conn->query($sql);
+        return $result;
+    }
+    public function order_amount($id){
+        require '../app/core/database.php';
+        $sql = "SELECT amount FROM orders WHERE orders_id ='$id'";
+        $result = $conn->query($sql);
+        return $result;
+    }
     }
 
     // public function insert_route($route_id, $name, $destination){
