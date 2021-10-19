@@ -36,6 +36,18 @@ class _2_salesrep_model extends model
         $result = $conn->query($sql);
         return $result;
     }
+    public function insert_cashPayment($orders_id,$total,$date){
+        require '../app/core/database.php';
+        //insert query
+        $sql = "INSERT INTO payment (amount, orders_id, payment_date)
+        VALUES ('$total','$orders_id','$date')";
+        $result = $conn->query($sql);
+        if(mysqli_query($conn,$sql)==TRUE){
+            return 1;
+        }else{
+            return mysqli_error($conn);
+        };
+    }
     }
 
     // public function insert_route($route_id, $name, $destination){

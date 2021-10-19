@@ -14,8 +14,10 @@
 <div class="container">
     <div class="sub-container">
         <div class="title1">Cash Payment</div>
+
+        <form class="new" method="post" action="add_cash">
         <div class="input-fields"><label for="order">Order</label><div class="radio">
-          <select id="orders" onchange="selectOrder()">
+          <select id="orders" name="orderId" onchange="selectOrder()">
             <?php
         if($this->result->num_rows>0){
           while($row=$this->result->fetch_assoc()){
@@ -32,6 +34,7 @@
         <div class="input-fields"><label for="date">Date</label><input type="date" name="date" id="date" class="inputf">
         </div>
         <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
+        </form>
     </div>
     
 </div>
