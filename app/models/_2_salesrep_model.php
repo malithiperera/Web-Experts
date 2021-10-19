@@ -2,9 +2,11 @@
 
 require '../app/core/model.php';
 
-class _2_salesrep_model extends model{
+class _2_salesrep_model extends model
+{
 
-    function __construct(){
+    function __construct()
+    {
         parent::__construct();
     }
 
@@ -14,7 +16,8 @@ class _2_salesrep_model extends model{
     //     $result = $conn->query($sql);
     //     return $result;
     // }
-    public function not_delivered(){
+    public function not_delivered()
+    {
         require '../app/core/database.php';
         $sql = "SELECT orders_id, orders_date, amount FROM orders WHERE status='D'";
         $result = $conn->query($sql);
@@ -46,7 +49,3 @@ class _2_salesrep_model extends model{
     //         return mysqli_error($conn);
     //     }
     // }
-
-
-
-?>
