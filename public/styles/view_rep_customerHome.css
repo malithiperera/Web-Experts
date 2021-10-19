@@ -410,7 +410,7 @@ p{
   }
 }
 #confirm{
-  float: right;
+  float: left;
   background-color: #2277B2 ;
   color: white;
   border: none;
@@ -419,7 +419,7 @@ p{
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 5px;
-  margin-right: 50px;
+  margin-left: 50px;
   transition: ease-in-out;
 }
 #confirm:hover{

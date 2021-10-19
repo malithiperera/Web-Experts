@@ -47,6 +47,9 @@ public function profile(){
 public function product_list(){
     $this->view->render('view_rep_productList');
 }
+public function place_order(){
+    $this->view->render('test2');
+}
 }
 
 ?>

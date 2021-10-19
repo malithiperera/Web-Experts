@@ -50,8 +50,13 @@
             
             <div class="input-fields"><input type="submit" value="Confirm" id="confirm" name="submit"></div>
         </div>
+<<<<<<< HEAD
         </form>
+=======
+        <div class="input-fields"><input type="submit" value="Back" id="back"></div>
+>>>>>>> 902ed9845abfec526d3a328e0d6167636f097a03
     </div>
+   
 </body>
 
 </html>

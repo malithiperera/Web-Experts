@@ -213,3 +213,9 @@ INFO: Unsupported notification method: $/setTrace
 [0m2021.10.18 17:20:37 INFO  time: initialize in 0.82s[0m
 [0m2021.10.18 17:20:38 WARN  Build server is not auto-connectable.[0m
 [0m2021.10.18 17:20:38 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.19 08:51:59 INFO  Started: Metals version 0.10.7 in workspace 'C:\xampp\htdocs\Web-Experts' for client Visual Studio Code 1.61.1.[0m
+[0m2021.10.19 08:52:00 INFO  time: initialize in 1.21s[0m
+[0m2021.10.19 08:52:06 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.19 08:52:06 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 19, 2021 9:49:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
