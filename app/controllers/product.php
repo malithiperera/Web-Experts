@@ -17,8 +17,9 @@ public function add_product()
     $price=$_POST["price"];
     // File upload path
     $targetDir = "../../Web-Experts/public/images/uploads/";
+
     $fileName = basename($_FILES["file"]["name"]);
-    echo $id,$cat;
+    
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 

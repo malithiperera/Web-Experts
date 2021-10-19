@@ -32,11 +32,12 @@ require 'view_headertype2.php';
         
         while($data = mysqli_fetch_array($this->added1))
         {
+        
       
         $image_name = '../../public/images/uploads/'.$data["image"];
 ?>
 
-<div class="card">
+<div class="card"> 
      <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
      <h2><?php echo $data['product_name'] ?></h2>
      <p>Product Id:<?php echo $data['product_id'] ?></p>

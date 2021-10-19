@@ -135,6 +135,13 @@
        }
        .table1{
         margin-bottom:30px;
+        display:flex;
+        justify-content:center;
+
+       }
+
+       .table1 td{
+           width:120px;
        }
        .table2{
 
@@ -163,6 +170,16 @@ td{
   padding: 5px;
   background-color: #fff;
   text-align: center;
+ 
+
+}
+table tr tr:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+} 
+tr:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
 }
        tr td{
         color:#184A78;
@@ -179,7 +196,7 @@ td{
            visibility:hidden;
        }
        .popup_update_status{
-           visibility:visible;
+           visibility:hidden;
        }
        .send_warning_message, .update_status_form{
            width:400px;
@@ -214,7 +231,6 @@ td{
            border-radius:20px;
            margin-left:160px;
        }
-<<<<<<< HEAD
        .card i{
           color:black;
        }
@@ -225,13 +241,13 @@ td{
        }
        h2{
            color:black;
+           text-align:center;
+           padding:10px;
        }
-=======
        .update_status_form .submit{
            margin-left:160px;
        }
        
->>>>>>> af623bd5741c8ca9a0bb7e42e066a2caf242ff71
     </style>
 </head>
 <body>
@@ -334,7 +350,7 @@ td{
                 <h2>Orders</h2>
 
                 <div class="table1">
-                    <table>
+                    <table id="t1">
                         <thead>
                             <th>ORDER NO</th>
                             <th>AMOUNT</th>
