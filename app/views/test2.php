@@ -182,7 +182,7 @@
             
             function myFunction(item) {
                 
-                suggestions.innerHTML += `<li><a href="#" onclick="select_row('${item['product_name']}', '${item['unit_price']}', '${item['discount']}')">${item['product_name']}</a></li>`;
+                suggestions.innerHTML += `<li><a href="#" onclick="select_row('${item['product_name']}', '${item['price']}', '${item['discount']}')">${item['product_name']}</a></li>`;
             }
 
         }).catch(reason => {
