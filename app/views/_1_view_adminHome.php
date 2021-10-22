@@ -1,238 +1,317 @@
-<?php session_start(); 
+<?php session_start();
 
- if(!isset($_SESSION['username'])){
-     header("Location:http://localhost/web-Experts/public/login/index");
- }
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Home</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    
+
     <style>
-        *{
-            margin:0;
-            padding:0;
-            font-family: Arial, Helvetica, sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
             color: white;
         }
-        body{
+
+        body {
             /* opacity:50%; */
         }
-        .sidebar{
-            position:fixed;
-            width:80px;
+
+        /* scroll bar */
+        html::-webkit-scrollbar {
+            width: .8rem;
+
+        }
+
+        html::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: #184A78;
+            border-radius: 2rem;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 80px;
             height: 100vh;
             background-color: #184A78;
             /* opacity:50%; */
         }
-        .sidebar > p{
-            margin-left:10px;
-            letter-spacing:5px;
-            visibility:hidden;
+
+        .sidebar>p {
+            margin-left: 10px;
+            letter-spacing: 5px;
+            visibility: hidden;
         }
-        .sidebar > i{
-            position:absolute;
-            top:5px;
-            right:35px;
+
+        .sidebar>i {
+            position: absolute;
+            top: 5px;
+            right: 35px;
         }
-        .fa-align-right{
-            visibility:hidden;
+
+        .fa-align-right {
+            visibility: hidden;
         }
-        .icons{
-            position:absolute;
-            top:108px;
-            display:flex;
-            flex-direction:column;
+
+        .icons {
+            position: absolute;
+            top: 108px;
+            display: flex;
+            flex-direction: column;
         }
-        .icons a{
-            margin-bottom:40px;
+
+        .icons a {
+            margin-bottom: 40px;
             margin-left: 20px;
         }
-        
-        .links{
-            position:absolute;
-            top:100px;
-            display:flex;
-            flex-direction:column;
-            visibility:hidden;
-            width:250px;
+
+        .links {
+            position: absolute;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            width: 250px;
         }
-        .links a{
-            margin-bottom:30px;
-            margin-left:80px;
-            text-decoration:none;
-            width:130px;
-            padding:5px;
-            border-radius:10px;
-            padding-left:15px;
+
+        .links a {
+            margin-bottom: 30px;
+            margin-left: 80px;
+            text-decoration: none;
+            width: 130px;
+            padding: 5px;
+            border-radius: 10px;
+            padding-left: 15px;
         }
-        .links a:hover{
-            color:#1d1b31;
-            background-color:white;
+
+        .links a:hover {
+            color: #1d1b31;
+            background-color: white;
         }
-        .sidebar_footer{
-            position:absolute;
-            bottom:0;
-            background-color:#1d1b31;
-            width:100%;
-            height:60px;
+
+        .sidebar_footer {
+            position: absolute;
+            bottom: 0;
+            background-color: #1d1b31;
+            width: 100%;
+            height: 60px;
         }
-        .fa-building{
-            position:absolute;
-            top:20px;
-            right:10px;
+
+        .fa-building {
+            position: absolute;
+            top: 20px;
+            right: 10px;
         }
-        .footerIcon p{
-            margin-top:20px;
-            margin-left:10px;
-            visibility:hidden;
+
+        .footerIcon p {
+            margin-top: 20px;
+            margin-left: 10px;
+            visibility: hidden;
         }
-       .container{
-           position:relative;
-           left:80px;
-           width: calc(100% - 80px);
-           display:flex;
-           flex-direction:column;
-           /* opacity:50%; */
-       }
-       .cards{
-           display:flex;
-           flex-wrap:wrap;
-           justify-content:center;
-           text-align:center;
-           margin-top:30px;
-       }
-       .card{
-           flex: 2 0 150px;
-           width:200px;
-           height:100px;
-           box-shadow:2px 2px 2px 2px #888888;
-           margin-right:10px;
-           margin-left:10px;
-           margin-bottom:20px;
-           border-radius:20px;
-       }
-       .card > p{
-        color:#184A78;
-        margin-top:10px;
-       }
-       .subcontainer1{
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:space-between;
-        margin-left:20px;
-       }
-       .charts{
-           width:900px;
-           height:1000px;
-           margin-left: 100px;
-           margin-top:40px;
-       }
-       .subcontainer2{
-        display:flex;
-        flex-direction:column;
-       }
-       .reps{
-           width:300px;
-           height:300px;
-           border-radius:20px;
-           box-shadow:2px 2px 2px 2px #888888;
-           margin-right:20px;
-           margin-bottom:20px;
-       }
-       .reps > p{
-        color:#184A78;
-        margin-left:20px;
-       }
-       .customers{
-            width:300px;
-            height:300px;
-            border-radius:20px;
-            box-shadow:2px 2px 2px 2px #888888;
-       }
-       .customers > p{
-        color:#184A78;
-        margin-left:20px;
-       }
-       .popup{
-        position:fixed;
-        top:70px;
-        width:100%;
-        display:flex;
-        justify-content:center;
-        visibility: hidden;
-       }
-       .search_customer{
-           width:400px;
-           height:280px;
-           background-color:white;
-           border:1px solid #184A78;
-           border-radius:20px;
-       }
-       .search_bar input{
-           position:relative;
-           top:20px;
-           left:68px;
-           width:250px;
-           height:30px;
-           border-radius:20px;
-           padding-left:20px;
-           color:#184A78;
-       }
-       .fa-search{
-           position:relative;
-           left:35px;
-           top:23px;
-           color:#184A78;
-       }
-       .search_customer p, .search_customer select, .search_customer select option{
-           color:#184A78;
-       }
-       .search_customer select{
-           width:100px;
-           height:30px;
-       }
-       .search_by_route{
-           position:relative;
-           top:80px;
-           left:50px;
-       }
-       .select_route{
-           float:left;
-           margin-right:70px;
-       }
-       .search_by_route a{
-           position:relative;
-           border:1px solid #184A78;
-           border-radius:18px;
-           top:30px;
-           left:120px;
-           color:#184A78;
-           text-decoration:none;
-           padding:8px;
-       }
-       .search_by_route a:hover{
-           background-color:#184A78;
-           color:white;
-       }
-       .add_new_cus a{
-           position:relative;
-           top:150px;
-           left:130px;
-           text-decoration:none;
-           color:#184A78;
-       }
-       
+
+        .container {
+            position: relative;
+            left: 80px;
+            width: calc(100% - 80px);
+            display: flex;
+            flex-direction: column;
+            /* opacity:50%; */
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            flex: 2 0 150px;
+            width: 200px;
+            height: 100px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .card>p {
+            color: black;
+            margin-top: 10px;
+        }
+
+        .subcontainer1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: 20px;
+        }
+
+        .charts {
+            width: 900px;
+            height: 1000px;
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+        .subcontainer2 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reps {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-right: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+        }
+
+        .reps>p {
+            color: black;
+            margin-left: 20px;
+            text-align: center;
+        }
+
+        .customers {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            padding-bottom: 20px;
+        }
+
+        .customers>p {
+            color: black;
+            margin-left: 20px;
+            text-align: center;
+        }
+
+        .popup {
+            position: fixed;
+            top: 70px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            visibility: hidden;
+        }
+
+        .search_customer {
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            border: 1px solid #184A78;
+            border-radius: 10px;
+        }
+
+        .search_bar input {
+            position: relative;
+            top: 20px;
+            left: 68px;
+            width: 250px;
+            height: 30px;
+            border-radius: 10px;
+            padding-left: 20px;
+
+            color: #184A78;
+        }
+
+        .fa-search {
+            position: relative;
+            left: 35px;
+            top: 23px;
+            color: #184A78;
+        }
+
+        .search_customer p,
+        .search_customer select,
+        .search_customer select option {
+            color: #184A78;
+        }
+
+        .search_customer select {
+            width: 100px;
+            height: 30px;
+        }
+
+        .search_by_route {
+            position: relative;
+            top: 80px;
+            left: 50px;
+        }
+
+        .select_route {
+            float: left;
+            margin-right: 70px;
+        }
+
+        .search_by_route a {
+            position: relative;
+            border: 1px solid #184A78;
+            border-radius: 18px;
+            top: 30px;
+            left: 120px;
+            color: #184A78;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        .search_by_route a:hover {
+            background-color: #184A78;
+            color: white;
+        }
+
+        .add_new_cus a {
+            position: relative;
+            top: 150px;
+            left: 130px;
+            text-decoration: none;
+            color: #184A78;
+        }
+
+        .card i {
+            color: black;
+        }
+
+        #count {
+            color: rgb(45, 211, 45);
+            font-size: 25px;
+            font-weight: 700;
+            margin-top: -10px;
+
+        }
+
+        h3 {
+            color: black;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
     </style>
 </head>
+
 <body>
 
 
@@ -267,88 +346,88 @@
         </div>
         <div class="sidebar_footer">
             <div class="footerIcon">
-            <i class="fas fa-building fa-lg"></i>
-                <p class="username"><?php echo $_SESSION['username'];?></p>
+                <i class="fas fa-building fa-lg"></i>
+                <p class="username"><?php echo $_SESSION['username']; ?></p>
             </div>
         </div>
     </div>
 
-    
-    
+
+
     <div class="container">
-       <div class="cards">
-       
-        <div class="card">
-            <p>KINDS OF PRODUCTS</p>
-            <p>10</p>
-            
-        </div>
-        <div class="card">
-            <p>REGISTERED SALES REPS</p>
-            <p>10</p>
-        </div>
-        <div class="card">
-            <p>REGISTERED CUSTOMERS</p>
-            <p>10</p>
-        </div>
-        <div class="card">
-            <p>COVERING ROUTES</p>
-            <p>10</p>
-        </div>
-        <div class="card">
-            <p>PENDING ORDERS</p>
-            <p>10</p>
-        </div>
-        <div class="card">
-            <p>OVERDUE DELIVERIES</p>
-            <p>10</p>
+        <div class="cards">
+
+            <div class="card">
+                <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
+                <p id="count">10</p>
+
+            </div>
+            <div class="card">
+                <p><i class="fas fa-users"></i><br>REGISTERED SALES REPS</p>
+                <p id="count">10</p>
+            </div>
+            <div class="card">
+                <p><i class="fas fa-store"></i><br>REGISTERED CUSTOMERS</p>
+                <p id="count">10</p>
+            </div>
+            <div class="card">
+                <p><i class="fas fa-route"></i><br>COVERING ROUTES</p>
+                <p id="count">10</p>
+            </div>
+            <div class="card">
+                <p><i class="fas fa-file-invoice-dollar"></i><br>PENDING ORDERS</p>
+                <p id="count">10</p>
+            </div>
+            <div class="card">
+                <p><i class="fas fa-truck"></i><br>OVERDUE DELIVERIES</p>
+                <p id="count">10</p>
+            </div>
+
         </div>
 
-       </div>
-
-       <div class="subcontainer1">
+        <div class="subcontainer1">
             <div class="charts">
                 <canvas id="myChart1"></canvas>
             </div>
             <div class="subcontainer2">
                 <div class="reps">
-                    <p></br>Online Sales Reps</br></br></p>
+                    <h3>Online Sales Rep</h3>
                     <?php
-                        for($i = 0 ; $i < 10 ; $i++){
-                            echo "
+                    for ($i = 0; $i < 10; $i++) {
+                        echo "
                                 <p>sample salesrep</p>
                             ";
-                        }
+                    }
 
                     ?>
                 </div>
                 <div class="customers">
-                    <p></br>Online Sales Reps</br></br></p>
-                        <?php
-                            for($i = 0 ; $i < 10 ; $i++){
-                             echo "
+                    <h3>Online Customers</h3>
+                    <?php
+                    for ($i = 0; $i < 10; $i++) {
+                        echo "
                                  <p>sample salesrep</p>
                               ";
-                            }
+                    }
 
-                        ?>
+                    ?>
                 </div>
             </div>
-            
-       </div>
+
+        </div>
     </div>
 
     <div class="popup">
-    
+
         <div class="search_customer">
             <div class="search_bar">
                 <input type="text">
                 <i class="fas fa-search fa-lg"></i>
             </div>
             <div class="search_by_route">
-                
+
                 <div class="select_route">
-                <p>Select Route : </p>
+                    <p>Select Route : </p>
                     <select name="cars" id="cars">
                         <option>route 1</option>
                         <option>route 2</option>
@@ -356,10 +435,10 @@
                         <option>route 4</option>
                     </select>
                 </div>
-                
-                
+
+
                 <div class="select_customer">
-                <p>Select Customer : </p>
+                    <p>Select Customer : </p>
                     <select name="cars" id="cars">
                         <option>customer 1</option>
                         <option>customer 2</option>
@@ -376,10 +455,10 @@
         </div>
     </div>
 
-    
-    
-        
-    
+
+
+
+
     <!-- scripts for side bar -->
     <script>
         let openbtn = document.querySelector(".fa-bars");
@@ -390,39 +469,38 @@
         let username = document.querySelector(".username");
         let container = document.querySelector(".container");
 
-        openbtn.addEventListener("click", function(){
-            
-             let widthdiv = 80;
-             let opacity = 0;
-             
+        openbtn.addEventListener("click", function() {
+
+            let widthdiv = 80;
+            let opacity = 0;
+
             var id = setInterval(frame, 10);
 
-            function frame(){
-                if(sidebar.style.width == "250px"){
+            function frame() {
+                if (sidebar.style.width == "250px") {
                     var id1 = setInterval(frame1, 10);
                     opacity = 0;
-                    function frame1(){
-                        if(opacity == 100){
+
+                    function frame1() {
+                        if (opacity == 100) {
                             clearInterval(id1);
-                        }
-                        else{
+                        } else {
                             links.style.visibility = "visible";
                             company_name.style.visibility = "visible";
                             username.style.visibility = "visible";
                             opacity = opacity + 10;
-                            links.style.opacity = opacity+"%";
-                            company_name.style.opacity = opacity+"%";
-                            username.style.opacity = opacity+"%";
-                            
+                            links.style.opacity = opacity + "%";
+                            company_name.style.opacity = opacity + "%";
+                            username.style.opacity = opacity + "%";
+
                         }
                     }
                     clearInterval(id);
-                }
-                else{
+                } else {
                     widthdiv = widthdiv + 10;
-                    sidebar.style.width = widthdiv+"px";
-                    container.style.left = widthdiv+"px";
-                    container.style.setProperty('width', 'calc(100% - '+widthdiv+'px)');
+                    sidebar.style.width = widthdiv + "px";
+                    container.style.left = widthdiv + "px";
+                    container.style.setProperty('width', 'calc(100% - ' + widthdiv + 'px)');
                 }
             }
 
@@ -431,25 +509,24 @@
             closebtn.style.right = "5px";
         });
 
-        closebtn.addEventListener("click", function(){
+        closebtn.addEventListener("click", function() {
             let widthdiv = 250;
             let opacity = 100;
 
             var id = setInterval(frame, 20);
 
-            function frame(){
-                if(sidebar.style.width == "80px"){
+            function frame() {
+                if (sidebar.style.width == "80px") {
                     clearInterval(id);
-                }
-                else{
+                } else {
                     widthdiv = widthdiv - 10;
-                    sidebar.style.width = widthdiv+"px";
-                    container.style.left = widthdiv+"px";
+                    sidebar.style.width = widthdiv + "px";
+                    container.style.left = widthdiv + "px";
                     opacity = opacity - 10;
                     company_name.style.opacity = opacity + "%";
-                    links.style.opacity = opacity+"%";
-                    username.style.opacity = opacity+"%";
-                    container.style.setProperty('width', 'calc((100%-250px) - '+widthdiv+'px)');
+                    links.style.opacity = opacity + "%";
+                    username.style.opacity = opacity + "%";
+                    container.style.setProperty('width', 'calc((100%-250px) - ' + widthdiv + 'px)');
                 }
             }
 
@@ -463,9 +540,9 @@
         var ctx = document.getElementById('myChart1').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
-                data: {
-                    labels: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'],
-                    datasets: [{
+            data: {
+                labels: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'],
+                datasets: [{
                     label: 'best selling items',
                     data: [12, 19, 50, 20, 40, 34],
                     backgroundColor: [
@@ -485,30 +562,30 @@
                         'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
-                    }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
+                }
+            }
         });
     </script>
 
-        <!-- script for popup message -->
+    <!-- script for popup message -->
     <script>
         let popup = document.querySelector(".popup");
         let in_popup = document.querySelector(".search_customer")
 
-        function popup_message(){
+        function popup_message() {
             popup.style.visibility = "visible";
             sidebar.style.opacity = "30%";
             container.style.opacity = "30%";
         }
 
-        
+
         window.onclick = function(event) {
             if (event.target == popup) {
                 popup.style.visibility = "hidden";
@@ -516,14 +593,8 @@
                 container.style.opacity = "100%";
             }
         }
-           
-        
     </script>
-
-     
-
+    
 </body>
-
-
 
 </html>

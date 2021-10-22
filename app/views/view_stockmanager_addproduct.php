@@ -21,7 +21,7 @@ require 'view_headertype2.php';
     <div class="container">
 <div class="form">
     <h3>Product Profile</h3>
-<form action="../product/add_product"  method="post" autocomplete="off">
+<form action="../product/add_product"  method="post" autocomplete="off" enctype="multipart/form-data">
 
 <p>Product Id</p>
 <input type="text" name="id" required>
@@ -29,8 +29,8 @@ require 'view_headertype2.php';
 <input type="text" name="name" required>
 <p>Category</p>
 <select name="category" id="type">
-    <option value="Yoghurt">Yoghurd</option>
-    <option value="IceCream">IceCream</option>
+    <option value="Yoghurt">Yoghurt</option>
+    <option value="IceCream">Ice Cream</option>
     <option value="Curd">Curd</option>
     <option value="Milk">Freash Milk</option>
   </select>

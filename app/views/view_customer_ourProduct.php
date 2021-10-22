@@ -25,89 +25,107 @@ require 'view_headertype2.php';
           </div>
          </section>
 
-        <section class="yoghurt">
-            <h4>Yoghurts <span>Products </span></h4>
+            <section class="yoghurt">
+        <h4>Yoghurts <span>Products </span></h4>
             <div class="main-card">
-        <div class="card">
-     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt="" ></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/h_yoghurt.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
+<?php
+        
+        while($data = mysqli_fetch_array($this->added1))
+        {
+        
+      
+        $image_name = '../../public/images/uploads/'.$data["image"];
+?>
 
+<div class="card"> 
+     <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
+     <h2><?php echo $data['product_name'] ?></h2>
+     <p>Product Id:<?php echo $data['product_id'] ?></p>
+     <p><?php echo $data['description'] ?></p>
+     <p>Rs.<?php echo $data['price'] ?></p>
  </div>
-        </section>
+<?php }
 
 
-        <section class="icecream">
+  ?>
+
+</div>
+</section>
+<section class="icecream">
             <h4>Ice Cream <span>Products </span></h4>
             <div class="main-card">
-        <div class="card">
-     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-    
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-    
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-    
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/h_icecream.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
+<?php
+        
+        while($data = mysqli_fetch_array($this->added))
+        {
+      
+        $image_name = '../../public/images/uploads/'.$data["image"];
+?>
 
+<div class="card">
+     <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
+     <h2><?php echo $data['product_name'] ?></h2>
+     <p>Product Id:<?php echo $data['product_id'] ?></p>
+     <p><?php echo $data['description'] ?></p>
+     <p>Rs.<?php echo $data['price'] ?></p>
  </div>
-        </section>
+<?php }
 
 
+  ?>
 
-        <section class="curd">
+</div>
+
+    </section>
+
+<section class="curd">
             <h4>Curd <span>Products </span></h4>
             <div class="main-card">
-        <div class="card">
-     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
- <div class="card">
-     <div class="card-image"><img src="../../public/images/curd.jpg" alt=""></div>
-     <h2>Himalee Yoghurd</h2>
-     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry..</p>
- </div>
+<?php
+        
+        while($data = mysqli_fetch_array($this->added2))
+        {
+      
+        $image_name = '../../public/images/uploads/'.$data["image"];
+?>
 
+<div class="card">
+     <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
+     <h2><?php echo $data['product_name'] ?></h2>
+     <p>Product Id:<?php echo $data['product_id'] ?></p>
+     <p><?php echo $data['description'] ?></p>
+     <p>Rs.<?php echo $data['price'] ?></p>
  </div>
-        </section>
+<?php }
+
+
+  ?>
+
+</div>
+    </section>
+
+    <!-- <section class="curd">
+            <h4>Fresh Milk <span>Products </span></h4>
+            <div class="main-card">
+<?php
+        
+        while($data = mysqli_fetch_array($this->added3))
+        {
+      
+        $image_name = '../../public/images/uploads/'.$data["image"];
+?>
+
+<div class="card">
+     <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
+     
+ </div>
+<?php }
+
+
+  ?>
+
+</div>
+    </section> -->
 
 <div class="btn">
     <a href="../customer/back_cus_home">Back</a>

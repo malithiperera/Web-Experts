@@ -1,13 +1,14 @@
-<?php session_start(); 
+<?php session_start();
 
- if(!isset($_SESSION['username'])){
-     header("Location:http://localhost/web-Experts/public/login/index");
- }
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,45 +16,54 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    
+
     <style>
-        *{
-            margin:0;
-            padding:0;
-            font-family: Arial, Helvetica, sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
             color: white;
         }
-        body{
+
+        body {
             /* opacity:50%; */
         }
-        .sidebar{
-            position:fixed;
-            width:80px;
+
+        .sidebar {
+            position: fixed;
+            width: 80px;
             height: 100vh;
             background-color: #184A78;
             /* opacity:50%; */
         }
-        .sidebar > p{
-            margin-left:10px;
-            letter-spacing:5px;
-            visibility:hidden;
+
+        .sidebar>p {
+            margin-left: 10px;
+            letter-spacing: 5px;
+            visibility: hidden;
         }
-        .sidebar > i{
-            position:absolute;
-            top:5px;
-            right:35px;
+
+        .sidebar>i {
+            position: absolute;
+            top: 5px;
+            right: 35px;
         }
-        .fa-align-right{
-            visibility:hidden;
+
+        .fa-align-right {
+            visibility: hidden;
         }
-        .icons{
-            position:absolute;
-            top:150px;
-            display:flex;
-            flex-direction:column;
+
+        .icons {
+            position: absolute;
+            top: 150px;
+            display: flex;
+            flex-direction: column;
         }
-        .icons a{
-            margin-bottom:50px;
+
+        .icons a {
+            margin-bottom: 50px;
             margin-left: 20px;
         }
         .links{
@@ -109,14 +119,14 @@
            flex: 2 0 150px;
            width:200px;
            height:100px;
-           box-shadow:2px 2px 2px 2px #888888;
+           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
            margin-right:10px;
            margin-left:10px;
            margin-bottom:20px;
-           border-radius:20px;
+           border-radius:10px;
        }
        .card > p{
-        color:#184A78;
+        color:black;
         margin-top:10px;
        }
        .tables{
@@ -134,12 +144,20 @@
        }
        .table1{
         margin-bottom:30px;
+        display:flex;
+        justify-content:center;
+
+       }
+
+       .table1 td{
+           width:120px;
        }
        .table2{
 
        }
        table{
-        border:1px solid #184A78;
+        border:none;
+        outline:none;
        }
        table thead{
 
@@ -147,17 +165,37 @@
        table thead th{
         color:#184A78;
         padding:10px;
-        border:1px solid #184A78;
+       
        }
-       tr{
+       table th {
+  color: #000000;
+  background: #4FC3A1;
+}
+table th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+td{
+  padding: 5px;
+  background-color: #fff;
+  text-align: center;
+ 
 
-       }
+}
+table tr tr:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+} 
+tr:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
        tr td{
         color:#184A78;
         padding:10px;
-        border:1px solid #184A78;
+      
        }
-       .popup_send_warning{
+       .popup_send_warning, .popup_update_status{
            position:fixed;
            top:100px;
            width:100%;
@@ -166,21 +204,32 @@
            z-index: 1000;
            visibility:hidden;
        }
-       .send_warning_message, .cheque_status_form{
+       .popup_update_status{
+           visibility:hidden;
+       }
+       .send_warning_message, .update_status_form{
            width:400px;
            height:350px;
            background-color:white;
            border:4px solid #184A78;
-           border-radius:20px;
+           border-radius:10px;
        }
-       .send_warning_message label, .popup_cheque_status label{
+       .update_status_form{
+           height:400px;
+       }
+       .send_warning_message label, .update_status_form label{
            color:#184A78;
            display:block;
            margin:20px;
        }
        
-       .send_warning_message input, .send_warning_message textarea, .popup_cheque_status input, .popup_cheque_status textarea{
+       .send_warning_message input, .update_status_form input, 
+       .send_warning_message textarea, .update_status_form textarea{
            color:#184A78;
+       }
+       .update_status_form input{
+           padding:5px;
+           margin-left:10px;
        }
        .message_input{
            margin-left:10px;
@@ -191,18 +240,26 @@
            border-radius:20px;
            margin-left:160px;
        }
-       .popup_cheque_status{
-           position:fixed;
-           top:100px;
-           width:100%;
-           display:flex;
-           justify-content:center;
-           z-index: 1000;
-           visibility:hidden;
+       .card i{
+          color:black;
+       }
+       #top{
+           color:green;
+           font-weight:700;
+           font-size:20px;
+       }
+       h2{
+           color:black;
+           text-align:center;
+           padding:10px;
+       }
+       .update_status_form .submit{
+           margin-left:160px;
        }
        
     </style>
 </head>
+
 <body>
 
 
@@ -220,84 +277,108 @@
 
         <div class="links">
             <a href="#">REPORTS</a>
-            <a href="#">UPDATE STATUS</a>
-            <a href="#">UPDATE CREDIT PERIOD</a>
+            <a href="#" onclick="popup_message('.popup_update_status')">UPDATE STATUS</a>
+            <a href="#" onclick="popup_message('.popup_update_credit_period')">UPDATE CREDIT PERIOD</a>
             <a href="#">UPDATE CHEQUE STATUS</a>
-            <a href="#" onclick="send_warning()">SEND WARNING</a>
-            
+            <a href="#" onclick="popup_message('.popup_send_warning')">SEND WARNING</a>
+
         </div>
         <div class="sidebar_footer">
             <div class="footerIcon">
-            <i class="fas fa-building fa-lg"></i>
-                <p class="username"><?php echo $_SESSION['username'];?></p>
+                <i class="fas fa-building fa-lg"></i>
+                <p class="username"><?php echo $_SESSION['username']; ?></p>
             </div>
         </div>
     </div>
 
     <div class="popup_send_warning">
-       <div class="send_warning_message">
+        <div class="send_warning_message">
             <form action="#" method="post"></form>
             <label for="" class="cus_id">Customer Id : 0001</label>
-            <label for="" class="cus_name">Customer Name : Kamal</label>          
+            <label for="" class="cus_name">Customer Name : Kamal</label>
             <label for="" class="message_label">Message : </label>
             <textarea name="message" rows="5" cols="50" placeholder="Type Message Here..." class="message_input"></textarea>
             <input type="submit" name="submit" class="submit">
-       </div>
-    </div>
-
-    <div class="popup_cheque_status">
-        <div class="cheque_status_form">
-            <label for="">Cheque Number : 982962641</label>
-            <label for="">Bank : Bank Of Ceylon</label>
-            <label for="">Bank Branch : Andiambalama</label>
-            <label for="">Change Status : </label>
-            <label for="">if returned : </label>
-            <textarea name="reason" id="reason" cols="50" rows="5"></textarea>
         </div>
-        
     </div>
-    
+
+    <div class="popup_update_status">
+        <div class="update_status_form">
+            <form action="#" method="post">
+
+                <label for="">Current Status : </label>
+                <input type="text" name="current_status" value="Active" readonly>
+
+                <label for="">New Status : </label>
+                <input type="text" name="new_status" placeholder="New Status">
+
+                <label for="">Reason : </label>
+                <textarea name="message" rows="5" cols="50" placeholder="Type reason Here..." class="message_input"></textarea>
+
+                <input type="submit" name="submit" class="submit">
+            </form>
+        </div>
+    </div>
+
+    <div class="popup_update_credit_period">
+        <div class="update_credit_period_form">
+            <form action="#" method="post">
+                <label for="">Current Credit Period(Days) : </label>
+                <input type="text" value="14">
+
+                <label for="">New Credit Period(Days) : </label>
+                <input type="text" placeholder="Set new credit period">
+
+                <label for="">Description : </label>
+                <textarea name="" id="" cols="50" rows="5"></textarea>
+
+                <input type="submit" name="submit" class="submit">
+            </form>
+
+        </div>
+    </div>
+
     <div class="container">
-       <div class="cards">
-       
+        <div class="cards">
+
             <div class="card">
-                <p>ROUTE</p>
-                <p>R1</p>  
+                <p><i class="fas fa-route"></i><br>ROUTE</p>
+                <p id="top">R1</p>
             </div>
 
             <div class="card">
-                <p>OVERDUE PAYMENTS</p>
-                <p>10</p>
+                <p><i class="fas fa-money-bill-alt"></i><br>OVERDUE PAYMENTS</p>
+                <p id="top">10</p>
             </div>
 
             <div class="card">
-                <p>PENDING PAYMENTS</p>
-                <p>10</p>
+                <p><i class="fas fa-money-bill-alt"></i><br>PENDING PAYMENTS</p>
+                <p id="top">10</p>
             </div>
 
             <div class="card">
-                <p>RETURNED CHEQUES</p>
-                <p>10</p>
+                <p><i class="fas fa-money-check-alt"></i><br>RETURNED CHEQUES</p>
+                <p id="top">10</p>
             </div>
 
             <div class="card">
-                <p>STATUS</p>
-                <p>active</p>
+                <p><i class="fas fa-globe"></i><br>STATUS</p>
+                <p id="top">active</p>
             </div>
 
             <div class="card">
-                <p>CREDIT PERIOD</p>
-                <p>2 weeks</p>
+                <p><i class="fas fa-hourglass-start"></i><br>CREDIT PERIOD</p>
+                <p id="top">2 weeks</p>
             </div>
-       </div>
+        </div>
 
-       <div class="tables">
-           <div class="sub_tabels">
+        <div class="tables">
+            <div class="sub_tabels">
 
-                <p>ORDERS</p>
+                <h2>Orders</h2>
 
                 <div class="table1">
-                    <table>
+                    <table id="t1">
                         <thead>
                             <th>ORDER NO</th>
                             <th>AMOUNT</th>
@@ -305,20 +386,20 @@
                         </thead>
                         <?php
 
-                        for($i = 0 ; $i < 3 ; $i++){
+                        for ($i = 0; $i < 3; $i++) {
                             echo '<tr>
                             <td>001</td>
                             <td>1000</td>
                             <td>30.12.2021</td>
                             </tr>';
-                            }
-             
+                        }
+
                         ?>
                     </table>
 
                 </div>
 
-                <p>PAYMENTS</p>
+                <h2>Payments</h2>
 
                 <div class="table2">
                     <table>
@@ -329,8 +410,8 @@
                             <th>DATE</th>
                         </thead>
                         <?php
-        
-                        for($i = 0 ; $i < 4 ; $i++){
+
+                        for ($i = 0; $i < 4; $i++) {
                             echo '<tr>
                             <td>001</td>
                             <td>1000</td>
@@ -340,7 +421,7 @@
                         }
 
                         ?>
-        
+
                     </table>
                 </div>
             </div>
@@ -361,39 +442,39 @@
         let username = document.querySelector(".username");
         let container = document.querySelector(".container");
 
-        openbtn.addEventListener("click", function(){
-            
-             let widthdiv = 80;
-             let opacity = 0;
-             
+
+        openbtn.addEventListener("click", function() {
+
+            let widthdiv = 80;
+            let opacity = 0;
+
             var id = setInterval(frame, 10);
 
-            function frame(){
-                if(sidebar.style.width == "300px"){
+            function frame() {
+                if (sidebar.style.width == "300px") {
                     var id1 = setInterval(frame1, 10);
                     opacity = 0;
-                    function frame1(){
-                        if(opacity == 100){
+
+                    function frame1() {
+                        if (opacity == 100) {
                             clearInterval(id1);
-                        }
-                        else{
+                        } else {
                             links.style.visibility = "visible";
                             company_name.style.visibility = "visible";
                             username.style.visibility = "visible";
                             opacity = opacity + 10;
-                            links.style.opacity = opacity+"%";
-                            company_name.style.opacity = opacity+"%";
-                            username.style.opacity = opacity+"%";
-                            
+                            links.style.opacity = opacity + "%";
+                            company_name.style.opacity = opacity + "%";
+                            username.style.opacity = opacity + "%";
+
                         }
                     }
                     clearInterval(id);
-                }
-                else{
+                } else {
                     widthdiv = widthdiv + 10;
-                    sidebar.style.width = widthdiv+"px";
-                    container.style.left = widthdiv+"px";
-                    container.style.setProperty('width', 'calc(100% - '+widthdiv+'px)');
+                    sidebar.style.width = widthdiv + "px";
+                    container.style.left = widthdiv + "px";
+                    container.style.setProperty('width', 'calc(100% - ' + widthdiv + 'px)');
                 }
             }
 
@@ -402,25 +483,24 @@
             closebtn.style.right = "5px";
         });
 
-        closebtn.addEventListener("click", function(){
+        closebtn.addEventListener("click", function() {
             let widthdiv = 300;
             let opacity = 100;
 
             var id = setInterval(frame, 20);
 
-            function frame(){
-                if(sidebar.style.width == "80px"){
+            function frame() {
+                if (sidebar.style.width == "80px") {
                     clearInterval(id);
-                }
-                else{
+                } else {
                     widthdiv = widthdiv - 10;
-                    sidebar.style.width = widthdiv+"px";
-                    container.style.left = widthdiv+"px";
+                    sidebar.style.width = widthdiv + "px";
+                    container.style.left = widthdiv + "px";
                     opacity = opacity - 10;
                     company_name.style.opacity = opacity + "%";
-                    links.style.opacity = opacity+"%";
-                    username.style.opacity = opacity+"%";
-                    container.style.setProperty('width', 'calc((100%-250px) - '+widthdiv+'px)');
+                    links.style.opacity = opacity + "%";
+                    username.style.opacity = opacity + "%";
+                    container.style.setProperty('width', 'calc((100%-250px) - ' + widthdiv + 'px)');
                 }
             }
 
@@ -429,23 +509,25 @@
         });
     </script>
 
-    <!-- script for send warning -->
+
+
+    <!-- script for popup message -->
     <script>
-        let popup_send_warning = document.querySelector(".popup_send_warning");
-        
-        function send_warning(){
-            popup_send_warning.style.visibility = "visible";
+        function popup_message(message_name) {
+
+            var message = document.querySelector(message_name);
+            message.style.visibility = "visible";
             sidebar.style.opacity = "30%";
             container.style.opacity = "30%";
-        }
-        window.onclick = function(event) {
-            if (event.target == popup_send_warning) {
-                popup_send_warning.style.visibility = "hidden";
-                sidebar.style.opacity = "100%";
-                container.style.opacity = "100%";
+
+            window.onclick = function(event) {
+                if (event.target == message) {
+                    message.style.visibility = "hidden";
+                    sidebar.style.opacity = "100%";
+                    container.style.opacity = "100%";
+                }
             }
         }
-
     </script>
 
 

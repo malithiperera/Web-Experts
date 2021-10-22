@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php require '../view_headertype2.php'; ?><br><br><br><br><br>
+    <?php require 'view_headertype2.php'; ?><br><br><br><br><br>
 
     <section class="sec_1">
         <fieldset class="mainFieldSet">

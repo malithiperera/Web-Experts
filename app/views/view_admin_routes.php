@@ -17,7 +17,7 @@
         }
         body{
             position: relative;
-            background-color:#D8E9EB;
+            background-color:#fff;
             width: 100%;
             height: 100vh;
             z-index: 2000;
@@ -58,6 +58,15 @@
         tr td a:hover{
             text-decoration:underline;
         }
+        table th {
+  color: #000000;
+  background: #4FC3A1;
+}
+        table th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
         .buttons{
             position:relative;
             width:100%;
@@ -84,6 +93,8 @@
         .new_added_row input{
             padding:10px;
         }
+
+        
     </style>
 </head>
 <body>
@@ -101,7 +112,7 @@
 
         <form class="new_added_row" method="post" action="add_route">
             <!-- <input type="text" name="route_id" placeholder="Route Id" id="route_id" required> -->
-            <input type="text" name="sales_rep" placeholder="Sales Rep" id="sales_rep">
+            <input type="text" name="route_id" placeholder="route_id" id="route_id">
             <input type="text" name="destination" placeholder="Destination" id="destination" required>
             <input type="text" name="route_name" placeholder="Route Name" id="route_name" required>
             <input type="submit" name="submit">
@@ -112,20 +123,30 @@
             <table>
                 <thead>
                     <th>ROUTE ID</th>
-                    <th>SALES REP</th>
                     <th>DESTINATION</th>
                     <th>ROAD</th>
                 </thead>
                 
                 <?php
-                    for($i = 0 ; $i < 100 ; $i++){
-                        echo "<tr>
-                            <td><a href='../admin/routeProfile'>route1</a></td>
-                            <td><a href='../admin/routeProfile'>rep1</a></td>
-                            <td><a href='../admin/routeProfile'>des1</a></td>
-                            <td><a href='../admin/routeProfile'>road1</a></td>
-                        </tr>";
-                    }
+                    // for($i = 0 ; $i < 100 ; $i++){
+                    //     echo "<tr>
+                    //         <td><a href='../admin/routeProfile'>route1</a></td>
+                    //         <td><a href='../admin/routeProfile'>rep1</a></td>
+                    //         <td><a href='../admin/routeProfile'>des1</a></td>
+                    //         <td><a href='../admin/routeProfile'>road1</a></td>
+                    //     </tr>";   
+                    // }
+                    if ($this->result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $this->result->fetch_assoc()) {
+                        //   echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+                          echo "<tr>
+                                  <td><a href='../admin/routeProfile'>".$row['route_id']."</a></td>
+                                  <td><a href='../admin/routeProfile'>".$row['name']."</a></td>
+                                  <td><a href='../admin/routeProfile'>".$row['destination']."</a></td>
+                              </tr>";
+                        }
+                      }
                 ?>
                
             </table>

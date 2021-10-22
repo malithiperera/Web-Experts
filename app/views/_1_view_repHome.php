@@ -27,33 +27,50 @@
          <span class="tooltip">Customer Registration</span>
       </li>
       <li>
-      <a href="../salesRep/customer_home">
-          <i class='bx bx-user' ></i>
-          <span class="links_name">Customer Profile</span>
+      <a href="#"> 
+          <i class='bx bx-user open-button' onclick="openForm()" ></i>
+          <span class="links_name " >Customer Profile</span>
         </a>
-        <span class="tooltip">Customer Profile</span>
+        <!-- <span class="tooltip">Customer Profile</span> -->
+        <div class="form-popup" id="myForm">
+  <form action="../salesRep/customer_home" class="form-container">
+
+    <label for="email"><b>Enter Customer ID</b></label>
+    <input type="text" placeholder="Enter ID" name="email" required>
+
+    <button type="submit" class="btn" src=>Search</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
       </li>
       <li>
-       <a href="../orders/create_bill">
-        
+       <!-- <a href="../orders/create_bill"> -->
+       <a href="../salesRep/place_order">
         <i class='bx bxs-cart-add'></i>
          <span class="links_name">Place Order</span>
        </a>
        <span class="tooltip">Place Order</span>
      </li>
      <li>
+       <a href="../salesRep/product_list">
+       <i class="fas fa-clipboard-list"></i>
+         <span class="links_name">Product List</span>
+       </a>
+       <span class="tooltip">Product List</span>
+     </li>
+     <li>
        <a href="../salesRep/view_report">
        <i class='bx bx-line-chart'></i>
          <span class="links_name">Reports</span>
        </a>
-       <span class="tooltip">Reports</span>
+       <!-- <span class="tooltip">Reports</span> -->
      </li>
      <li>
        <a href="../customer/view_notification">
         <i class='bx bx-bell'></i>
          <span class="links_name">Notifications</span>
        </a>
-       <span class="tooltip">Notifications</span>
+       <!-- <span class="tooltip">Notifications</span> -->
      </li>
      <li>
      <a href="../salesRep/achievements">
@@ -63,6 +80,7 @@
       </a>
       <span class="tooltip">Achievements</span>
     </li>
+
      <li>
        <a href="../salesRep/profile">
        <i class="far fa-user-circle"></i>
@@ -70,6 +88,7 @@
        </a>
        <span class="tooltip">Profile</span>
      </li>
+     
      <li>
        <a href="#">
        <i class="fas fa-sign-out-alt"></i>
@@ -284,7 +303,15 @@
 
   
 <script src="../../public/java script/view_rep_Home.js"></script>
-  
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>  
 
 </body>
 </html>
