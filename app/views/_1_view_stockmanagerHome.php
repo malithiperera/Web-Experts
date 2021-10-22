@@ -9,7 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles/viewStocks.css">
+    <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {
@@ -42,6 +42,8 @@
 </head>
 
 <body>
+    <?php require_once '../controllers/showProductsProcess.php' ?>
+
     <div class="sidebar">
         <div class="logo-details">
 
@@ -230,15 +232,26 @@
 
                 </thead>
 
-                <tbody>
-                    <tr>
-                        <td><a href="../stockManager/product_profile">1</a></td>
-                        <td><a href="../stockManager/product_profile">test_1</a></td>
-                        <td>1000</td>
-                        <td>100</td>
-                    </tr>
+                <?php require_once '../controllers/selectProductsFromDB.php'; ?>
+                <?php
+                if ($result->num_rows > 0) {
+                    # code...
+                    while ($row = $result->fetch_assoc()) { ?>
+                        <tbody>
+                            <tr>
+                                <td><a href="../stockManager/product_profile"><?php echo $row['product_id']; ?></a></td>
+                                <td><a href="../stockManager/product_profile"><?php echo $row['product_name']; ?></a></td>
+                                <td><?php echo $row['type']; ?></td>
+                                <td><?php echo $row['price']; ?></td>
 
-                    <tr>
+                            </tr>
+
+                        </tbody>
+                <?php   }
+                } ?>
+
+
+                <!-- <tr>
                         <td><a href="../stockManager/product_profile">2</a></td>
                         <td><a href="../stockManager/product_profile">test_2</a></td>
                         <td>2000</td>
@@ -257,25 +270,22 @@
                         <td><a href="../stockManager/product_profile">test_4</a></td>
                         <td>4000</td>
                         <td>400</td>
-                    </tr>
-
-                </tbody>
+                    </tr> -->
 
             </table>
 
-            <div class="add"><br><br><br><br>
-                <a href="../stockManager/add_product"><button class="add">Add</button><br></a>
-
-            </div>
-
         </section>
 
+        <div class="add"><br><br><br><br>
+            <a href="../stockManager/add_product"><button class="add">Add</button><br></a>
+
+        </div>
 
 
     </section>
 
 
-    <script src="../../public/java script/viewStocks.js"></script>
+    <script src="../../public/java script/view_stockManager_viewStocks.js"></script>
 
 
 </body>
