@@ -17,7 +17,7 @@
         }
         body{
             position: relative;
-            background-color:#D8E9EB;
+            background-color:#fff;
             width: 100%;
             height: 100vh;
             z-index: 2000;
@@ -58,6 +58,15 @@
         tr td a:hover{
             text-decoration:underline;
         }
+        table th {
+  color: #000000;
+  background: #4FC3A1;
+}
+        table th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
         .buttons{
             position:relative;
             width:100%;
@@ -84,6 +93,8 @@
         .new_added_row input{
             padding:10px;
         }
+
+        
     </style>
 </head>
 <body>

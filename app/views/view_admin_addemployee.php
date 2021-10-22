@@ -32,7 +32,7 @@ require 'view_headertype2.php';
 <div class="container">
 <div class="div1" id="div1">
     <h3>Admin Registration</h3>
-    <form method="post" action="register_admin">
+    <form method="post" action="../register/employee_register?user=admin">
         <div class="content">
          
           <label for="name"><b>Name</b></label><br>
@@ -66,7 +66,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div2" id="div2">
     <h3>Sales Representative Registration</h3>
-    <form action="../salesRep/register_salesrep" method="post">
+    <form action="../register/employee_register?user=sales_rep" method="post">
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -100,7 +100,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div3" id="div3">
     <h3>Stock Manager Registration</h3>
-    <form action="/action_page.php" onsubmit=" return validate()">
+    <form action="../register/employee_register?user=stockmanager"  method="post"> 
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -124,8 +124,7 @@ require 'view_headertype2.php';
           <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
           <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
           
-      
-          <button type="submit" class="registerbtn" id="validate" onsubmit="validate()">Register</button>
+          <button type="submit" name="submit" class="registerbtn" id="validate">Register</button>
         </div>
         
        
