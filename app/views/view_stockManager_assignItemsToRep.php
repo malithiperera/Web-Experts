@@ -11,14 +11,8 @@
 
 <body>
     <?php require '../header.php'; ?>
-    <?php require_once 'assignItemsToRepProcess.php'; ?>
-
-    <?php
-    $mysqli = new mysqli('localhost', 'root', '', 'items') or die($mysqli->error);
-
-    $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
-
-    ?>
+    <?php require_once '../controllers/assignItemsToRepProcess.php'; ?>
+    <?php require_once '../controllers/selectFromDB.php'; ?>
 
     <br><br><br><br><br>
 
