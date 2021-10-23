@@ -1,0 +1,145 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.subcontainer p{
+    color:#184A78;
+}
+.container{
+    position:relative;
+    top:100px;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+}
+.data_form{
+    display:flex;
+    justify-content: center;
+}
+
+.data_form button{
+    margin:10px;
+    width:80px;
+    height:40px;
+    border-radius:20px;
+}
+.data_form input{
+    margin:10px;
+    padding-left:10px;
+    width:200px;
+    height:40px;
+    border-radius:10px;
+    outline: none;
+    background-color: rgb(187, 194, 194);
+    text-align:center;
+}
+ul{
+   list-style-type:none;
+   margin-left:30px;
+}
+li a{
+    text-decoration:none;
+}
+.content{
+   position:absolute;
+   top:250px;
+   display:flex;
+   flex-direction:column;
+   margin-left:10px;
+}
+
+.order{
+    display: flex;
+    padding: 20px;
+}
+th{
+   background-color:#184A78;
+   width:250px;
+   height:40px;
+   color:white;
+}
+td{
+   background-color:#ffffff;
+   color:black;
+   width:250px;
+   height:40px;
+   text-align:center;
+}
+
+#new{
+    background-color: #211e7a;
+    color: #fff;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button i{
+    padding: 5px;
+}
+.confirmation{
+   position:fixed;
+   top:100px;
+   width:100%;
+   display:flex;
+   justify-content:center;
+   visibility:hidden;
+}
+.subconfirmation{
+   width:400px;
+   height:100px;
+   background-color:white;
+   border:1px solid #184A78;
+   border-radius:20px;
+}
+
+.info{
+    
+    justify-content: center;
+}
+.info input{
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.info label{
+    font-size: 15px;
+    font-weight: 700;
+    
+
+}
+.tot td{
+    background-color: rgb(199, 198, 197);
+}
+
+
+.edit{
+    color: rgb(255, 255, 255);
+    background-color: green;
+    /* border: 1px solid black; */
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .delete{
+    background-color: red;
+    width: 60px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  
+  }
+.save{
+    display: flex;
+    justify-content: center;
+}
+  #save_but{
+      width: 200px;
+      background-color: #184A78;
+      height: 40px;
+      color: #fff;
+      border-radius: 5px;
+  }

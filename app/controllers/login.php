@@ -11,12 +11,18 @@ class login extends controller{
     public function customer_home($userid)
     {
         
-        $result=$this->model->customer_home_detail_check($userid);
+        list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
        
-        $this->view->added=$result;
+        $this->view->added=$firstArray; 
+       
+
+
+
+        
         $this->view->render('_1_view_customerHome');
-      
-}
+
+
+    }
 
     public function index(){
         echo "404 ERROR";

@@ -58,7 +58,10 @@ public function back_cus_home()
 {
     $this->view->render('_1_view_customerHome');
 }
-
+public function view_orders()
+{
+    $this->view->render('view_vieworder');
+}
 
 }
 

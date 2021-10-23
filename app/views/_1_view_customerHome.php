@@ -216,30 +216,29 @@ if(!isset($_SESSION['username'])){
             {?>
             <div class="field">
             <div class="order-no">
-           <p class="onum"><?php echo $data['order_id'];?></p>
-           <p class="date"> <?php echo $data['date'];?></p>
+           <p class="onum"><b>Order Id :</b> <?php echo $data['order_id'];?></p>
+           <p class="date"><b>Date:</b><?php echo $data['date'];?></p>
            </div>
            <div class="content">
-           <a href="">view</a>
+           <a href="../customer/view_orders">view</a>
            </div>
            </div>
            <?php } ?>
-           
-
-               
-               <div class="field"><button onclick=pop_func() class="show">Show more</button>
+            <div class="field">
+             
               </div>
       </div>
              
          <div class="payment">
           <h2>Due Payment</h2>
-          
+        
       
          
             <div class="field">
             <div class="order-no">
-           <p class="onum">001</p>
-           <p class="date"></p>
+           <p class="onum">Order Id:002</p>
+           <p class="onum">Delivery Id:008</p>
+           <p class="date">Date:2020.10.03</p>
            </div>
            <div class="content">
            <a href="">view</a>
@@ -260,30 +259,9 @@ if(!isset($_SESSION['username'])){
  
   <div class="pop-up">
 <div class="order-pop">
- <h3>Pending orders</h3>
-<table>
-  <tr>
-    <th>Order Id</th>
-    <th>Order Date</th>
-    <th>Amount</th>
-    <th colspan="2"></th>
-  </tr>
-  <?php foreach($this->added as $row){?>
-
-  
-  <tr>
-    <td><?php $row['order_id'] ;  ?></td>
-    <td><?php $row['date'] ;?></td>
-    <td>12000</td>
-    <td><button class="edit"><a >Edit</a></button></td>
-    <td><button class="delete"><a >Delete</a></button></td>
-    
-  </tr>
-
-  <?php } ?>
-</table>
-<br>
 <h3>Due Payments</h3>
+<br>
+
 <table class="Payments">
   <tr>
     <th>Order Id</th>
@@ -296,7 +274,7 @@ if(!isset($_SESSION['username'])){
     <td>001</td>
     <td>09.10.2021</td>
     <td>09.10.2021</td>
-    <td>12000</td>
+    <td id="order_id">12000</td>
     <td><button type="submit" id="payhere-payment" ><i class="fas fa-credit-card"></button></td>
    
     
@@ -305,7 +283,13 @@ if(!isset($_SESSION['username'])){
 </div>   
 
 </div> 
+
 <script>
+
+
+
+  var order_id=document.getElementById('order_id').innerHTML;
+  
   // Called when user completed the payment. It can be a successful payment or failure
   payhere.onCompleted = function onCompleted(orderId) {
         console.log("Payment completed. OrderID:" + orderId);
@@ -333,7 +317,7 @@ if(!isset($_SESSION['username'])){
         "notify_url": "http://sample.com/notify",
         "order_id": "ItemNo12345",
         "items": "Door bell wireles",
-        "amount": "1000.00",
+        "amount": order_id,
         "currency": "LKR",
         "first_name": "Saman",
         "last_name": "Perera",

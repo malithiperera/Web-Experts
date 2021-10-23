@@ -42,6 +42,7 @@ public function employee_register(){
     $address = $_POST['add'];
     $dob = $_POST['dob'];
     $tele = $_POST['tel'];
+    $target=$_POST['target'];
 
    
      
@@ -51,7 +52,7 @@ if(isset($_POST['submit'])){
     $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele);
     if($this->view->added == 1){
         $this->send_mail($name, $email, $verificationCode);
-     header('Location: http://localhost/web-Experts/public/salesRep/customer_registration?succuss='.true);   
+     header('Location: http://localhost/web-Experts/public/register/addEmployee?succuss='.true);   
     }
     else{
         echo $this->view->added;
@@ -64,6 +65,8 @@ if(isset($_POST['submit'])){
 
 public function addEmployee(){
     if($_GET['succuss'] == true){
+        session_start();
+        $_SESSION['msg']="Employee Added Succusfully";
         $this->view->added = 1;
         $this->view->render('view_admin_addemployee');
     }
@@ -123,11 +126,14 @@ public function register_customer()
     $route=$_POST['route'];
     $dob = $_POST['date'];
     $tele = $_POST['tel'];
+    
 
+  $name = $namefirst." ".$namelast;
 
 if(isset($_POST['submit'])){
+    
     $this->model('register_model');
-    $this->view->added = $this->model->register_customer($user_id, $namefirst,$namelast, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$shop,$route);
+    $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$shop,$route);
     if($this->view->added == 1){
         $this->send_mail($name, $email, $verificationCode);
         header('Location: http://localhost/web-Experts/public/salesrep/customer_registration?succuss='.true);   
