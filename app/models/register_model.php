@@ -9,7 +9,7 @@ class register_model extends model
         parent::__construct();
     }
 
-    public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele, $shop = "abc", $route = "abc")
+    public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$target,$level, $shop = "abc", $route = "abc",)
     {
 
         require '../app/core/database.php';
@@ -21,11 +21,11 @@ class register_model extends model
         if (mysqli_query($conn, $sql1) == true) {
 
             if ($type == 'admin') {
-                $sql = "INSERT INTO admin (admin_id,level) VALUES ('$user_id',junior)";
+                $sql = "INSERT INTO admin (admin_id,level) VALUES ('$user_id','$level')";
                 mysqli_query($conn, $sql);
                 return 1;
             } else if ($type == 'rep') {
-                $sql = "INSERT INTO sales_rep  VALUES ('$user_id','100000')";
+                $sql = "INSERT INTO sales_rep  VALUES ('$user_id','$target')";
                 mysqli_query($conn, $sql);
                 return 1;
             } else if ($type == 'stockmanager') {
@@ -36,9 +36,16 @@ class register_model extends model
                     return mysqli_error($conn);
                 }
             } else {
-                $sql = "INSERT INTO customer  VALUES ('$user_id','$shop' ,'2',$route)";
-                mysqli_query($conn, $sql);
-                return 1;
+                
+
+                $sql = "INSERT INTO customer VALUES ('$user_id','$shop' ,'2','$route')";
+                if(mysqli_query($conn, $sql)==true){
+                    return 1;
+                }
+                else{
+                    echo mysqli_error($conn);
+                }
+               
             }
         } else {
             return mysqli_error($conn);

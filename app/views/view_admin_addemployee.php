@@ -22,8 +22,9 @@ require 'view_headertype2.php';
 ?>
 </div>
 <div class="main">
-<div class="sucess" id="success">
-            <p>Employee Added Succesfully</p>
+<div class="success " id="success">
+            <!-- <span>Employee</span> -->
+           
             </div>
 <div class="choose">
       
@@ -48,7 +49,10 @@ require 'view_headertype2.php';
           <input type="text" placeholder="Name" name="userid" id="userid" required>
           <br>
           <label for="name"><b>Level</b></label><br>
-          <input type="text" placeholder="Name" name="name" id="name" required>
+          <select name="level" id="type">
+           <option value="Junior">Junior</option>
+           <option value="Senior">Senior</option>
+          </select>
           <br>
           <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label><br>
           <input type="text" placeholder="nic" name="nic" id="nic" required>
@@ -113,7 +117,7 @@ require 'view_headertype2.php';
 </div>
 <div class="div3" id="div3">
     <h3>Stock Manager Registration</h3>
-    <form action="../register/employee_register?user=stockmanager"  method="post"> 
+    <form method="post" action="../register/employee_register?user=stockmanager" method="post"  > 
         <div class="content">
          
           <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -136,9 +140,9 @@ require 'view_headertype2.php';
           <input type="address" placeholder="address" name="add" id="add" required>
           <br>
           <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-          <input type="tel" placeholder="Telephone" name="tel" id="tel" required>
+          <input type="tel" placeholder="Telephone" name="tel" id="tel" >
           <label for="name" id="hid1"><b>&nbsp;&nbsp; </b></label>
-          <input type="text" placeholder="nic" name="target" id="hid2" required>
+          <input type="text" placeholder="nic" name="target" id="hid2" >
           <br>
           
           <button type="submit" name="submit" class="registerbtn" id="validate">Register</button>

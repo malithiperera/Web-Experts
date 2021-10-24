@@ -26,7 +26,14 @@ class login extends controller
 
     }
 
+public function stock_manager()
+{
 
+
+
+
+
+}
 
         // $this->view->render("view_customer_placeorder");
     
@@ -68,6 +75,7 @@ class login extends controller
 
                 $this->customer_home($_SESSION['userid']);
             }
+            
             // echo $_SESSION['userid'];
 
             else {
