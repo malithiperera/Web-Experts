@@ -9,11 +9,14 @@ class order_model extends model{
         parent::__construct();
     }
 
-public function create_bill()
-{ require '../app/core/database.php';
-    $sql="SELECT * FROM product";
-    $result = $conn->query($sql);
+public function create_bill($cusid)
+{ 
+    require '../app/core/database.php';
+    $sql="SELECT * FROM customer WHERE cus_id='$cusid' ";
+    
+    $result = mysqli_query($conn, $sql);
     return $result;
+    
 }
 
 
