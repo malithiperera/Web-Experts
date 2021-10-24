@@ -12,16 +12,31 @@ class login extends controller
 
     public function customer_home($userid)
     {
+        
+        list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
+       
+        $this->view->added=$firstArray; 
+       
+         
 
-        $result = $this->model->customer_home_detail_check($userid);
-        $this->view->added = $result;
-        $this->view->added1 = $result;
+
+        
         $this->view->render('_1_view_customerHome');
 
 
+    }
+
+public function stock_manager()
+{
+
+
+
+
+
+}
 
         // $this->view->render("view_customer_placeorder");
-    }
+    
 
     public function index()
     {
@@ -60,6 +75,7 @@ class login extends controller
 
                 $this->customer_home($_SESSION['userid']);
             }
+            
             // echo $_SESSION['userid'];
 
             else {

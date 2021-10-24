@@ -112,6 +112,20 @@ label{
    
 }
 
+select{
+  width: 400px;
+   margin-bottom:30px;
+   margin-left: 60px;
+   margin-top:10px;
+   height: 30px;
+  
+   background-color: rgb(245, 244, 244);
+   border-radius: 5px;
+  
+  padding: 6px;
+ border: none;
+}
+
 .content button{
   float: center;
     width: 200px;
@@ -185,8 +199,9 @@ button:hover{
   color: #fff;
   width: 300px;
   height: 50px;
+  visibility: hidden;
 }
-.sucess p ,.error p{
+.sucess span ,.error p{
   padding: 20px;
 }
 
@@ -196,6 +211,11 @@ button:hover{
   width: 300px;
   margin-top: -50px;;
   height: 50px;
+}
+
+
+#hid1, #hid2{
+visibility: hidden;
 }
 @media screen and (max-width: 550px) {
 

@@ -53,17 +53,17 @@ class home_model extends model
         }
     }
 
-    public function customer_home_detail_check($userid)
+   public function customer_home_detail_check($userid){
+    require '../app/core/database.php';
+    $sql="SELECT * FROM orders WHERE cus_id='$userid' AND status='pending' ";
+    $query="SELECT * FROM delivery WHERE cus_id='$userid'";
+    $sql1=mysqli_query($conn,$sql);
+    $query1=mysqli_query($conn,$query);
+    if($query1==true && $sql1==true )
     {
-        require '../app/core/database.php';
-        $sql = "SELECT * FROM orders WHERE cus_id='$userid' AND status='pending' ";
-        $query = mysqli_query($conn, $sql);
-        if ($query == true) {
-
-            return $query;
-        }
+       return array($query1,$sql1);
     }
-
+   }
     public function test3(){
         require '../app/core/database.php';
         $sql = "SELECT * FROM product";

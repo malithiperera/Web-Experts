@@ -627,7 +627,7 @@ visibility: hidden;
   margin-top: 100px;
   background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: column;
+ 
   align-items: center;
   justify-content: center;
   width: 700px;
@@ -695,7 +695,8 @@ td{
   text-align: center;
 }
 .order-pop h3{
-  padding: 25px;
+  padding: 35px;
+  margin-top: -30px;
 }
 .show{
   background: #184A78;

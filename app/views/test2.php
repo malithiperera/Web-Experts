@@ -1,3 +1,11 @@
+<?php
+
+if(!isset($_SESSION['username'])){
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +104,18 @@
     <?php require 'view_headerType2.php'; ?>
 
     <div class="container">
+        <?php
+ $row=$this->added->fetch_assoc();
+
+
+  ?>
+   
         <div class="subcontainer">
+            <label for="">Cus Id</label>
+        <input type="text" value="<?php echo $_SESSION['userid'] ; ?>"readonly>
+        <label for="">Route Id</label>
+        <input type="text" value="<?php echo $row['route_id']?>"  readonly>
+       
 
 
                 <p>Insert Product to Bill...</p>
