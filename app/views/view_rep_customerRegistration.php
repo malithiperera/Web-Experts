@@ -14,7 +14,7 @@
     <?php require 'view_headerType2.php';  ?>
     <div class="container">
         <div class="sub-container">
-            <form action="./register/customer_register" method="post">
+            <form action="../register/register_customer" method="post">
             <div class="title1">Customer Registration</div>
             <div class="input-fields">
             <div class="name">
@@ -29,6 +29,9 @@
             <div class="input-fields"><label for="email">Email</label><input type="email" name="email" id="email"
                     class="inputf">
             </div>
+            <div class="input-fields"><label for="email">User Id</label><input type="text" name="userid" id="email"
+                    class="inputf">
+            </div>
             <div class="input-fields"><label for="date">Date of Birth</label><input type="date" name="date" id="date"
                 class="inputf">
             </div>
@@ -41,7 +44,16 @@
             <div class="input-fields"><label for="route">Route</label><input type="text" name="route" id="route"
                 class="inputf">
         </div>
+<<<<<<< HEAD
         
+=======
+        <div class="input-fields"><label for="route">Telephone Number</label><input type="text" name="tel" id="route"
+                class="inputf">
+        </div>
+        <div class="input-fields"><label for="route">NIC</label><input type="text" name="nic" id="route"
+                class="inputf">
+        </div>
+>>>>>>> ff626d475542b4dd558b27c7c11ab53666d3f66c
             
             <div class="input-fields"><input type="submit" value="Confirm" id="confirm" name="submit"></div>
         </div>
