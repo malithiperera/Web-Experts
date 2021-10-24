@@ -45,7 +45,7 @@
       </li>
       <li>
        <!-- <a href="../orders/create_bill"> -->
-       <a href="../salesRep/place_order">
+       <a href="../orders/create_bill">
         <i class='bx bxs-cart-add'></i>
          <span class="links_name">Place Order</span>
        </a>
