@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- <?php require 'view_headerType2.php';  ?> -->
+    <?php require 'view_headerType2.php';  ?>
     <div class="container">
         <div class="sub-container">
             <form action="../register/register_customer" method="post">
@@ -44,12 +44,16 @@
             <div class="input-fields"><label for="route">Route</label><input type="text" name="route" id="route"
                 class="inputf">
         </div>
+<<<<<<< HEAD
+        
+=======
         <div class="input-fields"><label for="route">Telephone Number</label><input type="text" name="tel" id="route"
                 class="inputf">
         </div>
         <div class="input-fields"><label for="route">NIC</label><input type="text" name="nic" id="route"
                 class="inputf">
         </div>
+>>>>>>> ff626d475542b4dd558b27c7c11ab53666d3f66c
             
             <div class="input-fields"><input type="submit" value="Confirm" id="confirm" name="submit"></div>
         </div>

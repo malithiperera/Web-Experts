@@ -41,7 +41,7 @@ class _2_salesrep_model extends model
         //insert query
         $sql = "INSERT INTO payment (amount, orders_id, payment_date)
         VALUES ('$total','$orders_id','$date')";
-        $result = $conn->query($sql);
+        // $result = $conn->query($sql);
         if(mysqli_query($conn,$sql)==TRUE){
             return 1;
         }else{
