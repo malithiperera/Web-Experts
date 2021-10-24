@@ -21,7 +21,18 @@
 
                 </tr>
             </thead>
-            <tbody>
+            <?php
+        if($this->result->num_rows>0){
+          while($row=$this->result->fetch_assoc()){
+            echo"<tr>
+                    <td>".$row['product_name']."</td>
+                    <td></td>
+                   
+                  </tr>";
+          }
+        }
+      ?>
+            <!-- <tbody>
                 <tr>
 
                     <td>Product 1</td>
@@ -173,10 +184,10 @@
                     <td><input type="text" name="total" id="total" class="inputf"></td>
 
                 </tr>
-            <tbody>
+            <tbody> -->
         </table>
     </div>
-    <div class="input-fields"><input type="submit" value="Back" id="back"></div>
+    <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
     <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
 </body>
 
