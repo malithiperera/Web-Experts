@@ -26,7 +26,14 @@ class login extends controller
 
     }
 
+public function stock_manager()
+{
 
+
+
+
+
+}
 
         // $this->view->render("view_customer_placeorder");
     
@@ -68,6 +75,7 @@ class login extends controller
 
                 $this->customer_home($_SESSION['userid']);
             }
+            
             // echo $_SESSION['userid'];
 
             else {
@@ -159,23 +167,7 @@ class login extends controller
         $this->view->render('test3');
     }
 
-    public function place_order()
-    {
-        $recieved_data_encoded = file_get_contents("php://input");
-        $recieved_data = json_decode($recieved_data_encoded, true);
-
-        $this->model('home_model');
-
-        foreach ($recieved_data as $value) {
-            $result = $this->model->place_order($value);
-            echo $result;
-        }
-        // print $recieved_data;
-
-        // $this->model('home_model');
-        // $this->model->place_order($recieved_data);
-
-    }
+    
 
     public function resetMail()
     {
