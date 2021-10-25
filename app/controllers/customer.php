@@ -13,7 +13,7 @@ class customer extends controller
         $this->view->render('_1_view_customerHome');
     }
 
-   
+
 
 
 
@@ -38,12 +38,13 @@ class customer extends controller
         $this->view->render('view_customer_viewreport');
     }
 
-     public function place_order_view()
+    public function place_order_view()
     {
         $this->view->render('test2');
     }
 
-    public function get_details_place_order(){
+    public function get_details_place_order()
+    {
         session_start();
 
         $this->model('order_model');
@@ -60,23 +61,25 @@ class customer extends controller
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
 
-        // $order_id = "";
-        // $amount = $recieved_data[];
-        $status = "";
-        $date = "";
-        $cus_id = "";
-        $route_id = "";
-        // $this->model('order_model');
+        $data = [
+            $recieved_data['amount'],
+            $recieved_data['status'],
+            $recieved_data['date'],
+            $recieved_data['cus_id'],
+            $recieved_data['route_id']
+        ];
 
-        // foreach ($recieved_data as $value) {
-        //     $result = $this->model->place_order($value);
-        //     echo $result;
-        // }
-        // print $recieved_data;
+        $this->model('order_model');
+        $this->model->place_order(
+            $recieved_data['amount'],
+            $recieved_data['status'],
+            $recieved_data['date'],
+            $recieved_data['cus_id'],
+            $recieved_data['route_id']
+        );
 
-        // $this->model('home_model');
-        // $this->model->place_order($recieved_data);
-
+        echo json_encode($data);
+        exit;
     }
 
     public function view_details($mail)
