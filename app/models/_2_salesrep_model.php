@@ -48,6 +48,12 @@ class _2_salesrep_model extends model
             return mysqli_error($conn);
         };
     }
+    public function daily_productList(){
+        require '../app/core/database.php';
+        $sql = "SELECT product_name FROM product";
+        $result = $conn->query($sql);
+        return $result;
+    }
     }
 
     // public function insert_route($route_id, $name, $destination){
