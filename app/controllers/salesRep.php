@@ -110,6 +110,8 @@ public function profile(){
     $this->view->render('view_all_editProfile');
 }
 public function product_list(){
+    $this->model('_2_salesrep_model');
+    $this->view->result=$this->model->daily_productList();
     $this->view->render('view_rep_productList');
 }
 public function place_order(){

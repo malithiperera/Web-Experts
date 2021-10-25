@@ -13,15 +13,30 @@ class login extends controller
     public function customer_home($userid)
     {
         
-        list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
+        $card=$this->model->customer_card($userid);
+     
        
-        $this->view->added=$firstArray; 
+        
+         list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
+
+       
+        while( $data=$secondArray->fetch_array()){
+            echo $data['delivery_id'];
+            echo $data['date'];
+
+        }
+
+        while( $data=$firstArray->fetch_array()){
+            echo $data['order_id'];
+           
+
+        }
        
          
-
+    
 
         
-        $this->view->render('_1_view_customerHome');
+        // $this->view->render('_1_view_customerHome');
 
 
     }
