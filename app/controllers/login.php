@@ -229,4 +229,15 @@ public function stock_manager()
         session_destroy();
         header("Location: http://localhost/web-Experts/public/login/login");
     }
+
+    public function test4(){
+        $this->view->render('test4');
+    }
+    public function test4_get_data(){
+
+        $body = json_decode(file_get_contents('php://input'));
+
+        echo json_encode($body);
+        exit;
+    }
 }

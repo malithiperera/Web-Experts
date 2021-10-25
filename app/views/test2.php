@@ -230,7 +230,7 @@
             }
 
             getData(reqBody).then(data => {
-                console.log(data);
+                // console.log(data);
                 suggestions.innerHTML = ``;
                 data.forEach(myFunction);
 
@@ -282,16 +282,17 @@
                 total = total + parseInt(table_info.rows[i].cells[4].innerHTML);
             }
             total_of_all_prices.innerHTML = total;
+
         }
 
         function confirmation_message() {
 
         }
 
-        var table_data = new Array(table_info.rows.length);
+        var table_data = new Array(table_info.rows.length - 1);
 
         function place_order() {
-            for (i = 1; i < table_info.rows.length; i++) {
+            for (i = 1; i < table_info.rows.length - 1; i++) {
                 let table_cell = table_info.rows.item(i).cells;
                 table_data[i - 1] = new Array(table_cell.length);
                 for (j = 0; j < table_cell.length; j++) {
@@ -300,19 +301,37 @@
 
             }
 
-            //clear tabel
+            var total_amount = total_of_all_prices.innerHTML;
+            var cus_id = user_id.value;
+            var route_id_obj = route_id.value;
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+            var data_set = {
+                amount: total_amount,
+                status : 'not-delivered',
+                date: date,
+                cus_id: cus_id,
+                route_id: route_id_obj,
+                table: table_data
+            };
+
+
+
+            fetch('http://localhost/web-Experts/public/customer/place_order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data_set)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                });
+
             new_product.innerHTML = '';
             total_of_all_prices.innerHTML = '';
-
-            //make json string
-            const table_data_to_send = JSON.stringify(table_data);
-            // console.log(table_data_to_send);
-            const xhr = new XMLHttpRequest();
-
-            //send table data
-            xhr.open("POST", "http://localhost/web-Experts/public/customer/place_order");
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(table_data_to_send);
         }
 
         // fill details
