@@ -193,17 +193,11 @@ i{
         <h3>Everyone Needs Milk. Dairy always a Good Choice</h3>
         <ul>
          
+            <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
+            
             <li><a href=""><i class="fas fa-home" id="s3"></i></a></li>
             
-            <div class="dropdown">
-            
-              <li><a href=""><i class="fas fa-user-circle" id="s3"></i></a></li>
-              <div class="dropdown-content">
-              <a href="#">edit profile</a>
-              <a href="#">view profile</a>
-              <a href="#">logout</a>
-              </div>
-            </div>
+             
             
                     <li><a href="#"><i class="fas fa-bell fa-large" id="s4"></i></li></a>
         </ul>

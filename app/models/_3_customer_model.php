@@ -11,6 +11,7 @@ class home_model extends model{
 
 public function place_order()
 {
+    require '../app/core/database.php';
     $records = mysqli_query($conn,"SELECT product_id,name,price FROM product");
     
    if($records==true)
@@ -22,6 +23,7 @@ public function place_order()
 }
 
 public function customer_home_detail_check($userid){
+    require '../app/core/database.php';
     $sql="SELECT * FROM order WHERE cus_id='$userid' AND status='pending'";
     $query=mysqli_query($conn,$sql);
     if($query==true)
@@ -31,5 +33,25 @@ public function customer_home_detail_check($userid){
     }
  
 }
+
+public function get_orders($user)
+{
+    require '../app/core/database.php';
+    $sql="SELECT * FROM order WHERE cus_id='$userid' AND status='pending'";
+    $query=mysqli_query($conn,$sql);
+    if($query==true)
+    {
+       
+        return $query;
+    }
+ 
+
+
+}
+
+
+
+
+
     
 }
