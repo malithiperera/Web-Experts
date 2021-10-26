@@ -24,6 +24,25 @@ class login extends controller
 
 
     }
+    public function rep_home($userid)
+    {
+        
+        $card=$this->model->rep_card($userid);
+     
+       
+        
+         list($firstArray, $secondArray)=$this->model->rep_home_detail_check($userid);
+
+       
+       
+         
+    
+
+        
+         $this->view->render('_1_view_repHome');
+
+
+    }
 
 public function stock_manager()
 {
@@ -70,20 +89,20 @@ public function stock_manager()
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $row['user_id'];
 
-            // if ($row['type'] == 'customer') {
+            if ($row['type'] == 'customer') {
 
-            //     $this->customer_home($_SESSION['userid']);
-            // }
+            $this->customer_home($_SESSION['userid']);
+        }
             
             // echo $_SESSION['userid'];
 
-            // else {
-                // $this->view->render('')
+            else {
+                
                 header('Location: http://localhost/web-Experts/public/login/adminHome?viewname=' . $viewname);
 
 
                 // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
-            // }
+              }
         } else {
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
         }

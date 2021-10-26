@@ -36,7 +36,7 @@ class home_model extends model
     public function search_items($product_name)
     {
         require '../app/core/database.php';
-        $sql = "SELECT * FROM product WHERE product_name LIKE '" . $product_name . "%' LIMIT 5";
+        $sql = "SELECT * FROM product WHERE product_name LIKE '%" . $product_name . "%' LIMIT 5";
         $result = $conn->query($sql);
         return $result;
     }

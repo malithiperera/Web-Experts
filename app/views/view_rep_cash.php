@@ -44,8 +44,9 @@
         <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
       </form>
     </div>
-    <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
+    
   </div>
+  <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
   <!-- <script type="text/css"> -->
     
   </script>
