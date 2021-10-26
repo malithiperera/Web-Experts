@@ -91,7 +91,7 @@ public function stock_manager()
 
            
             
-            // echo $_SESSION['userid'];
+             
 
             
                 

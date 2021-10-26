@@ -210,11 +210,14 @@
             
             <div class="field">
             <div class="order-no">
-           <p class="onum"></p>
-           <p class="date"></p>
+           <label for="">Order Id:</label><input type="text" id=onum readonly>
+           <br>
+           <label for="">Order Date:</label><input type="text" id= o_date readonly>
+           <br>
+           <label for="">Amount:</label><input type="text" id= amount readonly>
            </div>
            <div class="content">
-           <a href="../customer/view_orders">view</a>
+           <a href="../customer/view_orders" class="order_view" id="order_view">view</a>
            </div>
            </div>
           
@@ -337,6 +340,12 @@
 </script> -->
   <script>
   
+        order_id = document.getElementById('onum');
+        order_date = document.getElementById('o_date');
+        order_amount = document.getElementById('amount');
+        order_view = document.getElementById('order_view');
+
+
 
 
 
@@ -345,12 +354,24 @@
                 .then(response => response.json())
                 .then(data => {
                    console.log(data);
+                   console.log(data[0]['order_id']);
+                   order_id.value = data[0]['order_id'];
+                   order_date.value = data[0]['date'];
+                   amount.value = data[0]['amount'];
+                   order_view.value = data[0]['order_id'];
                 });
-
+               
+              // order_id.innerHTML = data['order_id'];
        
         }
 
         fill_details_home();
+
+
+
+        
+                    // count_salesreps.innerHTML = data[0][1]['count_salesrep'];
+                    // count_customers.innerHTML = data[0][2]['count_customer'];
 </script>
 </body>
 </html>
