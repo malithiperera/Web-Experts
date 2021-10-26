@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
     <title>Admin Home</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -166,12 +167,7 @@ if (!isset($_SESSION['username'])) {
             margin-left: 20px;
         }
 
-        .charts {
-            width: 900px;
-            height: 1000px;
-            margin-left: 100px;
-            margin-top: 40px;
-        }
+        
 
         .subcontainer2 {
             display: flex;
@@ -218,6 +214,60 @@ if (!isset($_SESSION['username'])) {
 
         .search_salesrep {
             visibility: hidden;
+        }
+        .charts {
+            width: 900px;
+            height: 1000px;
+            margin-left: 100px;
+            /* display:flex;
+            justify-content: space-between; */
+            margin-top: 40px;
+        }
+        .chart-up{
+            display: flex;
+            /* justify-content: space-between; */
+            
+        }
+
+
+        .sales-overview{
+            width:800px;
+            height:600px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-right: 30px;
+        }
+
+        .user-reg{
+            width:600px;
+            /* height:400px; */
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+        }
+
+        .chart-down{
+            display: flex;
+            margin-top: 40px;
+            justify-content: s;
+
+        }
+
+        .growth{
+            width:400px;
+            height:400px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            
+        }
+
+        .trans{
+            width:1000px;
+            height:600px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-left: 90px;
+
         }
     </style>
 </head>
@@ -297,8 +347,45 @@ if (!isset($_SESSION['username'])) {
 
         <div class="subcontainer1">
             <div class="charts">
-                <canvas id="myChart1"></canvas>
+                <div class="chart-up">
+                <div class="sales-overview">
+                    <h3>Sales Overview</h3>
+                    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+
+                </div>
+                <div class="growth">
+                    <h3>Growth Overview </h3>
+
+
+                </div>
+
+                
+                </div>
+
+                <div class="chart-down">
+                <div class="user-reg">
+                    <h3>Customer Registration </h3>
+                    <div id="barchart_values" style="width: 600px; height: 300px;"></div>
+
+
+                </div>
+                <div class="trans">
+                    <h3>Transaction Summary </h3>
+                    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+
+
+                </div>
+
+
+
+                </div>
+
             </div>
+
+
+
+
+
             <div class="subcontainer2">
                 <div class="reps">
                     <h3>Online Sales Rep</h3>
@@ -420,43 +507,6 @@ if (!isset($_SESSION['username'])) {
     </script>
 
     <!-- scripts for charts -->
-    <script>
-        var ctx = document.getElementById('myChart1').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'],
-                datasets: [{
-                    label: 'best selling items',
-                    data: [12, 19, 50, 20, 40, 34],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
 
     <!-- script for popup message -->
     <script>
@@ -513,6 +563,99 @@ if (!isset($_SESSION['username'])) {
 
    
 
+
+
+
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'online', 'cash', 'cheque'],
+          ['Jan', 1000, 400, 200],
+          ['Feb', 1170, 460, 250],
+          ['March', 660, 1120, 300],
+          ['April', 1030, 540, 350],
+          
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Transactions',
+            subtitle: 'Cash Cheque Online',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+
+
+
+<!-- Overview -->
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Returns'],
+          ['2013',  1000,      100],
+          ['2014',  1170,      60],
+          ['2015',  660,       120],
+          ['2016',  1030,      240]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: 'green'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+<script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Month", "Total", { role: "style" } ],
+        ["Jan", 8.94, "#b87333"],
+        ["Feb", 10.49, "silver"],
+        ["March", 19.30, "gold"],
+        ["April", 21.45, "color: #e5e4e2"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Total customers",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
 </body>
 
 </html>
