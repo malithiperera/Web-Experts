@@ -56,7 +56,7 @@
         </form>
 
     </div>
-    <div class="input-fields"><input type="submit" value="Back" id="back" name="submit"></div>
+    <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
 </body>
 
 </html>
