@@ -296,6 +296,7 @@
         }
 
         function confirmation_message() {
+            
 
         }
 

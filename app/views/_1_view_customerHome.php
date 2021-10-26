@@ -1,9 +1,4 @@
-<?php
 
-if(!isset($_SESSION['username'])){
-  header("Location:http://localhost/web-Experts/public/login/index");
-}
-?>
 
 <!DOCTYPE html>
 
@@ -113,7 +108,7 @@ if(!isset($_SESSION['username'])){
          <div class="profile-details">
            <img src="profile.jpg" alt="profileImg">
            <div class="name_job">
-             <div class="name"><?php echo $_SESSION['username'];?></div>
+             <div class="name"></div>
              <div class="job">Customer</div>
            </div>
          </div>
@@ -128,7 +123,7 @@ if(!isset($_SESSION['username'])){
     <div class="top">
     <div class="card-1">
                 <p><i class="fas fa-user-tie"></i><br>Customer Id</p>
-                <p id="top-detail-1"><?php echo $_SESSION['userid'] ;?></p>
+                <p id="top-detail-1"></p>
               </div>
               <div class="card-1">
                 <p><i class="fas fa-map-marker"></i><br>Route</p>
@@ -211,19 +206,18 @@ if(!isset($_SESSION['username'])){
 
              <h2>Pending Orders</h2>
 
-             <?php  
-            foreach($this->added as $data)
-            {?>
+            
+            
             <div class="field">
             <div class="order-no">
-           <p class="onum"><b>Order Id :</b> <?php echo $data['order_id'];?></p>
-           <p class="date"><b>Date:</b><?php echo $data['date'];?></p>
+           <p class="onum"></p>
+           <p class="date"></p>
            </div>
            <div class="content">
            <a href="../customer/view_orders">view</a>
            </div>
            </div>
-           <?php } ?>
+          
             <div class="field">
              
               </div>
@@ -284,6 +278,8 @@ if(!isset($_SESSION['username'])){
 
 </div> 
 
+<script src="../../public/java script/view_customer_Home.js"></script>
+<!-- 
 <script>
 
 
@@ -338,18 +334,20 @@ if(!isset($_SESSION['username'])){
         payhere.startPayment(payment);
     };
 
-
+</script> -->
+  <script>
   
-  
 
 
 
-  const fill_details_home = () => {
-            fetch('http://localhost/web-Experts/public/customer/get_details_home')
+ function fill_details_home() {
+          fetch('http://localhost/web-Experts/public/customer/get_details_home')  
                 .then(response => response.json())
                 .then(data => {
-                   console.log("Mlaaja");
+                   console.log(data);
                 });
+
+       
         }
 
         fill_details_home();
