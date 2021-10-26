@@ -511,6 +511,8 @@ if (!isset($_SESSION['username'])) {
         load_cards();
     </script>
 
+   
+
 </body>
 
 </html>

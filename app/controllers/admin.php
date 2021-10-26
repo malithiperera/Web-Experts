@@ -175,6 +175,10 @@ class admin extends controller{
         $this->view->render('view_rep_customerRegistration');
     }
 
+    public function test(){
+        $this->view->render('test');
+    }
+
 }
 
 ?>
