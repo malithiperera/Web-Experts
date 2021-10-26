@@ -274,7 +274,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-
+    
     <div class="sidebar">
         <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
         <i class="fas fa-bars fa-lg"></i>
