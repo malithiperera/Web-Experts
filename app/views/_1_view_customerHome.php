@@ -316,6 +316,21 @@
 
     fill_details_home();
 
+
+
+
+    function load_cards() {
+
+fetch('http://localhost/web-Experts/public/customer/load_card')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        console.log(data);
+    });
+}
+
+load_cards();
   </script>
 </body>
 

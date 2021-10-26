@@ -147,4 +147,17 @@ class customer extends controller
         exit;
         
     }
+
+
+    public function load_card()
+    {
+        $this->model("cus_model");
+        $result = $this->model->get_home_cards('HC001');
+
+        $data = [$result];
+
+        echo json_encode($data);
+        exit;
+
+    }
 }

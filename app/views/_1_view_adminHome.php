@@ -172,6 +172,7 @@ if (!isset($_SESSION['username'])) {
         .subcontainer2 {
             display: flex;
             flex-direction: column;
+            
         }
 
         .reps {
@@ -182,12 +183,14 @@ if (!isset($_SESSION['username'])) {
             margin-right: 20px;
             margin-bottom: 10px;
             padding-bottom: 20px;
+            margin-left: -100px;
         }
 
         .reps>p {
             color: black;
             margin-left: 20px;
             text-align: center;
+            
         }
 
         .customers {
@@ -196,6 +199,7 @@ if (!isset($_SESSION['username'])) {
             border-radius: 10px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             padding-bottom: 20px;
+            margin-left: -100px;
         }
 
         .customers>p {
@@ -216,7 +220,7 @@ if (!isset($_SESSION['username'])) {
             visibility: hidden;
         }
         .charts {
-            width: 900px;
+            width: 1000px;
             height: 1000px;
             margin-left: 100px;
             /* display:flex;
@@ -231,17 +235,19 @@ if (!isset($_SESSION['username'])) {
 
 
         .sales-overview{
-            width:800px;
+            width:65%;
             height:600px;
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             margin-right: 30px;
+            margin-left: -100px;
         }
 
         .user-reg{
             width:600px;
             /* height:400px; */
             background-color: #fff;
+            margin-left: -100px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 
         }
@@ -254,12 +260,50 @@ if (!isset($_SESSION['username'])) {
         }
 
         .growth{
-            width:400px;
-            height:400px;
+            width:40%;
+            /* height:400px; */
             background-color: #fff;
+            color:black;
+            display: flex;
+            flex-direction: column;
+            margin-right: -50px;
+            margin-left: 40px;
+            
+            padding:10px;
+
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             
         }
+        table{
+            margin-top: 30px;
+        }
+        th{
+            
+            padding:5px;
+            margin:5px;
+         
+            background-color: #184A78;
+            color:#fff;
+        }
+        td{
+            color:black;
+            padding:5px;
+            margin:5px;
+
+        }
+        th:nth-child(odd) {
+  color: #ffffff;
+  background: #4FC3A1;
+}
+tr:nth-child(odd) {
+  background: #ccc4c4;
+}
+
+
+ thead th {
+  color: #ffffff;
+  background: #4FC3A1;
+}
 
         .trans{
             width:1000px;
@@ -354,7 +398,62 @@ if (!isset($_SESSION['username'])) {
 
                 </div>
                 <div class="growth">
-                    <h3>Growth Overview </h3>
+                    <h3>Best of Sales Rep</h3>
+                    <table>
+                        <tr>
+                            <th>Sales Rep ID</th>
+                            <th>Name</th>
+                            <th>Profit</th>
+                        </tr>
+                        <tr>
+                            <td>HR034</td>
+                            <td>M.E. Wijekoon</td>
+                            <td>190 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR908</td>
+                            <td>S.M Rajapaksha</td>
+                            <td>150 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR0890</td>
+                            <td>N.D.T Kariyawasam</td>
+                            <td>130 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR0908</td>
+                            <td>K.M Herath</td>
+                            <td>127 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR5679</td>
+                            <td>Y.T Silve</td>
+                            <td>110 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR908</td>
+                            <td>S.M Rajapaksha</td>
+                            <td>150 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR0890</td>
+                            <td>N.D.T Kariyawasam</td>
+                            <td>130 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR0908</td>
+                            <td>K.M Herath</td>
+                            <td>127 000</td>
+                        </tr>
+                        <tr>
+                            <td>HR5679</td>
+                            <td>Y.T Silve</td>
+                            <td>110 000</td>
+                        </tr>
+
+
+
+                    </table>
 
 
                 </div>
