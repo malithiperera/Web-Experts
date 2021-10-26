@@ -17,12 +17,7 @@ class login extends controller
      
        
         
-         list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
-
-       
-       
-         
-    
+        //  list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);9
 
         
          $this->view->render('_1_view_customerHome');
