@@ -16,7 +16,17 @@
             <th>qty</th>
             <th>total price</th>
         </thead>
-        <?php
+        <tr>
+           <td class="first_name">dienth</td>
+           <td rowspan="3"><button onclick="edit(event)">view</button></td>
+        </tr>
+        <tr>
+            <td class="mid_name">tharushan</td>
+        </tr>
+        <tr>
+            <td class="last_name">silva</td>
+        </tr>
+        <!-- <?php
         for ($i = 0; $i < 10; $i++) {
             echo "
                 <tr>
@@ -28,7 +38,7 @@
                 </tr>
                 ";
         }
-        ?>
+        ?> -->
 
         <!-- <tr>
                 <td>dineth</td>
@@ -38,6 +48,12 @@
                 </tr> -->
 
     </table>
+
+    <div class="the_table">
+        <div class="the_table1">
+            <div class="the_table2"></div>
+        </div>
+    </div>
 
     <script>
         function setTot(value, i) {
@@ -49,10 +65,15 @@
     <script>
         function edit(event) {
             console.log(event);
+            console.log(event.path[3]);
             console.log(event.path[2]);
             console.log(event.path[2].cells[0]);
-            event.path[2].cells[0].style.backgroundColor = 'red';
+            // event.path[2].cells[0].style.backgroundColor = 'red';
         }
+
+        var the_table = document.querySelector('.the_table');
+        the_table.classList.add("my_class");
+        console.log(the_table.classList);
     </script>
 
 </body>
