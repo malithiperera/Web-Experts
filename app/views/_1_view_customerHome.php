@@ -348,7 +348,7 @@
             fetch('http://localhost/web-Experts/public/customer/get_details_home')
                 .then(response => response.json())
                 .then(data => {
-                   console.log(data);
+                   console.log("Mlaaja");
                 });
         }
 

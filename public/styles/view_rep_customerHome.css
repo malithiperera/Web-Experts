@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+  font-family: "Poppins" , sans-serif;
 }
 .sidebar{
   position: fixed;
@@ -229,7 +229,7 @@
 } */
 h2{
   text-align: center;
-  font-size: 18px;
+  font-size: 21px;
   letter-spacing: 1px;
   color: #184A78;
   padding: 30px 0px;
@@ -245,7 +245,7 @@ h2{
 
 .fl-table {
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: normal;
   border: none;
   border-collapse: collapse;
@@ -262,7 +262,7 @@ h2{
 
 .fl-table td {
   border-right: 1px solid #f8f8f8;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .fl-table thead th {
@@ -360,8 +360,8 @@ h2{
 
 .card{
   width: 250px;
-  height: 100px;
-  padding-top: 5px;
+  height: 120px;
+  padding-top: 10px;
   /* background-color: #2277B2; */
   /* margin-left: 20px; */
   margin-right: 20px;
@@ -371,13 +371,17 @@ h2{
   cursor:pointer;
   border-radius:10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  font-weight: bolder;
+  font-size: large;
   
 }
-p{
+/* p{
     font-weight: bolder;
-}
+} */
 #result{
-    color: #4FC3A1;
+  color:#4FC3A1 ;
+  font-weight: 800;
+  font-size: x-large;
 }
 .sidebar.open ~ .home-section{
   left: 250px;

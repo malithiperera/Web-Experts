@@ -116,23 +116,23 @@
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
         <div class="card">
           <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-          <p>1</p>
+          <p id="item">1</p>
         </div>
         <div class="card">
           <p><i class="fas fa-users"></i><br>No of Customers</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
         <div class="card">
           <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
         <div class="card">
           <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
 
 

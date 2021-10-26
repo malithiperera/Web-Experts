@@ -4,8 +4,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins" , sans-serif; 
 }
+/* SIDE BAR START */
 .sidebar{
   position: fixed;
   left: 0;
@@ -207,6 +208,8 @@
   width: 50px;
   background: none;
 }
+/* side bar end */
+
 .home-section{
   position: relative;
   background: #fff;
@@ -218,18 +221,9 @@
   z-index: 2;
 }
 
-/* *{
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-} */
-/* body{
-  font-family: Helvetica;
-  -webkit-font-smoothing: antialiased;
-} */
 h2{
   text-align: center;
-  font-size: 18px;
+  font-size: 21px;
   letter-spacing: 1px;
   color: #184A78;
   padding: 30px 0px;
@@ -245,7 +239,7 @@ h2{
 
 .fl-table {
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: normal;
   border: none;
   border-collapse: collapse;
@@ -262,7 +256,7 @@ h2{
 
 .fl-table td {
   border-right: 1px solid #f8f8f8;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .fl-table thead th {
@@ -280,7 +274,7 @@ h2{
   background: #F8F8F8;
 }
 
-/* Responsive */
+/* Responsive table*/
 
 @media (max-width: 767px) {
   .fl-table {
@@ -351,19 +345,15 @@ h2{
   display: flex;
   flex-wrap: wrap;
   top:50px;
-  /* left: 50px; */
   z-index: 999;
-  /* margin-left: 150px; */
   justify-content: center;
  
 }
 
 .card{
-  width: 200px;
-  height: 100px;
+  width: 220px;
+  height: 120px;
   padding-top: 15px;
-  /* background-color: #2277B2; */
-  /* margin-left: 20px; */
   margin-right: 20px;
   margin-bottom : 40px;
   text-align:center;
@@ -371,8 +361,16 @@ h2{
   cursor:pointer;
   border-radius:10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  
+  font-weight: 600;
+  font-size: large;
 }
+
+#item{
+  color:#4FC3A1 ;
+  font-weight: 800;
+  font-size: x-large;
+}
+
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
@@ -384,19 +382,6 @@ h2{
   font-weight: 500;
   margin: 18px
 }
-
-/* @media (max-width: 1104px) {
-  .right{
-    display:flex;
-    flex-direction: row;
-  }
-}
-@media (max-width: 674px)
-{
-  .right{
-    flex-wrap: wrap;
-  }
-} */
 
 @media (max-width: 420px) {
   .sidebar li .tooltip{
@@ -455,18 +440,14 @@ h2{
   from {opacity: 0;}
   to {opacity:1 ;}
 }
-/* POP UP */
+
+
+/* POP UP CUSTOMER PROFILE SEARCH*/
 .open-button {
-  /* background-color: #555; */
   color: white;
-  /* padding: 16px 20px; */
   border: none;
   cursor: pointer;
-  /* opacity: 0.8; */
-  /* position: fixed; */
-  /* bottom: 23px;
-  right: 28px;
-  width: 280px; */
+
 }
 
 /* The popup form - hidden by default */

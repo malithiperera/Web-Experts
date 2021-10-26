@@ -98,7 +98,7 @@ class admin extends controller{
         $newPassword = $_POST['newPassword'];
         $confirmPassword = $_POST['confirmPassword']; 
 
-        if(isset($_POST['submit'])){
+      if(isset($_POST['submit'])){
             if($newPassword == $confirmPassword){
                 
                 $this->model('register_model');
