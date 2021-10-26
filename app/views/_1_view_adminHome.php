@@ -455,6 +455,10 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 
+    <div class="removeuser">
+        <?php require 'view_admin_popup_remove_user.php'; ?>
+    </div>
+
 
 
 

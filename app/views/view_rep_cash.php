@@ -10,7 +10,13 @@
 </head>
 
 <body>
-  <!-- <?php require 'view_headerType2.php';  ?> -->
+<div class="header">
+        <?php
+        require 'view_headertype2.php';
+        ?>
+
+    </div>
+
   <div class="container">
     <div class="sub-container">
       <div class="title1">Cash Payment</div>
@@ -22,7 +28,7 @@
               <?php
         if($this->result->num_rows>0){
           while($row=$this->result->fetch_assoc()){
-            echo  "<option value='".$row['orders_id']."'>".$row['orders_id']."</option>";
+            echo  "<option value='".$row['order_id']."'>".$row['order_id']."</option>";
           };
         }
       ?>
@@ -38,10 +44,10 @@
         <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
       </form>
     </div>
-
+    <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
   </div>
   <!-- <script type="text/css"> -->
-
+    
   </script>
   <script>
     function selectOrder() {
