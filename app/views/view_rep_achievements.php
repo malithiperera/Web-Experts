@@ -13,38 +13,56 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
 <body>
-    <?php require 'view_headerType2.php';  ?>
+<div class="header">
+        <?php
+        require 'view_headertype2.php';
+        ?>
+
+    </div>
 
 
-    <div class="cards">
-        <div class="container">
-            <div class="card">
-                <p id="target">Target : 25</p>
-                <!-- <p>25</p> -->
-            </div>
-            <div class="report"><input type="submit" value="View Reports" id="View_Reports"></div>
+    <section class="cards-section">
+      <div class="cards">
+        <div class="card">
+          <p><i class="fas fa-user"></i><br>Rep ID</p>
+          <p id="result">R1037</p>
         </div>
+        <div class="card">
+          <p><i class="fas fa-map-marker-alt"></i><br>Target</p>
+          <p id="result">50</p>
+        </div>
+        <div class="card">
+          <p><i class="fas fa-toggle-on"></i><br>View Reports</p>
+          <p id="result">Active</p>
+        </div>
+
+      </div>
+    </section>
+    <div class="charts">
         <div class="chart">
             <canvas id="myChart"></canvas>
+        </div> 
+        <div class="chart1">
+            <canvas id="myChart1"></canvas>
         </div>
     </div>
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'pie',
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                 datasets: [{
                     label: '# of Sales',
                     data: [5, 16, 8, 22, 10, 20],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
@@ -66,7 +84,44 @@
             }
         });
     </script>
-
+    <script>
+        var ctx = document.getElementById('myChart1').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: '# of Sales',
+                    data: [5, 16, 8, 22, 10, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64,0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+<div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>
 </body>
 
 </html>
