@@ -152,7 +152,9 @@ class admin extends controller{
     }
 
     public function notification(){
+
         $this->view->render('view_all_notification');
+        
     }
 
     public function profile(){

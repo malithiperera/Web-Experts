@@ -13,15 +13,19 @@ class login extends controller
     public function customer_home($userid)
     {
         
-        list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
+        $card=$this->model->customer_card($userid);
+     
        
-        $this->view->added=$firstArray; 
+        
+         list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
+
+       
        
          
-
+    
 
         
-        $this->view->render('_1_view_customerHome');
+         $this->view->render('_1_view_customerHome');
 
 
     }
@@ -228,5 +232,16 @@ public function stock_manager()
         session_unset();
         session_destroy();
         header("Location: http://localhost/web-Experts/public/login/login");
+    }
+
+    public function test4(){
+        $this->view->render('test4');
+    }
+    public function test4_get_data(){
+
+        $body = json_decode(file_get_contents('php://input'));
+
+        echo json_encode($body);
+        exit;
     }
 }

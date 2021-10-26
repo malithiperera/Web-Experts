@@ -338,10 +338,21 @@ if(!isset($_SESSION['username'])){
         payhere.startPayment(payment);
     };
 
-</script>
-  
-  <script src="../../public/java script/view_customer_Home.js"></script>
- 
 
+  
+  
+
+
+
+  const fill_details_home = () => {
+            fetch('http://localhost/web-Experts/public/customer/get_details_home')
+                .then(response => response.json())
+                .then(data => {
+                   console.log(data);
+                });
+        }
+
+        fill_details_home();
+</script>
 </body>
 </html>
