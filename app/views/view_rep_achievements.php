@@ -28,11 +28,11 @@
           <p id="result">R1037</p>
         </div>
         <div class="card">
-          <p><i class="fas fa-map-marker-alt"></i><br>Target</p>
+          <p><i class="fas fa-trophy"></i><br>Target</p>
           <p id="result">50</p>
         </div>
         <div class="card">
-          <p><i class="fas fa-toggle-on"></i><br>View Reports</p>
+          <p><i class="fas fa-file-alt"></i><br>View Reports</p>
           <p id="result">Active</p>
         </div>
 
