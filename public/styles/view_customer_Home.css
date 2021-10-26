@@ -705,3 +705,14 @@ td{
   height: 30px;
   border-radius: 5px;
 }
+
+
+input{
+  width: 100px;
+  border: none;
+  background-color: #356a9b;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 3px;
+}

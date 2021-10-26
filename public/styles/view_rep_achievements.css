@@ -1,35 +1,54 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
     margin:0;
     padding:0;
-    font-family:Arial, Helvetica, sans-serif;
-    color:white;
+    font-family: "Poppins" , sans-serif;
+}
+.header{
+    position: absolute;
+    top: 0;
+    z-index: 10000;
 }
 body{
     position: relative;
-    background-color:#e4e1df;
+    background-color:white;
+    z-index: 20000;
 }
-
+/* CARDS START */
 .cards{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    top:130px;
+    /* left: 50px; */
+    z-index: 999;
+    /* margin-left: 150px; */
     justify-content: center;
-    top:150px;
-    width: 100%;
-    height: 100vh;
-    left: 0px;
-
-}
+   
+  }
+  
 .card{
-    width: 400px;
-    height: 80px;
-    background-color: #2277B2;
+    width: 250px;
+    height: 100px;
+    padding-top: 18px;
+    margin-right: 40px;
+    margin-bottom : 50px;
     text-align:center;
     z-index: 999;
-    border-radius:20px;
-    padding-top: 20px;
-}
+    cursor:pointer;
+    border-radius:10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    font-weight: bolder;
+    font-size: large;
+  }
+
+#result{
+    color:#4FC3A1 ;
+    font-weight: 800;
+    font-size: x-large;
+  }
+/* CARDS END */
 
 .labels{
     position:fixed;
@@ -38,62 +57,51 @@ body{
     top:180px;
 }
 .chart{
-    margin-top:100px;
-    margin-left:100px;
-    width:1000px;
-    height:1000px;
+    margin-top:150px;
+    margin-left:100px; 
+    width:400px;
+    height:400px;
 }
-#View_Reports{
-    /* float: right; */
-    background-color:#184A78 ; 
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: xx-large;
-    font-weight: bold;
-    border: none;
-    padding-top: 1px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    transition: ease-in-out;
-    box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.2 )
+.chart1{
+    margin-top:150px;
+    /* margin-left:700px; */
+    width:800px;
+    height:500px;
 }
-#View_Reports:hover{
-    background-color: #D7CEC8;
-    color:#184A78 ;
-    box-shadow: 0 0 3px 1px rgb(66, 133, 187);
- 
-}
-.container{
-    background-color: #2277B2;
-    width: 1000px;
-    height: 100px;
-    margin-left: 100px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.2 )
-}
-#target{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    font-size:xx-large;
-    padding-left: 30px;
-}
-.card { grid-area: r1; }
-.report { grid-area: r2; }
+
+/* .card { grid-area: r1; }
+.report { grid-area: r2; } */
 .chart { grid-area: r3; }
-.container{ grid-area: r4; }
-.cards{
+.chart1 { grid-area: r2; }
+
+.charts{
 display: grid;
 grid-template-areas:
-    'r4'
-    'r3'
-    'r3';
+    'r3 r2';
 
 }
-.container{
+/* .container{
 display: grid;
 grid-template-areas:
     'r1 r2';
-}
+} */
+#confirm{
+    float: left;
+    background-color: #2277B2 ;
+    color: white;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    transition: ease-in-out;
+  }
+  #confirm:hover{
+    background-color: #D7CEC8;
+    color:#184A78 ;
+    box-shadow: 0 0 3px 1px rgb(66, 133, 187);
+  
+  }

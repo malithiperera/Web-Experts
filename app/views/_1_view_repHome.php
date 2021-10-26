@@ -1,3 +1,10 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
@@ -48,7 +55,7 @@
       </li>
       <li>
         <!-- <a href="../orders/create_bill"> -->
-        <a href="../orders/create_bill">
+        <a href="../customer/place_order_view">
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
         </a>
@@ -69,7 +76,7 @@
         <!-- <span class="tooltip">Reports</span> -->
       </li>
       <li>
-        <a href="../customer/view_notification">
+        <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
@@ -116,23 +123,23 @@
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
         <div class="card">
           <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-          <p>1</p>
+          <p id="item">1</p>
         </div>
         <div class="card">
           <p><i class="fas fa-users"></i><br>No of Customers</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
         <div class="card">
           <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
         <div class="card">
           <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p>10</p>
+          <p id="item">10</p>
         </div>
 
 

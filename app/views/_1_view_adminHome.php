@@ -209,105 +209,15 @@ if (!isset($_SESSION['username'])) {
         }
 
         .popup {
-            position: fixed;
-            top: 70px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
             visibility: hidden;
         }
 
-        .search_customer {
-            width: 400px;
-            height: 300px;
-            background-color: white;
-            border: 1px solid #184A78;
-            border-radius: 10px;
+        .removeuser {
+            visibility: hidden;
         }
 
-        .search_bar input {
-            position: relative;
-            top: 20px;
-            left: 68px;
-            width: 250px;
-            height: 30px;
-            border-radius: 10px;
-            padding-left: 20px;
-
-            color: #184A78;
-        }
-
-        .fa-search {
-            position: relative;
-            left: 35px;
-            top: 23px;
-            color: #184A78;
-        }
-
-        .search_customer p,
-        .search_customer select,
-        .search_customer select option {
-            color: #184A78;
-        }
-
-        .search_customer select {
-            width: 100px;
-            height: 30px;
-        }
-
-        .search_by_route {
-            position: relative;
-            top: 80px;
-            left: 50px;
-        }
-
-        .select_route {
-            float: left;
-            margin-right: 70px;
-        }
-
-        .search_by_route a {
-            position: relative;
-            border: 1px solid #184A78;
-            border-radius: 18px;
-            top: 30px;
-            left: 120px;
-            color: #184A78;
-            text-decoration: none;
-            padding: 8px;
-        }
-
-        .search_by_route a:hover {
-            background-color: #184A78;
-            color: white;
-        }
-
-        .add_new_cus a {
-            position: relative;
-            top: 150px;
-            left: 130px;
-            text-decoration: none;
-            color: #184A78;
-        }
-
-        .card i {
-            color: black;
-        }
-
-        #count {
-            color: rgb(45, 211, 45);
-            font-size: 25px;
-            font-weight: 700;
-            margin-top: -10px;
-
-        }
-
-        h3 {
-            color: black;
-            padding: 10px;
-            margin-top: 10px;
-            text-align: center;
-            text-transform: uppercase;
+        .search_salesrep {
+            visibility: hidden;
         }
     </style>
 </head>
@@ -321,11 +231,11 @@ if (!isset($_SESSION['username'])) {
         <i class="fas fa-align-right fa-lg"></i>
         <div class="icons">
             <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
-            <a href="#" onclick="popup_message()"><i class="fas fa-landmark fa-lg"></i></a>
-            <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
+            <a href="#" onclick="popup_message('.popup')"><i class="fas fa-landmark fa-lg"></i></a>
+            <a href="#" onclick="popup_message('.search_salesrep')"><i class="fas fa-user-tie fa-lg"></i></a>
             <a href="../admin/viewReport"><i class="fas fa-chart-line fa-lg"></i></a>
             <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
-            <a href="../admin/remove_user"><i class="fas fa-user-minus fa-lg"></i></a>
+            <a href="#" onclick="popup_message('.removeuser')"><i class="fas fa-user-minus fa-lg"></i></a>
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
             <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
             <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
@@ -334,11 +244,11 @@ if (!isset($_SESSION['username'])) {
 
         <div class="links">
             <a href="#">PRODUCTS</a>
-            <a href="#" onclick="popup_message()">CUSTOMERS</a>
-            <a href="#">SALES REPS</a>
+            <a href="#" onclick="popup_message('.popup')">CUSTOMERS</a>
+            <a href="#" onclick="popup_message('.search_salesrep')">SALES REPS</a>
             <a href="../admin/viewReport">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>
-            <a href="../admin/remove_user">REMOVE USER</a>
+            <a href="#" onclick="popup_message('.removeuser')">REMOVE USER</a>
             <a href="../admin/routes">ROUTES</a>
             <a href="../admin/notification">NOTIFICATION</a>
             <a href="../admin/profile">PROFILE</a>
@@ -359,28 +269,28 @@ if (!isset($_SESSION['username'])) {
 
             <div class="card">
                 <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-                <p id="count">10</p>
+                <p id="count_products">10</p>
 
             </div>
             <div class="card">
                 <p><i class="fas fa-users"></i><br>REGISTERED SALES REPS</p>
-                <p id="count">10</p>
+                <p id="count_salesreps">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-store"></i><br>REGISTERED CUSTOMERS</p>
-                <p id="count">10</p>
+                <p id="count_customers">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-route"></i><br>COVERING ROUTES</p>
-                <p id="count">10</p>
+                <p id="count_routes">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-file-invoice-dollar"></i><br>PENDING ORDERS</p>
-                <p id="count">10</p>
+                <p id="count_orders">10</p>
             </div>
             <div class="card">
                 <p><i class="fas fa-truck"></i><br>OVERDUE DELIVERIES</p>
-                <p id="count">10</p>
+                <p id="count_deliveries">10</p>
             </div>
 
         </div>
@@ -418,43 +328,16 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div class="popup">
-
-        <div class="search_customer">
-            <div class="search_bar">
-                <input type="text">
-                <i class="fas fa-search fa-lg"></i>
-            </div>
-            <div class="search_by_route">
-
-                <div class="select_route">
-                    <p>Select Route : </p>
-                    <select name="cars" id="cars">
-                        <option>route 1</option>
-                        <option>route 2</option>
-                        <option>route 3</option>
-                        <option>route 4</option>
-                    </select>
-                </div>
-
-
-                <div class="select_customer">
-                    <p>Select Customer : </p>
-                    <select name="cars" id="cars">
-                        <option>customer 1</option>
-                        <option>customer 2</option>
-                        <option>customer 3</option>
-                        <option>customer 4</option>
-                    </select>
-                </div>
-
-                <a href="../admin/customerProfile">GO...</a>
-            </div>
-            <div class="add_new_cus">
-                <a href="../admin/add_new_cus">Add New Customer</a>
-            </div>
-        </div>
+        <?php require 'view_admin_popup_search_customer.php'; ?>
     </div>
 
+    <div class="removeuser">
+        <?php require 'view_admin_popup_remove_user.php'; ?>
+    </div>
+
+    <div class="search_salesrep">
+        <?php require 'view_admin_popup_search_salesrep.php'; ?>
+    </div>
 
 
 
@@ -468,6 +351,7 @@ if (!isset($_SESSION['username'])) {
         let links = document.querySelector(".links");
         let username = document.querySelector(".username");
         let container = document.querySelector(".container");
+
 
         openbtn.addEventListener("click", function() {
 
@@ -576,25 +460,59 @@ if (!isset($_SESSION['username'])) {
 
     <!-- script for popup message -->
     <script>
-        let popup = document.querySelector(".popup");
-        let in_popup = document.querySelector(".search_customer")
+        // popup = document.querySelector('.popup');
 
-        function popup_message() {
-            popup.style.visibility = "visible";
+        function popup_message(popup_message) {
+
+            popup_message = document.querySelector(popup_message);
+
+            popup_message.style.visibility = "visible";
             sidebar.style.opacity = "30%";
             container.style.opacity = "30%";
-        }
 
-
-        window.onclick = function(event) {
-            if (event.target == popup) {
-                popup.style.visibility = "hidden";
-                sidebar.style.opacity = "100%";
-                container.style.opacity = "100%";
+            window.onclick = function(event) {
+                if (event.target == popup_message) {
+                    popup_message.style.visibility = "hidden";
+                    sidebar.style.opacity = "100%";
+                    container.style.opacity = "100%";
+                }
             }
+
         }
     </script>
-    
+
+    <!-- script for cards -->
+    <script>
+        count_products = document.getElementById('count_products');
+        count_salesreps = document.getElementById('count_salesreps');
+        count_customers = document.getElementById('count_customers');
+        count_routes = document.getElementById('count_routes');
+        count_orders = document.getElementById('count_orders');
+        count_deliveries = document.getElementById('count_deliveries');
+
+
+
+        function load_cards() {
+
+            fetch('http://localhost/web-Experts/public/admin/load_view')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    count_products.innerHTML = data[0][0]['count_products'];
+                    count_salesreps.innerHTML = data[0][1]['count_salesrep'];
+                    count_customers.innerHTML = data[0][2]['count_customer'];
+                    count_routes.innerHTML = data[0][3]['count_route'];
+                    count_orders.innerHTML = data[0][4]['count_order'];
+                    count_deliveries.innerHTML = 3;
+                });
+        }
+
+        load_cards();
+    </script>
+
+   
+
 </body>
 
 </html>

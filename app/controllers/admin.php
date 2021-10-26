@@ -6,6 +6,16 @@ class admin extends controller{
         parent::__construct();
     }
 
+    public function load_view(){
+
+        $this->model('_1_admin_model');
+        $result = $this->model->load_view_data();
+
+        $data = [$result];
+        echo json_encode($data);
+        exit;
+    }
+
     public function add_user(){
         $this->view->render('view_admin_addemployee');
     }
@@ -88,7 +98,7 @@ class admin extends controller{
         $newPassword = $_POST['newPassword'];
         $confirmPassword = $_POST['confirmPassword']; 
 
-        if(isset($_POST['submit'])){
+      if(isset($_POST['submit'])){
             if($newPassword == $confirmPassword){
                 
                 $this->model('register_model');
@@ -163,6 +173,10 @@ class admin extends controller{
 
     public function add_new_cus(){
         $this->view->render('view_rep_customerRegistration');
+    }
+
+    public function test(){
+        $this->view->render('test');
     }
 
 }

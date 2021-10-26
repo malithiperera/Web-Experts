@@ -39,7 +39,7 @@
         <span class="tooltip">Place Order</span>
       </li>
       <li>
-        <a href="../salesRep/returns">
+        <a href="../customer/place_order_view">
           <i class="fas fa-exchange-alt"></i>
           <span class="links_name">Returns</span>
         </a>
@@ -108,8 +108,8 @@
         if($this->result->num_rows>0){
           while($row=$this->result->fetch_assoc()){
             echo"<tr>
-                    <td>".$row['orders_id']."</td>
-                    <td>".$row['orders_date']."</td>
+                    <td>".$row['order_id']."</td>
+                    <td>".$row['date']."</td>
                     <td>".$row['amount']."</td>
                   </tr>";
           }
@@ -173,7 +173,7 @@
         if($this->result->num_rows>0){
           while($row=$this->result->fetch_assoc()){
             echo"<tr>
-                    <td>".$row['orders_id']."</td>
+                    <td>".$row['order_id']."</td>
                     <td>".$row['orders_date']."</td>
                     <td>".$row['amount']."</td>
                   </tr>";
@@ -195,24 +195,6 @@
 //           <th>25000</th>
           
 //       </tr>
-      
-//       <tr>
-//         <td >11654</td>
-//         <td>2020.06.21</td>
-//         <th>17000</th>
-//     </tr>
-    
-//     <tr>
-//       <td>11945</td>
-//       <td>2020.07.13</td>
-//       <th>18000</th>
-//   </tr>
- 
-//   <tr>
-//     <td>12564</td>
-//     <td>2020.08.03</td>
-//     <th>12000</th>
-// </tr>
 
 // <tr>
 //   <td>12997</td>
@@ -223,7 +205,7 @@
 // </tbody>  -->
       </table>
     </div>
-    <div><input type="submit" value="Back" id="confirm"></div>
+    <div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>
 
     <script src="../../public/java script/view_rep_Home.js"></script>
 
