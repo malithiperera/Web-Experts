@@ -136,12 +136,12 @@ class customer extends controller
 
     public function get_details_home()
     {
-         session_start();
+        //  session_start();
 
-        $this->model('_3_customer_model');
-        $result1 = $this->model->get_orders($_SESSION['userid']);
+        // $this->model('_3_customer_model');
+        // $result1 = $this->model->get_orders($_SESSION['userid']);
 
-        $data = [$result1->fetch_assoc()];
+        $data = ["Malithi"];
 
         echo json_encode($data);
         exit;

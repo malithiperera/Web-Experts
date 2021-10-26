@@ -1,8 +1,8 @@
 <?php
 
-// if(!isset($_SESSION['username'])){
-//   header("Location:http://localhost/web-Experts/public/login/index");
-// }
+if(!isset($_SESSION['username'])){
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
 ?>
 
 <!DOCTYPE html>
@@ -348,7 +348,7 @@
             fetch('http://localhost/web-Experts/public/customer/get_details_home')
                 .then(response => response.json())
                 .then(data => {
-                   console.log(data);
+                   console.log("Mlaaja");
                 });
         }
 

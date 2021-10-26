@@ -33,7 +33,7 @@
         .details input {
             width: 100px;
             height: 30px;
-            border-radius: 20px;
+            border-radius: 10px;
             text-align: center;
         }
 
@@ -59,7 +59,13 @@
             margin: 10px;
             width: 80px;
             height: 40px;
-            border-radius: 20px;
+            border-radius: 10px;
+            background-color: #184A78;
+            color:#fff;
+        }
+        .data_form button:hover{
+            background-color:#4d647a;
+            cursor: pointer;
         }
 
         .data_form input {
@@ -67,7 +73,7 @@
             padding-left: 10px;
             width: 200px;
             height: 40px;
-            border-radius: 20px;
+            border-radius: 10px;
             text-align: center;
         }
 
@@ -96,7 +102,7 @@
         }
 
         td {
-            background-color: #00FFFF;
+            background-color:#b6b6b6;
             color: black;
             width: 250px;
             height: 40px;
@@ -104,9 +110,13 @@
         }
 
         .place_button button {
-            width: 80px;
+            width: 120px;
+            background-color:#184A78 ;
+            color:#fff;
+            margin-top: 10px;
+            float: right;
             height: 40px;
-            border-radius: 20px;
+            border-radius: 10px;
         }
 
         .confirmation {
@@ -123,7 +133,7 @@
             height: 100px;
             background-color: white;
             border: 1px solid #184A78;
-            border-radius: 20px;
+            border-radius: 10px;
         }
     </style>
 
