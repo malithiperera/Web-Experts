@@ -69,7 +69,7 @@
         <!-- <span class="tooltip">Reports</span> -->
       </li>
       <li>
-        <a href="../customer/view_notification">
+        <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>

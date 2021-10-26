@@ -20,23 +20,12 @@ class login extends controller
          list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);
 
        
-        while( $data=$secondArray->fetch_array()){
-            echo $data['delivery_id'];
-            echo $data['date'];
-
-        }
-
-        while( $data=$firstArray->fetch_array()){
-            echo $data['order_id'];
-           
-
-        }
        
          
     
 
         
-        // $this->view->render('_1_view_customerHome');
+         $this->view->render('_1_view_customerHome');
 
 
     }

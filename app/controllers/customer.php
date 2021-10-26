@@ -122,4 +122,29 @@ class customer extends controller
     {
         $this->view->render('view_vieworder');
     }
+
+   public function view_notification()
+   {
+       $this->view->render('view_all_notification');
+   }
+    
+    public function profile()
+    {
+        $this->view->render('view_all_editProfile');
+    }
+
+
+    public function get_details_home()
+    {
+         session_start();
+
+        $this->model('_3_customer_model');
+        $result1 = $this->model->get_orders($_SESSION['userid']);
+
+        $data = [$result1->fetch_assoc()];
+
+        echo json_encode($data);
+        exit;
+        
+    }
 }
