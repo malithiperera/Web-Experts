@@ -29,6 +29,25 @@ class login extends controller
 
 
     }
+    public function rep_home($userid)
+    {
+        
+        $card=$this->model->rep_card($userid);
+     
+       
+        
+         list($firstArray, $secondArray)=$this->model->rep_home_detail_check($userid);
+
+       
+       
+         
+    
+
+        
+         $this->view->render('_1_view_repHome');
+
+
+    }
 
 public function stock_manager()
 {

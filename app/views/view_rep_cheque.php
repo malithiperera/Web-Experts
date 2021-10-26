@@ -10,7 +10,12 @@
 </head>
 
 <body>
-  <!-- <?php require 'view_headerType2.php';  ?> -->
+<div class="header">
+        <?php
+        require 'view_headertype2.php';
+        ?>
+
+    </div>
   <div class="container">
     <div class="sub-container">
       <div class="title1">Cheque Payment</div>
@@ -39,9 +44,9 @@
       </div>
       <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
     </div>
-
+    <!-- <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div> -->
   </div>
-  <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
+  <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
   <script>function selectOrder(){
     var x = document.getElementById("orders").value;
     // document.getElementById("total").value=x;

@@ -1,3 +1,10 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
@@ -48,7 +55,7 @@
       </li>
       <li>
         <!-- <a href="../orders/create_bill"> -->
-        <a href="../orders/create_bill">
+        <a href="../customer/place_order_view">
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
         </a>
