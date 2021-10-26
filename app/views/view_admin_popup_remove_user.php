@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .remove_user_container{
+        .removeuser{
             position:fixed;
             top:100px;
             width:100%;
@@ -44,7 +44,7 @@
 </head>
 
 <body>
-    <div class="remove_user_container">
+    
         <div class="remove_user_message">
             <div class="remove_user_header">
                 Remove User...
@@ -70,7 +70,7 @@
             </div>
 
         </div>
-    </div>
+    
 
 </body>
 

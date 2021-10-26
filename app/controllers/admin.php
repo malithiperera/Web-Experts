@@ -6,6 +6,16 @@ class admin extends controller{
         parent::__construct();
     }
 
+    public function load_view(){
+
+        $this->model('_1_admin_model');
+        $result = $this->model->load_view_data();
+
+        $data = [$result];
+        echo json_encode($data);
+        exit;
+    }
+
     public function add_user(){
         $this->view->render('view_admin_addemployee');
     }
