@@ -311,11 +311,11 @@
                 amount: total_amount,
                 status : 'not-delivered',
                 date: date,
+                working : 1,
                 cus_id: cus_id,
                 route_id: route_id_obj,
                 table: table_data
             };
-
 
 
             fetch('http://localhost/web-Experts/public/customer/place_order', {
