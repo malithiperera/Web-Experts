@@ -86,20 +86,20 @@ public function stock_manager()
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $row['user_id'];
 
-            if ($row['type'] == 'customer') {
+            // if ($row['type'] == 'customer') {
 
-                $this->customer_home($_SESSION['userid']);
-            }
+            //     $this->customer_home($_SESSION['userid']);
+            // }
             
             // echo $_SESSION['userid'];
 
-            else {
+            // else {
                 // $this->view->render('')
                 header('Location: http://localhost/web-Experts/public/login/adminHome?viewname=' . $viewname);
 
 
                 // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
-            }
+            // }
         } else {
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
         }

@@ -61,25 +61,51 @@ class customer extends controller
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
 
-        $data = [
-            $recieved_data['amount'],
-            $recieved_data['status'],
-            $recieved_data['date'],
-            $recieved_data['cus_id'],
-            $recieved_data['route_id']
-        ];
 
         $this->model('order_model');
-        $this->model->place_order(
-            $recieved_data['amount'],
-            $recieved_data['status'],
-            $recieved_data['date'],
-            $recieved_data['cus_id'],
-            $recieved_data['route_id']
-        );
 
-        echo json_encode($data);
-        exit;
+        // check any order is working
+        $check = $this->model->check_any_order_working();
+
+        if ($check == 0) {
+
+            // set data object
+            $data = [
+                $recieved_data['amount'],
+                $recieved_data['status'],
+                $recieved_data['date'],
+                $recieved_data['working'],
+                $recieved_data['cus_id'],
+                $recieved_data['route_id'],
+                $recieved_data['table']
+            ];
+
+            // set order
+            $this->model->place_order(
+                $recieved_data['amount'],
+                $recieved_data['status'],
+                $recieved_data['date'],
+                $recieved_data['working'],
+                $recieved_data['cus_id'],
+                $recieved_data['route_id']
+            );
+
+            // fill order_product table
+            $this->model->fill_order_product($recieved_data['table']);
+
+            // set 0 working order
+            $this->model->complete_place_order();
+
+            echo json_encode($data);
+            exit;
+        }
+
+        // an order is working
+        else{
+            $data = ['failed'];
+            echo json_encode($data);
+            exit;
+        }
     }
 
     public function view_details($mail)
