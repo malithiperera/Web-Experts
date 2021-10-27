@@ -268,11 +268,11 @@ html::-webkit-scrollbar-thumb{
   /* left: 50px; */
   z-index: 999;
   /* margin-left: 150px; */
-  justify-content: center;
+  justify-content: space-evenly;
  
 }
 .card{
-  width: 200px;
+  width: 220px;
   height: 100px;
   padding: 10px;
   margin-right: 20px;

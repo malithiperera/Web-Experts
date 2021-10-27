@@ -38,10 +38,18 @@ class cus_model extends model
         $result2 = mysqli_query($conn, $sql2);
         array_push($result, $result2->fetch_assoc());
 
-        // count customers
-        // $sql3 = "SELECT COUNT(cus_id) AS count_customer FROM customer";
-        // $result3 = mysqli_query($conn, $sql3);
-        // array_push($result, $result3->fetch_assoc());
+        //count due payments
+        $sql3 = "SELECT COUNT(delivery_id) AS count_deliver FROM delivery WHERE cus_id='$userid'";
+        $result3 = mysqli_query($conn, $sql3);
+        array_push($result, $result3->fetch_assoc());
+
+        $sql4 = "SELECT route_id AS routes FROM customer WHERE cus_id='$userid'";
+        $result4 = mysqli_query($conn, $sql4);
+        array_push($result, $result4->fetch_assoc());
+
+        $sql5 = "SELECT name AS rep_name FROM user WHERE user_id=(SELECT rep_id FROM route WHERE route_id=(SELECT route_id FROM customer WHERE cus_id='$userid'));";
+         $result6 = mysqli_query($conn, $sql5);
+        array_push($result, $result6->fetch_assoc());
 
         // // count routes
         // $sql4 = "SELECT COUNT(route_id) AS count_route FROM route";

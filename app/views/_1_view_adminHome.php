@@ -28,9 +28,7 @@ if (!isset($_SESSION['username'])) {
             color: white;
         }
 
-        body {
-            /* opacity:50%; */
-        }
+        
 
         /* scroll bar */
         html::-webkit-scrollbar {
