@@ -140,12 +140,26 @@ class customer extends controller
         session_start();
 
         $this->model("cus_model");
-        $result = $this->model->get_home_orders('HC001');
+        $result = $this->model->get_home_orders($_SESSION['userid']);
 
         $data = [$result->fetch_assoc()];
 
         echo json_encode($data);
         exit;
         
+    }
+
+
+    public function load_card()
+    {
+        session_start();
+        $this->model("cus_model");
+        $result = $this->model->get_home_cards($_SESSION['userid']);
+
+        $data = [$result];
+
+        echo json_encode($data);
+        exit;
+
     }
 }

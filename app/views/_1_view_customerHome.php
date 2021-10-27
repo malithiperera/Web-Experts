@@ -1,3 +1,12 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -14,34 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load('current', {
-      'packages': ['corechart']
-    });
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses'],
-        ['2004', 1000, 400],
-        ['2005', 1170, 460],
-        ['2006', 660, 1120],
-        ['2007', 1030, 540]
-      ]);
-
-      var options = {
-        title: 'Company Performance',
-        curveType: 'function',
-        legend: {
-          position: 'bottom'
-        }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-      chart.draw(data, options);
-    }
-  </script>
+  
 </head>
 
 <body>
@@ -127,29 +109,29 @@
       <div class="top">
         <div class="card-1">
           <p><i class="fas fa-user-tie"></i><br>Customer Id</p>
-          <p id="top-detail-1"></p>
+          <p id="top-detail-1"><?php echo $_SESSION['userid'];  ?></p>
         </div>
         <div class="card-1">
           <p><i class="fas fa-map-marker"></i><br>Route</p>
-          <p id="top-detail-1">Kakirawa West</p>
+          <p id="top-detail-1"><span id=route></span></p>
         </div>
         <div class="card-1">
           <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
-          <p id="top-detail-1">M.R Perera</p>
+          <p id="top-detail-1"><span id=rep></span></p>
         </div>
       </div>
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-          <p id="top-detail">10</p>
+          <p id="top-detail"><span id='pro'>10</span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-          <p id="top-detail">1</p>
+          <p id="top-detail"><span id='del'>10</span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
-          <p id="top-detail">10</p>
+          <p id="top-detail"><span id='del'>10</span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
@@ -157,7 +139,7 @@
         </div>
         <div class="card">
           <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
-          <p id="top-detail">10</p>
+          <p id="top-detail"><span id='pen_pay'>10</span></p>
         </div>
 
 
@@ -185,9 +167,9 @@
             <a href="">View Product</a>
           </div>
           <div class="graph">
-            <h3>Sales Summary</h3>
+            <h3>Selling Products</h3>
 
-            <div id="curve_chart" style="width: 400px; height: 400px"></div>
+            <div id="barchart_values" style="width: 600px; height: 500px;"></div>
           </div>
 
         </div>
@@ -294,6 +276,12 @@
     order_date = document.getElementById('o_date');
     order_amount = document.getElementById('amount');
     order_view = document.getElementById('order_view');
+    product = document.getElementById('pro');
+    del = document.getElementById('del');
+    pen_pay = document.getElementById('pen_pay');
+    route = document.getElementById('route');
+    rep = document.getElementById('rep');
+
 
 
 
@@ -303,8 +291,7 @@
       fetch('http://localhost/web-Experts/public/customer/get_details_home')
         .then(response => response.json())
         .then(data => {
-          console.log(data);
-          console.log(data[0]['order_id']);
+         
           order_id.value = data[0]['order_id'];
           order_date.value = data[0]['date'];
           amount.value = data[0]['amount'];
@@ -316,7 +303,63 @@
 
     fill_details_home();
 
+
+
+
+    function load_cards() {
+
+fetch('http://localhost/web-Experts/public/customer/load_card')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        product.innerHTML = data[0][0]['count_products'];
+        del.innerHTML = data[0][1]['pending_orders'];
+        pen_pay.innerHTML = data[0][2]['count_deliver'];
+        route.innerHTML = data[0][3]['routes'];
+        rep.innerHTML = data[0][4]['rep_name'];
+
+        
+    });
+}
+
+load_cards();
   </script>
+
+
+
+
+<script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Ice Cream", 8.94, "#32a852"],
+        ["Yoghurts", 10.49, "#31aab5"],
+        ["Curd", 19.30, "#e6b815"],
+        ["Fresh-Milk", 21.45, "color: #e5e4e2"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Product Buying Summary",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+
 </body>
 
 </html>
