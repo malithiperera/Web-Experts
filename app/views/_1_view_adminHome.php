@@ -479,35 +479,6 @@ tr:nth-child(odd) {
 
             </div>
 
-
-
-
-
-            <div class="subcontainer2">
-                <div class="reps">
-                    <h3>Online Sales Rep</h3>
-                    <?php
-                    for ($i = 0; $i < 10; $i++) {
-                        echo "
-                                <p>sample salesrep</p>
-                            ";
-                    }
-
-                    ?>
-                </div>
-                <div class="customers">
-                    <h3>Online Customers</h3>
-                    <?php
-                    for ($i = 0; $i < 10; $i++) {
-                        echo "
-                                 <p>sample salesrep</p>
-                              ";
-                    }
-
-                    ?>
-                </div>
-            </div>
-
         </div>
     </div>
 
