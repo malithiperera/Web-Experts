@@ -260,6 +260,23 @@
     //   blur.style.opacity = "100%";
   }
 }
+
+function fill_details_profile() {
+      fetch('http://localhost/web-Experts/public/profile/edit_profile')
+        .then(response => response.json())
+        .then(data => {
+         
+          console.log(data);
+          document.getElementById('name').value=data[0]['name'];
+        });
+
+
+    }
+
+    fill_details_profile();
+
+
+
     </script>
 
 </body>
