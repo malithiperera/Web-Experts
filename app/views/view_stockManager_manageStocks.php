@@ -123,6 +123,40 @@
 
     </section>
 
+    <script>
+        var product_id = '<?php echo $_GET['product_id']; ?>';
+        var currentPrice = document.getElementById('currentPrice');
+
+
+        console.log(product_id);
+
+        var data_set = {
+            product_id: product_id
+        }
+
+        const details_of_product = () => {
+
+            fetch('http://localhost/web-Experts/public/stockManager/details_of_product', {
+                    method: 'POST',
+                    
+                    headers: {
+                        'Content-Type': 'application/json'
+                        
+                    },
+                    
+                    body: JSON.stringify(data_set) 
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    currentPrice.value = "Rs."+data['price'];
+                });
+
+        }
+
+        details_of_product();
+    </script>
+
 </body>
 
 </html>

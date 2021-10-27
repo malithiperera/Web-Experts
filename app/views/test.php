@@ -16,48 +16,41 @@
             <th>qty</th>
             <th>total price</th>
         </thead>
-        <?php for ($i = 0; $i < 10; $i++) {
 
-            echo "
-            
-            <tr>
-            <td>
-                <table>
-                    <tr><td>dineth</td></tr>
-                    <tr><td>thrushan</td></tr>
-                    <tr><td>silva</td></tr>
-                </table>
-            </td>
-            <td><button onclick=\"edit(event)\">view</button></td>
-            </tr>
-            
-            ";
-        } ?>
+        <tbody class="content">
+           
+        </tbody>
 
 
     </table>
 
-    <div class="the_table">
-        <div class="the_table1">
-            <div class="the_table2"></div>
-        </div>
-    </div>
 
     <script>
-        function setTot(value, i) {
-            let id = document.getElementById(`ttp_${i}`);
-            id.value = value * 3;
+        var content = document.querySelector('.content');
+
+        function fill_table() {
+
+            for (i = 0; i < 10; i++) {
+                content.innerHTML += `<tr>
+                                      <td>
+                                        <table>
+                                            <tr><td>dienth</td></tr>
+                                            <tr><td>thrushan</td></tr>
+                                            <tr><td>silva</td></tr>
+                                        </table>
+                                      </td>
+                                      <td><button onclick="edit(event)">view</button></td>
+                                      </tr>`;
+            }
         }
-    </script>
 
-    <script>
-
-        
+        fill_table();
 
         function edit(event) {
-            var table_content = event.path[2].cells[0].getElementsByTagName("table");
+            // var table_content = event.path[2].cells[0].getElementsByTagName("table");
 
-            console.log(table_content[0].children[0].rows[0]);
+            // console.log(table_content[0].children[0].rows[0]);
+            console.log(event.path[2].cells[0]);
         }
     </script>
 

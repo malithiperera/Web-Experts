@@ -11,38 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Year', 'Sales', 'Expenses'],
-                ['2004', 1000, 400],
-                ['2005', 1170, 460],
-                ['2006', 660, 1120],
-                ['2007', 1030, 540]
-            ]);
-
-            var options = {
-                title: 'Company Performance',
-                curveType: 'function',
-                legend: {
-                    position: 'bottom'
-                }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-            chart.draw(data, options);
-        }
-    </script>
 </head>
 
 <body>
-    <?php require_once '../controllers/showProductsProcess.php' ?>
+
 
     <div class="sidebar">
         <div class="logo-details">
@@ -84,13 +57,7 @@
                 </a>
                 <span class="tooltip">View Reports</span>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class='bx bx-folder'></i>
-                    <span class="links_name">File Manager</span>
-                </a>
-                <span class="tooltip">Files</span>
-            </li> -->
+
             <li>
                 <a href="#">
                     <i class="fas fa-user"></i>
@@ -98,23 +65,10 @@
                 </a>
                 <span class="tooltip">Profile</span>
             </li>
-            <!-- <li>
-                <a href="#">
-                <i class='bx bx-log-out' id="log_out">
-                    <span class="links_name">Log out</span>
-                </a>
-                <span class="tooltip">Log out</span>
-            </li> -->
-            <!-- <li>
-                <a href="#">
-                    <i class='bx bx-cog'></i>
-                    <span class="links_name">Setting</span>
-                </a>
-                <span class="tooltip">Setting</span>
-            </li> -->
+
             <li class="profile">
                 <div class="profile-details">
-                    <!-- <img src="profile.jpg" alt="profileImg"> -->
+
                     <div class="name_job">
                         <div class="name">M.Bandara</div>
                         <div class="job">Stock Manager</div>
@@ -150,75 +104,6 @@
         </section>
 
         <section class="detail">
-            <!--  <div class="left">
-           <div class="heading">
-           <h3>Sales Summary</h3>
-           </div>
-           <div id="curve_chart" style="width: 600px; height: 500px"></div>
-         </div>
-         <div class="right">
-           <div class="customer">
-             <h2>Customers Details</h2>
-             <div class="field">
-               <div class="topic">
-              <i class="fas fa-store"></i>
-               <h4>No of customers</h4><br>
-              </div>
-              <div class="content">
-               <h3>5</h3>
-              </div>
-              </div>
-              <div class="field">
-                <div class="topic">
-                  <i class="fas fa-store-alt"></i>
-                <h4>New Registrations</h4><br>
-               </div>
-               <div class="content">
-                <h3>10</h3>
-               </div>
-               </div>
-               <div class="field">
-                <div class="topic">
-                  <i class="fas fa-store-alt"></i>
-                <h4>New Registrations</h4><br>
-               </div>
-               <div class="content">
-                <h3>10</h3>
-               </div>
-               </div> 
-              </div>
-             
-         <div class="rep">
-          <h2>Sales Rep Details</h2>
-          <div class="field">
-            <div class="topic">
-              <i class="fas fa-male"></i>
-            <h4>No of Sales Rep</h4><br>
-           </div>
-           <div class="content">
-            <h3>5</h3>
-           </div>
-           </div>
-           <div class="field">
-             <div class="topic">
-              <i class="fas fa-map-marker-alt"></i>
-             <h4>No of Routes</h4><br>
-            </div>
-            <div class="content">
-             <h3>10</h3>
-            </div>
-            </div>
-            <div class="field">
-             <div class="topic">
-               <i class="fas fa-money-bill-alt"></i>
-             <h4>Cash Paymnets</h4><br>
-            </div>
-            <div class="content">
-             <h3>10</h3>
-            </div>
-            </div> 
-         </div>
-        </div> -->
 
             <table>
                 <thead>
@@ -232,45 +117,10 @@
 
                 </thead>
 
-                <?php require_once '../controllers/selectProductsFromDB.php'; ?>
-                <?php
-                if ($result->num_rows > 0) {
-                    # code...
-                    while ($row = $result->fetch_assoc()) { ?>
-                        <tbody>
-                            <tr>
-                                <td><a href="../stockManager/product_profile"><?php echo $row['product_id']; ?></a></td>
-                                <td><a href="../stockManager/product_profile"><?php echo $row['product_name']; ?></a></td>
-                                <td><?php echo $row['type']; ?></td>
-                                <td><?php echo $row['price']; ?></td>
-
-                            </tr>
-
-                        </tbody>
-                <?php   }
-                } ?>
+                <tbody class="product">
 
 
-                <!-- <tr>
-                        <td><a href="../stockManager/product_profile">2</a></td>
-                        <td><a href="../stockManager/product_profile">test_2</a></td>
-                        <td>2000</td>
-                        <td>200</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="../stockManager/product_profile">3</a></td>
-                        <td><a href="../stockManager/product_profile">test_3</a></td>
-                        <td>3000</td>
-                        <td>300</td>
-                    </tr>
-
-                    <tr>
-                        <td><a href="../stockManager/product_profile">4</a></td>
-                        <td><a href="../stockManager/product_profile">test_4</a></td>
-                        <td>4000</td>
-                        <td>400</td>
-                    </tr> -->
+                </tbody>
 
             </table>
 
@@ -287,6 +137,43 @@
 
     <script src="../../public/java script/view_stockManager_viewStocks.js"></script>
 
+    <!-- fill table -->
+    <script>
+        var product_table = document.querySelector('.product');
+
+
+
+        const fill_table = () => {
+
+            fetch('http://localhost/web-Experts/public/stockManager/fill_home', {
+                    // data set to send
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    for (i = 0; i < data.length; i++) {
+                        product_table.innerHTML += `
+                
+                            <tr>
+                                <td><a href="../stockManager/managestock?product_id=${data[i]['product_id']}">${data[i]['product_id']}</a></td>
+                                <td>${data[i]['product_name']}</td>
+                                <td>100</td>
+                                <td>${data[i]['price']}</td>
+                            </tr>
+                        
+                        `;
+                        
+                    }
+
+
+
+                    console.log(data);
+                });
+
+        }
+
+        fill_table();
+    </script>
 
 </body>
 

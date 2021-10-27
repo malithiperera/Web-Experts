@@ -3,7 +3,7 @@
 require '../app/core/model.php';
 
 
-class home_model extends model
+class _3_customer_model extends model
 {
 
     function __construct()
@@ -33,14 +33,25 @@ class home_model extends model
         }
     }
 
-    public function get_orders()
+
+
+    public function get_pending_orders($user_id)
     {
-        // require '../app/core/database.php';
-        // $sql="SELECT * FROM order WHERE cus_id='$userid' AND status='pending'";
-        // $query=mysqli_query($conn,$sql);
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM orders WHERE cus_id = '$user_id' AND status = 'not-delivered'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 
-
-
-        return "Malithi";
+    public function fill_pending_order_table($order_id)
+    {
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM order_product,product 
+                WHERE 
+                order_product.product_id = product.product_id 
+                AND 
+                order_product.order_id = '$order_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
     }
 }
