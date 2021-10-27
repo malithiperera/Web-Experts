@@ -16,36 +16,24 @@
             <th>qty</th>
             <th>total price</th>
         </thead>
-        <tr>
-           <td class="first_name">dienth</td>
-           <td rowspan="3"><button onclick="edit(event)">view</button></td>
-        </tr>
-        <tr>
-            <td class="mid_name">tharushan</td>
-        </tr>
-        <tr>
-            <td class="last_name">silva</td>
-        </tr>
-        <!-- <?php
-        for ($i = 0; $i < 10; $i++) {
-            echo "
-                <tr>
-                <td>dineth</td>
-                <td>100</td>
-                <td><input type=\"text\" id=\"qty_$i\" onkeyup=\"setTot(this.value, $i);\"></td>
-                <td><input type=\"text\" id=\"ttp_$i\"></td>
-                <td><button onclick=\"edit(event)\">edit</button></td>
-                </tr>
-                ";
-        }
-        ?> -->
+        <?php for ($i = 0; $i < 10; $i++) {
 
-        <!-- <tr>
-                <td>dineth</td>
-                <td>100</td>
-                <td><input type="text" id="in" onkeyup="setTot(this.value);"></td>
-                <td><input type="text" id="('in'+2)"></td>
-                </tr> -->
+            echo "
+            
+            <tr>
+            <td>
+                <table>
+                    <tr><td>dineth</td></tr>
+                    <tr><td>thrushan</td></tr>
+                    <tr><td>silva</td></tr>
+                </table>
+            </td>
+            <td><button onclick=\"edit(event)\">view</button></td>
+            </tr>
+            
+            ";
+        } ?>
+
 
     </table>
 
@@ -63,17 +51,14 @@
     </script>
 
     <script>
-        function edit(event) {
-            console.log(event);
-            console.log(event.path[3]);
-            console.log(event.path[2]);
-            console.log(event.path[2].cells[0]);
-            // event.path[2].cells[0].style.backgroundColor = 'red';
-        }
 
-        var the_table = document.querySelector('.the_table');
-        the_table.classList.add("my_class");
-        console.log(the_table.classList);
+        
+
+        function edit(event) {
+            var table_content = event.path[2].cells[0].getElementsByTagName("table");
+
+            console.log(table_content[0].children[0].rows[0]);
+        }
     </script>
 
 </body>
