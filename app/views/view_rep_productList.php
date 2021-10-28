@@ -189,6 +189,10 @@
     </div>
     <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
     <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
+    <script>
+
+        var route_id = '<?php echo $_GET['route_id']; ?>';
+    </script>
 </body>
 
 </html>

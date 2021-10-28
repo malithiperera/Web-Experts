@@ -23,7 +23,7 @@ body{
     font-family: "Poppins" , sans-serif;
 }
 .sub-container{
-    margin-top: 200px;
+    margin-top: 350px;
     /* margin-bottom: 500px;
     margin: 200px; */
     padding: 20px;
@@ -105,7 +105,7 @@ label{
     padding-right: 20px;
     border-radius: 5px;
     margin-left: 150px;
-    margin-top: 830px;
+    margin-top: 900px;
     margin-bottom: 50px;
     transition: ease-in-out;
 }

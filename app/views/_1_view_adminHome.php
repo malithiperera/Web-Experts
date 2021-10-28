@@ -219,7 +219,7 @@ if (!isset($_SESSION['username'])) {
         }
 
         .charts {
-            width: 1000px;
+            width: 1300px;
             height: 1000px;
             margin-left: 100px;
             /* display:flex;
@@ -234,13 +234,19 @@ if (!isset($_SESSION['username'])) {
         }
 
 
+<<<<<<< HEAD
         .sales-overview {
             width: 65%;
             height: 600px;
+=======
+        .sales-overview{
+            width:75%;
+            height:600px;
+>>>>>>> 9b345d105987427fcf7ee102848583a4acdc272a
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             margin-right: 30px;
-            margin-left: -100px;
+          
         }
 
         .user-reg {
@@ -266,10 +272,10 @@ if (!isset($_SESSION['username'])) {
             color: black;
             display: flex;
             flex-direction: column;
-            margin-right: -50px;
-            margin-left: 40px;
-
-            padding: 10px;
+           margin-right:-50px;
+            margin-left: 70px;
+            
+            padding:10px;
 
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 

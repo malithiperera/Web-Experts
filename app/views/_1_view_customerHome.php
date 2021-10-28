@@ -173,6 +173,14 @@ if (!isset($_SESSION['username'])) {
             <p>H201 Ice cream 80g-10% </p>
             <a href="">View Product</a>
           </div>
+          <div class="item">
+            <p>H201 Ice cream 80g-10% </p>
+            <a href="">View Product</a>
+          </div>
+          <div class="item">
+            <p>H201 Ice cream 80g-10% </p>
+            <a href="">View Product</a>
+          </div>
           <div class="graph">
             <h3>Selling Products</h3>
 

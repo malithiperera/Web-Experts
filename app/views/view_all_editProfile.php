@@ -268,6 +268,8 @@ function fill_details_profile() {
          
           console.log(data);
           document.getElementById('name').value=data[0]['name'];
+          document.getElementById('email').value=data[0]['email'];
+          document.getElementById('dob').value=data[0]['dob'];
         });
 
 

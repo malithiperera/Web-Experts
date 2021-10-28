@@ -19,10 +19,18 @@ class _2_salesrep_model extends model
     public function not_delivered()
     {
         require '../app/core/database.php';
-        $sql = "SELECT order_id, date, amount FROM orders WHERE status='D'";
+        $sql = "SELECT order_id, date, amount FROM orders ";
+        
         $result = $conn->query($sql);
         return $result;
     }
+    // public function delivered()
+    // {
+    //     require '../app/core/database.php';
+    //     $sql = "SELECT order_id, date, amount FROM orders WHERE status='D'";
+    //     $result = $conn->query($sql);
+    //     return $result;
+    // }
     
     public function cash_payment(){
         require '../app/core/database.php';
@@ -52,6 +60,16 @@ class _2_salesrep_model extends model
         require '../app/core/database.php';
         $sql = "SELECT product_name FROM product";
         $result = $conn->query($sql);
+        return $result;
+    }
+    public function get_orders_data(){
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM orders,route,customer 
+        WHERE orders.route_id=route.route_id AND 
+        orders.cus_id=customer.cus_id AND
+        orders.status='not-delivered' ORDER BY orders.route_id"
+        ;
+        $result = mysqli_query($conn, $sql);
         return $result;
     }
     }
