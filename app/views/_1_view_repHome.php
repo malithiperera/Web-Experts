@@ -155,8 +155,9 @@ if (!isset($_SESSION['username'])) {
 
           </tr>
         </thead>
-        <tbody>
-          <tr>
+        <tbody class="orders">
+      
+          <!-- <tr>
 
             <td rowspan="5">Kurunegala</td>
             <td>Laugfs Supermarket</td>
@@ -306,11 +307,11 @@ if (!isset($_SESSION['username'])) {
 
             <td>Sithumini Stores</td>
 
-          </tr>
+          </tr> -->
         <tbody>
       </table>
     </div>
-    
+
 
     <script src="../../public/java script/view_rep_Home.js"></script>
     <script>
@@ -321,6 +322,40 @@ if (!isset($_SESSION['username'])) {
       function closeForm() {
         document.getElementById("myForm").style.display = "none";
       }
+    </script>
+
+       <!-- fill table -->
+    <script>
+      var orders_table = document.querySelector('.orders');
+
+      const fill_table = () => {
+        fetch('http://localhost/web-Experts/public/salesRep/fill_home',{
+
+        })
+        .then(response => response.json())
+        .then(data=>{
+
+          for (i = 0; i < data.length; i++) {
+                
+                        orders_table.innerHTML += `
+
+                            <tr >
+                               
+                                
+                                <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
+                                <td>${data[i]['shop_name']}</td>
+                                
+                            
+                  
+                            </tr>
+                        
+                        `;
+                        
+                    }
+              console.log(data);
+        });
+      }
+      fill_table();
     </script>
 
 </body>

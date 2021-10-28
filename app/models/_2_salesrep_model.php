@@ -62,6 +62,16 @@ class _2_salesrep_model extends model
         $result = $conn->query($sql);
         return $result;
     }
+    public function get_orders_data(){
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM orders,route,customer 
+        WHERE orders.route_id=route.route_id AND 
+        orders.cus_id=customer.cus_id AND
+        orders.status='not-delivered' ORDER BY orders.route_id"
+        ;
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
     }
 
     // public function insert_route($route_id, $name, $destination){
