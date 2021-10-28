@@ -77,19 +77,20 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-    //get order ids of route
-    public function get_order_id($route_id)
-    {
+    //get order product of particular route
+    public function get_order_products($route_id){
         require '../app/core/database.php';
 
-        $sql = "SELECT order_id FROM orders 
-        WHERE 
-        route_id = '$route_id' 
-        AND
-        status = 'not-delivered';
-        ";
-
+        $sql = "SELECT product_name, SUM(quantity) FROM order_product, product
+                WHERE
+                order_product.product_id = product.product_id
+                AND
+                order_product.order_id 
+                IN 
+                (SELECT order_id FROM orders WHERE route_id = '$route_id') 
+                GROUP BY order_product.product_id";
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+    
 }

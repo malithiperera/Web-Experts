@@ -21,23 +21,17 @@
 
                 </tr>
             </thead>
-            <?php
-            if ($this->result->num_rows > 0) {
-                while ($row = $this->result->fetch_assoc()) {
-                    echo "<tr>
-                    <td>" . $row['product_name'] . "</td>
-                    <td></td>
-                   
-                  </tr>";
-                }
-            }
-            ?>
+            <tbody class="content">
+
+            </tbody>
 
         </table>
     </div>
     <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
     <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
     <script>
+        content = document.querySelector('.content');
+
         var data_set = {
             route_id: '<?php echo $_GET['route_id']; ?>'
         }
@@ -45,16 +39,28 @@
         const get_product = () => {
             fetch('http://localhost/web-Experts/public/salesRep/get_product', {
                     method: 'POST',
-                   
+
                     headers: {
                         'Content-Type': 'application/json'
-                        
+
                     },
-                    
-                    body: JSON.stringify(data_set) 
+
+                    body: JSON.stringify(data_set)
                 })
                 .then(response => response.json())
                 .then(data => {
+
+                    for (i = 0; i < data.length; i++) {
+                        content.innerHTML += `
+                    
+                            <tr>
+                            <td>${data[i]['product_name']}</td>
+                            <td>${data[i]['SUM(quantity)']}</td>
+                            </tr>
+
+                            `;
+                    }
+
                     console.log(data);
                 });
         }
