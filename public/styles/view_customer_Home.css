@@ -693,6 +693,7 @@ td{
   padding: 5px;
   background-color: rgb(216, 216, 216);
   text-align: center;
+  width: 300px;
 }
 .order-pop h3{
   padding: 35px;
@@ -715,4 +716,18 @@ input{
   text-align: center;
   border-radius: 5px;
   padding: 3px;
+}
+
+.orders button{
+  background-color: #2985a1;
+  height:40px;
+
+  width:100px;
+  border-radius: 10px;
+  outline: none;
+  color:#fff;
+}
+
+.orders table{
+  font-weight: 700;
 }
