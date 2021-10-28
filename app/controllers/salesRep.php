@@ -163,6 +163,39 @@ public function fill_home(){
     exit;
 }
 
+//get product of order
+public function get_product(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    $this->model('_2_salesrep_model');
+    // get order ids
+    $result = $this->model->get_order_id($get_data['route_id']);
+
+    $order_id = [];
+
+    while($row = $result->fetch_assoc()){
+        array_push($order_id, $row);
+    }
+
+    $data = [];
+    //products of particular order ids
+    for($i = 0 ; $i < sizeof($order_id) ; $i++){
+        $result1 = $this->model->get_products();
+
+        while($row1 = $result1->fetch_assoc()){
+            array_push($data, $row);
+        }
+    }
+    
+    
+
+    
+
+    echo json_encode($order_id);
+    exit;
+}
+
 }
 
 ?>

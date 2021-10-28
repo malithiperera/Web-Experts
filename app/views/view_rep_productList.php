@@ -22,176 +22,44 @@
                 </tr>
             </thead>
             <?php
-        if($this->result->num_rows>0){
-          while($row=$this->result->fetch_assoc()){
-            echo"<tr>
-                    <td>".$row['product_name']."</td>
+            if ($this->result->num_rows > 0) {
+                while ($row = $this->result->fetch_assoc()) {
+                    echo "<tr>
+                    <td>" . $row['product_name'] . "</td>
                     <td></td>
                    
                   </tr>";
-          }
-        }
-      ?>
-            <!-- <tbody>
-                <tr>
+                }
+            }
+            ?>
 
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-                <tr>
-                    <td>Product 1</td>
-                    <td><input type="text" name="total" id="total" class="inputf"></td>
-
-                </tr>
-            <tbody> -->
         </table>
     </div>
     <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
     <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
     <script>
+        var data_set = {
+            route_id: '<?php echo $_GET['route_id']; ?>'
+        }
 
-        var route_id = '<?php echo $_GET['route_id']; ?>';
+        const get_product = () => {
+            fetch('http://localhost/web-Experts/public/salesRep/get_product', {
+                    method: 'POST',
+                   
+                    headers: {
+                        'Content-Type': 'application/json'
+                        
+                    },
+                    
+                    body: JSON.stringify(data_set) 
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                });
+        }
+
+        get_product();
     </script>
 </body>
 
