@@ -1,7 +1,7 @@
 <?php session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("Location:http://localhost/web-Experts/public/login/index");
+  header("Location:http://localhost/web-Experts/public/login/index");
 }
 
 ?>
@@ -23,7 +23,14 @@ if (!isset($_SESSION['username'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  
+
+  <style>
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -166,6 +173,14 @@ if (!isset($_SESSION['username'])) {
             <p>H201 Ice cream 80g-10% </p>
             <a href="">View Product</a>
           </div>
+          <div class="item">
+            <p>H201 Ice cream 80g-10% </p>
+            <a href="">View Product</a>
+          </div>
+          <div class="item">
+            <p>H201 Ice cream 80g-10% </p>
+            <a href="">View Product</a>
+          </div>
           <div class="graph">
             <h3>Selling Products</h3>
 
@@ -197,7 +212,7 @@ if (!isset($_SESSION['username'])) {
 
 
           <div class="field">
-            <div class="order-no">
+            <!-- <div class="order-no">
               <label for="">Order Id:</label><input type="text" id=onum readonly>
               <br>
               <label for="">Order Date:</label><input type="text" id=o_date readonly>
@@ -206,12 +221,12 @@ if (!isset($_SESSION['username'])) {
             </div>
             <div class="content">
               <a href="../customer/view_orders" class="order_view" id="order_view">view</a>
-            </div>
-          </div>
+            </div> -->
 
-          <div class="field">
 
           </div>
+
+
         </div>
 
         <div class="payment">
@@ -291,7 +306,7 @@ if (!isset($_SESSION['username'])) {
       fetch('http://localhost/web-Experts/public/customer/get_details_home')
         .then(response => response.json())
         .then(data => {
-         
+
           order_id.value = data[0]['order_id'];
           order_date.value = data[0]['date'];
           amount.value = data[0]['amount'];
@@ -308,32 +323,37 @@ if (!isset($_SESSION['username'])) {
 
     function load_cards() {
 
-fetch('http://localhost/web-Experts/public/customer/load_card')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        product.innerHTML = data[0][0]['count_products'];
-        del.innerHTML = data[0][1]['pending_orders'];
-        pen_pay.innerHTML = data[0][2]['count_deliver'];
-        route.innerHTML = data[0][3]['routes'];
-        rep.innerHTML = data[0][4]['rep_name'];
+      fetch('http://localhost/web-Experts/public/customer/load_card')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          product.innerHTML = data[0][0]['count_products'];
+          del.innerHTML = data[0][1]['pending_orders'];
+          pen_pay.innerHTML = data[0][2]['count_deliver'];
+          route.innerHTML = data[0][3]['routes'];
+          rep.innerHTML = data[0][4]['rep_name'];
 
-        
-    });
-}
 
-load_cards();
+        });
+    }
+
+    load_cards();
   </script>
 
 
 
 
-<script type="text/javascript">
-    google.charts.load("current", {packages:["corechart"]});
+  <script type="text/javascript">
+    google.charts.load("current", {
+      packages: ["corechart"]
+    });
     google.charts.setOnLoadCallback(drawChart);
+
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", { role: "style" } ],
+        ["Element", "Density", {
+          role: "style"
+        }],
         ["Ice Cream", 8.94, "#32a852"],
         ["Yoghurts", 10.49, "#31aab5"],
         ["Curd", 19.30, "#e6b815"],
@@ -342,22 +362,78 @@ load_cards();
 
       var view = new google.visualization.DataView(data);
       view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
+        {
+          calc: "stringify",
+          sourceColumn: 1,
+          type: "string",
+          role: "annotation"
+        },
+        2
+      ]);
 
       var options = {
         title: "Product Buying Summary",
         width: 600,
         height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
+        bar: {
+          groupWidth: "95%"
+        },
+        legend: {
+          position: "none"
+        },
       };
       var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
       chart.draw(view, options);
-  }
+    }
+  </script>
+
+  <!-- script for pending orders -->
+  <script>
+    let field = document.querySelector('.field');
+
+    function get_pending_orders() {
+      var user_id = '<?php echo $_SESSION['userid']; ?>';
+      let data_set = {
+        user_id: user_id
+      }
+
+      fetch('http://localhost/web-Experts/public/customer/get_pending_orders', {
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/json'
+
+          },
+
+          body: JSON.stringify(data_set)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          for (i = 0; i < data.length; i++) {
+
+            field.innerHTML += `
+            
+            <table class="pending_order_tabel">
+              <tr>
+                <td>
+                  <table>
+                    <tr><td>Order ID : <br>${data[i]['order_id']}</td></tr>
+                    <tr><td>Order Date : <br>${data[i]['date']}</td></tr>
+                    <tr><td>Amount : <br>${data[i]['amount']}</td></tr>
+                  </table>
+                </td>
+                <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';">view</button></td>
+              </tr>
+            </table>
+            
+            `;
+
+          }
+        });
+
+    }
+    get_pending_orders();
   </script>
 
 </body>

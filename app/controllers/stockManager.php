@@ -19,6 +19,38 @@ class stockManager extends controller {
 
     }
 
+    public function fill_home(){
+        $data = [];
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->get_product_data();
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
+    }
+
+    public function managestock(){
+        $this->view->render('view_stockManager_manageStocks');
+    }
+
+    public function details_of_product(){
+
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->product_details($get_data['product_id']);
+
+        // $data = ['dineth'];
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+    }
+
 }
 
 ?>

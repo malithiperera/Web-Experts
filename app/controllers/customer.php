@@ -118,7 +118,7 @@ class customer extends controller
     {
         $this->view->render('_1_view_customerHome');
     }
-    
+
     public function view_orders()
     {
         $this->view->render('view_vieworder');
@@ -161,5 +161,43 @@ class customer extends controller
         echo json_encode($data);
         exit;
 
+    }
+
+
+    // get details about pending orders
+    public function get_pending_orders(){
+
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_3_customer_model');
+        $result = $this->model->get_pending_orders($get_data['user_id']);
+
+        $data = [];
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        
+        echo json_encode($data);
+        exit;
+    }
+
+    // fill view pending order table
+    public function fill_pending_order_table(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_3_customer_model');
+        $result = $this->model->fill_pending_order_table($get_data['order_id']);
+
+        $data = [];
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
     }
 }
