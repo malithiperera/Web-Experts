@@ -179,6 +179,58 @@ class admin extends controller{
         $this->view->render('test');
     }
 
+    //get suggestions for search customer
+    public function search_customer(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->search_customer($get_data['customer_id']);
+
+        $data = [];
+        
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
+    }
+
+    //search customer using route
+    public function search_customer_by_route_get_route(){
+        $data = [];
+
+        $this->model('_1_admin_model');
+        $result = $this->model->search_customer_by_route_get_route();
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
+    }
+
+    //filter customers in the route
+    public function filter_customer_in_route(){
+
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->filter_customer_in_route($get_data['route_id']);
+
+        $data = [];
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
+    }
+
 }
 
 ?>

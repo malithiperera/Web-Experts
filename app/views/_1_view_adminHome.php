@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
             color: white;
         }
 
-        
+
 
         /* scroll bar */
         html::-webkit-scrollbar {
@@ -165,12 +165,12 @@ if (!isset($_SESSION['username'])) {
             margin-left: 20px;
         }
 
-        
+
 
         .subcontainer2 {
             display: flex;
             flex-direction: column;
-            
+
         }
 
         .reps {
@@ -188,7 +188,7 @@ if (!isset($_SESSION['username'])) {
             color: black;
             margin-left: 20px;
             text-align: center;
-            
+
         }
 
         .customers {
@@ -217,6 +217,7 @@ if (!isset($_SESSION['username'])) {
         .search_salesrep {
             visibility: hidden;
         }
+
         .charts {
             width: 1000px;
             height: 1000px;
@@ -225,24 +226,25 @@ if (!isset($_SESSION['username'])) {
             justify-content: space-between; */
             margin-top: 40px;
         }
-        .chart-up{
+
+        .chart-up {
             display: flex;
             /* justify-content: space-between; */
-            
+
         }
 
 
-        .sales-overview{
-            width:65%;
-            height:600px;
+        .sales-overview {
+            width: 65%;
+            height: 600px;
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             margin-right: 30px;
             margin-left: -100px;
         }
 
-        .user-reg{
-            width:600px;
+        .user-reg {
+            width: 600px;
             /* height:400px; */
             background-color: #fff;
             margin-left: -100px;
@@ -250,62 +252,67 @@ if (!isset($_SESSION['username'])) {
 
         }
 
-        .chart-down{
+        .chart-down {
             display: flex;
             margin-top: 40px;
             justify-content: s;
 
         }
 
-        .growth{
-            width:40%;
+        .growth {
+            width: 40%;
             /* height:400px; */
             background-color: #fff;
-            color:black;
+            color: black;
             display: flex;
             flex-direction: column;
             margin-right: -50px;
             margin-left: 40px;
-            
-            padding:10px;
+
+            padding: 10px;
 
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            
+
         }
-        table{
+
+        table {
             margin-top: 30px;
         }
-        th{
-            
-            padding:5px;
-            margin:5px;
-         
+
+        th {
+
+            padding: 5px;
+            margin: 5px;
+
             background-color: #184A78;
-            color:#fff;
+            color: #fff;
         }
-        td{
-            color:black;
-            padding:5px;
-            margin:5px;
+
+        td {
+            color: black;
+            padding: 5px;
+            margin: 5px;
 
         }
+
         th:nth-child(odd) {
-  color: #ffffff;
-  background: #4FC3A1;
-}
-tr:nth-child(odd) {
-  background: #ccc4c4;
-}
+            color: #ffffff;
+            background: #4FC3A1;
+        }
+
+        tr:nth-child(odd) {
+            background: #ccc4c4;
+        }
 
 
- thead th {
-  color: #ffffff;
-  background: #4FC3A1;
-}
+        thead th {
+            color: #ffffff;
+            background: #4FC3A1;
+        }
 
-        .trans{
-            width:1000px;
-            height:600px;
+        .trans {
+            width: 1000px;
+            height: 600px;
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             margin-left: 90px;
@@ -316,7 +323,7 @@ tr:nth-child(odd) {
 
 <body>
 
-    
+
     <div class="sidebar">
         <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
         <i class="fas fa-bars fa-lg"></i>
@@ -390,88 +397,88 @@ tr:nth-child(odd) {
         <div class="subcontainer1">
             <div class="charts">
                 <div class="chart-up">
-                <div class="sales-overview">
-                    <h3>Sales Overview</h3>
-                    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+                    <div class="sales-overview">
+                        <h3>Sales Overview</h3>
+                        <div id="chart_div" style="width: 100%; height: 500px;"></div>
 
-                </div>
-                <div class="growth">
-                    <h3>Best of Sales Rep</h3>
-                    <table>
-                        <tr>
-                            <th>Sales Rep ID</th>
-                            <th>Name</th>
-                            <th>Profit</th>
-                        </tr>
-                        <tr>
-                            <td>HR034</td>
-                            <td>M.E. Wijekoon</td>
-                            <td>190 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR908</td>
-                            <td>S.M Rajapaksha</td>
-                            <td>150 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR0890</td>
-                            <td>N.D.T Kariyawasam</td>
-                            <td>130 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR0908</td>
-                            <td>K.M Herath</td>
-                            <td>127 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR5679</td>
-                            <td>Y.T Silve</td>
-                            <td>110 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR908</td>
-                            <td>S.M Rajapaksha</td>
-                            <td>150 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR0890</td>
-                            <td>N.D.T Kariyawasam</td>
-                            <td>130 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR0908</td>
-                            <td>K.M Herath</td>
-                            <td>127 000</td>
-                        </tr>
-                        <tr>
-                            <td>HR5679</td>
-                            <td>Y.T Silve</td>
-                            <td>110 000</td>
-                        </tr>
-
-
-
-                    </table>
+                    </div>
+                    <div class="growth">
+                        <h3>Best of Sales Rep</h3>
+                        <table>
+                            <tr>
+                                <th>Sales Rep ID</th>
+                                <th>Name</th>
+                                <th>Profit</th>
+                            </tr>
+                            <tr>
+                                <td>HR034</td>
+                                <td>M.E. Wijekoon</td>
+                                <td>190 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR908</td>
+                                <td>S.M Rajapaksha</td>
+                                <td>150 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR0890</td>
+                                <td>N.D.T Kariyawasam</td>
+                                <td>130 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR0908</td>
+                                <td>K.M Herath</td>
+                                <td>127 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR5679</td>
+                                <td>Y.T Silve</td>
+                                <td>110 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR908</td>
+                                <td>S.M Rajapaksha</td>
+                                <td>150 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR0890</td>
+                                <td>N.D.T Kariyawasam</td>
+                                <td>130 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR0908</td>
+                                <td>K.M Herath</td>
+                                <td>127 000</td>
+                            </tr>
+                            <tr>
+                                <td>HR5679</td>
+                                <td>Y.T Silve</td>
+                                <td>110 000</td>
+                            </tr>
 
 
-                </div>
 
-                
+                        </table>
+
+
+                    </div>
+
+
                 </div>
 
                 <div class="chart-down">
-                <div class="user-reg">
-                    <h3>Customer Registration </h3>
-                    <div id="barchart_values" style="width: 600px; height: 300px;"></div>
+                    <div class="user-reg">
+                        <h3>Customer Registration </h3>
+                        <div id="barchart_values" style="width: 600px; height: 300px;"></div>
 
 
-                </div>
-                <div class="trans">
-                    <h3>Transaction Summary </h3>
-                    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+                    </div>
+                    <div class="trans">
+                        <h3>Transaction Summary </h3>
+                        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
 
 
-                </div>
+                    </div>
 
 
 
@@ -593,6 +600,7 @@ tr:nth-child(odd) {
                     popup_message.style.visibility = "hidden";
                     sidebar.style.opacity = "100%";
                     container.style.opacity = "100%";
+                    
                 }
             }
 
@@ -629,101 +637,124 @@ tr:nth-child(odd) {
         load_cards();
     </script>
 
-   
 
 
 
 
 
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Month', 'online', 'cash', 'cheque'],
-          ['Jan', 1000, 400, 200],
-          ['Feb', 1170, 460, 250],
-          ['March', 660, 1120, 300],
-          ['April', 1030, 540, 350],
-          
-        ]);
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['bar']
+        });
+        google.charts.setOnLoadCallback(drawChart);
 
-        var options = {
-          chart: {
-            title: 'Transactions',
-            subtitle: 'Cash Cheque Online',
-          }
-        };
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'online', 'cash', 'cheque'],
+                ['Jan', 1000, 400, 200],
+                ['Feb', 1170, 460, 250],
+                ['March', 660, 1120, 300],
+                ['April', 1030, 540, 350],
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+            ]);
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
+            var options = {
+                chart: {
+                    title: 'Transactions',
+                    subtitle: 'Cash Cheque Online',
+                }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
     </script>
 
 
 
 
-<!-- Overview -->
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+    <!-- Overview -->
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Returns'],
-          ['2013',  1000,      100],
-          ['2014',  1170,      60],
-          ['2015',  660,       120],
-          ['2016',  1030,      240]
-        ]);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Sales', 'Returns'],
+                ['2013', 1000, 100],
+                ['2014', 1170, 60],
+                ['2015', 660, 120],
+                ['2016', 1030, 240]
+            ]);
 
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: 'green'}},
-          vAxis: {minValue: 0}
-        };
+            var options = {
+                title: 'Company Performance',
+                hAxis: {
+                    title: 'Year',
+                    titleTextStyle: {
+                        color: 'green'
+                    }
+                },
+                vAxis: {
+                    minValue: 0
+                }
+            };
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
     </script>
 
 
 
 
-<script type="text/javascript">
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Month", "Total", { role: "style" } ],
-        ["Jan", 8.94, "#b87333"],
-        ["Feb", 10.49, "silver"],
-        ["March", 19.30, "gold"],
-        ["April", 21.45, "color: #e5e4e2"]
-      ]);
+    <script type="text/javascript">
+        google.charts.load("current", {
+            packages: ["corechart"]
+        });
+        google.charts.setOnLoadCallback(drawChart);
 
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ["Month", "Total", {
+                    role: "style"
+                }],
+                ["Jan", 8.94, "#b87333"],
+                ["Feb", 10.49, "silver"],
+                ["March", 19.30, "gold"],
+                ["April", 21.45, "color: #e5e4e2"]
+            ]);
 
-      var options = {
-        title: "Total customers",
-        width: 600,
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
-      chart.draw(view, options);
-  }
-  </script>
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                {
+                    calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation"
+                },
+                2
+            ]);
+
+            var options = {
+                title: "Total customers",
+                width: 600,
+                height: 400,
+                bar: {
+                    groupWidth: "95%"
+                },
+                legend: {
+                    position: "none"
+                },
+            };
+            var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+            chart.draw(view, options);
+        }
+    </script>
 </body>
 
 </html>

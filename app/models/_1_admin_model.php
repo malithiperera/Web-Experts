@@ -66,4 +66,37 @@ class _1_admin_model extends model
 
         return $result;
     }
+
+    public function search_customer($customer_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM customer 
+                WHERE 
+                cus_id LIKE '%".$customer_id."%' 
+                OR 
+                shop_name LIKE '%".$customer_id."%' 
+                LIMIT 5";
+                
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
+
+    //search custoemr using route
+    public function search_customer_by_route_get_route(){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM route";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+
+    }
+
+    //filter customers in the route
+    public function filter_customer_in_route($route_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM customer WHERE route_id = '$route_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }
