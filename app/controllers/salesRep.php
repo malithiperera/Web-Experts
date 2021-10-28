@@ -121,6 +121,19 @@ public function product_list(){
 public function place_order(){
     $this->view->render('test2');
 }
+public function add_cash(){
+    // echo $_POST['abc'];
+    $orders_id = $_POST['orderId'];
+    $total = $_POST['total'];
+    $date = $_POST['date'];
+
+    $this->model('_2_salesrep_model');
+    $this->model->insert_cashPayment($orders_id,$total,$date);
+    header("Location: http://localhost/web-Experts/public/salesRep/cashPayment");
+
+
+}
+
 public function view_notifications(){
     $this->view->render('view_all_notification');
 }

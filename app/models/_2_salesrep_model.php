@@ -19,10 +19,18 @@ class _2_salesrep_model extends model
     public function not_delivered()
     {
         require '../app/core/database.php';
-        $sql = "SELECT order_id, date, amount FROM orders WHERE status='D'";
+        $sql = "SELECT order_id, date, amount FROM orders ";
+        
         $result = $conn->query($sql);
         return $result;
     }
+    // public function delivered()
+    // {
+    //     require '../app/core/database.php';
+    //     $sql = "SELECT order_id, date, amount FROM orders WHERE status='D'";
+    //     $result = $conn->query($sql);
+    //     return $result;
+    // }
     
     public function cash_payment(){
         require '../app/core/database.php';
