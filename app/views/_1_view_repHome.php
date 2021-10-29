@@ -61,13 +61,13 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Place Order</span>
       </li>
-      <li>
+      <!-- <li>
         <a href="../salesRep/product_list">
           <i class="fas fa-clipboard-list"></i>
           <span class="links_name">Product List</span>
         </a>
         <span class="tooltip">Product List</span>
-      </li>
+      </li> -->
       <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
@@ -120,6 +120,16 @@ if (!isset($_SESSION['username'])) {
   </div>
   <section class="home-section">
     <section class="cards-section">
+    <div class="top">
+        <div class="card-1">
+          <p><i class="fas fa-user-tie"></i><br>Rep Id</p>
+          <p id="top-detail-1"><?php echo $_SESSION['userid'];  ?></p>
+        </div>
+        <div class="card-1">
+          <p><i class="fas fa-trophy"></i><br>Target</p>
+          <p id="top-detail-1"><span id=rep></span></p>
+        </div>
+      </div>
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
@@ -137,11 +147,6 @@ if (!isset($_SESSION['username'])) {
           <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
           <p id="item">10</p>
         </div>
-        <div class="card">
-          <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p id="item">10</p>
-        </div>
-
 
       </div>
     </section>
@@ -193,7 +198,8 @@ if (!isset($_SESSION['username'])) {
                                
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
-                                <td>${data[i]['shop_name']}</td>
+                                <td><a href="../salesRep/product_list?route_id=${data[i]['cus_id']}">${data[i]['shop_name']}</a></td>
+                                
                                 
                             
                   
