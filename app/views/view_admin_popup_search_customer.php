@@ -269,6 +269,7 @@
                 route.value = "";
                 
                 console.log(data);
+                 
             });
         }
         search_customer_by_route();
