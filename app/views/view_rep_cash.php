@@ -47,9 +47,11 @@
     
   </div>
   <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
-  <!-- <script type="text/css"> -->
-    
-  </script>
+  <script>
+document.getElementById("confirm").addEventListener("click", function() {
+  alert("Payment Succesfull!");
+});
+</script>
   <script>
     function selectOrder() {
       var x = document.getElementById("orders").value;
