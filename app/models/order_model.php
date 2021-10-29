@@ -79,6 +79,7 @@ class order_model extends model
             mysqli_query($conn, $sql3);
 
         }
+        return $id;
 
     }
 
