@@ -165,33 +165,66 @@ require 'view_headertype2.php';
 ?>
  <div class="pop-up-div">
 
-<?php require 'view_successfull_pop-up.php';?>
 
 
 </div>
   </div>
-  <?php if(isset($this->added)){
+  <?php
+  
+  $check = 0;
+
+  if(isset($this->added)){
 
 $check = $this->added;
-if($check == 1){
+// if($check == 1){
   
-    echo '<script>
+//     echo '<script>
     
-      document.getElementById("pop-up-div").style.visibility="visible";
+//       document.getElementById("pop-up-div").style.visibility="visible";
       
     
-    </script>
-    ';
-}
-else if($check == 2){
- echo ' <div class="error" id="unsucess">
-    <p>Error:Try Again</p>
-    </div>';
- }
-unset($check);
+//     </script>
+//     ';
+// }
+// else if($check == 2){
+//  echo ' <div class="error" id="unsucess">
+//     <p>Error:Try Again</p>
+//     </div>';
+//  }
+// unset($check);
 }?>
 
 <script src="../../public/java script/view_admin_addemployee.js"></script>
+
+<script>
+
+  let pop_up_div = document.querySelector('.pop-up-div');
+  let container = document.querySelector('.container');
+  // let button_pop = document.querySelector('.button-pop');
+
+  var check = '<?php echo $check; ?>'
+  console.log(check);
+  if(check == 1){
+    pop_up_div.innerHTML = `<?php require 'view_successfull_pop-up.php';?>`;
+    pop_up_div.style.visibility = "visible";
+    container.style.opacity = "20%";
+  }
+
+  else if(check == 2){
+    pop_up_div.innerHTML = `<?php require 'view_error_popup.php';?>`;
+
+    pop_up_div.style.visibility = "visible";
+    container.style.opacity = "20%";
+  }
+
+  function hide_popup(){
+    pop_up_div.style.visibility = "hidden";
+    container.style.opacity = "100%";
+  }
+
+  check = 0;
+
+</script>
 
 
 </body>
