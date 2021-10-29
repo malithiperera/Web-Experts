@@ -67,7 +67,7 @@
 
 </head>
 <body>
-    <div class="pop-container">
+   
         <div class="pop-sub">
             <div class="up-pop">
               
@@ -84,7 +84,7 @@
 
             </div>
 
-        </div>
+     
 
 
 
