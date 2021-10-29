@@ -23,7 +23,7 @@ require 'view_headertype2.php';
 </div>
 <div class="main">
 <div class="success " id="success">
-            <!-- <span>Employee</span> -->
+          
            
             </div>
 <div class="choose">
@@ -159,29 +159,37 @@ require 'view_headertype2.php';
 
 
     //succuss message here>>>>>>>>
-    if(isset($this->added)){
-
-        $check = $this->added;
-        if($check == 1){
-            echo '<script>
-            window.onload=function(){
-              document.getElementById("success").style.visibility="visible";
-              setTimeout(()=>{document.getElementById("success").style.visibility="hidden";},2000);
-            }
-            </script>
-            ';
-        }
-        else if($check == 2){
-         echo ' <div class="error" id="unsucess">
-            <p>Error:Try Again</p>
-            </div>';
-         }
-        unset($check);
-    }
+    
   
   
 ?>
+ <div class="pop-up-div">
+
+<?php require 'view_successfull_pop-up.php';?>
+
+
+</div>
   </div>
+  <?php if(isset($this->added)){
+
+$check = $this->added;
+if($check == 1){
+  
+    echo '<script>
+    
+      document.getElementById("pop-up-div").style.visibility="visible";
+      
+    
+    </script>
+    ';
+}
+else if($check == 2){
+ echo ' <div class="error" id="unsucess">
+    <p>Error:Try Again</p>
+    </div>';
+ }
+unset($check);
+}?>
 
 <script src="../../public/java script/view_admin_addemployee.js"></script>
 

@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
     $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$target,$level);
     if($this->view->added == 1){
         $this->send_mail($name, $email, $verificationCode);
-     header('Location: http://localhost/web-Experts/public/register/addEmployee?succuss='.true);   
+      header('Location: http://localhost/web-Experts/public/register/addEmployee?succuss='.true);   
     }
     else{
         echo $this->view->added;
@@ -78,7 +78,7 @@ if(isset($_POST['submit'])){
 
 public function addEmployee(){
     if($_GET['succuss'] == true){
-        session_start();
+        // session_start();
         $_SESSION['msg']="Employee Added Succusfully";
         $this->view->added = 1;
         $this->view->render('view_admin_addemployee');

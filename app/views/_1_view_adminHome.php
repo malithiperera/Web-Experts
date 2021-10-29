@@ -234,15 +234,9 @@ if (!isset($_SESSION['username'])) {
         }
 
 
-<<<<<<< HEAD
-        .sales-overview {
-            width: 65%;
-            height: 600px;
-=======
         .sales-overview{
             width:75%;
             height:600px;
->>>>>>> 9b345d105987427fcf7ee102848583a4acdc272a
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             margin-right: 30px;

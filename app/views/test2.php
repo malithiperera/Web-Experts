@@ -10,11 +10,16 @@
     <title>Document</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+
 
         .subcontainer p {
             color: #184A78;
@@ -23,12 +28,17 @@
         .details {
             position: absolute;
             top: -100px;
+            display: flex;
+            /* width: 100%; */
+            /* justify-content: center; */
+            flex-wrap: wrap;
+           
         }
 
-        .user_id {
+        /* .user_id {
             position: relative;
             top: 40px;
-        }
+        } */
 
         .details input {
             width: 100px;
@@ -37,11 +47,11 @@
             text-align: center;
         }
 
-        .route_id {
+        /* .route_id {
             position: relative;
             top: 10px;
             left: 300px;
-        }
+        } */
 
         .container {
             position: relative;
@@ -135,6 +145,19 @@
             border: 1px solid #184A78;
             border-radius: 10px;
         }
+
+        .details label{
+            font-weight: 800;
+            margin-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        .details input{
+            font-weight: 800;
+            font-size: 20px;
+            color: green;
+            margin-bottom: 20px;
+        }
     </style>
 
 </head>
@@ -150,12 +173,12 @@
             <div class="details">
                 <div class="user_id">
                     <label for="">User Id : </label>
-                    <input type="text" id="user_id">
+                    <input type="text" id="user_id" readonly>
                 </div>
 
                 <div class="route_id">
                     <label for="">Route Id : </label>
-                    <input type="text" id="route_id">
+                    <input type="text" id="route_id" readonly>
                 </div>
 
             </div>
@@ -165,7 +188,7 @@
 
             <div class="data_form">
                 <div class="serach_product">
-                    <input type="text" id="product_name" onkeyup="fetchText(this.value)">
+                    <input type="text" id="product_name" placeholder="Insert Product Name" onkeyup="fetchText(this.value)">
                     <div>
                         <ul class="suggestions">
 
