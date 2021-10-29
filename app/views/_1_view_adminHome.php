@@ -510,7 +510,7 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div class="routes">
-        <?php require 'view_admin_routes.php'; ?>
+        <!-- <?php require 'view_admin_routes.php'; ?> -->
     </div>
 
 

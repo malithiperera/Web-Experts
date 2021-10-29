@@ -66,197 +66,233 @@ if (!isset($_SESSION['username'])) {
             margin-bottom: 50px;
             margin-left: 20px;
         }
-        .links{
-            position:absolute;
-            top:150px;
-            display:flex;
-            flex-direction:column;
-            visibility:hidden;
-            width:250px;
-        }
-        .links a{
-            margin-bottom:50px;
-            margin-left:60px;
-            width:230px;
-            text-decoration:none;
-        }
-        .links a:hover{
-            color:#1d1b31;
-        }
-        .sidebar_footer{
-            position:absolute;
-            bottom:0;
-            background-color:#1d1b31;
-            width:100%;
-            height:60px;
-        }
-        .fa-building{
-            position:absolute;
-            top:20px;
-            right:10px;
-        }
-        .footerIcon p{
-            margin-top:20px;
-            margin-left:10px;
-            visibility:hidden;
-        }
-       .container{
-           position:relative;
-           left:80px;
-           width: calc(100% - 80px);
-           display:flex;
-           flex-direction:column;
-           /* opacity:50%; */
-       }
-       .cards{
-           display:flex;
-           flex-wrap:wrap;
-           justify-content:center;
-           text-align:center;
-           margin-top:30px;
-       }
-       .card{
-           flex: 2 0 150px;
-           width:200px;
-           height:100px;
-           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-           margin-right:10px;
-           margin-left:10px;
-           margin-bottom:20px;
-           border-radius:10px;
-       }
-       .card > p{
-        color:black;
-        margin-top:10px;
-       }
-       .tables{
-        width:100%;
-        display:flex;
-        justify-content:center;
-        flex-wrap:nowrap;
-       }
-       .sub_tabels{
-            margin-top:40px;
-       }
-       .tables p{
-        color:#184A78;
-        margin-bottom:30px;
-       }
-       .table1{
-        margin-bottom:30px;
-        display:flex;
-        justify-content:center;
 
-       }
+        .links {
+            position: absolute;
+            top: 150px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            width: 250px;
+        }
 
-       .table1 td{
-           width:120px;
-       }
-       .table2{
+        .links a {
+            margin-bottom: 50px;
+            margin-left: 60px;
+            width: 230px;
+            text-decoration: none;
+        }
 
-       }
-       table{
-        border:none;
-        outline:none;
-       }
-       table thead{
+        .links a:hover {
+            color: #1d1b31;
+        }
 
-       }
-       table thead th{
-        color:#184A78;
-        padding:10px;
-       
-       }
-       table th {
-  color: #000000;
-  background: #4FC3A1;
-}
-table th:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-td{
-  padding: 5px;
-  background-color: #fff;
-  text-align: center;
- 
+        .sidebar_footer {
+            position: absolute;
+            bottom: 0;
+            background-color: #1d1b31;
+            width: 100%;
+            height: 60px;
+        }
 
-}
-table tr tr:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-} 
-tr:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-       tr td{
-        color:#184A78;
-        padding:10px;
-      
-       }
-       .popup_send_warning, .popup_update_status{
-           position:fixed;
-           top:100px;
-           width:100%;
-           display:flex;
-           justify-content:center;
-           z-index: 1000;
-           visibility:hidden;
-       }
-       .popup_update_status{
-           visibility:hidden;
-       }
-       .send_warning_message, .update_status_form{
-           width:400px;
-           height:350px;
-           background-color:white;
-           border:4px solid #184A78;
-           border-radius:10px;
-       }
-       .update_status_form{
-           height:400px;
-       }
-       .send_warning_message label, .update_status_form label{
-           color:#184A78;
-           display:block;
-           margin:20px;
-       }
-       
-       .send_warning_message input, .update_status_form input, 
-       .send_warning_message textarea, .update_status_form textarea{
-           color:#184A78;
-       }
-       .update_status_form input{
-           padding:5px;
-           margin-left:10px;
-       }
-       .message_input{
-           margin-left:10px;
-       }
-       .submit{
-           margin-top:30px;
-           padding:5px;
-           border-radius:20px;
-           margin-left:160px;
-       }
-       .card i{
-          color:black;
-       }
-       #top{
-           color:green;
-           font-weight:700;
-           font-size:20px;
-       }
-       h2{
-           color:black;
-           text-align:center;
-           padding:10px;
-       }
-       .update_status_form .submit{
-           margin-left:160px;
-       }
-       
+        .fa-building {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+        }
+
+        .footerIcon p {
+            margin-top: 20px;
+            margin-left: 10px;
+            visibility: hidden;
+        }
+
+        .container {
+            position: relative;
+            left: 80px;
+            width: calc(100% - 80px);
+            display: flex;
+            flex-direction: column;
+            /* opacity:50%; */
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            flex: 2 0 150px;
+            width: 200px;
+            height: 100px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .card>p {
+            color: black;
+            margin-top: 10px;
+        }
+
+        .tables {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .sub_tabels {
+            margin-top: 40px;
+        }
+
+        .tables p {
+            color: #184A78;
+            margin-bottom: 30px;
+        }
+
+        .table1 {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .table1 td {
+            width: 120px;
+        }
+
+        .table2 {}
+
+        table {
+            border: none;
+            outline: none;
+        }
+
+        table thead {}
+
+        table thead th {
+            color: #184A78;
+            padding: 10px;
+
+        }
+
+        table th {
+            color: #000000;
+            background: #4FC3A1;
+        }
+
+        table th:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        td {
+            padding: 5px;
+            background-color: #fff;
+            text-align: center;
+
+
+        }
+
+        table tr tr:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr td {
+            color: #184A78;
+            padding: 10px;
+
+        }
+
+        .popup_send_warning,
+        .popup_update_status {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+        }
+
+        .popup_update_status {
+            visibility: hidden;
+        }
+
+        .send_warning_message,
+        .update_status_form {
+            width: 400px;
+            height: 350px;
+            background-color: white;
+            border: 4px solid #184A78;
+            border-radius: 10px;
+        }
+
+        .update_status_form {
+            height: 400px;
+        }
+
+        .send_warning_message label,
+        .update_status_form label {
+            color: #184A78;
+            display: block;
+            margin: 20px;
+        }
+
+        .send_warning_message input,
+        .update_status_form input,
+        .send_warning_message textarea,
+        .update_status_form textarea {
+            color: #184A78;
+        }
+
+        .update_status_form input {
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .message_input {
+            margin-left: 10px;
+        }
+
+        .submit {
+            margin-top: 30px;
+            padding: 5px;
+            border-radius: 20px;
+            margin-left: 160px;
+        }
+
+        .card i {
+            color: black;
+        }
+
+        #top {
+            color: green;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        h2 {
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .update_status_form .submit {
+            margin-left: 160px;
+        }
     </style>
 </head>
 
