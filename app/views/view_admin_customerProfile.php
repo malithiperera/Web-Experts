@@ -66,197 +66,355 @@ if (!isset($_SESSION['username'])) {
             margin-bottom: 50px;
             margin-left: 20px;
         }
-        .links{
-            position:absolute;
-            top:150px;
-            display:flex;
-            flex-direction:column;
-            visibility:hidden;
-            width:250px;
-        }
-        .links a{
-            margin-bottom:50px;
-            margin-left:60px;
-            width:230px;
-            text-decoration:none;
-        }
-        .links a:hover{
-            color:#1d1b31;
-        }
-        .sidebar_footer{
-            position:absolute;
-            bottom:0;
-            background-color:#1d1b31;
-            width:100%;
-            height:60px;
-        }
-        .fa-building{
-            position:absolute;
-            top:20px;
-            right:10px;
-        }
-        .footerIcon p{
-            margin-top:20px;
-            margin-left:10px;
-            visibility:hidden;
-        }
-       .container{
-           position:relative;
-           left:80px;
-           width: calc(100% - 80px);
-           display:flex;
-           flex-direction:column;
-           /* opacity:50%; */
-       }
-       .cards{
-           display:flex;
-           flex-wrap:wrap;
-           justify-content:center;
-           text-align:center;
-           margin-top:30px;
-       }
-       .card{
-           flex: 2 0 150px;
-           width:200px;
-           height:100px;
-           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-           margin-right:10px;
-           margin-left:10px;
-           margin-bottom:20px;
-           border-radius:10px;
-       }
-       .card > p{
-        color:black;
-        margin-top:10px;
-       }
-       .tables{
-        width:100%;
-        display:flex;
-        justify-content:center;
-        flex-wrap:nowrap;
-       }
-       .sub_tabels{
-            margin-top:40px;
-       }
-       .tables p{
-        color:#184A78;
-        margin-bottom:30px;
-       }
-       .table1{
-        margin-bottom:30px;
-        display:flex;
-        justify-content:center;
 
-       }
+        .links {
+            position: absolute;
+            top: 150px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            width: 250px;
+        }
 
-       .table1 td{
-           width:120px;
-       }
-       .table2{
+        .links a {
+            margin-bottom: 50px;
+            margin-left: 60px;
+            width: 230px;
+            text-decoration: none;
+        }
 
-       }
-       table{
-        border:none;
-        outline:none;
-       }
-       table thead{
+        .links a:hover {
+            color: #1d1b31;
+        }
 
-       }
-       table thead th{
-        color:#184A78;
-        padding:10px;
-       
-       }
-       table th {
-  color: #000000;
-  background: #4FC3A1;
-}
-table th:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-td{
-  padding: 5px;
-  background-color: #fff;
-  text-align: center;
- 
+        .sidebar_footer {
+            position: absolute;
+            bottom: 0;
+            background-color: #1d1b31;
+            width: 100%;
+            height: 60px;
+        }
 
-}
-table tr tr:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-} 
-tr:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-       tr td{
-        color:#184A78;
-        padding:10px;
-      
-       }
-       .popup_send_warning, .popup_update_status{
-           position:fixed;
-           top:100px;
-           width:100%;
-           display:flex;
-           justify-content:center;
-           z-index: 1000;
-           visibility:hidden;
-       }
-       .popup_update_status{
-           visibility:hidden;
-       }
-       .send_warning_message, .update_status_form{
-           width:400px;
-           height:350px;
-           background-color:white;
-           border:4px solid #184A78;
-           border-radius:10px;
-       }
-       .update_status_form{
-           height:400px;
-       }
-       .send_warning_message label, .update_status_form label{
-           color:#184A78;
-           display:block;
-           margin:20px;
-       }
-       
-       .send_warning_message input, .update_status_form input, 
-       .send_warning_message textarea, .update_status_form textarea{
-           color:#184A78;
-       }
-       .update_status_form input{
-           padding:5px;
-           margin-left:10px;
-       }
-       .message_input{
-           margin-left:10px;
-       }
-       .submit{
-           margin-top:30px;
-           padding:5px;
-           border-radius:20px;
-           margin-left:160px;
-       }
-       .card i{
-          color:black;
-       }
-       #top{
-           color:green;
-           font-weight:700;
-           font-size:20px;
-       }
-       h2{
-           color:black;
-           text-align:center;
-           padding:10px;
-       }
-       .update_status_form .submit{
-           margin-left:160px;
-       }
-       
+        .fa-building {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+        }
+
+        .footerIcon p {
+            margin-top: 20px;
+            margin-left: 10px;
+            visibility: hidden;
+        }
+
+        .container {
+            position: relative;
+            left: 80px;
+            width: calc(100% - 80px);
+            display: flex;
+            flex-direction: column;
+            /* opacity:50%; */
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            flex: 2 0 150px;
+            width: 200px;
+            height: 100px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .card>p {
+            color: black;
+            margin-top: 10px;
+        }
+
+        .tables {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            color: black;
+            flex-wrap: nowrap;
+        }
+
+
+        .sub_tabels {
+            margin-top: 40px;
+        }
+
+        .tables p {
+            color: #184A78;
+            margin-bottom: 30px;
+        }
+
+        .table1 {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .table1 td {
+            width: 120px;
+        }
+
+        .table2 {}
+
+        table {
+            border: none;
+            outline: none;
+        }
+
+        table thead {}
+
+        table thead th {
+            color: #184A78;
+            padding: 10px;
+
+        }
+
+        table th {
+            color: #000000;
+            background: #4FC3A1;
+        }
+
+        tr th:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+
+        td {
+            padding: 5px;
+            background-color: #fff;
+            text-align: center;
+
+
+        }
+
+        table tr tr:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr td {
+            color: #184A78;
+            padding: 10px;
+
+        }
+
+        .popup_send_warning,
+        .popup_update_status {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+        }
+
+        .popup_update_status {
+            visibility: hidden;
+        }
+
+        .send_warning_message,
+        .update_status_form {
+            width: 400px;
+            height: 350px;
+            background-color: white;
+            border: 4px solid #184A78;
+            border-radius: 10px;
+        }
+
+        .update_status_form {
+            height: 400px;
+        }
+
+        .send_warning_message label,
+        .update_status_form label {
+            color: #184A78;
+            display: block;
+            margin: 20px;
+        }
+
+        .send_warning_message input,
+        .update_status_form input,
+        .send_warning_message textarea,
+        .update_status_form textarea {
+            color: #184A78;
+        }
+
+        .update_status_form input {
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .message_input {
+            margin-left: 10px;
+        }
+
+        .submit {
+            margin-top: 30px;
+            padding: 5px;
+            border-radius: 20px;
+            margin-left: 160px;
+        }
+
+        .card i {
+            color: black;
+        }
+
+        #top {
+            color: green;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        h2 {
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .update_status_form .submit {
+            margin-left: 160px;
+        }
+
+        label {
+            color: black;
+            padding: 20px;
+            font-size: 25px;
+
+        }
+
+        input {
+            color: black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #cred {
+            background-color: rgb(84, 206, 98);
+            padding: 7px;
+            width: 150px;
+            border-radius: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+        }
+
+        tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+
+        #cred i {
+            padding: 10px;
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        span {
+            color: #184A78;
+        }
+
+        #credit {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .div0 label {
+            color: #184A78;
+            font-weight: 900;
+        }
+
+        .tables {
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            margin-top: 30px;
+        }
+
+        .tables table {
+            width: 100%;
+            padding-right: 100px;
+            padding-left: 100px;
+
+        }
+
+        .cheque th {
+            padding: 10px;
+        }
+
+        #depo {
+            background-color: rgb(84, 206, 98);
+            padding: 10px;
+            text-transform: capitalize;
+            border-radius: 10px;
+            width: 70px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .div0 {
+            margin-bottom: 20px;
+        }
+
+        #rej {
+            background-color: red;
+            padding: 10px;
+            text-transform: capitalize;
+            border-radius: 10px;
+            background-color: rgb(246, 45, 81);
+            width: 70px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .div0 i {
+            color: black;
+            margin-right: 5px;
+        }
     </style>
 </head>
 
@@ -320,7 +478,7 @@ tr:nth-child(odd) {
         </div>
     </div>
 
-    <div class="popup_update_credit_period">
+    <!-- <div class="popup_update_credit_period">
         <div class="update_credit_period_form">
             <form action="#" method="post">
                 <label for="">Current Credit Period(Days) : </label>
@@ -329,16 +487,31 @@ tr:nth-child(odd) {
                 <label for="">New Credit Period(Days) : </label>
                 <input type="text" placeholder="Set new credit period">
 
-                <label for="">Description : </label>
-                <textarea name="" id="" cols="50" rows="5"></textarea>
+                \ <label for="">Description : </label>
+                <textarea name="" id="" cols="50" rows="5"></textarea> -->
 
-                <input type="submit" name="submit" class="submit">
-            </form>
+    <!-- <input type="submit" name="submit" class="submit">
+            </form> -->
 
-        </div>
+    </div> -->
     </div>
 
     <div class="container">
+        <div class="detail">
+            <div class="div0">
+                <label for=""><i class="fas fa-id-card-alt"></i><span> HC001</span>
+                </label>
+                <label for=""><i class="fas fa-store"></i><span>Pubudu Store</span> </label>
+                <label for=""><i class="fas fa-phone-alt"></i><span>0764567898</span> </label>
+                <label for=""><i class="fas fa-map-pin"></i><span>Kairawa Road,Anuradhapura</span> </label>
+
+            </div>
+            <div class="div1">
+                <label for="">Credit Period</label>
+                <input type="text" value="2 weeks" id="credit" readonly>
+                <button id="cred"><i class="fas fa-pen"></i>Change</button>
+            </div>
+        </div>
         <div class="cards">
 
             <div class="card">
@@ -373,57 +546,94 @@ tr:nth-child(odd) {
         </div>
 
         <div class="tables">
-            <div class="sub_tabels">
+            <div class="cheque">
+                <h3> Pending Cheques</h3>
+                <table>
 
-                <h2>Orders</h2>
+                    <tr>
+                        <th>cheque Id</th>
+                        <th>Bank</th>
+                        <th>Amount</th>
+                        <th>Deposite date</th>
+                        <th colspan="2">Change staus</th>
+                    </tr>
 
-                <div class="table1">
-                    <table id="t1">
-                        <thead>
-                            <th>ORDER NO</th>
-                            <th>AMOUNT</th>
-                            <th>DATE</th>
-                        </thead>
-                        <?php
 
-                        for ($i = 0; $i < 3; $i++) {
-                            echo '<tr>
+                    <tr>
+                        <td>001</td>
+                        <td>Bank Of ceylon</td>
+                        <td>12 000</td>
+                        <td>30.12.2021</td>
+                        <td><button id="depo">Deposit</button></td>
+                        <td><button id="rej">reject</button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Bank Of ceylon</td>
+                        <td>12 000</td>
+                        <td>30.12.2021</td>
+                        <td><button id="depo">Deposit</button></td>
+                        <td><button id="rej">reject</button></td>
+                    </tr>
+
+
+
+
+                </table>
+
+
+
+            </div>
+
+
+            <div class="orders">
+                <h3>Pending Orders</h3>
+                <table id="t1">
+                    <thead>
+                        <th>ORDER NO</th>
+                        <th>AMOUNT</th>
+                        <th>DATE</th>
+                    </thead>
+                    <?php
+
+                    for ($i = 0; $i < 3; $i++) {
+                        echo '<tr>
                             <td>001</td>
                             <td>1000</td>
                             <td>30.12.2021</td>
                             </tr>';
-                        }
+                    }
 
-                        ?>
-                    </table>
+                    ?>
+                </table>
 
-                </div>
+            </div>
 
-                <h2>Payments</h2>
+            <div class="payments">
+                <h3>Pending Payments</h3>
+                <table>
+                    <thead>
+                        <th>ORDER NO</th>
+                        <th>AMOUNT</th>
+                        <th>DELIVERY NO</th>
+                        <th>DATE</th>
+                    </thead>
+                    <?php
 
-                <div class="table2">
-                    <table>
-                        <thead>
-                            <th>ORDER NO</th>
-                            <th>AMOUNT</th>
-                            <th>DELIVERY NO</th>
-                            <th>DATE</th>
-                        </thead>
-                        <?php
-
-                        for ($i = 0; $i < 4; $i++) {
-                            echo '<tr>
+                    for ($i = 0; $i < 4; $i++) {
+                        echo '<tr>
                             <td>001</td>
                             <td>1000</td>
                             <td>001</td>
                             <td>30.12.2021</td>
                             </tr>';
-                        }
+                    }
 
-                        ?>
+                    ?>
 
-                    </table>
-                </div>
+                </table>
+
+
             </div>
 
 
