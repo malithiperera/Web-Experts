@@ -91,7 +91,8 @@ class customer extends controller
             );
 
             // fill order_product table
-            $this->model->fill_order_product($recieved_data['table']);
+            $order_id = $this->model->fill_order_product($recieved_data['table']);
+            array_push($data, $order_id);
 
             // set 0 working order
             $this->model->complete_place_order();

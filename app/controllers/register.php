@@ -68,7 +68,9 @@ if(isset($_POST['submit'])){
       header('Location: http://localhost/web-Experts/public/register/addEmployee?succuss='.true);   
     }
     else{
-        echo $this->view->added;
+        // $this->view->added = 2;
+        // echo $this->view->added;
+        header('Location: http://localhost/web-Experts/public/register/addEmployee');
     }
 }    
 
@@ -79,11 +81,14 @@ if(isset($_POST['submit'])){
 public function addEmployee(){
     if($_GET['succuss'] == true){
         // session_start();
-        $_SESSION['msg']="Employee Added Succusfully";
+        
         $this->view->added = 1;
         $this->view->render('view_admin_addemployee');
     }
-    $_GET['succuss'] = 'false';
+    else{
+        $this->view->added = 2;
+        $this->view->render('view_admin_addemployee'); 
+    }
 }
 
 

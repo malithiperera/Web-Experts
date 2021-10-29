@@ -78,9 +78,9 @@
             </div>
             <div class="down-pop">
                <h3>Unsuccess!!</h3>
-               <span>Something Went Wrong!!</span>
+               <span id="error_span">Something Went Wrong!!</span>
 
-               <div class="button-pop"><button>Dismiss</button></div> 
+               <div class="button-pop" onclick="hide_popup()"><button>Dismiss</button></div> 
 
             </div>
 

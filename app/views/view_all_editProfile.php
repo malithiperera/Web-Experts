@@ -133,7 +133,7 @@
         
             cursor:pointer;
         }
-        .edit_button button {
+        .edit_button a {
             color: #184A78;
             margin-bottom: 22px;
             border: transparent;
@@ -194,11 +194,13 @@
                 <p><?php echo $_SESSION['username'] ;?></p>
     </div>
             </div>
+            <form action="../profile/save_profile" method="POST">
             <div class="subcontainer2">
+               
                 <div class="labels">
                     <label for="name">NAME : </label>
                     <label for="email">EMAIL : </label>
-                    <label for="dob">DATE OF BIRTH : </label>
+                    <!-- <label for="dob">DATE OF BIRTH : </label> -->
                     <label for="tele">TELE : </label>
                     <label for="nic">NIC : </label>
                     <label for="address">ADDRESS : </label>
@@ -206,27 +208,30 @@
                 <div class="inputs">
                     <input type="text" name="name" id="name" value="Example Name" readonly>
                     <input type="text" name="email" id="email" value="Example@gmail.com" readonly>               
-                    <input type="text" name="dob" id="dob" value="2020.02.20" readonly>               
+                    <!-- <input type="text" name="dob" id="dob" value="2020.02.20" readonly>                -->
                     <input type="text" name="tele" id="tele" value="077-1234567" readonly>                
                     <input type="text" name="nic" id="nic" value="1234567890v" readonly>                
                     <input type="text" name="address" id="address" value="Kandy" readonly>
                 </div>
                 <div class="edit_button">
-                    <button onclick="name_change()"><i class="fas fa-pen"></i></button>
-                    <button onclick="email()"><i class="fas fa-pen"></i></button>
-                    <button onclick="dob()"><i class="fas fa-pen"></i></button>
-                    <button onclick="tele()"><i class="fas fa-pen"></i></button>
-                    <button onclick="nic()"><i class="fas fa-pen"></i></button>
-                    <button onclick="address()"><i class="fas fa-pen"></i></button>
+                <a onclick="name()"></a>
+                    <a onclick="email()"><i class="fas fa-pen"></i></a>
+                    <!-- <button onclick="dob()"><i class="fas fa-pen"></i></button> -->
+                    <a onclick="tele()"><i class="fas fa-pen"></i></a>
+                    <a onclick="nic()"><i class="fas fa-pen"></i></a>
+                    <a onclick="address()"><i class="fas fa-pen"></i></a>
+                   
+              
                 </div>
                
             </div>
             <div class="subcontainer3">
-                <button>save</button>
+                <button name="submit">save</button>
             </div>
+           
         </div>
     </div>
-
+    </form>
     <script>
         function name_change(){
             document.getElementById('name').removeAttribute('readonly');
@@ -269,7 +274,9 @@ function fill_details_profile() {
           console.log(data);
           document.getElementById('name').value=data[0]['name'];
           document.getElementById('email').value=data[0]['email'];
-          document.getElementById('dob').value=data[0]['dob'];
+          document.getElementById('tele').value=data[0]['tel'];
+          document.getElementById('nic').value=data[0]['nic'];
+          document.getElementById('address').value=data[0]['address'];
         });
 
 

@@ -80,7 +80,7 @@
                <h3>Success!!</h3>
                <span>Employee added Successfully!</span>
 
-               <div class="button-pop"><button>Done</button></div> 
+               <div class="button-pop" onclick="hide_popup()"><button>Done</button></div> 
 
             </div>
 

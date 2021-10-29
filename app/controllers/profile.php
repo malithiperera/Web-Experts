@@ -21,6 +21,24 @@ public function edit_profile()
 
 }
 
+public function save_profile(){
+
+    session_start();
+    $email=$_POST['email'];
+    $tel=$_POST['tele'];
+    $address=$_POST['address'];
+    $nic=$_POST['nic'];
+
+    if(isset($_POST['submit'])){
+        $this->model('profile_model');
+        $result = $this->model->save_profile($email,$tel,$address,$nic,$_SESSION['userid']);
+        
+
+    }
+
+    
+}
+
 
 
 

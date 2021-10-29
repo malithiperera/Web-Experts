@@ -243,8 +243,7 @@ visibility: hidden;
   height: 1000px;
   position: fixed;
   margin-top: -1000px;
-
   display: flex;
   justify-content: center;
-
+  visibility:hidden;
 }

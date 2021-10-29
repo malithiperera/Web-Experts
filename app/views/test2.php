@@ -233,11 +233,10 @@
         </div>
     </div>
 
-    <div class="confirmation">
-        <div class="subconfirmation">
-
-        </div>
+    <div class="confirmation" id="confirm_message">
+        <?php require 'view_order_complete_popup.php'; ?>
     </div>
+
 
 
     <script>
@@ -288,6 +287,12 @@
         let total_of_all_prices = document.getElementById('total_of_all_prices');
         let user_id = document.getElementById('user_id');
         let route_id = document.getElementById('route_id');
+        let confirm_message = document.getElementById('confirm_message');
+        let done = document.querySelector('.button-pop');
+        let order_id = document.getElementById('order_id');
+        let order_date = document.getElementById('order_date');
+        let order_amount = document.getElementById('order_amount');
+
 
         function select_row(product_name, unit_price, discount) {
             product_name_input.value = product_name;
@@ -318,12 +323,14 @@
 
         }
 
-        function confirmation_message() {
-            
-
-        }
+       
 
         var table_data = new Array(table_info.rows.length - 1);
+
+        function confirmation_message() {
+            confirm_message.style.visibility = "visible";
+
+        }
 
         function place_order() {
             for (i = 1; i < table_info.rows.length - 1; i++) {
@@ -361,12 +368,21 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
+                    confirmation_message();
+                    order_id.innerHTML = `${data[7]}`;
+                    order_date.innerHTML = `${data[2]}`;
+                    order_amount.innerHTML = `${data[0]}`;
+                    done.addEventListener("click", ()=>{
+                       confirm_message.style.visibility = "hidden"; 
+                    });
                 });
 
             new_product.innerHTML = '';
             total_of_all_prices.innerHTML = '';
         }
+
+        
 
         // fill details
         const fill_details = () => {

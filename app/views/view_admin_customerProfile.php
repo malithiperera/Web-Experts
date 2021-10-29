@@ -120,6 +120,7 @@ if (!isset($_SESSION['username'])) {
            width:200px;
            height:100px;
            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+           margin-top: 30px;
            margin-right:10px;
            margin-left:10px;
            margin-bottom:20px;
@@ -133,8 +134,11 @@ if (!isset($_SESSION['username'])) {
         width:100%;
         display:flex;
         justify-content:center;
+        color: black;
         flex-wrap:nowrap;
        }
+
+      
        .sub_tabels{
             margin-top:40px;
        }
@@ -171,10 +175,14 @@ if (!isset($_SESSION['username'])) {
   color: #000000;
   background: #4FC3A1;
 }
-table th:nth-child(odd) {
+ tr th:nth-child(odd) {
   color: #ffffff;
   background: #324960;
 }
+tr td:nth-child(odd) {
+      background: #F8F8F8;
+      border-right: 1px solid #E6E4E4;
+  }
 td{
   padding: 5px;
   background-color: #fff;
@@ -190,11 +198,17 @@ tr:nth-child(odd) {
   color: #ffffff;
   background: #324960;
 }
+
        tr td{
         color:#184A78;
         padding:10px;
       
        }
+       tr:nth-child(3)
+{
+  background-color: green;
+  color:white;
+}
        .popup_send_warning, .popup_update_status{
            position:fixed;
            top:100px;
@@ -256,7 +270,107 @@ tr:nth-child(odd) {
        .update_status_form .submit{
            margin-left:160px;
        }
-       
+       label{
+           color: black;
+           padding: 20px;
+           font-size: 25px;
+
+       }
+       input{
+           color: black;
+           padding: 10px;
+           text-align: center;
+       }
+       #cred{
+           background-color: rgb(84,206,98);
+           padding: 7px;
+           width: 150px;
+           border-radius: 10px;
+           margin-left: 10px;
+           cursor: pointer;
+           outline: none;
+           border: none;
+       }
+      tr td:nth-child(odd) {
+      background: #F8F8F8;
+      border-right: 1px solid #E6E4E4;
+  }
+       #cred i{
+           padding: 10px;
+       }
+
+       .detail{
+           display: flex;
+           flex-direction: column;
+           justify-content: space-evenly;
+       }
+span{
+    color: #184A78;
+}
+       #credit{
+           font-weight: 700;
+           font-size: 20px;
+       }
+
+       .div0 label{
+           color: #184A78;
+           font-weight: 900;
+       }
+
+       .tables{
+           color: black;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+          
+           margin-top: 30px;
+       }
+       .tables table{
+       width: 100%;
+       padding-right: 100px;
+       padding-left: 100px;
+
+       }
+       .cheque th{
+           padding: 10px;
+       }
+#depo{
+    background-color: rgb(84,206,98);
+    padding: 10px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    width: 70px;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    font-weight: 700;
+}
+.div0{
+    margin-bottom: 20px;
+}
+
+#rej{
+    background-color: red;
+    padding: 10px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    background-color: rgb(246,45,81);
+    width: 70px;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    font-weight: 700;
+}
+       h3{
+           color: black;
+           padding: 20px;
+           text-align: center;
+           text-transform: capitalize;
+       }
+       .div0 i{
+           color: black;
+           margin-right: 5px;
+       }
     </style>
 </head>
 
@@ -320,7 +434,7 @@ tr:nth-child(odd) {
         </div>
     </div>
 
-    <div class="popup_update_credit_period">
+    <!-- <div class="popup_update_credit_period">
         <div class="update_credit_period_form">
             <form action="#" method="post">
                 <label for="">Current Credit Period(Days) : </label>
@@ -329,16 +443,31 @@ tr:nth-child(odd) {
                 <label for="">New Credit Period(Days) : </label>
                 <input type="text" placeholder="Set new credit period">
 
-                <label for="">Description : </label>
-                <textarea name="" id="" cols="50" rows="5"></textarea>
+                \ <label for="">Description : </label>
+                <textarea name="" id="" cols="50" rows="5"></textarea> -->
 
-                <input type="submit" name="submit" class="submit">
-            </form>
+                <!-- <input type="submit" name="submit" class="submit">
+            </form> -->
 
-        </div>
+        </div> -->
     </div>
 
     <div class="container">
+        <div class="detail">
+        <div class="div0">
+               <label for=""><i class="fas fa-id-card-alt"></i><span> HC001</span>
+              </label>
+               <label for=""><i class="fas fa-store"></i><span>Pubudu Store</span> </label>
+               <label for=""><i class="fas fa-phone-alt"></i><span>0764567898</span> </label>
+               <label for=""><i class="fas fa-map-pin"></i><span>Kairawa Road,Anuradhapura</span> </label>
+               
+           </div>
+           <div class="div1">
+               <label for="">Credit Period</label>
+               <input type="text" value="2 weeks" id="credit" readonly>
+               <button id="cred"><i class="fas fa-pen"></i>Change</button>
+           </div>
+        </div>
         <div class="cards">
 
             <div class="card">
@@ -373,12 +502,49 @@ tr:nth-child(odd) {
         </div>
 
         <div class="tables">
-            <div class="sub_tabels">
+            <div class="cheque">
+                <h3> Pending Cheques</h3>
+                <table>
+               
+                    <tr>
+                            <th>cheque Id</th>
+                            <th>Bank</th>
+                            <th>Amount</th>
+                            <th>Deposite date</th>
+                            <th colspan="2">Change staus</th>
+                            </tr>
+                
+                    
+                            <tr>
+                            <td>001</td>
+                            <td>Bank Of ceylon</td>
+                            <td>12 000</td>
+                            <td>30.12.2021</td>
+                            <td><button id="depo">Deposit</button></td>
+                            <td><button id="rej">reject</button></td>
+                            </tr>
+                            <tr>
+                            <td>002</td>
+                            <td>Bank Of ceylon</td>
+                            <td>12 000</td>
+                            <td>30.12.2021</td>
+                            <td><button id="depo">Deposit</button></td>
+                            <td><button id="rej">reject</button></td>
+                            </tr>
+                     
 
-                <h2>Orders</h2>
+                    
 
-                <div class="table1">
-                    <table id="t1">
+                </table>
+
+
+
+            </div>
+
+        
+                <div class="orders">
+                    <h3>Pending Orders</h3>
+                <table id="t1">
                         <thead>
                             <th>ORDER NO</th>
                             <th>AMOUNT</th>
@@ -396,13 +562,12 @@ tr:nth-child(odd) {
 
                         ?>
                     </table>
-
+                    
                 </div>
 
-                <h2>Payments</h2>
-
-                <div class="table2">
-                    <table>
+                <div class="payments">
+                    <h3>Pending Payments</h3>
+                <table>
                         <thead>
                             <th>ORDER NO</th>
                             <th>AMOUNT</th>
@@ -423,7 +588,8 @@ tr:nth-child(odd) {
                         ?>
 
                     </table>
-                </div>
+
+        
             </div>
 
 

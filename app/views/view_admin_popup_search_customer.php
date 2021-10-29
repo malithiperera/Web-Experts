@@ -5,9 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+
+
     .popup {
         position: fixed;
         top: 70px;
@@ -21,7 +34,7 @@
         width: 400px;
         height: 300px;
         background-color: white;
-        border: 1px solid #184A78;
+        border: 4px solid #184A78;
         border-radius: 10px;
     }
 
@@ -52,6 +65,7 @@
     }
     .suggestion p{
         margin-left:20px;
+        padding-right: 30px;
     }
     .fa-search {
         position: relative;
@@ -67,8 +81,11 @@
     }
 
     .search_customer select {
-        width: 100px;
+        width: 120px;
         height: 30px;
+        outline: none;
+        border:3px solid #184A78;
+
     }
 
     .search_by_route {
@@ -128,13 +145,40 @@
     .search_customer a{
         color:#184A78;
         text-decoration: none;
+       
+      
+    }
+    #link{
+        background-color: #184A78;
+        color: #fff;
+        width: 200px;
+        border-radius: 10px;
+        padding-right: 30px;
+        padding-left: 30px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    #link:hover{
+        background-color: blue;
+    }
+    .search_customer p{
+        font-weight: 700;
+    }
+    #link i{
+        padding: 5px;
+    }
+
+    .add_new_cus i{
+        color: #184A78;
+        padding: 2px;
     }
 </style>
 
 <body>
     <div class="search_customer">
         <div class="search_bar">
-            <input type="text" onkeyup="filter_customer()" id="search_customer">
+            <input type="text" onkeyup="filter_customer()" id="search_customer" placeholder="Serach Customer">
             <div class="suggestion">
 
             </div>
@@ -163,10 +207,11 @@
                 </select>
             </div>
 
-            <a href="#" id="link" onclick="redirect_to_customer_profile()">GO...</a>
+        <a href="#" id="link" onclick="redirect_to_customer_profile()">GO<i class="fas fa-arrow-right"></i></a> 
         </div>
         <div class="add_new_cus">
-            <a href="../admin/add_new_cus">Add New Customer</a>
+        
+        <a href="../admin/add_new_cus"><i class="fas fa-plus"></i>Add New Customer</a>
         </div>
     </div>
 
@@ -224,6 +269,7 @@
                 route.value = "";
                 
                 console.log(data);
+                 
             });
         }
         search_customer_by_route();
