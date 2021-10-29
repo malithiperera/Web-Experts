@@ -239,11 +239,11 @@ visibility: hidden;
 
 .pop-up-div{
   width: 100%;
-  background-color: #5a0000;
+  /* background-color: #5a0000; */
   height: 1000px;
   position: fixed;
   margin-top: -1000px;
-  visibility: hidden;
+
   display: flex;
   justify-content: center;
 
