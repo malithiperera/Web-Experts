@@ -318,6 +318,14 @@ if (!isset($_SESSION['username'])) {
             margin-left: 90px;
 
         }
+        .routes{
+            position:fixed;
+            width:100%;
+            top:20px;
+            display:flex;
+            justify-content: center;
+            z-index: 10000;
+        }
     </style>
 </head>
 
@@ -501,7 +509,9 @@ if (!isset($_SESSION['username'])) {
         <?php require 'view_admin_popup_search_salesrep.php'; ?>
     </div>
 
-
+    <div class="routes">
+        <?php require 'view_admin_routes.php'; ?>
+    </div>
 
 
     <!-- scripts for side bar -->

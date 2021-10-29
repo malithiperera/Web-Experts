@@ -231,6 +231,14 @@ class admin extends controller{
         exit;
     }
 
+    //to get routes
+    public function get_routes(){
+        $data = ['dienth'];
+
+        echo json_encode($data);
+        exit;
+    }
+
 }
 
 ?>
