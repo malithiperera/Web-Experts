@@ -20,6 +20,18 @@ class profile_model extends model{
 
 
     }
+    public function save_profile($email,$tel,$address,$nic,$id){
+        require '../app/core/database.php';
+
+        $sql="UPDATE user SET email='$email',tel='$tel',address='$address',nic='$nic' WHERE user_id='$id'";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+      
+
+
+
+    }
+    
 
 
 
