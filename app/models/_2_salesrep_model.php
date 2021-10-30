@@ -66,9 +66,10 @@ class _2_salesrep_model extends model
     {
         require '../app/core/database.php';
         //insert query
-        $sql = "INSERT INTO payment (amount, order_id, date)
-        VALUES ('$total','$order_id','$date')";
-        // $result = $conn->query($sql);
+        $sql = "INSERT INTO payment (amount, order_id, date,type,delivery_id,time)
+        VALUES ('$total','$order_id','$date','cash','1',CURDATE())";
+        $sql1 = "UPDATE orders SET status='complete' WHERE order_id=$order_id";
+        $result = $conn->query($sql1);
         if (mysqli_query($conn, $sql) == TRUE) {
             return 1;
         } else {
