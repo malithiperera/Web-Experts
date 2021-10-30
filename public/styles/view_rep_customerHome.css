@@ -239,7 +239,7 @@ h2{
 /* Table Styles */
 
 .table-wrapper{
-  margin: 10px 170px 50px;
+  margin: 10px 90px 90px;
   box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2 );
 }
 
@@ -364,7 +364,7 @@ h2{
   padding-top: 10px;
   /* background-color: #2277B2; */
   /* margin-left: 20px; */
-  margin-right: 20px;
+  margin-right: 35px;
   margin-bottom : 40px;
   text-align:center;
   z-index: 999;
@@ -431,4 +431,15 @@ h2{
   color:#184A78 ;
   box-shadow: 0 0 3px 1px rgb(66, 133, 187);
 
+}
+button{
+  background-color: #2277B2 ;
+  color: white;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+  transition: ease-in-out;
 }

@@ -91,7 +91,7 @@ public function customer_registration(){
 public function customer_home(){
     $this->model('_2_salesrep_model');
     $this->view->result=$this->model->not_delivered();
-    // $this->view->result=$this->model->load_route();
+    $this->view->result1=$this->model->delivered();
     $this->view->render('view_rep_customerHome');
 }
 public function home(){

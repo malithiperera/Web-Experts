@@ -157,6 +157,7 @@ if (!isset($_SESSION['username'])) {
           <tr>
             <th>Route</th>
             <th>Shop</th>
+            <th>Delivery</th>
 
           </tr>
         </thead>
@@ -199,7 +200,7 @@ if (!isset($_SESSION['username'])) {
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['cus_id']}">${data[i]['shop_name']}</a></td>
-                                
+                                <td><button id="confirm">Confirm</button></td>
                                 
                             
                   
