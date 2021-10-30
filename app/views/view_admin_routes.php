@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            /* color: #184A78; */
+        
+        .routes{
+            position:fixed;
+            width:100%;
+            height: 800px;
+            top:20px;
+            display:flex;
+            justify-content: center;
+            z-index: 20000;
+            /* background-color: red; */
         }
-
 
 
         .content {
@@ -31,11 +35,15 @@
             position: relative;
             width: 100%;
             z-index: 2000;
+            height: 300px;
+            overflow: scroll;
+            overflow-x: hidden;
         }
 
         table {
             margin-left: 50px;
             z-index: 2000;
+            
         }
 
         tr {
@@ -113,9 +121,31 @@
             top: 108px;
             left:450px;
             width: 190px;
-            height: 100px;
-            background-color: red;
+            /* height: 100px; */
+            background-color: white;
             z-index: 10001;
+            display: flex;
+            flex-direction: column;
+        }
+        #suggestion a{
+            color:#184A78;
+            margin:5px;
+            text-decoration: none;
+        }
+        #content-routes{
+            height:200px;
+            overflow:scroll;
+        }
+        .route_add_popup{
+            position: fixed;
+            top:200px;
+            width:100%;
+            height: 600px;
+            /* background-color: blue; */
+            z-index: 20000;
+            visibility: hidden;
+            display:flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -162,6 +192,10 @@
 
     </div>
 
+    <div class="route_add_popup">
+        <!-- <?php require 'view_admin_routes_add_successfull.php'; ?> -->
+    </div>
+
 
 
     <script>
@@ -169,12 +203,14 @@
         // route_id = document.getElementById('route_id');
         destination = document.getElementById('destination');
         route_name = document.getElementById('route_name');
-        rep_id = document.getElementById('rep_id');
+        rep_id_input = document.getElementById('rep_id');
+        suggestion = document.getElementById('suggestion');
+        route_add_popup = document.querySelector('.route_add_popup');
 
         //suggest sales rep
         const suggest_rep = () => {
             type_rep = {
-                rep_id: rep_id.value
+                rep_id: rep_id_input.value
             }
 
             fetch('http://localhost/web-Experts/public/admin/suggest_rep', {
@@ -189,9 +225,22 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
+                    for(i = 0 ; i < data.length ; i++){
+                        suggestion.innerHTML += `<a href="#"onclick="set_sales_rep('${data[i]['rep_id']}')">${data[i]['rep_id']}</a>`;
+                    }
+                    if(rep_id.value == ""){
+                        suggestion.innerHTML = ``;
+                    }
+                    
                 });
-            console.log(type_rep);
+            
+        }
+
+        //set sales rep
+        const set_sales_rep = (rep_id) =>{
+            rep_id_input.value = rep_id;
+            suggestion.innerHTML = ``;
+            console.log(rep_id);
         }
 
 
@@ -231,7 +280,7 @@
                 // route_id: route_id.value,
                 destination: destination.value,
                 route_name: route_name.value,
-                rep_id: rep_id
+                rep_id_input: rep_id.value
             }
 
             fetch('http://localhost/web-Experts/public/admin/add_new_route', {
@@ -246,9 +295,22 @@
                 })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
+                    route_add_popup.style.visibility = "visible";
+                    route_add_popup.innerHTML = `<?php require 'view_admin_routes_add_successfull.php'; ?>`;
 
+                    
+                    if(data[0] == true){
+                        
+                        console.log('true');
+                    }
+                    else{
+                        
+                        console.log('false');
+                    }
+                    console.log(data_set);
                 });
-
+            
         }
     </script>
 

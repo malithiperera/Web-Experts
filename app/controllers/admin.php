@@ -271,9 +271,13 @@ class admin extends controller{
         $get_data = json_decode($get_data, true);
 
         $this->model('_1_admin_model');
-        $this->model->add_new_route($get_data);
+        $result = $this->model->add_new_route($get_data['route_name'],
+                                            $get_data['destination'],
+                                            $get_data['rep_id_input']);
 
-        echo json_encode($get_data);
+        $data = [$result];
+
+        echo json_encode($data);
         exit;
 
     }

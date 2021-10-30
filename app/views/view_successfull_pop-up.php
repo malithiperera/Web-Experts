@@ -81,12 +81,16 @@
                <span>Employee added Successfully!</span>
 
                <div class="button-pop" onclick="hide_popup()"><button>Done</button></div> 
-
+               <!-- <div class="button-pop"><button onclick="create_new_password()">Done</button></div> -->
             </div>
 
      
 
-
+    <!-- <script>
+        const create_new_password = () =>{
+            window.location.href = 'http://localhost/web-Experts/public/register/createPassword';
+        }
+    </script> -->
 
 
     </div>
