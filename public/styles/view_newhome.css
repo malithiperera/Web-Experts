@@ -159,9 +159,10 @@ h1 {
     display: flex;
     align-items: center;
     position: relative;
-    background:url(
+    /* background:url(
         "../../public/images/homes.jpg") no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #184A78;
     background-position: center;
 }
 .home:hover{
@@ -175,10 +176,13 @@ h1 {
     font-size: 6rem;
     text-transform: uppercase;
     color:transparent;
-   color:#184A78;
+   color:#fff;
     text-transform: uppercase;
 }
 
+.home .content h1{
+    color: #fff;
+}
 
 .home .content p{
     font-size: 2rem;
@@ -420,7 +424,7 @@ align-items: center;
     text-transform: none;
     background:none;
 }
-.content .centertext h1 {
+.welcome .content .centertext h1 {
     text-align: center;
     font-size: 60px;
     color: #184A78;;

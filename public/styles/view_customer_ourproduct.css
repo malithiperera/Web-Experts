@@ -13,7 +13,7 @@ body{
     /* height: 900px; */
     font-family: "Poppins" , sans-serif;
     color: black;
-    background: #072542;
+    
     z-index: -1000;
 
 }
@@ -38,9 +38,9 @@ body{
 
 .card{
     margin-top: 100px; 
-    background-color: #072542;
-    width: 250px;
-    height: 440px;
+    background-color:#F7F7F7;
+    width: 260px;
+    height: 490px;
 margin: 10px;
 border-radius:15px;
 color: rgb(0, 0, 0);
@@ -58,7 +58,8 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
     margin-bottom: 15px;
     overflow: hidden;
     border-radius: 15px 15px 0 0;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    /* box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+} */
 }
 .card-image img{
     /* width: 200px; */
@@ -71,12 +72,12 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
     padding: 10px;
     font-size: 25px;
     text-align: center;
-    color: #fff;
+    color: #184A78;
 }
 .card p{
     padding: 5px;
     font-size: 20px;
-    color: #fff;
+    color: black;
     text-align: center;
 }
 
@@ -106,12 +107,11 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
  
 .logo{
     margin-top: 80px;
-    min-height: 50vh;
+    min-height: 20vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background:url(
-        "../../public/images/back-ice.jpg") no-repeat;
+   
     background-size: cover;
     background-position: center;
    
@@ -165,7 +165,7 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 text-align: center;
 padding: 20px;
 font-size: 30px;
-color: #fff;
+color: #184A78;
 text-transform: uppercase;
 }
 .yoghurt h4 span{
@@ -183,7 +183,7 @@ text-transform: uppercase;
     text-align: center;
     padding: 20px;
     font-size: 30px;
-    color: #fff;
+    color: #184A78;
     text-transform: uppercase;
     }
     .icecream h4 span{
@@ -200,7 +200,7 @@ text-transform: uppercase;
         text-align: center;
         padding: 20px;
         font-size: 30px;
-        color: #fff;
+        color: #184A78;
         text-transform: uppercase;
         }
         .curd h4 span{

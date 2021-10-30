@@ -320,6 +320,7 @@ html::-webkit-scrollbar-thumb{
   border-radius: 5px;
    flex-direction: column;
   justify-content: space-evenly;
+  z-index: 0;
  
   
 }
@@ -336,6 +337,7 @@ html::-webkit-scrollbar-thumb{
   justify-content: space-evenly;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   border-radius: 5px;
+  z-index: 0;
   
 }
 h2{
@@ -730,4 +732,35 @@ input{
 
 .orders table{
   font-weight: 700;
+}
+
+
+.field-name td{
+color: tomato;
+background-color: #fff;
+
+}
+
+.field td{
+  background-color: #fff;
+}
+
+.field tr:nth-child(odd){
+  background-color: black;
+}
+.field tr{
+  border-bottom: 2px solid black;
+}
+
+.field-name #pay{
+  width: 100px;
+  background-color: blue;
+}
+
+
+.header{
+  height: 80px;
+  background-color: #184A78;
+  width: 50%;
+  z-index: 7000;
 }
