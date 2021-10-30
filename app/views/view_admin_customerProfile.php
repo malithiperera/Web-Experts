@@ -27,9 +27,7 @@ if (!isset($_SESSION['username'])) {
             color: white;
         }
 
-        body {
-            /* opacity:50%; */
-        }
+        
 
         .sidebar {
             position: fixed;
@@ -102,7 +100,7 @@ if (!isset($_SESSION['username'])) {
         }
        .container{
            position:relative;
-           left:80px;
+           left:40px;
            width: calc(100% - 80px);
            display:flex;
            flex-direction:column;
@@ -156,16 +154,12 @@ if (!isset($_SESSION['username'])) {
        .table1 td{
            width:120px;
        }
-       .table2{
-
-       }
+       
        table{
         border:none;
         outline:none;
        }
-       table thead{
-
-       }
+       
        table thead th{
         color:#184A78;
         padding:10px;
@@ -371,12 +365,71 @@ span{
            color: black;
            margin-right: 5px;
        }
+
+       .div1{
+           display: flex;
+       }
+
+       .warn{
+           padding: 15px;
+           width: 200px;
+           height: 50px;
+           background-color:  rgb(255,193,7);
+           color: #fff;
+           margin-left: 220px;
+           margin-top: 5px;
+           border: none;
+           outline: none;
+           text-align: center;
+           font-size: 15px;
+           border-radius: 10px;
+           cursor: pointer;
+          
+       }
+
+       .Hold{
+           padding: 15px;
+           width: 200px;
+           height: 50px;
+           background-color: rgb(220,53,69);
+           color: #fff;
+           margin-left: 20px;
+           margin-top: 5px;
+           border: none;
+           outline: none;
+           text-align: center;
+           border-radius: 10px;
+           font-size: 15px;
+           cursor: pointer;
+       
+
+       }
+
+       .report{
+           padding: 15px;
+           width: 200px;
+           height: 50px;
+           font-size: 15px;
+           background-color: rgb(0,123,255);
+           color: #fff;
+           margin-left: 20px;
+           margin-top: 5px;
+           cursor: pointer;
+           border: none;
+           outline: none;
+           text-align: center;
+           border-radius: 10px;
+       }
+       
+       .div1 button i{
+           padding-right: 5px;
+       }
     </style>
 </head>
 
 <body>
 
-
+<!-- 
     <div class="sidebar">
         <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
         <i class="fas fa-bars fa-lg"></i>
@@ -403,7 +456,7 @@ span{
                 <p class="username"><?php echo $_SESSION['username']; ?></p>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="popup_send_warning">
         <div class="send_warning_message">
@@ -463,9 +516,22 @@ span{
                
            </div>
            <div class="div1">
-               <label for="">Credit Period</label>
+               <div class="credit"><label for="">Credit Period</label>
                <input type="text" value="2 weeks" id="credit" readonly>
-               <button id="cred"><i class="fas fa-pen"></i>Change</button>
+               <button id="cred"><i class="fas fa-pen"></i>Change</button></div>
+               
+    
+           <div>
+               <button id='send_warn'  class="warn"><i class="fas fa-envelope-open-text" onclick="popup_message('.popup_update_status')"></i>Send Messege</button>
+
+           </div>
+           <div >
+               <button id="report" class="report" ><i class="fas fa-chart-line"></i>View Report</button>
+
+           </div>
+           <div >
+               <button id="report" class="Hold"><i class="fas fa-exclamation"></i>Hold</button>
+
            </div>
         </div>
         <div class="cards">

@@ -201,4 +201,22 @@ class customer extends controller
         echo json_encode($data);
         exit;
     }
+
+
+    public function get_deliveries(){
+        session_start();
+        $this->model('cus_model');
+         $result = $this->model->fill_deliveries('HC001');
+        // $data = ['Hello'];
+
+        // //   while($row = $result->fetch_assoc()){
+        // //      array_push($data, $row);
+        // //  }
+        
+
+        // echo json_encode($data);
+        // exit;
+
+
+    }
 }

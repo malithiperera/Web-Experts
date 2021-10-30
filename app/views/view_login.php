@@ -28,6 +28,7 @@
         .symbol{
             margin-top:10px;
         }
+        
     </style>
 
 </head>
@@ -36,6 +37,11 @@
 require 'view_headerType.php';
     ?>
     <div class="login">
+        <div class="log-div">
+
+
+        <!-- hello -->
+        </div>
     
     <div class="login-div">
 

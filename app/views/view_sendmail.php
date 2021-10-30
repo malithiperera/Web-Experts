@@ -58,7 +58,7 @@ p{
 input{
     margin: 30px;
     padding: 10px;
-
+color: black;
     width:80%;
 border: none;
 outline: none;

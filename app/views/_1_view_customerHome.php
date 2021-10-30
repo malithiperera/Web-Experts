@@ -434,6 +434,23 @@ if (!isset($_SESSION['username'])) {
 
     }
     get_pending_orders();
+
+    function get_deliveries(){
+      
+      fetch('http://localhost/web-Experts/public/customer/get_deliveries')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          
+        });
+    
+
+
+
+
+    }
+
+    get_deliveries();
   </script>
 
 </body>

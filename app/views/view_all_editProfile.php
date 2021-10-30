@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php 
 
  if(!isset($_SESSION['username'])){
      header("Location:http://localhost/web-Experts/public/login/index");
@@ -178,6 +178,14 @@
             }
             
         }
+
+        .pop-up-alert{
+            width: 100%;
+            background-color: red;
+            height: 600px;
+            margin-top: -600px;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
@@ -232,6 +240,11 @@
         </div>
     </div>
     </form>
+
+
+    <div class="pop-up-alert">
+        
+    </div>
     <script>
         function name_change(){
             document.getElementById('name').removeAttribute('readonly');
