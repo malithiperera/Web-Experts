@@ -99,4 +99,29 @@ class _1_admin_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    //to suggest rep 
+    public function suggest_rep($rep_id){
+
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM sales_rep
+                WHERE rep_id LIKE '%".$rep_id."%'
+                ";
+
+        $result = mysqli_query($conn, $sql);
+        return $result;
+       
+    }
+
+    //add new route
+    public function add_new_route($route_name, $destination, $rep_id_input){
+        
+        require '../app/core/database.php';
+
+        $sql = "INSERT INTO route (route_name, end, rep_id)
+                VALUE ('$route_name', '$destination', '$rep_id_input')";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }

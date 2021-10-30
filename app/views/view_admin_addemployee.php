@@ -156,14 +156,7 @@ if (!isset($_SESSION['username'])) {
     </div>
   </div>
   <div class="message">
-    <?php
-
-
-    //succuss message here>>>>>>>>
-
-
-
-    ?>
+    
     <div class="pop-up-div">
 
 
@@ -185,15 +178,15 @@ if (!isset($_SESSION['username'])) {
     let container = document.querySelector('.container');
     // let button_pop = document.querySelector('.button-pop');
 
-    var check = '<?php echo $check; ?>'
+    var check = '<?php echo $check; ?>';
     console.log(check);
     if (check == 1) {
       pop_up_div.innerHTML = `<?php require 'view_successfull_pop-up.php'; ?>`;
       pop_up_div.style.visibility = "visible";
       container.style.opacity = "20%";
+
     } else if (check == 2) {
       pop_up_div.innerHTML = `<?php require 'view_error_popup.php'; ?>`;
-
       pop_up_div.style.visibility = "visible";
       container.style.opacity = "20%";
     }

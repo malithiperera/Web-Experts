@@ -18,15 +18,15 @@ require 'view_headerType.php';
 <img src="../../public/images/password.jpg" alt="" class="avatar">
 
 <h1>Create Password</h1>
-<form action="confirmPassword?code=<?php echo $this->url; ?>" onsubmit=" return checkpassword()"  method="POST" autocomplete="off">
+<form action="confirmPassword" method="POST" autocomplete="off">
 
-<p>New Password</p>
-<input type="password" name="newPassword" placeholder="Enter strong password" id="psw" autocomplete="off" required>
-<!-- <span id="empty"></span> -->
-<p>Confirm Password</p>
-<input type="password" name="confirmPassword" placeholder="Confirm Your password" id="psw2">
-<p id="messege"></p>
-<input type="submit" name="submit" value="Confirm">
+    <p>New Password</p>
+    <input type="password" name="newPassword" placeholder="Enter strong password" id="psw" autocomplete="off" required>
+    <!-- <span id="empty"></span> -->
+    <p>Confirm Password</p>
+    <input type="password" name="confirmPassword" placeholder="Confirm Your password" id="psw2">
+    <p id="messege"></p>
+    <input type="submit" name="submit" value="Confirm">
 
 </form>
 <div id="message">
@@ -40,7 +40,5 @@ require 'view_headerType.php';
 <script src="../../public/java script/view_forgetpassword.js"></script>
 
 </body>
-<div class="footer1">
-<?php require_once 'view_footer.php'; ?>
-</div>
+
 </html>
