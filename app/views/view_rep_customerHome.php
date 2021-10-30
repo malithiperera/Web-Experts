@@ -93,7 +93,7 @@
 
       </div>
     </section>
-    <h2>NOT DELIVERED</h2>
+    <h2>DELIVERED</h2>
     <div class="table-wrapper">
       <table class="fl-table">
         <thead>
@@ -101,6 +101,7 @@
             <th>Order ID</th>
             <th>Order Date</th>
             <th>Amount</th>
+            <th colspan="2">Pay Now</th>
 
           </tr>
         </thead>
@@ -111,7 +112,9 @@
                     <td>".$row['order_id']."</td>
                     <td>".$row['date']."</td>
                     <td>".$row['amount']."</td>
-                  </tr>";
+                    <td><button>Cash</button></td>
+                    <td><button>Cheque</button></td>
+        </tr>";
           }
         }
       ?>
@@ -158,7 +161,7 @@
         <tbody> -->
       </table>
     </div>
-    <h2>DELIVERED</h2>
+    <h2>NOT DELIVERED</h2>
     <div class="table-wrapper">
       <table class="fl-table">
         <thead>
