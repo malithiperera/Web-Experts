@@ -33,6 +33,12 @@ public function save_profile(){
         $this->model('profile_model');
         $result = $this->model->save_profile($email,$tel,$address,$nic,$_SESSION['userid']);
         
+        if($result){
+            
+            $_SESSION['msg']="Profile Updated successfully";
+            $this->view->render('view_all_editProfile');
+
+        }
 
     }
 

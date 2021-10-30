@@ -68,6 +68,15 @@ class cus_model extends model
         return $result;
 
     }
+   
+    public function fill_deliveries(){
+
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM delivery WHERE cus_id='$user'";
+        $result = $conn->query($sql);
+        print_r($result);
+        // return $result;
+    }
 
 
 }

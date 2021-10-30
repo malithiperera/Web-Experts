@@ -27,9 +27,7 @@ if (!isset($_SESSION['username'])) {
             color: white;
         }
 
-        body {
-            /* opacity:50%; */
-        }
+        
 
         .sidebar {
             position: fixed;
@@ -156,16 +154,12 @@ if (!isset($_SESSION['username'])) {
        .table1 td{
            width:120px;
        }
-       .table2{
-
-       }
+       
        table{
         border:none;
         outline:none;
        }
-       table thead{
-
-       }
+       
        table thead th{
         color:#184A78;
         padding:10px;
