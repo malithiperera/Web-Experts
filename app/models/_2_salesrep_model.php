@@ -19,11 +19,27 @@ class _2_salesrep_model extends model
     public function not_delivered()
     {
         require '../app/core/database.php';
-        $sql = "SELECT order_id, date, amount FROM orders ";
+        $sql = "SELECT * FROM orders ";
+        
 
         $result = $conn->query($sql);
+        
+        
         return $result;
     }
+    public function delivered()
+    {
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM orders ";
+        
+
+        $result = $conn->query($sql);
+        
+        
+        return $result;
+    }
+
+
     // public function delivered()
     // {
     //     require '../app/core/database.php';
