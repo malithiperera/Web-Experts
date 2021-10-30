@@ -111,6 +111,9 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <section class="home-section">
+    <div class="header">
+      <?php require 'view_headertype2.php'; ?>
+    </div>
     <section class="cards-section">
 
       <div class="top">
@@ -212,16 +215,7 @@ if (!isset($_SESSION['username'])) {
 
 
           <div class="field">
-            <!-- <div class="order-no">
-              <label for="">Order Id:</label><input type="text" id=onum readonly>
-              <br>
-              <label for="">Order Date:</label><input type="text" id=o_date readonly>
-              <br>
-              <label for="">Amount:</label><input type="text" id=amount readonly>
-            </div>
-            <div class="content">
-              <a href="../customer/view_orders" class="order_view" id="order_view">view</a>
-            </div> -->
+          
 
 
           </div>
@@ -234,19 +228,12 @@ if (!isset($_SESSION['username'])) {
 
 
 
-          <div class="field">
-            <div class="order-no">
-              <p class="onum">Order Id:002</p>
-              <p class="onum">Delivery Id:008</p>
-              <p class="date">Date:2020.10.03</p>
-            </div>
-            <div class="content">
-              <a href="">view</a>
-            </div>
+          <div class="field-name">
+         
           </div>
 
 
-          <div class="field"><button onclick=pop_func() class="show">Show more</button>
+          
           </div>
 
 
@@ -436,11 +423,37 @@ if (!isset($_SESSION['username'])) {
     get_pending_orders();
 
     function get_deliveries(){
+      let field_name = document.querySelector('.field-name');
+
       
       fetch('http://localhost/web-Experts/public/customer/get_deliveries')
         .then(response => response.json())
         .then(data => {
           console.log(data);
+          for (i = 0; i < data.length; i++) {
+
+field_name.innerHTML += `
+
+<table class="pending_deliveries">
+  <tr>
+    <td>
+      <table>
+        <tr><td>Delivery ID : <br>${data[i]['delivery_id']}</td></tr>
+        <tr><td>Date : <br>${data[i]['date']}</td></tr>
+        <tr><td>Order ID : <br>${data[i]['order_id']}</td></tr>
+        <tr><td>Amount : <br>${data[i]['amount']}</td></tr>
+      </table>
+    </td>
+    <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';">view</button>
+    <button id="pay">Pay Now</button></td>
+    
+  </tr>
+</table>
+
+`;
+
+}
+
           
         });
     

@@ -163,8 +163,9 @@
 </head>
 
 <body>
-
-    <?php require 'view_headerType2.php'; ?>
+    
+<!-- 
+    <?php require 'view_headerType2.php'; ?> -->
 
     <div class="container">
 

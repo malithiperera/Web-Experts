@@ -206,16 +206,16 @@ class customer extends controller
     public function get_deliveries(){
         session_start();
         $this->model('cus_model');
-         $result = $this->model->fill_deliveries('HC001');
-        // $data = ['Hello'];
+         $result = $this->model->fill_deliveries($_SESSION['userid']);
+         $data = [];
 
-        // //   while($row = $result->fetch_assoc()){
-        // //      array_push($data, $row);
-        // //  }
+          while($row = $result->fetch_assoc()){
+             array_push($data, $row);
+         }
         
 
-        // echo json_encode($data);
-        // exit;
+         echo json_encode($data);
+         exit;
 
 
     }
