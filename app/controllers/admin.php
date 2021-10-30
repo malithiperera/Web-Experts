@@ -233,10 +233,49 @@ class admin extends controller{
 
     //to get routes
     public function get_routes(){
-        $data = ['dienth'];
+        $this->model('_1_admin_model');
+        $result = $this->model->search_customer_by_route_get_route();
+
+        $data = [];
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
 
         echo json_encode($data);
         exit;
+    }
+
+    //to suggets sales reps
+    public function suggest_rep(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->suggest_rep($get_data['rep_id']);
+
+        $data = [];
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
+    }
+
+    //to add new route
+    public function add_new_route(){
+
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $this->model->add_new_route($get_data);
+
+        echo json_encode($get_data);
+        exit;
+
     }
 
 }

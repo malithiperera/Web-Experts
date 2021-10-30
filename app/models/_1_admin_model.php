@@ -99,4 +99,18 @@ class _1_admin_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    //to suggest rep 
+    public function suggest_rep($rep_id){
+
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM sales_rep
+                WHERE rep_id LIKE '%".$rep_id."%'
+                ";
+
+        $result = mysqli_query($conn, $sql);
+        return $result;
+       
+    }
 }
