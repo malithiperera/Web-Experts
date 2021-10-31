@@ -86,12 +86,7 @@
 
      
 
-    <!-- <script>
-        const create_new_password = () =>{
-            window.location.href = 'http://localhost/web-Experts/public/register/createPassword';
-        }
-    </script> -->
-
+    
 
     </div>
     
