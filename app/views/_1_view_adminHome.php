@@ -216,6 +216,7 @@ if (!isset($_SESSION['username'])) {
 
         .search_salesrep {
             visibility: hidden;
+            z-index: 20000;
         }
 
         .routes {
