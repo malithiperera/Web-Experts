@@ -408,7 +408,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="chart-up">
                     <div class="sales-overview">
                         <h3>Sales Overview</h3>
-                        <div id="chart_div" style="width: 500px; height: 500px;"></div>
+                        <div id="chart_div" style="width: 550px; height: 500px;"></div>
 
                     </div>
                     <div class="growth">
