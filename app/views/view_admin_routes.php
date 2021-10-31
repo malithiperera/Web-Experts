@@ -285,8 +285,9 @@
                                 <td>${data[i]['end']}</td>
                                 <td>${data[i]['route_name']}</td>
                                 <td>${data[i]['rep_id']}</td>
+                                <td class="delete_button"><a href="#">edit</a></td>
                                 <td class="delete_button"><a href="#" onclick="delete_route(${data[i]['route_id']})">delete</a></td>
-                                <td class="delete_button"><a href="#" onclick="delete_route(${data[i]['route_id']})">edit</a></td>
+                                
 
                                 </tr>
                         

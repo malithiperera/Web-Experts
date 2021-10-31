@@ -340,7 +340,7 @@ if (!isset($_SESSION['username'])) {
             <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
             <a href="#" onclick="popup_message('.removeuser')"><i class="fas fa-user-minus fa-lg"></i></a>
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
-            <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
+            <a href="#" onclick="popup_message('.routes')"><i class="fas fa-bell fa-lg"></i></a>
             <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
             <a href="logout"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </div>

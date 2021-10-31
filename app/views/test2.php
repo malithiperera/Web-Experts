@@ -12,12 +12,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    
-}
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+
+        }
 
 
 
@@ -32,7 +32,7 @@
             /* width: 100%; */
             /* justify-content: center; */
             flex-wrap: wrap;
-           
+
         }
 
         /* .user_id {
@@ -71,10 +71,11 @@
             height: 40px;
             border-radius: 10px;
             background-color: #184A78;
-            color:#fff;
+            color: #fff;
         }
-        .data_form button:hover{
-            background-color:#4d647a;
+
+        .data_form button:hover {
+            background-color: #4d647a;
             cursor: pointer;
         }
 
@@ -112,7 +113,7 @@
         }
 
         td {
-            background-color:#b6b6b6;
+            background-color: #b6b6b6;
             color: black;
             width: 250px;
             height: 40px;
@@ -121,8 +122,8 @@
 
         .place_button button {
             width: 120px;
-            background-color:#184A78 ;
-            color:#fff;
+            background-color: #184A78;
+            color: #fff;
             margin-top: 10px;
             float: right;
             height: 40px;
@@ -146,13 +147,13 @@
             border-radius: 10px;
         }
 
-        .details label{
+        .details label {
             font-weight: 800;
             margin-left: 40px;
             margin-bottom: 20px;
         }
 
-        .details input{
+        .details input {
             font-weight: 800;
             font-size: 20px;
             color: green;
@@ -163,9 +164,9 @@
 </head>
 
 <body>
+
     
-<!-- 
-    <?php require 'view_headerType2.php'; ?> -->
+    <?php require 'view_headerType2.php'; ?>
 
     <div class="container">
 
@@ -311,7 +312,7 @@
             new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + tot_price_input.value + '</td></tr>';
 
             product_name_input.value = '';
-            unit_price_input.value = '';         
+            unit_price_input.value = '';
             discount_input.value = '';
             quantity_input.value = '';
             tot_price_input.value = '';
@@ -325,7 +326,7 @@
 
         }
 
-       
+
 
         var table_data = new Array(table_info.rows.length - 1);
 
@@ -351,9 +352,9 @@
 
             var data_set = {
                 amount: total_amount,
-                status : 'not-delivered',
+                status: 'not-delivered',
                 date: date,
-                working : 1,
+                working: 1,
                 cus_id: cus_id,
                 route_id: route_id_obj,
                 table: table_data
@@ -374,8 +375,8 @@
                     order_id.innerHTML = `${data[7]}`;
                     order_date.innerHTML = `${data[2]}`;
                     order_amount.innerHTML = `${data[0]}`;
-                    done.addEventListener("click", ()=>{
-                       confirm_message.style.visibility = "hidden"; 
+                    done.addEventListener("click", () => {
+                        confirm_message.style.visibility = "hidden";
                     });
                 });
 
@@ -383,13 +384,14 @@
             total_of_all_prices.innerHTML = '';
         }
 
-        
+
 
         // fill details
         const fill_details = () => {
             fetch('http://localhost/web-Experts/public/customer/get_details_place_order')
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     user_id.value = data[0];
                     route_id.value = data[1].route_id;
                 });
