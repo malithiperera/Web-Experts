@@ -144,7 +144,7 @@
             width: 100%;
             /* background-color: blue; */
             z-index: 20000;
-            visibility: hidden;
+            /* visibility: hidden; */
             display: flex;
             justify-content: center;
         }
@@ -155,7 +155,15 @@
             left: 60px;
             width: 70px;
             height: 40px;
-            background-color:#184A78;
+            background-color: #184A78;
+        }
+
+        .delete_button {
+            background-color: white;
+        }
+
+        .delete_button a {
+            color: red;
         }
     </style>
 </head>
@@ -266,17 +274,23 @@
                 .then(response => response.json())
                 .then(data => {
 
+                    content_route.innerHTML = ``;
+
                     for (i = 0; i < data.length; i++) {
-                        content_route.innerHTML += `
+                        if (data[i]['deleted'] == 0) {
+                            content_route.innerHTML += `
                 
                             <tr>
                                 <td>${data[i]['route_id']}</td>
                                 <td>${data[i]['end']}</td>
                                 <td>${data[i]['route_name']}</td>
                                 <td>${data[i]['rep_id']}</td>
+                                <td class="delete_button"><a href="#" onclick="delete_route(${data[i]['route_id']})">delete</a></td>
                             </tr>
                         
                         `;
+                        }
+
                     }
 
 
@@ -287,7 +301,29 @@
 
         get_routes();
 
+        //delete route
+        const delete_route = (route_id) => {
+            route_delete_data_set = {
+                route_id: route_id
+            }
 
+            fetch('http://localhost/web-Experts/public/admin/delete_route', {
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+
+                body: JSON.stringify(route_delete_data_set)
+            })
+            .then(response => response.json())
+            .then(data =>{
+                console.log(data);
+                get_routes();
+            });
+
+        }
 
 
         //add new route
@@ -359,11 +395,11 @@
                     }
 
                     console.log(data_set);
+                    get_routes();
                 });
 
-        }
 
-       
+        }
     </script>
 
 

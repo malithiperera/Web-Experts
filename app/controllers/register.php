@@ -95,7 +95,12 @@ class register extends controller
 
         $rowcount = $resultset->num_rows;
         if ($rowcount == 1) {
-            $this->view->render('view_successfull_pop-up');
+            $this->view->success = 1;
+            $this->view->render('view_createpassword');
+        }
+        else{
+            $this->view->success = 0;
+            $this->view->render('view_createpassword');
         }
     }
 

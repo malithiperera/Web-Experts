@@ -307,10 +307,10 @@
         }
 
         function add_product() {
-            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td></tr>';
+            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + tot_price_input.value + '</td></tr>';
 
             product_name_input.value = '';
-            unit_price_input.value = '';
+            unit_price_input.value = '';         
             discount_input.value = '';
             quantity_input.value = '';
             tot_price_input.value = '';
@@ -330,7 +330,6 @@
 
         function confirmation_message() {
             confirm_message.style.visibility = "visible";
-
         }
 
         function place_order() {
