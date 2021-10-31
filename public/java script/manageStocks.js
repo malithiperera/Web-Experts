@@ -3,10 +3,12 @@ var a = 1;
 function showHideAdd() {
     if (a == 1) {
         document.getElementById("inputAdd").style.visibility = "visible";
+        document.getElementById("addamountAddBtn").style.visibility = "visible";
         return a = 0;
 
     } else {
         document.getElementById("inputAdd").style.visibility = "hidden";
+        document.getElementById("addamountAddBtn").style.visibility = "hidden";
         return a = 1;
 
     }

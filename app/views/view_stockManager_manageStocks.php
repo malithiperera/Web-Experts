@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/manageStocks.css">
     <title>Manage Stocks</title>
 </head>
@@ -22,10 +23,13 @@
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
-                <button class="addBtn" onclick="showHideAdd ()">+</button>
-                <button class="removeBtn" onclick="showHideRemove ()">-</button><br><br>
+                <button class="addBtn" onclick="showHideAdd ()"><i class="fas fa-plus"></i></i></button>
+                <button class="removeBtn" onclick="showHideRemove ()"><i class="fas fa-minus"></i></button><br><br>
 
-                <input class="inputAdd" type="text" id="inputAdd" placeholder=" Enter Amount">
+                <div>
+                    <input class="inputAdd" type="text" id="inputAdd" placeholder=" Enter Amount">
+                    <button class="addamountAddBtn" id="addamountAddBtn"><i class="fas fa-calendar-check"></i></i></button>
+                </div>
 
             </div>
 
@@ -102,17 +106,18 @@
             <div class="discount">
                 <fieldset class="fieldSet_discount">
                     <legend class="leg_discount">Discount</legend>
+                    <div class="div_currentDiscount">
+                        <label for="currntDiscount" class="label_currentDiscount">Current discount</label>
+                        <input type="text" class="input_currentDiscount">
+                        <button class="changeDiscountBtn">Change</button>
 
-                    <label class="label_discount" for="percentage">Percentage</label><br><br>
-                    <input class="input_discount" type="text" name="percentage" id="percentage" placeholder="            %"><br><br>
+                    </div>
+                    <!-- <div class="div_newDiscount">
+                        <label for="newDiscount" class="label_newDiscount">New discount</label>
+                        <input type="text" name="newDiscount" id="newDiscount" class="input_newDiscount">
+                        <button class="updateDiscountBtn">Update</button>
 
-                    <h1 class="or">OR</h1><br><br><br>
-
-                    <label for="buy" class="label_buy">Buy</label>
-                    <input type="text" class="input_buy" name="buy" id="buy">
-
-                    <label class="label_get" for="get">Get</label>
-                    <input class="input_get" type="text" name="get" id="get"><br><br>
+                    </div> -->
 
                 </fieldset>
             </div>

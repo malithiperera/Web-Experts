@@ -29,7 +29,7 @@
 
 }
 .inStock {                                                          /* 'in stock' division */
-    /*background-color: greenyellow;*/
+    /* background-color: greenyellow; */
     width: 20%;
     height: 33%;
     /*margin: auto; */
@@ -57,24 +57,24 @@
 
 }
 .addBtn, .removeBtn {                                               /* '+' button and '-' button in 'in stock' */
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 15%;
+    height: 25%;
+    border-radius: 20%;
     font-size: xx-large;
     background-color: #184A78;
     color: white;
 
-}/*
+}
 .addBtn {
     position: absolute;
-    left: 60%;
+    left: 50%;
 
 }
 .removeBtn {
     position: absolute;
-    right: 5%;
+    right: 15%;
 
-}*/
+}
 .withRep {                                                          /* 'With Rep' division */
     width: 50%;
     height: 290px;
@@ -127,23 +127,34 @@ thead {
     width: 90%;
 
 }
-.or {                                                               /* 'OR' text in 'Discount' */
-    position: absolute;
-    left: 25%;
+/* .or {                                                               /* 'OR' text in 'Discount' */
+    /* position: absolute;
+    left: 25%; 
 
-}
+} */
 .inputAdd {                                                         /* input text of "+" */
-    width: 50%;
+    width: 35%;
     height: 25%;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #dddd;
     visibility: hidden;
     position: absolute;
     bottom: 10%;
+    right: 10%;
+    border-color: white;
+
+}
+.addamountAddBtn {                                                     /* submit btn of input text of + btn  */
+    width: 10%;
+    height: 27%;
+    border-radius: 5px;
+    background-color: #184A78;
+    visibility: hidden;
+    position: absolute;
+    bottom: 11%;
     right: 0%;
 
 }
-
 .divInputRemove {                                                   /* division of the form of "-" */
     /* background-color: blueviolet; */
     width: 30%;                         
@@ -164,7 +175,7 @@ thead {
     background-color: #dddd;
 
 }
-.inputRemoveQuantity {                                          /* input text of " quantity " in " - " */
+.inputRemoveQuantity {                                              /* input text of " quantity " in " - " */
     width: 70%;
     position: absolute;
     left: 25%;
@@ -179,7 +190,7 @@ thead {
     left: 25%;
 
 }
-.div_currentPrice {                                    /* division "current price" */
+.div_currentPrice {                                                 /* division "current price" */
     /* background-color: darkcyan; */
     position: absolute;
     right: 8%;
@@ -190,15 +201,16 @@ thead {
     font-size: x-large;
 
 }
-.input_currentPrice {                     /* input field of " current Price " */
+.input_currentPrice {                                               /* input field of " current Price " */
     width: 23%;
     height: 80%;
     font-size: large;
     border-color: #f3f3f3;
     background-color: #f3f3f3;
+    cursor: none;
 
 }
-.btn_change {                                   /* btn " change " */
+.btn_change {                                                       /* btn " change " */
     width: 25%;
     height: 45%;
     position: absolute;
@@ -220,16 +232,16 @@ thead {
     font-size: x-large;
 
 }
-.input_newPrice {                                  /* input field of " new Price " */   
+.input_newPrice {                                                   /* input field of " new Price " */   
     width: 22%;
     height: 50%;
     position: absolute;
-    left: 41%;
+    left: 39%;
     font-size: large;
     border-color: #f3f3f3;
 
 }
-.btn_update {                                   /* btn " update " */
+.btn_update {                                                       /* btn " update " */
     width: 25%;
     height: 45%;
     position: absolute;
@@ -239,18 +251,18 @@ thead {
     border-radius: 10px;
 
 }
-.input_discount, .input_buy, .input_get {               /* inputs of " percentage ", " buy ", "get " */
+.input_discount, .input_buy, .input_get {                           /* inputs of " percentage ", " buy ", "get " */
     width: 10%;
 
 }
-.label_discount {                       /* lable of " percentage " */
+.label_discount {                                                   /* lable of " percentage " */
     position: absolute;
     left: 6%;
 
 }
 .input_discount {
     position: absolute;
-    left: 6%;
+    left: 30%;
     border-radius: 10px;
     border-color: #f3f3f3;
     background-color: #dddd;
@@ -274,7 +286,7 @@ thead {
     top: 75%;
 
 }
-.label_buy {                                    /* lable of " buy " */
+.label_buy {                                                        /* lable of " buy " */
     position: absolute;
     right: 60%;
     top: 77%;
@@ -284,5 +296,43 @@ thead {
     border-color: white;
     background-color: #dddd;
     border-radius: 10px;
+
+}
+.lable_newDiscount {
+    position: absolute;
+    left: 6%;
+
+}
+.div_currentDiscount {                                              /* division "current discount" */
+    background-color: rgb(184, 143, 32);
+    width: 80%;
+    height: 40%;
+    position: relative;
+}
+.div_newDiscount {                                                  /* division "new discount" */
+    background-color: lightcoral;
+    width: 80%;
+    height: 40%;
+    position: relative;
+
+}
+.label_currentDiscount, .label_newDiscount {                        /* labels of "current discount" and "new discount" */
+    position: absolute;
+    left: 5%;
+
+}
+.input_currentDiscount, .input_newDiscount {                        /* input fields of "current discount" and "new discount" */
+    position: absolute;
+    left: 35%;
+
+}
+.changeDiscountBtn {                            
+    position: absolute;
+    left: 60%;
+
+}
+.updateDiscountBtn {
+    position: absolute;
+    left: 60%;
 
 }
