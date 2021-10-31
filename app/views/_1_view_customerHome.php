@@ -111,9 +111,9 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <section class="home-section">
-    <div class="header">
-      <?php require 'view_headertype2.php'; ?>
-    </div>
+    <!-- <div class="header">
+      
+    </div> -->
     <section class="cards-section">
 
       <div class="top">
@@ -244,32 +244,7 @@ if (!isset($_SESSION['username'])) {
 
   </section>
 
-  <div class="pop-up">
-    <div class="order-pop">
-      <h3>Due Payments</h3>
-      <br>
-
-      <table class="Payments">
-        <tr>
-          <th>Order Id</th>
-          <th>Deliver ID</th>
-          <th>Due Date</th>
-          <th>Amount</th>
-          <th>Pay Now</th>
-        </tr>
-        <tr>
-          <td>001</td>
-          <td>09.10.2021</td>
-          <td>09.10.2021</td>
-          <td id="order_id">12000</td>
-          <td><button type="submit" id="payhere-payment"><i class="fas fa-credit-card"></button></td>
-
-
-        </tr>
-      </table>
-    </div>
-
-  </div>
+ 
 
   <script src="../../public/java script/view_customer_Home.js"></script>
 
@@ -404,13 +379,13 @@ if (!isset($_SESSION['username'])) {
             <table class="pending_order_tabel">
               <tr>
                 <td>
-                  <table>
-                    <tr><td>Order ID : <br>${data[i]['order_id']}</td></tr>
-                    <tr><td>Order Date : <br>${data[i]['date']}</td></tr>
-                    <tr><td>Amount : <br>${data[i]['amount']}</td></tr>
-                  </table>
+               
+                    <tr><td><span>Order ID :</span>${data[i]['order_id']}</td></tr>
+                    <tr><td><span>Order Date :</span>${data[i]['date']}</td></tr>
+                    <tr><td><span>Amount :</span>RS.${data[i]['amount']}</td></tr>
+                
                 </td>
-                <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';">view</button></td>
+                <td><button  onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
               </tr>
             </table>
             
@@ -437,15 +412,15 @@ field_name.innerHTML += `
 <table class="pending_deliveries">
   <tr>
     <td>
-      <table>
-        <tr><td>Delivery ID : <br>${data[i]['delivery_id']}</td></tr>
-        <tr><td>Date : <br>${data[i]['date']}</td></tr>
-        <tr><td>Order ID : <br>${data[i]['order_id']}</td></tr>
-        <tr><td>Amount : <br>${data[i]['amount']}</td></tr>
-      </table>
+      
+        <tr><td><span>Delivery ID :</span>${data[i]['delivery_id']}</td></tr>
+        <tr><td><span>Date       :</span>${data[i]['date']}</td></tr>
+        <tr><td><span>Order ID    :</span>${data[i]['order_id']}</td></tr>
+        <tr><td><span>Amount      : </span>RS.${data[i]['amount']}</td></tr>
+      
     </td>
-    <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';">view</button>
-    <button id="pay">Pay Now</button></td>
+    <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
+    <button id="payhere-payment"><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
   </tr>
 </table>

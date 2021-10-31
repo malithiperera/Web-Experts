@@ -97,23 +97,7 @@ h1 {
 }
 /* styling my button */
 
-.white-mode {
-	text-decoration: none;
-	padding: 7px 10px;
-	background-color: #122;
-	border-radius: 3px;
-	color: #FFF;
-	transition: .35s ease-in-out;
-	position: absolute;
-	left: 15px;
-	bottom: 15px;
-	font-family: "Montserrat";
-}
-
-.white-mode:hover {
-	background-color: #FFF;
-	color: #122;
-}
+/*  */
 
 .btn:hover{
     letter-spacing: .7rem;
@@ -131,9 +115,6 @@ h1 {
     z-index: 1000;
 }
 
-.header .logo img{
-    height: 6rem;
-}
 
 .header .navbar a{
     margin:0 1rem;
@@ -148,35 +129,57 @@ h1 {
 }
 
 
-
-
-
-
-
-
 .home{
     min-height: 100vh;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     position: relative;
-    /* background:url(
-        "../../public/images/homes.jpg") no-repeat;
-    background-size: cover; */
-    background-color: #184A78;
+    background-size: cover;
+    background-color: #1a3e61;
     background-position: center;
+}
+.home-main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.home-img{
+    height: 90vh;
+     background:url(
+        "../../public/images/log3.png") no-repeat;
+        width: 50%;
+        background-size: cover;
+
+}
+
+.up-photo{
+    width: 100%;
+   background-size: cover;
+    background:url(
+        "../../public/images/log4.png") no-repeat;
 }
 .home:hover{
     transform: scale(1.01);
 }
 .home .content{
-    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    /* max-width: 60rem; */
+    width: 50%;
+   
 }
-
+.sub-text{
+    text-align: center;
+}
 .home .content h3{
     font-size: 6rem;
     text-transform: uppercase;
     color:transparent;
    color:#fff;
+   text-align: center;
     text-transform: uppercase;
 }
 
@@ -188,7 +191,7 @@ h1 {
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.8;
-    padding:1rem 0;
+    /* padding:1rem 0; */
     color:#eee;
     font-style: italic;
 }

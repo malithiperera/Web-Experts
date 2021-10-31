@@ -39,15 +39,31 @@
 
 
 <section class="home" id="home">
+<div class="up-photo">
+    
+    </div>
+    <div class="home-main">
+
 
     <div class="content">
         
     <div class="centertext">
-        <h1>Himalee <br><br> Dairy Products</h1>
-        <p>Everyone Needs Milk Dairy Always a good choice</p>
+        <h1>Himalee Dairy Products</h1>
+       
     </div>
-        <a href="login" class="btn">Get started</a>
+    <div class="sub-text">
+    <p>Everyone Needs Milk Dairy Always a good choice</p>
     </div>
+    <div class="get-start">
+    <a href="login" class="btn">Get started</a>
+    </div>
+       
+    </div>
+    <div class="home-img">
+        hello
+    </div>
+    </div>
+    
 
 </section>
 

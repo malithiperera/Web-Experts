@@ -115,16 +115,6 @@ html::-webkit-scrollbar-thumb{
   display: none;
 }
 
-#payhere-payment {
-  background:none;
-  outline: none;
-  border: none;
-  
-}
-#payhere-payment i{
-  color:rgb(0, 0, 0);
-  font-size: 20px;
-}
 
 
 .sidebar .bx-search{
@@ -375,6 +365,10 @@ p{
 margin-left:40px;
   }
   
+  .field-name{
+    margin-left:40px;
+
+  }
 
 .field a{
   color: #11101d;
@@ -403,10 +397,11 @@ text-align: center;
   flex-direction: column;
   justify-content: space-evenly;
   padding: 30px;
-  /* height: 300px; */
+ 
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   margin-bottom: 20px;
+  height: auto;
 }
 .orders h2{
   text-transform: uppercase;
@@ -427,6 +422,7 @@ text-align: center;
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
+/* }
 .field{
   display: flex;
   justify-content: space-evenly;
@@ -436,7 +432,7 @@ text-align: center;
 
   /* box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 
-}
+
 
 
 .item{
@@ -448,7 +444,7 @@ display: flex;
   margin-top: 30px;
   justify-content: center;
   border-radius: 5px;
-  height: 40px;
+  height: auto;
 }
 .item a{
   color: #ffffff;
@@ -474,19 +470,7 @@ align-items: center;
 }
 
 
-.pop-up-orders{
-  position: relative;
-  /* opacity: 1; */
-  /* transform: translate(-80%,-90%); */
-  background-color: #184A78;
-  width: 200px;
-  height: 200px;
-  margin-top: -400px;
-}
 
-.pop-up-orders th ,td{
-  padding: 10px;
-}
 .home-section.active
 {
   filter:blur(20px);
@@ -495,154 +479,10 @@ align-items: center;
 
   
 }
-.pop-up-orders.visible{
-  opacity: 1;
-}
-.edit{
-  color: rgb(255, 255, 255);
-  background-color: green;
-  /* border: 1px solid black; */
-  width: 60px;
-  border-radius: 5px;
-}
-
-.delete{
-  background-color: red;
-  width: 60px;
-  border-radius: 5px;
-
-}
-
-
-@media(max-width:990px) and (min-width:752px ){
-  .right{
-    width: 100%;
-    height:400px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .orders{
-    width:50%
-  }
-  .payment{
-    width: 50%;
-  }
-  .detail{
-    justify-content: space-evenly;
-  }
-  .left{
-    width: 100%;
-    margin-top:-70px;
-  }
-  
-}
-@media (max-width: 752px){
-  .right{
-    width: 100%;
-    margin-left: -30px;
-
-  }
-  .left{
-    
-    width: 100%;
-    margin-left: -30px;
-    height: 800px;
-  }
-  .home-section{
-    margin-left: 70px;
-  }
-  .cards{
-    margin-left: -30px;
-  }
-}
 
 
 
-@media (max-width: 420px) {
-  .sidebar li .tooltip{
-    display: none;
-  }
- 
-.detail{
-  width: 100%;
-}
 
-  .right{
-   width:100%;
-   margin-left: -100px;
-   justify-content: center;
-
-  }
-  .left{
-    width: 500px;
-    height: 800px;
-   justify-content: center;
-  }
-  .orders{
-    width: 400px;
-    margin-right: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .payment{
-    width: 400px;
-    margin-right: 60px;
-  }
-
-  .cards{
-    align-items: center;
-    justify-content: center;
-   margin-left: -30px;
-    
-  }
-  .card{
-    width: 400px;
-  }
-}
-@media (max-width: 370px){
-.left{
-  width: 400px;
-  margin-left: 10px;
-}
-}
-
-
-.pop-up{
-
-  /* background-color: #11101d; */
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: center;
-  position: fixed;
-  z-index: 1000000;
-visibility: hidden;
-  color: #fff;
- 
-  
-  
-}
-.pop-up .order-pop{
-  margin-top: 100px;
-  background-color: rgb(255, 255, 255);
-  display: flex;
- 
-  align-items: center;
-  justify-content: center;
-  width: 700px;
-  height: 500px;
-  z-index: 1000000;
-  color: #11101d;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-
-}
-.pop-up .order-pop table{
-  color: rgb(0, 0, 0);
-}
 .confirm{
   width: 400px;
   margin-right: 60px;
@@ -673,34 +513,7 @@ visibility: hidden;
   opacity: 0.5;
 } */
 
-th{
-  padding: 7px;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
 
-}
-
-table th {
-  color: #000000;
-  background: #4FC3A1;
-}
-
-
-table th:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-td{
-  padding: 5px;
-  background-color: rgb(216, 216, 216);
-  text-align: center;
-  width: 300px;
-}
-.order-pop h3{
-  padding: 35px;
-  margin-top: -30px;
-}
 .show{
   background: #184A78;
   color: #fff;
@@ -721,46 +534,191 @@ input{
 }
 
 .orders button{
-  background-color: #2985a1;
-  height:40px;
-
-  width:100px;
-  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin-left: 50px;
+  /* margin: 10px; */
+  background-color:rgb(0,123,255); 
+  color: #fff;
+  font-size: 14px;
   outline: none;
-  color:#fff;
+  padding-top: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 
-.orders table{
-  font-weight: 700;
+
+
+.field td{
+  color: tomato;
+background-color: #fff;
+font-weight: 700;
+
 }
-
-
 .field-name td{
 color: tomato;
 background-color: #fff;
+font-weight: 700;
 
 }
 
-.field td{
-  background-color: #fff;
-}
-
-.field tr:nth-child(odd){
-  background-color: black;
-}
-.field tr{
-  border-bottom: 2px solid black;
-}
-
-.field-name #pay{
-  width: 100px;
-  background-color: blue;
-}
 
 
+.field-name #payhere-payment{
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+  background: rgb(20,176,77);
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-top: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+#view-del{
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+  background-color:rgb(0,123,255); 
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-top: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+table td button{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  align-items: center;
+}
+button i{
+  padding-right: 5px;
+}
 .header{
   height: 80px;
   background-color: #184A78;
   width: 50%;
   z-index: 7000;
 }
+
+td span{
+  color: black;
+width: 200px;
+  font-weight: 600;
+
+}
+
+tr {
+  background: black;
+}
+
+@media(max-width:990px) and (min-width:752px ){
+  .right{
+    width: 100%;
+    /* height:400px; */
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .orders{
+    width:50%;
+    height: auto;
+  }
+  .payment{
+    width: 50%;
+    height: auto;
+  }
+  .detail{
+    justify-content: space-evenly;
+  }
+  .left{
+    width: 100%;
+    height: auto;
+    margin-top:-70px;
+  }
+  
+}
+@media (max-width: 752px){
+  .right{
+    width: 100%;
+    margin-left: -30px;
+
+  }
+  .left{
+    
+    width: 100%;
+    margin-left: -30px;
+    /* height: 800px; */
+  }
+  .home-section{
+    margin-left: 70px;
+  }
+  .cards{
+    margin-left: -30px;
+  }
+  .orders{
+    width: 100%;
+  }
+  .payment{
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip{
+    display: none;
+  }
+ 
+.detail{
+  width: 100%;
+}
+
+  .right{
+   width:100%;
+   margin-left: -90px;
+   justify-content: center;
+
+  }
+  .left{
+    width: 500px;
+    /* height: 800px; */
+   justify-content: center;
+  }
+  .orders{
+    width: 100%;
+    margin-right: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .payment{
+    width: 100%;
+    margin-right: 60px;
+  }
+
+  .cards{
+    align-items: center;
+    justify-content: center;
+   margin-left: -30px;
+    
+  }
+  .card{
+    width: 400px;
+  }
+}
+@media (max-width: 370px){
+.left{
+  width: 100%;
+  margin-left: 10px;
+}
+}
+
+

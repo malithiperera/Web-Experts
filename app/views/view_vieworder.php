@@ -151,8 +151,8 @@
                         <td>${data[i]['discount']}</td>
                         <td><input type="text" value="${data[i]['quantity']}" class="qty" readonly></td>
                         <td>${data[i]['amount']}</td>
-                        <td><button class="edit" onclick="edit_function(event)"><a>Edit</a></button></td>
-                        <td><button class="delete"><a>Delete</a></button></td>
+                        <td><button class="edit" onclick="edit_function(event)"><a><i class="fas fa-pen"></i>Edit</a></button></td>
+                        <td><button class="delete"><a><i class="far fa-trash-alt"></i>Delete</a></button></td>
                         </tr>
                         
                         `;
