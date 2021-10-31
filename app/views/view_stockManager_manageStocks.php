@@ -14,7 +14,7 @@
 
     <section class="sec_1">
         <fieldset class="mainFieldSet">
-            <legend class="leg_productName">Product Name</legend><br>
+            <legend class="leg_productName" id="leg_productName">Product Name</legend><br>
 
             <div class="inStock">
                 <label class="label_inStock" for="quantity">In Stock</label><br>
@@ -126,30 +126,35 @@
     <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
         var currentPrice = document.getElementById('currentPrice');
+        var productName = document.getElementById('leg_productName');
 
 
         console.log(product_id);
+        // console.log (productName);
 
         var data_set = {
             product_id: product_id
+
         }
 
         const details_of_product = () => {
 
             fetch('http://localhost/web-Experts/public/stockManager/details_of_product', {
                     method: 'POST',
-                    
+
                     headers: {
                         'Content-Type': 'application/json'
-                        
+
                     },
-                    
-                    body: JSON.stringify(data_set) 
+
+                    body: JSON.stringify(data_set)
 
                 })
                 .then(response => response.json())
                 .then(data => {
-                    currentPrice.value = "Rs."+data['price'];
+                    currentPrice.value = "Rs." + data['price'];
+                    productName.innerHTML = data['product_name'];
+
                 });
 
         }
