@@ -762,6 +762,14 @@ if (!isset($_SESSION['username'])) {
             chart.draw(view, options);
         }
     </script>
+
+    <script> 
+         const back_to_home = () =>{
+            document.querySelector('.routes').style.visibility = "hidden";
+            sidebar.style.opacity = "100%";
+            container.style.opacity = "100%";
+        }
+    </script>
 </body>
 
 </html>

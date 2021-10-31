@@ -7,13 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
-        .routes{
-            position:fixed;
-            width:100%;
+        .routes {
+            position: fixed;
+            width: 100%;
             height: 800px;
-            top:20px;
-            display:flex;
+            top: 20px;
+            display: flex;
             justify-content: center;
             z-index: 20000;
             /* background-color: red; */
@@ -43,7 +42,7 @@
         table {
             margin-left: 50px;
             z-index: 2000;
-            
+
         }
 
         tr {
@@ -119,7 +118,7 @@
         #suggestion {
             position: absolute;
             top: 108px;
-            left:450px;
+            left: 450px;
             width: 190px;
             /* height: 100px; */
             background-color: white;
@@ -127,25 +126,36 @@
             display: flex;
             flex-direction: column;
         }
-        #suggestion a{
-            color:#184A78;
-            margin:5px;
+
+        #suggestion a {
+            color: #184A78;
+            margin: 5px;
             text-decoration: none;
         }
-        #content-routes{
-            height:200px;
-            overflow:scroll;
+
+        #content-routes {
+            height: 200px;
+            overflow: scroll;
         }
-        .route_add_popup{
+
+        .route_add_popup {
             position: fixed;
-            top:200px;
-            width:100%;
-            height: 600px;
+            top: 200px;
+            width: 100%;
             /* background-color: blue; */
             z-index: 20000;
             visibility: hidden;
-            display:flex;
+            display: flex;
             justify-content: center;
+        }
+
+        .back_button {
+            position: absolute;
+            top: 520px;
+            left: 60px;
+            width: 70px;
+            height: 40px;
+            background-color:#184A78;
         }
     </style>
 </head>
@@ -190,11 +200,17 @@
 
         </div>
 
+        <button class="back_button" onclick="back_to_home()">
+            back
+        </button>
+
     </div>
 
     <div class="route_add_popup">
-        <!-- <?php require 'view_admin_routes_add_successfull.php'; ?> -->
+
     </div>
+
+
 
 
 
@@ -225,19 +241,19 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    for(i = 0 ; i < data.length ; i++){
+                    for (i = 0; i < data.length; i++) {
                         suggestion.innerHTML += `<a href="#"onclick="set_sales_rep('${data[i]['rep_id']}')">${data[i]['rep_id']}</a>`;
                     }
-                    if(rep_id.value == ""){
+                    if (rep_id.value == "") {
                         suggestion.innerHTML = ``;
                     }
-                    
+
                 });
-            
+
         }
 
         //set sales rep
-        const set_sales_rep = (rep_id) =>{
+        const set_sales_rep = (rep_id) => {
             rep_id_input.value = rep_id;
             suggestion.innerHTML = ``;
             console.log(rep_id);
@@ -299,19 +315,55 @@
                     route_add_popup.style.visibility = "visible";
                     route_add_popup.innerHTML = `<?php require 'view_admin_routes_add_successfull.php'; ?>`;
 
-                    
-                    if(data[0] == true){
-                        
+                    message_body = document.querySelector('.route_add_success_container');
+                    success_or_failed = document.getElementById('route_add_success_or_not');
+                    message_text_area = document.querySelector('.route_add_success_sub_div1');
+
+                    route_add_route_name = document.getElementById('route_add_success_route_name');
+                    route_add_destination = document.getElementById('route_add_success_destination')
+                    route_add_rep_id = document.getElementById('route_add_success_rep_id')
+
+                    confirmation = document.getElementById('route_add_confirm');
+
+                    if (data[0] == true) {
+
+                        message_body.style.backgroundColor = "green";
+                        success_or_failed.innerHTML = `SUCCESS`;
+                        message_text_area = "blue";
+
+                        confirmation.innerHTML = `Done`;
+
                         console.log('true');
-                    }
-                    else{
-                        
+                    } else {
+                        message_body.style.backgroundColor = "red";
+                        success_or_failed.innerHTML = `FAILED`;
+                        message_text_area = "yellow";
+
+                        confirmation.innerHTML = `Dismiss`;
+
                         console.log('false');
                     }
+
+                    route_add_route_name.innerHTML += `${data_set['route_name']}`;
+                    route_add_destination.innerHTML += `${data_set['destination']}`;
+                    route_add_rep_id.innerHTML += `${data_set['rep_id_input']}`;
+
+                    window.onclick = (event) => {
+                        if (event.target == confirmation) {
+                            route_add_popup.innerHTML = ``;
+                            route_name.value = "";
+                            rep_id_input.value = "";
+                            destination.value = "";
+                            route_add_popup.style.visibility = "hidden";
+                        }
+                    }
+
                     console.log(data_set);
                 });
-            
+
         }
+
+       
     </script>
 
 
