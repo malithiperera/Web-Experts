@@ -25,9 +25,9 @@ class register extends controller
 
         $send_mail_result = mail($to, $subject, $body, $header);
         if ($send_mail_result) {
-            echo "succuss";
+            return "succuss";
         } else {
-            echo "error";
+            return "error";
         }
     }
 
@@ -88,7 +88,8 @@ class register extends controller
     }
 
     //notice verified
-    public function verified_account(){
+    public function verified_account()
+    {
         $this->model('register_model');
         $url = $_GET['code'];
         $resultset = $this->model->email_verification($url);
@@ -97,8 +98,7 @@ class register extends controller
         if ($rowcount == 1) {
             $this->view->success = 1;
             $this->view->render('view_createpassword');
-        }
-        else{
+        } else {
             $this->view->success = 0;
             $this->view->render('view_createpassword');
         }
@@ -107,7 +107,7 @@ class register extends controller
     //to create new password
     public function createPassword()
     {
-            $this->view->render('view_createpassword');
+        $this->view->render('view_createpassword');
     }
 
 
@@ -164,5 +164,87 @@ class register extends controller
                 echo $this->view->added;
             }
         }
+    }
+
+
+
+    //beigin new employee adding process
+    public function reg_user()
+    {
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('register_model');
+
+        $data = [];
+
+        if ($get_data['position'] == 'admin') {
+            $result = $this->model->reg_admin(
+                $get_data['user_id'],
+                $get_data['name'],
+                $get_data['email'],
+                "",
+                sha1($get_data['email']),
+                "pending",
+                "admin",
+                $get_data['nic'],
+                $get_data['add'],
+                $get_data['dob'],
+                $get_data['tel'],
+                "0",
+                "0",
+                $get_data['type']
+            );
+
+            $data = [$result];
+            $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
+            array_push($data, $mail);
+        } elseif ($get_data['position'] == 'salesrep') {
+            $result = $this->model->reg_salesrep(
+                $get_data['user_id'],
+                $get_data['name'],
+                $get_data['email'],
+                "",
+                sha1($get_data['email']),
+                "pending",
+                "admin",
+                $get_data['nic'],
+                $get_data['add'],
+                $get_data['dob'],
+                $get_data['tel'],
+                "0",
+                "0",
+                $get_data['target']
+            );
+
+            $data = [$result];
+            $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
+            array_push($data, $mail);
+
+        } else {
+            $result = $this->model->reg_stockmanager($get_data['user_id'],
+            $get_data['name'],
+            $get_data['email'],
+            "",
+            sha1($get_data['email']),
+            "pending",
+            "admin",
+            $get_data['nic'],
+            $get_data['add'],
+            $get_data['dob'],
+            $get_data['tel'],
+            "0",
+            "0");
+
+            $data = [$result];
+            $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
+            array_push($data, $mail);
+        }
+
+
+
+
+        echo json_encode($data);
+        exit;
     }
 }

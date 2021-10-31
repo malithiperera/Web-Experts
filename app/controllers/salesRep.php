@@ -24,7 +24,8 @@ class salesRep extends controller{
 
     if(isset($_POST['submit'])){
         $this->model('register_model');
-        $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele);
+        $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, 
+        $type, $active, $nic, $address, $dob, $tele);
         if($this->view->added == 1){
             $this->send_mail($name, $email, $verificationCode);
             header('Location: http://localhost/web-Experts/public/admin/addEmployee?succuss='.true);   
@@ -86,7 +87,11 @@ public function achievements(){
     $this->view->render('view_rep_achievements');
 }
 public function customer_registration(){
+    $this->model('_2_salesrep_model');
+    $this->view->result=$this->model->select_route();
     $this->view->render('view_rep_customerRegistration');
+    
+    
 }
 public function customer_home(){
     $this->model('_2_salesrep_model');
@@ -102,12 +107,12 @@ public function returns(){
 }
 public function cashPayment(){
     $this->model('_2_salesrep_model');
-    $this->view->result=$this->model->cash_payment();
+    $this->view->result=$this->model->select_order();
     $this->view->render('view_rep_cash');
 }
 public function chequePayment(){
     $this->model('_2_salesrep_model');
-    $this->view->result=$this->model->cash_payment();
+    $this->view->result=$this->model->select_order();
     $this->view->render('view_rep_cheque');
 }
 public function profile(){
@@ -121,7 +126,10 @@ public function product_list(){
 public function place_order(){
     $this->view->render('test2');
 }
-public function add_cash(){
+
+// INSERT CASH PAYMENT
+
+public function add_cashPayment(){
     // echo $_POST['abc'];
     $orders_id = $_POST['orderId'];
     $total = $_POST['total'];
@@ -130,8 +138,21 @@ public function add_cash(){
     $this->model('_2_salesrep_model');
     $this->model->insert_cashPayment($orders_id,$total,$date);
     header("Location: http://localhost/web-Experts/public/salesRep/cashPayment");
+}
+
+// INSERT CHEQUE PAYMENT
+
+public function add_chequePayment(){
+    // echo $_POST['abc'];
+    $orders_id = $_POST['orderId'];
+    $total = $_POST['total'];
+    $date = $_POST['date'];
+    $bank = $_POST['bank'];
 
 
+    $this->model('_2_salesrep_model');
+    $this->model->insert_cashPayment($orders_id,$total,$date,$bank);
+    header("Location: http://localhost/web-Experts/public/salesRep/chequePayment");
 }
 
 public function view_notifications(){

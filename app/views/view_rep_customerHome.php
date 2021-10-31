@@ -113,7 +113,7 @@
                     <td>".$row['order_id']."</td>
                     <td>".$row['date']."</td>
                     <td>".$row['amount']."</td>
-                    <td><button>Cash</button>\r\r<button>Cheque</button></td>
+                    <td><button onclick=\"location.href='../salesRep/cashPayment';\">Cash</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick=\"location.href='../salesRep/chequePayment';\">Cheque</button></td>
                     
         </tr>";
             }

@@ -43,7 +43,7 @@ body{
     font-size: large;
   }
 
-#result{
+.result{
     color:#4FC3A1 ;
     font-weight: 800;
     font-size: x-large;

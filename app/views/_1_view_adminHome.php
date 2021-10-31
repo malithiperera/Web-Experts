@@ -216,11 +216,13 @@ if (!isset($_SESSION['username'])) {
 
         .search_salesrep {
             visibility: hidden;
+            z-index: 20000;
         }
-        .routes{
+
+        .routes {
             visibility: hidden;
         }
-        
+
         .charts {
             width: 1300px;
             height: 1000px;
@@ -237,20 +239,20 @@ if (!isset($_SESSION['username'])) {
         }
 
 
-        .sales-overview{
-            width:75%;
-            height:600px;
+        .sales-overview {
+            width: 600px;
+            height: 620px;
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            margin-right: 30px;
-          
+            /* margin-right: 30px; */
+
         }
 
         .user-reg {
             width: 600px;
-            /* height:400px; */
+            height: 600px;
             background-color: #fff;
-            margin-left: -100px;
+            /* margin-left: -100px; */
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 
         }
@@ -263,21 +265,21 @@ if (!isset($_SESSION['username'])) {
         }
 
         .growth {
-            width: 40%;
-            /* height:400px; */
+            width: 600px;
+            height:600px;
             background-color: #fff;
             color: black;
             display: flex;
             flex-direction: column;
-           margin-right:-50px;
+            margin-right: -50px;
             margin-left: 70px;
-            
-            padding:10px;
-
+            padding: 10px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-
         }
-
+        .growth table{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
         table {
             margin-top: 30px;
         }
@@ -314,14 +316,18 @@ if (!isset($_SESSION['username'])) {
         }
 
         .trans {
-            width: 1000px;
+            width: 620px;
             height: 600px;
             background-color: #fff;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            margin-left: 90px;
+            margin-left: 70px;
 
         }
-        
+
+        #columnchart_material {
+            margin-left: 50px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -340,7 +346,7 @@ if (!isset($_SESSION['username'])) {
             <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
             <a href="#" onclick="popup_message('.removeuser')"><i class="fas fa-user-minus fa-lg"></i></a>
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
-            <a href="../admin/notification"><i class="fas fa-bell fa-lg"></i></a>
+            <a href="#" onclick="popup_message('.routes')"><i class="fas fa-bell fa-lg"></i></a>
             <a href="../admin/profile"><i class="fas fa-user-alt fa-lg"></i></a>
             <a href="logout"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </div>
@@ -403,7 +409,7 @@ if (!isset($_SESSION['username'])) {
                 <div class="chart-up">
                     <div class="sales-overview">
                         <h3>Sales Overview</h3>
-                        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+                        <div id="chart_div" style="width: 550px; height: 500px;"></div>
 
                     </div>
                     <div class="growth">
@@ -473,18 +479,14 @@ if (!isset($_SESSION['username'])) {
                 <div class="chart-down">
                     <div class="user-reg">
                         <h3>Customer Registration </h3>
-                        <div id="barchart_values" style="width: 600px; height: 300px;"></div>
+                        <div id="barchart_values" style="width: 500px; height: 500px;"></div>
 
 
                     </div>
                     <div class="trans">
                         <h3>Transaction Summary </h3>
-                        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-
-
+                        <div id="columnchart_material" style="width: 500px; height: 500px;"></div>
                     </div>
-
-
 
                 </div>
 
@@ -508,7 +510,9 @@ if (!isset($_SESSION['username'])) {
     <div class="routes">
         <?php require 'view_admin_routes.php'; ?>
     </div>
-    
+
+
+
 
 
     <!-- scripts for side bar -->
@@ -607,7 +611,7 @@ if (!isset($_SESSION['username'])) {
                     popup_message.style.visibility = "hidden";
                     sidebar.style.opacity = "100%";
                     container.style.opacity = "100%";
-                    
+
                 }
             }
 
@@ -749,8 +753,8 @@ if (!isset($_SESSION['username'])) {
 
             var options = {
                 title: "Total customers",
-                width: 600,
-                height: 400,
+                width: 500,
+                height: 500,
                 bar: {
                     groupWidth: "95%"
                 },
@@ -763,8 +767,8 @@ if (!isset($_SESSION['username'])) {
         }
     </script>
 
-    <script> 
-         const back_to_home = () =>{
+    <script>
+        const back_to_home = () => {
             document.querySelector('.routes').style.visibility = "hidden";
             sidebar.style.opacity = "100%";
             container.style.opacity = "100%";
