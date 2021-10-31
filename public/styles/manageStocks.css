@@ -103,18 +103,24 @@ table {
 thead {
     background-color: #184A78;
     color: white;
-    text-align: left;
+    text-align: center;
+
+}
+td {
+    text-align: center;
 }
 .text_withRep {                                                     /* 'With Rep' text */
     position: relative;
     left: 5%;
 
 }
-.discount {                                                         /* 'Discount' division */
+.discount {   
+    /* background-color: rgb(202, 22, 112);                                                      'Discount' division */
     width: 50%;
     position: absolute;
     right: 0;
     top: 200px;
+    height: 40%;
     
 }
 .leg_discount {                                                     /* legend 'Discount' (text) */
@@ -144,11 +150,11 @@ thead {
     border-color: white;
 
 }
-.addamountAddBtn {                                                     /* submit btn of input text of + btn  */
+.addamountAddBtn {                                                  /* submit btn of input text of + btn  */
     width: 10%;
     height: 27%;
     border-radius: 5px;
-    background-color: #184A78;
+    background-color: #165692;
     visibility: hidden;
     position: absolute;
     bottom: 11%;
@@ -165,29 +171,41 @@ thead {
 
 }
 .removeStocksFieldset {                                             /* fieldset of the text box of "-" */
-    width: 80%;
+    width: 70%;
     height: 80%;
     border-radius: 10px;
     position: absolute;
-    left: 0%;
+    left: 7%;
     visibility: hidden;
     padding: 10PX 10px;
     background-color: #dddd;
 
 }
 .inputRemoveQuantity {                                              /* input text of " quantity " in " - " */
-    width: 70%;
+    width: 50%;
     position: absolute;
     left: 25%;
+    height: 15%;
 
 }
 .inputRemoveReason {                                                /* input text of " reason " in "-" */
-    width: 70%;
-    height: 40%;         
+    width: 50%;
+    height: 60%;         
     padding: 1px;
     align-items: center;
     position: absolute;
     left: 25%;
+    bottom: 5%;
+
+}
+.btn_submitRemove {                                                 /* submit remove */
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    width: 15%;
+    height: 30%;
+    background-color: #165692;
+    border-radius: 20%;
 
 }
 .div_currentPrice {                                                 /* division "current price" */
@@ -251,88 +269,67 @@ thead {
     border-radius: 10px;
 
 }
-.input_discount, .input_buy, .input_get {                           /* inputs of " percentage ", " buy ", "get " */
-    width: 10%;
-
-}
-.label_discount {                                                   /* lable of " percentage " */
-    position: absolute;
-    left: 6%;
-
-}
-.input_discount {
-    position: absolute;
-    left: 30%;
-    border-radius: 10px;
-    border-color: #f3f3f3;
-    background-color: #dddd;
-    
-}
-.input_buy {
-    position: absolute;
-    left: 45%;
-    top: 75%;
-
-}
-.label_get {
-    position: absolute;
-    right: 30%;
-    top: 77%;
-
-}
-.input_get {
-    position: absolute;
-    right: 12%;
-    top: 75%;
-
-}
-.label_buy {                                                        /* lable of " buy " */
-    position: absolute;
-    right: 60%;
-    top: 77%;
-
-}
-.input_buy, .input_get {
-    border-color: white;
-    background-color: #dddd;
-    border-radius: 10px;
-
-}
-.lable_newDiscount {
-    position: absolute;
-    left: 6%;
-
-}
-.div_currentDiscount {                                              /* division "current discount" */
-    background-color: rgb(184, 143, 32);
-    width: 80%;
-    height: 40%;
+.div_currentDiscount {                                          /* current discount division */
+    font-size: x-large;
     position: relative;
+    height: 15%;
+    /* background-color: #165692; */
+    padding: 4%;
+    width: 82%;
+
 }
-.div_newDiscount {                                                  /* division "new discount" */
-    background-color: lightcoral;
-    width: 80%;
-    height: 40%;
+.div_newDiscount {                                              /* new discount division */
+    font-size: x-large;
     position: relative;
+    /* position: absolute; */
+    top: 0%;
+    background-color: #dddd;
+    visibility: hidden;
+    height: 20%;
+    padding: 5%;
+    width: 75%;
 
 }
-.label_currentDiscount, .label_newDiscount {                        /* labels of "current discount" and "new discount" */
-    position: absolute;
-    left: 5%;
+.label_currentDiscount {                                        /* current discount label */    
 
 }
-.input_currentDiscount, .input_newDiscount {                        /* input fields of "current discount" and "new discount" */
-    position: absolute;
-    left: 35%;
+.label_newDiscount {                                            /* new discount label */
+    /* visibility: hidden; */
 
 }
-.changeDiscountBtn {                            
+.input_currentDiscount {                                        /* current discount input */
     position: absolute;
-    left: 60%;
+    left: 38%;
+    height: 32%;
+    width: 20%;
+
 
 }
-.updateDiscountBtn {
+.input_newDiscount {                                            /* new discount input */
     position: absolute;
-    left: 60%;
+    left: 40%;
+    height: 27%;
+    /* visibility: hidden; */
+    width: 22%;
+
+}
+.btn_changeDiscount {                                           /* change discount btn */
+    position: absolute;
+    right: 15%;
+    height: 39%;
+    width: 20%;
+    background-color: #165692;
+    color: aliceblue;
+    border-radius: 10px;
+
+}
+.btn_updateDiscount {                                           /* update discount */
+    position: absolute;
+    right: 10%;
+    height: 31%;
+    width: 22%;
+    background-color: #165692;
+    color: aliceblue;
+    border-radius: 10px;
 
 }

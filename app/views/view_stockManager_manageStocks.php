@@ -28,7 +28,8 @@
 
                 <div>
                     <input class="inputAdd" type="text" id="inputAdd" placeholder=" Enter Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn"><i class="fas fa-calendar-check"></i></i></button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()"><i class="fas fa-calendar-check"></i></i></button>
+
                 </div>
 
             </div>
@@ -41,6 +42,8 @@
                     <label class="removeReason" for="removeReason">Reason</label>
                     <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder=" Type Reason">
 
+                    <button class="btn_submitRemove" onclick="showHideRemove ()"><i class="fas fa-check"></i></button>
+
                 </fieldset>
 
             </div>
@@ -48,7 +51,9 @@
             <div class="div_currentPrice">
                 <label class="label_currentPrice" for="currentPrice"><b>Current Price</b></label>
                 <input class="input_currentPrice" type="text" name="currentPrice" id="currentPrice" value="Rs.">
+
                 <script src="../../public/java script/manageStocks.js"></script>
+
                 <button class="btn_change" onclick="showHideNewPrice ()">Change</button>
 
             </div>
@@ -56,7 +61,10 @@
             <div class="div_newPrice" id="newPrice">
                 <label class="label_newPrice" for="newPrice"><b>New Price</b></label>
                 <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="Rs.">
-                <button class="btn_update">Update</button>
+
+                <script src="../../public/java script/manageStocks.js"></script>
+
+                <button class="btn_update" onclick="showHideNewPrice ()">Update</button>
 
             </div>
 
@@ -104,22 +112,26 @@
             </div>
 
             <div class="discount">
-                <fieldset class="fieldSet_discount">
-                    <legend class="leg_discount">Discount</legend>
-                    <div class="div_currentDiscount">
-                        <label for="currntDiscount" class="label_currentDiscount">Current discount</label>
-                        <input type="text" class="input_currentDiscount">
-                        <button class="changeDiscountBtn">Change</button>
+                <h2>Discount</h2>
+                <div class="div_currentDiscount">
+                    <label class="label_currentDiscount" for="currentDiscount">Current discount</label>
+                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount">
 
-                    </div>
-                    <!-- <div class="div_newDiscount">
-                        <label for="newDiscount" class="label_newDiscount">New discount</label>
-                        <input type="text" name="newDiscount" id="newDiscount" class="input_newDiscount">
-                        <button class="updateDiscountBtn">Update</button>
+                    <script src="../../public/java script/manageStocks.js"></script>
 
-                    </div> -->
+                    <button class="btn_changeDiscount" onclick="showHideNewDiscount ()">Change</button>
 
-                </fieldset>
+                </div>
+
+                <div class="div_newDiscount" id="div_newDiscount">
+                    <label class="label_newDiscount" for="newDiscount">New discount</label>
+                    <input class="input_newDiscount" type="text" name="newDiscount" id="newDiscount">
+
+                    <script src="../../public/java script/manageStocks.js"></script>
+
+                    <button class="btn_updateDiscount" onclick="showHideNewDiscount ()">Update</button>
+
+                </div>
             </div>
 
         </fieldset>
