@@ -217,7 +217,10 @@ if (!isset($_SESSION['username'])) {
         .search_salesrep {
             visibility: hidden;
         }
-
+        .routes{
+            visibility: hidden;
+        }
+        
         .charts {
             width: 1300px;
             height: 1000px;
@@ -318,14 +321,7 @@ if (!isset($_SESSION['username'])) {
             margin-left: 90px;
 
         }
-        .routes{
-            position:fixed;
-            width:100%;
-            top:20px;
-            display:flex;
-            justify-content: center;
-            z-index: 10000;
-        }
+        
     </style>
 </head>
 
@@ -356,7 +352,7 @@ if (!isset($_SESSION['username'])) {
             <a href="../admin/viewReport">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>
             <a href="#" onclick="popup_message('.removeuser')">REMOVE USER</a>
-            <a href="../admin/routes">ROUTES</a>
+            <a href="#" onclick="popup_message('.routes')">ROUTES</a>
             <a href="../admin/notification">NOTIFICATION</a>
             <a href="../admin/profile">PROFILE</a>
             <a href="logout">LOG OUT</a>
@@ -510,8 +506,9 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div class="routes">
-        <!-- <?php require 'view_admin_routes.php'; ?> -->
+        <?php require 'view_admin_routes.php'; ?>
     </div>
+    
 
 
     <!-- scripts for side bar -->
@@ -763,6 +760,14 @@ if (!isset($_SESSION['username'])) {
             };
             var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
             chart.draw(view, options);
+        }
+    </script>
+
+    <script> 
+         const back_to_home = () =>{
+            document.querySelector('.routes').style.visibility = "hidden";
+            sidebar.style.opacity = "100%";
+            container.style.opacity = "100%";
         }
     </script>
 </body>

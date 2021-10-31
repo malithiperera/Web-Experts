@@ -40,7 +40,7 @@ require 'view_headertype2.php';
 <div class="card"> 
      <div class="card-image"><img src="<?php echo $image_name; ?>" alt="" ></div>
      <h2><?php echo $data['product_name'] ?></h2>
-     <p>Product Id:<?php echo $data['product_id'] ?></p>
+     <p><span class="topic"> Id:</span><?php echo $data['product_id'] ?></p>
      <p><?php echo $data['description'] ?></p>
      <p>Rs.<?php echo $data['price'] ?></p>
  </div>

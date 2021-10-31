@@ -93,6 +93,38 @@
 
       </div>
     </section>
+    <h2>DELIVERED</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Amount</th>
+            <th >Pay Now</th>
+
+          </tr>
+        </thead>
+        <?php
+        if($this->result->num_rows>0){
+          while($row=$this->result->fetch_assoc()){
+            if($row['status']=="D"){
+            echo"<tr>
+                    <td>".$row['order_id']."</td>
+                    <td>".$row['date']."</td>
+                    <td>".$row['amount']."</td>
+                    <td><button>Cash</button>\r\r<button>Cheque</button></td>
+                    
+        </tr>";
+            }
+
+            }
+          }
+        
+      ?>
+        
+      </table>
+    </div>
     <h2>NOT DELIVERED</h2>
     <div class="table-wrapper">
       <table class="fl-table">
@@ -105,104 +137,19 @@
           </tr>
         </thead>
         <?php
-        if($this->result->num_rows>0){
-          while($row=$this->result->fetch_assoc()){
+        if($this->result1->num_rows>0){
+          while($row=$this->result1->fetch_assoc()){
+            if($row['status']=="not-delivered"){
             echo"<tr>
                     <td>".$row['order_id']."</td>
                     <td>".$row['date']."</td>
                     <td>".$row['amount']."</td>
                   </tr>";
           }
-        }
-      ?>
-        <!-- <tbody>
-        <tr>
-            
-            <td >14501</td>
-            <td>2021.01.17</td>
-            <th>15000</th>
-            
-        </tr>
-        
-        <tr>
-          <td >23571</td>
-          <td>2021.02.14</td>
-          <th>25000</th>
-          
-      </tr>
-      
-      <tr>
-        <td >27121</td>
-        <td>2021.03.07</td>
-        <th>17000</th>
-    </tr>
-    
-    <tr>
-      <td>29261</td>
-      <td>2021.04.16</td>
-      <th>15300</th>
-  </tr>
- 
-  <tr>
-    <td>32561</td>
-    <td>2021.05.20</td>
-    <th>12000</th>
-</tr>
-
-<tr>
-  <td>33256</td>
-  <td>2021.06.26</td>
-  <th>22000</th>
-</tr>
-
-        <tbody> -->
-      </table>
-    </div>
-    <h2>DELIVERED</h2>
-    <div class="table-wrapper">
-      <table class="fl-table">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Order Date</th>
-            <th>Amount</th>
-
-          </tr>
-        </thead>
-        <?php
-        if($this->result->num_rows>0){
-          while($row=$this->result->fetch_assoc()){
-            echo"<tr>
-                    <td>".$row['order_id']."</td>
-                    <td>".$row['orders_date']."</td>
-                    <td>".$row['amount']."</td>
-                  </tr>";
           }
         }
       ?>
-        <!-- //       <tbody>
-//         <tr>
-            
-//             <td >10256</td>
-//             <td>2020.05.23</td>
-//             <th>15000</th>
-            
-//         </tr>
-        
-//         <tr>
-//           <td >10456</td>
-//           <td>2020.06.12</td>
-//           <th>25000</th>
-          
-//       </tr>
-
-// <tr>
-//   <td>12997</td>
-//   <td>2020.09.16</td>
-//   <th>22000</th>
-// </tr>
-
-// </tbody>  -->
+       
       </table>
     </div>
     <div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>

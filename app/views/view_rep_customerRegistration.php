@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +57,7 @@
                 </div>
 
 
-                <div class="input-fields"><input type="submit" value="Confirm" id="confirm" name="submit"></div>
+                <div class="input-fields"><input type="submit" value="Confirm" id="confirm" name="submit" onsubmit="validate()"></div>
         </div>
         </form>
 

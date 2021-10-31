@@ -55,7 +55,7 @@ nav h3{
 }
 nav ul{
     float: right;
-    margin-right: 25px;
+    margin-right: 100px;
     list-style: none;
    
 }
@@ -189,8 +189,8 @@ i{
 <!--Navigation-->
     <nav>
       
-        <h1>Himalee Dairy Produts</h1>
-        <h3>Everyone Needs Milk. Dairy always a Good Choice</h3>
+        <!-- <h1>Himalee Dairy Produts</h1>
+        <h3>Everyone Needs Milk. Dairy always a Good Choice</h3> -->
         <ul>
          
             <li><a href=""><i class="fas fa-arrow-left"></i></a></li>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
 :root{
@@ -8,7 +9,7 @@
 }
 
 *{
-   font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins" , sans-serif;
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border:none;
@@ -158,13 +159,14 @@ h1 {
     display: flex;
     align-items: center;
     position: relative;
-    background:url(
+    /* background:url(
         "../../public/images/homes.jpg") no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #184A78;
     background-position: center;
 }
 .home:hover{
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 .home .content{
     max-width: 60rem;
@@ -174,17 +176,21 @@ h1 {
     font-size: 6rem;
     text-transform: uppercase;
     color:transparent;
-   color:#184A78;
+   color:#fff;
     text-transform: uppercase;
 }
 
+.home .content h1{
+    color: #fff;
+}
 
 .home .content p{
     font-size: 2rem;
-    font-weight: lighter;
+    font-weight: 700;
     line-height: 1.8;
     padding:1rem 0;
     color:#eee;
+    font-style: italic;
 }
 
 .home .btn{
@@ -418,7 +424,7 @@ align-items: center;
     text-transform: none;
     background:none;
 }
-.content .centertext h1 {
+.welcome .content .centertext h1 {
     text-align: center;
     font-size: 60px;
     color: #184A78;;
