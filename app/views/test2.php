@@ -201,7 +201,7 @@
                 <input type="text" id="discount" placeholder="discount">
                 <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
                 <input type="text" id="total_price" placeholder="total price">
-                <button onclick="add_product()">Add</button>
+                <button onclick="add_product()"><i class="fas fa-cart-plus"></i>Add</button>
             </div>
 
 
@@ -214,6 +214,7 @@
                             <th>Discount</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
+                            <th>Change</th>
                         </thead>
                         <tbody id="new_product">
 
@@ -307,10 +308,10 @@
         }
 
         function add_product() {
-            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td></tr>';
+            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + tot_price_input.value + '</td></tr>';
 
             product_name_input.value = '';
-            unit_price_input.value = '';
+            unit_price_input.value = '';         
             discount_input.value = '';
             quantity_input.value = '';
             tot_price_input.value = '';
@@ -330,7 +331,6 @@
 
         function confirmation_message() {
             confirm_message.style.visibility = "visible";
-
         }
 
         function place_order() {

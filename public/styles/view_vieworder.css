@@ -117,19 +117,23 @@ button i{
 
 .edit{
     color: rgb(255, 255, 255);
-    background-color: green;
+    background-color: rgb(84,206,98);
     /* border: 1px solid black; */
-    width: 60px;
+    width: 100px;
     padding: 5px;
     border-radius: 5px;
+    outline: none;
+    border: none;
   }
   
   .delete{
-    background-color: red;
-    width: 60px;
+    background-color: rgb(220,53,69);
+    outline: none;
+    width: 100px;
     color: #fff;
     padding: 5px;
     border-radius: 5px;
+    border: none;
   
   }
 .save{

@@ -282,6 +282,18 @@ class admin extends controller{
 
     }
 
+    //delete route
+    public function delete_route(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->delete_route($get_data['route_id']);
+
+        echo json_encode($result);
+        exit;
+    }
+
 }
 
 ?>

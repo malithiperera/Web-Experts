@@ -124,4 +124,18 @@ class _1_admin_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    //delete route
+    public function delete_route($route_id){
+
+        require '../app/core/database.php';
+
+        $sql = "UPDATE route
+                SET deleted = 1
+                WHERE
+                route_id = '$route_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
+
 }
