@@ -201,7 +201,7 @@
                 <input type="text" id="discount" placeholder="discount">
                 <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
                 <input type="text" id="total_price" placeholder="total price">
-                <button onclick="add_product()">Add</button>
+                <button onclick="add_product()"><i class="fas fa-cart-plus"></i>Add</button>
             </div>
 
 
@@ -214,6 +214,7 @@
                             <th>Discount</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
+                            <th>Change</th>
                         </thead>
                         <tbody id="new_product">
 
