@@ -47,14 +47,27 @@ class _2_salesrep_model extends model
     //     $result = $conn->query($sql);
     //     return $result;
     // }
+    
+    // CASH,CHEQUE PAYMENT ORDER SELECT DROP DOWN
 
-    public function cash_payment()
+    public function select_order()
     {
         require '../app/core/database.php';
         $sql = "SELECT order_id FROM orders WHERE status='D'";
         $result = $conn->query($sql);
         return $result;
     }
+
+    // CASH,CHEQUE PAYMENT ORDER SELECT DROP DOWN
+
+    public function select_route()
+    {
+        require '../app/core/database.php';
+        $sql = "SELECT * FROM route";
+        $result = $conn->query($sql);
+        return $result;
+    }
+
     public function order_amount($id)
     {
         require '../app/core/database.php';
@@ -62,6 +75,9 @@ class _2_salesrep_model extends model
         $result = $conn->query($sql);
         return $result;
     }
+
+    // INSERT CASH PAYMENT
+
     public function insert_cashPayment($order_id, $total, $date)
     {
         require '../app/core/database.php';
@@ -76,6 +92,24 @@ class _2_salesrep_model extends model
             return mysqli_error($conn);
         };
     }
+
+    // INSERT CHEQUE PAYMENT
+
+    public function insert_chequePayment($order_id, $total, $date)
+    {
+        require '../app/core/database.php';
+        //insert query
+        $sql = "INSERT INTO payment (amount, order_id, date,type,delivery_id,time)
+        VALUES ('$total','$order_id','$date','cheque','1',CURDATE())";
+        $sql1 = "UPDATE orders SET status='pending' WHERE order_id=$order_id";
+        $result = $conn->query($sql1);
+        if (mysqli_query($conn, $sql) == TRUE) {
+            return 1;
+        } else {
+            return mysqli_error($conn);
+        };
+    }
+
     public function daily_productList()
     {
         require '../app/core/database.php';
