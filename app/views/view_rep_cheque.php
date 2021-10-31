@@ -19,6 +19,8 @@
   <div class="container">
     <div class="sub-container">
       <div class="title1">Cheque Payment</div>
+
+      <form class="new" method="post" action="add_chequePayment">
       <div class="input-fields"><label for="order">Order</label><div class="radio">
             <select id="orders" onchange="selectOrder()">
             <?php
@@ -44,9 +46,10 @@
       </div>
       <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
     </div>
-    <!-- <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div> -->
+    
   </div>
   <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
+
   <script>function selectOrder(){
     var x = document.getElementById("orders").value;
     // document.getElementById("total").value=x;

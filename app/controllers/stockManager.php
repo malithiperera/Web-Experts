@@ -39,15 +39,15 @@ class stockManager extends controller {
 
     public function details_of_product(){
 
-        $get_data = file_get_contents('php://input');
-        $get_data = json_decode($get_data, true);
+        $get_data = file_get_contents('php://input');           // Get the value come from view
+        $get_data = json_decode($get_data, true);               // decode json object
 
         $this->model('_4_stockmanager_model');
-        $result = $this->model->product_details($get_data['product_id']);
+        $result = $this->model->product_details($get_data['product_id']);       // get the result from the model
 
         // $data = ['dineth'];
 
-        echo json_encode($result->fetch_assoc());
+        echo json_encode($result->fetch_assoc());               // send result accoc. array to the view
         exit;
     }
 

@@ -21,8 +21,8 @@
     <div class="sub-container">
       <div class="title1">Cash Payment</div>
 
-      <form class="new" method="post" action="add_cash">
-        <div class="input-fields"><label for="order">Order</label>
+      <form class="new" method="post" action="add_cashPayment">
+        <div class="input-fields"><label for="order">Order ID</label>
           <div class="radio">
             <select id="orders" name="orderId" onchange="selectOrder()">
               <?php
@@ -47,11 +47,14 @@
     
   </div>
   <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
+
+
   <script>
 document.getElementById("confirm").addEventListener("click", function() {
   alert("Payment Succesfull!");
 });
 </script>
+
   <script>
     function selectOrder() {
       var x = document.getElementById("orders").value;

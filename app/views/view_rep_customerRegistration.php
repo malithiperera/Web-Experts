@@ -11,8 +11,9 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CusReg.css">
+    <!-- <link rel="stylesheet" href="CusReg.css"> -->
     <link rel="stylesheet" href="../../public/styles/view_customer_registration.css">
+    
     <title>CustomerRegistration</title>
 </head>
 
@@ -52,8 +53,22 @@ if (!isset($_SESSION['username'])) {
                 <div class="input-fields"><label for="shopName">Shop Name</label><input type="text" name="shopName"
                         id="shopName" class="inputf">
                 </div>
-                <div class="input-fields"><label for="route">Route</label><input type="text" name="route" id="route"
-                        class="inputf">
+                <div class="input-fields"><label for="shopName">NIC</label><input type="text" name="shopName"
+                        id="nic" class="inputf">
+                </div>
+                <div class="input-fields"><label for="shopName">Tel</label><input type="text" name="shopName"
+                        id="tel" class="inputf">
+                </div>
+                <div class="input-fields"><label for="route">Route</label>
+                <select id="route" name="route" onchange="selectOrder()">
+                <?php
+                        if($this->result->num_rows>0){
+                                while($row=$this->result->fetch_assoc()){
+                                echo  "<option value='".$row['route_id']."'>".$row['route_name']."</option>";
+                                };
+                         }
+                 ?>
+                 </select>
                 </div>
 
 
@@ -63,6 +78,7 @@ if (!isset($_SESSION['username'])) {
 
     </div>
     <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
+    
 </body>
 
 </html>
