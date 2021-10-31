@@ -13,6 +13,7 @@ class register_model extends model
     {
 
         require '../app/core/database.php';
+        // echo $user_id .$name. $email. $verificationCode.$type. $active. $nic. $address. $dob. $tele.$target.$level.$shop. $route ;
         $sql1 = "INSERT INTO user (user_id, name, email, verification_code, type, active, nic, address, dob, tel)
                 VALUES ('$user_id', '$name', '$email', '$verificationCode', '$type', '$active', '$nic', '$address', '$dob', '$tele');";
 
