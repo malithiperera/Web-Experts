@@ -39,7 +39,7 @@ public function add_product()
                  $result=$this->model->add_product($id,$name,$des,$price,$fileName,$cat);
                  
             if($result){
-                $error= "Record Successfuly added";
+                $error= 1;
                 $_SESSION["error"] = $error;
                 $this->view->render('view_stockmanager_addproduct');
                
@@ -47,10 +47,8 @@ public function add_product()
           
             }
             else{
-                $error = "File upload failed, please try again.";
+                $error = 0;
                 $_SESSION["error"] = $error;
-               
-              
                
             } 
 }
