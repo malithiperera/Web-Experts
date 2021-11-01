@@ -369,8 +369,8 @@ table {
 
 }
 thead th {
-    text-align: left;           /* allign th in to left*/
-    background-color: #2277B2;
+    text-align: center;           /* allign th in to left*/
+    background-color: #184A78;
     color: #fff;
 
 }
@@ -395,19 +395,18 @@ th, td {
 } */
 button {
     font-size: large;
-    background-color: #2277B2;
+    background-color: #184A78;
     width: 100px;
     height: 40px;
     position: absolute;
     left:  10%;
     border-radius: 10px;
-    background-color: #2277B2;
-    border-color: #2277B2;
+    border-color: #184A78;
     color: #FFF;
     
 }
 
-tbody tr:nth-of-type(odd) {
+tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 
 }
@@ -420,4 +419,8 @@ a {
   text-decoration: none;
   color: black;
 
+}
+tr {
+  text-align: center;
+  
 }

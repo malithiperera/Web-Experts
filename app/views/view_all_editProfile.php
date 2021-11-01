@@ -1,4 +1,11 @@
+<<<<<<< HEAD
+<?php
+//  if(!isset($_SESSION['username'])){
+//      header("Location:http://localhost/web-Experts/public/login/index");
+//  }
+=======
 
+>>>>>>> 9903c35c77860edff13362e8fd0d1883ecea2fda
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +30,7 @@
         }
         .container{
             position: relative;
-            top: 120px;
+            top: 180px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -156,7 +163,7 @@
             background-color: #184A78;
             width: 200px;
             height: 40px;
-            
+            font-size: 20px;
             margin-top: 5px;
             border-radius: 5px;
            
@@ -195,6 +202,7 @@
             <div class="subcontainer1">
             <div class="photo"><img src="../../public/images/profile.png" alt=""> </div>
             <div class="name">
+               <?php session_start();?>  
                 <p><?php echo $_SESSION['username'] ;?></p>
     </div>
             </div>
@@ -238,9 +246,9 @@
     </form>
 
 
-    <div class="pop-up-alert">
+    <!-- <div class="pop-up-alert">
         
-    </div>
+    </div> -->
     <script>
         function name_change(){
             document.getElementById('name').removeAttribute('readonly');
@@ -270,8 +278,8 @@
         window.onclick = function(event) {
   if (event.target == name) {
     document.getElementById('address').classList.remove("editclass");
-    //   // sidebar.style.opacity = "100%";
-    //   blur.style.opacity = "100%";
+         sidebar.style.opacity = "100%";
+         blur.style.opacity = "100%";
   }
 }
 

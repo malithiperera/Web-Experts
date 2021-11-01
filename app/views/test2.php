@@ -19,7 +19,24 @@
 
         }
 
+        html::-webkit-scrollbar {
+            width: .8rem;
+        }
 
+        html::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: #184A78;
+            border-radius: 2rem;
+        }
+
+        .subcontainer {
+            margin-left: -200px;
+            z-index: 10000;
+
+        }
 
         .subcontainer p {
             color: #184A78;
@@ -41,10 +58,13 @@
         } */
 
         .details input {
-            width: 100px;
-            height: 30px;
+            width: 200px;
+            height: 50px;
             border-radius: 10px;
-            text-align: center;
+            /* text-align: center; */
+            outline: none;
+            font-size: 25px;
+            border: none;
         }
 
         /* .route_id {
@@ -86,6 +106,7 @@
             height: 40px;
             border-radius: 10px;
             text-align: center;
+
         }
 
         ul {
@@ -102,7 +123,8 @@
             top: 250px;
             display: flex;
             flex-direction: column;
-            margin-left: 10px;
+            width: 80%;
+            /* margin-left: 10px; */
         }
 
         th {
@@ -149,8 +171,13 @@
 
         .details label {
             font-weight: 800;
-            margin-left: 40px;
+            /* margin-left: 40px; */
             margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        .details i {
+            font-size: 25px;
         }
 
         .details input {
@@ -158,14 +185,71 @@
             font-size: 20px;
             color: green;
             margin-bottom: 20px;
+            font-size: 25px;
         }
+
+        #edit {
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            background: rgb(20, 176, 77);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            padding-top: 15px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #del {
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            background: rgb(220, 53, 69);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            padding-top: 15px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button i {
+            padding-right: 10px;
+        }
+
+        #add {
+            width: 150px;
+            font-size: 20px;
+        }
+
+        thead th {
+            color: #ffffff;
+            background: #4FC3A1;
+        }
+
+        thead th:nth-child(odd) {
+            color: #ffffff;
+            background: #184A78;
+        }
+
+        .order-table {
+            margin-right: 100px;
+        }
+
+        /* .detail_id{
+    width: 400px;
+    /* background-color: red; */
+        */
     </style>
 
 </head>
 
 <body>
 
-    
+
     <?php require 'view_headerType2.php'; ?>
 
     <div class="container">
@@ -173,20 +257,27 @@
         <div class="subcontainer">
 
             <div class="details">
-                <div class="user_id">
-                    <label for="">User Id : </label>
+                <div class="detail_id">
+                    <i class="fas fa-house-user"></i>
+                    <label for="">Customer Id : </label>
                     <input type="text" id="user_id" readonly>
                 </div>
 
-                <div class="route_id">
+                <div class="detail_id">
+                    <i class="fas fa-map-marker-alt"></i>
                     <label for="">Route Id : </label>
                     <input type="text" id="route_id" readonly>
+                </div>
+                <div class="detail_id">
+                    <i class="fas fa-store"></i>
+                    <label for="">Shop Name: </label>
+                    <input type="text" id="shop_name" readonly>
                 </div>
 
             </div>
 
 
-            <p>Insert Product to Bill...</p>
+            <h2>Insert Product to bill</h2>
 
             <div class="data_form">
                 <div class="serach_product">
@@ -202,11 +293,12 @@
                 <input type="text" id="discount" placeholder="discount">
                 <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
                 <input type="text" id="total_price" placeholder="total price">
-                <button onclick="add_product()"><i class="fas fa-cart-plus"></i>Add</button>
+                <button onclick="add_product()" id="add"><i class="fas fa-cart-plus"></i>Add</button>
             </div>
 
 
             <div class="content">
+                <h3>Invoice</h3>
                 <div class="table-content">
                     <table id="order_table">
                         <thead>
@@ -215,7 +307,7 @@
                             <th>Discount</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
-                            <th>Change</th>
+                            <th colspan="2">Change</th>
                         </thead>
                         <tbody id="new_product">
 
@@ -290,6 +382,7 @@
         let total_of_all_prices = document.getElementById('total_of_all_prices');
         let user_id = document.getElementById('user_id');
         let route_id = document.getElementById('route_id');
+        let shop_name = document.getElementById('shop_name');
         let confirm_message = document.getElementById('confirm_message');
         let done = document.querySelector('.button-pop');
         let order_id = document.getElementById('order_id');
@@ -309,7 +402,7 @@
         }
 
         function add_product() {
-            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + tot_price_input.value + '</td></tr>';
+            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + '<button id="edit"><i class="fas fa-pen"></i>Edit</button> ' + '</td><td>' + '<button id="del"><i class="fas fa-trash-alt"></i>Delete</button> ' + '</td></tr>';
 
             product_name_input.value = '';
             unit_price_input.value = '';
@@ -394,6 +487,7 @@
                     console.log(data);
                     user_id.value = data[0];
                     route_id.value = data[1].route_id;
+                    shop_name.value = data[1].shop_name;
                 });
         }
 
