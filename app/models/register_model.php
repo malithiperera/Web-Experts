@@ -68,7 +68,7 @@ class register_model extends model
         require '../app/core/database.php';
         $newPassword_hash=sha1($newPassword);
         $sql = "UPDATE user SET password = '$newPassword_hash', active = 'active', verification_code = 0 WHERE verification_code = '$global_url'";
-        if ($conn->query($sql) === TRUE) {
+        if (mysqli_query($conn, $sql) == true) {
             return 1;
         } else {
             return 0;
