@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
     <title>forget</title>
@@ -15,21 +16,34 @@
             top: 250px;
             width: 100%;
             display: flex;
-            justify-content: center;
-        }
+            justify-content: center;}
+           
 
-        .success_failed_message {}
+        .success_failed_message {
+            border-radius: 10px;
+        }
 
         .sub_div1 {
             width: 400px;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
             height: 80px;
-            background-color: red;
+            background-color: #5DA423;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+           
         }
-
+.sub_div1 i{
+    font-size: 50px;
+    margin-top: 10px;
+}
         .sub_div2 {
             width: 400px;
             height: 200px;
-            background-color: green;
+            border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+            background-color: rgb(200, 198, 198);
             display: flex;
             justify-content: center;
         }
@@ -46,15 +60,22 @@
         }
 
         #done_button {
-            width: 50px;
-            height: 30px;
-            background-color: blue;
+            width: 100px;
+            height: 40px;
+            background-color: #5DA423;
+            outline: none;
+            border:none;
+            font-size: 20px;
+            cursor: pointer;
             /* margin-top: 160px;
             margin-left: 170px; */
             color: white;
         }
         #form{
             opacity: 20%;
+        }
+        #verified{
+            text-align: center;
         }
     </style>
 
@@ -91,10 +112,12 @@
     <div class="success_failed">
         <div class="success_failed_message">
             <div class="sub_div1">
-
+            <i class="far fa-check-circle"></i>
             </div>
             <div class="sub_div2">
+                
                 <div class="details">
+                <h3 id='verified'>Account Verified Success!!</h3><br>
                     <div class="sub">
                         <p id="name">Name : </p>
                     </div>

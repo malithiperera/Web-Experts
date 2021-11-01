@@ -212,6 +212,7 @@ if (!isset($_SESSION['username'])) {
 
         .removeuser {
             visibility: hidden;
+            z-index: 20000;
         }
 
         .search_salesrep {

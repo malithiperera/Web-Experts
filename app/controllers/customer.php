@@ -127,7 +127,7 @@ class customer extends controller
 
    public function view_notification()
    {
-       $this->view->render('view_customer_side');
+       $this->view->render('view_all_notification');
    }
     
     public function profile()
@@ -219,4 +219,30 @@ class customer extends controller
 
 
     }
+
+    public function view_orders_deliver()
+    {
+        $this->view->render('view_order_deliver');
+    }
+
+
+    public function view_orders_deliver_pending()
+    {
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_3_customer_model');
+        $result = $this->model->fill_pending_order_table($get_data['order_id']);
+
+        $data = [];
+
+        while($row = $result->fetch_assoc()){
+            array_push($data, $row);
+        }
+
+        echo json_encode($data);
+        exit;
+    }
+
+
 }
