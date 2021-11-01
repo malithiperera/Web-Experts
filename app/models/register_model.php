@@ -118,10 +118,13 @@ class register_model extends model
     public function reg_salesrep($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $target){
         require '../app/core/database.php';
 
-        $sql1 = "INSERT INTO user VALUES ($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online)";
+        $sql1 = "INSERT INTO user 
+                VALUES 
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
         $result1 = mysqli_query($conn, $sql1);
 
-        $sql2 = "INSERT INTO sales_rep VALUES ($user_id, $target)";
+        $sql2 = "INSERT INTO sales_rep VALUES ('$user_id', '$target')";
+
         $result2 = mysqli_query($conn, $sql2);
 
         if($result1 == true && $result2 == true){
@@ -135,10 +138,12 @@ class register_model extends model
     public function reg_stockmanager($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online){
         require '../app/core/database.php';
 
-        $sql1 = "INSERT INTO user VALUES ($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online)";
+       $sql1 = "INSERT INTO user 
+                VALUES 
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
         $result1 = mysqli_query($conn, $sql1);
 
-        $sql2 = "INSERT INTO stockmanager VALUES ($user_id)";
+        $sql2 = "INSERT INTO stockmanager VALUES ('$user_id')";
         $result2 = mysqli_query($conn, $sql2);
 
         if($result1 == true && $result2 == true){

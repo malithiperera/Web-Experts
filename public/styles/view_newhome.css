@@ -137,6 +137,8 @@ h1 {
     background-size: cover;
     background-color: #1a3e61;
     background-position: center;
+    /* background:url(
+        "../../public/images/7197.jpg") no-repeat; */
 }
 .home-main{
     display: flex;
@@ -146,8 +148,9 @@ h1 {
 
 .home-img{
     height: 90vh;
-     background:url(
-        "../../public/images/log3.png") no-repeat;
+   
+     /* background:url(
+        "../../public/images/log3.png") no-repeat; */
         width: 50%;
         background-size: cover;
 
@@ -156,8 +159,10 @@ h1 {
 .up-photo{
     width: 100%;
    background-size: cover;
-    background:url(
-        "../../public/images/log4.png") no-repeat;
+   margin-bottom: -80px;
+    /* background:url(
+        
+        "../../public/images/login.png") no-repeat; */
 }
 .home:hover{
     transform: scale(1.01);
