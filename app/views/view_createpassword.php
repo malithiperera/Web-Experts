@@ -9,6 +9,55 @@
 
     <title>forget</title>
     <link rel="stylesheet" href="../../public/styles/view_forgetpassword.css">
+    <style>
+        .success_failed {
+            position: fixed;
+            top: 250px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .success_failed_message {}
+
+        .sub_div1 {
+            width: 400px;
+            height: 80px;
+            background-color: red;
+        }
+
+        .sub_div2 {
+            width: 400px;
+            height: 200px;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+        }
+
+        .details {
+            /* width: 100px; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub {
+            margin-top: 8px;
+            align-self: center;
+        }
+
+        #done_button {
+            width: 50px;
+            height: 30px;
+            background-color: blue;
+            /* margin-top: 160px;
+            margin-left: 170px; */
+            color: white;
+        }
+        #form{
+            opacity: 20%;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -40,9 +89,66 @@
     </div>
 
     <div class="success_failed">
-        
+        <div class="success_failed_message">
+            <div class="sub_div1">
+
+            </div>
+            <div class="sub_div2">
+                <div class="details">
+                    <div class="sub">
+                        <p id="name">Name : </p>
+                    </div>
+                    <div class="sub">
+                        <p id="user_id">User Id : </p>
+                    </div>
+                    <div class="sub">
+                        <p id="email">Email : </p>
+                    </div>
+                    <div class="sub">
+                        <button id="done_button" onclick="done()">Done..</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
     </div>
     <script src="../../public/java script/view_forgetpassword.js"></script>
+
+    <script>
+
+        let name = document.getElementById('name');
+        let user_id = document.getElementById('user_id');
+        let email = document.getElementById('email');
+
+        let form = document.getElementById('form');
+        let success_failed = document.querySelector('.success_failed');
+
+        let success = '<?php echo $this->success; ?>';
+
+        if (success == 1) {
+            let data_set_name = '<?php echo $this->data_set['name']; ?>';
+            let data_set_user_id = '<?php echo $this->data_set['user_id']; ?>';
+            let data_set_email = '<?php echo $this->data_set['email']; ?>';
+            
+            name.innerHTML += data_set_name;
+            user_id.innerHTML += data_set_user_id;
+            email.innerHTML += data_set_email;
+
+            console.log(data_set_name);
+        }
+        else{
+            name.innerHTML = '';
+            user_id.innerHTML = '';
+            email.innerHTML = '';
+        }
+
+        const done = () =>{
+            form.style.opacity = '100%';
+            success_failed.style.visibility = "hidden";
+        }
+    </script>
 
 </body>
 
