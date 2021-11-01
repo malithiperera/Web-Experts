@@ -30,9 +30,7 @@ if (!isset($_SESSION['username'])) {
         font-size: 30px;
     }
 
-    .main {
-        /* opacity: 20%; */
-    }
+    
 </style>
 
 

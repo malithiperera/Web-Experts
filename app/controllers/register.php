@@ -31,61 +31,61 @@ class register extends controller
         }
     }
 
-    public function employee_register()
-    {
+    // public function employee_register()
+    // {
 
 
-        $user_id = $_POST['userid'];
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $verificationCode = sha1($email);
-        $type = $_GET['user'];
-        $active = "pending";
-        $nic = $_POST['nic'];
-        $address = $_POST['add'];
-        $dob = $_POST['dob'];
-        $tele = $_POST['tel'];
-        $target = "";
-        $level = "";
+    //     $user_id = $_POST['userid'];
+    //     $name = $_POST['name'];
+    //     $email = $_POST['email'];
+    //     $verificationCode = sha1($email);
+    //     $type = $_GET['user'];
+    //     $active = "pending";
+    //     $nic = $_POST['nic'];
+    //     $address = $_POST['add'];
+    //     $dob = $_POST['dob'];
+    //     $tele = $_POST['tel'];
+    //     $target = "";
+    //     $level = "";
 
 
 
-        if ($type == 'admin') {
+    //     if ($type == 'admin') {
 
-            $level = $_POST['level'];
-        }
-        if ($type == 'rep') {
+    //         $level = $_POST['level'];
+    //     }
+    //     if ($type == 'rep') {
 
-            $target = $_POST['target'];
-        }
+    //         $target = $_POST['target'];
+    //     }
 
 
-        if (isset($_POST['submit'])) {
-            $this->model('register_model');
-            $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele, $target, $level);
-            if ($this->view->added == 1) {
-                $this->send_mail($name, $email, $verificationCode);
-                header('Location: http://localhost/web-Experts/public/register/addEmployee?succuss=' . true);
-            } else {
-                // $this->view->added = 2;
-                // echo $this->view->added;
-                header('Location: http://localhost/web-Experts/public/register/addEmployee');
-            }
-        }
-    }
+    //     if (isset($_POST['submit'])) {
+    //         $this->model('register_model');
+    //         $this->view->added = $this->model->register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele, $target, $level);
+    //         if ($this->view->added == 1) {
+    //             $this->send_mail($name, $email, $verificationCode);
+    //             header('Location: http://localhost/web-Experts/public/register/addEmployee?succuss=' . true);
+    //         } else {
+    //             // $this->view->added = 2;
+    //             // echo $this->view->added;
+    //             header('Location: http://localhost/web-Experts/public/register/addEmployee');
+    //         }
+    //     }
+    // }
 
-    public function addEmployee()
-    {
-        if ($_GET['succuss'] == true) {
-            // session_start();
+    // public function addEmployee()
+    // {
+    //     if ($_GET['succuss'] == true) {
+    //         // session_start();
 
-            $this->view->added = 1;
-            $this->view->render('view_admin_addemployee');
-        } else {
-            $this->view->added = 2;
-            $this->view->render('view_admin_addemployee');
-        }
-    }
+    //         $this->view->added = 1;
+    //         $this->view->render('view_admin_addemployee');
+    //     } else {
+    //         $this->view->added = 2;
+    //         $this->view->render('view_admin_addemployee');
+    //     }
+    // }
 
     //notice verified
     public function verified_account()
@@ -97,7 +97,9 @@ class register extends controller
         $rowcount = $resultset->num_rows;
         if ($rowcount == 1) {
             $this->view->success = 1;
+            $this->view->data_set = $resultset->fetch_assoc();
             $this->view->render('view_createpassword');
+
         } else {
             $this->view->success = 0;
             $this->view->render('view_createpassword');
