@@ -98,6 +98,11 @@ class register extends controller
         if ($rowcount == 1) {
             $this->view->success = 1;
             $this->view->data_set = $resultset->fetch_assoc();
+
+            session_start();
+
+            $_SESSION['code'] = $url;
+
             $this->view->render('view_createpassword');
 
         } else {
@@ -123,10 +128,14 @@ class register extends controller
             if ($newPassword == $confirmPassword) {
 
                 $this->model('register_model');
-                $global_url = $_GET['code'];
+
+                session_start();
+
+                $global_url = $_SESSION['code'];
                 $check = $this->model->activeUser($global_url, $newPassword);
                 if ($check == 1) {
                     header('Location: http://localhost/web-Experts/public/login/login');
+                    // echo $global_url;
                 } else {
                     echo "something error";
                 }
