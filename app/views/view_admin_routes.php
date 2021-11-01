@@ -7,6 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #184A78; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #184A78; 
+}
+
         .routes {
             position: fixed;
             width: 100%;
@@ -165,6 +187,37 @@
         .delete_button a {
             color: red;
         }
+        #edit {
+            width: 100px;
+            height: 30px;
+            margin: 10px;
+            background: rgb(20, 176, 77);
+            color: #fff;
+            font-size: 17px;
+            outline: none;
+            padding-top: 15px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #del {
+            width: 100px;
+            height: 30px;
+            margin: 10px;
+            background: rgb(220, 53, 69);
+            color: #fff;
+            font-size: 17px;
+            outline: none;
+            padding-top: 15px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        button a i {
+            margin-right: 10px;
+            padding-right: 20px;
+        }
     </style>
 </head>
 
@@ -285,8 +338,8 @@
                                 <td>${data[i]['end']}</td>
                                 <td>${data[i]['route_name']}</td>
                                 <td>${data[i]['rep_id']}</td>
-                                <td class="delete_button"><a href="#">edit</a></td>
-                                <td class="delete_button"><a href="#" onclick="delete_route(${data[i]['route_id']})">delete</a></td>
+                                <td class="delete_button" id="edit"><a href="#"><i class="fas fa-pen">edit</a></td>
+                                <td class="delete_button" id="del"><a href="#" onclick="delete_route(${data[i]['route_id']})"><i class="fas fa-trash-alt">delete</a></td>
                                 
 
                                 </tr>
@@ -361,14 +414,17 @@
                     route_add_route_name = document.getElementById('route_add_success_route_name');
                     route_add_destination = document.getElementById('route_add_success_destination')
                     route_add_rep_id = document.getElementById('route_add_success_rep_id')
+                    route_icon= document.getElementById('icon-success')
 
                     confirmation = document.getElementById('route_add_confirm');
 
                     if (data[0] == true) {
 
-                        message_body.style.backgroundColor = "green";
+                        message_body.style.backgroundColor = "#5DA423";
                         success_or_failed.innerHTML = `SUCCESS`;
                         message_text_area = "blue";
+                       
+                        route_icon.innerHTML=' <i class="far fa-check-circle"></i>';
 
                         confirmation.innerHTML = `Done`;
 

@@ -54,16 +54,16 @@
         color: #184A78;
     }
 
-    .suggestion {
+    .suggestion1 {
         position: absolute;
         top: 55px;
         left: 70px;
         width: 250px;
-        /* height: 100px; */
-        background-color: white;
+        height: 100px;
+        background-color: blue;
         z-index: 1000;
     }
-    .suggestion p{
+    .suggestion1 p{
         margin-left:20px;
         padding-right: 30px;
     }
@@ -179,7 +179,7 @@
     <div class="search_customer">
         <div class="search_bar">
             <input type="text" onkeyup="filter_customer()" id="search_customer" placeholder="Serach Customer">
-            <div class="suggestion">
+            <div class="suggestion1">
 
             </div>
             <i class="fas fa-search fa-lg"></i>
@@ -217,10 +217,12 @@
 
     <script>
         search_customer = document.getElementById('search_customer');
-        suggestion = document.querySelector('.suggestion');
+        suggestion1 = document.querySelector('.suggestion1');
         route = document.getElementById('route');
         customer = document.getElementById('customer');
         link = document.getElementById('link');
+
+        suggestion1.innerHTML = `dienth`;
 
         var customer_to_redirect;
 
@@ -242,14 +244,15 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                   suggestion.innerHTML = ``;
-                   for(i = 0 ; i < data.length ; i++){
-                       suggestion.innerHTML += `<p><a href="#" onclick="redirect_to_customer_profile_searchbar('${data[i]['cus_id']}', '${data[i]['shop_name']}')">${data[i]['cus_id']} ${data[i]['shop_name']}</a></p>`;
-                   }
-                   if(search_customer.value == ""){
-                       suggestion.innerHTML = ``;
-                   }
-                   console.log(data);
+                    suggestion1.innerHTML = `dienth`;
+                //    suggestion.innerHTML = ``;
+                //    for(i = 0 ; i < data.length ; i++){
+                //        suggestion.innerHTML += `<p><a href="#" onclick="redirect_to_customer_profile_searchbar('${data[i]['cus_id']}', '${data[i]['shop_name']}')">${data[i]['cus_id']} ${data[i]['shop_name']}</a></p>`;
+                //    }
+                //    if(search_customer.value == ""){
+                //        suggestion.innerHTML = ``;
+                //    }
+                   console.log('data');
                 });
         }
 

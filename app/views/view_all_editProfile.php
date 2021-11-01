@@ -1,4 +1,7 @@
-
+<?php
+//  if(!isset($_SESSION['username'])){
+//      header("Location:http://localhost/web-Experts/public/login/index");
+//  }
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +26,7 @@
         }
         .container{
             position: relative;
-            top: 120px;
+            top: 180px;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -156,7 +159,7 @@
             background-color: #184A78;
             width: 200px;
             height: 40px;
-            
+            font-size: 20px;
             margin-top: 5px;
             border-radius: 5px;
            
@@ -195,7 +198,8 @@
             <div class="subcontainer1">
             <div class="photo"><img src="../../public/images/profile.png" alt=""> </div>
             <div class="name">
-                <p><?php echo $_SESSION['username'] ;?></p>
+               <?php session_start();?>  
+                <p></p>
     </div>
             </div>
             <form action="../profile/save_profile" method="POST">
@@ -238,9 +242,9 @@
     </form>
 
 
-    <div class="pop-up-alert">
+    <!-- <div class="pop-up-alert">
         
-    </div>
+    </div> -->
     <script>
         function name_change(){
             document.getElementById('name').removeAttribute('readonly');
@@ -270,8 +274,8 @@
         window.onclick = function(event) {
   if (event.target == name) {
     document.getElementById('address').classList.remove("editclass");
-    //   // sidebar.style.opacity = "100%";
-    //   blur.style.opacity = "100%";
+         sidebar.style.opacity = "100%";
+         blur.style.opacity = "100%";
   }
 }
 

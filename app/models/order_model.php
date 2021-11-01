@@ -23,7 +23,7 @@ class order_model extends model
     public function get_route_id($user_id)
     {
         require '../app/core/database.php';
-        $sql = "SELECT route_id FROM customer WHERE cus_id = '$user_id'";
+        $sql = "SELECT route_id ,shop_name FROM customer WHERE cus_id = '$user_id'";
         $result = mysqli_query($conn, $sql);
         return $result;
     }

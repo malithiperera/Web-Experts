@@ -15,6 +15,24 @@ if (!isset($_SESSION['username'])) {
 </head>
 <link rel="stylesheet" href="../../public/styles/view_admin_addemployee.css">
 
+<style>
+    .loading {
+        position: fixed;
+        top: 400px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        visibility: hidden;
+    }
+
+    .loading_message p {
+        color: black;
+        font-size: 30px;
+    }
+
+    
+</style>
+
 
 <body>
     <div class="header">
@@ -163,6 +181,11 @@ if (!isset($_SESSION['username'])) {
 
         </div>
     </div>
+    <div class="loading">
+        <div class="loading_message">
+            <p>Loading...</p>
+        </div>
+    </div>
     <?php
 
     $check = 0;
@@ -202,6 +225,9 @@ if (!isset($_SESSION['username'])) {
         let pop_up_div = document.querySelector('.pop-up-div');
         let container = document.querySelector('.container');
 
+        let main = document.querySelector('.main');
+        let loading = document.querySelector('.loading');
+
         //admin
         admin_name = document.getElementById('admin_name');
         admin_userid = document.getElementById('admin_userid');
@@ -233,6 +259,8 @@ if (!isset($_SESSION['username'])) {
 
         const reg_user = (user) => {
 
+            main.style.opacity = "20%";
+            loading.style.visibility = "visible";
 
             admin_data_set = {
                 position: 'admin',
@@ -290,6 +318,8 @@ if (!isset($_SESSION['username'])) {
                 .then(response => response.json())
                 .then(data => {
 
+                    main.style.opacity = "100%";
+                    loading.style.visibility = "hidden";
 
                     if (data[0] == true && data[1] == "succuss") {
                         pop_up_div.innerHTML = `<?php require 'view_successfull_pop-up.php'; ?>`;

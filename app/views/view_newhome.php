@@ -39,7 +39,9 @@
 
 
 <section class="home" id="home">
-<div class="up-photo">
+
+<?php require 'view_slider.php';?>
+<!-- <div class="up-photo">
     
     </div>
     <div class="home-main">
@@ -62,7 +64,8 @@
     <div class="home-img">
         hello
     </div>
-    </div>
+    </div> -->
+    
     
 
 </section>
