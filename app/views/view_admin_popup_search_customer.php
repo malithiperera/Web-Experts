@@ -59,8 +59,8 @@
         top: 55px;
         left: 70px;
         width: 250px;
-        height: 100px;
-        background-color: blue;
+        /* height: 100px; */
+        background-color: white;
         z-index: 1000;
     }
     .suggestion1 p{
@@ -222,7 +222,7 @@
         customer = document.getElementById('customer');
         link = document.getElementById('link');
 
-        suggestion1.innerHTML = `dienth`;
+        
 
         var customer_to_redirect;
 
@@ -244,15 +244,15 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    suggestion1.innerHTML = `dienth`;
-                //    suggestion.innerHTML = ``;
-                //    for(i = 0 ; i < data.length ; i++){
-                //        suggestion.innerHTML += `<p><a href="#" onclick="redirect_to_customer_profile_searchbar('${data[i]['cus_id']}', '${data[i]['shop_name']}')">${data[i]['cus_id']} ${data[i]['shop_name']}</a></p>`;
-                //    }
-                //    if(search_customer.value == ""){
-                //        suggestion.innerHTML = ``;
-                //    }
-                   console.log('data');
+                    
+                   suggestion1.innerHTML = ``;
+                   for(i = 0 ; i < data.length ; i++){
+                       suggestion1.innerHTML += `<p><a href="#" onclick="redirect_to_customer_profile_searchbar('${data[i]['cus_id']}', '${data[i]['shop_name']}')">${data[i]['cus_id']} ${data[i]['shop_name']}</a></p>`;
+                   }
+                   if(search_customer.value == ""){
+                       suggestion1.innerHTML = ``;
+                   }
+                   console.log(data);
                 });
         }
 
