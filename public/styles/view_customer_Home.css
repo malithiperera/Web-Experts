@@ -722,3 +722,16 @@ tr {
 }
 
 
+.pop-up-report{
+  position: fixed;
+  width: 100%;
+  /* background-color: #184A78; */
+  height: 100vh;
+ top: 0;
+ visibility: hidden;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+
+
+}

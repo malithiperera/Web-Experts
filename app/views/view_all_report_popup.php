@@ -18,6 +18,7 @@
         .view-report-container{
             width: 400px;
             height: 300px;
+            margin-left: 600px;
             background-color: #fff;
             border: 3px solid #184A78;
             border-radius: 10px;
