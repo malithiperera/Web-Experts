@@ -46,30 +46,24 @@ require 'view_headertype2.php';
 <div class="error">
 <?php
 
-                    if(isset($_SESSION["error"])){
-                        $error = $_SESSION["error"];
-                        echo "<span>$error</span>";
-                    }
-      
-      ?>  
-      </div>
+    if(isset($_SESSION["error"])){
+        $error = $_SESSION["error"];
+        echo "<span>$error</span>";
+    }
+?>  
 
+      </div>
 
 </form>
 
-
-
+</div>
 
 </div>
 
-
-
-
-
-
-    </div>
 </body>
+
 </html>
+
 <?php
     unset($_SESSION["error"]);
 ?>
