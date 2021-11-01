@@ -497,8 +497,7 @@ if (!isset($_SESSION['username'])) {
       card=document.querySelector('home-section');
       
       pop_up_div.style.visibility = "visible";
-      card.style.opacity="0.5";
-
+    
 
 
     }
