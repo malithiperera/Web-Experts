@@ -9,32 +9,41 @@
     <title>Document</title>
     <style>
         select{
-            width: 200px;
+            width: 250px;
             height: 30px;
+            outline: black 2px solid;
+            
         }
         input{
-            width: 200px;
+            width: 250px;
+            margin-bottom: 20px;
+            background-color: transparent;
+            outline: black 2px solid;
+            color: black;
+
         }
         .view-report-container{
-            width: 400px;
-            height: 300px;
+            width: 500px;
+            height: 400px;
             margin-left: 600px;
             background-color: #fff;
             border: 3px solid #184A78;
             border-radius: 10px;
         }
         h3{
+            margin-top: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
         .report-select{
             display: flex;
             flex-direction: column;
-            margin-left: 100px;
+            margin-left: 120px;
             justify-content: space-evenly;
         }
         #report-button{
             margin-top: 20px;
-            width: 200px;
+            width: 250px;
             outline: none;
             border: none;
             height: 40px;
@@ -45,15 +54,20 @@
         i{
             padding-right: 10px;
         }
-         
-      
+        
+        #frame{
+            margin-bottom: 20px;
+        }
+        #type{
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div class="view-report-container">
         <h3>Select Your Report Type</h3>
-        <form action="">
+        <form action="../customer/viewreport">
             <div class="report-select">
             <div class="type">
             <label for="type">Report Type:</label>
@@ -82,7 +96,7 @@
             
             
             <div class="view-button">
-                <button id="report-button"><i class="fas fa-eye"></i>View report</button>
+                <button id="report-button" ></a><i class="fas fa-eye"></i>View report</button>
             </div>
         </div>
             </form>

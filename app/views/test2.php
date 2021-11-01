@@ -33,7 +33,7 @@
         }
 
         .subcontainer {
-            margin-left: -200px;
+            margin-left: -150px;
             z-index: 10000;
 
         }

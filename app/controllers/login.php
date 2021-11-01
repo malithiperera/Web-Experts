@@ -119,7 +119,9 @@ public function stock_manager()
         //view name to this>>>>>>>
         $this->view->render('view_sendmail');
     }
-
+public function back(){
+    $this->view->render('view_newhome');
+}
 
     public function errorPage()
     {

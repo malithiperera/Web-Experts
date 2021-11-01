@@ -6,6 +6,20 @@
     font-family: "Poppins" , sans-serif;
     
 }
+ /* scroll bar */
+ html::-webkit-scrollbar{
+  width: .8rem;
+  
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background: #184A78;
+  border-radius: 2rem;
+}
 .header{
     position: absolute;
     top: 0;
@@ -84,17 +98,17 @@ body{
     margin-right: 5px;
     padding: 5px;
     padding-top: 15px;
-    width: 600px;
+    width: 800px;
     height: 580px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    /* box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 ); */
 }
 /* Table Styles */
 
 .table-wrapper{
     margin: 10px 90px 90px;
-    box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2 );
+    /* box-shadow: 0px 15px 20px rgba( 0, 0, 0, 0.2 ); */
   }
   
   .fl-table {
