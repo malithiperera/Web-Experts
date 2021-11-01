@@ -18,7 +18,7 @@ public function add_product()
     // File upload path
     $targetDir = "../../Web-Experts/public/images/uploads/";
     $fileName = basename($_FILES["file"]["name"]);
-    echo $id,$cat;
+    
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
@@ -41,6 +41,7 @@ public function add_product()
             if($result){
                 $error= "Record Successfuly added";
                 $_SESSION["error"] = $error;
+                $this->view->render('view_stockmanager_addproduct');
                
            
           

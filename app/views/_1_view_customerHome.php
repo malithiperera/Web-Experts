@@ -469,7 +469,7 @@ if (!isset($_SESSION['username'])) {
         <tr><td><span>Amount      : </span>RS.${data[i]['amount']}</td></tr>
       
     </td>
-    <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
+    <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
     
     <button id="payhere-payment"><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
@@ -491,16 +491,23 @@ if (!isset($_SESSION['username'])) {
 
     get_deliveries();
 
-
+    pop_up_div = document.getElementById('pop-up-report');
+      card=document.querySelector('.cards-section');
+      detail=document.querySelector('.detail');
     function pop_up_report() {
-      pop_up_div = document.getElementById('pop-up-report');
-      card=document.querySelector('home-section');
+     
       
       pop_up_div.style.visibility = "visible";
+
+      card.style.opacity="50%";
+      detail.style.opacity="50%";
     
 
 
     }
+
+    
+    
   </script>
 
   <script src="../../public/java script/view_customer_Home.js"></script>

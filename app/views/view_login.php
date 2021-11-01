@@ -12,20 +12,25 @@
     <style>
         .errorNotification {
             position: relative;
-            top: -300px;
+            top: -750px;
+            left: 500;
             width: 100%;
             display: flex;
-            justify-content: center;
+           
+            justify-content: right;
             visibility: hidden;
         }
 
         .message {
+
+
             width: 300px;
             height: 100px;
             background-color: #750000;
             color: white;
             border-radius: 20px;
             text-align: center;
+            margin-right: 300px;
         }
 
         .symbol {
