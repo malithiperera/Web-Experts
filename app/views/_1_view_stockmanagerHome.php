@@ -81,21 +81,21 @@
     <section class="home-section">
         <section class="cards-section">
             <div class="cards">
-                <div class="card">
+                <div class="div_kingOfProducts">
                     <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-                    <p>10</p>
+                    <p class="value_kingOfProducts">10</p>
                 </div>
-                <div class="card">
+                <div class="div_noOfReps">
                     <p><i class="fas fa-user-tie"></i></i><br>No of Sales rep</p>
-                    <p>1</p>
+                    <p class="value_noOfReps">1</p>
                 </div>
-                <div class="card">
+                <div class="div_catogories">
                     <p><i class="fab fa-product-hunt"></i></i><br>Categories</p>
-                    <p>10</p>
+                    <p class="value_catogories">10</p>
                 </div>
-                <div class="card">
+                <div class="div_repRequests">
                     <p><i class="fas fa-envelope"></i><br>Rep Requests</p>
-                    <p>10</p>
+                    <p class="value_repRequests">10</p>
                 </div>
 
 
@@ -162,7 +162,7 @@
                             </tr>
                         
                         `;
-                        
+
                     }
 
 

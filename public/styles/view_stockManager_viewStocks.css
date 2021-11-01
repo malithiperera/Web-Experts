@@ -245,7 +245,7 @@
   justify-content: center;
  
 }
-.card{
+.div_kingOfProducts, .div_noOfReps, .div_catogories, .div_repRequests {
   width: 200px;
   height: 100px;
   /* background-color: #2277B2; */
@@ -257,6 +257,7 @@
   cursor:pointer;
   border-radius:10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  justify-content: space-between;
   
 }
 .sidebar.open ~ .home-section{
@@ -422,5 +423,24 @@ a {
 }
 tr {
   text-align: center;
+  
+}
+ /* scroll bar */
+ html::-webkit-scrollbar{
+  width: .8rem;
+  
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background: #184A78;
+  border-radius: 2rem;
+}
+.value_kingOfProducts, .value_kingOfProducts, .value_catogories, .value_repRequests {
+  color: rgb(15, 187, 15);
+  font-weight: bold;
   
 }

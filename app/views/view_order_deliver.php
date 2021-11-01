@@ -47,7 +47,7 @@
             </div>
             <div class="data_form">
                 <div class="serach_product">
-                    <input type="text" id="product_name" placeholder="Search Product" onkeyup="fetchText(this.value)">
+                    <!-- <input type="text" id="product_name" placeholder="Search Product" onkeyup="fetchText(this.value)"> -->
                     <div>
                         <ul class="suggestions">
 
@@ -55,11 +55,11 @@
                     </div>
                 </div>
 
-                <input type="text" id="unit_price" placeholder="unit price">
+                <!-- <input type="text" id="unit_price" placeholder="unit price">
                 <input type="text" id="discount" placeholder="discount">
                 <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
                 <input type="text" id="total_price" placeholder="total price">
-                <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
+                <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button> -->
             </div>
 
         </div>

@@ -22,6 +22,7 @@ class product_model extends model{
     require '../app/core/database.php';
     $insert = "INSERT into product (product_id,product_name,description,price,image,type) VALUES ('$id','$name','$des','$price','$fileName','$cat')";
     $result=$conn->query($insert);
+    return $result;
    }
 
    public function display_product_id($type){
