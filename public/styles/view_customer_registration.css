@@ -16,6 +16,22 @@
     top: 0;
     z-index: 10000;
 }
+
+/* scroll bar */
+html::-webkit-scrollbar{
+    width: .8rem;
+    
+  }
+  
+  html::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  
+  html::-webkit-scrollbar-thumb{
+    background: #184A78;
+    border-radius: 2rem;
+  }
+
 body{
     margin: 0px;
     background:  white;
