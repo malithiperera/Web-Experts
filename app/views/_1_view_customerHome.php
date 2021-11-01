@@ -63,7 +63,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="../customer/view_report">
+        <a href="#" onclick="pop_up_report()">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
@@ -215,7 +215,7 @@ if (!isset($_SESSION['username'])) {
 
 
           <div class="field">
-          
+
 
 
           </div>
@@ -229,70 +229,74 @@ if (!isset($_SESSION['username'])) {
 
 
           <div class="field-name">
-         
+
           </div>
 
-
-          
-          </div>
 
 
         </div>
 
+
+      </div>
+
     </section>
-<div class="pop-up-report">
-  <?php require 'view_all_report_popup.php';?> 
-</div>
+    <div class="pop-up-report" id="pop-up-report">
+      <?php require 'view_all_report_popup.php'; ?>
+    </div>
 
   </section>
 
- <script>
-   const myslide = document.querySelectorAll('.myslide'),
-	  dot = document.querySelectorAll('.dot');
-let counter = 1;
-slidefun(counter);
+  <script>
+    const myslide = document.querySelectorAll('.myslide'),
+      dot = document.querySelectorAll('.dot');
+    let counter = 1;
+    slidefun(counter);
 
-let timer = setInterval(autoSlide, 8000);
-function autoSlide() {
-	counter += 1;
-	slidefun(counter);
-}
-function plusSlides(n) {
-	counter += n;
-	slidefun(counter);
-	resetTimer();
-}
-function currentSlide(n) {
-	counter = n;
-	slidefun(counter);
-	resetTimer();
-}
-function resetTimer() {
-	clearInterval(timer);
-	timer = setInterval(autoSlide, 8000);
-}
+    let timer = setInterval(autoSlide, 8000);
 
-function slidefun(n) {
-	
-	let i;
-	for(i = 0;i<myslide.length;i++){
-		myslide[i].style.display = "none";
-	}
-	for(i = 0;i<dot.length;i++) {
-		dot[i].className = dot[i].className.replace(' active', '');
-	}
-	if(n > myslide.length){
-	   counter = 1;
-	   }
-	if(n < 1){
-	   counter = myslide.length;
-	   }
-	myslide[counter - 1].style.display = "block";
-	dot[counter - 1].className += " active";
-}
- </script>
+    function autoSlide() {
+      counter += 1;
+      slidefun(counter);
+    }
 
-  
+    function plusSlides(n) {
+      counter += n;
+      slidefun(counter);
+      resetTimer();
+    }
+
+    function currentSlide(n) {
+      counter = n;
+      slidefun(counter);
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(autoSlide, 8000);
+    }
+
+    function slidefun(n) {
+
+      let i;
+      for (i = 0; i < myslide.length; i++) {
+        myslide[i].style.display = "none";
+      }
+      for (i = 0; i < dot.length; i++) {
+        dot[i].className = dot[i].className.replace(' active', '');
+      }
+      if (n > myslide.length) {
+        counter = 1;
+      }
+      if (n < 1) {
+        counter = myslide.length;
+      }
+      myslide[counter - 1].style.display = "block";
+      dot[counter - 1].className += " active";
+    }
+  </script>
+
+
 
   <script>
     order_id = document.getElementById('onum');
@@ -443,17 +447,17 @@ function slidefun(n) {
     }
     get_pending_orders();
 
-    function get_deliveries(){
+    function get_deliveries() {
       let field_name = document.querySelector('.field-name');
 
-      
+
       fetch('http://localhost/web-Experts/public/customer/get_deliveries')
         .then(response => response.json())
         .then(data => {
           console.log(data);
           for (i = 0; i < data.length; i++) {
 
-field_name.innerHTML += `
+            field_name.innerHTML += `
 
 <table class="pending_deliveries">
   <tr>
@@ -466,6 +470,7 @@ field_name.innerHTML += `
       
     </td>
     <td><button onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
+    
     <button id="payhere-payment"><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
   </tr>
@@ -473,11 +478,11 @@ field_name.innerHTML += `
 
 `;
 
-}
+          }
 
-          
+
         });
-    
+
 
 
 
@@ -485,8 +490,21 @@ field_name.innerHTML += `
     }
 
     get_deliveries();
+
+
+    function pop_up_report() {
+      pop_up_div = document.getElementById('pop-up-report');
+      card=document.querySelector('home-section');
+      
+      pop_up_div.style.visibility = "visible";
+      card.style.opacity="0.5";
+
+
+
+    }
   </script>
-<script src="../../public/java script/view_customer_Home.js"></script>
+
+  <script src="../../public/java script/view_customer_Home.js"></script>
 </body>
 
 </html>

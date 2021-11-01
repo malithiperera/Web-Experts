@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 <?php
 //  if(!isset($_SESSION['username'])){
 //      header("Location:http://localhost/web-Experts/public/login/index");
 //  }
-=======
-
->>>>>>> 9903c35c77860edff13362e8fd0d1883ecea2fda
 
 ?>
 <!DOCTYPE html>
@@ -203,7 +199,7 @@
             <div class="photo"><img src="../../public/images/profile.png" alt=""> </div>
             <div class="name">
                <?php session_start();?>  
-                <p><?php echo $_SESSION['username'] ;?></p>
+                <p></p>
     </div>
             </div>
             <form action="../profile/save_profile" method="POST">

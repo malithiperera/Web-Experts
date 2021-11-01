@@ -66,8 +66,8 @@ class register_model extends model
     public function activeUser($global_url, $newPassword)
     {
         require '../app/core/database.php';
-        $newPassword_hash=sha1($newPassword);
-        $sql = "UPDATE user SET password = '$newPassword_hash', active = 'active', verification_code = 0 WHERE verification_code = '$global_url'";
+        // $newPassword_hash=sha1($newPassword);
+        $sql = "UPDATE user SET password = '$newPassword', active = 'active', verification_code = 0 WHERE verification_code = '$global_url'";
         if ($conn->query($sql) === TRUE) {
             return 1;
         } else {
