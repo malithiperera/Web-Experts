@@ -242,7 +242,7 @@
         /* .detail_id{
     width: 400px;
     /* background-color: red; */
-        */
+        
     </style>
 
 </head>
