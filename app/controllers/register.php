@@ -207,7 +207,7 @@ class register extends controller
                 "",
                 sha1($get_data['email']),
                 "pending",
-                "admin",
+                "rep",
                 $get_data['nic'],
                 $get_data['add'],
                 $get_data['dob'],
@@ -228,7 +228,7 @@ class register extends controller
             "",
             sha1($get_data['email']),
             "pending",
-            "admin",
+            "stockmanager",
             $get_data['nic'],
             $get_data['add'],
             $get_data['dob'],
@@ -239,6 +239,8 @@ class register extends controller
             $data = [$result];
             $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
             array_push($data, $mail);
+            
+            
         }
 
 
