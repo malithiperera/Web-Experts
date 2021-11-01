@@ -6,6 +6,8 @@
     
 
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -13,7 +15,7 @@
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins" , sans-serif;
 }
 /* 
 
@@ -55,7 +57,7 @@ nav h3{
 }
 nav ul{
     float: right;
-    margin-right: 100px;
+    margin-right: 80px;
     list-style: none;
    
 }
@@ -189,8 +191,8 @@ i{
 <!--Navigation-->
     <nav>
       
-        <!-- <h1>Himalee Dairy Produts</h1>
-        <h3>Everyone Needs Milk. Dairy always a Good Choice</h3> -->
+        <h1>Himalee Dairy Produts</h1>
+        <h3>Everyone Needs Milk. Dairy always a Good Choice</h3>
         <ul>
          
             <li><a href=""><i class="fas fa-arrow-left"></i></a></li>

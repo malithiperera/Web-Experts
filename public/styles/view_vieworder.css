@@ -96,24 +96,47 @@ button i{
 }
 
 .info{
-    
+    display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
 .info input{
     padding: 8px;
     margin-bottom: 10px;
+    outline: none;
+    border: none;
+    font-weight: 800;
+    font-size: 20px;
+    color: green;
+    margin-bottom: 20px;
+    font-size: 25px;
 }
 
 .info label{
     font-size: 15px;
     font-weight: 700;
+    font-weight: 800;
+    /* margin-left: 40px; */
+    margin-bottom: 20px;
+    font-size: 25px;
     
 
 }
+.info i{
+    font-size: 25px;
+}
+
 .tot td{
     background-color: rgb(199, 198, 197);
 }
-
+ th {
+    color: #ffffff;
+    background: #4FC3A1;
+  }
+  th:nth-child(odd) {
+    color: #ffffff;
+    background: #184A78;
+  }
 
 .edit{
     color: rgb(255, 255, 255);

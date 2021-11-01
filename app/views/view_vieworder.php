@@ -28,12 +28,22 @@
 
         <div class="addnew">
             <div class="info">
+                <div class="detail">
+                <i class="fas fa-shopping-cart"></i>
                 <label for="">Order Id:</label>
+                
                 <input type="text" class="order_id" readonly>
+                </div>
+                <div class="detail">
+                <i class="fas fa-house-user"></i>
                 <label for="">Customer Id:</label>
                 <input type="text" class="cus_id" readonly>
+                </div>
+                <div class="detail">
+                <i class="fas fa-map-marker-alt"></i>
                 <label for="">Route Id:</label>
                 <input type="text" class="route_id" readonly>
+                </div>
             </div>
             <div class="data_form">
                 <div class="serach_product">
