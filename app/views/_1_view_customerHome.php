@@ -240,7 +240,9 @@ if (!isset($_SESSION['username'])) {
         </div>
 
     </section>
-
+<div class="pop-up-report">
+  <?php require 'view_all_report_popup.php';?> 
+</div>
 
   </section>
 
