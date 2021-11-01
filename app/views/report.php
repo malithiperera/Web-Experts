@@ -21,15 +21,16 @@
     </div>
     
     <div class="report">
-               <div class="report_type"><label for="">Report Type</label>
-               <select name="types" id="types">
+               <div class="report_type">
+               <h2>Sales Report Summary</h2>
+               <!-- <select name="types" id="types">
                 <option value="">Sales Report</option>
                 <option value="">customer payment report</option>
                 <option value="">overall business summary report</option>
                 <option value="">stock summary report</option>
                 <option value="">overall returns report</option>
                 <option value="">sales target report</option>
-                </select>
+                </select> -->
 
                
     
@@ -45,57 +46,80 @@
       <table class="fl-table">
         <thead>
           <tr>
-            <th>Route</th>
-            <th>Shop</th>
+            <th>Product</th>
+            <th>Total amount</th>
+            <th>Returns</th>
+            <th>Total Profit</th>
+           
           </tr>
           <tr>
+            <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <tr>
+          <td>1101</td>
+            <td>12000</td>
+            <td>11000</td>
+            <td>120000</td>
+          </tr>
+          <!-- <tr>
             <td>Route</td>
             <td>Shop</td>
           </tr>
           <tr>
             <td>Route</td>
             <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
-          <tr>
-            <td>Route</td>
-            <td>Shop</td>
-          </tr>
+          </tr> -->
         </thead>
         <tbody class="orders">
       

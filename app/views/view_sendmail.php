@@ -17,7 +17,7 @@ session_start();
 }
 body{
     
-    background: #e4e1df;
+    background: #fff;
 
 }
 

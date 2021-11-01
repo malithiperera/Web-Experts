@@ -33,9 +33,9 @@ class customer extends controller
     }
 
 
-    public function view_report()
+    public function viewreport()
     {
-        $this->view->render('view_customer_viewreport');
+        $this->view->render('report');
     }
 
     public function place_order_view()
@@ -102,7 +102,7 @@ class customer extends controller
         }
 
         // an order is working
-        else{
+        else {
             $data = ['failed'];
             echo json_encode($data);
             exit;
@@ -125,11 +125,11 @@ class customer extends controller
         $this->view->render('view_vieworder');
     }
 
-   public function view_notification()
-   {
-       $this->view->render('view_all_notification');
-   }
-    
+    public function view_notification()
+    {
+        $this->view->render('view_all_notification');
+    }
+
     public function profile()
     {
         $this->view->render('view_all_editProfile');
@@ -147,7 +147,6 @@ class customer extends controller
 
         echo json_encode($data);
         exit;
-        
     }
 
 
@@ -161,12 +160,12 @@ class customer extends controller
 
         echo json_encode($data);
         exit;
-
     }
 
 
     // get details about pending orders
-    public function get_pending_orders(){
+    public function get_pending_orders()
+    {
 
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
@@ -175,17 +174,18 @@ class customer extends controller
         $result = $this->model->get_pending_orders($get_data['user_id']);
 
         $data = [];
-        while($row = $result->fetch_assoc()){
+        while ($row = $result->fetch_assoc()) {
             array_push($data, $row);
         }
 
-        
+
         echo json_encode($data);
         exit;
     }
 
     // fill view pending order table
-    public function fill_pending_order_table(){
+    public function fill_pending_order_table()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -194,7 +194,7 @@ class customer extends controller
 
         $data = [];
 
-        while($row = $result->fetch_assoc()){
+        while ($row = $result->fetch_assoc()) {
             array_push($data, $row);
         }
 
@@ -203,21 +203,20 @@ class customer extends controller
     }
 
 
-    public function get_deliveries(){
+    public function get_deliveries()
+    {
         session_start();
         $this->model('cus_model');
-         $result = $this->model->fill_deliveries($_SESSION['userid']);
-         $data = [];
+        $result = $this->model->fill_deliveries($_SESSION['userid']);
+        $data = [];
 
-          while($row = $result->fetch_assoc()){
-             array_push($data, $row);
-         }
-        
-
-         echo json_encode($data);
-         exit;
+        while ($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+        }
 
 
+        echo json_encode($data);
+        exit;
     }
 
     public function view_orders_deliver()
@@ -236,13 +235,11 @@ class customer extends controller
 
         $data = [];
 
-        while($row = $result->fetch_assoc()){
+        while ($row = $result->fetch_assoc()) {
             array_push($data, $row);
         }
 
         echo json_encode($data);
         exit;
     }
-
-
 }

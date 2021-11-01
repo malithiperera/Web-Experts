@@ -82,10 +82,12 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
     background: none;
 }
 .card h2{
+    
     padding: 10px;
     font-size: 25px;
     text-align: center;
     color: #184A78;
+    margin-bottom: -20px;
 }
 .card p{
     padding: 5px;
@@ -140,7 +142,7 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 
 .logo .content h3{
     
-    font-size: 2.5rem;
+    font-size: 40px;
     text-align: center;
     padding: 60px;
     text-transform: uppercase;
@@ -163,7 +165,9 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 /* .yoghurt h4{
     tex
 } */
-
+.yoghurt{
+    margin-top: -50px;
+}
 .yoghurt .main-card{
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -175,9 +179,9 @@ box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
 
 }
 .yoghurt h4{
-text-align: center;
+/* text-align: center; */
 padding: 20px;
-font-size: 30px;
+font-size: 35px;
 color: #184A78;
 text-transform: uppercase;
 }
@@ -193,7 +197,7 @@ text-transform: uppercase;
 
 }
 .icecream h4{
-    text-align: center;
+    /* text-align: center; */
     padding: 20px;
     font-size: 30px;
     color: #184A78;
@@ -210,7 +214,7 @@ text-transform: uppercase;
     
     }
     .curd h4{
-        text-align: center;
+        /* text-align: center; */
         padding: 20px;
         font-size: 30px;
         color: #184A78;

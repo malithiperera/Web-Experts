@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Document</title>
     <style>
         .removeuser{
@@ -32,7 +33,7 @@
             color:#184A78;
             padding:10px;
             margin:10px;
-            border-radius: 20px;
+            border-radius: 10px;
         }
         .remove_user_position input,
         .remove_user_userid input,
@@ -41,9 +42,14 @@
         }
         #remove_button{
             margin-left:200px;
-            width:100;
+            width:200;
             height:40px;
             padding: 10px;
+            background-color: rgb(220,53,69);
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+            border:none;
             padding-top: 6px;
             margin-top: 50px;
         }
@@ -59,6 +65,13 @@
             position: relative;
             left:-8px;
         }
+        h2{
+            color: black;
+            text-align: center;
+        }
+        #remove_button i{
+            padding-right: 8px;
+        }
     </style>
 </head>
 
@@ -66,7 +79,7 @@
     
         <div class="remove_user_message">
             <div class="remove_user_header">
-                Remove User...
+               <h2>Remove User</h2> 
             </div>
 
             <div class="remove_user_position">
@@ -85,7 +98,7 @@
             </div>
 
             <div class="remove_user_remove">
-                <button id="remove_button">Remove</button>
+                <button id="remove_button"><i class="fas fa-trash-alt"></i>Remove</button>
             </div>
 
         </div>

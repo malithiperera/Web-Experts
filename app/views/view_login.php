@@ -73,8 +73,8 @@
                         <input type="submit" value="Login">
                     </div>
                     <div class="login-forget">
-                        <a href="">Forget Password</a><br>
-                        <span><i class="fas fa-arrow-left"></i></span><a href="" id="back">Back</a>
+                        <a href="../login/forgetpassword">Forget Password</a><br>
+                        <span><i class="fas fa-arrow-left"></i></span><a href="../login/back" id="back">Back</a>
                     </div>
                     
 
