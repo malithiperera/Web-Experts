@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +10,33 @@
     <link rel="stylesheet" href="../../public/styles/view_rep_achievements.css">
     <title>Achievements</title>
 </head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
+<style>
+    .change_target {
+        margin-top: 12px;
+        margin-left: 25px;
+        width: 200px;
+        height: 60px;
+        background-color: white;
+        visibility: hidden;
+        border: 2px solid #184A78;
+
+    }
+
+    #new_target {
+        text-align: center;
+    }
+    #change_here{
+        margin-top: -80px;
+        font-size: 9px;
+        visibility: hidden;
+    }
+</style>
+
 <body>
-<div class="header">
+    <div class="header">
         <?php
         require 'view_headertype2.php';
         ?>
@@ -22,30 +45,41 @@
 
 
     <section class="cards-section">
-      <div class="cards">
-        <div class="card">
-          <p><i class="fas fa-user"></i><br>Rep ID</p>
-          <p id="result">R1037</p>
-        </div>
-        <div class="card">
-          <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p id="result">50</p>
-        </div>
-        <div class="card">
-          <p><i class="fas fa-file-alt"></i><br>View Reports</p>
-          <p id="result">Active</p>
-        </div>
+        <div class="cards">
+            <div class="card">
+                <p><i class="fas fa-user"></i><br>Rep ID</p>
+                <p class="result">R1037</p>
+            </div>
+            <div class="card" id="target">
+                <p><i class="fas fa-trophy"></i><br>Target</p>
+                <p class="result" id="target_num">50</p>
 
-      </div>
+                <div class="change_target">
+                    <input type="text" id="new_target">
+                    <button onclick="change_target_func()">change</button>
+                </div>
+                <p id="change_here">change here</p>
+            </div>
+
+
+
+            <div class="card">
+                <p><i class="fas fa-file-alt"></i><br>View Reports</p>
+                <p class="result">Active</p>
+            </div>
+
+        </div>
     </section>
     <div class="charts">
         <div class="chart">
             <canvas id="myChart"></canvas>
-        </div> 
+        </div>
         <div class="chart1">
             <canvas id="myChart1"></canvas>
         </div>
     </div>
+
+
 
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -121,7 +155,39 @@
             }
         });
     </script>
-<div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>
+    <div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>
+
+    <script>
+
+
+
+
+        var type = '<?php echo $_SESSION['type']; ?>';
+
+        change_target = document.querySelector('.change_target');
+        target = document.getElementById('target');
+        new_target = document.getElementById('new_target');
+        target_num = document.getElementById('target_num');
+
+        if (type == 'admin') {
+
+
+            target.onmouseover = () => {
+                change_target.style.visibility = "visible";
+            }
+            target.onmouseout = () => {
+                change_target.style.visibility = "hidden";
+            }
+            document.getElementById('change_here').style.visibility = "visible";
+        }
+
+        console.log(new_target.value);
+        const change_target_func = () =>{
+            target_num.innerHTML = new_target.value;
+            new_target.value = "";
+        }
+        
+    </script>
 </body>
 
 </html>

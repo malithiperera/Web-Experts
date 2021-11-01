@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 <?php
 //  if(!isset($_SESSION['username'])){
 //      header("Location:http://localhost/web-Experts/public/login/index");
 //  }
+=======
+
+>>>>>>> 9903c35c77860edff13362e8fd0d1883ecea2fda
 
 ?>
 <!DOCTYPE html>

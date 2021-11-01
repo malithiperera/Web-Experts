@@ -12,33 +12,31 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    
-}
-html::-webkit-scrollbar{
-  width: .8rem;
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
 
+        }
 
-  
-  
-}
+        html::-webkit-scrollbar {
+            width: .8rem;
+        }
 
-html::-webkit-scrollbar-track{
-  background: transparent;
-}
+        html::-webkit-scrollbar-track {
+            background: transparent;
+        }
 
-html::-webkit-scrollbar-thumb{
-  background: #184A78;
-  border-radius: 2rem;
-}
-.subcontainer{
-    margin-left: -200px;
-    z-index: 10000;
-    
-}
+        html::-webkit-scrollbar-thumb {
+            background: #184A78;
+            border-radius: 2rem;
+        }
+
+        .subcontainer {
+            margin-left: -200px;
+            z-index: 10000;
+
+        }
 
         .subcontainer p {
             color: #184A78;
@@ -51,7 +49,7 @@ html::-webkit-scrollbar-thumb{
             /* width: 100%; */
             /* justify-content: center; */
             flex-wrap: wrap;
-           
+
         }
 
         /* .user_id {
@@ -93,10 +91,11 @@ html::-webkit-scrollbar-thumb{
             height: 40px;
             border-radius: 10px;
             background-color: #184A78;
-            color:#fff;
+            color: #fff;
         }
-        .data_form button:hover{
-            background-color:#4d647a;
+
+        .data_form button:hover {
+            background-color: #4d647a;
             cursor: pointer;
         }
 
@@ -107,7 +106,7 @@ html::-webkit-scrollbar-thumb{
             height: 40px;
             border-radius: 10px;
             text-align: center;
-           
+
         }
 
         ul {
@@ -136,7 +135,7 @@ html::-webkit-scrollbar-thumb{
         }
 
         td {
-            background-color:#b6b6b6;
+            background-color: #b6b6b6;
             color: black;
             width: 250px;
             height: 40px;
@@ -145,8 +144,8 @@ html::-webkit-scrollbar-thumb{
 
         .place_button button {
             width: 120px;
-            background-color:#184A78 ;
-            color:#fff;
+            background-color: #184A78;
+            color: #fff;
             margin-top: 10px;
             float: right;
             height: 40px;
@@ -170,17 +169,18 @@ html::-webkit-scrollbar-thumb{
             border-radius: 10px;
         }
 
-        .details label{
+        .details label {
             font-weight: 800;
             /* margin-left: 40px; */
             margin-bottom: 20px;
             font-size: 25px;
         }
-        .details i{
+
+        .details i {
             font-size: 25px;
         }
 
-        .details input{
+        .details input {
             font-weight: 800;
             font-size: 20px;
             color: green;
@@ -188,66 +188,69 @@ html::-webkit-scrollbar-thumb{
             font-size: 25px;
         }
 
-        #edit{
+        #edit {
             width: 150px;
-  height: 40px;
-  margin: 10px;
-  background: rgb(20,176,77);
-  color: #fff;
-  font-size: 14px;
-  outline: none;
-  padding-top: 15px 15px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+            height: 40px;
+            margin: 10px;
+            background: rgb(20, 176, 77);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            padding-top: 15px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
 
-        #del{
+        #del {
             width: 150px;
-  height: 40px;
-  margin: 10px;
-  background:  rgb(220,53,69);
-  color: #fff;
-  font-size: 14px;
-  outline: none;
-  padding-top: 15px 15px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+            height: 40px;
+            margin: 10px;
+            background: rgb(220, 53, 69);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            padding-top: 15px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
 
-        button i{
+        button i {
             padding-right: 10px;
         }
-        #add{
+
+        #add {
             width: 150px;
             font-size: 20px;
         }
 
         thead th {
-  color: #ffffff;
-  background: #4FC3A1;
-}
-thead th:nth-child(odd) {
-  color: #ffffff;
-  background: #184A78;
-}
-.order-table{
-    margin-right: 100px;
-}
+            color: #ffffff;
+            background: #4FC3A1;
+        }
 
-/* .detail_id{
+        thead th:nth-child(odd) {
+            color: #ffffff;
+            background: #184A78;
+        }
+
+        .order-table {
+            margin-right: 100px;
+        }
+
+        /* .detail_id{
     width: 400px;
     /* background-color: red; */
-*/
+        */
     </style>
 
 </head>
 
 <body>
-    
-<!-- 
-    <?php require 'view_headerType2.php'; ?> -->
+
+
+    <?php require 'view_headerType2.php'; ?>
 
     <div class="container">
 
@@ -255,18 +258,18 @@ thead th:nth-child(odd) {
 
             <div class="details">
                 <div class="detail_id">
-                <i class="fas fa-house-user"></i>
+                    <i class="fas fa-house-user"></i>
                     <label for="">Customer Id : </label>
                     <input type="text" id="user_id" readonly>
                 </div>
 
                 <div class="detail_id">
-                <i class="fas fa-map-marker-alt"></i>
+                    <i class="fas fa-map-marker-alt"></i>
                     <label for="">Route Id : </label>
                     <input type="text" id="route_id" readonly>
                 </div>
                 <div class="detail_id">
-                <i class="fas fa-store"></i>
+                    <i class="fas fa-store"></i>
                     <label for="">Shop Name: </label>
                     <input type="text" id="shop_name" readonly>
                 </div>
@@ -402,7 +405,7 @@ thead th:nth-child(odd) {
             new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + '<button id="edit"><i class="fas fa-pen"></i>Edit</button> ' + '</td><td>' + '<button id="del"><i class="fas fa-trash-alt"></i>Delete</button> ' + '</td></tr>';
 
             product_name_input.value = '';
-            unit_price_input.value = '';         
+            unit_price_input.value = '';
             discount_input.value = '';
             quantity_input.value = '';
             tot_price_input.value = '';
@@ -416,7 +419,7 @@ thead th:nth-child(odd) {
 
         }
 
-       
+
 
         var table_data = new Array(table_info.rows.length - 1);
 
@@ -442,9 +445,9 @@ thead th:nth-child(odd) {
 
             var data_set = {
                 amount: total_amount,
-                status : 'not-delivered',
+                status: 'not-delivered',
                 date: date,
-                working : 1,
+                working: 1,
                 cus_id: cus_id,
                 route_id: route_id_obj,
                 table: table_data
@@ -465,8 +468,8 @@ thead th:nth-child(odd) {
                     order_id.innerHTML = `${data[7]}`;
                     order_date.innerHTML = `${data[2]}`;
                     order_amount.innerHTML = `${data[0]}`;
-                    done.addEventListener("click", ()=>{
-                       confirm_message.style.visibility = "hidden"; 
+                    done.addEventListener("click", () => {
+                        confirm_message.style.visibility = "hidden";
                     });
                 });
 
@@ -474,7 +477,7 @@ thead th:nth-child(odd) {
             total_of_all_prices.innerHTML = '';
         }
 
-        
+
 
         // fill details
         const fill_details = () => {
@@ -484,7 +487,7 @@ thead th:nth-child(odd) {
                     console.log(data);
                     user_id.value = data[0];
                     route_id.value = data[1].route_id;
-                    shop_name.value=data[1].shop_name;
+                    shop_name.value = data[1].shop_name;
                 });
         }
 

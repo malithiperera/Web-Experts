@@ -13,6 +13,7 @@ class register_model extends model
     {
 
         require '../app/core/database.php';
+        // echo $user_id .$name. $email. $verificationCode.$type. $active. $nic. $address. $dob. $tele.$target.$level.$shop. $route ;
         $sql1 = "INSERT INTO user (user_id, name, email, verification_code, type, active, nic, address, dob, tel)
                 VALUES ('$user_id', '$name', '$email', '$verificationCode', '$type', '$active', '$nic', '$address', '$dob', '$tele');";
 
@@ -92,5 +93,59 @@ class register_model extends model
         $result = $conn->query($query);
 
         return $result;
+    }
+
+    //begin new reg process
+    public function reg_admin($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $admin_type){
+        require '../app/core/database.php';
+
+        $sql1 = "INSERT INTO user 
+                VALUES 
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $sql2 = "INSERT INTO admin VALUES ('$user_id', '$admin_type')";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if($result1 == true && $result2 == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function reg_salesrep($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $target){
+        require '../app/core/database.php';
+
+        $sql1 = "INSERT INTO user VALUES ($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online)";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $sql2 = "INSERT INTO sales_rep VALUES ($user_id, $target)";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if($result1 == true && $result2 == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function reg_stockmanager($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online){
+        require '../app/core/database.php';
+
+        $sql1 = "INSERT INTO user VALUES ($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online)";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $sql2 = "INSERT INTO stockmanager VALUES ($user_id)";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if($result1 == true && $result2 == true){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
