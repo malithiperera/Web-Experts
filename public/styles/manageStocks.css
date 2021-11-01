@@ -159,6 +159,7 @@ td {
     position: absolute;
     bottom: 11%;
     right: 0%;
+    color: white;
 
 }
 .divInputRemove {                                                   /* division of the form of "-" */
@@ -206,6 +207,7 @@ td {
     height: 30%;
     background-color: #165692;
     border-radius: 20%;
+    color: white;
 
 }
 .div_currentPrice {                                                 /* division "current price" */
