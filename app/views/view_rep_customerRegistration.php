@@ -82,16 +82,7 @@ if (!isset($_SESSION['username'])) {
         
 </div>
     </div>
-    <div class="message">
-    
-    <div class="pop-up-div">
-    <?php
-        require'view_successfull_pop-up.php';
-        ?>
-
-
-    </div>
-  </div>
+  
     <div><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
     <?php
 
