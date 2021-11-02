@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../../public/styles/manageStocks.css">
+    <link rel="stylesheet" href="../../public/styles/view_stockManager_manageStocks.css">
     <title>Manage Stocks</title>
 </head>
 
@@ -19,7 +19,7 @@
 
             <div class="inStock">
                 <label class="label_inStock" for="quantity">In Stock</label><br>
-                <input class="input_inStock" type="text" name="quantity" id="quantity">
+                <input class="input_inStock" type="text" name="quantity" id="quantity" value="1500">
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
@@ -27,7 +27,7 @@
                 <button class="removeBtn" onclick="showHideRemove ()"><i class="fas fa-minus"></i></button><br><br>
 
                 <div>
-                    <input class="inputAdd" type="text" id="inputAdd" placeholder=" Enter Amount">
+                    <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
                     <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()"><i class="fas fa-calendar-check"></i></i></button>
 
                 </div>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="div_currentPrice">
-                <label class="label_currentPrice" for="currentPrice"><b>Current Price</b></label>
+                <label class="label_currentPrice" for="currentPrice">Current Price</label>
                 <input class="input_currentPrice" type="text" name="currentPrice" id="currentPrice" value="Rs.">
 
                 <script src="../../public/java script/manageStocks.js"></script>
@@ -59,7 +59,7 @@
             </div>
 
             <div class="div_newPrice" id="newPrice">
-                <label class="label_newPrice" for="newPrice"><b>New Price</b></label>
+                <label class="label_newPrice" for="newPrice">New Price</label>
                 <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="Rs.">
 
                 <script src="../../public/java script/manageStocks.js"></script>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="withRep">
-                <h1 class="text_withRep">With Rep</h1>
+                <p class="text_withRep">With Rep</p>
                 <table>
                     <thead>
                         <tr>
@@ -112,10 +112,10 @@
             </div>
 
             <div class="discount">
-                <h2>Discount</h2>
+                <!-- <h2>Discount</h2> -->
                 <div class="div_currentDiscount">
-                    <label class="label_currentDiscount" for="currentDiscount">Current discount</label>
-                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount">
+                    <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
+                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="           10%">
 
                     <script src="../../public/java script/manageStocks.js"></script>
 
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="div_newDiscount" id="div_newDiscount">
-                    <label class="label_newDiscount" for="newDiscount">New discount</label>
+                    <label class="label_newDiscount" for="newDiscount">New Discount</label>
                     <input class="input_newDiscount" type="text" name="newDiscount" id="newDiscount">
 
                     <script src="../../public/java script/manageStocks.js"></script>
@@ -136,7 +136,9 @@
 
         </fieldset>
 
-        <button class="backBtn">Back</button>
+        <!-- <button class="backBtn"></button> -->
+        <a href="_1_view_stockmanagerHome.php"><button class="backBtn">Back</button></a>
+
 
     </section>
 

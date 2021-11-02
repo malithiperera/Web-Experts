@@ -31,7 +31,7 @@
       </li>
 
       <li>
-        <a href="../orders/create_bill">
+        <a href="../customer/place_order_view">
 
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>

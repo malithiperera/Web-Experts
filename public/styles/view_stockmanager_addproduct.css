@@ -1,28 +1,34 @@
-*{
+* {
     margin: 0;
     padding: 0;
+
 }
-body{
+body {
     background: #ffffff;
     position: relative;
-height: 700px;
+    height: 700px;
+
 }
 
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
-h3{
-    padding: 10px;
+.text_addProduct {
+    padding: 20px;
     margin-bottom: 10px;
-    font-size: 20px;
-    text-transform: uppercase;
-    margin-top: 20px;
+    /* font-size: 20px; */
+    font-weight: light;
+    /* text-transform: uppercase; */
+    /* margin-top: 10px; */
+    font-size: x-large;
+
 }
-.form{
+.form {
     width: 450px;
-    height: 600px;
+    height: 650px;
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -32,69 +38,77 @@ h3{
     color: rgb(0, 0, 0);
     border-radius: 30px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
 }
-.container input{
+.container input {
     margin-bottom: 20px;
     width: 100%;
     
-    }
-.form input[type="text"]{
+}
+.form input[type="text"] {
     border: none;
     width: 300px;
-    border: 1px solid rgb(230, 226, 226);
-    background:#c8c7c6;
+    /* height: 1%; */
+    border-bottom: 1px solid #dddd;
+    /* background:; */
     outline: none;
     height: 25px;
     color: rgb(2, 2, 2);
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: light;
+    font-size: medium   ;
     padding: 7px;
    
-
 }
 
-select{
-    width:300px;
+select {
+    width:320px;
     height:30px;
-    background:#c8c7c6;
+    /* background:#c8c7c6; */
     outline: none;
-    height: 30px;
+    height: 7%;
     margin-bottom: 20px;
     color: rgb(2, 2, 2);
-    font-weight: bold;
+    font-weight: light;
     font-size: 15px;
-   
     color: rgb(2, 2, 2);
-    border: 1px solid rgb(230, 226, 226);
-}
-.form input[type="submit"] {
-border: none;
-outline: none;
-height: 40px;
-background:#2277B2;
-color: #fff;
-font-size: 18px;
-border-radius: 10px;
+    border: none;
+    border-bottom: 1px solid rgb(230, 226, 226);
+    font-weight: 100;
 
 }
-.form input[type="submit"]:hover{
-    background-color: #e4e1df;
+.form input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background:#2277B2;
+    color: #fff;
+    /* font-size: 18px; */
+    font-weight: 100;
+    border-radius: 10px;
+
+}
+.form input[type="submit"]:hover {
+    background-color: #08975b;
     cursor: pointer;
+
 }
 
 .form input[type="file"] {
     outline: none;
-    border: none;
-    height: 30px;
+    /* border: none; */
+    height: 7%;
     width: 300px;
+    border-bottom: #dddd;
+    /* font-weight: bold; */
   
 }
 
 
 .custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
-  }
-  .custom-file-input::before {
+
+}
+.custom-file-input::before {
     content: 'Select Picture';
     display: inline-block;
     border: 1px solid rgb(5, 5, 5);
@@ -104,21 +118,61 @@ border-radius: 10px;
     white-space: nowrap;
     -webkit-user-select: none;
     cursor: pointer;
-
     font-weight: 700;
     font-size: 10pt;
-  }
+
+}
   .custom-file-input:hover::before {
     border-color: black;
-  }
-  
+
+} 
 .form p{
     margin: 0;
     padding: 0;
-    font-weight: bold;
-}
+    font-weight: light;
 
+}
 .error{
     background-color: white;
     color: red;
+
+}
+.div_MessageContainer {                                    /* division message container */
+    position: fixed;
+    width: 100%;
+    height: 35%;
+    top: 35%;
+    /* background-color: aqua; */
+    /* visibility: hidden; */
+
+}
+.div_messageArea {
+    position: fixed;
+    width: 455px;
+    height: 35%;
+    top: 35%;
+    background-color: darkslateblue;
+    left: 35%;
+    color: white;
+    visibility: hidden;
+
+}
+ /* scroll bar */
+ html::-webkit-scrollbar{
+  width: .8rem;
+  
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+
+}
+
+html::-webkit-scrollbar-thumb{
+  background: #184A78;
+  border-radius: 2rem;
+
+}
+.btn_submit {
+    font-size: medium;
 }

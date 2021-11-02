@@ -73,14 +73,14 @@ if (!isset($_SESSION['username'])) {
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
-        <!-- <span class="tooltip">Reports</span> -->
+        <span class="tooltip">Reports</span>
       </li>
       <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
-        <!-- <span class="tooltip">Notifications</span> -->
+        <span class="tooltip">Notifications</span>
       </li>
       <li>
         <a href="../salesRep/achievements">
@@ -100,7 +100,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="#">
+        <a href="../login/logout">
           <i class="fas fa-sign-out-alt"></i>
           <span class="links_name">Logout</span>
         </a>
@@ -127,17 +127,17 @@ if (!isset($_SESSION['username'])) {
         </div>
         <div class="card-1">
           <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p id="top-detail-1"><span id=rep></span></p>
+          <p id="top-detail-1">52</p>
         </div>
       </div>
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
-          <p id="item">10</p>
+          <p id="item">9</p>
         </div>
         <div class="card">
           <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-          <p id="item">1</p>
+          <p id="item">5</p>
         </div>
         <div class="card">
           <p><i class="fas fa-users"></i><br>No of Customers</p>
@@ -145,7 +145,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <div class="card">
           <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
-          <p id="item">10</p>
+          <p id="item">4</p>
         </div>
 
       </div>
@@ -199,7 +199,7 @@ if (!isset($_SESSION['username'])) {
                                
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
-                                <td><a href="../salesRep/product_list?route_id=${data[i]['cus_id']}">${data[i]['shop_name']}</a></td>
+                                <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
                                 <td><button id="confirm">Confirm</button></td>
                                 
                             

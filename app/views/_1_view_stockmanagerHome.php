@@ -81,9 +81,9 @@
     <section class="home-section">
         <section class="cards-section">
             <div class="cards">
-                <div class="div_kingOfProducts">
+                <div class="div_kindOfProducts">
                     <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-                    <p class="value_kingOfProducts">10</p>
+                    <p class="value_kindOfProducts">10</p>
                 </div>
                 <div class="div_noOfReps">
                     <p><i class="fas fa-user-tie"></i></i><br>No of Sales rep</p>
