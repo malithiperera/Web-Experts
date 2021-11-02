@@ -100,7 +100,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="#">
+        <a href="../login/logout">
           <i class="fas fa-sign-out-alt"></i>
           <span class="links_name">Logout</span>
         </a>
