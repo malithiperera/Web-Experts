@@ -484,7 +484,7 @@ align-items: center;
 
 
 .confirm{
-  width: 400px;
+  width: 450px;
   margin-right: 60px;
   display: flex;
   flex-direction: column;
@@ -500,14 +500,22 @@ align-items: center;
   text-transform: uppercase;
 }
 .confirm button{
-  background-color: rgb(35,143,59);
+  /* background-color: rgb(84,206,98);
   width: 100px;
   height: 30px;
   border-radius: 5px;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 10px 10px;
+  font-size: 15px; */
   
 }
 .confirm a{
   color:rgb(0, 0, 0);
+}
+#confirm-but{
+  background: rgb(0,123,255);
 }
 /* div:not(.pop-up) > div {
   opacity: 0.5;
@@ -565,7 +573,7 @@ font-weight: 700;
 
 
 
-.field-name #payhere-payment{
+ #payhere-payment{
   width: 150px;
   height: 40px;
   margin: 10px;

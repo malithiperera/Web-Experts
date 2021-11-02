@@ -329,6 +329,12 @@ if (!isset($_SESSION['username'])) {
             margin-left: 50px;
             margin-top: 20px;
         }
+        #count_products,#count_salesreps,#count_customers,#count_routes,#count_orders,#count_deliveries{
+            color:rgb(45, 211, 45);
+            margin-top: -4px;
+            font-weight:700;
+            font-size: 24px;
+        }
     </style>
 </head>
 

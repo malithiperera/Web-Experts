@@ -120,14 +120,18 @@ if (!isset($_SESSION['username'])) {
         <div class="card-1">
           <p><i class="fas fa-user-tie"></i><br>Customer Id</p>
           <p id="top-detail-1"><?php echo $_SESSION['userid'];  ?></p>
+          <p id="top-detail-1"><span id='shop'></span></p>
         </div>
         <div class="card-1">
           <p><i class="fas fa-map-marker"></i><br>Route</p>
           <p id="top-detail-1"><span id=route></span></p>
+          <p id="top-detail-1"><span id=route>Kakirawa West</span></p>
+
         </div>
         <div class="card-1">
           <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
           <p id="top-detail-1"><span id=rep></span></p>
+          <p id="top-detail-1"><span id="">0717890172</span></p>
         </div>
       </div>
       <div class="cards">
@@ -141,15 +145,15 @@ if (!isset($_SESSION['username'])) {
         </div>
         <div class="card">
           <p><i class="fas fa-exclamation-circle"></i><br>Overdue Payment</p>
-          <p id="top-detail"><span id='del'>10</span></p>
+          <p id="top-detail"><span id='del'>0</span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-money-check"></i><br>Pending Cheque</p>
-          <p id="top-detail">10</p>
+          <p id="top-detail">0</p>
         </div>
         <div class="card">
           <p><i class="fas fa-money-bill-alt"></i><br>Pending Payments</p>
-          <p id="top-detail"><span id='pen_pay'>10</span></p>
+          <p id="top-detail"><span id='pen_pay'>1</span></p>
         </div>
 
 
@@ -203,8 +207,10 @@ if (!isset($_SESSION['username'])) {
               <p>Order 1</p>
             </a>
           </div>
+          <div class="button-confirm"> <button id="payhere-payment">Confirm</button>
+            <button id="view-del">View</button>
+          </div>
 
-          <button>Confirm</button>
 
         </div>
 
@@ -308,6 +314,7 @@ if (!isset($_SESSION['username'])) {
     pen_pay = document.getElementById('pen_pay');
     route = document.getElementById('route');
     rep = document.getElementById('rep');
+    shop = document.getElementById('shop');
 
 
 
@@ -344,6 +351,7 @@ if (!isset($_SESSION['username'])) {
           pen_pay.innerHTML = data[0][2]['count_deliver'];
           route.innerHTML = data[0][3]['routes'];
           rep.innerHTML = data[0][4]['rep_name'];
+          shop.innerHTML = data[0][5]['shop_name'];
 
 
         });
@@ -436,6 +444,7 @@ if (!isset($_SESSION['username'])) {
                 
                 </td>
                 <td><button  onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
+                
               </tr>
             </table>
             
@@ -471,7 +480,7 @@ if (!isset($_SESSION['username'])) {
     </td>
     <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
     
-    <button id="payhere-payment"><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
+    <button id="payhere-payment" onclick='pay_here()'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
   </tr>
 </table>
@@ -490,24 +499,75 @@ if (!isset($_SESSION['username'])) {
     }
 
     get_deliveries();
+    payhere.onCompleted = function onCompleted(orderId) {
+      console.log("Payment completed. OrderID:" + orderId);
+      //Note: validate the payment and show success or failure page to the customer
+    };
 
-    pop_up_div = document.getElementById('pop-up-report');
-      card=document.querySelector('.cards-section');
-      detail=document.querySelector('.detail');
-    function pop_up_report() {
-     
-      
-      pop_up_div.style.visibility = "visible";
+    // Called when user closes the payment without completing
+    payhere.onDismissed = function onDismissed() {
+      //Note: Prompt user to pay again or show an error page
+      console.log("Payment dismissed");
+    };
 
-      card.style.opacity="50%";
-      detail.style.opacity="50%";
-    
+    // Called when error happens when initializing payment such as invalid parameters
+    payhere.onError = function onError(error) {
+      // Note: show an error page
+      console.log("Error:" + error);
+    };
 
+    // Put the payment variables here
+    var payment = {
+      "sandbox": true,
+      "merchant_id": "1218797", // Replace your Merchant ID
+      "return_url": undefined, // Important
+      "cancel_url": undefined, // Important
+      "notify_url": "http://sample.com/notify",
+      "order_id": "ItemNo12345",
+      "items": "Door bell wireles",
+      "amount": "1000.00",
+      "currency": "LKR",
+      "first_name": "Saman",
+      "last_name": "Perera",
+      "email": "samanp@gmail.com",
+      "phone": "0771234567",
+      "address": "No.1, Galle Road",
+      "city": "Colombo",
+      "country": "Sri Lanka",
+      "delivery_address": "No. 46, Galle road, Kalutara South",
+      "delivery_city": "Kalutara",
+      "delivery_country": "Sri Lanka",
+      "custom_1": "",
+      "custom_2": ""
+    };
+
+    //Show the payhere.js popup, when "PayHere Pay" is clicked
+    // document.getElementById('payhere-payment').onclick = function (e) {
+    //     payhere.startPayment(payment);
+    // };
+
+
+    function pay_here() {
+      // document.getElementById('payhere-payment').onclick = function (e) {
+      payhere.startPayment(payment);
 
     }
 
-    
-    
+    pop_up_div = document.getElementById('pop-up-report');
+    card = document.querySelector('.cards-section');
+    detail = document.querySelector('.detail');
+
+    function pop_up_report() {
+
+
+      pop_up_div.style.visibility = "visible";
+
+      card.style.opacity = "50%";
+      detail.style.opacity = "50%";
+
+
+
+    }
   </script>
 
   <script src="../../public/java script/view_customer_Home.js"></script>

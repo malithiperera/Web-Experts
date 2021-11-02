@@ -4,6 +4,8 @@ if (!isset($_SESSION['username'])) {
   header("Location:http://localhost/web-Experts/public/login/index");
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +35,7 @@ if (!isset($_SESSION['username'])) {
 
 
       <div class="btn-group">
-        <button id="admin">Admin</button>
+        <button id="admin">Sales Admin</button>
         <button id="rep">Sales Rep</button>
         <button id="cus">Stock Manager</button>
       </div>
@@ -41,7 +43,7 @@ if (!isset($_SESSION['username'])) {
     <div class="container">
       <span id=msg></span>
       <div class="div1" id="div1">
-        <h3>Admin Registration</h3>
+        <h3>Sales Adminnistrator Registration</h3>
         <form method="post" action="../register/employee_register?user=admin">
           <div class="content">
 
