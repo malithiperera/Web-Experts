@@ -130,7 +130,22 @@ public function back(){
 
     public function test()
     {
-        $this->view->render('test2');
+        $this->view->render('view_report_example');
+    }
+
+    public function test_report(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $data = [];
+
+        $this->model('_1_admin_model');
+        $result = $this->model->test_report1();
+
+        array_push($data, $result);
+
+        echo json_encode($data);
+        exit;
     }
 
     //this is the point
