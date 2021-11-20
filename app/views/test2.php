@@ -238,6 +238,15 @@
         .order-table {
             margin-right: 100px;
         }
+        .suggestions{
+            background-color: #184A78;
+            color: #fff;
+        }
+        .suggestions a{
+            color: #fff;
+            font-size: 20px;
+            
+        }
 
         /* .detail_id{
     width: 400px;

@@ -299,6 +299,14 @@
 			</div>
 			<img src="../../public/images/cheese.jpg" style="width: 100%; height: 100%;">
 		</div>
+		<div class="myslide fade">
+			<div class="txt">
+            <h1>Himalee Dairy Products</h1>
+				<p>Everyone needs milk...Dairy always a Good Choice</p>
+                <a href="login" class="btn">Get started</a>
+			</div>
+			<img src="../../public/images/cheese.jpg" style="width: 100%; height: 100%;">
+		</div>
 		<!-- /fade css -->
 		
 		<!-- onclick js -->
