@@ -102,50 +102,17 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <section class="home-section">
-    <!-- <h1>NOTIFICATIONS</h1> -->
+    <h1>NOTIFICATIONS</h1>
     <div class="container">
 
       <div class="subcontainer2">
-        <?php
-
-        for ($i = 0; $i < 100; $i++) {
-          echo "<div class='notification'>
-
-                        <div class='from'>
-                            admin1
-                        </div>
-                        <div class='header_notification'>
-                            header of the notinnnnnnnnnnnnnnnnnnnnnnnnnnnnfication
-                        </div>
-                        <div class='message_notification' id='message_notification'>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                            Odio sit deleniti, nostrum repudiandae ullam perspiciatis 
-                            facilis quaerat eligendi omnis animi enim similique in porro 
-                            necessitatibus dolor sed error quo qui cumque inventore! Quasi 
-                            atque repellat a laborum incidunt nostrum reprehenderit dolorum, 
-                            adipisci nulla neque quisquam magnam quia enim sunt, culpa soluta 
-                            voluptate? Temporibus modi dolorum eius. Veritatis, id cumque labore
-                             nihil neque harum non quia aliquam debitis ad porro incidunt delectus
-                              aperiam laborum. Nulla corrupti laudantium incidunt possimus iure, 
-                              iste nemo quis architecto, quia cumque pariatur debitis facere 
-                              corporis officiis recusandae culpa mollitia sapiente, animi cupiditate? 
-                              Debitis laudantium perspiciatis unde.
-                        </div>
-                        <div class='delete'>
-                        
-                        <div class='trash'>
-                       <a> <i class='fas fa-trash'></i></a>
-                       </div>
-                       <div class='trash'>
-                       <a>  <i class='fas fa-archive'></i></a>
-                       </div>
-                        </div>
-                      </div>";
-        }
-
-        ?>
 
 
+
+      </div>
+
+      <div class="view_more">
+        <a href="#">view more</a>
       </div>
     </div>
 
@@ -157,6 +124,8 @@ if (!isset($_SESSION['username'])) {
   <script>
     var to_whom = '<?php echo $_SESSION['type']; ?>';
     var user_id = '<?php echo $_SESSION['userid']; ?>';
+
+    subcontainer2 = document.querySelector('.subcontainer2');
 
     const dataset = {
       to_whom: to_whom,
@@ -176,6 +145,33 @@ if (!isset($_SESSION['username'])) {
         })
         .then(response => response.json())
         .then(data => {
+
+          for (i = 0; i < data.length; i++) {
+            subcontainer2.innerHTML += `
+            
+            <div class='notification'>
+
+                <div class='from'>
+                  ${data[i]['to_whom']}
+                </div>
+                <div class='header_notification'>
+                  ${data[i]['subject']}
+                </div>
+                <div class='message_notification' id='message_notification'>
+                  ${data[i]['message']}
+                </div>
+                <div class='delete'>
+
+                  <div class='trash'>
+                    <a> <i class='fas fa-trash'></i></a>
+                  </div>
+                  
+                </div>
+            </div>
+
+            `;
+          }
+
           console.log(data);
         });
     }
