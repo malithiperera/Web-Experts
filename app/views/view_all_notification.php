@@ -149,18 +149,18 @@ if (!isset($_SESSION['username'])) {
           for (i = 0; i < data.length; i++) {
             subcontainer2.innerHTML += `
             
-            <div class='notification'>
+            <div class='notification' id='${data[i]['notification_id']}'>
 
-                <div class='from'>
+                <div class='from' id='${data[i]['notification_id']}'>
                   ${data[i]['to_whom']}
                 </div>
-                <div class='header_notification'>
+                <div class='header_notification' id='${data[i]['notification_id']}'>
                   ${data[i]['subject']}
                 </div>
-                <div class='message_notification' id='message_notification'>
+                <div class='message_notification' id='${data[i]['notification_id']}'>
                   ${data[i]['message']}
                 </div>
-                <div class='delete'>
+                <div class='delete' id='${data[i]['notification_id']}'>
 
                   <div class='trash'>
                     <a> <i class='fas fa-trash'></i></a>
@@ -173,10 +173,16 @@ if (!isset($_SESSION['username'])) {
           }
 
           console.log(data);
+
+
         });
     }
 
     load_notification();
+
+    subcontainer2.addEventListener("click", (event) =>{
+      window.location.href = 'http://localhost/web-Experts/public/notification/see_notification/'+event.target.id;
+    });
   </script>
 
 </body>

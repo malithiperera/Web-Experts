@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        let notification_id = '<?php echo $this->notification_id; ?>';
+
+        
+    </script>
 </body>
 </html>

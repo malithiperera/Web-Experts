@@ -27,6 +27,17 @@ class notification extends controller{
         echo json_encode($data);
         exit;
     }
+
+    public function see_notification($notification_id){
+
+        $this->view->notification_id = $notification_id;
+        $this->view->render('view_all_notification_view');
+        
+    }
+
+    public function load_notification_page(){
+        
+    }
 }
 
 ?>
