@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +31,7 @@ position: fixed;
 text-transform: uppercase;
 
 }
+
 nav h1{
     position: absolute;
     width: 400px;
@@ -132,7 +135,13 @@ top: -0px;
     display: block;
   }
   
-
+  nav li span{
+    color: #fff;
+    font-size: 20px;
+  }
+ /* nav ul li .open{
+  color: #D78B2E;
+ } */
 @media(max-width:700px) {
     
     nav{
@@ -149,7 +158,7 @@ top: -0px;
 
 
 }
-nav h3{
+nav h3 {
 
    
     margin-top: 35px;
@@ -195,9 +204,9 @@ i{
         <h3>Everyone Needs Milk. Dairy always a Good Choice</h3>
         <ul>
          
-            <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
+            <!-- <li><a href=""><i class="fas fa-arrow-left"></i></a></li> -->
             
-            <li><a href=""><i class="fas fa-home" id="s3"></i></a></li>
+            <li><span><?php echo $_SESSION['username']; ?></span></li>
             
              
             

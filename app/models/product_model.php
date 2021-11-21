@@ -32,4 +32,16 @@ class product_model extends model{
     return $query;
 
    }
+
+
+   public function show_discounts(){
+    require '../app/core/database.php';
+    // $final=date('Y-m-d', strtotime($today. ' - 7 days'));
+  
+    $query="SELECT * FROM product LIMIT 5";
+    $result=mysqli_query($conn,$query);
+    return $result;
+
+
+   }
 }

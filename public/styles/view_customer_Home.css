@@ -8,16 +8,16 @@
 }
 
  /* scroll bar */
- html::-webkit-scrollbar{
+ ::-webkit-scrollbar{
   width: .8rem;
   
 }
 
-html::-webkit-scrollbar-track{
+::-webkit-scrollbar-track{
   background: transparent;
 }
 
-html::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb{
   background: #184A78;
   border-radius: 2rem;
 }
@@ -39,6 +39,7 @@ html::-webkit-scrollbar-thumb{
   height: 60px;
   display: flex;
   align-items: center;
+  text-align: center;
   position: relative;
 }
 .sidebar .logo-details .icon{
@@ -392,16 +393,18 @@ text-align: center;
   color: #fff;
 }
 .orders{
+
   border-radius: 5px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
   padding: 30px;
  
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   margin-bottom: 20px;
-  height: auto;
+  height: 400px;
+  overflow-y: auto;
 }
 .orders h2{
   text-transform: uppercase;
@@ -614,6 +617,11 @@ button i{
   background-color: #184A78;
   width: 50%;
   z-index: 7000;
+  /* position: fixed; */
+}
+
+.header .open{
+background: red;
 }
 
 td span{

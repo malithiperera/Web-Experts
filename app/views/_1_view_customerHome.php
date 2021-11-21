@@ -37,7 +37,7 @@ if (!isset($_SESSION['username'])) {
   <div class="sidebar">
     <div class="logo-details">
 
-      <div class="logo_name">Himalee Dairy Product</div>
+      <div class="logo_name">H</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
@@ -111,9 +111,9 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <section class="home-section">
-    <!-- <div class="header">
-      
-    </div> -->
+    <div class="header">
+      <?php  require 'view_headertype2.php'; ?>
+    </div>
     <section class="cards-section">
 
       <div class="top">
@@ -339,7 +339,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
+//load cards 
     function load_cards() {
 
       fetch('http://localhost/web-Experts/public/customer/load_card')
@@ -358,6 +358,27 @@ if (!isset($_SESSION['username'])) {
     }
 
     load_cards();
+
+
+
+    function discounts() {
+
+fetch('http://localhost/web-Experts/public/customer/discounts')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    let item = document.querySelector('.item');
+    for (i = 0; i < data.length; i++) {
+      item.innerHTML=data[0]['product_id']
+      
+
+
+    }
+
+  });
+}
+discounts();
+
   </script>
 
 
@@ -445,7 +466,7 @@ if (!isset($_SESSION['username'])) {
                 </td>
                 <td><button  onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
                 
-              </tr>
+              </tr>+
             </table>
             
             `;
