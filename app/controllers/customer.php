@@ -132,7 +132,7 @@ class customer extends controller
 
     public function profile()
     {
-        $this->view->render('view_all_editProfile');
+        $this->view->render('view_profileEdit');
     }
 
 
@@ -161,7 +161,18 @@ class customer extends controller
         echo json_encode($data);
         exit;
     }
+//get discounts
+public function discounts(){
+    $this->model('product_model');
+    $result = $this->model->show_discounts();
+    $data = [];
 
+    while ($row = $result->fetch_assoc()) {
+        array_push($data, $row);
+    }
+    echo json_encode($data);
+    exit;
+}
 
     // get details about pending orders
     public function get_pending_orders()
