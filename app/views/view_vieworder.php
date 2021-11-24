@@ -67,7 +67,7 @@
         <div class="order">
             <table>
                 <tr>
-                    <th>Product Id</th>
+                  
                     <th>Product Name</th>
                     <th>Unit Price</th>
                     <th>Discount</th>
@@ -76,32 +76,18 @@
                     <th colspan="2"></th>
                 </tr>
 
-                <tbody class="pending_order_table">
+                <tbody class="pending_order_table" id="new_product">
 
                 </tbody>
 
-                <!-- <?php $x = 1;
-                        while ($x < 8) {   ?>
-                    <tr>
-                        <td>001</td>
-                        <td>001</td>
-                        <td>001</td>
-                        <td>001</td>
-                        <td>001</td>
-                        <td>001</td>
-                        <td><button class="edit"><a>Edit</a></button></td>
-                        <td><button class="delete"><a>Delete</a></button></td>
-
-                    </tr>
+                
 
 
 
 
-                <?php $x++;
-                        } ?> -->
 
                 <tr class="tot">
-                    <td colspan="7">Total</td>
+                    <td colspan="6">Total</td>
                     <td id="total_of_all_prices">12000</td>
                 </tr>
 
@@ -118,6 +104,44 @@
     </div>
 
     <script>
+
+        //suggestions 
+         suggestions = document.querySelector(".suggestions");
+
+async function fetchText(value) {
+
+    let reqBody = {
+        product: value
+    };
+    const getData = async reqBody => {
+        let res = await fetch('http://localhost/web-Experts/public/login/test2', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reqBody)
+        });
+        if (res.status !== 200) // http status code 200 means success
+            throw new Error("Fetching process failed");
+        let data = await res.json();
+        return data;
+    }
+
+    getData(reqBody).then(data => {
+        // console.log(data);
+        suggestions.innerHTML = ``;
+        data.forEach(myFunction);
+
+        function myFunction(item) {
+
+            suggestions.innerHTML += `<li><a href="#" onclick="select_row('${item['product_name']}', '${item['price']}', '${item['discount']}')">${item['product_name']}</a></li>`;
+        }
+
+    }).catch(reason => {
+        console.log(reason);
+    })
+}
+
         // fill header details
         var order_id_input = document.querySelector('.order_id');
         var cus_id_input = document.querySelector('.cus_id');
@@ -155,7 +179,7 @@
                         pending_order_table.innerHTML += `
                         
                         <tr>
-                        <td>${data[i]['product_id']}</td>
+                        
                         <td>${data[i]['product_name']}</td>
                         <td>${data[i]['price']}</td>
                         <td>${data[i]['discount']}</td>
@@ -178,11 +202,64 @@
         
 
         function edit_function(event){
-            // event.path[3].cells[4].getElementsByTagName('input')[0].removeAttribute("readonly");
+           event.path[2]
+            // event.path[4].cells[4].getElementsByTagName('input')[0].removeAttribute("readonly");
             // var qty = event.path[3].cells[4].getElementsByTagName('input')[0].value;
+            // alert(qty);
             // event.path[3].cells[5].innerHTML = qty*event.path[3].cells[2].innerHTML;
-            console.log(event.path);
+            console.log(event);
         }
+
+
+        function select_row(product_name, unit_price, discount) {
+            product_name_input.value = product_name;
+            unit_price_input.value = unit_price;
+            discount_input.value = discount;
+            suggestions.innerHTML = ``;
+        }
+
+        function cal_tot() {
+            tot_price_input.value = (quantity_input.value * unit_price_input.value) * (100 - discount_input.value) / 100;
+        }
+
+
+
+        let product_name_input = document.getElementById("product_name");
+        let unit_price_input = document.querySelector("#unit_price");
+        let discount_input = document.querySelector('#discount');
+        let quantity_input = document.querySelector('#quantity');
+        let tot_price_input = document.querySelector('#total_price');
+        let new_product = document.querySelector('#new_product');
+        // let info = document.querySelector('.info');
+        let table_info = document.querySelector('#order_table');
+        // let total_of_all_prices = document.getElementById('total_of_all_prices');
+        let user_id = document.getElementById('user_id');
+        // let route_id = document.getElementById('route_id');
+        let shop_name = document.getElementById('shop_name');
+        let confirm_message = document.getElementById('confirm_message');
+        let done = document.querySelector('.button-pop');
+        // let order_id = document.getElementById('order_id');
+        let order_date = document.getElementById('order_date');
+        let order_amount = document.getElementById('order_amount');
+       
+        function add_product() {
+            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + '<button class="edit"><i class="fas fa-pen"></i>Edit</button> ' + '</td><td>' + '<button class="delete"><i class="fas fa-trash-alt"></i>Delete</button> ' + '</td></tr>';
+
+            product_name_input.value = '';
+            unit_price_input.value = '';
+            discount_input.value = '';
+            quantity_input.value = '';
+            tot_price_input.value = '';
+
+            var total = 0;
+            for (i = 1; i < table_info.rows.length - 1; i++) {
+                // total = total + 1;
+                total = total + parseInt(table_info.rows[i].cells[4].innerHTML);
+            }
+            total_of_all_prices.innerHTML = total;
+
+        }
+
     </script>
 
 </body>

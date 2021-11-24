@@ -38,7 +38,7 @@ class product_model extends model{
     require '../app/core/database.php';
     // $final=date('Y-m-d', strtotime($today. ' - 7 days'));
   
-    $query="SELECT * FROM product LIMIT 5";
+    $query="SELECT * FROM product WHERE date_discount!='NULL' ORDER BY date_discount desc";
     $result=mysqli_query($conn,$query);
     return $result;
 

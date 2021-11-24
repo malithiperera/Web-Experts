@@ -63,7 +63,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="#" onclick="pop_up_report()">
+        <a href="../customer/viewreport" >
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
@@ -112,7 +112,7 @@ if (!isset($_SESSION['username'])) {
 
   <section class="home-section">
     <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
+      <?php require 'view_headertype2.php'; ?>
     </div>
     <section class="cards-section">
 
@@ -165,31 +165,18 @@ if (!isset($_SESSION['username'])) {
 
 
         <div class="discount">
-          <h3>New discount Prodcuts</h3>
+          <h3 id="dis-head">New discount Prodcuts</h3>
+          <table class="dis-table">
+            <tbody class="dis-pro">
+            
+           
+            </tbody>
 
 
-          <div class="item">
-            <p>H201 Ice cream 80g-10% </p>
-            <a href="">View Product</a>
-          </div>
-          <div class="item">
-            <p>H201 Ice cream 80g-10% </p>
-            <a href="">View Product</a>
-          </div>
-          <div class="item">
-            <p>H201 Ice cream 80g-10% </p>
-            <a href="">View Product</a>
-          </div>
-          <div class="item">
-            <p>H201 Ice cream 80g-10% </p>
-            <a href="">View Product</a>
-          </div>
-          <div class="item">
-            <p>H201 Ice cream 80g-10% </p>
-            <a href="">View Product</a>
-          </div>
-          <div class="graph">
-            <h3>Selling Products</h3>
+          </table>
+
+
+            <h3>Selling Products</h3> -->
 
             <div id="barchart_values" style="width: 600px; height: 500px;"></div>
           </div>
@@ -339,7 +326,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-//load cards 
+    //load cards 
     function load_cards() {
 
       fetch('http://localhost/web-Experts/public/customer/load_card')
@@ -361,24 +348,33 @@ if (!isset($_SESSION['username'])) {
 
 
 
+       //discounts
     function discounts() {
+      dis_pro=document.querySelector('.dis-pro');
 
-fetch('http://localhost/web-Experts/public/customer/discounts')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    let item = document.querySelector('.item');
-    for (i = 0; i < data.length; i++) {
-      item.innerHTML=data[0]['product_id']
-      
+      fetch('http://localhost/web-Experts/public/customer/discounts')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          let item = document.querySelector('.item');
+          for (i = 0; i < data.length; i++) {
+            let new_price=data[i]['price']*(100-data[i]['discount'])/100;
+            dis_pro.innerHTML+= `<tr class="pro-list">
+              
+              <td>${data[i]['product_name']}</td>
+              <td>${data[i]['description']}</td>
+              <td class="dis">${data[i]['discount']}%</td>
+              <td class="old-price">RS.${data[i]['price']}</td>
+              <td class="new-price">RS.${new_price}<td>
+            </tr>`;
 
 
+
+          }
+
+        });
     }
-
-  });
-}
-discounts();
-
+    discounts();
   </script>
 
 
@@ -501,7 +497,7 @@ discounts();
     </td>
     <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
     
-    <button id="payhere-payment" onclick='pay_here()'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
+    <button id="payhere-payment" onclick='pay_here(${data[i]['delivery_id']})'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
   </tr>
 </table>
