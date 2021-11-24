@@ -102,19 +102,26 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <section class="home-section">
-    <h1>NOTIFICATIONS</h1>
-    <div class="container">
+    <div class="all_notifications">
+      <h1>NOTIFICATIONS</h1>
+      <div class="container">
 
-      <div class="subcontainer2">
+        <div class="subcontainer2">
 
 
 
-      </div>
+        </div>
 
-      <div class="view_more">
-        <a href="#">view more</a>
+        <div class="view_more">
+          <a href="#">view more</a>
+        </div>
       </div>
     </div>
+
+    <div class="select_one" style="display: none;">
+      <?php require_once 'view_all_notification_view.php'; ?>
+    </div>
+
 
   </section>
 
@@ -124,6 +131,10 @@ if (!isset($_SESSION['username'])) {
   <script>
     var to_whom = '<?php echo $_SESSION['type']; ?>';
     var user_id = '<?php echo $_SESSION['userid']; ?>';
+
+    home_section = document.querySelector('.home-section');
+    all_notifications = document.querySelector('.all_notifications');
+    select_one = document.querySelector('.select_one');
 
     subcontainer2 = document.querySelector('.subcontainer2');
 
@@ -171,17 +182,17 @@ if (!isset($_SESSION['username'])) {
 
             `;
           }
-
           console.log(data);
-
-
         });
     }
 
     load_notification();
 
-    subcontainer2.addEventListener("click", (event) =>{
-      window.location.href = 'http://localhost/web-Experts/public/notification/see_notification/'+event.target.id;
+    subcontainer2.addEventListener("click", (event) => {
+      
+      load_page(event.target.id);
+      all_notifications.style.display = "none";
+      select_one.style.display = "block";
     });
   </script>
 

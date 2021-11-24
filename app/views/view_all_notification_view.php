@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="from">
+    <div class="from_whom">
         From : 
     </div>
     <div class="to">
@@ -24,14 +24,14 @@
     </div>
 
     <script>
-        let notification_id = '<?php echo $this->notification_id; ?>';
+        
 
-        from = document.querySelector('.from');
+        from = document.querySelector('.from_whom');
         to = document.querySelector('.to');
         subject = document.querySelector('.subject');
         message = document.querySelector('.message');
 
-        const load_page = () => {
+        const load_page = (notification_id) => {
             fetch('http://localhost/web-Experts/public/notification/load_notification_page', {
                     method: 'POST',
 
@@ -50,7 +50,7 @@
                 });
         }
 
-        load_page();
+        
     </script>
 </body>
 
