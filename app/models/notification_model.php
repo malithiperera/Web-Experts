@@ -18,4 +18,14 @@ class notification_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    public function load_notification_page($notification_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM notification WHERE notification_id = '$notification_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+
+    }
 }

@@ -36,7 +36,14 @@ class notification extends controller{
     }
 
     public function load_notification_page(){
-        
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->load_notification_page($get_data);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
     }
 }
 
