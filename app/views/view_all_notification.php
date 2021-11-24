@@ -22,6 +22,12 @@ if (!isset($_SESSION['username'])) {
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+  <style>
+    #unread_label{
+      margin-left:10px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -38,56 +44,57 @@ if (!isset($_SESSION['username'])) {
          <span class="tooltip">Search</span>
       </li> -->
       <li>
-        <a href="#">
+        <a href="#" onclick="load_notification('%')">
           <i class='bx bx-home'></i>
-          <span class="links_name">Home</span>
+          <span class="links_name">All</span>
         </a>
-        <span class="tooltip">Home</span>
+        <span class="tooltip">All</span>
       </li>
       <li>
-        <a href="../orders/create_bill">
+        <a href="#" onclick="load_notification(1)">
+          <i class='bx bx-home'></i>
+          <span class="links_name">New Products</span>
+        </a>
+        <span class="tooltip">New Products</span>
+      </li>
+      <li>
+        <a href="#" onclick="load_notification(2)">
 
           <i class="fas fa-truck"></i>
-          <span class="links_name">Confirmations</span>
+          <span class="links_name">Orders</span>
         </a>
-        <span class="tooltip">Confirmations</span>
+        <span class="tooltip">Orders</span>
       </li>
       <li>
-        <a href="../customer/my_order">
+        <a href="#" onclick="load_notification('3%')">
           <i class="fas fa-file-invoice"></i>
-          <span class="links_name">Bills</span>
+          <span class="links_name">Deliveries</span>
         </a>
-        <span class="tooltip">Bills</span>
+        <span class="tooltip">Deliveries</span>
       </li>
       <li>
-        <a href="../customer/view_report">
+        <a href="#" onclick="load_notification('4%')">
           <i class="fas fa-percentage"></i>
-          <span class="links_name">Discounts</span>
+          <span class="links_name">Stocks</span>
         </a>
-        <span class="tooltip">Discounts</span>
+        <span class="tooltip">Stocks</span>
       </li>
       <li>
-        <a href="../customer/our_products">
+        <a href="#" onclick="load_notification(5)">
           <i class="fas fa-envelope-open-text"></i>
-          <span class="links_name">Others</span>
+          <span class="links_name">Customer Requests</span>
         </a>
-        <span class="tooltip">Others</span>
+        <span class="tooltip">Customer Requests</span>
       </li>
 
       <li>
-        <a href="../customer/profile">
+        <a href="#" onclick="load_notification('6%')">
           <i class="far fa-user-circle"></i>
-          <span class="links_name">Profile</span>
+          <span class="links_name">Returns</span>
         </a>
-        <span class="tooltip">Profile</span>
+        <span class="tooltip">Returns</span>
       </li>
-      <li>
-        <a href="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="links_name">Logout</span>
-        </a>
-        <span class="tooltip">Logout</span>
-      </li>
+     
       <li class="profile">
         <div class="profile-details">
           <img src="profile.jpg" alt="profileImg">
@@ -104,6 +111,11 @@ if (!isset($_SESSION['username'])) {
   <section class="home-section">
     <div class="all_notifications">
       <h1>NOTIFICATIONS</h1>
+      <div class="filter">
+        <label for="unread" id="unread_label">Unread</label>
+        <input type="checkbox" id="unread">
+
+      </div>
       <div class="container">
 
         <div class="subcontainer2">
@@ -138,14 +150,21 @@ if (!isset($_SESSION['username'])) {
 
     subcontainer2 = document.querySelector('.subcontainer2');
 
-    const dataset = {
-      to_whom: to_whom,
-      user_id: user_id
-    }
-
+    
     // console.log(dataset);
 
-    const load_notification = () => {
+    const load_notification = (type) => {
+
+      const dataset = {
+      to_whom: to_whom,
+      user_id: user_id,
+      notification_type : type
+    }
+
+      subcontainer2.innerHTML = ``;
+      all_notifications.style.display = "block";
+      select_one.style.display = "none";
+
       fetch('http://localhost/web-Experts/public/notification/load_notification', {
           method: 'POST',
 
@@ -186,7 +205,7 @@ if (!isset($_SESSION['username'])) {
         });
     }
 
-    load_notification();
+    load_notification('%');
 
     subcontainer2.addEventListener("click", (event) => {
       

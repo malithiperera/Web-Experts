@@ -6,26 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+       
+    </style>
+
 </head>
 
 <body>
+    <div class="container1">
+        <div class="from_whom">
+            From :
+        </div>
+        <div class="to">
+            To :
+        </div>
+        <div class="subject">
+            Subject :
+        </div>
+        <div class="message">
+            Message :
+        </div>
+    </div>
 
-    <div class="from_whom">
-        From : 
-    </div>
-    <div class="to">
-        To : 
-    </div>
-    <div class="subject">
-        Subject : 
-    </div>
-    <div class="message">
-        Message : 
-    </div>
 
     <script>
-        
-
         from = document.querySelector('.from_whom');
         to = document.querySelector('.to');
         subject = document.querySelector('.subject');
@@ -49,8 +54,6 @@
                     message.innerHTML += `${data['message']}`;
                 });
         }
-
-        
     </script>
 </body>
 

@@ -178,9 +178,10 @@
         
 
         function edit_function(event){
-            event.path[3].cells[4].getElementsByTagName('input')[0].removeAttribute("readonly");
-            var qty = event.path[3].cells[4].getElementsByTagName('input')[0].value;
-            event.path[3].cells[5].innerHTML = qty*event.path[3].cells[2].innerHTML;
+            // event.path[3].cells[4].getElementsByTagName('input')[0].removeAttribute("readonly");
+            // var qty = event.path[3].cells[4].getElementsByTagName('input')[0].value;
+            // event.path[3].cells[5].innerHTML = qty*event.path[3].cells[2].innerHTML;
+            console.log(event.path);
         }
     </script>
 

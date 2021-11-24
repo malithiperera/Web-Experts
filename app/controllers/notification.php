@@ -16,7 +16,7 @@ class notification extends controller{
         $get_data = json_decode($get_data, true);
 
         $this->model('notification_model');
-        $result = $this->model->load_notification($get_data['to_whom'], $get_data['user_id']);
+        $result = $this->model->load_notification($get_data['to_whom'], $get_data['user_id'], $get_data['notification_type']);
 
         $data = [];
 
