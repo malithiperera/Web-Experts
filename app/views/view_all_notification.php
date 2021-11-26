@@ -147,6 +147,7 @@ if (!isset($_SESSION['username'])) {
     home_section = document.querySelector('.home-section');
     all_notifications = document.querySelector('.all_notifications');
     select_one = document.querySelector('.select_one');
+    notification_subcontainer = document.querySelector('.notification_subcontainer');
 
     subcontainer2 = document.querySelector('.subcontainer2');
 
@@ -176,6 +177,11 @@ if (!isset($_SESSION['username'])) {
         .then(response => response.json())
         .then(data => {
 
+          let subject = 'subject';
+          let message = 'message';
+
+          //choose subject and message according to the notification type
+
           for (i = 0; i < data.length; i++) {
             subcontainer2.innerHTML += `
             
@@ -185,10 +191,10 @@ if (!isset($_SESSION['username'])) {
                   ${data[i]['to_whom']}
                 </div>
                 <div class='header_notification' id='${data[i]['notification_id']}'>
-                  ${data[i]['subject']}
+                  ${subject}
                 </div>
                 <div class='message_notification' id='${data[i]['notification_id']}'>
-                  ${data[i]['message']}
+                  ${message}
                 </div>
                 <div class='delete' id='${data[i]['notification_id']}'>
 
@@ -206,10 +212,22 @@ if (!isset($_SESSION['username'])) {
     }
 
     load_notification('%');
+    
 
     subcontainer2.addEventListener("click", (event) => {
       
-      load_page(event.target.id);
+      let temp_type;
+      load_page(event.target.id)
+      
+      .then(data => {
+        console.log(data);
+        temp_type = data['notification_type'];
+        if(temp_type == 1){
+          console.log('product_addition, product id = '+data['product_id']);
+          // notification_subcontainer.innerHTML = `${data['product_id']}`;
+          product_addition(data['product_id']);
+        }
+      });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
