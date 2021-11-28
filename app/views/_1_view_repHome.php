@@ -45,8 +45,8 @@ if (!isset($_SESSION['username'])) {
         <div class="form-popup" id="myForm">
           <form action="../salesRep/customer_home" class="form-container">
 
-            <label for="email"><b>Enter Customer ID</b></label>
-            <input type="text" placeholder="Enter ID" name="email" required>
+            <label for="cus_id"><b>Enter Customer ID</b></label>
+            <input type="text" placeholder="Enter ID" name="cus_id" required>
 
             <button type="submit" class="btn" src=>Search</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>

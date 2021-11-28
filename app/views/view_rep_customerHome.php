@@ -88,7 +88,7 @@
         </div>
         <div class="card">
           <p><i class="fas fa-credit-card"></i><br>Credit Period</p>
-          <p id="result">30 days</p>
+          <p id="result">3 weeks</p>
         </div>
 
       </div>
