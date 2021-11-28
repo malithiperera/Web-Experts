@@ -305,7 +305,7 @@ h1{
     transform: translate(1.5);
 }
 .from{
-    width:60px;
+    width:150px;
     margin-top:10px;
     margin-bottom:10px;
     margin-left:150px;
@@ -314,7 +314,7 @@ h1{
     white-space:nowrap;
 }
 .header_notification{
-    width:250px;
+    width:450px;
     margin-top:10px;
     margin-bottom:10px;
     margin-left:30px;
@@ -322,14 +322,13 @@ h1{
     text-overflow:ellipsis;
     white-space:nowrap;
 }
-.message_notification{
-    width:800px;
-    margin-top:10px;
-    margin-bottom:10px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    /* margin-left:30px; */
-    white-space: nowrap; 
+.date_notification{
+  margin-right: 20px;
+  margin-left:30px;
+  margin-top:10px;
+}
+.time_notification{
+  margin-top: 10px;
 }
 .delete{
     margin-top:10px;
