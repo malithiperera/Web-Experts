@@ -11,10 +11,10 @@ class notification_model extends model
         parent::__construct();
     }
 
-    public function load_notification($to_whom, $user_id){
+    public function load_notification($to_whom, $user_id, $notification_type){
         require '../app/core/database.php';
 
-        $sql = "SELECT * FROM notification";
+        $sql = "SELECT * FROM notification WHERE notification_type LIKE '$notification_type'";
         $result = mysqli_query($conn, $sql);
         return $result;
     }
@@ -27,5 +27,23 @@ class notification_model extends model
 
         return $result;
 
+    }
+
+    public function product_addition($product_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM product WHERE product_id = '$product_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
+    //get product details
+    public function get_product_details($product_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM product WHERE product_id = '$product_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
     }
 }
