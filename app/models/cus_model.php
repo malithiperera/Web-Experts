@@ -83,4 +83,11 @@ class cus_model extends model
     }
 
 
+
+    public function order_table($userid)
+    {
+        $sql="SELECT * FROM orders WHERE cus";
+    }
+
+
 }

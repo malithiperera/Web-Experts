@@ -29,6 +29,13 @@ if (!isset($_SESSION['username'])) {
       display: flex;
       flex-direction: column;
     }
+
+
+
+    nav ul li a .open{
+     display: none;
+
+    }
   </style>
 
 </head>
@@ -63,7 +70,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="../customer/viewreport" >
+        <a href="../customer/viewreport">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
@@ -168,20 +175,20 @@ if (!isset($_SESSION['username'])) {
           <h3 id="dis-head">New discount Prodcuts</h3>
           <table class="dis-table">
             <tbody class="dis-pro">
-            
-           
+
+
             </tbody>
 
 
           </table>
 
 
-            <h3>Selling Products</h3> -->
+          <h3>Selling Products</h3> -->
 
-            <div id="barchart_values" style="width: 600px; height: 500px;"></div>
-          </div>
-
+          <div id="barchart_values" style="width: 600px; height: 500px;"></div>
         </div>
+
+      </div>
       </div>
       <div class="right">
 
@@ -348,9 +355,9 @@ if (!isset($_SESSION['username'])) {
 
 
 
-       //discounts
+    //discounts
     function discounts() {
-      dis_pro=document.querySelector('.dis-pro');
+      dis_pro = document.querySelector('.dis-pro');
 
       fetch('http://localhost/web-Experts/public/customer/discounts')
         .then(response => response.json())
@@ -358,8 +365,8 @@ if (!isset($_SESSION['username'])) {
           console.log(data);
           let item = document.querySelector('.item');
           for (i = 0; i < data.length; i++) {
-            let new_price=data[i]['price']*(100-data[i]['discount'])/100;
-            dis_pro.innerHTML+= `<tr class="pro-list">
+            let new_price = data[i]['price'] * (100 - data[i]['discount']) / 100;
+            dis_pro.innerHTML += `<tr class="pro-list">
               
               <td>${data[i]['product_name']}</td>
               <td>${data[i]['description']}</td>
