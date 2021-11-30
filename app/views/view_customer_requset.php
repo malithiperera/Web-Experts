@@ -94,7 +94,7 @@ font-weight: 700;
     <input type="text" id="id" name="firstname" value="" readonly>
 
     <label for="lname">Name</label>
-    <input type="text" id="name" name="lastname" value="" readonly>
+    <input type="text" id="name" name="lastname" value="<?php echo $_SESSION['name '] ;?>" readonly>
 
     <label for="lname">Shop Name</label>
     <input type="text" id="sname" name="lastname" placeholder="Your name.." readonly>
@@ -105,6 +105,8 @@ font-weight: 700;
     <select id="country" name="country">
       <option value="3">3 Weeks</option>
       <option value="4"> 1 Month</option>
+      <option value="4"> 1 Month</option>
+      
       
     </select>
 
@@ -154,6 +156,35 @@ let sname=document.getElementById('sname');
         }
 
         fill_form();
+
+
+
+        function  fill_data()
+        {
+
+
+
+          fetch('http://localhost/web-Experts/public/customer/place_order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data_set)
+                })
+
+
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    confirmation_message();
+                    order_id.innerHTML = `${data[7]}`;
+                    order_date.innerHTML = `${data[2]}`;
+                    order_amount.innerHTML = `${data[0]}`;
+                    done.addEventListener("click", () => {
+                        confirm_message.style.visibility = "hidden";
+                    });
+                });
+        }
     </script>
 </body>
 </html>

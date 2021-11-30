@@ -173,3 +173,9 @@ button i{
       color: #fff;
       border-radius: 5px;
   }
+
+
+  #total_of_all_prices , .tot{
+      font-weight: 800;
+      font-size: 25px;
+  }

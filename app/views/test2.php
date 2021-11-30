@@ -536,6 +536,11 @@ if (!isset($_SESSION['username'])) {
             confirm_message.style.visibility = "visible";
         }
 
+
+
+
+
+        //place Order
         function place_order() {
             for (i = 1; i < table_info.rows.length - 1; i++) {
                 let table_cell = table_info.rows.item(i).cells;
