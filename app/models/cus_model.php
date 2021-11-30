@@ -90,4 +90,26 @@ class cus_model extends model
     }
 
 
+
+
+    public function fill_creit_request($userid){
+
+        $result = array();
+
+    require '../app/core/database.php';
+    $sql="SELECT * FROM customer WHERE cus_id='$userid' ";
+    $result= $conn->query($sql);
+    // array_push($result, $result1->fetch_assoc());
+
+
+    // // $sql1="SELECT  FROM user WHERE user_id='$userid' ";
+    // // $result2 = $conn->query($sql1);
+
+    // array_push($result, $result2->fetch_assoc());
+
+    
+    return $result;
+
+}
+
 }

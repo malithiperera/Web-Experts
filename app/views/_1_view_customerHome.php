@@ -84,6 +84,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Our Products</span>
       </li>
       <li>
+        <a href="../customer/send_request">
+        <i class="fas fa-comment-dollar"></i>
+          <span class="links_name">Credit Request</span>
+        </a>
+        <span class="tooltip">Credit Request</span>
+      </li>
+      <li>
         <a href="../customer/view_notification">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notification</span>
