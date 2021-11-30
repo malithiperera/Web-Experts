@@ -119,6 +119,9 @@ if (!isset($_SESSION['username'])) {
     </ul>
   </div>
   <section class="home-section">
+  <div class="header">
+      <?php require 'view_headertype2.php'; ?>
+    </div>
     <section class="cards-section">
     <div class="top">
         <div class="card-1">

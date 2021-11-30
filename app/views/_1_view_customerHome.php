@@ -123,11 +123,11 @@ if (!isset($_SESSION['username'])) {
       </li>
     </ul>
   </div>
-
-  <section class="home-section">
-    <div class="header">
+  <div class="header">
       <?php require 'view_headertype2.php'; ?>
     </div>
+  <section class="home-section">
+    
     <section class="cards-section">
 
       <div class="top">
