@@ -282,4 +282,42 @@ public function discounts(){
 
 
     }
+
+
+
+    public function update_order(){
+
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+
+        // $this->model('order_model');
+
+        // check any order is working
+        
+
+       
+
+           
+            // $data = [
+            //     $recieved_data['amount'],
+            //     $recieved_data['date'],
+                
+            //     $recieved_data['order_id'],
+            //     // $recieved_data['cus_id'],
+            //     $recieved_data['route_id'],
+               
+            
+            //     $recieved_data['table']
+            // ];
+
+            // $check = $this->model->update_order($recieved_data['order'],$recieved_data['date'],$recieved_data['amount'], $recieved_data['table']);
+
+            
+                echo json_encode($recieved_data);
+                exit;
+            
+
+           
+    }
 }
