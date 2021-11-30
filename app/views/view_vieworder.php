@@ -1,3 +1,13 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +67,7 @@
 
                 <input type="text" id="unit_price" placeholder="unit price">
                 <input type="text" id="discount" placeholder="discount">
-                <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
+                <input type="text" id="quantity" placeholder="quantity" onkeyup=" cal_tot_suggest()">
                 <input type="text" id="total_price" placeholder="total price">
                 <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
             </div>
@@ -180,13 +190,13 @@ async function fetchText(value) {
                         
                         <tr>
                         
-                        <td>${data[i]['product_name']}</td>
-                        <td>${data[i]['price']}</td>
-                        <td>${data[i]['discount']}</td>
-                        <td><input type="text" value="${data[i]['quantity']}" class="qty" readonly></td>
+                        <td class="pro_name">${data[i]['product_name']}</td>
+                        <td class="price">${data[i]['price']}</td>
+                        <td class="dis">${data[i]['discount']}</td>
+                        <td class="qut"><input type="text" value="${data[i]['quantity']}" class="qty" readonly onkeyup="cal_tot()"></td>
                         <td>${data[i]['amount']}</td>
-                        <td><button class="edit" onclick="edit_function(event)"><a><i class="fas fa-pen"></i>Edit</a></button></td>
-                        <td><button class="delete"><a><i class="far fa-trash-alt"></i>Delete</a></button></td>
+                        <td><button class="edit" value=${i+1} >Edit</button></td>
+                        <td><button class="delete">Delete</button></td>
                         </tr>
                         
                         `;
@@ -198,16 +208,47 @@ async function fetchText(value) {
 
         fill_table();
 
+function get_total_row(){
 
-        
+    var tot=document.getElementById('total_of_all_prices');
+    var table=document.getElementById('new_product');
+// console.log(table.rows[1].cells[1]);
+    // for(i=0;i<table.rows.length;i++){
+       
+    // }
 
-        function edit_function(event){
-           event.path[2]
-            // event.path[4].cells[4].getElementsByTagName('input')[0].removeAttribute("readonly");
-            // var qty = event.path[3].cells[4].getElementsByTagName('input')[0].value;
-            // alert(qty);
-            // event.path[3].cells[5].innerHTML = qty*event.path[3].cells[2].innerHTML;
-            console.log(event);
+}
+
+
+get_total_row();
+        // edit values
+
+        // function total(value){
+        //  var x=document.getElementById('new_product');
+        // //  x.style.removeProperty="readonly";
+        // //  x.rows[value-1].cells[1].
+        // // $(this).closest('tr').find('input').removeAttr('readonly');
+        // x.rows[value-1].cells[3].children[0].removeAttribute('readonly');
+
+        // console.log(value);
+
+        // }
+
+
+        //delete rows
+        window.onclick= function(event){
+            var x=document.getElementById('new_product');
+           
+            if(event.target.className=="delete"){
+                console.log(event.path[2]);
+                 x.deleteRow(event.path[2]);
+            }
+            if(event.target.className=="edit"){
+                event.path[2].children[3].children[0].removeAttribute('readonly');
+                
+            }
+            
+            
         }
 
 
@@ -219,9 +260,36 @@ async function fetchText(value) {
         }
 
         function cal_tot() {
-            tot_price_input.value = (quantity_input.value * unit_price_input.value) * (100 - discount_input.value) / 100;
+            var unit_price=event.path[2].children[1].innerHTML;
+            var dis=event.path[2].children[2].innerHTML;
+            
+            
+            var new_qua=event.path[2].children[3].children[0].value;
+          
+            event.path[2].children[4].innerHTML=(unit_price*new_qua)*(100-dis)/100
+
+//             var y=document.getElementById('new_product');
+//         //  x.style.removeProperty="readonly";
+//         //  x.rows[value-1].cells[1].
+//         // $(this).closest('tr').find('input').removeAttr('readonly');
+//         // x.rows[value-1].cells[3].children[0].removeAttribute('readonly');
+//         var new_qua=y.rows[x-1].cells[3].children[0].value;
+//         var dis=y.rows[x-1].cells[2].innerHTML;
+//         var unit_price=y.rows[x-1].cells[1].innerHTML;
+//    var total=(unit_price*new_qua)*(100-dis)/100;
+//         y.rows[x-1].cells[4].innerHTML=total;
+
+
+
         }
 
+
+        function cal_tot_suggest(){
+
+
+            tot_price_input.value = (quantity_input.value * unit_price_input.value) * (100 - discount_input.value) / 100;
+            
+        }
 
 
         let product_name_input = document.getElementById("product_name");
@@ -242,8 +310,16 @@ async function fetchText(value) {
         let order_date = document.getElementById('order_date');
         let order_amount = document.getElementById('order_amount');
        
+       
+       
+       
+       
         function add_product() {
-            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + '<button class="edit"><i class="fas fa-pen"></i>Edit</button> ' + '</td><td>' + '<button class="delete"><i class="fas fa-trash-alt"></i>Delete</button> ' + '</td></tr>';
+            var x = document.getElementById("new_product").rows.length;
+
+            
+            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + 
+            `<button class="edit" value=${i+1} >Edit</button>` + '</td><td>' + '<button class="delete">Delete</button> ' + '</td></tr>';
 
             product_name_input.value = '';
             unit_price_input.value = '';
@@ -251,12 +327,12 @@ async function fetchText(value) {
             quantity_input.value = '';
             tot_price_input.value = '';
 
-            var total = 0;
-            for (i = 1; i < table_info.rows.length - 1; i++) {
-                // total = total + 1;
-                total = total + parseInt(table_info.rows[i].cells[4].innerHTML);
-            }
-            total_of_all_prices.innerHTML = total;
+            // var total = 0;
+            // for (i = 1; i < table_info.rows.length - 1; i++) {
+            //     // total = total + 1;
+            //     total = total + parseInt(table_info.rows[i].cells[4].innerHTML);
+            // }
+            // total_of_all_prices.innerHTML = total;
 
         }
 

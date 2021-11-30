@@ -256,4 +256,30 @@ public function discounts(){
         echo json_encode($data);
         exit;
     }
+
+
+
+    //render view reqiest
+    public function send_request(){
+        $this->view->render('view_customer_requset');
+    }
+
+
+
+//credit request
+
+    public function creit_request(){
+
+        session_start();
+
+        $this->model('cus_model');
+        $result=$this->model->fill_creit_request($_SESSION['userid']);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+
+
+
+
+    }
 }

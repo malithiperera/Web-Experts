@@ -73,6 +73,7 @@ class login extends controller
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $row['user_id'];
+            $_SESSION['name']= $row['name'];
             $_SESSION['type'] = $row['type'];
 
 

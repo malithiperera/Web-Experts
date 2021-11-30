@@ -6,6 +6,15 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif; 
 }
+
+.header{
+  height: 80px;
+  background-color: #184A78;
+  width: 50%;
+  z-index: 7000;
+  /* position: fixed; */
+}
+
 /* scroll bar */
 html::-webkit-scrollbar{
   width: .8rem;
@@ -228,7 +237,7 @@ html::-webkit-scrollbar-thumb{
   position: relative;
   background: #fff;
   min-height: 100vh;
-  top: 0;
+  top: 30;
   left: 78px;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
