@@ -21,6 +21,22 @@ class notification extends controller{
         $data = [];
 
         while($row = $result->fetch_assoc()){
+            
+
+            switch ($row['notification_type']){
+                case 1:
+                    $details = $this->model->get_product_details($row['product_id']);
+                    $product_details = $details->fetch_assoc();
+
+                    $subject = 'added new '.$product_details['type']." product , named ".$product_details['product_name'].".";
+                    break;
+                case 2:
+                    
+                default:
+                    $subject = 'subject';
+            }
+
+            array_push($row, $subject);
             array_push($data, $row);
         }
 
@@ -56,6 +72,8 @@ class notification extends controller{
         echo json_encode($result->fetch_assoc());
         exit;
     }
+
+   
 }
 
 ?>

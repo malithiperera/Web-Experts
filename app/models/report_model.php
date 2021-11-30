@@ -10,4 +10,14 @@ class report_model extends model
     }
 
 
+    public function customer_summary($month,$year,$userid){
+        require '../app/core/database.php';
+        $sql="select *from orders where month(date)=$month and year(date)=$year and cus_id='$userid'";
+        $result1 = mysqli_query($conn, $sql);
+        return $result1;
+
+
+
+    }
+
 }

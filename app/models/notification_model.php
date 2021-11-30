@@ -37,4 +37,13 @@ class notification_model extends model
 
         return $result;
     }
+
+    //get product details
+    public function get_product_details($product_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM product WHERE product_id = '$product_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }
