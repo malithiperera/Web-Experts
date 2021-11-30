@@ -31,7 +31,21 @@ class notification extends controller{
                     $subject = 'added new '.$product_details['type']." product , named ".$product_details['product_name'].".";
                     break;
                 case 2:
-                    
+                    $subject = 'delovery is confirmed.';
+                    break;
+                case 31:
+                case 32:
+                    $subject = 'this notification about stocks.';
+                    break;
+                case 4:
+                    $subject = 'is requesting a credit time.';
+                    break;
+                case 5:
+                    $subject = 'this notification about returns';
+                    break;
+                case 6:  
+                    $subject = 'some issue with the sales rep.';
+                    break;
                 default:
                     $subject = 'subject';
             }

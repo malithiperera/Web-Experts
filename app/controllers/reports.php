@@ -37,4 +37,8 @@ class reports extends controller
         exit;
         
     }
+
+    public function reports(){
+        $this->view->render('view_all_report');
+    }
 }

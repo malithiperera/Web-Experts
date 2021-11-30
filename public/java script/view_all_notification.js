@@ -168,7 +168,10 @@ class notification{
 
 
                 });
+        }
 
+        request_credit_period(){
+          this.subject.innerHTML += `is requesting credit time`;
         }
 
     

@@ -157,12 +157,15 @@ if (!isset($_SESSION['username'])) {
           if (temp_type == 1) {
             my_notification.product_addition(data['product_id']);
           }
+          else if(temp_type == 4){
+            my_notification.request_credit_period();
+          }
         });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
 
-    
+
   </script>
 </body>
 
