@@ -115,7 +115,7 @@
                 <!-- <h2>Discount</h2> -->
                 <div class="div_currentDiscount">
                     <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
-                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="           10%">
+                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="">
 
                     <script src="../../public/java script/manageStocks.js"></script>
 
@@ -146,6 +146,7 @@
         var product_id = '<?php echo $_GET['product_id']; ?>';
         var currentPrice = document.getElementById('currentPrice');
         var productName = document.getElementById('leg_productName');
+        var discount = document.getElementById('currentDiscount');
 
 
         console.log(product_id);
@@ -171,8 +172,9 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    currentPrice.value = "Rs." + data['price'];
+                    currentPrice.value = "      Rs." + data['price'];
                     productName.innerHTML = data['product_name'];
+                    discount.value = "           " + data ['discount'] + "%";
 
                 });
 

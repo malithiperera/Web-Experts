@@ -9,6 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockmanager_addproduct.css">
     <title>Products</title>
 
@@ -16,9 +17,10 @@ session_start();
 
 <body>
     <div class="header">
-        <?php
-        require 'view_headertype2.php';
-
+        
+        <?php 
+            require_once 'view_customer_side.php';
+        
         ?>
 
     </div>
@@ -53,7 +55,7 @@ session_start();
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <input class="btn_submit" type="submit" name="submit" value="Add to Product"><br>  
+                <input class="btn_submit" type="submit" name="submit" value="Add to Product"><br>
 
                 <div class="error">
                     <?php
@@ -81,7 +83,11 @@ session_start();
         </div>
 
     </div>
-    <button class="btn_back">Back</button>
+
+    <div class="div_btnBack">
+        <button class="btn_back">Back</button>
+        
+    </div>
 
 </body>
 

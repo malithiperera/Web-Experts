@@ -83,19 +83,19 @@
             <div class="cards">
                 <div class="div_kindOfProducts">
                     <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-                    <p class="value_kindOfProducts">10</p>
+                    <p class="value_kindOfProducts"></p>
                 </div>
                 <div class="div_noOfReps">
                     <p><i class="fas fa-user-tie"></i></i><br>No of Sales rep</p>
-                    <p class="value_noOfReps">1</p>
+                    <p class="value_noOfReps"></p>
                 </div>
                 <div class="div_catogories">
                     <p><i class="fab fa-product-hunt"></i></i><br>Categories</p>
-                    <p class="value_catogories">10</p>
+                    <p class="value_catogories"></p>
                 </div>
                 <div class="div_repRequests">
                     <p><i class="fas fa-envelope"></i><br>Rep Requests</p>
-                    <p class="value_repRequests">10</p>
+                    <p class="value_repRequests"></p>
                 </div>
 
 
@@ -135,7 +135,7 @@
     </section>
 
 
-    <script src="../../public/java script/view_stockManager_viewStocks.js"></script>
+    <!-- <script src="../../public/java script/view_stockManager_viewStocks.js"></script> -->
 
     <!-- fill table -->
     <script>
@@ -173,6 +173,85 @@
         }
 
         fill_table();
+    </script>
+
+    <script>
+        // fill 'Kind of products' card
+        var kindOfProducts = document.querySelector('.div_kindOfProducts'); // access to the html class
+
+        const fillKindOfProdcuts = () => { // fill the card
+            fetch('http://localhost/web-Experts/public/stockManager/fillKindOfProducts_cont', {
+                    /* nothing to send to the controller*/
+                }) // call the controller
+                .then(response => response.json())
+                .then(data => {
+                    kindOfProducts.innerHTML += `
+                        <p class="value_kindOfProducts">${data['productidcount']}</p>
+
+                    `;
+                    console.log(data); // send data to the front end
+
+                });
+
+        }
+        fillKindOfProdcuts();
+
+    </script>
+
+    <script>
+        // fill 'number of rep' card
+        var noOfReps = document.querySelector('.div_noOfReps');
+
+        const fillNoOfReps = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillNoOfReps_cont', {})
+                .then(response => response.json())
+                .then(data => {
+                    noOfReps.innerHTML += `
+                        <p class="value_noOfReps">${data['repcount']}</p>
+
+                    `;
+                    console.log(data);
+
+                })
+        }
+        fillNoOfReps();
+
+    </script>
+
+    <script>
+        var noOfCategories = document.querySelector('.div_catogories');
+
+        const fillNoOfCategories = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillNoOfCategories_cont', {})
+                .then(response => response.json())
+                .then(data => {
+                    noOfCategories.innerHTML += `
+                        <p class="value_catogories">${data['categories']}</p>
+
+                    `;
+                    console.log(data);
+
+                });
+        }
+        fillNoOfCategories ();
+
+    </script>
+
+    <script>
+        var noOfRepRequests = document.querySelector('.div_repRequests');
+
+        const fillNoOfRepRequests = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillNoOfRepRequests_cont', {})
+                .then(response => response.json())
+                .then(data => {
+                    noOfRepRequests.innerHTML = `
+                        <p class="value_repRequests">${data}</p>
+
+                    `;
+                    console.log(data);
+
+                })
+        }
     </script>
 
 </body>

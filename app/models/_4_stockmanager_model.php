@@ -25,5 +25,32 @@ class _4_stockmanager_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+    public function kindOfProducts_mod () {
+        require '../app/core/database.php';
+        $sql = "SELECT COUNT(product_id) as productidcount FROM product";
+        $result = mysqli_query($conn, $sql);
+        return $result;                                         // return the result to the controller
 
+    }
+    public function fillNoOfReps_mod(){
+        require '../app/core/database.php';
+        $sql = "SELECT COUNT(user_id) as repcount FROM user WHERE type='sales_rep' OR type='rep';";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+
+    }
+    public function fillNoOfCategories_mod() {
+        require '../app/core/database.php';
+        $sql = "SELECT COUNT(DISTINCT type) AS categories FROM product";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+        
+    }
+    public function fillNoOfRepRequests_mod() {
+        require '../app/core/database.php';
+        $sql = "";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+
+    }
 }
