@@ -23,10 +23,13 @@ class customer extends controller
         $this->model('product_model');
         $query = $this->model->display_product_id('iceCream');
         $this->view->added = $query;
+
         $query1 = $this->model->display_product_id('Yoghurt');
         $this->view->added1 = $query1;
+
         $query2 = $this->model->display_product_id('Curd');
         $this->view->added2 = $query2;
+
         $query3 = $this->model->display_product_id('Milk');
         $this->view->added3 = $query3;
         $this->view->render('view_customer_ourProduct');
@@ -35,7 +38,7 @@ class customer extends controller
 
     public function viewreport()
     {
-        $this->view->render('report');
+        $this->view->render('view_customer_report');
     }
 
     public function place_order_view()
@@ -132,7 +135,7 @@ class customer extends controller
 
     public function profile()
     {
-        $this->view->render('view_all_editProfile');
+        $this->view->render('view_profileEdit');
     }
 
 
@@ -161,7 +164,18 @@ class customer extends controller
         echo json_encode($data);
         exit;
     }
+//get discounts
+public function discounts(){
+    $this->model('product_model');
+    $result = $this->model->show_discounts();
+    $data = [];
 
+    while ($row = $result->fetch_assoc()) {
+        array_push($data, $row);
+    }
+    echo json_encode($data);
+    exit;
+}
 
     // get details about pending orders
     public function get_pending_orders()
@@ -241,5 +255,69 @@ class customer extends controller
 
         echo json_encode($data);
         exit;
+    }
+
+
+
+    //render view reqiest
+    public function send_request(){
+        $this->view->render('view_customer_requset');
+    }
+
+
+
+//credit request
+
+    public function creit_request(){
+
+        session_start();
+
+        $this->model('cus_model');
+        $result=$this->model->fill_creit_request($_SESSION['userid']);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+
+
+
+
+    }
+
+
+
+    public function update_order(){
+
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+
+        // $this->model('order_model');
+
+        // check any order is working
+        
+
+       
+
+           
+            // $data = [
+            //     $recieved_data['amount'],
+            //     $recieved_data['date'],
+                
+            //     $recieved_data['order_id'],
+            //     // $recieved_data['cus_id'],
+            //     $recieved_data['route_id'],
+               
+            
+            //     $recieved_data['table']
+            // ];
+
+            // $check = $this->model->update_order($recieved_data['order'],$recieved_data['date'],$recieved_data['amount'], $recieved_data['table']);
+
+            
+                echo json_encode($recieved_data);
+                exit;
+            
+
+           
     }
 }

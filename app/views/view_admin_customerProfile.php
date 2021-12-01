@@ -507,6 +507,7 @@ span{
 
     <div class="container">
         <div class="detail">
+            <!--begining header details -->
         <div class="div0">
                <label for=""><i class="fas fa-id-card-alt"></i><span> HC001</span>
               </label>
@@ -534,6 +535,7 @@ span{
 
            </div>
         </div>
+        <!-- ending of header details -->
         <div class="cards">
 
             <div class="card">
@@ -566,6 +568,7 @@ span{
                 <p id="top">2 weeks</p>
             </div>
         </div>
+        <!-- ending of card details -->
 
         <div class="tables">
             <div class="cheque">
@@ -597,10 +600,7 @@ span{
                             <td><button id="depo">Deposit</button></td>
                             <td><button id="rej">reject</button></td>
                             </tr>
-                     
-
                     
-
                 </table>
 
 
@@ -760,6 +760,18 @@ span{
                 }
             }
         }
+    </script>
+
+    <!-- script for load page -->
+    <script>
+
+        const load_page = () => {
+            let cus_id = '<?php echo $this->cus_id; ?>';
+            
+            
+        }
+
+        load_page();
     </script>
 
 

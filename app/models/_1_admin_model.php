@@ -138,4 +138,37 @@ class _1_admin_model extends model
         return $result;
     }
 
+    //test reports
+    public function test_report1(){
+
+        require '../app/core/database.php';
+
+        $data = [];
+
+        $sql1 = "SELECT order_id FROM orders";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $data1 = [];
+
+        while($row1 = $result1->fetch_assoc()){
+            array_push($data1, $row1);
+        }
+
+        
+
+        $sql2 = "SELECT user_id FROM user";
+        $result2 = mysqli_query($conn, $sql2);
+
+        $data2 = [];
+
+        while($row2 = $result2->fetch_assoc()){
+            array_push($data2, $row2);
+        }
+
+        
+
+        return [$data1, $data2];
+
+    }
+
 }

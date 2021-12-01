@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../public/styles/view_vieworder.css">
+    <link rel="stylesheet" href="../../public/styles/view_order_deliver.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <style>
@@ -43,7 +43,9 @@
                 <i class="fas fa-map-marker-alt"></i>
                 <label for="">Route Id:</label>
                 <input type="text" class="route_id" readonly>
+                
                 </div>
+                
             </div>
             <div class="data_form">
                 <div class="serach_product">
@@ -73,7 +75,7 @@
                     <th>Discount</th>
                     <th>Quantity</th>
                     <th>Amount</th>
-                    <th colspan="2"></th>
+                 
                 </tr>
 
                 <tbody class="pending_order_table">
@@ -101,8 +103,8 @@
                         } ?> -->
 
                 <tr class="tot">
-                    <td colspan="7">Total</td>
-                    <td id="total_of_all_prices">12000</td>
+                    <td colspan="5">Total</td>
+                    <td id="total_of_all_prices">25080</td>
                 </tr>
 
 
@@ -161,8 +163,7 @@
                         <td>${data[i]['discount']}</td>
                         <td><input type="text" value="${data[i]['quantity']}" class="qty" readonly></td>
                         <td>${data[i]['amount']}</td>
-                        <td><button class="edit" onclick="edit_function(event)"><a><i class="fas fa-pen"></i>Edit</a></button></td>
-                        <td><button class="delete"><a><i class="far fa-trash-alt"></i>Delete</a></button></td>
+                    
                         </tr>
                         
                         `;

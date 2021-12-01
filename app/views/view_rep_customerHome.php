@@ -31,7 +31,7 @@
       </li>
 
       <li>
-        <a href="../orders/create_bill">
+        <a href="../customer/place_order_view">
 
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
@@ -88,7 +88,7 @@
         </div>
         <div class="card">
           <p><i class="fas fa-credit-card"></i><br>Credit Period</p>
-          <p id="result">30 days</p>
+          <p id="result">3 weeks</p>
         </div>
 
       </div>

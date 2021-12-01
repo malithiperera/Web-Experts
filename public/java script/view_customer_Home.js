@@ -86,7 +86,7 @@ window.onclick = function(event) {
         "custom_2": ""
     };
 
-    // Show the payhere.js popup, when "PayHere Pay" is clicked
+    //Show the payhere.js popup, when "PayHere Pay" is clicked
     document.getElementById('payhere-payment').onclick = function (e) {
         payhere.startPayment(payment);
     };

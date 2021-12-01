@@ -63,10 +63,10 @@
 
 
 
-            <div class="card">
+            <!-- <div class="card">
                 <p><i class="fas fa-file-alt"></i><br>View Reports</p>
                 <p class="result">Active</p>
-            </div>
+            </div> -->
 
         </div>
     </section>

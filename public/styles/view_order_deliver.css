@@ -12,6 +12,7 @@
 .container{
     position:relative;
     top:100px;
+    margin-left: 100px;
     width:100%;
     display:flex;
     flex-direction: column;
@@ -165,6 +166,7 @@ button i{
 .save{
     display: flex;
     justify-content: center;
+    visibility: hidden;
 }
   #save_but{
       width: 200px;
@@ -172,10 +174,4 @@ button i{
       height: 40px;
       color: #fff;
       border-radius: 5px;
-  }
-
-
-  #total_of_all_prices , .tot{
-      font-weight: 800;
-      font-size: 25px;
   }

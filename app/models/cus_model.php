@@ -51,6 +51,10 @@ class cus_model extends model
          $result6 = mysqli_query($conn, $sql5);
         array_push($result, $result6->fetch_assoc());
 
+        $sql6 = "SELECT shop_name FROM customer WHERE cus_id='$userid';";
+         $result7 = mysqli_query($conn, $sql6);
+        array_push($result, $result7->fetch_assoc());
+
         // // count routes
         // $sql4 = "SELECT COUNT(route_id) AS count_route FROM route";
         // $result4 = mysqli_query($conn, $sql4);
@@ -78,5 +82,34 @@ class cus_model extends model
          return $result;
     }
 
+
+
+    public function order_table($userid)
+    {
+        $sql="SELECT * FROM orders WHERE cus";
+    }
+
+
+
+
+    public function fill_creit_request($userid){
+
+        $result = array();
+
+    require '../app/core/database.php';
+    $sql="SELECT * FROM customer WHERE cus_id='$userid' ";
+    $result= $conn->query($sql);
+    // array_push($result, $result1->fetch_assoc());
+
+
+    // // $sql1="SELECT  FROM user WHERE user_id='$userid' ";
+    // // $result2 = $conn->query($sql1);
+
+    // array_push($result, $result2->fetch_assoc());
+
+    
+    return $result;
+
+}
 
 }

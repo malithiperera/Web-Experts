@@ -12,49 +12,34 @@ class login extends controller
 
     public function customer_home($userid)
     {
-        
-        $card=$this->model->customer_card($userid);
-     
-       
-        
+
+        $card = $this->model->customer_card($userid);
+
+
+
         //  list($firstArray, $secondArray)=$this->model->customer_home_detail_check($userid);9
 
-        
-         $this->view->render('_1_view_customerHome');
 
-
+        $this->view->render('_1_view_customerHome');
     }
     public function rep_home($userid)
     {
-        
-        $card=$this->model->rep_card($userid);
-     
-       
-        
-         list($firstArray, $secondArray)=$this->model->rep_home_detail_check($userid);
 
-       
-       
-         
-    
-
-        
-         $this->view->render('_1_view_repHome');
+        $card = $this->model->rep_card($userid);
 
 
+
+        list($firstArray, $secondArray) = $this->model->rep_home_detail_check($userid);
+
+        $this->view->render('_1_view_repHome');
     }
 
-public function stock_manager()
-{
+    public function stock_manager()
+    {
+    }
 
+    // $this->view->render("view_customer_placeorder");
 
-
-
-
-}
-
-        // $this->view->render("view_customer_placeorder");
-    
 
     public function index()
     {
@@ -88,19 +73,22 @@ public function stock_manager()
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['userid'] = $row['user_id'];
-            $_SESSION['type']=$row['type'];
+            $_SESSION['name']= $row['name'];
+            $_SESSION['type'] = $row['type'];
 
-           
-            
-             
-
-            
-                
-                header('Location: http://localhost/web-Experts/public/login/adminHome?viewname=' . $viewname);
+            echo $_SESSION['name'];
 
 
-                // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
-              
+
+
+
+
+
+            header('Location: http://localhost/web-Experts/public/login/adminHome?viewname=' . $viewname);
+
+
+            // header('Location: http://localhost/web-Experts/public/login/adminHome/'.$viewname);
+
         } else {
             header('Location: http://localhost/web-Experts/public/login/login?succuss=no');
         }
@@ -119,9 +107,10 @@ public function stock_manager()
         //view name to this>>>>>>>
         $this->view->render('view_sendmail');
     }
-public function back(){
-    $this->view->render('view_newhome');
-}
+    public function back()
+    {
+        $this->view->render('view_newhome');
+    }
 
     public function errorPage()
     {
@@ -130,7 +119,23 @@ public function back(){
 
     public function test()
     {
-        $this->view->render('test2');
+        $this->view->render('view_report_example');
+    }
+
+    public function test_report()
+    {
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $data = [];
+
+        $this->model('_1_admin_model');
+        $result = $this->model->test_report1();
+
+        array_push($data, $result);
+
+        echo json_encode($data);
+        exit;
     }
 
     //this is the point
@@ -185,7 +190,7 @@ public function back(){
         $this->view->render('test3');
     }
 
-    
+
 
     public function resetMail()
     {
@@ -248,10 +253,12 @@ public function back(){
         header("Location: http://localhost/web-Experts/public/login/login");
     }
 
-    public function test4(){
+    public function test4()
+    {
         $this->view->render('test4');
     }
-    public function test4_get_data(){
+    public function test4_get_data()
+    {
 
         $body = json_decode(file_get_contents('php://input'));
 
