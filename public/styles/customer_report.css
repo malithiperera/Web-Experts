@@ -1,0 +1,15 @@
+.cus-section{
+    flex-direction: column;
+    
+}
+
+.order-section table{
+    /* margin-left: 100px; */
+
+
+}
+.cus-section h3{
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+}

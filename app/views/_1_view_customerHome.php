@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="../customer/viewreport">
+        <a href="#" onclick="pop_up_report()">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
