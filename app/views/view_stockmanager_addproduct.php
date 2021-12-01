@@ -18,10 +18,7 @@ session_start();
 <body>
     <div class="header">
         
-        <?php 
-            require_once 'view_customer_side.php';
         
-        ?>
 
     </div>
 

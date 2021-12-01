@@ -29,7 +29,7 @@ class _4_stockmanager_model extends model
         require '../app/core/database.php';
         $sql = "SELECT COUNT(product_id) as productidcount FROM product";
         $result = mysqli_query($conn, $sql);
-        return $result;                                         // return the result to the controller
+        return $result;                                                         // return the result to the controller
 
     }
     public function fillNoOfReps_mod(){
@@ -52,5 +52,13 @@ class _4_stockmanager_model extends model
         $result = mysqli_query ($conn, $sql);
         return $result;
 
+    }
+    public function fillRepItemsTable_mod ($getProductId) {
+        require '../app/core/database.php';
+        $sql = "SELECT product_issue.rep_id, product_issue_products.qty FROM product_issue RIGHT JOIN product_issue_products ON product_issue.issue_id = product_issue_products.issue_id WHERE product_id = '$getProductId';
+";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+        
     }
 }

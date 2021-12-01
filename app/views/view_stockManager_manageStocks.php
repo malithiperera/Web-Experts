@@ -80,30 +80,7 @@
 
                     </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>100</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>200</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>300</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>400</td>
-
-                        </tr>
+                    <tbody class="tbody">
 
                     </tbody>
 
@@ -174,13 +151,54 @@
                 .then(data => {
                     currentPrice.value = "      Rs." + data['price'];
                     productName.innerHTML = data['product_name'];
-                    discount.value = "           " + data ['discount'] + "%";
+                    discount.value = "           " + data['discount'] + "%";
 
                 });
 
         }
 
         details_of_product();
+    </script>
+
+    <script>
+        var productId = '<?php echo $_GET['product_id'] ?>';
+        var repItemsTable = document.querySelector('.tbody');
+
+        //console.log (productId);
+        var productIdData = {
+            productId: productId
+
+        }
+        //var test = 1103;
+
+        const fillRepItemsTable = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+
+                    },
+                    body: JSON.stringify(productId)
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    for (let index = 0; index < data.length; index++) {
+                        repItemsTable.innerHTML += `
+                            <tr>
+                                <td>${data [index] ['rep_id']}</td>
+                                <td>${data [index] ['qty']}</td>
+
+                            </tr>
+                        `;
+
+                    }
+                    console.log(data);
+                    
+                });
+        }
+        fillRepItemsTable();
     </script>
 
 </body>

@@ -135,7 +135,7 @@
     </section>
 
 
-    <!-- <script src="../../public/java script/view_stockManager_viewStocks.js"></script> -->
+    <script src="../../public/java script/view_stockManager_viewStocks.js"></script>
 
     <!-- fill table -->
     <script>
@@ -177,19 +177,19 @@
 
     <script>
         // fill 'Kind of products' card
-        var kindOfProducts = document.querySelector('.div_kindOfProducts'); // access to the html class
+        var kindOfProducts = document.querySelector('.div_kindOfProducts');                             // access to the html class
 
         const fillKindOfProdcuts = () => { // fill the card
             fetch('http://localhost/web-Experts/public/stockManager/fillKindOfProducts_cont', {
                     /* nothing to send to the controller*/
-                }) // call the controller
+                })                                                                                      // call the controller
                 .then(response => response.json())
                 .then(data => {
                     kindOfProducts.innerHTML += `
                         <p class="value_kindOfProducts">${data['productidcount']}</p>
 
                     `;
-                    console.log(data); // send data to the front end
+                    console.log(data);                                                                  // send data to the front end
 
                 });
 
