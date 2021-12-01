@@ -470,3 +470,19 @@ INFO: Unsupported notification method: $/setTrace
 [0m2021.11.29 19:19:17 WARN  Build server is not auto-connectable.[0m
 [0m2021.11.29 19:19:17 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
 [0m2021.11.29 23:29:30 INFO  shutting down Metals[0m
+[0m2021.11.30 06:24:47 INFO  Started: Metals version 0.10.9 in workspace 'C:\xampp\htdocs\Web-Experts' for client Visual Studio Code 1.62.3.[0m
+[0m2021.11.30 06:24:49 INFO  time: initialize in 1.61s[0m
+[0m2021.11.30 06:24:52 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.30 06:24:52 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 30, 2021 7:00:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.30 15:56:04 INFO  shutting down Metals[0m
+[0m2021.11.30 16:13:40 INFO  Started: Metals version 0.10.9 in workspace 'C:\xampp\htdocs\Web-Experts' for client Visual Studio Code 1.62.3.[0m
+[0m2021.11.30 16:13:40 INFO  time: initialize in 0.81s[0m
+[0m2021.11.30 16:13:43 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.30 16:13:43 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.11.30 18:48:36 INFO  shutting down Metals[0m
+[0m2021.12.01 05:55:28 INFO  Started: Metals version 0.10.9 in workspace 'C:\xampp\htdocs\Web-Experts' for client Visual Studio Code 1.62.3.[0m
+[0m2021.12.01 05:55:29 INFO  time: initialize in 1.26s[0m
+[0m2021.12.01 05:55:32 WARN  Build server is not auto-connectable.[0m
+[0m2021.12.01 05:55:32 WARN  no build tool detected in workspace 'C:\xampp\htdocs\Web-Experts'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m

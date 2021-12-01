@@ -26,6 +26,9 @@ if (!isset($_SESSION['username'])) {
     #unread_label {
       margin-left: 10px;
     }
+    .table{
+      
+    }
   </style>
 
 </head>
@@ -40,52 +43,45 @@ if (!isset($_SESSION['username'])) {
     <ul class="nav-list">
 
       <li>
-        <a href="#" onclick="load_notification('%')">
-        <i class="far fa-envelope lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification('%')">
+          <i class="far fa-envelope lg-3x"></i>
           <span class="links_name">All</span>
         </a>
         <span class="tooltip">All</span>
       </li>
       <li>
-        <a href="#" onclick="load_notification(1)">
-        <i class="fas fa-cart-plus lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification(1)">
+          <i class="fas fa-cart-plus lg-3x"></i>
           <span class="links_name">New Products</span>
         </a>
         <span class="tooltip">New Products</span>
       </li>
-      <!-- <li>
-        <a href="#" onclick="load_notification(2)">
 
-          <i class="fas fa-truck"></i>
-          <span class="links_name">Orders</span>
-        </a>
-        <span class="tooltip">Orders</span>
-      </li> -->
       <li>
-        <a href="#" onclick="load_notification(2)">
-        <i class="fas fa-truck-loading lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification(2)">
+          <i class="fas fa-truck-loading lg-3x"></i>
           <span class="links_name">Deliveries</span>
         </a>
         <span class="tooltip">Deliveries</span>
       </li>
       <li>
-        <a href="#" onclick="load_notification('3%')">
-        <i class="fas fa-cubes lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification('3%')">
+          <i class="fas fa-cubes lg-3x"></i>
           <span class="links_name">Stocks</span>
         </a>
         <span class="tooltip">Stocks</span>
       </li>
       <li>
-        <a href="#" onclick="load_notification(4)">
-        <i class="fas fa-baby lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification(4)">
+          <i class="fas fa-baby lg-3x"></i>
           <span class="links_name">Customer Requests</span>
         </a>
         <span class="tooltip">Customer Requests</span>
       </li>
 
       <li>
-        <a href="#" onclick="load_notification(5)">
-        <i class="fas fa-undo lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification(5)">
+          <i class="fas fa-undo lg-3x"></i>
           <span class="links_name">Returns</span>
         </a>
         <span class="tooltip">Returns</span>
@@ -135,111 +131,48 @@ if (!isset($_SESSION['username'])) {
   </section>
 
 
-  <script src="../../public/java script/view_customer_Home.js"></script>
-
-  <script>
-    var to_whom = '<?php echo $_SESSION['type']; ?>';
-    var user_id = '<?php echo $_SESSION['userid']; ?>';
-
-    home_section = document.querySelector('.home-section');
-    all_notifications = document.querySelector('.all_notifications');
-    select_one = document.querySelector('.select_one');
-    notification_subcontainer = document.querySelector('.notification_subcontainer');
-
-    subcontainer2 = document.querySelector('.subcontainer2');
-
-
-    // console.log(dataset);
-
-    function load_notification(type) {
-
-
-      let subject = 'subject';
-
-      const dataset = {
-        to_whom: to_whom,
-        user_id: user_id,
-        notification_type: type
-      }
-
-      subcontainer2.innerHTML = ``;
-      all_notifications.style.display = "block";
-      select_one.style.display = "none";
-
-      fetch('http://localhost/web-Experts/public/notification/load_notification', {
-          method: 'POST',
-
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(dataset)
-        })
-        .then(response => response.json())
-        .then(data => {
 
 
 
 
-          //choose subject and message according to the notification type
 
-          for (i = 0; i < data.length; i++) {
+  <script src="../../public/java script/side_bar.js"></script>
+  <script src="../../public/java script/view_all_notification.js"></script>
+  <script defer>
 
-            subcontainer2.innerHTML += `
+    this.all_notifications = document.querySelector('.all_notifications');
+    this.select_one = document.querySelector('.select_one');
+    this.subcontainer2 = document.querySelector('.subcontainer2');
 
-                <div class='notification' id='${data[i]['notification_id']}'>
-
-                    <div class='from from_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                      ${data[i]['to_whom']}
-                    </div>
-                    <div class='header_notification header_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                       ${data[i][0]}
-                    </div>
-                    <div class='date_notification date_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                      ${data[i]['date']}
-                    </div>
-                    <div class='time_notification time_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                      ${data[i]['time']}
-                    </div>
-                    <div class='delete delete_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-
-                      <div class='trash'>
-                        <a> <i class='fas fa-trash'></i></a>
-                      </div>
-                      
-                    </div>
-                </div>
-                
-                `;
-           
-
-          }
-          console.log(data);
-        });
-
-        return 0;
-
-    }
-
-    load_notification('%');
-
+    let user_id = '<?php echo $_SESSION['userid'] ?>';
+    let type = '<?php echo $_SESSION['type'] ?>';
+    let my_notification = new notification(user_id, type);
+    my_notification.load_notification('%');
 
     //when click a notification , then render the message
     subcontainer2.addEventListener("click", (event) => {
 
       let temp_type;
-      load_page(event.target.id)
+      my_notification.load_page(event.target.id)
         .then(data => {
           console.log(data);
           temp_type = data['notification_type'];
           if (temp_type == 1) {
-            product_addition(data['product_id']);
+            my_notification.product_addition(data['product_id']);
+          }
+          else if(temp_type == 4){
+            my_notification.request_credit_period(data['req_id']);
+          }
+          else if(temp_type == 5){
+            my_notification.add_returns(data['return_id']);
           }
         });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
-  </script>
 
+
+  </script>
 </body>
 
 </html>

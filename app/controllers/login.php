@@ -76,6 +76,8 @@ class login extends controller
             $_SESSION['name']= $row['name'];
             $_SESSION['type'] = $row['type'];
 
+            echo $_SESSION['name'];
+
 
 
 
