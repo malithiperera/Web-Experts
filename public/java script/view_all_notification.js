@@ -170,8 +170,27 @@ class notification{
                 });
         }
 
-        request_credit_period(){
-          this.subject.innerHTML += `is requesting credit time`;
+
+        request_credit_period(req_id){
+
+          fetch('http://localhost/web-Experts/public/notification/request_credit_period', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(req_id)
+          })
+          .then(response => response.json())
+          .then(data =>{
+            console.log(data);
+            this.subject.innerHTML += `${data['shop_name']}'s credit period request.`;
+            this.notification_subcontainer.innerHTML += `${data['shop_name']} is requesting a credit period of
+                                                        ${data['request_period']} instead of ${data['credit_time']}.
+                                                        He noticed the reason of the new request is ${data['reason']}.
+                                                        And he is in ${data['route_name']} route.`;
+          });
+
         }
 
     

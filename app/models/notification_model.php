@@ -46,4 +46,19 @@ class notification_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    //get data about credit requests
+    public function requst_credit_period($req_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM credit_request,customer,route 
+                WHERE 
+                credit_request.cus_id = customer.cus_id
+                AND
+                customer.route_id = route.route_id
+                AND
+                credit_request.req_id = '$req_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    }
 }

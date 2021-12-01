@@ -76,6 +76,7 @@ class notification extends controller{
         exit;
     }
 
+    //notifications about new product addition
     public function product_addition(){
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
@@ -87,6 +88,17 @@ class notification extends controller{
         exit;
     }
 
+    //notifications for cretid period requests from customers
+    public function request_credit_period(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->requst_credit_period($get_data);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+    }
    
 }
 

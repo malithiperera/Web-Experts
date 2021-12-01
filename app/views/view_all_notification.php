@@ -158,7 +158,7 @@ if (!isset($_SESSION['username'])) {
             my_notification.product_addition(data['product_id']);
           }
           else if(temp_type == 4){
-            my_notification.request_credit_period();
+            my_notification.request_credit_period(data['req_id']);
           }
         });
       all_notifications.style.display = "none";

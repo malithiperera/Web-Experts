@@ -176,3 +176,27 @@ html::-webkit-scrollbar-thumb{
 .btn_submit {
     font-size: medium;
 }
+.div_btnBack {
+    position: absolute;
+    top: 110%;
+    left: 45%;
+    height: 15%;
+    width: 10%;
+    color: white;
+    /* background-color: #7c224f; */
+
+}
+.btn_back {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 70%;
+    height: 40%;
+    font-size: large;
+    font-weight: light;
+    background-color: #184A78;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    
+}
