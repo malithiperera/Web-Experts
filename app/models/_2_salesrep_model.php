@@ -10,12 +10,6 @@ class _2_salesrep_model extends model
         parent::__construct();
     }
 
-    // public function load_route(){
-    //     require '../app/core/database.php';
-    //     $sql = "SELECT orders_id, orders_date, amount FROM orders WHERE status='D'";
-    //     $result = $conn->query($sql);
-    //     return $result;
-    // }
     public function not_delivered()
     {
         require '../app/core/database.php';
@@ -142,6 +136,54 @@ class _2_salesrep_model extends model
                 GROUP BY order_product.product_id";
         $result = mysqli_query($conn, $sql);
         return $result;
+    }
+
+    function get_home_cards($userid)
+    {
+        require '../app/core/database.php';
+       
+        $result = array();
+
+        // target
+        $sql1 = "SELECT target AS tar FROM sales_rep WHERE rep_id='$userid'";
+        $result1 = mysqli_query($conn, $sql1);
+        array_push($result, $result1->fetch_assoc());
+
+        // kinds of products
+        $sql2 = "SELECT COUNT(product_id) AS count_products FROM product";
+        $result2 = mysqli_query($conn, $sql2);
+        array_push($result, $result2->fetch_assoc());
+
+        // pending deliveries
+        $sql3 = "SELECT COUNT(order_id) AS Pending FROM orders WHERE status='not-delivered'";
+        $result3 = mysqli_query($conn, $sql3);
+        array_push($result, $result3->fetch_assoc());
+
+        // No of customers
+        $sql4 = "SELECT target AS NoOfCus FROM sales_rep WHERE rep_id='$userid'";
+        $result4 = mysqli_query($conn, $sql4);
+        array_push($result, $result4->fetch_assoc());
+
+        // No of routes
+        $sql5 = "SELECT COUNT(route_id) AS NoOfRoutes FROM route WHERE rep_id='$userid'";
+        $result5 = mysqli_query($conn, $sql5);
+        array_push($result, $result5->fetch_assoc());
+        
+
+        return $result;
+
+    }
+
+    #rep achievements
+    function target($userid)
+    {
+        require '../app/core/database.php';
+
+        // target
+        $sql = "SELECT target AS tar FROM sales_rep WHERE rep_id='$userid'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+
     }
     
 }

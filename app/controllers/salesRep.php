@@ -206,6 +206,33 @@ public function get_product(){
     exit;
 }
 
+public function load_card()
+    {
+        session_start();
+        $this->model('_2_salesrep_model');
+        $result = $this->model->get_home_cards($_SESSION['userid']);
+
+        $data = [$result];
+
+        echo json_encode($data);
+        exit;
+    }
+
+
+//achievements 
+
+public function target()
+    {
+        session_start();
+        $this->model('_2_salesrep_model');
+        $result = $this->model->get_home_cards($_SESSION['userid']);
+
+        $data = [$result];
+
+        echo json_encode($data);
+        exit;
+    }
+
 }
 
 ?>
