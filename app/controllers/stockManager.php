@@ -39,16 +39,59 @@ class stockManager extends controller {
 
     public function details_of_product(){
 
-        $get_data = file_get_contents('php://input');           // Get the value come from view
-        $get_data = json_decode($get_data, true);               // decode json object
+        $get_data = file_get_contents('php://input');                           // Get the value come from view
+        $get_data = json_decode($get_data, true);                               // decode json object
 
         $this->model('_4_stockmanager_model');
         $result = $this->model->product_details($get_data['product_id']);       // get the result from the model
 
         // $data = ['dineth'];
 
-        echo json_encode($result->fetch_assoc());               // send result accoc. array to the view
+        echo json_encode($result->fetch_assoc());                               // send result accoc. array to the view
         exit;
+
+    }
+    public function fillKindOfProducts_cont () {
+        $this->model('_4_stockmanager_model');                                  // call the model
+        $result = $this->model->kindOfProducts_mod ();                          // get the result of 'kindOfProducts_mod' function in model and store it in 'result' variable
+        echo json_encode($result->fetch_assoc ());                              // send the json encoded result to the view
+        exit;
+
+    }
+    public function fillNoOfReps_cont () {
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->fillNoOfReps_mod ();
+        echo json_encode($result->fetch_assoc ());
+        exit;
+
+    }
+    public function fillNoOfCategories_cont () {
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->fillNoOfCategories_mod ();
+        echo json_encode ($result->fetch_assoc ());
+        exit;
+            
+    }
+    public function fillNoOfRepRequests_cont () {
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->fillNoOfRepRequests_mod ();
+        echo json_encode ($result);
+        exit;
+
+    }
+    public function fillRepItemsTable_con () {
+        $getProductId = file_get_contents('php://Input');
+        $getProductId = json_decode ($getProductId, true);
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->fillRepItemsTable_mod ($getProductId);
+        $data  = [];
+        while ($row = $result->fetch_assoc ()) {
+            array_push ($data, $row);
+
+        }
+        echo json_encode ($data);
+        exit;
+
     }
 
 }
