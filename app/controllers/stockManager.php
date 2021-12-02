@@ -93,6 +93,10 @@ class stockManager extends controller {
         exit;
 
     }
+    public function viewList () {
+        $this->view->render ("view_stockmanager_repRequest");
+        
+    }
 
 }
 
