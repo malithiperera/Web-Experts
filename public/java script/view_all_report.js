@@ -1,3 +1,4 @@
+
 class report{
     constructor(){
         this.main = document.querySelector('.container');
@@ -29,7 +30,7 @@ class report{
         this.ordertable.classList.add('table-info')
  
  
-         this.ordertable.innerHTML+='<tr> <th>Order Id</th><th>Order date</th> <th>Amount</th> <th>Status</th>  </tr> '
+        //  this.ordertable.innerHTML+='<tr> <th>Order Id</th><th>Order date</th> <th>Amount</th> <th>Status</th>  </tr> '
  
          //deliveries
          this.delivery_section=document.createElement('div');
@@ -43,7 +44,7 @@ class report{
        this.delivery_table.classList.add('table-info')
  
  
-        this.delivery_table.innerHTML+='<tr> <th>Deliver Id Id</th><th>Order ID</th> <th>Deliver date</th> <th>Deliver Time</th><th> PaymentStatus</th>   </tr> '
+        // this.delivery_table.innerHTML+='<tr> <th>Deliver Id Id</th><th>Order ID</th> <th>Deliver date</th> <th>Deliver Time</th><th> PaymentStatus</th>   </tr> '
             this.report_title.innerHTML="customer summary Monthly Report"+" " + string_month+" " + year;
 
 
@@ -67,46 +68,70 @@ class report{
                            this.create_card('<i class="fas fa-truck"></i>','No Of Deliveries',data[0][1]['count_delivery']);
                            this.create_card('<i class="fas fa-money-bill-alt"></i>','No Of Payment',data[0][0]['count_orders']);
 
-
-                          var order_body=document.getElementById('new_product');
+                           if(data[1].length==0){
+                               console.log("hello");
+                            this.ordertable.innerHTML+=`<div class="no-data"><h3>No Orders in ${string_month}</h3></div>`
+                           }
+                           else{
+                            this.ordertable.innerHTML+='<tr> <th>Order Id</th><th>Order date</th> <th>Amount</th> <th>Status</th>  </tr> '
+                            var order_body=document.getElementById('new_product');
 
                         
-                           let i;
+                            let i;
+ 
+ //orders
+                            for (i = 0; i < data[1].length; i++) {
+                             this.ordertable.innerHTML += `
+                             
+                             <tr>
+                             
+                             <td class="pro_name">${data[1][i]['order_id']}</td>
+                             <td class="price">${data[1][i]['date']}</td>
+                             <td class="dis">${data[1][i]['amount']}</td>
+                            
+                             <td>${data[1][i]['status']}</td>
+                             
+                             </tr>
+                             
+                             `;
+                         }
 
-//orders
-                           for (i = 0; i < data[1].length; i++) {
-                            this.ordertable.innerHTML += `
-                            
-                            <tr>
-                            
-                            <td class="pro_name">${data[1][i]['order_id']}</td>
-                            <td class="price">${data[1][i]['date']}</td>
-                            <td class="dis">${data[1][i]['amount']}</td>
-                           
-                            <td>${data[1][i]['status']}</td>
-                            
-                            </tr>
-                            
-                            `;
-                        }
-    //delivery
-    for (i = 0; i < data[2].length; i++) {
-        this.delivery_table.innerHTML += `
-        
-        <tr>
-        
-        <td class="pro_name">${data[2][i]['delivery_id']}</td>
-        <td class="pro_name">${data[2][i]['order_id']}</td>
-        <td class="pro_name">${data[2][i]['date']}</td>
-        <td class="price">${data[2][i]['time']}</td>
-        <td class="dis">${data[2][i]['status']}</td>
-       
-        
-        
-        </tr>
-        
-        `;
-    }
+                           }
+
+                           if(data[2].length==0){
+                            this.delivery_table.innerHTML+=`<div class="no-data"><h3>No Deliveries in ${string_month}</h3></div>`
+
+                           }
+                           else{
+
+                            this.delivery_table.innerHTML+='<tr> <th>Deliver Id Id</th><th>Order ID</th> <th>Deliver date</th> <th>Deliver Time</th><th> PaymentStatus</th>   </tr> '
+
+
+                       
+                            //delivery
+                            for (i = 0; i < data[2].length; i++) {
+                                this.delivery_table.innerHTML += `
+                                
+                                <tr>
+                                
+                                <td class="pro_name">${data[2][i]['delivery_id']}</td>
+                                <td class="pro_name">${data[2][i]['order_id']}</td>
+                                <td class="pro_name">${data[2][i]['date']}</td>
+                                <td class="price">${data[2][i]['time']}</td>
+                                <td class="dis">${data[2][i]['status']}</td>
+                               
+                                
+                                
+                                </tr>
+                                
+                                `;
+                            }
+
+                           }
+
+
+                          
+                          
 
 
 
@@ -156,8 +181,22 @@ class report{
 
 
 
-               this.create_dataset_array(data[1]);
-                // console.log(data_set_new);
+             let result= this.create_dataset_array(data[1]);
+             let result1=this.create_dataset_array(data[2]);
+           
+
+            this.graph_section=document.createElement('div');
+          this.main.appendChild(this.graph_section);
+          this.graph_section.classList.add('section','cus-section');
+       
+          this.graph_section.innerHTML+='<div id="barchart_material" style="width: 80%; height:2000px;"></div>';
+             
+
+             
+
+             this.bar_charts(result,result1);
+
+                console.log(result1);
 
 
 
@@ -179,7 +218,13 @@ class report{
         
     }
 
+sales_summary(year,month){
 
+    if(month!=0){
+        
+    }
+
+}
 //card section
    create_card(icon,heading,count){
       //create card
@@ -275,14 +320,82 @@ class report{
     create_dataset_array(data){
         let i;
 
-        
-        // for(i=0;i<13;i++){
-        //    console.log(data[i][i+1]);
-        // }
+        var result = [
+            [1, 0],
+            [2, 0],
+            [3, 0],
+            [4, 0],
+            [5, 0],
+            [6, 0],
+            [7, 0],
+            [8, 0],
+            [9, 0],
+            [10, 0],
+            [11, 0],
+            [12, 0]
 
-        console.log(data);
-        console.log(data[0]['EXTRACT(month FROM date)']);
+
+          ];
+
+
+
+        for(i=0;i<data.length;i++){
+           
+                let x=data[i]['EXTRACT(month FROM date)'];
+                console.log(x);
+
+                result[x-1][1]=data[i]['count(*)'];
+            
+          
+        }
+
+        // console.log(result);
+        return result;
        
 
     }
+
+
+    bar_charts(result,result1){
+        console.log(result);
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Month', 'Orders', 'Deliveries'],
+            ['Jan', result[0][1], result1[0][1]],
+            ['Feb', result[1][1], result1[1][1]],
+            ['March', result[2][1], result1[2][1]],
+            ['April', result[3][1], result1[3][1]],
+            ['May', result[4][1], result1[4][1]],
+            ['June', result[5][1], result1[5][1]],
+            ['July', result[6][1], result1[6][1]],
+            ['August', result[7][1], result1[7][1]],
+            ['Sep', result[8][1], result1[8][1]],
+            ['Oct', result[9][1], result1[9][1]],
+            ['Nov', result[10][1], result1[10][1]],
+            ['dec', result[11][1], result1[11][1]]
+
+          ]);
+  
+          var options = {
+            chart: {
+              title: 'Summary of Orders and deliveries',
+              subtitle: 'Year 2021',
+              'width':400,
+              'height':300
+            },
+            bars: 'horizontal' // Required for Material Bar Charts.
+          };
+  
+          var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+  
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+      }
+    // </script>
+
+    
 }

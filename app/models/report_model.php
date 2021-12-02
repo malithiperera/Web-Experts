@@ -10,6 +10,15 @@ class report_model extends model
     }
 
 
+    public function get_types($type){
+        require '../app/core/database.php';
+        $sql="SELECT report_name FROM report WHERE privilege LIKE '%$type%'";
+        $result1 = mysqli_query($conn, $sql);
+        return $result1;
+
+    }
+
+
     public function customer_summary($month,$year,$userid){
         require '../app/core/database.php';
         $sql="select *from orders where month(date)=$month and year(date)=$year and cus_id='$userid'";
@@ -36,24 +45,7 @@ class report_model extends model
         $result2 = mysqli_query($conn, $sql2);
         array_push($result, $result2->fetch_assoc());
 
-        //count due payments
-        // $sql3 = "SELECT COUNT(payment_id) AS count_payment FROM payment where month(date)=$month and year(date)=$year and delivery_id=(SELECT delivery_id FROM delivery WHERE cus_id='$userid')";
-        // $result3 = mysqli_query($conn, $sql3);
-        // array_push($result, $result3->fetch_assoc());
-
-        // $sql4 = "SELECT route_id AS routes FROM customer WHERE cus_id='$userid'";
-        // $result4 = mysqli_query($conn, $sql4);
-        // array_push($result, $result4->fetch_assoc());
-
-        // $sql5 = "SELECT name AS rep_name FROM user WHERE user_id=(SELECT rep_id FROM route WHERE route_id=(SELECT route_id FROM customer WHERE cus_id='$userid'));";
-        //  $result6 = mysqli_query($conn, $sql5);
-        // array_push($result, $result6->fetch_assoc());
-
-        // $sql6 = "SELECT shop_name FROM customer WHERE cus_id='$userid';";
-        //  $result7 = mysqli_query($conn, $sql6);
-        // array_push($result, $result7->fetch_assoc());
-
-
+      
 
 
         return $result;
@@ -93,11 +85,20 @@ class report_model extends model
     public function fill_graph_sum($year,$userid){
         require '../app/core/database.php';
 
-        $sql="SELECT EXTRACT(month FROM date) , count(*) FROM orders WHERE EXTRACT(YEAR FROM date) = '2021' GROUP BY EXTRACT(month FROM date) ORDER BY EXTRACT(month FROM date)";
+        $sql="SELECT EXTRACT(month FROM date) , count(*) FROM orders WHERE EXTRACT(YEAR FROM date) = '$year' AND cus_id='$userid' GROUP BY EXTRACT(month FROM date) ORDER BY EXTRACT(month FROM date) ";
         $result1 = mysqli_query($conn, $sql);
 
         return $result1;
 
+
+    }
+
+    public function fill_graph_sum_del($year,$userid){
+        require '../app/core/database.php';
+        $sql="SELECT EXTRACT(month FROM date) , count(*) FROM delivery WHERE EXTRACT(YEAR FROM date) = '$year' AND cus_id='$userid' GROUP BY EXTRACT(month FROM date) ORDER BY EXTRACT(month FROM date) ";
+        $result1 = mysqli_query($conn, $sql);
+
+        return $result1;
 
     }
 
