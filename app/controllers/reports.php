@@ -25,9 +25,17 @@ class reports extends controller
 {
     session_start();
     $type=$_SESSION['type'];
+    $this->model("report_model");
+        
+    $result=$this->model->get_types($type);
+    $data = [];
+
+    while ($row = $result->fetch_assoc()) {
+        array_push($data, $row);
+    }
 
 
-    echo json_encode($type);
+    echo json_encode($data);
     exit;
     
 }
@@ -40,7 +48,7 @@ class reports extends controller
         $recieved_data = json_decode($recieved_data_encoded, true);
 
         $this->model("report_model");
-        
+
         $result=$this->model->customer_summary_loadcards($recieved_data['month'],$recieved_data['year'],$_SESSION['userid']);
 
         array_push($result_set,$result);
@@ -75,8 +83,10 @@ class reports extends controller
     public function reports(){
        $month= $_GET['month'];
        $year=$_GET['year'];
+       $type=$_GET['type'];
        $this->view->added=$month;
        $this->view->added1=$year;
+       $this->view->added2=$type;
         $this->view->render('view_all_report');
 
 
@@ -111,7 +121,19 @@ class reports extends controller
             array_push($data1, $row);
         }
         array_push($result_set,$data1);
+
+
+        $result2=$this->model->fill_graph_sum_del( $recieved_data['year'],$userid);
+        $data2 = [];
+        while ($row = $result2->fetch_assoc()) {
+            array_push($data2, $row);
+        }
+        array_push($result_set,$data2);
         
+
+        
+
+
 
       
         echo json_encode($result_set);

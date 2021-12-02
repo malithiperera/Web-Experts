@@ -130,25 +130,25 @@ if (!isset($_SESSION['username'])) {
         </div>
         <div class="card-1">
           <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p id="top-detail-1">52</p>
+          <p id="item"><span id="target"></span></p>
         </div>
       </div>
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
-          <p id="item">9</p>
+          <p id="item"><span id='pro'></span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-          <p id="item">5</p>
+          <p id="item"><span id='pen'></span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-users"></i><br>No of Customers</p>
-          <p id="item">10</p>
+          <p id="item"><span id='CusNo'></span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
-          <p id="item">4</p>
+          <p id="item"><span id='RouteNo'></span></p>
         </div>
 
       </div>
@@ -217,7 +217,27 @@ if (!isset($_SESSION['username'])) {
       }
       fill_table();
     </script>
+  <script>
+    //load cards 
+    function load_cards() {
 
+fetch('http://localhost/web-Experts/public/salesRep/load_card')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    target.innerHTML = data[0][0]['tar'];
+    pro.innerHTML = data[0][1]['count_products'];
+    pen.innerHTML = data[0][2]['Pending'];
+    CusNo.innerHTML = data[0][3]['NoOfCus'];
+    RouteNo.innerHTML = data[0][4]['NoOfRoutes'];
+
+
+
+  });
+}
+
+load_cards();
+  </script>
 </body>
 
 </html>
