@@ -36,6 +36,7 @@
         .view-report-container {
             width: 500px;
             height: 500px;
+            /* temperary commented */
             /* margin-left: 600px; */
             background-color: #fff;
             border: 3px solid #184A78;

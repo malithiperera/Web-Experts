@@ -32,7 +32,9 @@ class notification extends controller{
                     
                     break;
                 case 2:
-                    $subject = 'delovery is confirmed.';
+
+                    $details = $this->model->confirm_delivery($row['delivery_id']);
+                    $subject = $details[3]['name'].'\'s delivery completed by '.$details[4]['name'];
                     break;
                 case 31:
                 case 32:

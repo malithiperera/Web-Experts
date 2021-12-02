@@ -277,6 +277,60 @@ class notification{
             .then(response => response.json())
             .then(data => {
               console.log(data);
+              this.subject.innerHTML += `${data[3]['name']} 's delivery completed by ${data[4]['name']}`;
+
+              let table = document.createElement("TABLE");
+              this.notification_subcontainer.appendChild(table);
+
+              let table_head = document.createElement("THEAD");
+              table.appendChild(table_head);
+
+              let product = document.createElement("TH");
+              let price = document.createElement("TH");
+              let discount = document.createElement("TH");
+              let quantity = document.createElement("TH");
+              let amount = document.createElement("TH");
+
+              product.innerHTML = `Product`;
+              price.innerHTML = `Price`;
+              discount.innerHTML = `Discount`;
+              quantity.innerHTML = `Quantity`;
+              amount.innerHTML = `Amount`;
+
+              table_head.appendChild(product);
+              table_head.appendChild(price);
+              table_head.appendChild(discount);
+              table_head.appendChild(quantity);
+              table_head.appendChild(amount);
+
+              let table_body = document.createElement("TBODY");
+              table.appendChild(table_body);
+
+              for(let i = 0 ; i < data[2].length ; i++){
+                let row = document.createElement("TR");
+                table_body.appendChild(row);
+
+                let product_rec = document.createElement("TD");
+                let price_rec = document.createElement("TD");
+                let discount_rec = document.createElement("TD");
+                let quantity_rec = document.createElement("TD");
+                let amount_rec = document.createElement("TD");
+
+                product_rec.innerHTML = `${data[2][i]['product_name']} - ${data[2][i]['product_id']}`;
+                price_rec.innerHTML = `${data[2][i]['price']}`;
+                discount_rec.innerHTML = `${data[2][i]['discount']}`;
+                quantity_rec.innerHTML = `${data[2][i]['quantity']}`;
+                amount_rec.innerHTML = `${data[2][i]['amount']}`;
+
+                row.appendChild(product_rec);
+                row.appendChild(price_rec);
+                row.appendChild(discount_rec);
+                row.appendChild(quantity_rec);
+                row.appendChild(amount_rec);
+
+              }
+
+              
             });
           }
 
