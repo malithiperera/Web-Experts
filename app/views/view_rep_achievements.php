@@ -48,11 +48,11 @@
         <div class="cards">
             <div class="card">
                 <p><i class="fas fa-user"></i><br>Rep ID</p>
-                <p class="result">R1037</p>
+                <p class="result"><?php echo $_SESSION['userid'];  ?></p>
             </div>
             <div class="card" id="target">
                 <p><i class="fas fa-trophy"></i><br>Target</p>
-                <p class="result" id="target_num">50</p>
+                <p class="result" id="target_num"><span id="targetValue"></span></p>
 
                 <div class="change_target">
                     <input type="text" id="new_target">
@@ -188,6 +188,22 @@
         }
         
     </script>
+
+<script>
+    //load cards 
+    function load_cards() {
+
+fetch('http://localhost/web-Experts/public/salesRep/target')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    targetValue.innerHTML = data[0][0]['tar'];
+
+  });
+}
+
+load_cards();
+  </script>
 </body>
 
 </html>

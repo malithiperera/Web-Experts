@@ -26,6 +26,9 @@ if (!isset($_SESSION['username'])) {
     #unread_label {
       margin-left: 10px;
     }
+    .table{
+      
+    }
   </style>
 
 </head>
@@ -159,6 +162,9 @@ if (!isset($_SESSION['username'])) {
           }
           else if(temp_type == 4){
             my_notification.request_credit_period(data['req_id']);
+          }
+          else if(temp_type == 5){
+            my_notification.add_returns(data['return_id']);
           }
         });
       all_notifications.style.display = "none";

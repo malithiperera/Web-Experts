@@ -145,6 +145,7 @@ class notification{
                     this.subject.innerHTML += `Added new ${data['type']} product named ${data['product_name']}`;
 
                     //div element for message
+                    this.notification_subcontainer.innerHTML = ``;
                     let message_div = document.createElement('div');
                     message_div.className = "message_div";
                     this.notification_subcontainer.appendChild(message_div);
@@ -166,10 +167,9 @@ class notification{
                     image_div.appendChild(image);
                     image.src = '../../public/images/uploads/' + data['image'];
 
-
+                   
                 });
         }
-
 
         request_credit_period(req_id){
 
@@ -184,14 +184,46 @@ class notification{
           .then(response => response.json())
           .then(data =>{
             console.log(data);
+            this.notification_subcontainer.innerHTML = ``;
             this.subject.innerHTML += `${data['shop_name']}'s credit period request.`;
             this.notification_subcontainer.innerHTML += `${data['shop_name']} is requesting a credit period of
                                                         ${data['request_period']} instead of ${data['credit_time']}.
                                                         He noticed the reason of the new request is ${data['reason']}.
                                                         And he is in ${data['route_name']} route.`;
           });
+       
 
-        }
+          }
+
+
+          add_returns(return_id){
+            fetch('http://localhost/web-Experts/public/notification/add_returns', {
+              method: 'POST',
+
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(return_id)
+            })
+            .then(response => response.json())
+            .then(data =>{
+              this.notification_subcontainer.innerHTML = ``;
+              this.subject.innerHTML += `${data[0]} is added a return from ${data[1]}`;
+
+              //creation of the return table
+              let return_table = document.createElement("TABLE"); 
+              this.notification_subcontainer.appendChild(return_table);
+
+              let table_heda = document.createElement("THEAD"); 
+              return_table.appendChild(table_head);
+              
+              document.createElement("TH");
+              document.createElement("TBODY");
+
+
+              console.log(data);
+            });
+          }
 
     
 }

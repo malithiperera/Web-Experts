@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="../customer/viewreport">
+        <a href="#" onclick="pop_up_report()">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
@@ -151,7 +151,7 @@ if (!isset($_SESSION['username'])) {
       <div class="cards">
         <div class="card">
           <p><i class="fas fa-ice-cream"></i><br>KINDS OF PRODUCTS</p>
-          <p id="top-detail"><span id='pro'>10</span></p>
+          <p id="top-detail"><span id='pro'></span></p>
         </div>
         <div class="card">
           <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
