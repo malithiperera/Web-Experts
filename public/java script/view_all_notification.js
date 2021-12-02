@@ -214,13 +214,68 @@ class notification{
               let return_table = document.createElement("TABLE"); 
               this.notification_subcontainer.appendChild(return_table);
 
-              let table_heda = document.createElement("THEAD"); 
+              let table_head = document.createElement("THEAD"); 
               return_table.appendChild(table_head);
               
-              document.createElement("TH");
-              document.createElement("TBODY");
+              let product_id = document.createElement("TH");
+              let product_name = document.createElement("TH");
+              let qty = document.createElement("TH");
+              let reason = document.createElement("TH");
 
+              product_id.innerHTML = `Id`;
+              product_name.innerHTML = `Product`;
+              qty.innerHTML = `Quantity`;
+              reason.innerHTML = `Reason`;
 
+              table_head.appendChild(product_id);
+              table_head.appendChild(product_name);
+              table_head.appendChild(qty);
+              table_head.appendChild(reason);
+
+              let body = document.createElement("TBODY");
+              return_table.appendChild(body);
+
+              for(let i = 0 ; i < data[2].length ; i++){
+                let row = document.createElement("TR");
+                body.appendChild(row);
+
+                let id_rec = document.createElement("TD");
+                let product_rec = document.createElement("TD");
+                let qty_rec = document.createElement("TD");
+                let reason_rec = document.createElement("TD");
+
+                id_rec.innerHTML = `${data[2][i]['product_id']}`;
+                product_rec.innerHTML = `${data[2][i]['product_name']}`;
+                qty_rec.innerHTML = `${data[2][i]['qty']}`;
+                reason_rec.innerHTML = `${data[2][i]['reason']}`;
+
+                body.appendChild(id_rec);
+                body.appendChild(product_rec);
+                body.appendChild(qty_rec);
+                body.appendChild(reason_rec);
+
+                
+
+              }
+
+              
+
+              console.log(data);
+            });
+          }
+
+          confirm_delivery(delivery_id){
+            
+            fetch('http://localhost/web-Experts/public/notification/confirm_delivery', {
+              method: 'POST',
+
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(delivery_id)
+            })
+            .then(response => response.json())
+            .then(data => {
               console.log(data);
             });
           }

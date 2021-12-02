@@ -26,7 +26,14 @@ if (!isset($_SESSION['username'])) {
     #unread_label {
       margin-left: 10px;
     }
-    .table{
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    td {
+      text-align: center;
       
     }
   </style>
@@ -86,7 +93,13 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Returns</span>
       </li>
-
+      <li>
+        <a href="#" onclick="my_notification.load_notification(6)">
+        <i class="fas fa-not-equal lg-3x"></i>
+          <span class="links_name">Stock Issues</span>
+        </a>
+        <span class="tooltip">Stock Issues</span>
+      </li>
 
       <li class="profile">
         <div class="profile-details">
@@ -139,7 +152,6 @@ if (!isset($_SESSION['username'])) {
   <script src="../../public/java script/side_bar.js"></script>
   <script src="../../public/java script/view_all_notification.js"></script>
   <script defer>
-
     this.all_notifications = document.querySelector('.all_notifications');
     this.select_one = document.querySelector('.select_one');
     this.subcontainer2 = document.querySelector('.subcontainer2');
@@ -159,19 +171,18 @@ if (!isset($_SESSION['username'])) {
           temp_type = data['notification_type'];
           if (temp_type == 1) {
             my_notification.product_addition(data['product_id']);
+          } else if(temp_type == 2){
+            my_notification.confirm_delivery(data['delivery_id']);
           }
-          else if(temp_type == 4){
+          else if (temp_type == 4) {
             my_notification.request_credit_period(data['req_id']);
-          }
-          else if(temp_type == 5){
+          } else if (temp_type == 5) {
             my_notification.add_returns(data['return_id']);
           }
         });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
-
-
   </script>
 </body>
 

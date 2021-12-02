@@ -209,7 +209,10 @@ if (!isset($_SESSION['username'])) {
         .popup {
             visibility: hidden;
         }
-
+        .select_report{
+            z-index: 2000000;
+            visibility: hidden;
+        }
         .removeuser {
             visibility: hidden;
             z-index: 20000;
@@ -231,6 +234,7 @@ if (!isset($_SESSION['username'])) {
             /* display:flex;
             justify-content: space-between; */
             margin-top: 40px;
+            z-index: 1000;
         }
 
         .chart-up {
@@ -349,7 +353,7 @@ if (!isset($_SESSION['username'])) {
             <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
             <a href="#" onclick="popup_message('.popup')"><i class="fas fa-landmark fa-lg"></i></a>
             <a href="#" onclick="popup_message('.search_salesrep')"><i class="fas fa-user-tie fa-lg"></i></a>
-            <a href="../admin/viewReport"><i class="fas fa-chart-line fa-lg"></i></a>
+            <a href="#" onclick="popup_message('.select_report')"><i class="fas fa-chart-line fa-lg"></i></a>
             <a href="../admin/add_user"><i class="fas fa-user-plus fa-lg"></i></a>
             <a href="#" onclick="popup_message('.removeuser')"><i class="fas fa-user-minus fa-lg"></i></a>
             <a href="../admin/routes"><i class="fas fa-map-marker-alt fa-lg"></i></a>
@@ -362,7 +366,7 @@ if (!isset($_SESSION['username'])) {
             <a href="#">PRODUCTS</a>
             <a href="#" onclick="popup_message('.popup')">CUSTOMERS</a>
             <a href="#" onclick="popup_message('.search_salesrep')">SALES REPS</a>
-            <a href="../admin/viewReport">REPORTS</a>
+            <a href="#" onclick="popup_message('.select_report')">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>
             <a href="#" onclick="popup_message('.removeuser')">REMOVE USER</a>
             <a href="#" onclick="popup_message('.routes')">ROUTES</a>
@@ -517,7 +521,9 @@ if (!isset($_SESSION['username'])) {
     <div class="routes">
         <?php require 'view_admin_routes.php'; ?>
     </div>
-
+    <div class="select_report">
+        <?php require 'view_all_report_popup.php'; ?>
+    </div>
 
 
 

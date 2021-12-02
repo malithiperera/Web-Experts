@@ -103,7 +103,12 @@ class notification_model extends model
         $cus_name = $cus_details['name'];
 
 
-        $sql3 = "SELECT * FROM return_product WHERE return_id = '$return_id'";
+        $sql3 = "SELECT * FROM return_product,product
+                 WHERE 
+                 return_product.product_id = product.product_id
+                 AND
+                 return_product.return_id = '$return_id'";
+
         $result3 = mysqli_query($conn, $sql3);
 
         $return_details = [];
@@ -120,6 +125,11 @@ class notification_model extends model
         array_push($data, $return_details);
 
         return $data;
+    }
+
+    //get delivery details
+    public function confirm_delivery($delivery_id){
+        
     }
 
    

@@ -117,6 +117,18 @@ class notification extends controller{
         echo json_encode($result);
         exit;
     }
+
+    //get delivery details
+    public function confirm_delivery(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->confirm_delivery($get_data);
+
+        echo json_encode($result);
+        exit;
+    }
    
 }
 

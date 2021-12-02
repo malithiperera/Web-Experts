@@ -9,6 +9,13 @@
 
     <title>Document</title>
     <style>
+        .select_report {
+        position: fixed;
+        top: 70px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
         select {
             width: 250px;
             height: 30px;
@@ -28,7 +35,7 @@
         .view-report-container {
             width: 500px;
             height: 500px;
-            margin-left: 600px;
+            /* margin-left: 600px; */
             background-color: #fff;
             border: 3px solid #184A78;
             border-radius: 10px;
