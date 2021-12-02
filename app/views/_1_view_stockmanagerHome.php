@@ -94,7 +94,7 @@
                     <p class="value_catogories"></p>
                 </div>
                 <div class="div_repRequests">
-                    <p><i class="fas fa-envelope"></i><br>Rep Requests</p>
+                    <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p>
                     <p class="value_repRequests"></p>
                 </div>
 
@@ -130,7 +130,6 @@
             <a href="../stockManager/add_product"><button class="add">Add</button><br></a>
 
         </div>
-
 
     </section>
 
@@ -177,25 +176,24 @@
 
     <script>
         // fill 'Kind of products' card
-        var kindOfProducts = document.querySelector('.div_kindOfProducts');                             // access to the html class
+        var kindOfProducts = document.querySelector('.div_kindOfProducts'); // access to the html class
 
         const fillKindOfProdcuts = () => { // fill the card
             fetch('http://localhost/web-Experts/public/stockManager/fillKindOfProducts_cont', {
                     /* nothing to send to the controller*/
-                })                                                                                      // call the controller
+                }) // call the controller
                 .then(response => response.json())
                 .then(data => {
                     kindOfProducts.innerHTML += `
                         <p class="value_kindOfProducts">${data['productidcount']}</p>
 
                     `;
-                    console.log(data);                                                                  // send data to the front end
+                    console.log(data); // send data to the front end
 
                 });
 
         }
         fillKindOfProdcuts();
-
     </script>
 
     <script>
@@ -215,7 +213,6 @@
                 })
         }
         fillNoOfReps();
-
     </script>
 
     <script>
@@ -233,8 +230,7 @@
 
                 });
         }
-        fillNoOfCategories ();
-
+        fillNoOfCategories();
     </script>
 
     <script>

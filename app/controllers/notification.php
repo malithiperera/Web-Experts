@@ -29,6 +29,7 @@ class notification extends controller{
                     $product_details = $details->fetch_assoc();
 
                     $subject = 'added new '.$product_details['type']." product , named ".$product_details['product_name'].".";
+                    
                     break;
                 case 2:
                     $subject = 'delovery is confirmed.';
@@ -38,10 +39,15 @@ class notification extends controller{
                     $subject = 'this notification about stocks.';
                     break;
                 case 4:
-                    $subject = 'is requesting a credit time.';
+                    $details = $this->model->get_credit_request_details($row['req_id']);
+                    $request_details = $details->fetch_assoc();
+
+                    $subject = $request_details['shop_name'].' is requesting a credit time.';
                     break;
                 case 5:
-                    $subject = 'this notification about returns';
+                    $details = $this->model->add_returns($row['return_id']);           
+
+                    $subject = $details[0].' is added a return from '.$details[1];
                     break;
                 case 6:  
                     $subject = 'some issue with the sales rep.';
@@ -97,6 +103,18 @@ class notification extends controller{
         $result = $this->model->requst_credit_period($get_data);
 
         echo json_encode($result->fetch_assoc());
+        exit;
+    }
+
+    //details abuot returns
+    public function add_returns(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->add_returns($get_data);
+
+        echo json_encode($result);
         exit;
     }
    
