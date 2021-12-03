@@ -183,5 +183,47 @@ class notification_model extends model
         return $data;
     }
 
+    //get product issue details for stock crashes notification
+    public function stock_crashes($issue_id){
+        require '../app/core/database.php';
+
+        $sql1 = "SELECT * FROM product,product_issue_products
+                WHERE 
+                product_issue_products.product_id = product.product_id
+                AND
+                product_issue_products.issue_id = '$issue_id'";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $data = [];
+
+        $array = [];
+
+        while($row = $result1->fetch_assoc()){
+            array_push($array, $row);
+        }
+
+        array_push($data, $array);
+
+        $sql2 = "SELECT name FROM product_issue,user
+                WHERE 
+                product_issue.rep_id = user.user_id
+                AND
+                product_issue.issue_id = '$issue_id'";
+        $result2 = mysqli_query($conn, $sql2);
+
+        array_push($data, $result2->fetch_assoc());
+
+
+        $sql3 = "SELECT name FROM product_issue,user
+                WHERE 
+                product_issue.stockmanager_id = user.user_id
+                AND
+                product_issue.issue_id = '$issue_id'";
+        $result3 = mysqli_query($conn, $sql3);
+
+        array_push($data, $result3->fetch_assoc());
+
+        return $data;
+    }
    
 }

@@ -34,8 +34,9 @@ if (!isset($_SESSION['username'])) {
     }
     td {
       text-align: center;
-      
+    
     }
+   
   </style>
 
 </head>
@@ -74,9 +75,9 @@ if (!isset($_SESSION['username'])) {
       <li>
         <a href="#" onclick="my_notification.load_notification('3%')">
           <i class="fas fa-cubes lg-3x"></i>
-          <span class="links_name">Stocks</span>
+          <span class="links_name">Stocks Issue</span>
         </a>
-        <span class="tooltip">Stocks</span>
+        <span class="tooltip">Stocks Issue</span>
       </li>
       <li>
         <a href="#" onclick="my_notification.load_notification(4)">
@@ -96,9 +97,9 @@ if (!isset($_SESSION['username'])) {
       <li>
         <a href="#" onclick="my_notification.load_notification(6)">
         <i class="fas fa-not-equal lg-3x"></i>
-          <span class="links_name">Stock Issues</span>
+          <span class="links_name">Stock Crashes</span>
         </a>
-        <span class="tooltip">Stock Issues</span>
+        <span class="tooltip">Stock Crashes</span>
       </li>
 
       <li class="profile">
@@ -178,6 +179,9 @@ if (!isset($_SESSION['username'])) {
             my_notification.request_credit_period(data['req_id']);
           } else if (temp_type == 5) {
             my_notification.add_returns(data['return_id']);
+          }
+          else if(temp_type == 6){
+            my_notification.stock_crashes(data['issue_id']);
           }
         });
       all_notifications.style.display = "none";

@@ -51,8 +51,11 @@ class notification extends controller{
 
                     $subject = $details[0].' is added a return from '.$details[1];
                     break;
-                case 6:  
-                    $subject = 'some issue with the sales rep.';
+                case 6: 
+                    
+                    $details = $this->model->stock_crashes($row['issue_id']);
+
+                    $subject = 'some issue with '.$details[1]['name'].' stock completion, issued by '.$details[2]['name'].'.';
                     break;
                 default:
                     $subject = 'subject';
@@ -127,6 +130,18 @@ class notification extends controller{
 
         $this->model('notification_model');
         $result = $this->model->confirm_delivery($get_data);
+
+        echo json_encode($result);
+        exit;
+    }
+
+    //get product issue details
+    public function stock_crashes(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->stock_crashes($get_data);
 
         echo json_encode($result);
         exit;

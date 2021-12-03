@@ -32,7 +32,7 @@
     .search_customer {
         position: relative;
         width: 400px;
-        height: 300px;
+        height: 350px;
         background-color: white;
         border: 4px solid #184A78;
         border-radius: 10px;
