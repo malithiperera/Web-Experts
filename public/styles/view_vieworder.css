@@ -71,13 +71,6 @@ td{
    text-align:center;
 }
 
-#new{
-    background-color: #211e7a;
-    color: #fff;
-    width: 100px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 button i{
     padding: 5px;
@@ -141,27 +134,7 @@ button i{
     background: #184A78;
   }
 
-.edit{
-    color: rgb(255, 255, 255);
-    background-color: rgb(84,206,98);
-    /* border: 1px solid black; */
-    width: 100px;
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-  }
-  
-  .delete{
-    background-color: rgb(220,53,69);
-    outline: none;
-    width: 100px;
-    color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-  
-  }
+
 .save{
     display: flex;
     justify-content: center;
@@ -178,4 +151,5 @@ button i{
   #total_of_all_prices , .tot{
       font-weight: 800;
       font-size: 25px;
+      background-color: #d6d6d6;
   }

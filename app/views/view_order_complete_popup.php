@@ -64,9 +64,9 @@
         button {
             background-color: #5DA423;
             float: center;
-            width: 100px;
+            width: 120px;
             height: 30px;
-            border-radius: 20px;
+            border-radius: 10px;
             outline: none;
             border: none;
             font-weight: 700;
