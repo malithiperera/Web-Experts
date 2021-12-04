@@ -34,8 +34,9 @@ if (!isset($_SESSION['username'])) {
     }
     td {
       text-align: center;
-      
+    
     }
+   
   </style>
 
 </head>
@@ -72,13 +73,6 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Deliveries</span>
       </li>
       <li>
-        <a href="#" onclick="my_notification.load_notification('3%')">
-          <i class="fas fa-cubes lg-3x"></i>
-          <span class="links_name">Stocks</span>
-        </a>
-        <span class="tooltip">Stocks</span>
-      </li>
-      <li>
         <a href="#" onclick="my_notification.load_notification(4)">
           <i class="fas fa-baby lg-3x"></i>
           <span class="links_name">Customer Requests</span>
@@ -96,9 +90,9 @@ if (!isset($_SESSION['username'])) {
       <li>
         <a href="#" onclick="my_notification.load_notification(6)">
         <i class="fas fa-not-equal lg-3x"></i>
-          <span class="links_name">Stock Issues</span>
+          <span class="links_name">Stock Crashes</span>
         </a>
-        <span class="tooltip">Stock Issues</span>
+        <span class="tooltip">Stock Crashes</span>
       </li>
 
       <li class="profile">
@@ -116,6 +110,7 @@ if (!isset($_SESSION['username'])) {
 
   <section class="home-section">
     <div class="all_notifications">
+      <button onclick="back()">back button here</button>
       <h1>NOTIFICATIONS</h1>
       <div class="filter">
         <label for="unread" id="unread_label">Unread</label>
@@ -179,10 +174,19 @@ if (!isset($_SESSION['username'])) {
           } else if (temp_type == 5) {
             my_notification.add_returns(data['return_id']);
           }
+          else if(temp_type == 6){
+            my_notification.stock_crashes(data['issue_id']);
+          }
         });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
+  </script>
+
+  <script>
+    function back(){
+      window.history.back();
+    }
   </script>
 </body>
 

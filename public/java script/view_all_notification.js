@@ -62,7 +62,7 @@ class notification{
                       <div class='notification' id='${data[i]['notification_id']}'>
       
                           <div class='from from_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                            ${data[i]['to_whom']}
+                            ${data[i]['from_whom']}
                           </div>
                           <div class='header_notification header_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
                              ${data[i][0]}
@@ -277,8 +277,121 @@ class notification{
             .then(response => response.json())
             .then(data => {
               console.log(data);
+              this.subject.innerHTML += `${data[3]['name']} 's delivery completed by ${data[4]['name']}`;
+
+              let table = document.createElement("TABLE");
+              this.notification_subcontainer.appendChild(table);
+
+              let table_head = document.createElement("THEAD");
+              table.appendChild(table_head);
+
+              let product = document.createElement("TH");
+              let price = document.createElement("TH");
+              let discount = document.createElement("TH");
+              let quantity = document.createElement("TH");
+              let amount = document.createElement("TH");
+
+              product.innerHTML = `Product`;
+              price.innerHTML = `Price`;
+              discount.innerHTML = `Discount`;
+              quantity.innerHTML = `Quantity`;
+              amount.innerHTML = `Amount`;
+
+              table_head.appendChild(product);
+              table_head.appendChild(price);
+              table_head.appendChild(discount);
+              table_head.appendChild(quantity);
+              table_head.appendChild(amount);
+
+              let table_body = document.createElement("TBODY");
+              table.appendChild(table_body);
+
+              for(let i = 0 ; i < data[2].length ; i++){
+                let row = document.createElement("TR");
+                table_body.appendChild(row);
+
+                let product_rec = document.createElement("TD");
+                let price_rec = document.createElement("TD");
+                let discount_rec = document.createElement("TD");
+                let quantity_rec = document.createElement("TD");
+                let amount_rec = document.createElement("TD");
+
+                product_rec.innerHTML = `${data[2][i]['product_name']} - ${data[2][i]['product_id']}`;
+                price_rec.innerHTML = `${data[2][i]['price']}`;
+                discount_rec.innerHTML = `${data[2][i]['discount']}`;
+                quantity_rec.innerHTML = `${data[2][i]['quantity']}`;
+                amount_rec.innerHTML = `${data[2][i]['amount']}`;
+
+                row.appendChild(product_rec);
+                row.appendChild(price_rec);
+                row.appendChild(discount_rec);
+                row.appendChild(quantity_rec);
+                row.appendChild(amount_rec);
+
+              }
+
+              
             });
           }
 
-    
+         stock_crashes(issue_id){
+           fetch('http://localhost/web-Experts/public/notification/stock_crashes',{
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(issue_id)
+           })
+           .then(response => response.json())
+           .then(data =>{
+              console.log(data);
+
+              this.notification_subcontainer.innerHTML = ``;
+              this.subject.innerHTML += `some issue with ${data[1]['name']} stock completion, issued by ${data[2]['name']}.`;
+
+              let table = document.createElement("TABLE");
+              this.notification_subcontainer.appendChild(table);
+
+              let thead = document.createElement("THEAD");
+              this.notification_subcontainer.appendChild(thead);
+
+              let product = document.createElement("TH");
+              let qty_to_return = document.createElement("TH");
+              let returned_qty = document.createElement("TH");
+
+              product.innerHTML = `Product`;
+              qty_to_return.innerHTML = `QTY to return`;
+              returned_qty.innerHTML = `Returned QTY`;
+
+              // thead.innerHTML += product.outerHTML + qty_to_return.outerHTML + returned_qty.outerHTML;
+              thead.appendChild(product);
+              thead.appendChild(qty_to_return);
+              thead.appendChild(returned_qty);
+
+              let tbody = document.createElement("TBODY");
+              this.notification_subcontainer.appendChild(tbody);
+
+              for(let i = 0 ; i < data[0].length ; i++){
+                let tr = document.createElement("TR");
+                tbody.appendChild(tr);
+
+                let product_rec = document.createElement("TD");
+                let qty_to_return_rec = document.createElement("TD");
+                let returned_qty_rec = document.createElement("TD");
+
+                product_rec.innerHTML = `${data[0][i]['product_name']} - ${data[0][i]['product_id']}`;
+                qty_to_return_rec.innerHTML = `${data[0][i]['qty']}`;
+                returned_qty_rec.innerHTML = `${data[0][i]['return_qty']}`;
+
+                tr.appendChild(product_rec);
+                tr.appendChild(qty_to_return_rec);
+                tr.appendChild(returned_qty_rec);
+
+                // tr.innerHTML += product_rec.outerHTML + qty_to_return_rec.outerHTML + returned_qty_rec.outerHTML;
+                // tbody.appendChild(tr);
+              }
+
+           });
+         } 
 }

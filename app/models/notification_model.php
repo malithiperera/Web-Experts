@@ -129,8 +129,101 @@ class notification_model extends model
 
     //get delivery details
     public function confirm_delivery($delivery_id){
-        
+        require '../app/core/database.php';
+
+        //read delivery table
+        $sql1 = "SELECT * FROM delivery WHERE delivery_id = '$delivery_id'";
+        $result1 = mysqli_query($conn, $sql1);
+
+        //read order table
+        $sql2 = "SELECT * FROM orders WHERE order_id = (SELECT order_id FROM delivery WHERE delivery_id = '$delivery_id')";
+        $result2 = mysqli_query($conn, $sql2);
+
+        $result2_data = [];
+
+        while($row = $result2->fetch_assoc()){
+            array_push($result2_data, $row);
+        }
+
+        //read order_product table
+        $sql3 = "SELECT * FROM order_product,product
+                 WHERE 
+                 order_product.product_id = product.product_id
+                 AND
+                 order_product.order_id = (SELECT order_id FROM delivery WHERE delivery_id = '$delivery_id')";
+        $result3 = mysqli_query($conn, $sql3);
+
+        $result3_data = [];
+
+        while($row1 = $result3->fetch_assoc()){
+            array_push($result3_data, $row1);
+        }
+
+        //get customer name
+        $sql4 = "SELECT name FROM user WHERE user_id = 
+                 (SELECT cus_id FROM orders WHERE order_id = 
+                 (SELECT order_id FROM delivery WHERE delivery_id = '$delivery_id'))";
+        $result4 = mysqli_query($conn, $sql4);
+
+        //get rep name
+        $sql5 = "SELECT name FROM user WHERE user_id = 
+                (SELECT rep_id FROM route WHERE route_id = 
+                (SELECT route_id FROM customer WHERE cus_id = 
+                (SELECT cus_id FROM orders WHERE order_id = 
+                (SELECT order_id FROM delivery WHERE delivery_id = '$delivery_id'))))";
+        $result5 = mysqli_query($conn, $sql5);
+
+        $data = [];
+        array_push($data, $result1->fetch_assoc());
+        array_push($data, $result2_data);
+        array_push($data, $result3_data);
+        array_push($data, $result4->fetch_assoc());
+        array_push($data, $result5->fetch_assoc());
+
+        return $data;
     }
 
+    //get product issue details for stock crashes notification
+    public function stock_crashes($issue_id){
+        require '../app/core/database.php';
+
+        $sql1 = "SELECT * FROM product,product_issue_products
+                WHERE 
+                product_issue_products.product_id = product.product_id
+                AND
+                product_issue_products.issue_id = '$issue_id'";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $data = [];
+
+        $array = [];
+
+        while($row = $result1->fetch_assoc()){
+            array_push($array, $row);
+        }
+
+        array_push($data, $array);
+
+        $sql2 = "SELECT name FROM product_issue,user
+                WHERE 
+                product_issue.rep_id = user.user_id
+                AND
+                product_issue.issue_id = '$issue_id'";
+        $result2 = mysqli_query($conn, $sql2);
+
+        array_push($data, $result2->fetch_assoc());
+
+
+        $sql3 = "SELECT name FROM product_issue,user
+                WHERE 
+                product_issue.stockmanager_id = user.user_id
+                AND
+                product_issue.issue_id = '$issue_id'";
+        $result3 = mysqli_query($conn, $sql3);
+
+        array_push($data, $result3->fetch_assoc());
+
+        return $data;
+    }
    
 }

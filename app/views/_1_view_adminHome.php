@@ -4,6 +4,7 @@ if (!isset($_SESSION['username'])) {
     header("Location:http://localhost/web-Experts/public/login/index");
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -787,6 +788,7 @@ if (!isset($_SESSION['username'])) {
             container.style.opacity = "100%";
         }
     </script>
+    
 </body>
 
 </html>
