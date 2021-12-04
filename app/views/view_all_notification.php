@@ -73,13 +73,6 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Deliveries</span>
       </li>
       <li>
-        <a href="#" onclick="my_notification.load_notification('3%')">
-          <i class="fas fa-cubes lg-3x"></i>
-          <span class="links_name">Stocks Issue</span>
-        </a>
-        <span class="tooltip">Stocks Issue</span>
-      </li>
-      <li>
         <a href="#" onclick="my_notification.load_notification(4)">
           <i class="fas fa-baby lg-3x"></i>
           <span class="links_name">Customer Requests</span>
@@ -117,6 +110,7 @@ if (!isset($_SESSION['username'])) {
 
   <section class="home-section">
     <div class="all_notifications">
+      <button onclick="back()">back button here</button>
       <h1>NOTIFICATIONS</h1>
       <div class="filter">
         <label for="unread" id="unread_label">Unread</label>
@@ -187,6 +181,12 @@ if (!isset($_SESSION['username'])) {
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
+  </script>
+
+  <script>
+    function back(){
+      window.history.back();
+    }
   </script>
 </body>
 
