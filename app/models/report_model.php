@@ -165,5 +165,11 @@ class report_model extends model
 
 
     }
+//return monthly
+    public function return_month($year,$month){
+        require '../app/core/database.php';
+        $sql="SELECT route.route_id,route.route_name,user.name,COUNT(returns.return_id) FROM user,returns,route,customer WHERE returns.cus_id=customer.cus_id AND customer.route_id=route.route_id AND returns.rep_id=user.user_id;";
+
+    }
 
 }

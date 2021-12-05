@@ -193,5 +193,20 @@ class reports extends controller
 
     }
 
+
+    public function return_month(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+       $this->model('report_model');
+       $this->model->return_month($recieved_data['year'],$recieved_data['month']);
+
+
+    echo json_encode($recieved_data);
+        exit;
+
+
+    }
+
     
 }

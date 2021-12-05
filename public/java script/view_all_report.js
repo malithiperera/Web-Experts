@@ -315,6 +315,30 @@ class report {
   //return report
   return_report(year, month) {
     if (month != 0) {
+
+        var data_set={
+            year:year,
+            month:month
+
+        };
+        
+        fetch("http://localhost/web-Experts/public/reports/return_month",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(data_set),
+                }
+
+        )
+
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+         
+          
+        });
     }
   }
   //card section

@@ -130,7 +130,7 @@ class customer extends controller
 
     public function view_notification()
     {
-        $this->view->render('view_all_notification');
+        $this->view->render('view_customer_notification');
     }
 
     public function profile()
