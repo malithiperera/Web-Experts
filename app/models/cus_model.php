@@ -112,4 +112,18 @@ class cus_model extends model
 
 }
 
+
+public function customer_request($id,$new_pro,$reason)
+{
+    require '../app/core/database.php';
+    $sql="INSERT INTO `credit_request` ( `cus_id`, `request_period`, `reason`) VALUES ( '$id', '$new_pro', '$reason');";
+    if($conn->query($sql)){
+return 1;
+    }
+    else{
+        return 0;
+    }
+
+}
+
 }
