@@ -26,17 +26,23 @@ if (!isset($_SESSION['username'])) {
     #unread_label {
       margin-left: 10px;
     }
+
     table,
     th,
     td {
       border: 1px solid black;
       border-collapse: collapse;
     }
+
     td {
       text-align: center;
-    
+
     }
-   
+    .back_button_button {
+      border: none;
+      background-color: transparent;
+      margin-bottom: 20px;
+    }
   </style>
 
 </head>
@@ -89,7 +95,7 @@ if (!isset($_SESSION['username'])) {
       </li>
       <li>
         <a href="#" onclick="my_notification.load_notification(6)">
-        <i class="fas fa-not-equal lg-3x"></i>
+          <i class="fas fa-not-equal lg-3x"></i>
           <span class="links_name">Stock Crashes</span>
         </a>
         <span class="tooltip">Stock Crashes</span>
@@ -110,7 +116,7 @@ if (!isset($_SESSION['username'])) {
 
   <section class="home-section">
     <div class="all_notifications">
-      <button onclick="back()">back button here</button>
+      <button class="back_button_button" onclick="back()"><i class="fas fa-chevron-circle-left fa-2x"></i></button>
       <h1>NOTIFICATIONS</h1>
       <div class="filter">
         <label for="unread" id="unread_label">Unread</label>
@@ -126,7 +132,7 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <div class="view_more">
-          <a href="#">view more</a>
+          <a href="#" id="view_more">view more</a>
         </div>
       </div>
     </div>
@@ -158,7 +164,7 @@ if (!isset($_SESSION['username'])) {
 
     //when click a notification , then render the message
     subcontainer2.addEventListener("click", (event) => {
-
+      
       let temp_type;
       my_notification.load_page(event.target.id)
         .then(data => {
@@ -166,15 +172,13 @@ if (!isset($_SESSION['username'])) {
           temp_type = data['notification_type'];
           if (temp_type == 1) {
             my_notification.product_addition(data['product_id']);
-          } else if(temp_type == 2){
+          } else if (temp_type == 2) {
             my_notification.confirm_delivery(data['delivery_id']);
-          }
-          else if (temp_type == 4) {
+          } else if (temp_type == 4) {
             my_notification.request_credit_period(data['req_id']);
           } else if (temp_type == 5) {
             my_notification.add_returns(data['return_id']);
-          }
-          else if(temp_type == 6){
+          } else if (temp_type == 6) {
             my_notification.stock_crashes(data['issue_id']);
           }
         });
@@ -184,7 +188,7 @@ if (!isset($_SESSION['username'])) {
   </script>
 
   <script>
-    function back(){
+    function back() {
       window.history.back();
     }
   </script>
