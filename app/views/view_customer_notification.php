@@ -60,9 +60,9 @@ if (!isset($_SESSION['username'])) {
       <li>
         <a href="#" onclick="my_notification.load_notification(1)">
           <i class="fas fa-cart-plus lg-3x"></i>
-          <span class="links_name">New Products</span>
+          <span class="links_name">Products</span>
         </a>
-        <span class="tooltip">New Products</span>
+        <span class="tooltip">Products</span>
       </li>
 
       <li>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['username'])) {
       </li>
       <li>
         <a href="#" onclick="my_notification.load_notification(4)">
-          <i class="fas fa-baby lg-3x"></i>
+        <i class="fas fa-percentage"></i>
           <span class="links_name">Discounts</span>
         </a>
         <span class="tooltip">Discounts</span>
@@ -82,7 +82,7 @@ if (!isset($_SESSION['username'])) {
 
       <li>
         <a href="#" onclick="my_notification.load_notification(5)">
-          <i class="fas fa-undo lg-3x"></i>
+        <i class="fas fa-money-check-alt"></i>
           <span class="links_name">Cheque Returns</span>
         </a>
         <span class="tooltip">Cheque Returns</span>
