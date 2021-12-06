@@ -14,6 +14,7 @@ class notification{
         this.select_one = document.querySelector('.select_one');
         this.notification_subcontainer = document.querySelector('.notification_subcontainer');
         this.subcontainer2 = document.querySelector('.subcontainer2');
+        this.view_more = document.getElementById("view_more");
 
         //for notification notification view
         this.from = document.querySelector('.from_whom');
@@ -27,7 +28,8 @@ class notification{
     
         
 
-        load_notification(type) {
+        load_notification(type, num_of_rows = 10) {
+
 
             const dataset = {
               to_whom: this.type,
@@ -49,13 +51,18 @@ class notification{
               })
               .then(response => response.json())
               .then(data => {
+
       
-      
-      
+                if(num_of_rows >= data.length){
+                  this.view_more.style.visibility = "hidden";
+                  num_of_rows = data.length;
+                }else{
+                  this.view_more.style.visibility = "visible";
+                }
       
                 //choose subject and message according to the notification type
       
-                for (let i = 0; i < data.length; i++) {
+                for (let i = 0; i < num_of_rows; i++) {
       
                   this.subcontainer2.innerHTML += `
       
@@ -87,12 +94,26 @@ class notification{
       
                 }
                 console.log(data);
+
+                
+
+                this.view_more.addEventListener("click", ()=>{
+                  console.log(num_of_rows);
+                  if(data.length > num_of_rows){
+                    console.log(type);
+                  this.load_notification(type, num_of_rows+10);
+                  }
+                });
+
+                
+
               });
       
             return 0;
       
           }
 
+          
 
           //initially load the page
         async load_page(notification_id) {
@@ -127,6 +148,8 @@ class notification{
             return data1;
         }
 
+       
+
 
         product_addition(product_id){
             fetch('http://localhost/web-Experts/public/notification/product_addition', {
@@ -139,6 +162,8 @@ class notification{
                 })
                 .then(response => response.json())
                 .then(data => {
+
+                  
                     this.notification_subcontainer.innerHTML = ``;
 
                     //fill subject for the notification
@@ -277,6 +302,7 @@ class notification{
             .then(response => response.json())
             .then(data => {
               console.log(data);
+              this.notification_subcontainer.innerHTML = ``;
               this.subject.innerHTML += `${data[3]['name']} 's delivery completed by ${data[4]['name']}`;
 
               let table = document.createElement("TABLE");
