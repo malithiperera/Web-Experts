@@ -1,3 +1,10 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,14 +17,34 @@
 </head>
 
 <body>
-    <!-- <?php require 'view_headerType2.php';  ?> -->
+<div class="header">
+      <?php require 'view_headertype2.php'; ?>
+</div>
     <h2>DAILY PRODUCT LIST</h2>
+
+    <div class="data_form">
+                <div class="search_product">
+                    <input type="text" id="product_name" placeholder="Search Product" onkeyup="fetchText(this.value)">
+                    <div>
+                        <ul class="suggestions">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <input type="text" id="quantity" placeholder="quantity" onkeyup=" cal_tot_suggest()">
+               
+                <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
+    </div>
+
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
+                    <th>Requested Quantity</th>
+                    <th colspan="2"></th>
 
                 </tr>
             </thead>
@@ -66,6 +93,45 @@
         }
 
         get_product();
+
+        //suggestions 
+        suggestions = document.querySelector(".suggestions");
+
+        async function fetchText(value) {
+
+            let reqBody = {
+                product: value
+            };
+            const getData = async reqBody => {
+                let res = await fetch('http://localhost/web-Experts/public/login/test2', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(reqBody)
+                });
+                if (res.status !== 200) // http status code 200 means success
+                    throw new Error("Fetching process failed");
+                let data = await res.json();
+                return data;
+            }
+
+            getData(reqBody).then(data => {
+                // console.log(data);
+                suggestions.innerHTML = ``;
+                data.forEach(myFunction);
+
+                function myFunction(item) {
+
+                    suggestions.innerHTML += `<li><a href="#" onclick="select_row('${item['product_name']}')">${item['product_name']}</a></li>`;
+                }
+
+            }).catch(reason => {
+                console.log(reason);
+            })
+        }
+
+
     </script>
 </body>
 
