@@ -1,17 +1,20 @@
 <?php
 
-class notification extends controller{
+class notification extends controller
+{
     function __construct()
     {
         parent::__construct();
     }
 
     //testing notification
-    public function test_notification(){
+    public function test_notification()
+    {
         $this->view->render('view_all_notification');
     }
 
-    public function load_notification(){
+    public function load_notification()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -20,43 +23,78 @@ class notification extends controller{
 
         $data = [];
 
-        while($row = $result->fetch_assoc()){
-            
+        while ($row = $result->fetch_assoc()) {
 
-            switch ($row['notification_type']){
+
+            switch ($row['notification_type']) {
                 case 1:
                     $details = $this->model->get_product_details($row['product_id']);
                     $product_details = $details->fetch_assoc();
 
-                    $subject = 'added new '.$product_details['type']." product , named ".$product_details['product_name'].".";
-                    
+                    $subject = 'added new ' . $product_details['type'] . " product , named " . $product_details['product_name'] . ".";
+
                     break;
                 case 2:
 
                     $details = $this->model->confirm_delivery($row['delivery_id']);
-                    $subject = $details[3]['name'].'\'s delivery completed by '.$details[4]['name'];
+                    $subject = $details[3]['name'] . '\'s delivery completed by ' . $details[4]['name'];
                     break;
-                case 31:
-                case 32:
-                    $subject = 'this notification about stocks.';
-                    break;
+
+
                 case 4:
                     $details = $this->model->get_credit_request_details($row['req_id']);
                     $request_details = $details->fetch_assoc();
 
-                    $subject = $request_details['shop_name'].' is requesting a credit time.';
+                    $subject = $request_details['shop_name'] . ' is requesting a credit time.';
                     break;
                 case 5:
-                    $details = $this->model->add_returns($row['return_id']);           
+                    $details = $this->model->add_returns($row['return_id']);
 
-                    $subject = $details[0].' is added a return from '.$details[1];
+                    $subject = $details[0] . ' is added a return from ' . $details[1];
                     break;
-                case 6: 
-                    
+                case 6:
+
                     $details = $this->model->stock_crashes($row['issue_id']);
 
-                    $subject = 'some issue with '.$details[1]['name'].' stock completion, issued by '.$details[2]['name'].'.';
+                    $subject = 'some issue with ' . $details[1]['name'] . ' stock completion, issued by ' . $details[2]['name'] . '.';
                     break;
+
+                case 17:
+                    $details = $this->model->get_product_details($row['product_id']);
+                    $product_details = $details->fetch_assoc();
+
+                    $subject = ' added Discounts ' . $product_details['type'] . " product , named " . $product_details['product_name'] . ".";
+                    // $subject = 'added new '.$product_details['type']." product , named ".$product_details['product_name'].".";
+
+                    break;
+
+
+
+                case 18:
+                    $details = $this->model->get_product_details($row['product_id']);
+                    $product_details = $details->fetch_assoc();
+                    $subject = ' Price Change in  ' . $product_details['type'] . " product , named " . $product_details['product_name'] . ".";
+
+
+                    break;
+
+                case 82:
+                    $cheque = $this->model->get_cheque_details($row['payment_id']);
+                    //  $subject=$cheque[0][0]['payment_id'];
+                    $subject = 'Cheque Accept for Payment Id ' . $cheque[0][0]['payment_id'] . "";
+                    break;
+                case 10:
+
+                    $delivery = $this->model->delivery_confirm($row['order_id']);
+                    $subject = 'Delivery Confirm for ' . $delivery[0][0]['order_id'];
+                    break;
+                case 13:
+                    $subject = "Credit Request";
+                    break;
+                // case 14:
+                //     $subject = "Credit Request Rejected";
+                //     break;
+               
                 default:
                     $subject = 'subject';
             }
@@ -69,14 +107,15 @@ class notification extends controller{
         exit;
     }
 
-    public function see_notification($notification_id){
+    public function see_notification($notification_id)
+    {
 
         $this->view->notification_id = $notification_id;
         $this->view->render('view_all_notification_view');
-        
     }
 
-    public function load_notification_page(){
+    public function load_notification_page()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -88,7 +127,8 @@ class notification extends controller{
     }
 
     //notifications about new product addition
-    public function product_addition(){
+    public function product_addition()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -100,7 +140,8 @@ class notification extends controller{
     }
 
     //notifications for cretid period requests from customers
-    public function request_credit_period(){
+    public function request_credit_period()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -112,7 +153,8 @@ class notification extends controller{
     }
 
     //details abuot returns
-    public function add_returns(){
+    public function add_returns()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -124,7 +166,8 @@ class notification extends controller{
     }
 
     //get delivery details
-    public function confirm_delivery(){
+    public function confirm_delivery()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -136,7 +179,8 @@ class notification extends controller{
     }
 
     //get product issue details
-    public function stock_crashes(){
+    public function stock_crashes()
+    {
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -146,7 +190,42 @@ class notification extends controller{
         echo json_encode($result);
         exit;
     }
-   
-}
+    public function cheque_status()
+    {
 
-?>
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('notification_model');
+        $result = $this->model->get_cheque_details($get_data);
+
+        echo json_encode($result);
+        exit;
+    }
+
+
+    public function delivery_confirm()
+    {
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('notification_model');
+        $delivery = $this->model->delivery_confirm($get_data);
+        echo json_encode($delivery);
+        exit;
+    }
+
+
+    // public function inform_delivery()
+    // {
+    //     // session_start();
+    //     // $userid=$_SESSION['uesrid'];
+    //     $get_data = file_get_contents('php://input');
+    //     $get_data = json_decode($get_data, true);
+    //     $this->model('notification_model');
+    //     $delivery = $this->model->inform_delivery($get_data);
+    //     echo json_encode('helloo');
+    //     exit;
+    // }
+
+
+    
+}

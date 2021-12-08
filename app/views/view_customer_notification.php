@@ -36,7 +36,25 @@ if (!isset($_SESSION['username'])) {
       text-align: center;
     
     }
-   
+   .sub-head{
+     font-weight: 800;
+   }
+
+   .table-u{
+     width: 900px;
+     height: 800;
+     background-color: red;
+   }
+
+   #but_confirm{
+     width: 20%;
+     height: 50px;
+     background-color: green;
+     outline: none;
+     border: none;
+     border-radius: 10px;
+     color: #fff;
+   }
   </style>
 
 </head>
@@ -60,20 +78,27 @@ if (!isset($_SESSION['username'])) {
       <li>
         <a href="#" onclick="my_notification.load_notification(1)">
           <i class="fas fa-cart-plus lg-3x"></i>
-          <span class="links_name">Products</span>
+          <span class="links_name">New Products</span>
         </a>
-        <span class="tooltip">Products</span>
+        <span class="tooltip">New Products</span>
+      </li>
+      <li>
+        <a href="#" onclick="my_notification.load_notification(17)">
+        <i class="fas fa-tags"></i>
+          <span class="links_name">New Prices</span>
+        </a>
+        <span class="tooltip">New Prices</span>
       </li>
 
       <li>
-        <a href="#" onclick="my_notification.load_notification(2)">
+        <a href="#" onclick="my_notification.load_notification(10)">
           <i class="fas fa-truck-loading lg-3x"></i>
           <span class="links_name">Deliveries</span>
         </a>
         <span class="tooltip">Deliveries</span>
       </li>
       <li>
-        <a href="#" onclick="my_notification.load_notification(4)">
+        <a href="#" onclick="my_notification.load_notification(18)">
         <i class="fas fa-percentage"></i>
           <span class="links_name">Discounts</span>
         </a>
@@ -153,6 +178,7 @@ if (!isset($_SESSION['username'])) {
 
     let user_id = '<?php echo $_SESSION['userid'] ?>';
     let type = '<?php echo $_SESSION['type'] ?>';
+
     let my_notification = new notification(user_id, type);
     my_notification.load_notification('%');
 
@@ -164,23 +190,55 @@ if (!isset($_SESSION['username'])) {
         .then(data => {
           console.log(data);
           temp_type = data['notification_type'];
-          if (temp_type == 1) {
-            my_notification.product_addition(data['product_id']);
-          } else if(temp_type == 2){
-            my_notification.confirm_delivery(data['delivery_id']);
+          if (temp_type == 17) {
+            my_notification.discount_addition(data['product_id']);
+            console.log('discount');
+          } else if(temp_type == 18){
+            my_notification.price_change(data['product_id']);
           }
-          else if (temp_type == 4) {
-            my_notification.request_credit_period(data['req_id']);
-          } else if (temp_type == 5) {
-            my_notification.add_returns(data['return_id']);
+          else if (temp_type == 82) {
+            my_notification.cheque_status(data['payment_id'],82);
+          } else if (temp_type == 81) {
+            my_notification.cheque_status(data['payment_id'],81);
           }
-          else if(temp_type == 6){
-            my_notification.stock_crashes(data['issue_id']);
+          else if(temp_type == 10){
+            my_notification.confirm_delivery_cus(data['order_id']);
+          }
+          else if(temp_type == 13){
+            my_notification.credit_request_cus(data['to_whom']);
           }
         });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
     });
+
+
+    window.onclick = function(event) {
+
+if(event.target.className=='but_confirm'){
+  var orderID=document.querySelector('.but_confirm').value;
+  console.log(orderID);
+  fetch('http://localhost/web-Experts/public/notification/inform_delivery', {
+            method: 'POST',
+
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // },
+            // body: JSON.stringify(orderID)
+        })
+        .then(response => response.json())
+        .then(data => {
+          
+// console.log(data);
+        
+           
+        });
+
+
+}
+    }
+
+    
   </script>
 
   <script>

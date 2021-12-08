@@ -8,6 +8,7 @@ class notification{
         this.user_id = user_id;
         this.type = type;
 
+        // console.log(this.user_id,this.type)
         //for notification front view
         this.home_section = document.querySelector('.home-section');
         this.all_notifications = document.querySelector('.all_notifications');
@@ -22,6 +23,7 @@ class notification{
         this.date = document.querySelector('.date');
         this.time = document.querySelector('.time');
         this.subject = document.querySelector('.subject');
+        this.subject.classList.add('sub-head');
         this.notification_subcontainer = document.querySelector('.notification_subcontainer');
 
     }
@@ -51,14 +53,14 @@ class notification{
               })
               .then(response => response.json())
               .then(data => {
-
+console.log(data);
       
-                if(num_of_rows >= data.length){
-                  this.view_more.style.visibility = "hidden";
-                  num_of_rows = data.length;
-                }else{
-                  this.view_more.style.visibility = "visible";
-                }
+                // if(num_of_rows >= data.length){
+                //   this.view_more.style.visibility = "hidden";
+                //   num_of_rows = data.length;
+                // }else{
+                //   this.view_more.style.visibility = "visible";
+                // }
       
                 //choose subject and message according to the notification type
       
@@ -420,4 +422,240 @@ class notification{
 
            });
          } 
+
+
+         discount_addition(product_id){
+          fetch('http://localhost/web-Experts/public/notification/product_addition', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product_id)
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          
+            this.notification_subcontainer.innerHTML = ``;
+
+            //fill subject for the notification
+            this.subject.innerHTML += `Added ${data['discount']}% Discounts to the  ${data['product_name']}`;
+
+            //div element for message
+            this.notification_subcontainer.innerHTML = ``;
+            let message_div = document.createElement('div');
+            message_div.className = "message_div";
+            this.notification_subcontainer.appendChild(message_div);
+
+            message_div.innerHTML = `The company has added new  discount to the product named ${data['product_name']} in the 
+                                    ${data['type']} category. It's id is ${data['product_id']} and it's price
+                                    is ${data['price']}. And you can buy it with ${data['discount']}%. 
+                                    ${data['product_name']} has ${data['description']}.You can buy ${data['product_name']}
+                                    any our branch through our sales reps.`;
+
+            //div element for image
+            let image_div = document.createElement('div');
+            image_div.className = "image_div";
+            this.notification_subcontainer.appendChild(image_div);
+
+            //image element
+            let image = document.createElement('img');
+            image.className = "product_image";
+            image_div.appendChild(image);
+            image.src = '../../public/images/uploads/' + data['image'];
+
+           
+        });
+        this.notification_subcontainer.innerHTML = ``;
+         }
+         price_change(product_id){
+          fetch('http://localhost/web-Experts/public/notification/product_addition', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product_id)
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          
+            this.notification_subcontainer.innerHTML = ``;
+
+            //fill subject for the notification
+            this.subject.innerHTML += `Price Updated product ${data['product_name']}`;
+
+            //div element for message
+            this.notification_subcontainer.innerHTML = ``;
+            let message_div = document.createElement('div');
+            message_div.className = "message_div";
+            this.notification_subcontainer.appendChild(message_div);
+
+            message_div.innerHTML = `The company has Update the price in product ${data['product_name']} in the 
+                                    ${data['type']} category. It's id is ${data['product_id']} and New Price is
+                                    ${data['price']}. And you can buy it with ${data['discount']}%. 
+                                    ${data['product_name']} has ${data['description']}.You can buy ${data['product_name']}
+                                    any our branch through our sales reps.`;
+
+            //div element for image
+            let image_div = document.createElement('div');
+            image_div.className = "image_div";
+            this.notification_subcontainer.appendChild(image_div);
+
+            //image element
+            let image = document.createElement('img');
+            image.className = "product_image";
+            image_div.appendChild(image);
+            image.src = '../../public/images/uploads/' + data['image'];
+
+           
+        });
+
+         }
+
+
+
+         cheque_status($payment_id,$type_id){
+          console.log("Hello")
+          fetch('http://localhost/web-Experts/public/notification/cheque_status', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify($payment_id)
+        })
+        .then(response => response.json())
+        .then(data => {
+
+          console.log(data[1][0]['status']);
+         
+            this.notification_subcontainer.innerHTML = ``;
+
+            if(data[1][0]['status']=='Accept'){
+              this.subject.innerHTML += `Your Cheque is Accepted'`;
+              this.notification_subcontainer.innerHTML = ``;
+              let message_div = document.createElement('div');
+              message_div.className = "message_div";
+              this.notification_subcontainer.appendChild(message_div);
+  
+              message_div.innerHTML = `the cheque which has payment id  ${data[0][0]['payment_id']} is accepted .                                                                                
+              `;
+              message_div.innerHTML +="<div>Thank You For being with Himalee</div>"
+            }
+
+            else{
+              this.subject.innerHTML += `Your Cheque is Returned'`;
+              this.notification_subcontainer.innerHTML = ``;
+              let message_div = document.createElement('div');
+              message_div.className = "message_div";
+              this.notification_subcontainer.appendChild(message_div);
+  
+              message_div.innerHTML = `the cheque which has payment id  ${data[0][0]['payment_id']} is Returened.                                                                                
+              `;
+              message_div.innerHTML +="<div>Please Process your Payment in another method</div>"
+
+            }
+
+            //fill subject for the notification
+            
+
+            //div element for message
+          
+            
+           
+        });
+
+         }
+
+
+         confirm_delivery_cus(delivery_id){
+          fetch('http://localhost/web-Experts/public/notification/delivery_confirm', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(delivery_id)
+        })
+        .then(response => response.json())
+        .then(data => {
+          this.notification_subcontainer.innerHTML = ``;
+          this.subject.innerHTML += `Order Confirmation:Order ID:${data[0][0]['order_id']}`;
+          console.log(data);
+
+        this.notification_subcontainer.innerHTML+='<h3>Check Your Order And Confirm</h3>';
+        
+      
+        
+        let table = document.createElement("TABLE");
+        this.notification_subcontainer.appendChild(table);
+
+        let table_head = document.createElement("THEAD");
+        table.appendChild(table_head);
+
+        let product = document.createElement("TH");
+        let price = document.createElement("TH");
+        let discount = document.createElement("TH");
+        let quantity = document.createElement("TH");
+        let amount = document.createElement("TH");
+
+        product.innerHTML = `Product`;
+        price.innerHTML = `Price`;
+        discount.innerHTML = `Discount`;
+        quantity.innerHTML = `Quantity`;
+        amount.innerHTML = `Amount`;
+
+        table_head.appendChild(product);
+        table_head.appendChild(price);
+        table_head.appendChild(discount);
+        table_head.appendChild(quantity);
+        table_head.appendChild(amount);
+
+        let table_body = document.createElement("TBODY");
+        table.appendChild(table_body);
+
+        for(let i = 0 ; i < data[1].length ; i++){
+          let row = document.createElement("TR");
+          table_body.appendChild(row);
+
+          let product_rec = document.createElement("TD");
+          let price_rec = document.createElement("TD");
+          let discount_rec = document.createElement("TD");
+          let quantity_rec = document.createElement("TD");
+          let amount_rec = document.createElement("TD");
+
+          product_rec.innerHTML = `${data[1][i]['product_name']} - ${data[1][i]['product_id']}`;
+          price_rec.innerHTML = `${data[1][i]['price']}`;
+          discount_rec.innerHTML = `${data[1][i]['discount']}`;
+          quantity_rec.innerHTML = `${data[1][i]['quantity']}`;
+          amount_rec.innerHTML = `${data[1][i]['amount']}`;
+
+          row.appendChild(product_rec);
+          row.appendChild(price_rec);
+          row.appendChild(discount_rec);
+          row.appendChild(quantity_rec);
+          row.appendChild(amount_rec);
+
+        }
+
+
+        
+              this.notification_subcontainer.innerHTML += `<h3>Total Amount:RS.${data[0][0]['amount']}</h3>`;
+              this.notification_subcontainer.innerHTML += `<button id='but_confirm' class='but_confirm' value="${data[0][0]['order_id']}">Confirm</button>`;
+           
+        });
+      
+        this.notification_subcontainer.innerHTML=" ";
+
+        
+        }
+
+         
+        credit_request_cus($uesrid)
+{
+console.log($uesrid);
+}
 }
