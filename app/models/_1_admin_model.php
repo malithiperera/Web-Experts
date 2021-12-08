@@ -30,6 +30,7 @@ class _1_admin_model extends model
         }
     }
 
+    //get data for cards in admin view
     public function load_view_data(){
         require '../app/core/database.php';
 
@@ -65,6 +66,41 @@ class _1_admin_model extends model
 
 
         return $result;
+    }
+
+    //get data for charts in admin view
+    public function get_data_for_charts(){
+        require '../app/core/database.php';
+
+        $sql1 = "SELECT EXTRACT(YEAR FROM delivery.date) AS year, SUM(orders.amount) AS year_amount FROM delivery,orders 
+                 WHERE 
+                 delivery.order_id = orders.order_id
+                 AND
+                 EXTRACT(YEAR FROM delivery.date) >= YEAR(CURDATE())-3 
+                 GROUP BY EXTRACT(YEAR FROM delivery.date)";
+
+        $result1 = mysqli_query($conn, $sql1);
+
+        $sql2 = "SELECT EXTRACT(YEAR FROM returns.date) AS year, SUM(product.price*return_product.qty) AS amount FROM returns,return_product,product
+                 WHERE
+                 returns.return_id = return_product.return_id
+                 AND
+                 return_product.product_id = product.product_id
+                 AND
+                 EXTRACT(YEAR FROM returns.date) >= YEAR(CURDATE())-3 
+                 GROUP BY EXTRACT(YEAR FROM date) 
+                 ORDER BY EXTRACT(YEAR FROM date)";
+
+        $result2 = mysqli_query($conn, $sql2);
+
+        $data = [];
+
+        while($row1 = $result1->fetch_assoc()){
+            array_push($row1, $result2->fetch_assoc());
+            array_push($data, $row1);
+        }
+
+        return $data;
     }
 
     public function search_customer($customer_id){

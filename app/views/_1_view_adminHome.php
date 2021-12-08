@@ -210,10 +210,12 @@ if (!isset($_SESSION['username'])) {
         .popup {
             visibility: hidden;
         }
-        .select_report{
+
+        .select_report {
             z-index: 2000000;
             visibility: hidden;
         }
+
         .removeuser {
             visibility: hidden;
             z-index: 20000;
@@ -272,7 +274,7 @@ if (!isset($_SESSION['username'])) {
 
         .growth {
             width: 600px;
-            height:600px;
+            height: 600px;
             background-color: #fff;
             color: black;
             display: flex;
@@ -282,10 +284,12 @@ if (!isset($_SESSION['username'])) {
             padding: 10px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
-        .growth table{
+
+        .growth table {
             margin-left: 20px;
             margin-right: 20px;
         }
+
         table {
             margin-top: 30px;
         }
@@ -334,10 +338,16 @@ if (!isset($_SESSION['username'])) {
             margin-left: 50px;
             margin-top: 20px;
         }
-        #count_products,#count_salesreps,#count_customers,#count_routes,#count_orders,#count_deliveries{
-            color:rgb(45, 211, 45);
+
+        #count_products,
+        #count_salesreps,
+        #count_customers,
+        #count_routes,
+        #count_orders,
+        #count_deliveries {
+            color: rgb(45, 211, 45);
             margin-top: -4px;
-            font-weight:700;
+            font-weight: 700;
             font-size: 24px;
         }
     </style>
@@ -462,22 +472,6 @@ if (!isset($_SESSION['username'])) {
                                 <td>S.M Rajapaksha</td>
                                 <td>150 000</td>
                             </tr>
-                            <tr>
-                                <td>HR0890</td>
-                                <td>N.D.T Kariyawasam</td>
-                                <td>130 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR0908</td>
-                                <td>K.M Herath</td>
-                                <td>127 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR5679</td>
-                                <td>Y.T Silve</td>
-                                <td>110 000</td>
-                            </tr>
-
 
 
                         </table>
@@ -641,11 +635,22 @@ if (!isset($_SESSION['username'])) {
         count_orders = document.getElementById('count_orders');
         count_deliveries = document.getElementById('count_deliveries');
 
+        data_set = {
 
+        }
 
-        function load_cards() {
+        async function load_page() {
 
-            fetch('http://localhost/web-Experts/public/admin/load_view')
+            let data = await fetch('http://localhost/web-Experts/public/admin/load_view', {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+
+                    body: JSON.stringify(data_set)
+                })
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
@@ -656,10 +661,13 @@ if (!isset($_SESSION['username'])) {
                     count_routes.innerHTML = data[0][3]['count_route'];
                     count_orders.innerHTML = data[0][4]['count_order'];
                     count_deliveries.innerHTML = 3;
+
+                    return data;
                 });
+            return data;
         }
 
-        load_cards();
+        load_page();
     </script>
 
 
@@ -667,7 +675,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
+    <!-- customer registratioon chart -->
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['bar']
@@ -697,41 +705,62 @@ if (!isset($_SESSION['username'])) {
         }
     </script>
 
+    <!-- loading charts in admin view -->
+    <script>
+        let years = [];
+        let sales = [];
+        let returns = [];
 
 
+        load_page().then(data => {
+            console.log(data);
+            for (let i = 0; i < 4; i++) {
+                years.push(data[1][i]['year']);
+                sales.push(data[1][i]['year_amount']);
+                returns.push(data[1][i][0]['amount']);
+            }
 
-    <!-- Overview -->
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
+            // begining sales Overview chart
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            google.charts.setOnLoadCallback(drawChart);
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Year', 'Sales', 'Returns'],
-                ['2013', 1000, 100],
-                ['2014', 1170, 60],
-                ['2015', 660, 120],
-                ['2016', 1030, 240]
-            ]);
 
-            var options = {
-                title: 'Company Performance',
-                hAxis: {
-                    title: 'Year',
-                    titleTextStyle: {
-                        color: 'green'
+            let data_array = [
+                ['Year', 'Sales', 'Returns']
+            ];
+
+            // let returns = [145, 267, 898, 567];
+
+            for (let i = 0; i < 4; i++) {
+                data_array.push([String(years[i]), parseInt(sales[i]), parseInt(returns[i])]);
+            }
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable(data_array);
+
+                var options = {
+                    title: 'Company Performance',
+                    hAxis: {
+                        title: 'Year',
+                        titleTextStyle: {
+                            color: 'green'
+                        }
+                    },
+                    vAxis: {
+                        minValue: 0
                     }
-                },
-                vAxis: {
-                    minValue: 0
-                }
-            };
+                };
 
-            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
-        }
+                var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+            //ending sales overview chart
+
+
+
+        });
     </script>
 
 
@@ -788,7 +817,7 @@ if (!isset($_SESSION['username'])) {
             container.style.opacity = "100%";
         }
     </script>
-    
+
 </body>
 
 </html>

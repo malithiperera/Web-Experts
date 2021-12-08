@@ -8,10 +8,21 @@ class admin extends controller{
 
     public function load_view(){
 
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        //get data for cards
         $this->model('_1_admin_model');
         $result = $this->model->load_view_data();
 
+        //get data for charts
+        $result1 = $this->model->get_data_for_charts();
+
+
         $data = [$result];
+        //add chart data to return array
+        array_push($data, $result1);
+
         echo json_encode($data);
         exit;
     }
