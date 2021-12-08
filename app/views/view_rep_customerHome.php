@@ -1,3 +1,11 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
+
 <!DOCTYPE html>
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
@@ -71,6 +79,9 @@
       </li>
     </ul>
   </div>
+  <div class="header">
+      <?php require 'view_headertype2.php'; ?>
+    </div>
   <section class="home-section">
     <section class="cards-section">
       <div class="cards">
