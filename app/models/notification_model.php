@@ -14,7 +14,8 @@ class notification_model extends model
     public function load_notification($to_whom, $user_id, $notification_type){
         require '../app/core/database.php';
 
-        $sql = "SELECT * FROM notification WHERE notification_type LIKE '$notification_type'";
+        $sql = "SELECT * FROM notification WHERE notification_type LIKE '$notification_type' 
+                AND to_whom LIKE '%$to_whom%' OR to_whom LIKE '%$user_id%' ORDER BY date,time ";
         $result = mysqli_query($conn, $sql);
         return $result;
     }
@@ -225,5 +226,93 @@ class notification_model extends model
 
         return $data;
     }
+
+    public function get_cheque_details($paymnetID){
+        require '../app/core/database.php';
+$result_set=array();
+$sql="SELECT * FROM payment where payment_id='$paymnetID'";
+$result1 = mysqli_query($conn, $sql);
+$array = [];
+
+while($row = $result1->fetch_assoc()){
+    array_push($array, $row);
+}
+array_push($result_set,$array);
+
+
+$sql1="SELECT * FROM cheque where payment_id='$paymnetID'";
+$result1 = mysqli_query($conn, $sql1);
+$array1 = [];
+
+while($row = $result1->fetch_assoc()){
+    array_push($array1, $row);
+}
+array_push($result_set,$array1);
+return $result_set;
+
+    }
+
+   
+
+
+
+
+
+    public function delivery_confirm($order_id){
+        require '../app/core/database.php';
+   $result_set=array();
+$sql="SELECT * FROM orders where order_id='$order_id'";
+$result1 = mysqli_query($conn, $sql);
+$array = [];
+
+while($row = $result1->fetch_assoc()){
+    array_push($array, $row);
+}
+array_push($result_set,$array);
+
+
+
+
+$sql3 = "SELECT * FROM order_product,product
+WHERE 
+order_product.product_id = product.product_id
+AND
+order_product.order_id = '$order_id'";
+$result3 = mysqli_query($conn, $sql3);
+
+$result3_data = [];
+
+while($row1 = $result3->fetch_assoc()){
+array_push($result3_data, $row1);
+}
+
+array_push($result_set,$result3_data);
+return $result_set;
+
+
+    }
+
+    // public function inform_delivery($order_id){
+    //     require '../app/core/database.php';
+    //     $sql="UPDATE orders set status='delivered' WHERE order_id='$order_id'";
+    //     $result1=mysqli_query($conn,$sql);
+    //     // if($result){
+    //     //     $date=date("Y/m/d");
+    //     //     $t=time();
+    //     //     $sql2="INSERT into delivery values('','$date','$t','$order_id','$user_id','HR001','pending');
+    //     //     SELECT LAST_INSERT_ID();
+    //     //     ";
+
+    //     //    $result2=$conn->multi_query($sql2);
+        
+            
+    //     // }
+    //  if($result){
+    //      return 1;
+    //  }
+
+
+    // }
+
    
 }
