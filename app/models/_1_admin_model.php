@@ -103,6 +103,28 @@ class _1_admin_model extends model
         return $data;
     }
 
+    //get data for best sales reps chart
+    public function get_best_sales_reps(){
+        require '../app/core/database.php';
+
+        $sql1 = "SELECT SUM(orders.amount) AS amount,delivery.rep_id,user.name FROM delivery
+                 INNER JOIN orders ON
+                 delivery.order_id = orders.order_id
+                 INNER JOIN user ON
+                 delivery.rep_id = user.user_id
+                 GROUP BY delivery.rep_id
+                 LIMIT 6" ;
+        $result1 = mysqli_query($conn, $sql1);
+
+        $data = [];
+
+        while($row1 = $result1->fetch_assoc()){
+            array_push($data, $row1);
+        }
+
+        return $data;
+    }
+
     public function search_customer($customer_id){
         require '../app/core/database.php';
 

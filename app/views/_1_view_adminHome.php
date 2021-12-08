@@ -436,42 +436,13 @@ if (!isset($_SESSION['username'])) {
                     </div>
                     <div class="growth">
                         <h3>Best of Sales Rep</h3>
-                        <table>
+                        <table id="best_of_reps">
                             <tr>
                                 <th>Sales Rep ID</th>
                                 <th>Name</th>
                                 <th>Profit</th>
                             </tr>
-                            <tr>
-                                <td>HR034</td>
-                                <td>M.E. Wijekoon</td>
-                                <td>190 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR908</td>
-                                <td>S.M Rajapaksha</td>
-                                <td>150 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR0890</td>
-                                <td>N.D.T Kariyawasam</td>
-                                <td>130 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR0908</td>
-                                <td>K.M Herath</td>
-                                <td>127 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR5679</td>
-                                <td>Y.T Silve</td>
-                                <td>110 000</td>
-                            </tr>
-                            <tr>
-                                <td>HR908</td>
-                                <td>S.M Rajapaksha</td>
-                                <td>150 000</td>
-                            </tr>
+                            
 
 
                         </table>
@@ -816,6 +787,23 @@ if (!isset($_SESSION['username'])) {
             sidebar.style.opacity = "100%";
             container.style.opacity = "100%";
         }
+    </script>
+
+    <!-- fill best of reps table -->
+    <script>
+        best_of_reps = document.getElementById('best_of_reps');
+        load_page()
+        .then(data => {
+            for(let i = 0 ; i < data[2].length ; i++)
+            {
+                best_of_reps.innerHTML += `<tr>
+                                <td>${data[2][i]['rep_id']}</td>
+                                <td>${data[2][i]['name']}</td>
+                                <td>${data[2][i]['amount']}</td>
+                                 </tr>`;
+            }
+           
+        });
     </script>
 
 </body>
