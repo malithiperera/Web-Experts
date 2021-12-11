@@ -429,34 +429,7 @@ span{
 
 <body>
 
-<!-- 
-    <div class="sidebar">
-        <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
-        <i class="fas fa-bars fa-lg"></i>
-        <i class="fas fa-align-right fa-lg"></i>
-        <div class="icons">
-            <a href="#"><i class="fas fa-luggage-cart fa-lg"></i></a>
-            <a href="#"><i class="fas fa-landmark fa-lg"></i></a>
-            <a href="#"><i class="fas fa-user-tie fa-lg"></i></a>
-            <a href="#"><i class="fas fa-chart-line fa-lg"></i></a>
-            <a href="#"><i class="fas fa-user-plus fa-lg"></i></a>
-        </div>
 
-        <div class="links">
-            <a href="#">REPORTS</a>
-            <a href="#" onclick="popup_message('.popup_update_status')">UPDATE STATUS</a>
-            <a href="#" onclick="popup_message('.popup_update_credit_period')">UPDATE CREDIT PERIOD</a>
-            <a href="#">UPDATE CHEQUE STATUS</a>
-            <a href="#" onclick="popup_message('.popup_send_warning')">SEND WARNING</a>
-
-        </div>
-        <div class="sidebar_footer">
-            <div class="footerIcon">
-                <i class="fas fa-building fa-lg"></i>
-                <p class="username"><?php echo $_SESSION['username']; ?></p>
-            </div>
-        </div>
-    </div> -->
 
     <div class="popup_send_warning">
         <div class="send_warning_message">

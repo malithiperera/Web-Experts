@@ -442,7 +442,7 @@ if (!isset($_SESSION['username'])) {
                                 <th>Name</th>
                                 <th>Profit</th>
                             </tr>
-                            
+
 
 
                         </table>
@@ -646,12 +646,14 @@ if (!isset($_SESSION['username'])) {
 
 
 
-    <!-- customer registratioon chart -->
+    <!-- payment method chart -->
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['bar']
         });
         google.charts.setOnLoadCallback(drawChart);
+
+
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
@@ -736,49 +738,64 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
+    <!-- customer registration chart -->
     <script type="text/javascript">
-        google.charts.load("current", {
-            packages: ["corechart"]
-        });
-        google.charts.setOnLoadCallback(drawChart);
+        load_page()
+            .then(data => {
 
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ["Month", "Total", {
-                    role: "style"
-                }],
-                ["Jan", 8.94, "#b87333"],
-                ["Feb", 10.49, "silver"],
-                ["March", 19.30, "gold"],
-                ["April", 21.45, "color: #e5e4e2"]
-            ]);
+                google.charts.load("current", {
+                    packages: ["corechart"]
+                });
+                google.charts.setOnLoadCallback(drawChart);
 
-            var view = new google.visualization.DataView(data);
-            view.setColumns([0, 1,
-                {
-                    calc: "stringify",
-                    sourceColumn: 1,
-                    type: "string",
-                    role: "annotation"
-                },
-                2
-            ]);
+                let color = ["#b87333", "silver", "gold", "#e5e4e2"];
+                let chart_data = [
+                    ["Month", "Total", {
+                        role: "style"
+                    }]
+                ];
 
-            var options = {
-                title: "Total customers",
-                width: 500,
-                height: 500,
-                bar: {
-                    groupWidth: "95%"
-                },
-                legend: {
-                    position: "none"
-                },
-            };
-            var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
-            chart.draw(view, options);
-        }
+                for (let i = 0; i < 4; i++) {
+                    chart_data.push([data[3][i]['month'], parseInt(data[3][i]['count']), color[i]]);
+
+                }
+
+                console.log(chart_data);
+
+
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable(chart_data);
+
+                    var view = new google.visualization.DataView(data);
+                    view.setColumns([0, 1,
+                        {
+                            calc: "stringify",
+                            sourceColumn: 1,
+                            type: "string",
+                            role: "annotation"
+                        },
+                        2
+                    ]);
+
+                    var options = {
+                        title: "Total customers",
+                        width: 500,
+                        height: 500,
+                        bar: {
+                            groupWidth: "95%"
+                        },
+                        legend: {
+                            position: "none"
+                        },
+                    };
+                    var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+                    chart.draw(view, options);
+                }
+
+
+
+
+            });
     </script>
 
     <script>
@@ -793,17 +810,16 @@ if (!isset($_SESSION['username'])) {
     <script>
         best_of_reps = document.getElementById('best_of_reps');
         load_page()
-        .then(data => {
-            for(let i = 0 ; i < data[2].length ; i++)
-            {
-                best_of_reps.innerHTML += `<tr>
+            .then(data => {
+                for (let i = 0; i < data[2].length; i++) {
+                    best_of_reps.innerHTML += `<tr>
                                 <td>${data[2][i]['rep_id']}</td>
                                 <td>${data[2][i]['name']}</td>
                                 <td>${data[2][i]['amount']}</td>
                                  </tr>`;
-            }
-           
-        });
+                }
+
+            });
     </script>
 
 </body>

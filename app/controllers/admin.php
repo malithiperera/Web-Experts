@@ -20,12 +20,15 @@ class admin extends controller{
         $result1 = $this->model->get_data_for_charts();
         //best sales reps chart
         $result2 = $this->model->get_best_sales_reps();
+        //get customer registration data
+        $result3 = $this->model->get_customer_reg_data();
 
 
         $data = [$result];
         //add chart data to return array
         array_push($data, $result1);
         array_push($data, $result2);
+        array_push($data, $result3);
 
         echo json_encode($data);
         exit;

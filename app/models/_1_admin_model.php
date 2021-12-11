@@ -112,8 +112,32 @@ class _1_admin_model extends model
                  delivery.order_id = orders.order_id
                  INNER JOIN user ON
                  delivery.rep_id = user.user_id
-                 GROUP BY delivery.rep_id
-                 LIMIT 6" ;
+                 GROUP BY delivery.rep_id 
+                 ORDER BY SUM(orders.amount) DESC
+                 LIMIT 6
+                 " ;
+        $result1 = mysqli_query($conn, $sql1);
+
+        $data = [];
+
+        while($row1 = $result1->fetch_assoc()){
+            array_push($data, $row1);
+        }
+
+        return $data;
+    }
+
+    //get customer reg data to admin view chart
+    public function get_customer_reg_data(){
+        require '../app/core/database.php';
+
+        $sql1 = "SELECT COUNT(*) AS count, DATE_FORMAT(reg_date, '%b') AS month FROM user
+                 WHERE 
+                 type = 'customer'
+                 AND
+                 EXTRACT(MONTH FROM reg_date) >= MONTH(CURDATE())-3
+                 GROUP BY EXTRACT(MONTH FROM reg_date)
+                 ";
         $result1 = mysqli_query($conn, $sql1);
 
         $data = [];
