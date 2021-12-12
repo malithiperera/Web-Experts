@@ -253,4 +253,20 @@ class _1_admin_model extends model
 
     }
 
+    //get data to load customer profile for admin
+    public function load_cus_data($cus_id){
+        require '../app/core/database.php';
+
+        $sql1 = "SELECT * FROM user, customer,route
+                 WHERE user.user_id = customer.cus_id
+                 AND
+                 customer.route_id = route.route_id
+                 AND
+                 user.user_id = '$cus_id'";
+
+        $result1 = mysqli_query($conn, $sql1);
+        return $result1->fetch_assoc();
+
+    }
+
 }

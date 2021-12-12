@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
             color: white;
         }
 
-        
+
 
         .sidebar {
             position: fixed;
@@ -64,366 +64,415 @@ if (!isset($_SESSION['username'])) {
             margin-bottom: 50px;
             margin-left: 20px;
         }
-        .links{
-            position:absolute;
-            top:150px;
-            display:flex;
-            flex-direction:column;
-            visibility:hidden;
-            width:250px;
+
+        .links {
+            position: absolute;
+            top: 150px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            width: 250px;
         }
-        .links a{
-            margin-bottom:50px;
-            margin-left:60px;
-            width:230px;
-            text-decoration:none;
+
+        .links a {
+            margin-bottom: 50px;
+            margin-left: 60px;
+            width: 230px;
+            text-decoration: none;
         }
-        .links a:hover{
-            color:#1d1b31;
+
+        .links a:hover {
+            color: #1d1b31;
         }
-        .sidebar_footer{
-            position:absolute;
-            bottom:0;
-            background-color:#1d1b31;
-            width:100%;
-            height:60px;
+
+        .sidebar_footer {
+            position: absolute;
+            bottom: 0;
+            background-color: #1d1b31;
+            width: 100%;
+            height: 60px;
         }
-        .fa-building{
-            position:absolute;
-            top:20px;
-            right:10px;
+
+        .fa-building {
+            position: absolute;
+            top: 20px;
+            right: 10px;
         }
-        .footerIcon p{
-            margin-top:20px;
-            margin-left:10px;
-            visibility:hidden;
+
+        .footerIcon p {
+            margin-top: 20px;
+            margin-left: 10px;
+            visibility: hidden;
         }
-       .container{
-           position:relative;
-           left:40px;
-           width: calc(100% - 80px);
-           display:flex;
-           flex-direction:column;
-           /* opacity:50%; */
-       }
-       .cards{
-           display:flex;
-           flex-wrap:wrap;
-           justify-content:center;
-           text-align:center;
-           margin-top:30px;
-       }
-       .card{
-           flex: 2 0 150px;
-           width:200px;
-           height:100px;
-           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-           margin-top: 30px;
-           margin-right:10px;
-           margin-left:10px;
-           margin-bottom:20px;
-           border-radius:10px;
-       }
-       .card > p{
-        color:black;
-        margin-top:10px;
-       }
-       .tables{
-        width:100%;
-        display:flex;
-        justify-content:center;
-        color: black;
-        flex-wrap:nowrap;
-       }
 
-      
-       .sub_tabels{
-            margin-top:40px;
-       }
-       .tables p{
-        color:#184A78;
-        margin-bottom:30px;
-       }
-       .table1{
-        margin-bottom:30px;
-        display:flex;
-        justify-content:center;
+        .container {
+            position: relative;
+            left: 40px;
+            width: calc(100% - 80px);
+            display: flex;
+            flex-direction: column;
+            /* opacity:50%; */
+        }
 
-       }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            margin-top: 30px;
+        }
 
-       .table1 td{
-           width:120px;
-       }
-       
-       table{
-        border:none;
-        outline:none;
-       }
-       
-       table thead th{
-        color:#184A78;
-        padding:10px;
-       
-       }
-       table th {
-  color: #000000;
-  background: #4FC3A1;
-}
- tr th:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
-tr td:nth-child(odd) {
-      background: #F8F8F8;
-      border-right: 1px solid #E6E4E4;
-  }
-td{
-  padding: 5px;
-  background-color: #fff;
-  text-align: center;
- 
+        .card {
+            flex: 2 0 150px;
+            width: 200px;
+            height: 100px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
 
-}
-table tr tr:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-} 
-tr:nth-child(odd) {
-  color: #ffffff;
-  background: #324960;
-}
+        .card>p {
+            color: black;
+            margin-top: 10px;
+        }
 
-       tr td{
-        color:#184A78;
-        padding:10px;
-      
-       }
-       tr:nth-child(3)
-{
-  background-color: green;
-  color:white;
-}
-       .popup_send_warning, .popup_update_status{
-           position:fixed;
-           top:100px;
-           width:100%;
-           display:flex;
-           justify-content:center;
-           z-index: 1000;
-           visibility:hidden;
-       }
-       .popup_update_status{
-           visibility:hidden;
-       }
-       .send_warning_message, .update_status_form{
-           width:400px;
-           height:350px;
-           background-color:white;
-           border:4px solid #184A78;
-           border-radius:10px;
-       }
-       .update_status_form{
-           height:400px;
-       }
-       .send_warning_message label, .update_status_form label{
-           color:#184A78;
-           display:block;
-           margin:20px;
-       }
-       
-       .send_warning_message input, .update_status_form input, 
-       .send_warning_message textarea, .update_status_form textarea{
-           color:#184A78;
-       }
-       .update_status_form input{
-           padding:5px;
-           margin-left:10px;
-       }
-       .message_input{
-           margin-left:10px;
-       }
-       .submit{
-           margin-top:30px;
-           padding:5px;
-           border-radius:20px;
-           margin-left:160px;
-       }
-       .card i{
-          color:black;
-       }
-       #top{
-           color:green;
-           font-weight:700;
-           font-size:20px;
-       }
-       h2{
-           color:black;
-           text-align:center;
-           padding:10px;
-       }
-       .update_status_form .submit{
-           margin-left:160px;
-       }
-       label{
-           color: black;
-           padding: 20px;
-           font-size: 25px;
+        .tables {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            color: black;
+            flex-wrap: nowrap;
+        }
 
-       }
-       input{
-           color: black;
-           padding: 10px;
-           text-align: center;
-       }
-       #cred{
-           background-color: rgb(84,206,98);
-           padding: 7px;
-           width: 150px;
-           border-radius: 10px;
-           margin-left: 10px;
-           cursor: pointer;
-           outline: none;
-           border: none;
-       }
-      tr td:nth-child(odd) {
-      background: #F8F8F8;
-      border-right: 1px solid #E6E4E4;
-  }
-       #cred i{
-           padding: 10px;
-       }
 
-       .detail{
-           display: flex;
-           flex-direction: column;
-           justify-content: space-evenly;
-       }
-span{
-    color: #184A78;
-}
-       #credit{
-           font-weight: 700;
-           font-size: 20px;
-       }
+        .sub_tabels {
+            margin-top: 40px;
+        }
 
-       .div0 label{
-           color: #184A78;
-           font-weight: 900;
-       }
+        .tables p {
+            color: #184A78;
+            margin-bottom: 30px;
+        }
 
-       .tables{
-           color: black;
-           display: flex;
-           flex-direction: column;
-           justify-content: center;
-          
-           margin-top: 30px;
-       }
-       .tables table{
-       width: 100%;
-       padding-right: 100px;
-       padding-left: 100px;
+        .table1 {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
 
-       }
-       .cheque th{
-           padding: 10px;
-       }
-#depo{
-    background-color: rgb(84,206,98);
-    padding: 10px;
-    text-transform: capitalize;
-    border-radius: 10px;
-    width: 70px;
-    outline: none;
-    border:none;
-    cursor: pointer;
-    font-weight: 700;
-}
-.div0{
-    margin-bottom: 20px;
-}
+        }
 
-#rej{
-    background-color: red;
-    padding: 10px;
-    text-transform: capitalize;
-    border-radius: 10px;
-    background-color: rgb(246,45,81);
-    width: 70px;
-    outline: none;
-    border:none;
-    cursor: pointer;
-    font-weight: 700;
-}
-       h3{
-           color: black;
-           padding: 20px;
-           text-align: center;
-           text-transform: capitalize;
-       }
-       .div0 i{
-           color: black;
-           margin-right: 5px;
-       }
+        .table1 td {
+            width: 120px;
+        }
 
-       .div1{
-           display: flex;
-       }
+        table {
+            border: none;
+            outline: none;
+        }
 
-       .warn{
-           padding: 15px;
-           width: 200px;
-           height: 50px;
-           background-color:  rgb(255,193,7);
-           color: #fff;
-           margin-left: 220px;
-           margin-top: 5px;
-           border: none;
-           outline: none;
-           text-align: center;
-           font-size: 15px;
-           border-radius: 10px;
-           cursor: pointer;
-          
-       }
+        table thead th {
+            color: #184A78;
+            padding: 10px;
 
-       .Hold{
-           padding: 15px;
-           width: 200px;
-           height: 50px;
-           background-color: rgb(220,53,69);
-           color: #fff;
-           margin-left: 20px;
-           margin-top: 5px;
-           border: none;
-           outline: none;
-           text-align: center;
-           border-radius: 10px;
-           font-size: 15px;
-           cursor: pointer;
-       
+        }
 
-       }
+        table th {
+            color: #000000;
+            background: #4FC3A1;
+        }
 
-       .report{
-           padding: 15px;
-           width: 200px;
-           height: 50px;
-           font-size: 15px;
-           background-color: rgb(0,123,255);
-           color: #fff;
-           margin-left: 20px;
-           margin-top: 5px;
-           cursor: pointer;
-           border: none;
-           outline: none;
-           text-align: center;
-           border-radius: 10px;
-       }
-       
-       .div1 button i{
-           padding-right: 5px;
-       }
+        tr th:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+
+        td {
+            padding: 5px;
+            background-color: #fff;
+            text-align: center;
+
+
+        }
+
+        table tr tr:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr:nth-child(odd) {
+            color: #ffffff;
+            background: #324960;
+        }
+
+        tr td {
+            color: #184A78;
+            padding: 10px;
+
+        }
+
+        tr:nth-child(3) {
+            background-color: green;
+            color: white;
+        }
+
+        .popup_send_warning,
+        .popup_update_status {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+        }
+
+        .popup_update_status {
+            visibility: hidden;
+        }
+
+        .send_warning_message,
+        .update_status_form {
+            width: 400px;
+            height: 350px;
+            background-color: white;
+            border: 4px solid #184A78;
+            border-radius: 10px;
+        }
+
+        .update_status_form {
+            height: 400px;
+        }
+
+        .send_warning_message label,
+        .update_status_form label {
+            color: #184A78;
+            display: block;
+            margin: 20px;
+        }
+
+        .send_warning_message input,
+        .update_status_form input,
+        .send_warning_message textarea,
+        .update_status_form textarea {
+            color: #184A78;
+        }
+
+        .update_status_form input {
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .message_input {
+            margin-left: 10px;
+        }
+
+        .submit {
+            margin-top: 30px;
+            padding: 5px;
+            border-radius: 20px;
+            margin-left: 160px;
+        }
+
+        .card i {
+            color: black;
+        }
+
+        #top {
+            color: green;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        h2 {
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .update_status_form .submit {
+            margin-left: 160px;
+        }
+
+        label {
+            color: black;
+            padding: 20px;
+            font-size: 25px;
+
+        }
+
+        input {
+            color: black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #cred {
+            background-color: rgb(84, 206, 98);
+            padding: 7px;
+            width: 150px;
+            border-radius: 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+        }
+
+        tr td:nth-child(odd) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+
+        #cred i {
+            padding: 10px;
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        span {
+            color: #184A78;
+        }
+
+        #credit {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .div0 label {
+            color: #184A78;
+            font-weight: 900;
+        }
+
+        .tables {
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            margin-top: 30px;
+        }
+
+        .tables table {
+            width: 100%;
+            padding-right: 100px;
+            padding-left: 100px;
+
+        }
+
+        .cheque th {
+            padding: 10px;
+        }
+
+        #depo {
+            background-color: rgb(84, 206, 98);
+            padding: 10px;
+            text-transform: capitalize;
+            border-radius: 10px;
+            width: 70px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .div0 {
+            margin-bottom: 20px;
+        }
+
+        #rej {
+            background-color: red;
+            padding: 10px;
+            text-transform: capitalize;
+            border-radius: 10px;
+            background-color: rgb(246, 45, 81);
+            width: 70px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: black;
+            padding: 20px;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .div0 i {
+            color: black;
+            margin-right: 5px;
+        }
+
+        .div1 {
+            display: flex;
+        }
+
+        .warn {
+            padding: 15px;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(255, 193, 7);
+            color: #fff;
+            margin-left: 220px;
+            margin-top: 5px;
+            border: none;
+            outline: none;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+
+        .Hold {
+            padding: 15px;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(220, 53, 69);
+            color: #fff;
+            margin-left: 20px;
+            margin-top: 5px;
+            border: none;
+            outline: none;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+
+
+        }
+
+        .report {
+            padding: 15px;
+            width: 200px;
+            height: 50px;
+            font-size: 15px;
+            background-color: rgb(0, 123, 255);
+            color: #fff;
+            margin-left: 20px;
+            margin-top: 5px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .div1 button i {
+            padding-right: 5px;
+        }
     </style>
 </head>
 
@@ -460,130 +509,116 @@ span{
         </div>
     </div>
 
-    <!-- <div class="popup_update_credit_period">
-        <div class="update_credit_period_form">
-            <form action="#" method="post">
-                <label for="">Current Credit Period(Days) : </label>
-                <input type="text" value="14">
-
-                <label for="">New Credit Period(Days) : </label>
-                <input type="text" placeholder="Set new credit period">
-
-                \ <label for="">Description : </label>
-                <textarea name="" id="" cols="50" rows="5"></textarea> -->
-
-                <!-- <input type="submit" name="submit" class="submit">
-            </form> -->
-
-        </div> -->
+    
     </div>
 
     <div class="container">
         <div class="detail">
             <!--begining header details -->
-        <div class="div0">
-               <label for=""><i class="fas fa-id-card-alt"></i><span> HC001</span>
-              </label>
-               <label for=""><i class="fas fa-store"></i><span>Pubudu Store</span> </label>
-               <label for=""><i class="fas fa-phone-alt"></i><span>0764567898</span> </label>
-               <label for=""><i class="fas fa-map-pin"></i><span>Kairawa Road,Anuradhapura</span> </label>
-               
-           </div>
-           <div class="div1">
-               <div class="credit"><label for="">Credit Period</label>
-               <input type="text" value="2 weeks" id="credit" readonly>
-               <button id="cred"><i class="fas fa-pen"></i>Change</button></div>
-               
-    
-           <div>
-               <button id='send_warn'  class="warn"><i class="fas fa-envelope-open-text" onclick="popup_message('.popup_update_status')"></i>Send Messege</button>
+            <div class="div0">
+                <label for=""><i class="fas fa-id-card-alt"></i><span> HC001</span>
+                </label>
+                <label for=""><i class="fas fa-store"></i><span>Pubudu Store</span> </label>
+                <label for=""><i class="fas fa-phone-alt"></i><span>0764567898</span> </label>
+                <label for=""><i class="fas fa-map-pin"></i><span>Kairawa Road,Anuradhapura</span> </label>
 
-           </div>
-           <div >
-               <button id="report" class="report" ><i class="fas fa-chart-line"></i>View Report</button>
-
-           </div>
-           <div >
-               <button id="report" class="Hold"><i class="fas fa-exclamation"></i>Hold</button>
-
-           </div>
-        </div>
-        <!-- ending of header details -->
-        <div class="cards">
-
-            <div class="card">
-                <p><i class="fas fa-route"></i><br>ROUTE</p>
-                <p id="top">R1</p>
             </div>
+            <div class="div1">
+                <div class="credit"><label for="">Credit Period</label>
+                    <input type="text" value="2 weeks" id="credit" readonly>
+                    <button id="cred"><i class="fas fa-pen"></i>Change</button>
+                </div>
 
-            <div class="card">
-                <p><i class="fas fa-money-bill-alt"></i><br>OVERDUE PAYMENTS</p>
-                <p id="top">10</p>
+
+                <div>
+                    <button id='send_warn' class="warn"><i class="fas fa-envelope-open-text" onclick="popup_message('.popup_update_status')"></i>Send Messege</button>
+
+                </div>
+                <div>
+                    <button id="report" class="report"><i class="fas fa-chart-line"></i>View Report</button>
+
+                </div>
+                <div>
+                    <button id="report" class="Hold"><i class="fas fa-exclamation"></i>Hold</button>
+
+                </div>
             </div>
+            <!-- ending of header details -->
+            <div class="cards">
 
-            <div class="card">
-                <p><i class="fas fa-money-bill-alt"></i><br>PENDING PAYMENTS</p>
-                <p id="top">10</p>
+                <div class="card">
+                    <p><i class="fas fa-route"></i><br>ROUTE</p>
+                    <p id="top">R1</p>
+                </div>
+
+                <div class="card">
+                    <p><i class="fas fa-money-bill-alt"></i><br>OVERDUE PAYMENTS</p>
+                    <p id="top">10</p>
+                </div>
+
+                <div class="card">
+                    <p><i class="fas fa-money-bill-alt"></i><br>PENDING PAYMENTS</p>
+                    <p id="top">10</p>
+                </div>
+
+                <div class="card">
+                    <p><i class="fas fa-money-check-alt"></i><br>RETURNED CHEQUES</p>
+                    <p id="top">10</p>
+                </div>
+
+                <div class="card">
+                    <p><i class="fas fa-globe"></i><br>STATUS</p>
+                    <p id="top">active</p>
+                </div>
+
+                <div class="card">
+                    <p><i class="fas fa-hourglass-start"></i><br>CREDIT PERIOD</p>
+                    <p id="top">2 weeks</p>
+                </div>
             </div>
+            <!-- ending of card details -->
 
-            <div class="card">
-                <p><i class="fas fa-money-check-alt"></i><br>RETURNED CHEQUES</p>
-                <p id="top">10</p>
-            </div>
+            <div class="tables">
+                <div class="cheque">
+                    <h3> Pending Cheques</h3>
+                    <table>
 
-            <div class="card">
-                <p><i class="fas fa-globe"></i><br>STATUS</p>
-                <p id="top">active</p>
-            </div>
-
-            <div class="card">
-                <p><i class="fas fa-hourglass-start"></i><br>CREDIT PERIOD</p>
-                <p id="top">2 weeks</p>
-            </div>
-        </div>
-        <!-- ending of card details -->
-
-        <div class="tables">
-            <div class="cheque">
-                <h3> Pending Cheques</h3>
-                <table>
-               
-                    <tr>
+                        <tr>
                             <th>cheque Id</th>
                             <th>Bank</th>
                             <th>Amount</th>
                             <th>Deposite date</th>
                             <th colspan="2">Change staus</th>
-                            </tr>
-                
-                    
-                            <tr>
+                        </tr>
+
+
+                        <tr>
                             <td>001</td>
                             <td>Bank Of ceylon</td>
                             <td>12 000</td>
                             <td>30.12.2021</td>
                             <td><button id="depo">Deposit</button></td>
                             <td><button id="rej">reject</button></td>
-                            </tr>
-                            <tr>
+                        </tr>
+                        <tr>
                             <td>002</td>
                             <td>Bank Of ceylon</td>
                             <td>12 000</td>
                             <td>30.12.2021</td>
                             <td><button id="depo">Deposit</button></td>
                             <td><button id="rej">reject</button></td>
-                            </tr>
-                    
-                </table>
+                        </tr>
+
+                    </table>
 
 
 
-            </div>
+                </div>
 
-        
+
                 <div class="orders">
                     <h3>Pending Orders</h3>
-                <table id="t1">
+                    <table id="t1">
                         <thead>
                             <th>ORDER NO</th>
                             <th>AMOUNT</th>
@@ -601,12 +636,12 @@ span{
 
                         ?>
                     </table>
-                    
+
                 </div>
 
                 <div class="payments">
                     <h3>Pending Payments</h3>
-                <table>
+                    <table>
                         <thead>
                             <th>ORDER NO</th>
                             <th>AMOUNT</th>
@@ -628,124 +663,43 @@ span{
 
                     </table>
 
-        
+
+                </div>
+
+
             </div>
-
-
         </div>
-    </div>
 
 
 
-    <!-- scripts for side bar -->
-    <script>
-        let openbtn = document.querySelector(".fa-bars");
-        let closebtn = document.querySelector(".fa-align-right")
-        let sidebar = document.querySelector(".sidebar");
-        let company_name = document.querySelector("#company_name");
-        let links = document.querySelector(".links");
-        let username = document.querySelector(".username");
-        let container = document.querySelector(".container");
-
-
-        openbtn.addEventListener("click", function() {
-
-            let widthdiv = 80;
-            let opacity = 0;
-
-            var id = setInterval(frame, 10);
-
-            function frame() {
-                if (sidebar.style.width == "300px") {
-                    var id1 = setInterval(frame1, 10);
-                    opacity = 0;
-
-                    function frame1() {
-                        if (opacity == 100) {
-                            clearInterval(id1);
-                        } else {
-                            links.style.visibility = "visible";
-                            company_name.style.visibility = "visible";
-                            username.style.visibility = "visible";
-                            opacity = opacity + 10;
-                            links.style.opacity = opacity + "%";
-                            company_name.style.opacity = opacity + "%";
-                            username.style.opacity = opacity + "%";
-
-                        }
-                    }
-                    clearInterval(id);
-                } else {
-                    widthdiv = widthdiv + 10;
-                    sidebar.style.width = widthdiv + "px";
-                    container.style.left = widthdiv + "px";
-                    container.style.setProperty('width', 'calc(100% - ' + widthdiv + 'px)');
-                }
-            }
-
-            openbtn.style.visibility = "hidden";
-            closebtn.style.visibility = "visible";
-            closebtn.style.right = "5px";
-        });
-
-        closebtn.addEventListener("click", function() {
-            let widthdiv = 300;
-            let opacity = 100;
-
-            var id = setInterval(frame, 20);
-
-            function frame() {
-                if (sidebar.style.width == "80px") {
-                    clearInterval(id);
-                } else {
-                    widthdiv = widthdiv - 10;
-                    sidebar.style.width = widthdiv + "px";
-                    container.style.left = widthdiv + "px";
-                    opacity = opacity - 10;
-                    company_name.style.opacity = opacity + "%";
-                    links.style.opacity = opacity + "%";
-                    username.style.opacity = opacity + "%";
-                    container.style.setProperty('width', 'calc((100%-250px) - ' + widthdiv + 'px)');
-                }
-            }
-
-            closebtn.style.visibility = "hidden";
-            openbtn.style.visibility = "visible";
-        });
-    </script>
-
-
-
-    <!-- script for popup message -->
-    <script>
-        function popup_message(message_name) {
-
-            var message = document.querySelector(message_name);
-            message.style.visibility = "visible";
-            sidebar.style.opacity = "30%";
-            container.style.opacity = "30%";
-
-            window.onclick = function(event) {
-                if (event.target == message) {
-                    message.style.visibility = "hidden";
-                    sidebar.style.opacity = "100%";
-                    container.style.opacity = "100%";
-                }
-            }
-        }
-    </script>
-
-    <!-- script for load page -->
-    <script>
-
-        const load_page = () => {
+        <script>
+            // assign cus id to js variable
             let cus_id = '<?php echo $this->cus_id; ?>';
-            
-            
-        }
 
-        load_page();
-    </script>
+            //    load page function
+            const load_page = (cus_id) => {
+                fetch('http://localhost/web-Experts/public/admin/load_cus_view', {
+                        method: 'POST',
+                       
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                       
+                        body: JSON.stringify(cus_id)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    });
+            }
+
+            // run load page function
+            load_page(cus_id);
+        </script>
+
+
+
+
 
 
 </body>

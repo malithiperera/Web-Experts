@@ -177,6 +177,18 @@ class admin extends controller{
         $this->view->render('view_admin_customerProfile');
     }
 
+    //get data to load customer profile view
+    public function load_cus_view(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->load_cus_data($get_data);
+
+        echo json_encode($result);
+        exit;
+    }
+
     public function viewReport(){
         $this->view->render('view_customer_viewreport');
     }
