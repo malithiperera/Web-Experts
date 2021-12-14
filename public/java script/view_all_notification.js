@@ -154,6 +154,7 @@ console.log(data);
 
 
         product_addition(product_id){
+         
             fetch('http://localhost/web-Experts/public/notification/product_addition', {
                     method: 'POST',
 
@@ -164,6 +165,7 @@ console.log(data);
                 })
                 .then(response => response.json())
                 .then(data => {
+                  console.log(product_id)
 
                   
                     this.notification_subcontainer.innerHTML = ``;
@@ -518,7 +520,7 @@ console.log(data);
 
 
          cheque_status($payment_id,$type_id){
-          console.log("Hello")
+          console.log($payment_id);
           fetch('http://localhost/web-Experts/public/notification/cheque_status', {
             method: 'POST',
 
@@ -530,11 +532,12 @@ console.log(data);
         .then(response => response.json())
         .then(data => {
 
-          console.log(data[1][0]['status']);
+          console.log(data);
+           console.log(data[1][0]['status']);
          
             this.notification_subcontainer.innerHTML = ``;
 
-            if(data[1][0]['status']=='Accept'){
+            if($type_id==82){
               this.subject.innerHTML += `Your Cheque is Accepted'`;
               this.notification_subcontainer.innerHTML = ``;
               let message_div = document.createElement('div');
@@ -546,7 +549,8 @@ console.log(data);
               message_div.innerHTML +="<div>Thank You For being with Himalee</div>"
             }
 
-            else{
+            else
+            {
               this.subject.innerHTML += `Your Cheque is Returned'`;
               this.notification_subcontainer.innerHTML = ``;
               let message_div = document.createElement('div');
@@ -654,8 +658,57 @@ console.log(data);
         }
 
          
-        credit_request_cus($uesrid)
+        credit_request_cus(uesrid,typeid,reqid)
 {
-console.log($uesrid);
+
+
+
+
+  fetch('http://localhost/web-Experts/public/notification/request_credit_period', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reqid)
+          })
+          .then(response => response.json())
+          .then(data =>{
+            console.log(data);
+            if(typeid==13){
+
+  this.notification_subcontainer.innerHTML = ``;
+          this.subject.innerHTML += `Request Accepted : Request Id:${reqid}`;
+         
+          this.notification_subcontainer.innerHTML = ``;
+          let message_div = document.createElement('div');
+          message_div.className = "message_div";
+          this.notification_subcontainer.appendChild(message_div);
+
+          message_div.innerHTML = `We are happy to say that the credit request which you have been requested is accepted. You new Credit Period is ${data['request_period']} Weeks. .                                                                                
+          `;
+          message_div.innerHTML +="<div>Thank You For being with Himalee</div>";
+        // this.notification_subcontainer.innerHTML+'<h3>We are happy to say that the credit request which you have been requested is accepted. You new Credit Period is 3 weeks.</h3>';
+        
+}
+else{
+  this.subject.innerHTML += `Request Rejected: Request Id:${reqid}`;
+         
+  this.notification_subcontainer.innerHTML = ``;
+  let message_div = document.createElement('div');
+  message_div.className = "message_div";
+  this.notification_subcontainer.appendChild(message_div);
+
+  message_div.innerHTML = `We are sorry to say that the credit request is rejected for some resaons. .                                                                                
+  `;
+  message_div.innerHTML +="<div>We are hope to see you in Himalee Family </div>";
+// this.notification_subcontainer.innerHTML+'<h3>We are happy to say that the credit request which you have been requested is accepted. You new Credit Period is 3 weeks.</h3>';
+
+}
+           
+          });
+       
+
+
 }
 }

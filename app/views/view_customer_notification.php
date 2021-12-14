@@ -198,14 +198,22 @@ if (!isset($_SESSION['username'])) {
           }
           else if (temp_type == 82) {
             my_notification.cheque_status(data['payment_id'],82);
+         
           } else if (temp_type == 81) {
             my_notification.cheque_status(data['payment_id'],81);
+            
           }
           else if(temp_type == 10){
             my_notification.confirm_delivery_cus(data['order_id']);
           }
           else if(temp_type == 13){
-            my_notification.credit_request_cus(data['to_whom']);
+            my_notification.credit_request_cus(data['to_whom'],13,data['req_id']);
+          }
+          else if(temp_type==14){
+            my_notification.credit_request_cus(data['to_whom'],14,data['req_id']);
+          }
+          else if(temp_type==1){
+            my_notification. product_addition(data['product_id']);
           }
         });
       all_notifications.style.display = "none";

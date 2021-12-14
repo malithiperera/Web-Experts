@@ -41,17 +41,17 @@ class notification extends controller
                     break;
 
 
-                case 4:
-                    $details = $this->model->get_credit_request_details($row['req_id']);
-                    $request_details = $details->fetch_assoc();
+                    case 4:
+                        $details = $this->model->get_credit_request_details($row['req_id']);
+                        $request_details = $details->fetch_assoc();
 
-                    $subject = $request_details['shop_name'] . ' is requesting a credit time.';
-                    break;
-                case 5:
-                    $details = $this->model->add_returns($row['return_id']);
+                        $subject = $request_details['shop_name'] . ' is requesting a credit time.';
+                        break;
+                    case 5:
+                        $details = $this->model->add_returns($row['return_id']);
 
-                    $subject = $details[0] . ' is added a return from ' . $details[1];
-                    break;
+                        $subject = $details[0] . ' is added a return from ' . $details[1];
+                        break;
                 case 6:
 
                     $details = $this->model->stock_crashes($row['issue_id']);
@@ -83,18 +83,30 @@ class notification extends controller
                     //  $subject=$cheque[0][0]['payment_id'];
                     $subject = 'Cheque Accept for Payment Id ' . $cheque[0][0]['payment_id'] . "";
                     break;
+
+                case 81:
+                    $cheque = $this->model->get_cheque_details($row['payment_id']);
+                    //  $subject=$cheque[0][0]['payment_id'];
+                    $subject = 'Cheque Rejected for Payment Id ' . $cheque[0][0]['payment_id'] . "";
+                    break;
+
                 case 10:
 
                     $delivery = $this->model->delivery_confirm($row['order_id']);
                     $subject = 'Delivery Confirm for ' . $delivery[0][0]['order_id'];
                     break;
+                case 12:
+
+                    // $delivery = $this->model->delivery_confirm();
+                    $subject = 'Hold customer';
+                    break;
                 case 13:
                     $subject = "Credit Request";
                     break;
-                // case 14:
-                //     $subject = "Credit Request Rejected";
-                //     break;
-               
+                case 14:
+                    $subject = "Credit Request Rejected";
+                    break;
+
                 default:
                     $subject = 'subject';
             }
@@ -227,5 +239,5 @@ class notification extends controller
     // }
 
 
-    
+
 }
