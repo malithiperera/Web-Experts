@@ -97,6 +97,27 @@ class stockManager extends controller {
         $this->view->render ("view_stockmanager_repRequest");
         
     }
+    public function get_request_con() {
+        echo json_encode ("hello");
+        exit;
+        
+    }
+    public function fillRepRequestTable_con () {
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->fillRepRequestTable_mod ();
+        $data = [];
+        while ($row = $result->fetch_assoc ()) {
+            array_push ($data, $row);
+
+        }
+        echo json_encode ($data);
+        exit;
+
+    }
+    public function backToSMHome () {
+        $this->view->render ('_1_view_stockmanagerHome');
+
+    }
 
 }
 
