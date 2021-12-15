@@ -105,7 +105,7 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Profile</span>
       </li>
       <li>
-        <a href="logout">
+        <a href="../login/logout">
           <i class="fas fa-sign-out-alt"></i>
           <span class="links_name">Logout</span>
         </a>
@@ -188,12 +188,16 @@ if (!isset($_SESSION['username'])) {
 
 
           </table>
+          </div>
 
+<div class="left-graph">
+<h3 id="dis-head">Selling Products</h3> 
 
-          <h3>Selling Products</h3> -->
+<div id="barchart_values" style="width: 600px; height: 500px;"></div>
 
-          <div id="barchart_values" style="width: 600px; height: 500px;"></div>
-        </div>
+</div>
+         
+        
 
       </div>
       </div>

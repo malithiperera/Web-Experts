@@ -40,8 +40,8 @@ class report_model extends model
         $result1 = mysqli_query($conn, $sql1);
         array_push($result, $result1->fetch_assoc());
 
-        // count salesreps
-        $sql2 = "SELECT COUNT(DISTINCT(delivery_id)) AS count_delivery FROM delivery where month(date)=$month and year(date)=$year and cus_id='$userid'" ;
+        //error in qury
+        $sql2 = "SELECT COUNT(DISTINCT(order_id)) AS count_delivery FROM delivery where month(date)=$month and year(date)=$year and cus_id='$userid'" ;
         $result2 = mysqli_query($conn, $sql2);
         array_push($result, $result2->fetch_assoc());
 

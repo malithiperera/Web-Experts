@@ -41,7 +41,7 @@ class report {
         year: year,
         month: month,
       };
-
+      
       fetch("http://localhost/web-Experts/public/reports/customer_summary", {
         method: "POST",
         headers: {
@@ -51,6 +51,7 @@ class report {
       })
         .then((response) => response.json())
         .then((data) => {
+          console.log(data)
           this.create_card(
             '<i class="fas fa-luggage-cart"></i>',
             "No Of orders",
@@ -102,6 +103,7 @@ class report {
               "<tr> <th>Deliver Id Id</th><th>Order ID</th> <th>Deliver date</th> <th>Deliver Time</th><th> PaymentStatus</th>   </tr> ";
 
             //delivery
+            let i;
             for (i = 0; i < data[2].length; i++) {
               this.delivery_table.innerHTML += `
                                 
@@ -174,18 +176,19 @@ class report {
 
           this.order_section.appendChild(this.ordertable);
           this.ordertable.classList.add("table-info");
-          // for (i = 0; i < 12; i++) {
-          //      this.ordertable.innerHTML += ` <tr>
+          let i;
+          for (i = 0; i < 12; i++) {
+               this.ordertable.innerHTML += ` <tr>
 
-          //      <td class="pro_name"></td>
-          //      <td class="pro_name"></td>
-          //      <td class="pro_name"></td>
-          //      <td class="price"></td>
-          //      <td class="dis"></td>
+               <td class="pro_name"></td>
+               <td class="pro_name"></td>
+               <td class="pro_name"></td>
+               <td class="price"></td>
+               <td class="dis"></td>
 
-          //      </tr>`
+               </tr>`
 
-          // }
+          }
 
           this.graph_section = document.createElement("div");
           this.main.appendChild(this.graph_section);

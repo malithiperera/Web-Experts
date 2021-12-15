@@ -319,11 +319,13 @@
 
 .left{
   width: 60%;
-  height: auto;
+  height: 1200px;
   background-color: rgb(255, 255, 255);
   padding: 10px;
   margin: 20px;
-  /* display: flex; */
+  margin-top: 20px;
+  display: flex;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-evenly;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
@@ -468,9 +470,11 @@ flex-direction: column;
 align-items: center;
 }
 .discount{
+  height: 550px;
   padding: 29px;
   text-align: center;
   text-transform: uppercase;
+  overflow-y: auto;
 }
 
 

@@ -154,9 +154,9 @@ $type=$this->added2;
         let my_report = new report;
         function select_report(report_type, year, month){
         
-        // my_report.customer_summary(year, month);
-    //  my_report.sales_summary(year,month);
-     my_report.return_report(year,month);
+        my_report[type](year, month);
+    //my_report.sales_summary(year,month);
+    // my_report.return_report(year,month);
         }
 
         select_report('customer_report', year, month);

@@ -39,6 +39,11 @@ class notification extends controller
                     $details = $this->model->confirm_delivery($row['delivery_id']);
                     $subject = $details[3]['name'] . '\'s delivery completed by ' . $details[4]['name'];
                     break;
+                    case 3:
+
+                      
+                        $subject = 'Confirm Order For delivery id:'.$row['delivery_id'];
+                        break;
 
 
                     case 4:
@@ -226,17 +231,20 @@ class notification extends controller
     }
 
 
-    // public function inform_delivery()
-    // {
-    //     // session_start();
-    //     // $userid=$_SESSION['uesrid'];
-    //     $get_data = file_get_contents('php://input');
-    //     $get_data = json_decode($get_data, true);
-    //     $this->model('notification_model');
-    //     $delivery = $this->model->inform_delivery($get_data);
-    //     echo json_encode('helloo');
-    //     exit;
-    // }
+    public function inform_delivery()
+    {
+        session_start();
+        $userid= $_SESSION['userid'] ;
+        
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('notification_model');
+        $delivery = $this->model->inform_delivery($get_data, $_SESSION['userid']);
+
+        $result=$this->model->insert_inform_delivery($delivery['LAST_INSERT_ID()'],$_SESSION['userid'],$get_data );
+        echo json_encode($result);
+        exit;
+    }
 
 
 
