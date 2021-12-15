@@ -53,7 +53,7 @@ class notification{
               })
               .then(response => response.json())
               .then(data => {
-console.log(data);
+                console.log(data);
       
                 // if(num_of_rows >= data.length){
                 //   this.view_more.style.visibility = "hidden";
