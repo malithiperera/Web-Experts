@@ -473,6 +473,53 @@ if (!isset($_SESSION['username'])) {
         .div1 button i {
             padding-right: 5px;
         }
+
+        .change_credit_time {
+            margin-left: 210px;
+            margin-top: 5px;
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+            /* display: none; */
+        }
+
+        .change_credit_time p,
+        button,
+        input {
+            color: black;
+        }
+
+        .buttons {
+            display: block;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            margin-right: 10px;
+            border-radius: 20px;
+            padding: 1px 5px;
+            color: white;
+            background-color: #184A78;
+        }
+        #current_credit_period{
+            margin-left:20px;
+            margin-top: 10px;
+        }
+        #new_credit_time_p{
+            margin-left:40px;
+            margin-top: 10px;
+        }
+        #new_credit_time_input{
+            margin-left:110px;
+            height: 20px;
+            margin-top: 10px;
+            width: 50px;
+        }
     </style>
 </head>
 
@@ -509,24 +556,37 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 
-    
+
     </div>
 
     <div class="container">
         <div class="detail">
             <!--begining header details -->
             <div class="div0">
-                <label for=""><i class="fas fa-id-card-alt"></i><span> HC001</span>
+                <label for=""><i class="fas fa-id-card-alt"></i><span id="cus_id"> HC001</span>
                 </label>
-                <label for=""><i class="fas fa-store"></i><span>Pubudu Store</span> </label>
-                <label for=""><i class="fas fa-phone-alt"></i><span>0764567898</span> </label>
-                <label for=""><i class="fas fa-map-pin"></i><span>Kairawa Road,Anuradhapura</span> </label>
+                <label for=""><i class="fas fa-store"></i><span id="shop_name">Pubudu Store</span> </label>
+                <label for=""><i class="fas fa-phone-alt"></i><span id="tele">0764567898</span> </label>
+                <label for=""><i class="fas fa-map-pin"></i><span id="address">Kairawa Road,Anuradhapura</span> </label>
 
             </div>
             <div class="div1">
                 <div class="credit"><label for="">Credit Period</label>
                     <input type="text" value="2 weeks" id="credit" readonly>
                     <button id="cred"><i class="fas fa-pen"></i>Change</button>
+                    <div class="change_credit_time">
+                        <p id="current_credit_period">Current Credit Period : </p>
+
+                        <p id="new_credit_time_p">New Credit Period(weeks) </p>
+                        <input type="text" id="new_credit_time_input">
+
+
+                        <div class="buttons">
+                            <button id="change_btn" onclick="change_credit_period()">change</button>
+                            <button id="change_btn" onclick="cancel_window()">cancel</button>
+                        </div>
+
+                    </div>
                 </div>
 
 
@@ -548,32 +608,32 @@ if (!isset($_SESSION['username'])) {
 
                 <div class="card">
                     <p><i class="fas fa-route"></i><br>ROUTE</p>
-                    <p id="top">R1</p>
+                    <p id="top" class="route_card">R1</p>
                 </div>
 
                 <div class="card">
                     <p><i class="fas fa-money-bill-alt"></i><br>OVERDUE PAYMENTS</p>
-                    <p id="top">10</p>
+                    <p id="top" class="overdue_payments_card">10</p>
                 </div>
 
                 <div class="card">
                     <p><i class="fas fa-money-bill-alt"></i><br>PENDING PAYMENTS</p>
-                    <p id="top">10</p>
+                    <p id="top" class="pending_payments_card">10</p>
                 </div>
 
                 <div class="card">
                     <p><i class="fas fa-money-check-alt"></i><br>RETURNED CHEQUES</p>
-                    <p id="top">10</p>
+                    <p id="top" class="return_cheques_card">10</p>
                 </div>
 
                 <div class="card">
                     <p><i class="fas fa-globe"></i><br>STATUS</p>
-                    <p id="top">active</p>
+                    <p id="top" class="status_card">active</p>
                 </div>
 
                 <div class="card">
                     <p><i class="fas fa-hourglass-start"></i><br>CREDIT PERIOD</p>
-                    <p id="top">2 weeks</p>
+                    <p id="top" class="credit_period_card">2 weeks</p>
                 </div>
             </div>
             <!-- ending of card details -->
@@ -673,6 +733,27 @@ if (!isset($_SESSION['username'])) {
 
 
         <script>
+            //get html elements to js
+            //headre elements
+            customer_id = document.getElementById('cus_id');
+            shop_name = document.getElementById('shop_name');
+            tele = document.getElementById('tele');
+            address = document.getElementById('address');
+
+            //credit period
+            credit_period = document.getElementById('credit');
+
+            //access cards from js
+            route = document.querySelector('.route_card');
+            overdue_payments = document.querySelector('.overdue_payments_card');
+            pending_payments = document.querySelector('.pending_payments_card');
+            return_cheques = document.querySelector('.return_cheques_card');
+            status = document.querySelector('.status_card');
+            credit_period = document.querySelector('.credit_period_card');
+
+            //in change credit period popup
+            current_credit_period = document.getElementById('current_credit_period');
+
             // assign cus id to js variable
             let cus_id = '<?php echo $this->cus_id; ?>';
 
@@ -680,21 +761,71 @@ if (!isset($_SESSION['username'])) {
             const load_page = (cus_id) => {
                 fetch('http://localhost/web-Experts/public/admin/load_cus_view', {
                         method: 'POST',
-                       
+
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                       
+
                         body: JSON.stringify(cus_id)
                     })
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
+
+                        //fill header elements in the view
+                        customer_id.innerHTML = `${data['cus_id']}`;
+                        shop_name.innerHTML = `${data['shop_name']}`;
+                        tele.innerHTML = `${data['tel']}`;
+                        address.innerHTML = `${data['address']}`;
+
+                        //fill credit period
+                        credit_period.value = `${data['credit_time']} weeks`;
+
+                        //fill cards
+                        route.innerHTML = `${data['route_name']}`;
+                        overdue_payments
+                        pending_payments
+                        return_cheques
+                        status.innerHTML = `${data['active']}`;
+                        credit_period.innerHTML = `${data['credit_time']} weeks`;
+
+                        //fill change credit period popup
+                        current_credit_period.innerHTML += `${data['credit_time']} weeks`;
                     });
             }
 
             // run load page function
             load_page(cus_id);
+
+
+            //html elements that want to change credit time
+            new_credit_time_input = document.getElementById('new_credit_time_input');
+            change_credit_time = document.querySelector('.change_credit_time');
+
+            //confirmation msg to change credit time
+            const confirm_change = () => {
+                // change_credit_time.innerHTML = `confirm the change`;
+                let buttons_confirm = document.createAttribute('DIV');
+                buttons_confirm.classList.add("buttons");
+
+                let yes = document.createAttribute("BUTTON");
+                let no = document.createAttribute("BUTTON");
+
+                yes.innerHTML = `YES`;
+                no.innerHTML = `NO`;
+            }
+
+            //change credit period
+            const change_credit_period = () =>{
+                console.log('pressed the change button : '+new_credit_time_input.value);
+                confirm_change(); 
+                
+            }
+
+            //cancel the window
+            const cancel_window = () => {
+                console.log('pressed the cancel button');
+            }
         </script>
 
 
