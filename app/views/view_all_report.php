@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="../../public/styles/customer_report.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <title>Document</title>
     <style>
         /* Google Font Link */
@@ -27,7 +29,7 @@
     display: flex;
     /* background-color: ; */
     justify-content: center;
-    height: 300px;
+    /* height: 300px; */
 }
 
 
@@ -113,7 +115,13 @@ padding: 10px;
             font-size: 50px;
             color: #fff;
             margin-top: 10px;
+           
             text-align: center;
+        }
+
+
+        .no-data h3{
+background-color: red;
         }
     </style>
 </head>
@@ -121,6 +129,7 @@ padding: 10px;
 <body>
 <?php  $month= $this->added; 
 $year=$this->added1;
+$type=$this->added2;
   ?>
     <div class="container">
         <h2 id="report-title"></h2>
@@ -128,8 +137,7 @@ $year=$this->added1;
 
         </div>
 
-        
-
+      
     </div>
 
     <script src="../../public/java script/view_all_report.js"></script>
@@ -139,16 +147,20 @@ $year=$this->added1;
 <?php
        echo "var month ='$month';";
        echo "var year ='$year';";
+       echo "var type ='$type';";
    ?>
 
 
         let my_report = new report;
         function select_report(report_type, year, month){
         
-        my_report.customer_summary(year, month);
+        my_report[type](year, month);
+    //my_report.sales_summary(year,month);
+    // my_report.return_report(year,month);
         }
 
         select_report('customer_report', year, month);
     </script>
+  
 </body>
 </html>

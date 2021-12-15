@@ -36,13 +36,109 @@
 </style>
 
 <body>
+<div class="sidebar">
+    <div class="logo-details">
+
+      <div class="logo_name">Himalee Dairy Products</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="../salesRep/customer_registration">
+          <i class='fas fa-user-plus fa-lg'></i>
+          <span class="links_name">Customer Registration</span>
+        </a>
+        <span class="tooltip">Customer Registration</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-user open-button' onclick="openForm()"></i>
+          <span class="links_name ">Customer Profile</span>
+        </a>
+        <!-- <span class="tooltip">Customer Profile</span> -->
+        <div class="form-popup" id="myForm">
+          <form action="../salesRep/customer_home" class="form-container">
+
+            <label for="cus_id"><b>Enter Customer ID</b></label>
+            <input type="text" placeholder="Enter ID" name="cus_id" required>
+
+            <button type="submit" class="btn" src=>Search</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+      </li>
+      <li>
+        <!-- <a href="../orders/create_bill"> -->
+        <a href="../customer/place_order_view">
+          <i class='bx bxs-cart-add'></i>
+          <span class="links_name">Place Order</span>
+        </a>
+        <span class="tooltip">Place Order</span>
+      </li>
+      <!-- <li>
+        <a href="../salesRep/product_list">
+          <i class="fas fa-clipboard-list"></i>
+          <span class="links_name">Product List</span>
+        </a>
+        <span class="tooltip">Product List</span>
+      </li> -->
+      <li>
+        <a href="../salesRep/view_report">
+          <i class='bx bx-line-chart'></i>
+          <span class="links_name">Reports</span>
+        </a>
+        <span class="tooltip">Reports</span>
+      </li>
+      <li>
+        <a href="../salesRep/view_notifications">
+          <i class='bx bx-bell'></i>
+          <span class="links_name">Notifications</span>
+        </a>
+        <span class="tooltip">Notifications</span>
+      </li>
+      <li>
+        <a href="../salesRep/achievements">
+
+          <i class="fas fa-trophy"></i>
+          <span class="links_name">Achievements</span>
+        </a>
+        <span class="tooltip">Achievements</span>
+      </li>
+
+      <li>
+        <a href="../salesRep/profile">
+          <i class="far fa-user-circle"></i>
+          <span class="links_name">Profile</span>
+        </a>
+        <span class="tooltip">Profile</span>
+      </li>
+
+      <li>
+        <a href="../login/logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="links_name">Logout</span>
+        </a>
+        <span class="tooltip">Logout</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="profile.jpg" alt="profileImg">
+          <div class="name_job">
+            <div class="name">ABC</div>
+            <div class="job">Sales Rep</div>
+          </div>
+        </div>
+        <i class="fas fa-store" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
     <div class="header">
         <?php
         require 'view_headertype2.php';
         ?>
 
     </div>
-
+    
 
     <section class="cards-section">
         <div class="cards">
@@ -204,6 +300,18 @@ fetch('http://localhost/web-Experts/public/salesRep/target')
 
 load_cards();
   </script>
+
+<script src="../../public/java script/view_rep_Home.js"></script>
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+    </script>
+
 </body>
 
 </html>

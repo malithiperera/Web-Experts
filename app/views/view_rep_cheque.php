@@ -1,3 +1,10 @@
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

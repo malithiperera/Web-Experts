@@ -130,7 +130,7 @@ class customer extends controller
 
     public function view_notification()
     {
-        $this->view->render('view_all_notification');
+        $this->view->render('view_customer_notification');
     }
 
     public function profile()
@@ -319,5 +319,17 @@ public function discounts(){
             
 
            
+    }
+
+    public function customer_request()
+    {
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+        $this->model('cus_model');
+       $result= $this->model->customer_request($recieved_data['id'],$recieved_data['new_period'],$recieved_data['reason']);
+
+        echo json_encode($result);
+
     }
 }

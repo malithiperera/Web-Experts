@@ -10,16 +10,16 @@ if (!isset($_SESSION['username'])) {
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Home </title>
-  <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
-  <link rel="stylesheet" href="../../public/styles/view_customer_ourproduct.css">
-  <!-- Boxicons CDN Link -->
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
+    <meta charset="UTF-8">
+    <title>Home </title>
+    <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
+    <link rel="stylesheet" href="../../public/styles/view_customer_ourproduct.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/styles/view_button.css">
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
         * {
@@ -28,6 +28,51 @@ if (!isset($_SESSION['username'])) {
             font-family: "Poppins", sans-serif;
 
         }
+
+        .delete-pop-up {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 500px;
+            background-color: transparent;
+            top: 100px;
+            position: fixed;
+            display: none;
+
+        }
+
+        #msg-content {
+            padding: 20px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        #msg-content-sub {
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+
+        }
+
+        .msg-pop {
+            margin: 50px;
+            width: 600px;
+            height: 400px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            border: 3px solid black;
+            position: fixed;
+            display: none;
+        }
+
+        .button-div {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        
 
         html::-webkit-scrollbar {
             width: .8rem;
@@ -54,7 +99,7 @@ if (!isset($_SESSION['username'])) {
 
         .details {
             position: absolute;
-            top: -100px;
+            top: -50px;
             display: flex;
             /* width: 100%; */
             /* justify-content: center; */
@@ -77,6 +122,12 @@ if (!isset($_SESSION['username'])) {
             border: none;
         }
 
+        td input {
+            background-color: #d6d6d6;
+            border: none;
+            outline: none;
+        }
+
         /* .route_id {
             position: relative;
             top: 10px;
@@ -85,19 +136,21 @@ if (!isset($_SESSION['username'])) {
 
         .container {
             position: relative;
-            top: 200px;
+            top: 100px;
             width: 100%;
-            /* left: -30px; */
+            left: -30px;
             display: flex;
             justify-content: center;
         }
-        .header{
+
+        .header {
             top: 0;
             margin-top: -20px;
 
         }
 
         .data_form {
+
             display: flex;
         }
 
@@ -151,7 +204,8 @@ if (!isset($_SESSION['username'])) {
         }
 
         td {
-            background-color: #b6b6b6;
+            background-color: #d6d6d6;
+            ;
             color: black;
             width: 250px;
             height: 40px;
@@ -204,42 +258,14 @@ if (!isset($_SESSION['username'])) {
             font-size: 25px;
         }
 
-        #edit {
-            width: 150px;
-            height: 40px;
-            margin: 10px;
-            background: rgb(20, 176, 77);
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            padding-top: 15px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
 
-        #del {
-            width: 150px;
-            height: 40px;
-            margin: 10px;
-            background: rgb(220, 53, 69);
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            padding-top: 15px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
+
 
         button i {
             padding-right: 10px;
         }
 
-        #add {
-            width: 150px;
-            font-size: 20px;
-        }
+
 
         thead th {
             color: #ffffff;
@@ -254,187 +280,217 @@ if (!isset($_SESSION['username'])) {
         .order-table {
             margin-right: 100px;
         }
-        .suggestions{
-            background-color: #184A78;
-            color: #fff;
+
+        .suggestions {
+
+            color: black;
         }
-        .suggestions a{
-            color: #fff;
+
+        .suggestions a {
+            color: black;
             font-size: 20px;
-            
+
+        }
+
+        #total_of_all_prices,
+        #tot {
+            font-weight: 800;
+            font-size: 25px;
+        }
+
+        .inpu {
+            background-color: #fff;
         }
 
         /* .detail_id{
     width: 400px;
     /* background-color: red; */
-        
     </style>
 </head>
 
 <body>
 
-<div class="sidebar">
-    <div class="logo-details">
+    <div class="sidebar">
+        <div class="logo-details">
 
-      <div class="logo_name">Himalee Dairy Product</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <!-- <li>
+            <div class="logo_name">Himalee Dairy Product</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <!-- <li>
           <i class='bx bx-search' ></i>
          <input type="text" placeholder="Search...">
          <span class="tooltip">Search</span>
       </li> -->
-      <li>
-        <a href="#">
-          <i class='bx bx-home'></i>
-          <span class="links_name">Home</span>
-        </a>
-        <span class="tooltip">Home</span>
-      </li>
-      <li>
-        <a href="../customer/place_order_view">
+            <li>
+                <a href="#">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="../customer/place_order_view">
 
-          <i class='bx bxs-cart-add'></i>
-          <span class="links_name">Place Order</span>
-        </a>
-        <span class="tooltip">Place Order</span>
-      </li>
+                    <i class='bx bxs-cart-add'></i>
+                    <span class="links_name">Place Order</span>
+                </a>
+                <span class="tooltip">Place Order</span>
+            </li>
 
-      <li>
-        <a href="#" onclick="pop_up_report()">
-          <i class='bx bx-line-chart'></i>
-          <span class="links_name">Reports</span>
-        </a>
-        <span class="tooltip">Reports</span>
-      </li>
-      <li>
-        <a href="../customer/our_products">
-          <i class="fas fa-ice-cream"></i>
-          <span class="links_name">Our Products</span>
-        </a>
-        <span class="tooltip">Our Products</span>
-      </li>
-      <li>
-        <a href="../customer/view_notification">
-          <i class='bx bx-bell'></i>
-          <span class="links_name">Notification</span>
-        </a>
-        <span class="tooltip">Notification</span>
-      </li>
-      <li>
-        <a href="../customer/profile">
-          <i class="far fa-user-circle"></i>
-          <span class="links_name">Profile</span>
-        </a>
-        <span class="tooltip">Profile</span>
-      </li>
-      <li>
-        <a href="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="links_name">Logout</span>
-        </a>
-        <span class="tooltip">Logout</span>
-      </li>
-      <li class="profile">
-        <div class="profile-details">
-          <img src="profile.jpg" alt="profileImg">
-          <div class="name_job">
-            <div class="name"></div>
-            <div class="job">Customer</div>
-          </div>
-        </div>
-        <i class="fas fa-store" id="log_out"></i>
-      </li>
-    </ul>
-  </div>
-
-  <section class="home-section">
-
-  <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
-    </div>
-    <div class="container">
-
-<div class="subcontainer">
-
-    <div class="details">
-        <div class="detail_id">
-            <i class="fas fa-house-user"></i>
-            <label for="">Customer Id : </label>
-            <input type="text" id="user_id" readonly>
-        </div>
-
-        <div class="detail_id">
-            <i class="fas fa-map-marker-alt"></i>
-            <label for="">Route Id : </label>
-            <input type="text" id="route_id" readonly>
-        </div>
-        <div class="detail_id">
-            <i class="fas fa-store"></i>
-            <label for="">Shop Name: </label>
-            <input type="text" id="shop_name" readonly>
-        </div>
-
+            <li>
+                <a href="#" onclick="pop_up_report()">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="links_name">Reports</span>
+                </a>
+                <span class="tooltip">Reports</span>
+            </li>
+            <li>
+                <a href="../customer/our_products">
+                    <i class="fas fa-ice-cream"></i>
+                    <span class="links_name">Our Products</span>
+                </a>
+                <span class="tooltip">Our Products</span>
+            </li>
+            <li>
+                <a href="../customer/view_notification">
+                    <i class='bx bx-bell'></i>
+                    <span class="links_name">Notification</span>
+                </a>
+                <span class="tooltip">Notification</span>
+            </li>
+            <li>
+                <a href="../customer/profile">
+                    <i class="far fa-user-circle"></i>
+                    <span class="links_name">Profile</span>
+                </a>
+                <span class="tooltip">Profile</span>
+            </li>
+            <li>
+                <a href="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="links_name">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="profile.jpg" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name"></div>
+                        <div class="job">Customer</div>
+                    </div>
+                </div>
+                <i class="fas fa-store" id="log_out"></i>
+            </li>
+        </ul>
     </div>
 
+    <section class="home-section">
 
-    <h2>Insert Product to bill</h2>
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
+        <div class="container">
 
-    <div class="data_form">
-        <div class="serach_product">
-            <input type="text" id="product_name" placeholder="Insert Product Name" onkeyup="fetchText(this.value)">
-            <div>
-                <ul class="suggestions">
+            <div class="subcontainer">
 
-                </ul>
+                <div class="details">
+                    <div class="detail_id">
+                        <i class="fas fa-house-user"></i>
+                        <label for="">Customer Id : </label>
+                        <input type="text" id="user_id" readonly>
+                    </div>
+
+                    <div class="detail_id">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <label for="">Route Id : </label>
+                        <input type="text" id="route_id" readonly>
+                    </div>
+                    <div class="detail_id">
+                        <i class="fas fa-store"></i>
+                        <label for="">Shop Name: </label>
+                        <input type="text" id="shop_name" readonly>
+                    </div>
+
+                </div>
+
+
+                <h2>Insert Product to bill</h2>
+
+                <div class="data_form">
+                    <div class="serach_product">
+                        <input type="text" id="product_name" placeholder="Insert Product Name" onkeyup="fetchText(this.value)">
+                        <div>
+                            <ul class="suggestions">
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <input type="text" id="unit_price" placeholder="unit price">
+                    <input type="text" id="discount" placeholder="discount">
+                    <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
+                    <input type="text" id="total_price" placeholder="total price">
+                    <button onclick="add_product()" id="add" class="new"><i class="fas fa-cart-plus"></i>Add</button>
+                </div>
+
+
+                <div class="content">
+                    <h3>Invoice</h3>
+                    <div class="table-content">
+                        <table id="order_table">
+                            <thead>
+                                <th>Product Name</th>
+                                <th>Unit Price</th>
+                                <th>Discount</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th colspan="2" id="change">Change</th>
+                            </thead>
+                            <tbody id="new_product">
+
+                            </tbody>
+                            <tr>
+                                <td colspan="4" id="tot">Total Amount(RS)</td>
+                                <td id="total_of_all_prices"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="place_button">
+                        <button onclick="place_order()">PLACE ORDER</button>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
-        <input type="text" id="unit_price" placeholder="unit price">
-        <input type="text" id="discount" placeholder="discount">
-        <input type="text" id="quantity" placeholder="quantity" onkeyup="cal_tot()">
-        <input type="text" id="total_price" placeholder="total price">
-        <button onclick="add_product()" id="add"><i class="fas fa-cart-plus"></i>Add</button>
-    </div>
-
-
-    <div class="content">
-        <h3>Invoice</h3>
-        <div class="table-content">
-            <table id="order_table">
-                <thead>
-                    <th>Product Name</th>
-                    <th>Unit Price</th>
-                    <th>Discount</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                    <th colspan="2">Change</th>
-                </thead>
-                <tbody id="new_product">
-
-                </tbody>
-                <tr>
-                    <td colspan="4">Total</td>
-                    <td id="total_of_all_prices"></td>
-                </tr>
-            </table>
+        <div class="confirmation" id="confirm_message">
+            <?php require 'view_order_complete_popup.php'; ?>
         </div>
 
-        <div class="place_button">
-            <button onclick="place_order()">PLACE</button>
+        <div class="delete-pop-up">
+            <div class="msg-pop">
+                <h4 id="msg-content">Are You want to sure</h4>
+                <h4 id="msg-content-sub">Are You want to sure</h4>
+
+
+                <div class="button-div">
+                    <div class="submit-but">
+                        <button id="conf" value="" onclick="delete_pro()">Yes</button>
+                    </div>
+                    <div class="close-but">
+                        <button id="cancel" value="" onclick="cancel_pro()">cancel</button>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-
-    </div>
-
-</div>
-</div>
-
-<div class="confirmation" id="confirm_message">
-<?php require 'view_order_complete_popup.php'; ?>
-</div>
     </section>
-   
+
 
 
     <div class="confirmation" id="confirm_message">
@@ -444,6 +500,12 @@ if (!isset($_SESSION['username'])) {
 
 
     <script>
+        delete_pop_up = document.querySelector('.delete-pop-up');
+        var pop_up = document.querySelector('.msg-pop');
+        var conf = document.getElementById('conf');
+        var cancel = document.getElementById('cancel');
+        var msg_content = document.getElementById('msg-content');
+        var msg_content_sub = document.getElementById('msg-content-sub');
         suggestions = document.querySelector(".suggestions");
 
         async function fetchText(value) {
@@ -511,13 +573,25 @@ if (!isset($_SESSION['username'])) {
         }
 
         function add_product() {
-            new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + '</td><td>' + quantity_input.value + '</td><td>' + tot_price_input.value + '</td><td>' + '<button id="edit"><i class="fas fa-pen"></i>Edit</button> ' + '</td><td>' + '<button id="del"><i class="fas fa-trash-alt"></i>Delete</button> ' + '</td></tr>';
 
-            product_name_input.value = '';
-            unit_price_input.value = '';
-            discount_input.value = '';
-            quantity_input.value = '';
-            tot_price_input.value = '';
+            if (product_name_input.value == "") {
+                alert("Enter a valid product");
+            } else if (quantity_input.value == "") {
+                alert("Enter a valid product");
+
+            } else {
+                change.style.visibility = "visible";
+                new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + `</td><td><input type="text" value="${quantity_input.value}" class="qty" readonly onkeyup="cal_tot1()">` + '</td><td>' + tot_price_input.value + '</td><td>' + '<button class="edit">Edit</button> ' + '</td><td>' + '<button class="delete">Delete</button> ' + '</td></tr>';
+
+
+
+
+                product_name_input.value = '';
+                unit_price_input.value = '';
+                discount_input.value = '';
+                quantity_input.value = '';
+                tot_price_input.value = '';
+            }
 
             var total = 0;
             for (i = 1; i < table_info.rows.length - 1; i++) {
@@ -542,13 +616,20 @@ if (!isset($_SESSION['username'])) {
 
         //place Order
         function place_order() {
-            for (i = 1; i < table_info.rows.length - 1; i++) {
-                let table_cell = table_info.rows.item(i).cells;
-                table_data[i - 1] = new Array(table_cell.length);
-                for (j = 0; j < table_cell.length; j++) {
-                    table_data[i - 1][j] = table_cell.item(j).innerHTML;
+            if (table_info.rows.length != 2) {
+                for (i = 1; i < table_info.rows.length - 1; i++) {
+                    let table_cell = table_info.rows.item(i).cells;
+                    table_data[i - 1] = new Array(table_cell.length);
+                    for (j = 0; j < table_cell.length; j++) {
+                        table_data[i - 1][j] = table_cell.item(j).innerHTML;
+                    }
+
                 }
 
+
+            }
+            if (new_product.rows.length == 0) {
+                change.style.visibility = "hidden";
             }
 
             var total_amount = total_of_all_prices.innerHTML;
@@ -606,9 +687,126 @@ if (!isset($_SESSION['username'])) {
         }
 
         fill_details();
+
+
+        window.onclick = function(event) {
+            var x = document.getElementById('new_product');
+            console.log(event);
+            if (event.target.className == "delete") {
+                console.log('Hello');
+                delete_pop_up.style.display = "block";
+
+                pop_up.style.display = 'block';
+                pop_up.style.marginLeft = '600px';
+
+                msg_content.innerHTML = "Are You Sure ??";
+                msg_content.style.color = "red";
+                msg_content_sub.innerHTML = "Are you want to delete " + event.path[2].children[0].innerHTML + "Product From the bill??";
+                conf.style.background = "red";
+                conf.value = "delete_pro";
+                cancel.style.background = "#184A78";
+
+
+
+
+                console.log(event.path[2]);
+                // x.deleteRow(event.path[2]);
+            }
+            if (event.target.className == "edit") {
+                console.log(event.path[2]);
+                // console.log(x.rows[0].cells.item(3));
+                for (i = 0; i < x.rows.length; i++) {
+                    console.log(x.rows[i].cells.item(3).children[0]);
+                    x.rows[i].cells.item(3).children[0].setAttribute('readonly', true);
+                }
+
+
+                event.path[2].children[3].children[0].removeAttribute('readonly');
+                event.path[2].children[3].children[0].classlist.add('inpu');
+
+
+
+
+
+            }
+
+        }
+
+        function delete_pro() {
+            var x = document.getElementById('new_product');
+            var conf = document.getElementById('conf');
+            if (conf.value == "delete_pro") {
+                x.deleteRow(event.path[2]);
+                pop_up.style.display = "none";
+                delete_pop_up.style.display = "none";
+            }
+            if (new_product.rows.length == 0) {
+                change.style.visibility = "hidden";
+            }
+        }
+
+        function cal_tot1() {
+            var unit_price = event.path[2].children[1].innerHTML;
+            var dis = event.path[2].children[2].innerHTML;
+
+
+            var new_qua = event.path[2].children[3].children[0].value;
+
+            event.path[2].children[4].innerHTML = (unit_price * new_qua) * (100 - dis) / 100;
+
+            cal_tot_amount();
+
+            //             var y=document.getElementById('new_product');
+            //         //  x.style.removeProperty="readonly";
+            //         //  x.rows[value-1].cells[1].
+            //         // $(this).closest('tr').find('input').removeAttr('readonly');
+            //         // x.rows[value-1].cells[3].children[0].removeAttribute('readonly');
+            //         var new_qua=y.rows[x-1].cells[3].children[0].value;
+            //         var dis=y.rows[x-1].cells[2].innerHTML;
+            //         var unit_price=y.rows[x-1].cells[1].innerHTML;
+            //    var total=(unit_price*new_qua)*(100-dis)/100;
+            //         y.rows[x-1].cells[4].innerHTML=total;
+
+
+
+        }
+
+        function cal_tot_amount() {
+
+            var x = document.getElementById('new_product');
+
+
+            total_of_all_prices = document.getElementById('total_of_all_prices');
+            var count = 0;
+            for (i = 0; i < x.rows.length; i++) {
+                console.log(x.rows[i].cells.item(4).innerHTML);
+                count = parseInt(count) + parseInt((x.rows[i].cells.item(4).innerHTML));
+
+            }
+
+            total_of_all_prices.innerHTML = count;
+
+        }
+        change = document.getElementById('change');
+        window.onload = function() {
+
+            if (new_product.rows.length == 0) {
+                change.style.visibility = "hidden";
+            }
+
+
+
+        };
+
+
+        function cancel_pro() {
+
+            pop_up.style.display = "none";
+            delete_pop_up.style.display = "none";
+        }
     </script>
 
-<script src="../../public/java script/side_bar.js"></script>
+    <script src="../../public/java script/side_bar.js"></script>
 </body>
 
 </html>

@@ -225,7 +225,7 @@ html::-webkit-scrollbar-thumb{
   position: relative;
   background: #fff;
   min-height: 100vh;
-  top: 0;
+  top: 30;
   left: 78px;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
@@ -247,7 +247,7 @@ h2{
   letter-spacing: 1px;
   color: #184A78;
   padding: 30px 0px;
-  margin-top: 20px;
+  margin-top: 90px;
 }
 
 /* Table Styles */
@@ -364,7 +364,7 @@ h2{
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  top:50px;
+  top:120px;
   /* left: 50px; */
   z-index: 999;
   /* margin-left: 150px; */

@@ -86,9 +86,13 @@ window.onclick = function(event) {
         "custom_2": ""
     };
 
-    //Show the payhere.js popup, when "PayHere Pay" is clicked
-    document.getElementById('payhere-payment').onclick = function (e) {
-        payhere.startPayment(payment);
-    };
+    // //Show the payhere.js popup, when "PayHere Pay" is clicked
+    // document.getElementById('payhere-payment').onclick = function (e) {
+    //     payhere.startPayment(payment);
+    // };
 
+ function pay_here_fun()
+{
+  payhere.startPayment(payment);
+}
 

@@ -8,10 +8,28 @@ class admin extends controller{
 
     public function load_view(){
 
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        //get data for cards
         $this->model('_1_admin_model');
         $result = $this->model->load_view_data();
 
+        //get data for charts
+        //sales overview chart
+        $result1 = $this->model->get_data_for_charts();
+        //best sales reps chart
+        $result2 = $this->model->get_best_sales_reps();
+        //get customer registration data
+        $result3 = $this->model->get_customer_reg_data();
+
+
         $data = [$result];
+        //add chart data to return array
+        array_push($data, $result1);
+        array_push($data, $result2);
+        array_push($data, $result3);
+
         echo json_encode($data);
         exit;
     }
@@ -157,6 +175,18 @@ class admin extends controller{
     public function customerProfile(){
         $this->view->cus_id = $_GET['cus_id'];
         $this->view->render('view_admin_customerProfile');
+    }
+
+    //get data to load customer profile view
+    public function load_cus_view(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->load_cus_data($get_data);
+
+        echo json_encode($result);
+        exit;
     }
 
     public function viewReport(){

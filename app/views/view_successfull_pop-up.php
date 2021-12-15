@@ -16,7 +16,7 @@
         .up-pop{
             width:100%;
             background-color: #5DA423;
-            height: 100px;
+            height: 150px;
             display: flex;
             justify-content: center;
         }
@@ -39,7 +39,7 @@
         span{
             text-align: center;
         }
-        .button-pop{
+    .button-pop{
             margin: auto;
   width: 50%;
   display: flex;
@@ -47,13 +47,14 @@
 
 
         }
-        button{
+        .pop-sub button{
             background-color: #5DA423;
             float: center;
             width: 100px;
-            height: 30px;
-            border-radius: 20px;
+            height: 40px;
+            border-radius: 10px;
             outline: none;
+            padding: 10px;
             border:none;
             font-weight: 700;
             cursor: pointer;
@@ -77,8 +78,8 @@
 
             </div>
             <div class="down-pop">
-               <h3>Success!!</h3>
-               <span>Employee added Successfully!</span>
+               <h3 id="status">Success!!</h3>
+               <span id="msg">Employee added Successfully!</span>
 
                <div class="button-pop" onclick="hide_popup()"><button>Done</button></div> 
                <!-- <div class="button-pop"><button onclick="create_new_password()">Done</button></div> -->

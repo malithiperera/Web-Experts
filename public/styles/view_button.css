@@ -1,0 +1,71 @@
+.edit{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background: rgb(84,206,98);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    padding-top: 15px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.delete{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background: rgb(220, 53, 69);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    padding-top: 15px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.new{
+    background-color: #211e7a;
+    color: #fff;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#conf{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background: rgb(220, 53, 69);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    padding-top: 15px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+
+#cancel{
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    background-color: #211e7a;
+    color: #fff;
+    
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    padding-top: 15px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    
+
+}

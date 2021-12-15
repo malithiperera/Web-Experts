@@ -6,9 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=.view, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <title>Document</title>
     <style>
+        .select_report {
+        position: fixed;
+        top: 70px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
         select {
             width: 250px;
             height: 30px;
@@ -28,7 +36,8 @@
         .view-report-container {
             width: 500px;
             height: 500px;
-            margin-left: 600px;
+            /* temperary commented */
+            /* margin-left: 600px; */
             background-color: #fff;
             border: 3px solid #184A78;
             border-radius: 10px;
@@ -85,11 +94,11 @@
         <h3>Select Your Report Type</h3>
         <form action="../reports/reports" method="GET">
             <div class="report-select">
-                <div class="type">
+                <div class="type1">
                     <label for="type">Report Type:</label>
                     <br>
                     <select id="type" name="type">
-                        <option value="salesreport">Customer Summary</option>
+                        <!-- <option value="salesreport">Customer Summary</option> -->
                         <!-- <option value="ProductSalereport">Product Sale report</option>
               <option value="ReturnReport">Return Report</option>
               <option value="Productreport">Product report</option> -->
@@ -183,11 +192,17 @@
 
 
 function fill_types(){
-    console.log("Malith");
+  
     fetch('http://localhost/web-Experts/public/reports/get_types')
         .then(response => response.json())
         .then(data => {
           console.log(data);
+          for (var i = 0; i <=data.length; i++) {
+                var option1 = document.createElement("OPTION");
+                option1.innerHTML = data[i]['report_name'];
+                option1.value = data[i]['report_name'];
+                type.appendChild(option1);
+            }
          
 
         });

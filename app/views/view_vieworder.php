@@ -17,6 +17,7 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../public/styles/view_vieworder.css">
+    <link rel="stylesheet" href="../../public/styles/view_button.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <style>
@@ -126,7 +127,7 @@ if (!isset($_SESSION['username'])) {
                 <input type="text" id="discount" placeholder="discount">
                 <input type="text" id="quantity" placeholder="quantity" onkeyup=" cal_tot_suggest()">
                 <input type="text" id="total_price" placeholder="total price">
-                <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
+                <button id="new" class="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
             </div>
 
         </div>
@@ -349,13 +350,17 @@ if (!isset($_SESSION['username'])) {
 
             if (event.target.className == "delete") {
                 delete_pop_up.style.display = "block";
+                var x=document.querySelector('.order');
+                // x.style.opacity="0.5";
+
+
 
                 pop_up.style.display = 'block';
                 pop_up.style.marginLeft = '600px';
 
                 msg_content.innerHTML = "Are You Sure ??";
                 msg_content.style.color = "red";
-                msg_content_sub.innerHTML = "Are you want to delete " + event.path[2].children[0].innerHTML + "Product From the bill??";
+                msg_content_sub.innerHTML = "Do you want to delete " + event.path[2].children[0].innerHTML + "Product From the bill??";
                 conf.style.background = "red";
                 conf.value = "delete_pro";
                 cancel.style.background = "#184A78";
@@ -369,8 +374,10 @@ if (!isset($_SESSION['username'])) {
                 // x.deleteRow(event.path[2]);
             }
             if (event.target.className == "edit") {
-                console.log(event.path[2]);
+                // console.log(event.path[2]);
                 // console.log(x.rows[0].cells.item(3));
+               
+
                 for (i = 0; i < x.rows.length; i++) {
                     console.log(x.rows[i].cells.item(3).children[0]);
                     x.rows[i].cells.item(3).children[0].setAttribute('readonly', true);
@@ -390,6 +397,7 @@ if (!isset($_SESSION['username'])) {
 
         function delete_pro() {
             var x = document.getElementById('new_product');
+            console.log('dele')
             var conf = document.getElementById('conf');
             if (conf.value == "delete_pro") {
                 x.deleteRow(event.path[2]);
