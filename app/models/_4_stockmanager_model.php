@@ -55,10 +55,28 @@ class _4_stockmanager_model extends model
     }
     public function fillRepItemsTable_mod ($getProductId) {
         require '../app/core/database.php';
-        $sql = "SELECT product_issue.rep_id, product_issue_products.qty FROM product_issue RIGHT JOIN product_issue_products ON product_issue.issue_id = product_issue_products.issue_id WHERE product_id = '$getProductId';
-";
+        $sql = "SELECT product_issue.rep_id, user.name, product_issue_products.qty
+                FROM product_issue 
+                RIGHT JOIN product_issue_products 
+                ON product_issue.issue_id = product_issue_products.issue_id 
+                INNER JOIN user
+                ON product_issue.rep_id = user.user_id
+                WHERE product_id = '$getProductId'";
         $result = mysqli_query ($conn, $sql);
         return $result;
         
+    }
+    public function fillRepRequestTable_mod () {
+        require '../app/core/database.php';
+        $sql = "SELECT product_issue_products.product_id, product.product_name, product_issue_products.qty
+                FROM product_issue_products
+                RIGHT JOIN product_issue
+                ON product_issue_products.issue_id=product_issue.issue_id
+                RIGHT JOIN product
+                ON product_issue_products.product_id = product.product_id
+                WHERE product_issue.rep_id = 'HR001'";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+
     }
 }

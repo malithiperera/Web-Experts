@@ -76,7 +76,7 @@ class cus_model extends model
     public function fill_deliveries($user){
 
         require '../app/core/database.php';
-        $sql = "SELECT * FROM delivery,orders WHERE delivery.order_id=orders.order_id AND delivery.cus_id='$user' ";
+        $sql = "SELECT * FROM delivery,orders WHERE delivery.order_id=orders.order_id";
         $result = $conn->query($sql);
        
          return $result;

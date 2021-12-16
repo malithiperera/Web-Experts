@@ -397,7 +397,7 @@ if (!isset($_SESSION['username'])) {
 
         function delete_pro() {
             var x = document.getElementById('new_product');
-            
+            console.log('dele')
             var conf = document.getElementById('conf');
             if (conf.value == "delete_pro") {
                 x.deleteRow(event.path[2]);

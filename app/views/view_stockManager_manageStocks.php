@@ -73,7 +73,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Rep Id</th>
+                            <th>Sales Rep</th>
                             <th>Quantity</th>
 
                         </tr>
@@ -114,7 +114,7 @@
         </fieldset>
 
         <!-- <button class="backBtn"></button> -->
-        <a href="_1_view_stockmanagerHome.php"><button class="backBtn">Back</button></a>
+        <a href="../stockManager/backToSMHome"><button class="backBtn">Back</button></a>
 
 
     </section>
@@ -187,7 +187,7 @@
                     for (let index = 0; index < data.length; index++) {
                         repItemsTable.innerHTML += `
                             <tr>
-                                <td>${data [index] ['rep_id']}</td>
+                                <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
                                 <td>${data [index] ['qty']}</td>
 
                             </tr>
@@ -195,7 +195,7 @@
 
                     }
                     console.log(data);
-                    
+
                 });
         }
         fillRepItemsTable();

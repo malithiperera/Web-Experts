@@ -59,7 +59,8 @@ class notification{
                 //   this.view_more.style.visibility = "hidden";
                 //   num_of_rows = data.length;
                 // }else{
-                //   this.view_more.style.visibility = "visible";
+                //   this.view_more.style.visibility = "hidden";
+                //   // this.view_more.style.visibility = "visible";
                 // }
       
                 //choose subject and message according to the notification type
@@ -709,6 +710,88 @@ else{
           });
        
 
+
+}
+
+create_bill(orderid,deliveryid){
+  fetch('http://localhost/web-Experts/public/notification/delivery_confirm', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderid)
+        })
+        .then(response => response.json())
+        .then(data => {
+          this.notification_subcontainer.innerHTML = ``;
+          this.subject.innerHTML += `Order Delivered successfully`;
+          console.log(data);
+
+        this.notification_subcontainer.innerHTML+=`<h3>Order id:${orderid}</h3>`;
+        this.notification_subcontainer.innerHTML+=`<h3>Delivery id:${deliveryid}</h3>`;
+        
+      
+        
+        let table = document.createElement("TABLE");
+        this.notification_subcontainer.appendChild(table);
+
+        let table_head = document.createElement("THEAD");
+        table.appendChild(table_head);
+
+        let product = document.createElement("TH");
+        let price = document.createElement("TH");
+        let discount = document.createElement("TH");
+        let quantity = document.createElement("TH");
+        let amount = document.createElement("TH");
+
+        product.innerHTML = `Product`;
+        price.innerHTML = `Price`;
+        discount.innerHTML = `Discount`;
+        quantity.innerHTML = `Quantity`;
+        amount.innerHTML = `Amount`;
+
+        table_head.appendChild(product);
+        table_head.appendChild(price);
+        table_head.appendChild(discount);
+        table_head.appendChild(quantity);
+        table_head.appendChild(amount);
+
+        let table_body = document.createElement("TBODY");
+        table.appendChild(table_body);
+
+        for(let i = 0 ; i < data[1].length ; i++){
+          let row = document.createElement("TR");
+          table_body.appendChild(row);
+
+          let product_rec = document.createElement("TD");
+          let price_rec = document.createElement("TD");
+          let discount_rec = document.createElement("TD");
+          let quantity_rec = document.createElement("TD");
+          let amount_rec = document.createElement("TD");
+
+          product_rec.innerHTML = `${data[1][i]['product_name']} - ${data[1][i]['product_id']}`;
+          price_rec.innerHTML = `${data[1][i]['price']}`;
+          discount_rec.innerHTML = `${data[1][i]['discount']}`;
+          quantity_rec.innerHTML = `${data[1][i]['quantity']}`;
+          amount_rec.innerHTML = `${data[1][i]['amount']}`;
+
+          row.appendChild(product_rec);
+          row.appendChild(price_rec);
+          row.appendChild(discount_rec);
+          row.appendChild(quantity_rec);
+          row.appendChild(amount_rec);
+
+        }
+
+
+        
+              this.notification_subcontainer.innerHTML += `<h3>Total Amount:RS.${data[0][0]['amount']}</h3>`;
+              this.notification_subcontainer.innerHTML += `<button id='print' class='print' value="${data[0][0]['order_id']}" onclick="window.print()">Print</button>`;
+           
+        });
+      
+        this.notification_subcontainer.innerHTML=" ";
 
 }
 }

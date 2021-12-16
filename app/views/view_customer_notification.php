@@ -17,6 +17,7 @@ if (!isset($_SESSION['username'])) {
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../public/styles/print.css" type="text/css" media="print" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -54,6 +55,14 @@ if (!isset($_SESSION['username'])) {
      border: none;
      border-radius: 10px;
      color: #fff;
+   }
+   .print{
+     width: 20%;
+     /* height: 30px; */
+     background-color: darkblue;
+     color: #fff;
+     font-size: 20px;
+     padding: 10px;
    }
   </style>
 
@@ -215,6 +224,9 @@ if (!isset($_SESSION['username'])) {
           else if(temp_type==1){
             my_notification. product_addition(data['product_id']);
           }
+          else if(temp_type==3){
+            my_notification. create_bill(data['order_id'],data['delivery_id']);
+          }
         });
       all_notifications.style.display = "none";
       select_one.style.display = "block";
@@ -229,15 +241,15 @@ if(event.target.className=='but_confirm'){
   fetch('http://localhost/web-Experts/public/notification/inform_delivery', {
             method: 'POST',
 
-            // headers: {
-            //     'Content-Type': 'application/json'
-            // },
-            // body: JSON.stringify(orderID)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderID)
         })
         .then(response => response.json())
         .then(data => {
           
-// console.log(data);
+ console.log(data);
         
            
         });

@@ -292,27 +292,41 @@ return $result_set;
 
     }
 
-    // public function inform_delivery($order_id){
-    //     require '../app/core/database.php';
-    //     $sql="UPDATE orders set status='delivered' WHERE order_id='$order_id'";
-    //     $result1=mysqli_query($conn,$sql);
-    //     // if($result){
-    //     //     $date=date("Y/m/d");
-    //     //     $t=time();
-    //     //     $sql2="INSERT into delivery values('','$date','$t','$order_id','$user_id','HR001','pending');
-    //     //     SELECT LAST_INSERT_ID();
-    //     //     ";
-
-    //     //    $result2=$conn->multi_query($sql2);
+    public function inform_delivery($order_id,$user_id){
+        require '../app/core/database.php';
+        $sql="UPDATE orders set status='delivered' WHERE order_id='$order_id'";
+        $result1=mysqli_query($conn,$sql);
+        if($result1==true){
+            // $date=date("Y/m/d");
+            // $t=time();
+            $sql2="INSERT into delivery values('','2021.10.09','19.00.00','23','HR001','$user_id')";
         
-            
-    //     // }
-    //  if($result){
-    //      return 1;
-    //  }
+           $result2=mysqli_query($conn,$sql2);
+        
+           if($result2){
+               $sql3="SELECT LAST_INSERT_ID()";
+               $result3=mysqli_query($conn,$sql3);
+               return $result3->fetch_assoc();
+           }
+           else{
+               return 'Jiiiaia';
+           }
+        }
+        // else{
+        //     return 'Hiiii';
+        // }
 
 
-    // }
 
-   
+    }
+
+   public function insert_inform_delivery($delivery,$user_id,$order_id){
+    require '../app/core/database.php';
+    $sql="INSERT INTO `notification` (`notification_id`, `notification_type`, `to_whom`, `from_whom`, `is_read`, `date`, `time`, `deleted`, `product_id`, `req_id`, `return_id`, `delivery_id`, `issue_id`, `payment_id`, `order_id`) VALUES (NULL, '3', 'HC001,rep,admin', '$user_id', '0', '2021-12-01', '27:30:56', '0', NULL, NULL, NULL, '$delivery', NULL, NULL, '$order_id');";
+    $result2=mysqli_query($conn,$sql);
+
+   return $result2;
+
+
+   }
 }
