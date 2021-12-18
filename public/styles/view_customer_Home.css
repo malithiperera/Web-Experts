@@ -242,7 +242,7 @@
   }
   .card-1{
     background-color: #858383;
-    width: 400px;
+    width: 300px;
     padding: 10px;
     margin-right: 20px;
     text-align:center;
@@ -538,7 +538,10 @@ align-items: center;
   border-radius: 5px;
 }
 
-
+#orders-head{
+  /* position: fixed;
+  top: 0; */
+}
 input{
   width: 100px;
   border: none;
@@ -578,11 +581,15 @@ background-color: #fff;
 font-weight: 700;
 
 }
-
+/* .pending_order_tabel{
+  width: 100%;
+  text-align: center;
+} */
 
 
  #payhere-payment{
-  width: 150px;
+  
+  width: 100px;
   height: 40px;
   margin: 10px;
   background: rgb(20,176,77);
@@ -592,11 +599,12 @@ font-weight: 700;
   padding-top: 15px 15px;
   border-radius: 5px;
   border: none;
+  margin-left: 100px;
   cursor: pointer;
 }
 
 #view-del{
-  width: 150px;
+  width: 100px;
   height: 40px;
   margin: 10px;
   background-color:rgb(0,123,255); 
@@ -608,6 +616,22 @@ font-weight: 700;
   border: none;
   cursor: pointer;
   margin-left: 20px;
+}
+
+#del-del{
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  background-color:red; 
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  padding-top: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+
 }
 table td button{
   margin-bottom: 20px;

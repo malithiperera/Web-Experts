@@ -32,8 +32,8 @@ if (!isset($_SESSION['username'])) {
 
 
 
-    nav ul li a .open{
-     display: none;
+    nav ul li a .open {
+      display: none;
 
     }
   </style>
@@ -85,7 +85,7 @@ if (!isset($_SESSION['username'])) {
       </li>
       <li>
         <a href="../customer/send_request">
-        <i class="fas fa-comment-dollar"></i>
+          <i class="fas fa-comment-dollar"></i>
           <span class="links_name">Credit Request</span>
         </a>
         <span class="tooltip">Credit Request</span>
@@ -123,11 +123,9 @@ if (!isset($_SESSION['username'])) {
       </li>
     </ul>
   </div>
-  <div class="header">
-      <?php require 'view_headertype2.php'; ?>
-    </div>
+
   <section class="home-section">
-    
+
     <section class="cards-section">
 
       <div class="top">
@@ -146,6 +144,11 @@ if (!isset($_SESSION['username'])) {
           <p><i class="fas fa-user-tie"></i><br>Sales Rep</p>
           <p id="top-detail-1"><span id=rep></span></p>
           <p id="top-detail-1"><span id="">0717890172</span></p>
+        </div>
+        <div class="card-1">
+          <p><i class="fas fa-user-tie"></i><br>Credit Time</p>
+          <p id="top-detail-1"><span id=rep>2</span></p>
+          <p id="top-detail-1"><span id="">Weeks</span></p>
         </div>
       </div>
       <div class="cards">
@@ -188,22 +191,22 @@ if (!isset($_SESSION['username'])) {
 
 
           </table>
-          </div>
+        </div>
 
-<div class="left-graph">
-<h3 id="dis-head">Selling Products</h3> 
+        <div class="left-graph">
+          <h3 id="dis-head">Selling Products</h3>
 
-<div id="barchart_values" style="width: 600px; height: 500px;"></div>
+          <div id="barchart_values" style="width: 600px; height: 500px;"></div>
 
-</div>
-         
-        
+        </div>
+
+
 
       </div>
       </div>
       <div class="right">
 
-        <div class="confirm">
+        <!-- <div class="confirm">
           <h2>Confirmations</h2>
           <br>
 
@@ -217,11 +220,11 @@ if (!isset($_SESSION['username'])) {
           </div>
 
 
-        </div>
+        </div> -->
 
         <div class="orders">
 
-          <h2>Pending Orders</h2>
+          <h2 id="orders-head">Pending Orders</h2>
 
 
 
@@ -350,7 +353,7 @@ if (!isset($_SESSION['username'])) {
       fetch('http://localhost/web-Experts/public/customer/load_card')
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
           product.innerHTML = data[0][0]['count_products'];
           del.innerHTML = data[0][1]['pending_orders'];
           pen_pay.innerHTML = data[0][2]['count_deliver'];
@@ -373,7 +376,7 @@ if (!isset($_SESSION['username'])) {
       fetch('http://localhost/web-Experts/public/customer/discounts')
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
           let item = document.querySelector('.item');
           for (i = 0; i < data.length; i++) {
             let new_price = data[i]['price'] * (100 - data[i]['discount']) / 100;
@@ -442,8 +445,9 @@ if (!isset($_SESSION['username'])) {
     }
   </script>
 
-  <!-- script for pending orders -->
+
   <script>
+    //get prnding orders
     let field = document.querySelector('.field');
 
     function get_pending_orders() {
@@ -464,7 +468,7 @@ if (!isset($_SESSION['username'])) {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
           for (i = 0; i < data.length; i++) {
 
             field.innerHTML += `
@@ -478,7 +482,8 @@ if (!isset($_SESSION['username'])) {
                     <tr><td><span>Amount :</span>RS.${data[i]['amount']}</td></tr>
                 
                 </td>
-                <td><button  onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
+                <td><button id="view-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
+                <td><button id="del-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>Delete</button></td>
                 
               </tr>+
             </table>
@@ -490,7 +495,7 @@ if (!isset($_SESSION['username'])) {
 
     }
     get_pending_orders();
-
+//get deliveries
     function get_deliveries() {
       let field_name = document.querySelector('.field-name');
 
@@ -499,7 +504,17 @@ if (!isset($_SESSION['username'])) {
         .then(response => response.json())
         .then(data => {
           console.log(data);
+          let date = new Date();
+          // date.setDate(date.getDate() + 1);
+          // date_del=data[1][0]['date'];
+          // date.setDate(date_del.getDate());
+          // console.log(date)
+          // credit=data[0]['credit_time']
           for (i = 0; i < data.length; i++) {
+           date_del=data[1][i]['date'];
+
+
+
 
             field_name.innerHTML += `
 
@@ -507,22 +522,21 @@ if (!isset($_SESSION['username'])) {
   <tr>
     <td>
       
-        <tr><td><span>Delivery ID :</span>${data[i]['delivery_id']}</td></tr>
-        <tr><td><span>Date       :</span>${data[i]['date']}</td></tr>
-        <tr><td><span>Order ID    :</span>${data[i]['order_id']}</td></tr>
-        <tr><td><span>Amount      : </span>RS.${data[i]['amount']}</td></tr>
+        <tr><td><span>Delivery ID :</span>${data[1][i]['delivery_id']}</td></tr>
+        <tr><td><span>Date       :</span>${data[1][i]['date']}</td></tr>
+        <tr><td><span>Order ID    :</span>${data[1][i]['order_id']}</td></tr>
+        <tr><td><span>Amount      : </span>RS.${data[1][i]['amount']}</td></tr>
       
     </td>
-    <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button>
-    
-    <button id="payhere-payment" onclick='pay_here(${data[i]['delivery_id']})'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
+    <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button></td>
+    <td> <button id="payhere-payment" onclick='pay_here(${data[i]['delivery_id']})'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
   </tr>
 </table>
 
 `;
 
-          }
+         }
 
 
         });
@@ -603,6 +617,16 @@ if (!isset($_SESSION['username'])) {
 
 
     }
+    var home=document.querySelector('.home-section');
+    var view=import("test2.php");
+    
+     function load_orders_view(){
+       document.querySelector('.home-section').innerHTML=" ";
+      home.load('test2.php');
+
+
+    }
+ 
   </script>
 
   <script src="../../public/java script/view_customer_Home.js"></script>
