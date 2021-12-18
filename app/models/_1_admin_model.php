@@ -269,4 +269,15 @@ class _1_admin_model extends model
 
     }
 
+    //change customer credit time
+    public function change_credit_period($cus_id, $new_time){
+        require '../app/core/database.php';
+
+        $sql = "update customer set credit_time = '$new_time' where cus_id = '$cus_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+       
+
 }

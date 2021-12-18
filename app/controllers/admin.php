@@ -189,6 +189,23 @@ class admin extends controller{
         exit;
     }
 
+    //change the customer's credit time from customer profile window by admin
+    public function change_credit_time(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->change_credit_period($get_data['cus_id'], $get_data['new_time']);
+
+        $data = [];
+
+        array_push($data, $get_data);
+        array_push($data, $result);
+
+        echo json_encode($data);
+        exit;
+    }
+
     public function viewReport(){
         $this->view->render('view_customer_viewreport');
     }

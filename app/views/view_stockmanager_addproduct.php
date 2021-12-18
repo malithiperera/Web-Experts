@@ -17,8 +17,8 @@ session_start();
 
 <body>
     <div class="header">
-        
-        
+
+
 
     </div>
 
@@ -82,8 +82,8 @@ session_start();
     </div>
 
     <div class="div_btnBack">
-        <button class="btn_back">Back</button>
-        
+        <a href="../stockManager/backToSMHome"><button class="btn_back">Back</button></a>
+
     </div>
 
 </body>

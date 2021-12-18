@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
-    <link rel="stylesheet" href="../../public/styles/view_rep_productList.css">
+    <link rel="stylesheet" href="../../public/styles/view_stockmanager_repRequest.css">
 </head>
 
 <body>
@@ -18,6 +18,7 @@
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
+                    <th></th>
 
                 </tr>
             </thead>
@@ -27,46 +28,33 @@
 
         </table>
     </div>
-    <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/home';"></div>
+    <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../stockManager/backToSMHome';"></div>
     <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
 
     <script>
-        var content = document.querySelector('.content');
+        var content = document.querySelector('.content')
 
-        var data_set = {
-            route_id: '<?php echo $_GET['route_id']; ?>'
-        }
-
-        const get_product = () => {
-            fetch('http://localhost/web-Experts/public/salesRep/get_product', {
-                    method: 'POST',
-
-                    headers: {
-                        'Content-Type': 'application/json'
-
-                    },
-
-                    body: JSON.stringify(data_set)
-                })
+        const fillRepRequestTable = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillRepRequestTable_con', {})
                 .then(response => response.json())
                 .then(data => {
-
-                    for (i = 0; i < data.length; i++) {
+                    for (let index = 0; index < data.length; index++) {
                         content.innerHTML += `
-                    
-                            <tr>
-                            <td>${data[i]['product_name']}</td>
-                            <td>${data[i]['SUM(quantity)']}</td>
-                            </tr>
+                            <td>${data [index] ['product_id'] + " - " + data [index] ['product_name']}</td>
+                            <td>${data [index] ['qty']}</td>
+                            <td class="action_col">
+                                <button class="btn_edit">Edit</button>
+                                <button class="btn_update">Update</button>
 
-                            `;
+                            </td>
+                        `
+
                     }
+                    console.log(data)
 
-                    console.log(data);
-                });
+                })
         }
-
-        get_product();
+        fillRepRequestTable()
     </script>
 </body>
 
