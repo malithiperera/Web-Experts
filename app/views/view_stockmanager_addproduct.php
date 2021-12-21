@@ -52,7 +52,7 @@ session_start();
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <input class="btn_submit" type="submit" name="submit" value="Add to Product"><br>
+                <input class="btn_submit" type="submit" name="submit" value="Add to Products"><br>
 
                 <div class="error">
                     <?php
