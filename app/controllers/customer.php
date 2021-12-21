@@ -222,14 +222,14 @@ public function discounts(){
         session_start();
         $this->model('cus_model');
         $result = $this->model->fill_deliveries($_SESSION['userid']);
-        $data = [];
+        // $data = [];
 
-        while ($row = $result->fetch_assoc()) {
-            array_push($data, $row);
-        }
+        // while ($row = $result->fetch_assoc()) {
+        //     array_push($data, $row);
+        // }
 
 
-        echo json_encode($data);
+        echo json_encode($result);
         exit;
     }
 
@@ -331,5 +331,13 @@ public function discounts(){
 
         echo json_encode($result);
 
+    }
+
+    public function get_overdue(){
+        $data_enc=file_get_contents("php://input");
+        $data=json_decode($data_enc,true);
+        $this->model('cus_model');
+        $result=$this->model->get_overdue($data);
+        echo json_encode($result);
     }
 }

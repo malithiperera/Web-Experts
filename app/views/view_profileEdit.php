@@ -75,6 +75,7 @@ input{
   border-radius: 10px;
   padding: 40px;
   display: flex;
+  z-index: 1;
 }
 
 .pro-sub .long{
@@ -325,16 +326,16 @@ h1{
       <?php  require 'view_headertype2.php'; ?>
     </div>
     
-<div class="profile-pic-div">
+<!-- <div class="profile-pic-div">
   <img src="image.jpg" id="photo">
   <input type="file" id="file">
   <label for="file" id="uploadBtn">Choose Photo</label>
-</div>
+</div> -->
   <div class="pro-container">
     <div class="pro-sub">
     <div class="row">
         <div class="prof-img">
-          <img src="../../public/images/password.jpg">
+          <img src="../../public/images/password.jpg" id="photo-pic">
           <div class="edit-button">
         <label for="reset" class="pencil">
               <i class="fas fa-user-edit"></i>
@@ -348,10 +349,10 @@ h1{
 
       <div class="pro-data">
           <div class="data-bio"><input type="text " value="Malithi Perera" id="name" readonly></div>
-          <div class="data-bio"><input type="text " value="malithiperera@gmail.com" id="email" readonly><i class="fas fa-pen"></i></div>
-          <div class="data-bio"> <input type="text " value="07891029" id="tele" readonly><a href="#" id="edit-tele" onclick="edit_tele()"><i class="fas fa-pen"></i></a></div>
-          <div class="data-bio"><input type="text " value="Kandy" id="address" readonly><a href="#" onclick="edit_add()"><i class="fas fa-pen"></i></a></div>
-          <div class="data-bio"><input type="text " value="98789091892v" id="nic" readonly><i class="fas fa-pen"></i></div>
+          <div class="data-bio"><input type="text " value="malithiperera@gmail.com" id="email" readonly><a href="#" onclick="edit_info(email)"><i class="fas fa-pen"></i></a></div>
+          <div class="data-bio"> <input type="text " value="07891029" id="tele" readonly><a href="#" id="edit-tele" onclick="edit_info(tele)"><i class="fas fa-pen"></i></a></div>
+          <div class="data-bio"><input type="text " value="Kandy" id="address" readonly><a href="#" onclick="edit_info(address)"><i class="fas fa-pen"></i></a></div>
+          <div class="data-bio"><input type="text " value="98789091892v" id="nic" readonly><a href="#" onclick="edit_info(nic)"><i class="fas fa-pen"></i></a></div>
 
           <div class="change-pass">
               <button id="change-pass-but" onclick="change_password()">Change password</button>
@@ -363,13 +364,13 @@ h1{
 
           <div class="pop-up-password" id="pop_up_password">
               <div class="current-pass">
-                  <input type="text" placeholder="Enter current password">
+                  <input type="password" placeholder="Enter current password">
               </div>
               <div class="new-pass">
-                  <input type="text" placeholder="Enetr new password">
+                  <input type="password" placeholder="Enetr new password">
               </div>
               <div class="confirm-pass">
-                  <input type="text" placeholder="Confirm password">
+                  <input type="password" placeholder="Confirm password" onkeyup="pass_update()" id="new-con-pass">
               </div>
               <div class="submit">
                   <button id="save-pass">save</button>
@@ -392,27 +393,43 @@ h1{
          let tele= document.getElementById('tele');
          let nic=document.getElementById('nic');
          let address=document.getElementById('address');
+         let pro= document.querySelector('.pro-sub');
+         let con_pass=document.getElementById('new-con-pass');
   let status=0;
     function change_password()
     {
-      let pro= document.querySelector('pro-sub');
+      
    document.getElementById('pop_up_password').style.visibility="visible";
-   pro.classList.add("long");
+   pro.style.height="800px";
 
     }
 
     function close_pass()
     {
         document.getElementById('pop_up_password').style.visibility="hidden";
+        pro.style.height="600px";
     }
 
 
-    function edit_tele(){
-document.getElementById('tele').removeAttribute('readonly');
-document.getElementById('tele').style.background="white";
-email.setAttribute('readonly');
-nic.setAttribute('readonly');
-address.setAttribute('readonly');
+    function edit_info(type){
+      console.log(type);
+     var color='rgb(212, 209, 209)';
+      name.setAttribute('readonly','true');
+      email.setAttribute('readonly','true');
+      tele.setAttribute('readonly','true');
+      nic.setAttribute('readonly','true');
+      address.setAttribute('readonly','true');
+      name.style.background=color;
+      email.style.background=color;
+      tele.style.background=color;
+      nic.style.background=color;
+      address.style.background=color;
+      
+type.removeAttribute('readonly');
+type.style.background="white";
+// email.setAttribute('readonly');
+// nic.setAttribute('readonly');
+// address.setAttribute('readonly');
 
     }
 
@@ -442,14 +459,23 @@ function get_data_profile()
           document.getElementById('tele').value=data[0]['tel'];
           document.getElementById('nic').value=data[0]['nic'];
           document.getElementById('address').value=data[0]['address'];
+          document.getElementById('photo-pic').src='../../public/images/uploads/'+data[0]['profile_pic'];
         });
 
 
 }
 
 get_data_profile();
+function pass_update(){
+  con_pass.style.border="3px solid red";
 
+}
 
+window.onclick=function(event)
+{
+   x=document.getElementById('reset').value;
+   console.log(x);
+}
 
 </script>
 

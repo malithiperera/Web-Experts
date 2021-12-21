@@ -284,7 +284,7 @@ function fill_details_profile() {
         .then(response => response.json())
         .then(data => {
          
-          console.log(data);
+         
           document.getElementById('name').value=data[0]['name'];
           document.getElementById('email').value=data[0]['email'];
           document.getElementById('tele').value=data[0]['tel'];
@@ -297,8 +297,10 @@ function fill_details_profile() {
 
     fill_details_profile();
 
-
-
+window.onclick=function(event)
+{
+    console.log(event);
+}
     </script>
 
 </body>
