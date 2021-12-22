@@ -241,7 +241,7 @@
     justify-content: center;
   }
   .card-1{
-    background-color: #858383;
+    background-color: #B3CFDD    ;
     width: 300px;
     padding: 10px;
     margin-right: 20px;
@@ -281,7 +281,7 @@
   font-weight: 700;
 }
 .sidebar.open ~ .home-section{
-  left: 250px;
+  left: 260px;
   width: calc(100% - 250px);
 }
 .home-section .text{
@@ -302,8 +302,8 @@
  
 }
 .right{
-  width: 30%;
-  /* height: 600px; */
+  width: 40%;
+  height: 1200px;
   background-color: rgb(255, 255, 255);
   padding: 10px;
   margin: 20px;
@@ -315,20 +315,35 @@
  
   
 }
+.left-graph{
+  height: 400px;
+  /* margin: 20px; */
+  background-color:#fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
 
-
+.discount{
+  height: 550px;
+  /* padding: 29px; */
+  text-align: center;
+  text-transform: uppercase;
+  overflow-y: auto;
+  background-color:#fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  
+}
 .left{
-  width: 60%;
+  width: 50%;
   height: 1200px;
-  background-color: rgb(255, 255, 255);
+  background-color:#fff;
   padding: 10px;
   margin: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-evenly;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  /* //box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
   border-radius: 5px;
   z-index: 0;
   
@@ -397,16 +412,17 @@ text-align: center;
 .orders{
 
   border-radius: 5px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; */
   padding: 30px;
  
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   margin-bottom: 20px;
-  height: 400px;
+  height: 40%;;
   overflow-y: auto;
+}
+
+.return-amount{
+
 }
 .orders h2{
   text-transform: uppercase;
@@ -421,10 +437,10 @@ text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 400px;
+  height: 40%;
   padding: 30px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #ADD8E6;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   overflow-y: auto;
 }
@@ -469,13 +485,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 }
-.discount{
-  height: 550px;
-  padding: 29px;
-  text-align: center;
-  text-transform: uppercase;
-  overflow-y: auto;
-}
+
 
 
 
@@ -581,10 +591,17 @@ background-color: #fff;
 font-weight: 700;
 
 }
-/* .pending_order_tabel{
+.pending_order_tabel{
   width: 100%;
   text-align: center;
-} */
+  /* border: 3px solid black; */
+  font-size: 15px;
+}
+
+.pending_order_tabel td{
+  font-size: 15px;
+  /* background-color: rgb(201, 201, 201); */
+}
 
 
  #payhere-payment{
@@ -649,9 +666,6 @@ button i{
   /* position: fixed; */
 }
 
-.header .open{
-background: red;
-}
 
 td span{
   color: black;

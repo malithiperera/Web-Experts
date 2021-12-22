@@ -70,7 +70,7 @@ input{
 .pro-sub{
   width: 900px;
   height: 600px;
-  background-color: grey;
+  background-color:#ADD8E6   ;
   justify-content: space-around;
   border-radius: 10px;
   padding: 40px;
@@ -364,16 +364,19 @@ h1{
 
           <div class="pop-up-password" id="pop_up_password">
               <div class="current-pass">
-                  <input type="password" placeholder="Enter current password">
+                  <input type="password" placeholder="Enter current password" id="old_pass">
               </div>
               <div class="new-pass">
-                  <input type="password" placeholder="Enetr new password">
+                  <input type="password" placeholder="Enetr new password" id="new-pass">
               </div>
               <div class="confirm-pass">
                   <input type="password" placeholder="Confirm password" onkeyup="pass_update()" id="new-con-pass">
+                  <br>
+
+                  <span id="tool-tip"></span>
               </div>
               <div class="submit">
-                  <button id="save-pass">save</button>
+                  <button id="save-pass" onclick="save_pass()">save</button>
                   <button id="close-pass" onclick="close_pass()">Close</button>
               </div>
           </div>
@@ -395,12 +398,16 @@ h1{
          let address=document.getElementById('address');
          let pro= document.querySelector('.pro-sub');
          let con_pass=document.getElementById('new-con-pass');
+         let save_change=document.getElementById('save-change');
+         let pop_up_pass=document.getElementById('pop_up_password');
   let status=0;
     function change_password()
     {
       
    document.getElementById('pop_up_password').style.visibility="visible";
    pro.style.height="800px";
+   save_change.style.visibility="hidden";
+   pop_up_pass.style.marginTop="-30px";
 
     }
 
@@ -408,6 +415,7 @@ h1{
     {
         document.getElementById('pop_up_password').style.visibility="hidden";
         pro.style.height="600px";
+        save_change.style.visibility="visible";
     }
 
 
@@ -466,10 +474,7 @@ function get_data_profile()
 }
 
 get_data_profile();
-function pass_update(){
-  con_pass.style.border="3px solid red";
 
-}
 
 window.onclick=function(event)
 {
@@ -477,7 +482,72 @@ window.onclick=function(event)
    console.log(x);
 }
 
-</script>
+function pass_update()
+{
+  var pass_old=document.getElementById('new-pass').value;
+  var new_p=document.getElementById('new-con-pass');
+  var new_pass=document.getElementById('new-con-pass').value;
+  var tool=document.getElementById('tool-tip');
+  if(pass_old!=new_pass)
+  {
+    
+    new_p.style.border="thick solid red";
+        
+    tool.innerHTML="Password does not match";
+    
+  }
+  else{
+    new_p.style.border="thick solid green";
+        
+    tool.innerHTML="Password Matched";
+  
+}
+}
+function save_pass()
+{
+  var pass=document.getElementById('old_pass').value;
+  var pass_old=document.getElementById('new-pass').value;
+  var new_pass=document.getElementById('new-con-pass').value;
+  var tool=document.getElementById('tool-tip');
+  
+
+  if(pass_old!=new_pass)
+  {
+    
+    tool.innerHTML="Password does not match";
+
+    
+  }
+
+  else{
+    var data_set={
+      old_password=pass,
+      new_pass=pass_old,
+      new_con_pass=new_pass
+    }
+//     fetch('http://localhost/web-experts/public/profile/changepassword',{
+//       method: 'POST',
+
+// headers: {
+//   'Content-Type': 'application/json'
+
+// },
+
+// body: JSON.stringify(data_set)
+
+
+
+
+//     })
+//     .then(response => response.json())
+//         .then(data => {
+// console.log(data);
+  
+
+// });
+ }
+}
+  </script>
 
 
   <script src="../../public/java script/side_bar.js"></script>

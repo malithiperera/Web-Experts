@@ -232,6 +232,15 @@ array_push($data_set,$result);
 
         // select extract(month from returns.date),count(return_product.return_id), sum(product.price*return_product.qty) from returns,return_product,product where returns.return_id = return_product.return_id and extract(year from returns.date) and return_product.product_id = product.product_id and extract(year from returns.date) = '2021' group by extract(month from returns.date);
     }
+//sales rep montgy report
+    public function rep_summary_month(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
 
-    
+       $this->model('report_model');
+       $result=$this->model->sales_rep_month($recieved_data['year'],$recieved_data['month']);
+
+       echo json_encode($recieved_data);
+       exit;
+    }
 }

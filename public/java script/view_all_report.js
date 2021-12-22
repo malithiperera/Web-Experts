@@ -206,7 +206,7 @@ console.log(data);
           let result1 = this.create_dataset_array(data[2]);
           let result2=this.create_dataset_array_month(data[3]);
           let result4=this.create_dataset_array_month(data[4]);
-          let result5=this.create_dataset_array_month(data[5]);
+         // let result5=this.create_dataset_array_month(data[5]);
         
 
           this.order_section = document.createElement("div");
@@ -227,7 +227,7 @@ console.log(data);
                <td class="pro_name">${month_array[i]}</td>
                <td class="pro_name">${result2[i][1]}</td>
                <td class="pro_name">${result4[i][1]}</td>
-               <td class="pro_name">${result5[i][1]}</td>
+               
               
                </tr>`
 
@@ -387,6 +387,55 @@ console.log(data);
         });
     }
   }
+//rep summary
+rep_summary(year, month){
+  //monthly report
+  if(month!=0)
+  {
+    console.log(0);
+    console.log(month);
+    this.report_title.innerHTML =
+      " Sales Reprsentative Summary" + " " +  + " " + year;
+
+    var data_set = {
+      year: year,
+      month: month,
+    };
+
+    fetch("http://localhost/web-Experts/public/reports/rep_summary_month", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data_set),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+       
+
+        this.summary_section = document.createElement("div");
+        this.main.appendChild(this.summary_section);
+        this.summary_section.classList.add("section", "cus-section");
+        this.summary_section.innerHTML = `<h3>Summary Of Month</h3>`;
+        this.summary_section_table = document.createElement("table");
+        this.summary_section.appendChild(this.summary_section_table);
+        this.summary_section_table.classList.add("table-info");
+
+        this.summary_section_table.innerHTML +=
+          "<tr> <th>Route ID</th><th>Route Name</th> <th>Rep ID</th> <th>Rep Name </th><th> Total sales</th>   </tr> ";
+        let i;
+
+       
+      });
+
+
+  }
+
+}
+
+
 
   //return report
   return_report(year, month) {

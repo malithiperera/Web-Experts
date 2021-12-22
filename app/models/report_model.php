@@ -230,4 +230,11 @@ class report_model extends model
         return $result2;
         
     }
+
+    public function sales_rep_month($year,$month){
+        require '../app/core/database.php';
+        $sql="SELECT * from payment,orders,delivery where orders.order_id=payment.order_id and payment.delivery_id=delivery.delivery_id and orders.cus_id='$userid' and year(payment.date)='$year' and month(payment.date)='$month';";
+        $result2=mysqli_query($conn,$sql);
+        return $result2;
+    }
 }
