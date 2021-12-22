@@ -10,14 +10,16 @@ function showHideAdd() {
         document.getElementById("inputAdd").style.visibility = "hidden";
         document.getElementById("addamountAddBtn").style.visibility = "hidden";
         return a = 1;
+        
 
     }
+    console.log("test");
 }
 
-var b = 1, h = 1;
+var b = 1;
 
 function showHideRemove() {
-    if (b == 1 && h == 1) {
+    if (b == 1) {
         document.getElementById("removeStocksFieldset").style.visibility = "visible";
         return b = 0;
 
@@ -30,7 +32,7 @@ function showHideRemove() {
 
 var c = 1, f = 1;
 
-function showHideNewPrice() {
+function showHideNewPrice(productId) {
     if (c == 1 && f == 1) {
         document.getElementById("newPrice").style.visibility = "visible";
         return c = 0;
@@ -40,6 +42,8 @@ function showHideNewPrice() {
         return c = 1;
 
     }
+    console.log(productId);
+
 }
 var d = 1, e = 1;
 

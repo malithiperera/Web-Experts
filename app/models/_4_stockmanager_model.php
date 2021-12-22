@@ -79,4 +79,11 @@ class _4_stockmanager_model extends model
         return $result;
 
     }
+    public function updatePrice_mod ($product_id) {
+        require '../app/core/database.php';
+        $sql = "UPDATE product SET price='150' WHERE product_id='$product_id'";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+
+    }
 }
