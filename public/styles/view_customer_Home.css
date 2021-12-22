@@ -444,16 +444,10 @@ text-align: center;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   overflow-y: auto;
 }
-/* }
-.field{
-  display: flex;
-  justify-content: space-evenly;
-  width: 270px;
-  background-color: #fff;
-  margin-top: 10px;
+#zero{
+  color: rgb(0, 255, 85);
 
-  /* box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
-
+}
 
 
 

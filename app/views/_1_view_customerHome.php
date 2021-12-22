@@ -506,13 +506,18 @@ if (!isset($_SESSION['username'])) {
       fetch('http://localhost/web-Experts/public/customer/get_deliveries')
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data.length);
           let date = new Date();
+          console.log(data.length);
           // date.setDate(date.getDate() + 1);
           // date_del=data[1][0]['date'];
           // date.setDate(date_del.getDate());
           // console.log(date)
           // credit=data[0]['credit_time']
+          if(data[1].length==2){
+            field_name.innerHTML += `<h2 id="zero">No Due Payments</h2>`;
+          }
+          else{
           for (i = 0; i < data.length; i++) {
            date_del=data[1][i]['date'];
 
@@ -540,7 +545,7 @@ if (!isset($_SESSION['username'])) {
 `;
 
          }
-
+        }
 
         });
 
