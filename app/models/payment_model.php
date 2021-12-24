@@ -35,7 +35,7 @@ public function online_payments($orderId){
 public function online_payments_update($delivery_id,$amount,$orderId){
 
     require '../app/core/database.php';
- 
+    date_default_timezone_set('Asia/Colombo');
   $sql1="UPDATE delivery
     SET status = 'payed'
     WHERE order_id='$orderId' ";

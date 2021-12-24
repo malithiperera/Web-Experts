@@ -508,7 +508,7 @@ if (!isset($_SESSION['username'])) {
         .then(data => {
           // console.log(data.length);
           let date = new Date();
-          console.log(data.length);
+          console.log(data);
           // date.setDate(date.getDate() + 1);
           // date_del=data[1][0]['date'];
           // date.setDate(date_del.getDate());
@@ -530,13 +530,13 @@ if (!isset($_SESSION['username'])) {
   <tr>
     <td>
       
-        <tr><td><span>Delivery ID :</span>${data[1][i]['delivery_id']}</td></tr>
-        <tr><td><span>Date       :</span>${data[1][i]['date']}</td></tr>
-        <tr><td><span>Order ID    :</span>${data[1][i]['order_id']}</td></tr>
-        <tr><td><span>Amount      : </span>RS.${data[1][i]['amount']}</td></tr>
+        <tr><td colspan='2'><span>Delivery ID :</span>${data[1][i]['delivery_id']}</td></tr>
+        <tr><td colspan='2'><span>Date       :</span>${data[1][i]['date']}</td></tr>
+        <tr><td colspan='2'><span>Order ID    :</span>${data[1][i]['order_id']}</td></tr>
+        <tr><td colspan='2'><span>Amount      : </span>RS.${data[1][i]['amount']}</td></tr>
       
     </td>
-    <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button></td>
+    <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[1][i]['order_id']}&cus_id=${data[1][i]['delivery_id']}&route_id=${data[1][i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button></td>
     <td> <button id="payhere-payment" onclick='pay_here(${data[1][i]['delivery_id']},${data[1][i]['order_id']},${data[1][i]['amount']})'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
     
   </tr>

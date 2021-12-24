@@ -36,12 +36,12 @@
                 </div>
                 <div class="detail">
                 <i class="fas fa-house-user"></i>
-                <label for="">Customer Id:</label>
+                <label for="">Delivery Id:</label>
                 <input type="text" class="cus_id" readonly>
                 </div>
                 <div class="detail">
                 <i class="fas fa-map-marker-alt"></i>
-                <label for="">Route Id:</label>
+                <label for="">Customer Id:</label>
                 <input type="text" class="route_id" readonly>
                 
                 </div>
@@ -183,6 +183,25 @@
             var qty = event.path[3].cells[4].getElementsByTagName('input')[0].value;
             event.path[3].cells[5].innerHTML = qty*event.path[3].cells[2].innerHTML;
         }
+
+
+        function cal_tot_amount() {
+
+var x = document.querySelector('.pending_order_table');
+
+console.log(x.rows[1].cells.item(1));
+total_of_all_prices = document.getElementById('total_of_all_prices');
+var count = 0;
+for (i = 0; i < x.rows.length; i++) {
+    console.log(x.rows[i].cells.item(4).innerHTML);
+    // count = parseInt(count) + parseInt((x.rows[i].cells.item(6).innerHTML));
+
+}
+
+total_of_all_prices.innerHTML = count;
+
+}
+cal_tot_amount();
     </script>
 
 </body>

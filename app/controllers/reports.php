@@ -239,8 +239,11 @@ array_push($data_set,$result);
 
        $this->model('report_model');
        $result=$this->model->sales_rep_month($recieved_data['year'],$recieved_data['month']);
-
-       echo json_encode($recieved_data);
+       $data2 = [];
+       while ($row = $result->fetch_assoc()) {
+           array_push($data2, $row);
+       }
+       echo json_encode($data2);
        exit;
     }
 }

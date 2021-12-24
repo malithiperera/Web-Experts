@@ -233,7 +233,7 @@ class report_model extends model
 
     public function sales_rep_month($year,$month){
         require '../app/core/database.php';
-        $sql="SELECT * from payment,orders,delivery where orders.order_id=payment.order_id and payment.delivery_id=delivery.delivery_id and orders.cus_id='$userid' and year(payment.date)='$year' and month(payment.date)='$month';";
+        $sql="SELECT delivery.rep_id,user.name ,sum(orders.amount) as sumSales, sales_rep.target from orders,delivery,user,sales_rep WHERE orders.order_id=delivery.delivery_id AND year(delivery.date)='$year' and month(delivery.date)='$month' AND user.user_id=delivery.rep_id AND sales_rep.rep_id=delivery.rep_id GROUP BY delivery.rep_id";
         $result2=mysqli_query($conn,$sql);
         return $result2;
     }
