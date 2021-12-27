@@ -26,9 +26,9 @@
                 <button class="addBtn" onclick="showHideAdd ()"><i class="fas fa-plus"></i></i></button>
                 <button class="removeBtn" onclick="showHideRemove ()"><i class="fas fa-minus"></i></button><br><br>
 
-                <div>
+                <div class="classA">
                     <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()"><i class="fas fa-calendar-check"></i></i></button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()"><i class="fas fa-calendar-check"></i></button>
 
                 </div>
 
@@ -64,7 +64,7 @@
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
-                <button class="btn_update" onclick="showHideNewPrice ()">Update</button>
+                <button class="btn_update">Update</button>
 
             </div>
 
@@ -199,6 +199,40 @@
                 });
         }
         fillRepItemsTable();
+    </script>
+
+    <script>
+        var btnUpdate = document.querySelector(".btn_update")
+        var productId = '<?php echo $_GET['product_id']; ?>'
+
+        btnUpdate.addEventListener("click", (productId) => {
+            var c = 1, f = 1;
+
+            if (c == 1 && f == 1) {
+                document.getElementById("newPrice").style.visibility = "visible";
+                return c = 0;
+
+            } else {
+                document.getElementById("newPrice").style.visibility = "hidden";
+                return c = 1;
+
+            }
+            fetch('http://localhost/web-Experts/public/stockManager/updatePrice_con', {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+
+                    },
+                    body: JSON.stringify(productId)
+
+                })
+                .then(response => responce.json())
+                .then(data => {
+                    console.log("hello")
+
+                })
+        })
     </script>
 
 </body>

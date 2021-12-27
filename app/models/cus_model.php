@@ -76,10 +76,26 @@ class cus_model extends model
     public function fill_deliveries($user){
 
         require '../app/core/database.php';
-        $sql = "SELECT * FROM delivery,orders WHERE delivery.order_id=orders.order_id";
+         $data=[];
+        $data_set=[];
+        $sql = "SELECT * FROM delivery,orders WHERE delivery.order_id=orders.order_id and delivery.status='pending'";
         $result = $conn->query($sql);
+        while($row1 = $result->fetch_assoc()){
+            array_push($data_set,$row1);
+            }
+            
+        $sql1="SELECT credit_time FROM customer WHERE cus_id='HC001'";
+        $result1 = $conn->query($sql1);
+        $credit=$result1->fetch_assoc();
+        array_push($data,$credit);
+
+        array_push($data,$data_set);
+        
+        
+            
+        
        
-         return $result;
+         return $data;
     }
 
 
@@ -125,5 +141,33 @@ return 1;
     }
 
 }
+//overdue
+public function get_overdue($data)
+{
+require '../app/core/database.php';
+$sql="SELECT credit_time FROM customer WHERE cus_id='$data'";
+$result=mysqli_query($conn,$sql);
+$data_set=[];
+if($result){
+   $credit=$result->fetch_assoc();
+   array_push($data_set,$credit);
 
+   $del_set=[];
+   $sql1="SELECT * FROM delivery WHERE cus_id='$data' AND status='pending'";
+   $result1=mysqli_query($conn,$sql1);
+   while($row1 = $result1->fetch_assoc()){
+    array_push($del_set,$row1);
+    }
+    array_push($data_set,$del_set);
+
+
+
+    }
+
+
+   return $data_set;
+    
 }
+}
+
+

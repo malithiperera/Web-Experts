@@ -264,6 +264,7 @@ if (!isset($_SESSION['username'])) {
                 })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     for (i = 0; i < data.length; i++) {
                         pending_order_table.innerHTML += `
                         
@@ -403,6 +404,7 @@ if (!isset($_SESSION['username'])) {
                 x.deleteRow(event.path[2]);
                 pop_up.style.display = "none";
                 delete_pop_up.style.display = "none";
+                cal_tot_amount();
             }
         }
 
