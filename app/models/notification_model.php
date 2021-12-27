@@ -329,4 +329,25 @@ return $result_set;
 
 
    }
+
+   //rep requests a list of products from the stockmanager
+   public function rep_request($issue_id){
+        require '../app/core/database.php';
+
+        $sql1 = "select * from product_issue,user where product_issue.rep_id = user.user_id and product_issue.issue_id = '$issue_id'";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $sql2 = "select * from product_issue_products where issue_id = '$issue_id'";
+        $result2 = mysqli_query($conn, $sql2);
+
+        $data = [];
+
+        array_push($data, $result1->fetch_assoc());
+
+        while($row2 = $result2->fetch_assoc()){
+            array_push($data, $row2);
+        }
+
+        return $data;
+   }
 }

@@ -65,7 +65,7 @@ class notification{
       
                 //choose subject and message according to the notification type
       
-                for (let i = 0; i < num_of_rows; i++) {
+                for (let i = 0; i < data.length ; i++) {
       
                   this.subcontainer2.innerHTML += `
       
@@ -142,7 +142,7 @@ class notification{
                 .then(data => {
                     // console.log(data);
                     this.from.innerHTML += `${data['from_whom']}`;
-                    this.to.innerHTML += `${data['to_whom']}`;
+                    this.to.innerHTML += `${type}`;
                     this.date.innerHTML += `${data['date']}`;
                     this.time.innerHTML += `${data['time']}`;
 
@@ -794,4 +794,24 @@ create_bill(orderid,deliveryid){
         this.notification_subcontainer.innerHTML=" ";
 
 }
+
+        //stockmanager's notifications
+
+        //requesting a list of products by sales rep from stock manager
+        rep_request(issue_id){
+          console.log('rep request , issue id = '+issue_id);
+
+          fetch('http://localhost/web-Experts/public/notification/rep_request',{
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(issue_id)
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          });
+        }
 }

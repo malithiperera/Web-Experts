@@ -490,6 +490,10 @@ if (!isset($_SESSION['username'])) {
     <div class="select_report">
         <?php require 'view_all_report_popup.php'; ?>
     </div>
+    <!-- popup for choose a product -->
+    <div class="choose_product">
+        
+    </div>
 
 
 

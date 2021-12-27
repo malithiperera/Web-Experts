@@ -44,7 +44,7 @@
                 <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="#">
+                <a href="../stockManager/notification">
                     <i class='bx bx-chat'></i>
                     <span class="links_name">Notification</span>
                 </a>

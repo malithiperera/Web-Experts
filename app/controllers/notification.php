@@ -111,6 +111,10 @@ class notification extends controller
                 case 14:
                     $subject = "Credit Request Rejected";
                     break;
+                case 20:
+                    $rep_request = $this->model->rep_request($row['issue_id']);
+                    $subject = "Request a list of products by ".$rep_request[0]['name'];
+                    break;
 
                 default:
                     $subject = 'subject';
@@ -242,6 +246,18 @@ class notification extends controller
         $delivery = $this->model->inform_delivery($get_data, $_SESSION['userid']);
 
         $result=$this->model->insert_inform_delivery($delivery['LAST_INSERT_ID()'],$_SESSION['userid'],$get_data );
+        echo json_encode($result);
+        exit;
+    }
+
+    //notification for sales reps request from stock manager
+    public function rep_request(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->rep_request($get_data);
+
         echo json_encode($result);
         exit;
     }
