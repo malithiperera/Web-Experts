@@ -121,6 +121,13 @@ class stockManager extends controller {
     public function moveToNotificationPage () {
         $this->view->render ('view_stockmanager_notification');
 
+<<<<<<< HEAD
+    //to notifications
+    public function notification(){
+        $this->view->render('view_stockmanager_notification');
+    }
+
+=======
     }
     public function updatePrice_con() {
         $get_data = file_get_contents ('php://input');
@@ -132,6 +139,7 @@ class stockManager extends controller {
         exit;
         
     }
+>>>>>>> 222ae6a9402693196ae889cfc2146c02c6a66e56
 }
 
 ?>
