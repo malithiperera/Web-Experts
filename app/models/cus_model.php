@@ -78,7 +78,7 @@ class cus_model extends model
         require '../app/core/database.php';
          $data=[];
         $data_set=[];
-        $sql = "SELECT * FROM delivery,orders WHERE delivery.order_id=orders.order_id";
+        $sql = "SELECT * FROM delivery,orders WHERE delivery.order_id=orders.order_id and delivery.status='pending'";
         $result = $conn->query($sql);
         while($row1 = $result->fetch_assoc()){
             array_push($data_set,$row1);

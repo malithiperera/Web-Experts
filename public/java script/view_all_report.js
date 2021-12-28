@@ -206,7 +206,7 @@ console.log(data);
           let result1 = this.create_dataset_array(data[2]);
           let result2=this.create_dataset_array_month(data[3]);
           let result4=this.create_dataset_array_month(data[4]);
-          let result5=this.create_dataset_array_month(data[5]);
+         // let result5=this.create_dataset_array_month(data[5]);
         
 
           this.order_section = document.createElement("div");
@@ -227,7 +227,7 @@ console.log(data);
                <td class="pro_name">${month_array[i]}</td>
                <td class="pro_name">${result2[i][1]}</td>
                <td class="pro_name">${result4[i][1]}</td>
-               <td class="pro_name">${result5[i][1]}</td>
+               
               
                </tr>`
 
@@ -387,9 +387,95 @@ console.log(data);
         });
     }
   }
+//rep summary
+rep_summary(year, month){
+  //monthly report
+  if(month!=0)
+  {
+    let string_month = this.get_month(month);
+    console.log(0);
+    console.log(month);
+    this.report_title.innerHTML =
+      " Sales Reprsentative Summary" + " " + string_month + " " + year;
+
+    var data_set = {
+      year: year,
+      month: month,
+    };
+
+   
+
+    fetch("http://localhost/web-Experts/public/reports/rep_summary_month", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data_set),
+    
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+
+       
+
+        this.summary_section = document.createElement("div");
+        this.main.appendChild(this.summary_section);
+        this.summary_section.classList.add("section", "cus-section");
+        this.summary_section.innerHTML = `<h3>Summary Of Month ${string_month}</h3>`;
+        this.summary_section_table = document.createElement("table");
+        this.summary_section.appendChild(this.summary_section_table);
+        this.summary_section_table.classList.add("table-info");
+
+        this.summary_section_table.innerHTML +=
+          "<tr> <th>Rep ID</th><th>REp name</th> <th>target(RS.)</th> <th>Total sales(RS.) </th><th> Status</th>   </tr> ";
+        let i;
+        for (i = 0; i < data.length; i++) {
+          var status="";
+
+        
+          var a = parseInt(data[i]["target"]);
+          var b = parseInt(data[i]["sumSales"]);
+          if(a<=b){
+           status="Completed";
+
+          }
+          else 
+          {
+            status="not Completed";
+          }
+          this.summary_section_table.innerHTML += `
+          
+          <tr>
+          
+          <td class="pro_name">${data[i]["rep_id"]}</td>
+          <td class="pro_name">${data[i]["name"]}</td>
+          <td class="pro_name">${data[i]["target"]}</td>
+          <td class="price">${data[i]["sumSales"]}</td>
+          
+          <td class="price">${status}</td>
+         
+         
+          
+          
+          </tr>
+          
+          `;
+          status="";
+        }
+       
+      });
+
+
+  }
+
+}
+
+//
 
   //return report
-  return_report(year, month) {
+  return_summary(year, month) {
     if (month != 0) {
 
         var data_set={
@@ -397,7 +483,10 @@ console.log(data);
             month:month
 
         };
-        
+        console.log(data_set);
+        let string_month = this.get_month(month);
+        this.report_title.innerHTML =
+        " Return  Monthly Report" +" "+ string_month + " " + year;
         fetch("http://localhost/web-Experts/public/reports/return_month",
                 {
                   method: "POST",
@@ -412,6 +501,41 @@ console.log(data);
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
+
+            this.create_card('<i class="fas fa-exchange-alt"></i>','Total Returns(RS.)',data[0][0]['total_amount']);
+            this.create_card('<i class="fas fa-store-alt"></i>','No Of Shops',data[0][1]['shops']);
+           
+            this.summary_section = document.createElement("div");
+            this.main.appendChild(this.summary_section);
+            this.summary_section.classList.add("section", "cus-section");
+            this.summary_section.innerHTML = `<h3>Return Summary Of Month</h3>`;
+            this.summary_section_table = document.createElement("table");
+            this.summary_section.appendChild(this.summary_section_table);
+            this.summary_section_table.classList.add("table-info");
+  
+            this.summary_section_table.innerHTML +=
+              "<tr> <th>Route ID</th><th>Route Name</th><th>Rep Name </th><th> Total Return(RS.)</th>   </tr> ";
+            let i;
+  
+            for (i = 0; i < data[1].length; i++) {
+              this.summary_section_table.innerHTML += `
+              
+              <tr>
+              
+              <td class="pro_name">${data[1][i]["route_id"]}</td>
+              <td class="price">${data[1][i]["route_name"]}</td>
+              <td class="pro_name">${data[1][i]["rep_name"]}</td>
+              <td class="pro_name">${data[1][i]["total_amount"]}</td>
+              
+              
+            
+             
+              
+              
+              </tr>
+              
+              `;
+            }
          
           
         });

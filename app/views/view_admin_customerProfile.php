@@ -475,10 +475,10 @@ if (!isset($_SESSION['username'])) {
         }
 
         .change_credit_time {
-            margin-left: 210px;
+            margin-left: 200px;
             margin-top: 5px;
             width: 300px;
-            height: 200px;
+            /* height: 200px; */
             background-color: white;
             border: 1px solid black;
             color: black;
@@ -577,24 +577,17 @@ if (!isset($_SESSION['username'])) {
             </div>
             <div class="div1">
                 <div class="credit"><label for="">Credit Period</label>
+                 
                     <input type="text" value="2 weeks" id="credit" class="credit_input" readonly>
                     <button id="cred"><i class="fas fa-pen"></i>Change</button>
+
+                    <!-- popup message to credit time change -->
                     <div class="change_credit_time">
-                        <!-- <p id="current_credit_period">Current Credit Period : </p>
-
-                        <p id="new_credit_time_p">New Credit Period(weeks) </p>
-                        <input type="text" id="new_credit_time_input">
-
-
-                        <div class="buttons">
-                            <button id="change_btn" onclick="change_credit_period()">change</button>
-                            <button id="change_btn" onclick="cancel_window()">cancel</button>
-                        </div> -->
-
+                       
                     </div>
                 </div>
 
-
+                <!-- buttons for more options -->
                 <div>
                     <button id='send_warn' class="warn"><i class="fas fa-envelope-open-text" onclick="popup_message('.popup_update_status')"></i>Send Messege</button>
 
