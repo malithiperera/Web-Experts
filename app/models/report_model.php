@@ -186,7 +186,46 @@ class report_model extends model
     public function return_month($year, $month)
     {
         require '../app/core/database.php';
-        $sql = "SELECT route.route_id,route.route_name,user.name,COUNT(returns.return_id) FROM user,returns,route,customer WHERE returns.cus_id=customer.cus_id AND customer.route_id=route.route_id AND returns.rep_id=user.user_id;";
+        $sql = "SELECT customer.route_id,sum(product.price*return_product.qty) as total_amount,user.name as rep_name,route.route_name from returns,return_product,customer,product,user,route
+        where returns.return_id = return_product.return_id
+        AND
+        returns.cus_id = customer.cus_id
+        AND
+        return_product.product_id = product.product_id
+        AND
+        returns.rep_id = user.user_id
+        AND
+        customer.route_id=route.route_id 
+      and month(date)='$month' and
+       year(date)='$year'
+        group by customer.route_id;";
+
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+
+    }
+
+
+    public function return_month_cards($year, $month){
+        require '../app/core/database.php';
+        $cards=[];
+        $sql = "SELECT sum(product.price*return_product.qty) as total_amount from returns,return_product,product
+        where returns.return_id = return_product.return_id
+        AND
+
+        return_product.product_id = product.product_id;";
+
+        $result=mysqli_query($conn,$sql);
+       array_push($cards,$result->fetch_assoc());
+
+       $sql1="SELECT COUNT(DISTINCT(cus_id)) as shops FROM returns where month(date)='$month' and
+       year(date)='$year'";
+       $result1=mysqli_query($conn,$sql1);
+       array_push($cards,$result1->fetch_assoc());
+       return $cards;
+
+
     }
     //customer summary sales
     public function fill_graph_sum_table($year, $userid)
