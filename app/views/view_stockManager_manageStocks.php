@@ -60,7 +60,7 @@
 
             <div class="div_newPrice" id="newPrice">
                 <label class="label_newPrice" for="newPrice">New Price</label>
-                <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="Rs.">
+                <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="">
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
@@ -203,35 +203,33 @@
 
     <script>
         var btnUpdate = document.querySelector(".btn_update")
-        var productId = '<?php echo $_GET['product_id']; ?>'
+        // var productId = '<?php echo $_GET['product_id']; ?>'
+        var newPrice = document.querySelector(".input_newPrice")
 
-        btnUpdate.addEventListener("click", (productId) => {
-            var c = 1, f = 1;
-
-            if (c == 1 && f == 1) {
-                document.getElementById("newPrice").style.visibility = "visible";
-                return c = 0;
-
-            } else {
-                document.getElementById("newPrice").style.visibility = "hidden";
-                return c = 1;
+        btnUpdate.addEventListener("click", () => {
+            var productId = '<?php echo $_GET['product_id']; ?>'
+            let dataSet = {
+                productId: productId,
+                newPrice: newPrice.value
 
             }
+            console.log(dataSet)
             fetch('http://localhost/web-Experts/public/stockManager/updatePrice_con', {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
 
                     },
-                    body: JSON.stringify(productId)
+                    body: JSON.stringify(dataSet)
 
                 })
-                .then(response => responce.json())
+                .then(response => response.json())
                 .then(data => {
-                    console.log("hello")
+                    console.log(data)
 
                 })
+            // console.log (dataSet)
+
         })
     </script>
 
