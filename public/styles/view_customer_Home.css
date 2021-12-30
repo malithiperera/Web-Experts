@@ -35,6 +35,8 @@
 .sidebar.open{
   width: 250px;
 }
+
+
 .sidebar .logo-details{
   height: 60px;
   display: flex;

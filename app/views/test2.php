@@ -323,7 +323,7 @@ if (!isset($_SESSION['username'])) {
          <span class="tooltip">Search</span>
       </li> -->
             <li>
-                <a href="#">
+                <a href="../customer/home">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
@@ -388,9 +388,7 @@ if (!isset($_SESSION['username'])) {
 
     <section class="home-section">
 
-        <div class="header">
-            <?php require 'view_headertype2.php'; ?>
-        </div>
+      
         <div class="container">
 
             <div class="subcontainer">
