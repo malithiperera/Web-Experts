@@ -134,7 +134,7 @@ class stockManager extends controller {
         $get_data = json_decode ($get_data, true);
 
         $this->model('_4_stockmanager_model');
-        $result = $this->model->updatePrice_mod ($get_data ['product_id']);
+        $result = $this->model->updatePrice_mod ($get_data ['productId'], $get_data ['newPrice']);
         echo json_encode ($result);
         exit;
         

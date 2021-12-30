@@ -922,13 +922,8 @@ if (!isset($_SESSION['username'])) {
 
                 change_credit_time.style.display = "none";
             });
+            
         </script>
-
-
-
-
-
-
 </body>
 
 </html>
