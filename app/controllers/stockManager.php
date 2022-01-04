@@ -94,7 +94,8 @@ class stockManager extends controller {
 
     }
     public function viewList () {
-        $this->view->render ("view_stockmanager_repRequest");
+        // $this->view->render ("view_stockmanager_repRequest");
+        $this->view->render("view_stockManager_requestedRepList");
         
     }
     public function get_request_con() {
@@ -120,15 +121,13 @@ class stockManager extends controller {
     }
     public function moveToNotificationPage () {
         $this->view->render ('view_stockmanager_notification');
-
-<<<<<<< HEAD
+    }
     //to notifications
     public function notification(){
         $this->view->render('view_stockmanager_notification');
     }
 
-=======
-    }
+    
     public function updatePrice_con() {
         $get_data = file_get_contents ('php://input');
         $get_data = json_decode ($get_data, true);
@@ -139,7 +138,6 @@ class stockManager extends controller {
         exit;
         
     }
->>>>>>> 222ae6a9402693196ae889cfc2146c02c6a66e56
 }
 
 ?>

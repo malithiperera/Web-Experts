@@ -44,15 +44,14 @@
                 <span class="tooltip">User</span>
             </li>
             <li>
-<<<<<<< HEAD
-                <a href="../stockManager/notification">
-=======
-                <a href="../stockManager/moveToNotificationPage">
->>>>>>> 222ae6a9402693196ae889cfc2146c02c6a66e56
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Notification</span>
-                </a>
-                <span class="tooltip">Notification</span>
+                <<<<<<< HEAD <a href="../stockManager/notification">
+                    =======
+                    <a href="../stockManager/moveToNotificationPage">
+                        >>>>>>> 222ae6a9402693196ae889cfc2146c02c6a66e56
+                        <i class='bx bx-chat'></i>
+                        <span class="links_name">Notification</span>
+                    </a>
+                    <span class="tooltip">Notification</span>
             </li>
             <li>
                 <a href="#">
@@ -98,7 +97,7 @@
                     <p class="value_catogories"></p>
                 </div>
                 <div class="div_repRequests">
-                    <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p>
+                    <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p> <!-- ../stockManager/viewList -->
                     <p class="value_repRequests"></p>
                 </div>
 
