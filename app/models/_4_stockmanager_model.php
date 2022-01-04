@@ -66,15 +66,15 @@ class _4_stockmanager_model extends model
         return $result;
         
     }
-    public function fillRepRequestTable_mod () {
+    public function fillRepRequestTable_mod ($issue_id) {
         require '../app/core/database.php';
-        $sql = "SELECT product_issue_products.product_id, product.product_name, product_issue_products.qty
+        $sql = "SELECT product_issue_products.product_id, product.product_name, product_issue_products.requested_qty
                 FROM product_issue_products
                 RIGHT JOIN product_issue
                 ON product_issue_products.issue_id=product_issue.issue_id
                 RIGHT JOIN product
                 ON product_issue_products.product_id = product.product_id
-                WHERE product_issue.rep_id = 'HR001'";
+                WHERE product_issue.issue_id = '$issue_id'";
         $result = mysqli_query ($conn, $sql);
         return $result;
 
