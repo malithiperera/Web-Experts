@@ -219,12 +219,19 @@ array_push($data_set,$result);
     public function return_month(){
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
-
+$resultArray=[];
        $this->model('report_model');
-       $this->model->return_month($recieved_data['year'],$recieved_data['month']);
+       $rescards=$this->model->return_month_cards($recieved_data['year'],$recieved_data['month']);
+       array_push($resultArray,$rescards);
+       $result=$this->model->return_month($recieved_data['year'],$recieved_data['month']);
+       $data=[];
 
+       while ($row = $result->fetch_assoc()) {
+        array_push($data, $row);
+    }
+array_push($resultArray,$data);
 
-    echo json_encode($recieved_data);
+    echo json_encode($resultArray);
         exit;
 
         // SELECT extract(month from delivery.date), sum(orders.amount) as sales FROM orders,delivery where orders.order_id = delivery.order_id and extract(year from delivery.date) = '2021' group by extract(month from delivery.date);

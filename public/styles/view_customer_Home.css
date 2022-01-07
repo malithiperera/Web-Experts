@@ -35,6 +35,8 @@
 .sidebar.open{
   width: 250px;
 }
+
+
 .sidebar .logo-details{
   height: 60px;
   display: flex;
@@ -330,6 +332,13 @@
   overflow-y: auto;
   background-color:#fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  
+}
+
+
+.dis-pro tr:nth-child(even){
+  /* background-color: rgb(109, 50, 50); */
+  background: rgb(255, 255, 255);
   
 }
 .left{
@@ -674,14 +683,14 @@ width: 200px;
 tr {
   background: black;
 } 
-.dis-table tr{
+/* .dis-table tr{
   background: blanchedalmond;
-}
+} */
 
 .dis-table td{
   font-size: 18px;
   font-weight: 700;
-  background: white;
+  /* background: white; */
   padding: 20px;
   margin: 20px;
 }

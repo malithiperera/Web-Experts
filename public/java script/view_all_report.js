@@ -472,10 +472,10 @@ rep_summary(year, month){
 
 }
 
-
+//
 
   //return report
-  return_report(year, month) {
+  return_summary(year, month) {
     if (month != 0) {
 
         var data_set={
@@ -483,7 +483,10 @@ rep_summary(year, month){
             month:month
 
         };
-        
+        console.log(data_set);
+        let string_month = this.get_month(month);
+        this.report_title.innerHTML =
+        " Return  Monthly Report" +" "+ string_month + " " + year;
         fetch("http://localhost/web-Experts/public/reports/return_month",
                 {
                   method: "POST",
@@ -498,6 +501,41 @@ rep_summary(year, month){
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
+
+            this.create_card('<i class="fas fa-exchange-alt"></i>','Total Returns(RS.)',data[0][0]['total_amount']);
+            this.create_card('<i class="fas fa-store-alt"></i>','No Of Shops',data[0][1]['shops']);
+           
+            this.summary_section = document.createElement("div");
+            this.main.appendChild(this.summary_section);
+            this.summary_section.classList.add("section", "cus-section");
+            this.summary_section.innerHTML = `<h3>Return Summary Of Month</h3>`;
+            this.summary_section_table = document.createElement("table");
+            this.summary_section.appendChild(this.summary_section_table);
+            this.summary_section_table.classList.add("table-info");
+  
+            this.summary_section_table.innerHTML +=
+              "<tr> <th>Route ID</th><th>Route Name</th><th>Rep Name </th><th> Total Return(RS.)</th>   </tr> ";
+            let i;
+  
+            for (i = 0; i < data[1].length; i++) {
+              this.summary_section_table.innerHTML += `
+              
+              <tr>
+              
+              <td class="pro_name">${data[1][i]["route_id"]}</td>
+              <td class="price">${data[1][i]["route_name"]}</td>
+              <td class="pro_name">${data[1][i]["rep_name"]}</td>
+              <td class="pro_name">${data[1][i]["total_amount"]}</td>
+              
+              
+            
+             
+              
+              
+              </tr>
+              
+              `;
+            }
          
           
         });

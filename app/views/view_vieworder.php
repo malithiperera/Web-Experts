@@ -30,13 +30,13 @@ if (!isset($_SESSION['username'])) {
         .delete-pop-up {
             display: flex;
             justify-content: center;
+            align-items: center;
             width: 100%;
             height: 500px;
             background-color: transparent;
             top: 100px;
             position: fixed;
-            display: none;
-
+            visibility: hidden;
         }
 
         #msg-content {
@@ -61,7 +61,9 @@ if (!isset($_SESSION['username'])) {
             flex-direction: column;
             border: 3px solid black;
             position: fixed;
-            display: none;
+            /* display: none; */
+            align-items: center;
+            justify-self: center;
         }
 
         .button-div {
@@ -73,7 +75,8 @@ if (!isset($_SESSION['username'])) {
         #conf,
         #cancel {
             width: 100px;
-            padding: 20px;
+            height: 50px;
+            /* padding: 20px; */
             margin: 30px;
             border: black;
             outline: none;
@@ -325,22 +328,13 @@ if (!isset($_SESSION['username'])) {
         get_total_row();
         // edit values
 
-        // function total(value){
-        //  var x=document.getElementById('new_product');
-        // //  x.style.removeProperty="readonly";
-        // //  x.rows[value-1].cells[1].
-        // // $(this).closest('tr').find('input').removeAttr('readonly');
-        // x.rows[value-1].cells[3].children[0].removeAttribute('readonly');
-
-        // console.log(value);
-
-        // }
+      
 
 
         //delete rows
 
 
-        delete_pop_up = document.querySelector('.delete-pop-up');
+        var delete_pop_up = document.querySelector('.delete-pop-up');
         var pop_up = document.querySelector('.msg-pop');
         var conf = document.getElementById('conf');
         var cancel = document.getElementById('cancel');
@@ -350,14 +344,15 @@ if (!isset($_SESSION['username'])) {
             var x = document.getElementById('new_product');
 
             if (event.target.className == "delete") {
-                delete_pop_up.style.display = "block";
+                // delete_pop_up.style.display = "block";
+                delete_pop_up.style.visibility="visible";
                 var x=document.querySelector('.order');
                 // x.style.opacity="0.5";
 
 
 
-                pop_up.style.display = 'block';
-                pop_up.style.marginLeft = '600px';
+                delete_pop_up .visibility = 'block';
+                // pop_up.style.marginLeft = '600px';
 
                 msg_content.innerHTML = "Are You Sure ??";
                 msg_content.style.color = "red";
@@ -402,7 +397,7 @@ if (!isset($_SESSION['username'])) {
             var conf = document.getElementById('conf');
             if (conf.value == "delete_pro") {
                 x.deleteRow(event.path[2]);
-                pop_up.style.display = "none";
+                // pop_up.style.display = "none";
                 delete_pop_up.style.display = "none";
                 cal_tot_amount();
             }
@@ -410,7 +405,7 @@ if (!isset($_SESSION['username'])) {
 
         function cancel_pro() {
 
-            pop_up.style.display = "none";
+            // pop_up.style.display = "none";
             delete_pop_up.style.display = "none";
         }
 
@@ -433,16 +428,7 @@ if (!isset($_SESSION['username'])) {
 
             cal_tot_amount();
 
-            //             var y=document.getElementById('new_product');
-            //         //  x.style.removeProperty="readonly";
-            //         //  x.rows[value-1].cells[1].
-            //         // $(this).closest('tr').find('input').removeAttr('readonly');
-            //         // x.rows[value-1].cells[3].children[0].removeAttribute('readonly');
-            //         var new_qua=y.rows[x-1].cells[3].children[0].value;
-            //         var dis=y.rows[x-1].cells[2].innerHTML;
-            //         var unit_price=y.rows[x-1].cells[1].innerHTML;
-            //    var total=(unit_price*new_qua)*(100-dis)/100;
-            //         y.rows[x-1].cells[4].innerHTML=total;
+          
 
 
 
@@ -526,12 +512,7 @@ if (!isset($_SESSION['username'])) {
 
 
                 cal_tot_amount();
-                // var total = 0;
-                // for (i = 1; i < table_info.rows.length - 1; i++) {
-                //     // total = total + 1;
-                //     total = total + parseInt(table_info.rows[i].cells[4].innerHTML);
-                // }
-                // total_of_all_prices.innerHTML = total;
+                
 
             }
         }
@@ -544,11 +525,11 @@ if (!isset($_SESSION['username'])) {
         function save_order() {
 
 
+            delete_pop_up.style.visibility="visible";
+            // delete_pop_up.style.background = "red";
 
-            delete_pop_up.style.display = "block";
-
-            pop_up.style.display = 'block';
-            pop_up.style.marginLeft = '600px';
+            // pop_up.style.display = 'block';
+            // pop_up.style.marginLeft = '600px';
 
             msg_content.innerHTML = "Are You Sure ??";
             msg_content.style.color = "blue";
@@ -569,26 +550,27 @@ if (!isset($_SESSION['username'])) {
 
 
     function place_order_update(){
-        
-        pop_up.style.display = "none";
-            delete_pop_up.style.display = "none";
+      
+                // pop_up.style.display = "none";
+            delete_pop_up.style.visibility = "hidden";
         var table_info = document.getElementById("new_product");
 
         var table_data = new Array(table_info.rows.length);
+      
         
             for (i = 0; i < table_info.rows.length; i++) {
                 let table_cell = table_info.rows.item(i).cells;
               
-                table_data[i-1] = new Array(table_cell.length);
-                console.log(table_data[i]);
+                table_data[i] = new Array(table_cell.length);
+               
 
 
                 for (j = 0; j < table_cell.length; j++) {
                     if(j==3){
-                        table_data[i - 1][j] = table_cell.item(j).children[0].value;
+                        table_data[i][j] = table_cell.item(j).children[0].value;
                     }
                     else{
-                        table_data[i - 1][j] = table_cell.item(j).innerHTML;
+                        table_data[i][j] = table_cell.item(j).innerHTML;
                     }
                 
                 }
@@ -633,15 +615,24 @@ if (!isset($_SESSION['username'])) {
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    // confirmation_message();
-                    // order_id.innerHTML = `${data[7]}`;
-                    // order_date.innerHTML = `${data[2]}`;
-                    // order_amount.innerHTML = `${data[0]}`;
-                    // done.addEventListener("click", () => {
-                    //     confirm_message.style.visibility = "hidden";
-                    // });
-                });
+                    delete_pop_up.style.visibility = "visible";
+                    
 
+            pop_up.style.height = '200px';
+            // pop_up.style.marginLeft = '600px';
+
+            msg_content.innerHTML = "Your Order Has benn successfully updated";
+            msg_content.style.color = "green";
+            msg_content_sub.innerHTML = `order id:${order_id}`;
+            conf.style.visibility = "hidden";
+            cancel.style.visibility = "hidden";
+            const myTimeout = setTimeout(hidden, 2000);
+
+            // conf.value = "place_order";
+                });
+function hidden(){
+    pop_up.style.display = 'none';
+}
 
  }
     </script>

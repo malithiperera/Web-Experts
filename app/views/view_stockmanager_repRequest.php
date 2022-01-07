@@ -35,7 +35,14 @@
         var content = document.querySelector('.content')
 
         const fillRepRequestTable = () => {
-            fetch('http://localhost/web-Experts/public/stockManager/fillRepRequestTable_con', {})
+            fetch('http://localhost/web-Experts/public/stockManager/fillRepRequestTable_con', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify(data)
+                })
                 .then(response => response.json())
                 .then(data => {
                     for (let index = 0; index < data.length; index++) {

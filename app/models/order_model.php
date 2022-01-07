@@ -98,31 +98,33 @@ class order_model extends model
 
         if(mysqli_query($conn, $sql)){
 
-            return $table;
-            // foreach($table as $row){
-            //     // $order_id = $orderid;
-            //     //     $sql2 = "SELECT product_id FROM product WHERE product_name = '$row[0]'";
-            //     //     $result2 = mysqli_query($conn, $sql2);
-            //     //     $row2 = $result2->fetch_assoc();
-            //     // $product_id = (int)$row2['product_id'];
-            //     // $price = $row[1];
-            //     // $discount = $row[2];
-            //     // $qty = $row[3];
-            //     // $amount = $row[4];
+            // return '$table';
+            foreach($table as $row){
+                $order_id = $orderid;
+                    $sql2 = "SELECT product_id FROM product WHERE product_name = '$row[0]'";
+                    $result2 = mysqli_query($conn, $sql2);
+                    $row2 = $result2->fetch_assoc();
+                $product_id = (int)$row2['product_id'];
+                $price = $row[1];
+                $discount = $row[2];
+                $qty = $row[3];
+                $amount = $row[4];
     
-            //     // $sql3 = "INSERT INTO order_product
-            //     //         VALUES ('$order_id', '$product_id', '$price', '$discount', '$qty', '$amount')";
-            //     // mysqli_query($conn, $sql3);
-            //     return $row[0];
-            // }
+                $sql3 = "INSERT INTO order_product
+                        VALUES ('$order_id', '$product_id', '$price', '$discount', '$qty', '$amount')";
+                mysqli_query($conn, $sql3);
+              
+            }
        
 
 
-            // $sql1="UPDATE orders SET  date='$date' , amount='$total' where order_id='$orderid'";
-            // if(mysqli_query($conn, $sql1)){
-            //     return 'Hello';
-            // }
-      
+            $sql1="UPDATE orders SET  date='$date' , amount='$total' where order_id='$orderid'";
+            if(mysqli_query($conn, $sql1)){
+                return $order_id;
+            }
+      else{
+          return 'error';
+      }
 
 
 

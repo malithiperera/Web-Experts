@@ -93,6 +93,9 @@ font-weight: 700;
     </style>
 </head>
 <body>
+  <div class="side">
+  <? require 'view_customer_side.php'; ?>
+  </div>
 
     <div class="request-container">
     <h2>Request Form</h2>
