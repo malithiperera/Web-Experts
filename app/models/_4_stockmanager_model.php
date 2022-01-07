@@ -86,4 +86,11 @@ class _4_stockmanager_model extends model
         return $result;
 
     }
+    public function getRepList_mod () {
+        require '../app/core/database.php';
+        $sql = "SELECT rep_id, date FROM product_issue";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+        
+    }
 }

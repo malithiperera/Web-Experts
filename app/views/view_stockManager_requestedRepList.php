@@ -17,7 +17,7 @@
                 <th>Name</th>
                 <th>Route</th>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>rep_1</td>
                 <td>route_1</td>
             </tr>
@@ -36,10 +36,30 @@
             <tr>
                 <td>rep_5</td>
                 <td>route_5</td>
-            </tr>
+            </tr> -->
         </div>
 
     </table>
+
+    <script>
+        var repList = document.querySelector(".repNames")
+        // console.log ("test")
+        const getRepList = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/getRepList_cont', {})
+                .then(response => response.json())
+                .then(data => {
+                    repList.innerHTML += `
+                        <tr>
+                            <td>${data ['rep_id']}</td>
+                            <td>${data ['date']}</td>
+                        </tr>
+                    `
+                    console.log(data ['rep_id'])
+
+                })
+        }
+        getRepList()
+    </script>
 </body>
 
 </html>
