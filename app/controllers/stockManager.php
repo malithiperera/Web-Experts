@@ -122,6 +122,7 @@ class stockManager extends controller {
     public function moveToNotificationPage () {
         $this->view->render ('view_stockmanager_notification');
     }
+
     //to notifications
     public function notification(){
         $this->view->render('view_stockmanager_notification');
