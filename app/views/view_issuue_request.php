@@ -48,43 +48,42 @@
 
     }
     load_request();
-    //get issue id and load the issue products 
-    window.onclick = function(event) {
-        var issue_id = event.target.id;
 
-        if (flag == 0) {
-          
-            requset_table.innerHTML = "";
+    requset_table.addEventListener("click", (event) => {
+        console.log(event.target.id);
+        let issue_id = event.target.id;
 
-            fetch('http://localhost/web-Experts/public/issue/load_products', {
-                    method: 'POST',
+        requset_table.innerHTML = "";
 
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+        fetch('http://localhost/web-Experts/public/issue/load_products', {
+                method: 'POST',
 
-                    body: JSON.stringify(issue_id)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    let i;
-                    for (i = 0; i < data.length; i++) {
-                        requset_table.innerHTML += `<tr id="${data[i]['product_id']}"> 
-                    <td >${data[i]['product_id']}</td>
-             <td >${data[i]['product_name']}</td>
-             <td ><input value="${data[i]['requested_qty']}"></td>
-           
-             </tr>`
+                headers: {
+                    'Content-Type': 'application/json'
+                },
 
+                body: JSON.stringify(issue_id)
+            })
+            .then(response => response.json())
+            .then(data => {
+                let i;
+                for (i = 0; i < data.length; i++) {
+                    requset_table.innerHTML += `<tr id="${data[i]['product_id']}"> 
+                                                <td >${data[i]['product_id']}</td>
+                                                <td >${data[i]['product_name']}</td>
+                                                <td ><input value="${data[i]['requested_qty']}"></td>
 
+                                                </tr>`
 
-                    }
+                }
 
 
-                });
-                flag=1;
-        }
-    }
+            });
+
+    });
+
+
+    
 </script>
 
 </html>
