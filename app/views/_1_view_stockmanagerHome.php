@@ -11,7 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        .pop-up-div {
+            width: 100%;
+            height: 800px;
+            background-color: #fff;
 
+            position: absolute;
+            top: 0;
+            z-index: 10000;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,10 +54,10 @@
                 <span class="tooltip">User</span>
             </li>
             <li>
-                <<<<<<< HEAD <a href="../stockManager/notification">
-                    =======
+                <a href="../stockManager/notification">
+                    
                     <a href="../stockManager/moveToNotificationPage">
-                        >>>>>>> 222ae6a9402693196ae889cfc2146c02c6a66e56
+                       
                         <i class='bx bx-chat'></i>
                         <span class="links_name">Notification</span>
                     </a>
@@ -133,7 +143,10 @@
             <a href="../stockManager/add_product"><button class="add">Add</button><br></a>
 
         </div>
-
+        <div class="pop-up-div">
+<?php require 'view_stockManager_requestedRepList.php';
+ ?>
+        </div>
     </section>
 
 

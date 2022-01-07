@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css">
+    <!-- <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css"> -->
+    <!-- <link rel="stylesheet" href="../../public/styles/view_stockManager_requestedRepList.css"> -->
     <title>Document</title>
 </head>
 
 <body>
     <table class="repNames">
-        <div class="table">
+        <div class="listTable">
             <tr>
                 <th>Name</th>
                 <th>Route</th>
