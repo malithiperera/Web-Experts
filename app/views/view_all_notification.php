@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+
 <html lang="en" dir="ltr">
 
 <head>
@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {
   <title>Home </title>
   <link rel="stylesheet" href="../../public/styles/view_all_notification.css">
 
-  <!-- Boxicons CDN Link -->
+
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
