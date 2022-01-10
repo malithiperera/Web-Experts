@@ -75,7 +75,7 @@ class stockManager extends controller {
     public function fillNoOfRepRequests_cont () {
         $this->model ('_4_stockmanager_model');
         $result = $this->model->fillNoOfRepRequests_mod ();
-        echo json_encode ($result);
+        echo json_encode ($result->fetch_assoc ());
         exit;
 
     }
@@ -95,6 +95,7 @@ class stockManager extends controller {
     }
     public function viewList () {
         $this->view->render ("view_stockmanager_repRequest");
+        // $this->view->render("view_stockManager_requestedRepList");
         
     }
     public function get_request_con() {
@@ -118,7 +119,39 @@ class stockManager extends controller {
         $this->view->render ('_1_view_stockmanagerHome');
 
     }
+    public function moveToNotificationPage () {
+        $this->view->render ('view_stockmanager_notification');
+    }
 
+    //to notifications
+    public function notification(){
+        $this->view->render('view_stockmanager_notification');
+    }
+
+    
+    public function updatePrice_con() {
+        $get_data = file_get_contents ('php://input');
+        $get_data = json_decode ($get_data, true);
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->updatePrice_mod ($get_data ['productId'], $get_data ['newPrice']);
+        echo json_encode ($result);
+        exit;
+        
+    }
+
+    public function getRepList_cont () {
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->getRepList_mod ();
+        $data = [];
+        while ($row = $result->fetch_assoc ()) {
+            array_push ($data, $row);
+
+        }
+        echo json_encode($data);
+        exit;
+
+    }
 }
 
 ?>

@@ -229,7 +229,10 @@ if (!isset($_SESSION['username'])) {
         .routes {
             visibility: hidden;
         }
-
+       .choose_product{
+        z-index: 20000;
+        visibility: hidden;
+       }
         .charts {
             width: 1300px;
             height: 1000px;
@@ -472,6 +475,11 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 
+     <!-- popup for choose a product -->
+     <div class="choose_product">
+        <?php require 'view_admin_choose_product_popup.php'; ?>
+    </div>
+
     <div class="popup">
         <?php require 'view_admin_popup_search_customer.php'; ?>
     </div>
@@ -490,6 +498,8 @@ if (!isset($_SESSION['username'])) {
     <div class="select_report">
         <?php require 'view_all_report_popup.php'; ?>
     </div>
+
+   
 
 
 

@@ -236,9 +236,7 @@ if (!isset($_SESSION['username'])) {
       function drawChart() {
         fetch('http://localhost/web-Experts/public/salesRep/achievement')
         .then(response => response.json())
-        .then(data => {
-        console.log(data);
-         
+        
 
 
         var data = google.visualization.arrayToDataTable([

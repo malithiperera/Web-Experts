@@ -15,7 +15,10 @@ class customer extends controller
 
 
 
-
+    public function home()
+    {
+        $this->view->render('_1_view_customerHome');
+    }
 
 
     public function our_products()
@@ -164,18 +167,19 @@ class customer extends controller
         echo json_encode($data);
         exit;
     }
-//get discounts
-public function discounts(){
-    $this->model('product_model');
-    $result = $this->model->show_discounts();
-    $data = [];
+    //get discounts
+    public function discounts()
+    {
+        $this->model('product_model');
+        $result = $this->model->show_discounts();
+        $data = [];
 
-    while ($row = $result->fetch_assoc()) {
-        array_push($data, $row);
+        while ($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
+        exit;
     }
-    echo json_encode($data);
-    exit;
-}
 
     // get details about pending orders
     public function get_pending_orders()
@@ -222,14 +226,14 @@ public function discounts(){
         session_start();
         $this->model('cus_model');
         $result = $this->model->fill_deliveries($_SESSION['userid']);
-        $data = [];
+        // $data = [];
 
-        while ($row = $result->fetch_assoc()) {
-            array_push($data, $row);
-        }
+        // while ($row = $result->fetch_assoc()) {
+        //     array_push($data, $row);
+        // }
 
 
-        echo json_encode($data);
+        echo json_encode($result);
         exit;
     }
 
@@ -260,65 +264,45 @@ public function discounts(){
 
 
     //render view reqiest
-    public function send_request(){
+    public function send_request()
+    {
         $this->view->render('view_customer_requset');
     }
 
 
 
-//credit request
+    //credit request
 
-    public function creit_request(){
+    public function creit_request()
+    {
 
         session_start();
 
         $this->model('cus_model');
-        $result=$this->model->fill_creit_request($_SESSION['userid']);
+        $result = $this->model->fill_creit_request($_SESSION['userid']);
 
         echo json_encode($result->fetch_assoc());
         exit;
-
-
-
-
     }
 
 
 
-    public function update_order(){
+    public function update_order()
+    {
 
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
 
 
-        // $this->model('order_model');
+        $this->model('order_model');
+        $result=$this->model->update_order($recieved_data['order'],$recieved_data['date'],$recieved_data['amount'], $recieved_data['table']);
 
-        // check any order is working
-        
 
-       
+        // $check = $this->model->update_order($recieved_data['order'],$recieved_data['date'],$recieved_data['amount'], $recieved_data['table']);
 
-           
-            // $data = [
-            //     $recieved_data['amount'],
-            //     $recieved_data['date'],
-                
-            //     $recieved_data['order_id'],
-            //     // $recieved_data['cus_id'],
-            //     $recieved_data['route_id'],
-               
-            
-            //     $recieved_data['table']
-            // ];
 
-            // $check = $this->model->update_order($recieved_data['order'],$recieved_data['date'],$recieved_data['amount'], $recieved_data['table']);
-
-            
-                echo json_encode($recieved_data);
-                exit;
-            
-
-           
+        echo json_encode($result);
+        exit;
     }
 
     public function customer_request()
@@ -327,9 +311,17 @@ public function discounts(){
         $recieved_data = json_decode($recieved_data_encoded, true);
 
         $this->model('cus_model');
-       $result= $this->model->customer_request($recieved_data['id'],$recieved_data['new_period'],$recieved_data['reason']);
+        $result = $this->model->customer_request($recieved_data['id'], $recieved_data['new_period'], $recieved_data['reason']);
 
         echo json_encode($result);
+    }
 
+    public function get_overdue()
+    {
+        $data_enc = file_get_contents("php://input");
+        $data = json_decode($data_enc, true);
+        $this->model('cus_model');
+        $result = $this->model->get_overdue($data);
+        echo json_encode($result);
     }
 }

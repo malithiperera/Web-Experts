@@ -70,9 +70,16 @@ class reports extends controller
         while ($row = $result2->fetch_assoc()) {
             array_push($data1, $row);
         }
+        
         array_push($result_set,$data1);
+        $data2 = [];
+        $result3=$this->model->customer_summary_pay($recieved_data['month'],$recieved_data['year'],$_SESSION['userid']);
+        while ($row = $result3->fetch_assoc()) {
+            array_push($data2, $row);
+        }
 
 
+        array_push($result_set,$data2);
 
 
         echo json_encode($result_set);
@@ -132,18 +139,27 @@ class reports extends controller
 
 
         
-        // $result3=$this->model->fill_graph_sum_del( $recieved_data['year'],$userid);
-        // $data2 = [];
-        // while ($row = $result2->fetch_assoc()) {
-        //     array_push($data2, $row);
-        // }
-        // array_push($result_set,$data2);
+        $result3=$this->model->fill_graph_sum_table($recieved_data['year'],$userid);
+        $data3=[];
+        while ($row = $result3->fetch_assoc()) {
+            array_push($data3, $row);
+        }
+        array_push($result_set,$data3);
 
-
+        $result4=$this->model->fill_graph_sum_table_return($recieved_data['year'],$userid);
+        $data4=[];
+        while ($row = $result4->fetch_assoc()) {
+            array_push($data4, $row);
+        }
+        array_push($result_set,$data4);
         
 
-        
-
+        $result5=$this->model->fill_graph_sum_table_payment($recieved_data['year'],$userid);
+        $data5=[];
+        while ($row = $result5->fetch_assoc()) {
+            array_push($data5, $row);
+        }
+        array_push($result_set,$data5);
 
 
       
@@ -180,12 +196,18 @@ class reports extends controller
 
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
+        $data_set=[];
 
        $this->model('report_model');
-       $this->model->sales_summary_year($recieved_data['year']);
+       $result1=$this->model->sales_summary_year_cards($recieved_data['year']);
+       array_push($data_set,$result1);
+        $result=$this->model->sales_summary_year($recieved_data['year']);
+array_push($data_set,$result);
 
 
-    echo json_encode($recieved_data);
+
+
+    echo json_encode($data_set);
         exit;
 
 
@@ -197,16 +219,38 @@ class reports extends controller
     public function return_month(){
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
-
+$resultArray=[];
        $this->model('report_model');
-       $this->model->return_month($recieved_data['year'],$recieved_data['month']);
+       $rescards=$this->model->return_month_cards($recieved_data['year'],$recieved_data['month']);
+       array_push($resultArray,$rescards);
+       $result=$this->model->return_month($recieved_data['year'],$recieved_data['month']);
+       $data=[];
 
+       while ($row = $result->fetch_assoc()) {
+        array_push($data, $row);
+    }
+array_push($resultArray,$data);
 
-    echo json_encode($recieved_data);
+    echo json_encode($resultArray);
         exit;
 
+        // SELECT extract(month from delivery.date), sum(orders.amount) as sales FROM orders,delivery where orders.order_id = delivery.order_id and extract(year from delivery.date) = '2021' group by extract(month from delivery.date);
 
+
+        // select extract(month from returns.date),count(return_product.return_id), sum(product.price*return_product.qty) from returns,return_product,product where returns.return_id = return_product.return_id and extract(year from returns.date) and return_product.product_id = product.product_id and extract(year from returns.date) = '2021' group by extract(month from returns.date);
     }
+//sales rep montgy report
+    public function rep_summary_month(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
 
-    
+       $this->model('report_model');
+       $result=$this->model->sales_rep_month($recieved_data['year'],$recieved_data['month']);
+       $data2 = [];
+       while ($row = $result->fetch_assoc()) {
+           array_push($data2, $row);
+       }
+       echo json_encode($data2);
+       exit;
+    }
 }

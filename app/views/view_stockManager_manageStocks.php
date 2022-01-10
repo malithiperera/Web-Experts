@@ -26,9 +26,9 @@
                 <button class="addBtn" onclick="showHideAdd ()"><i class="fas fa-plus"></i></i></button>
                 <button class="removeBtn" onclick="showHideRemove ()"><i class="fas fa-minus"></i></button><br><br>
 
-                <div>
+                <div class="classA">
                     <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()"><i class="fas fa-calendar-check"></i></i></button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()"><i class="fas fa-calendar-check"></i></button>
 
                 </div>
 
@@ -60,11 +60,11 @@
 
             <div class="div_newPrice" id="newPrice">
                 <label class="label_newPrice" for="newPrice">New Price</label>
-                <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="Rs.">
+                <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="">
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
-                <button class="btn_update" onclick="showHideNewPrice ()">Update</button>
+                <button class="btn_update">Update</button>
 
             </div>
 
@@ -199,6 +199,38 @@
                 });
         }
         fillRepItemsTable();
+    </script>
+
+    <script>
+        var btnUpdate = document.querySelector(".btn_update")
+        // var productId = '<?php echo $_GET['product_id']; ?>'
+        var newPrice = document.querySelector(".input_newPrice")
+
+        btnUpdate.addEventListener("click", () => {
+            var productId = '<?php echo $_GET['product_id']; ?>'
+            let dataSet = {
+                productId: productId,
+                newPrice: newPrice.value
+
+            }
+            console.log(dataSet)
+            fetch('http://localhost/web-Experts/public/stockManager/updatePrice_con', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+                    body: JSON.stringify(dataSet)
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+
+                })
+            // console.log (dataSet)
+
+        })
     </script>
 
 </body>

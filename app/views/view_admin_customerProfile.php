@@ -475,14 +475,16 @@ if (!isset($_SESSION['username'])) {
         }
 
         .change_credit_time {
-            margin-left: 210px;
+            margin-left: 200px;
             margin-top: 5px;
             width: 300px;
-            height: 200px;
+            /* height: 200px; */
             background-color: white;
             border: 1px solid black;
             color: black;
-            /* display: none; */
+            text-align: center;
+            padding: 10px;
+            display: none;
         }
 
         .change_credit_time p,
@@ -506,16 +508,19 @@ if (!isset($_SESSION['username'])) {
             color: white;
             background-color: #184A78;
         }
-        #current_credit_period{
-            margin-left:20px;
+
+        #current_credit_period {
+            /* margin-left:20px; */
             margin-top: 10px;
         }
-        #new_credit_time_p{
-            margin-left:40px;
+
+        #new_credit_time_p {
+            /* margin-left:40px; */
             margin-top: 10px;
         }
-        #new_credit_time_input{
-            margin-left:110px;
+
+        #new_credit_time_input {
+            /* margin-left:110px; */
             height: 20px;
             margin-top: 10px;
             width: 50px;
@@ -572,24 +577,17 @@ if (!isset($_SESSION['username'])) {
             </div>
             <div class="div1">
                 <div class="credit"><label for="">Credit Period</label>
-                    <input type="text" value="2 weeks" id="credit" readonly>
+                 
+                    <input type="text" value="2 weeks" id="credit" class="credit_input" readonly>
                     <button id="cred"><i class="fas fa-pen"></i>Change</button>
+
+                    <!-- popup message to credit time change -->
                     <div class="change_credit_time">
-                        <p id="current_credit_period">Current Credit Period : </p>
-
-                        <p id="new_credit_time_p">New Credit Period(weeks) </p>
-                        <input type="text" id="new_credit_time_input">
-
-
-                        <div class="buttons">
-                            <button id="change_btn" onclick="change_credit_period()">change</button>
-                            <button id="change_btn" onclick="cancel_window()">cancel</button>
-                        </div>
-
+                       
                     </div>
                 </div>
 
-
+                <!-- buttons for more options -->
                 <div>
                     <button id='send_warn' class="warn"><i class="fas fa-envelope-open-text" onclick="popup_message('.popup_update_status')"></i>Send Messege</button>
 
@@ -742,6 +740,10 @@ if (!isset($_SESSION['username'])) {
 
             //credit period
             credit_period = document.getElementById('credit');
+            credit_input = document.querySelector('.credit_input');
+
+            //button to change credit period pop up
+            popup_change_credit_period = document.getElementById('cred');
 
             //access cards from js
             route = document.querySelector('.route_card');
@@ -752,10 +754,55 @@ if (!isset($_SESSION['username'])) {
             credit_period = document.querySelector('.credit_period_card');
 
             //in change credit period popup
-            current_credit_period = document.getElementById('current_credit_period');
+            let current_credit_period = document.createElement('P');
+            current_credit_period.id = "current_credit_period";
+
+            let new_credit_time_p = document.createElement('P');
+            new_credit_time_p.id = "new_credit_time_p";
+
+            let new_credit_time_input = document.createElement('INPUT');
+            new_credit_time_input.id = "new_credit_time_input";
+
+            let buttons = document.createElement('P');
+            buttons.classList.add("buttons");
+
+            let change = document.createElement("BUTTON");
+            change.setAttribute("onclick", "change_credit_period()");
+            change.id = "change_btn";
+
+            let cancel = document.createElement('BUTTON');
+            cancel.setAttribute("onclick", "cancel_window()");
+            cancel.id = "change_btn";
+
+            //html elements that want to change credit time
+            change_credit_time = document.querySelector('.change_credit_time');
 
             // assign cus id to js variable
             let cus_id = '<?php echo $this->cus_id; ?>';
+
+            //load change credit time popup
+            const load_change_credit_time_popup = () => {
+                
+                change_credit_time.innerHTML = ``;
+
+                current_credit_period.innerHTML = `Current Credit Period : `;
+                change_credit_time.appendChild(current_credit_period);
+
+                new_credit_time_p.innerHTML = `New Credit Period(weeks) `;
+                change_credit_time.appendChild(new_credit_time_p);
+
+                change_credit_time.appendChild(new_credit_time_input);
+
+                change_credit_time.appendChild(buttons);
+
+                change.innerHTML = `change`;
+                cancel.innerHTML = `cancel`;
+
+                buttons.appendChild(change);
+                buttons.appendChild(cancel);
+            }
+
+            load_change_credit_time_popup();
 
             //    load page function
             const load_page = (cus_id) => {
@@ -779,7 +826,7 @@ if (!isset($_SESSION['username'])) {
                         address.innerHTML = `${data['address']}`;
 
                         //fill credit period
-                        credit_period.value = `${data['credit_time']} weeks`;
+                        credit_input.value = `${data['credit_time']} weeks`;
 
                         //fill cards
                         route.innerHTML = `${data['route_name']}`;
@@ -797,42 +844,86 @@ if (!isset($_SESSION['username'])) {
             // run load page function
             load_page(cus_id);
 
+            //to pop up the change credit period div
+            popup_change_credit_period.addEventListener("click", () => {
+                change_credit_time.style.display = "block";
+                load_change_credit_time_popup();
 
-            //html elements that want to change credit time
-            new_credit_time_input = document.getElementById('new_credit_time_input');
-            change_credit_time = document.querySelector('.change_credit_time');
+            });
+
+            //created yes no buttons on confirm credit period
+            let yes = document.createElement("BUTTON");
+            let no = document.createElement("BUTTON");
+
 
             //confirmation msg to change credit time
             const confirm_change = () => {
-                // change_credit_time.innerHTML = `confirm the change`;
-                let buttons_confirm = document.createAttribute('DIV');
+
+                let new_time = new_credit_time_input.value;
+
+                change_credit_time.innerHTML = `Are you sure to change credit time to ${new_time} weeks?`;
+                let buttons_confirm = document.createElement('DIV');
                 buttons_confirm.classList.add("buttons");
 
-                let yes = document.createAttribute("BUTTON");
-                let no = document.createAttribute("BUTTON");
+                change_credit_time.appendChild(buttons_confirm);
+                buttons_confirm.appendChild(yes);
+                buttons_confirm.appendChild(no);
 
                 yes.innerHTML = `YES`;
                 no.innerHTML = `NO`;
             }
 
             //change credit period
-            const change_credit_period = () =>{
-                console.log('pressed the change button : '+new_credit_time_input.value);
-                confirm_change(); 
-                
+            const change_credit_period = () => {
+                console.log('pressed the change button : ' + new_credit_time_input.value);
+                confirm_change();
+
             }
 
             //cancel the window
             const cancel_window = () => {
                 console.log('pressed the cancel button');
+
+                change_credit_time.style.display = "none";
             }
+
+            yes.addEventListener("click", () => {
+                console.log("confirmed");
+
+                let data_set = {
+                    cus_id: cus_id,
+                    new_time: new_credit_time_input.value
+                }
+                fetch('http://localhost/web-Experts/public/admin/change_credit_time', {
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type': 'application/json'
+
+                        },
+
+                        body: JSON.stringify(data_set)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+
+                        //to refresh with new credit time
+                        if (data[1] == true) {
+                            load_page(cus_id);
+                        }
+                    });
+
+                    change_credit_time.style.display = "none";
+            });
+
+            no.addEventListener('click', () => {
+                console.log('not confirmed');
+
+                change_credit_time.style.display = "none";
+            });
+            
         </script>
-
-
-
-
-
-
 </body>
 
 </html>

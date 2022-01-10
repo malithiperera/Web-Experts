@@ -72,7 +72,7 @@ if (!isset($_SESSION['username'])) {
             padding: 30px;
         }
 
-        
+
 
         html::-webkit-scrollbar {
             width: .8rem;
@@ -323,7 +323,7 @@ if (!isset($_SESSION['username'])) {
          <span class="tooltip">Search</span>
       </li> -->
             <li>
-                <a href="#">
+                <a href="../customer/home">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
@@ -388,9 +388,7 @@ if (!isset($_SESSION['username'])) {
 
     <section class="home-section">
 
-        <div class="header">
-            <?php require 'view_headertype2.php'; ?>
-        </div>
+      
         <div class="container">
 
             <div class="subcontainer">
@@ -621,11 +619,21 @@ if (!isset($_SESSION['username'])) {
                     let table_cell = table_info.rows.item(i).cells;
                     table_data[i - 1] = new Array(table_cell.length);
                     for (j = 0; j < table_cell.length; j++) {
-                        table_data[i - 1][j] = table_cell.item(j).innerHTML;
+                        if(j==3){
+                            
+                        table_data[i - 1][j]=table_cell.item(j).children[0].value;
+                        }
+
+                        else{
+                            table_data[i - 1][j] = table_cell.item(j).innerHTML;
+                        }
+                       
+                        console.log(table_data[i - 1][j])
+                       
                     }
 
                 }
-
+                console.log(table_data);
 
             }
             if (new_product.rows.length == 0) {
@@ -647,7 +655,7 @@ if (!isset($_SESSION['username'])) {
                 route_id: route_id_obj,
                 table: table_data
             };
-
+console.log(data_set);
 
             fetch('http://localhost/web-Experts/public/customer/place_order', {
                     method: 'POST',

@@ -46,6 +46,7 @@ window.onclick = function(event) {
   // Called when user completed the payment. It can be a successful payment or failure
   payhere.onCompleted = function onCompleted(orderId) {
         console.log("Payment completed. OrderID:" + orderId);
+        update_database(orderId);
         //Note: validate the payment and show success or failure page to the customer
     };
 
@@ -68,9 +69,9 @@ window.onclick = function(event) {
         "return_url": undefined,     // Important
         "cancel_url": undefined,     // Important
         "notify_url": "http://sample.com/notify",
-        "order_id": "ItemNo12345",
-        "items": "Door bell wireles",
-        "amount": "1000.00",
+        
+        "items": "order",
+       
         "currency": "LKR",
         "first_name": "Saman",
         "last_name": "Perera",
@@ -83,16 +84,33 @@ window.onclick = function(event) {
         "delivery_city": "Kalutara",
         "delivery_country": "Sri Lanka",
         "custom_1": "",
-        "custom_2": ""
+        "custom_2": "",
+       
     };
 
-    // //Show the payhere.js popup, when "PayHere Pay" is clicked
-    // document.getElementById('payhere-payment').onclick = function (e) {
-    //     payhere.startPayment(payment);
-    // };
+function update_database(orderId){
+console.log('jii')
+  fetch('http://localhost/web-Experts/public/payment/online_payments',{
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json'
 
- function pay_here_fun()
-{
-  payhere.startPayment(payment);
+    },
+
+    body: JSON.stringify(orderId)
+
+  }
+
+  )
+
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+
+  });
+
+
+
 }
+
 

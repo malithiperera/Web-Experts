@@ -2,11 +2,12 @@
 session_start();
 if (!isset($_SESSION['username'])) {
   header("Location:http://localhost/web-Experts/public/login/index");
+    header("Location:http://localhost/web-Experts/public/login/index");
 }
 ?>
 
 <!DOCTYPE html>
-
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
 
 <head>
@@ -14,7 +15,7 @@ if (!isset($_SESSION['username'])) {
   <title>Home </title>
   <link rel="stylesheet" href="../../public/styles/view_all_notification.css">
 
-
+  <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
@@ -172,14 +173,8 @@ if (!isset($_SESSION['username'])) {
           temp_type = data['notification_type'];
           if (temp_type == 1) {
             my_notification.product_addition(data['product_id']);
-          } else if (temp_type == 2) {
-            my_notification.confirm_delivery(data['delivery_id']);
-          } else if (temp_type == 4) {
-            my_notification.request_credit_period(data['req_id']);
-          } else if (temp_type == 5) {
-            my_notification.add_returns(data['return_id']);
-          } else if (temp_type == 6) {
-            my_notification.stock_crashes(data['issue_id']);
+          } else if (temp_type == 20) {
+            my_notification.rep_request(data['issue_id']);
           }
         });
       all_notifications.style.display = "none";

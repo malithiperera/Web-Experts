@@ -11,7 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+        .pop-up-div {
+            width: 100%;
+            height: 800px;
+            background-color: #fff;
 
+            position: absolute;
+            top: 0;
+            z-index: 10000;
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,11 +55,14 @@
                 <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Notification</span>
-                </a>
-                <span class="tooltip">Notification</span>
+                <a href="../stockManager/notification">
+
+                    <a href="../stockManager/moveToNotificationPage">
+
+                        <i class='bx bx-chat'></i>
+                        <span class="links_name">Notification</span>
+                    </a>
+                    <span class="tooltip">Notification</span>
             </li>
             <li>
                 <a href="#">
@@ -94,7 +108,7 @@
                     <p class="value_catogories"></p>
                 </div>
                 <div class="div_repRequests">
-                    <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p>
+                    <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p> <!-- ../stockManager/viewList -->
                     <p class="value_repRequests"></p>
                 </div>
 
@@ -130,7 +144,9 @@
             <a href="../stockManager/add_product"><button class="add">Add</button><br></a>
 
         </div>
-
+        <div class="pop-up-div">
+            <?php require 'view_stockManager_requestedRepList.php'; ?>
+        </div>
     </section>
 
 
@@ -231,6 +247,7 @@
                 });
         }
         fillNoOfCategories();
+        
     </script>
 
     <script>
@@ -241,13 +258,15 @@
                 .then(response => response.json())
                 .then(data => {
                     noOfRepRequests.innerHTML = `
-                        <p class="value_repRequests">${data}</p>
+                        <p class="value_repRequests">${data['reqCount']}</p>
 
                     `;
                     console.log(data);
 
                 })
         }
+        fillNoOfRepRequests ()
+
     </script>
 
 </body>

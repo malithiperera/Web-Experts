@@ -45,7 +45,16 @@ public function save_profile(){
     
 }
 
+public function changepassword(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
 
+// $this->model('profile_model');
+// $this->model->changepassword()
+echo json_encode($get_data);
+exit;
+
+}
 
 
 
