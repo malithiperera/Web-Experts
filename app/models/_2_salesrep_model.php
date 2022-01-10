@@ -86,6 +86,7 @@ class _2_salesrep_model extends model
     public function insert_chequePayment($order_id, $total, $date)
     {
         require '../app/core/database.php';
+        
         //insert query
         $sql = "INSERT INTO payment (amount, order_id, date,type,delivery_id,time)
         VALUES ('$total','$order_id','$date','cheque','1',CURDATE())";
