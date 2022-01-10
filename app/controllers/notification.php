@@ -245,8 +245,10 @@ class notification extends controller
         $this->model('notification_model');
         $delivery = $this->model->inform_delivery($get_data, $_SESSION['userid']);
 
-        $result=$this->model->insert_inform_delivery($delivery['LAST_INSERT_ID()'],$_SESSION['userid'],$get_data );
-        echo json_encode($result);
+        $result=$this->model->insert_inform_delivery($delivery[1]['LAST_INSERT_ID()'],$_SESSION['userid'],$get_data );
+        //reduce stock
+        $result_stock=$this->model->reduce_products($get_data,$delivery[0]);
+        echo json_encode($result_stock);
         exit;
     }
 

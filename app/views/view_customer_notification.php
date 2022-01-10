@@ -64,6 +64,16 @@ if (!isset($_SESSION['username'])) {
      font-size: 20px;
      padding: 10px;
    }
+
+   .pop-up{
+     width: 80%;
+     height: 800px;
+     background-color: red;
+     top: 10px;
+     position: fixed;
+     z-index: 1000;
+     visibility: hidden;
+   }
   </style>
 
 </head>
@@ -169,6 +179,9 @@ if (!isset($_SESSION['username'])) {
       <?php require_once 'view_all_notification_view.php'; ?>
     </div>
 
+    <div class="pop-up">
+
+    </div>
 
   </section>
 

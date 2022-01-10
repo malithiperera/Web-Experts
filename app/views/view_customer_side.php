@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <title>Customer Home </title>
   <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
-
+  
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -119,23 +119,8 @@
 .sidebar.open li .tooltip{
   display: none;
 }
-.sidebar input{
-  font-size: 15px;
-  color: #FFF;
-  font-weight: 400;
-  outline: none;
-  height: 50px;
-  width: 100%;
-  width: 50px;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  background: #1d1b31;
-}
-.sidebar.open input{
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
+
+
 .sidebar .bx-search{
   position: absolute;
   top: 50%;
@@ -403,16 +388,7 @@ th, td {
     padding: 10px;
 
 }
-/* .add {                                  add button */
-    /* position: inherit;
-    left: 10%; */
-    /* bottom: 0%; */
-    /* color: #FFF;
-    border-radius: 10px;
-    background-color: rgb(70, 24, 196);
-    border-color:  #2277B2;
 
-} */
 button {
     font-size: large;
     background-color: #2277B2;
@@ -453,11 +429,7 @@ a {
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-      <!-- <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li> -->
+    
       <li>
         <a href="#">
           <i class='bx bx-home'></i>
@@ -523,4 +495,49 @@ a {
   </div>
 
 </body>
+<script>
+  let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+let searchBtn = document.querySelector(".bx-search");
+
+closeBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("open");
+  menuBtnChange();//calling the function(optional)
+});
+
+// searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+//   sidebar.classList.toggle("open");
+//   menuBtnChange(); //calling the function(optional)
+// });
+
+// following are the code to change sidebar button(optional)
+function menuBtnChange() {
+ if(sidebar.classList.contains("open")){
+   closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+ }else {
+   closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+ }
+}
+
+function pop_func()
+{
+  
+  let blur = document.querySelector(".home-section");
+ 
+// blur.classList.toggle('active');
+
+let pop_up=document.querySelector(".pop-up");
+
+pop_up.style.visibility="visible";
+blur.style.opacity="0.3";
+
+window.onclick = function(event) {
+  if (event.target == pop_up) {
+      pop_up.style.visibility = "hidden";
+      // sidebar.style.opacity = "100%";
+      blur.style.opacity = "100%";
+  }
+}
+}
+</script>
 </html>

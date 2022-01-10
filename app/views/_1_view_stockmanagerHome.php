@@ -20,6 +20,7 @@
             position: absolute;
             top: 0;
             z-index: 10000;
+            visibility: hidden;
         }
     </style>
 </head>

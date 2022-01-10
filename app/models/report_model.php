@@ -148,7 +148,7 @@ class report_model extends model
         array_push($result, $result1->fetch_assoc());
 
 
-        $sql2 = "SELECT COUNT(DISTINCT(delivery_id)) AS count_delivery FROM delivery where  year(date)=$year";
+        $sql2 = "SELECT COUNT(DISTINCT(order_id)) AS count_delivery FROM orders where  year(date)=$year AND status='delivered';";
         $result2 = mysqli_query($conn, $sql2);
         array_push($result, $result2->fetch_assoc());
 
@@ -174,10 +174,15 @@ class report_model extends model
         while ($row = $result1->fetch_assoc()) {
             array_push($data1, $row);
         }
-
-        $sql2="";
-
-        return $data1;
+array_push($result_set,$data1);
+        $data2=[];
+        $sql2="SELECT extract(month from orders.date) as date,sum(orders.amount) as data from orders WHERE year(date)='$year' and status='delivered' GROUP BY extract(month from orders.date)";
+        $result2 = mysqli_query($conn, $sql2);
+        while ($row = $result2->fetch_assoc()) {
+            array_push($data2, $row);
+        }
+        array_push($result_set,$data2);
+        return $result_set;
         
 
 
