@@ -21,6 +21,8 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
+<!-- START SIDE BAR -->
+
   <div class="sidebar">
     <div class="logo-details">
 
@@ -117,9 +119,18 @@ if (!isset($_SESSION['username'])) {
       </li>
     </ul>
   </div>
+
+<!-- END SIDE BAR -->
+
+<!-- ADD HEADER -->
+
   <div class="header">
     <?php require 'view_headertype2.php'; ?>
   </div>
+
+
+<!-- START CARD SECTION -->
+
   <section class="home-section">
 
     <section class="cards-section">
@@ -153,7 +164,14 @@ if (!isset($_SESSION['username'])) {
 
       </div>
     </section>
+
+<!-- END CARD SECTION -->
+
+
     <h2>ORDERS</h2>
+
+<!-- ORDERS TABLE -->
+
     <div class="table-wrapper">
       <table class="fl-table">
         <thead>
