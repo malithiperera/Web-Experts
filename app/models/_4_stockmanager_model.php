@@ -48,7 +48,7 @@ class _4_stockmanager_model extends model
     }
     public function fillNoOfRepRequests_mod() {
         require '../app/core/database.php';
-        $sql = "";
+        $sql = "SELECT COUNT(rep_id) AS reqCount FROM product_issue WHERE date=CURRENT_DATE";
         $result = mysqli_query ($conn, $sql);
         return $result;
 

@@ -56,9 +56,9 @@
             </li>
             <li>
                 <a href="../stockManager/notification">
-                    
+
                     <a href="../stockManager/moveToNotificationPage">
-                       
+
                         <i class='bx bx-chat'></i>
                         <span class="links_name">Notification</span>
                     </a>
@@ -145,8 +145,7 @@
 
         </div>
         <div class="pop-up-div">
-<?php require 'view_stockManager_requestedRepList.php';
- ?>
+            <?php require 'view_stockManager_requestedRepList.php'; ?>
         </div>
     </section>
 
@@ -248,6 +247,7 @@
                 });
         }
         fillNoOfCategories();
+        
     </script>
 
     <script>
@@ -258,13 +258,15 @@
                 .then(response => response.json())
                 .then(data => {
                     noOfRepRequests.innerHTML = `
-                        <p class="value_repRequests">${data}</p>
+                        <p class="value_repRequests">${data['reqCount']}</p>
 
                     `;
                     console.log(data);
 
                 })
         }
+        fillNoOfRepRequests ()
+
     </script>
 
 </body>
