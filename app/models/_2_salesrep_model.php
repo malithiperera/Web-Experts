@@ -33,17 +33,6 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-
-    // public function delivered()
-    // {
-    //     require '../app/core/database.php';
-    //     $sql = "SELECT order_id, date, amount FROM orders WHERE status='D'";
-    //     $result = $conn->query($sql);
-    //     return $result;
-    // }
-    
-    // CASH,CHEQUE PAYMENT ORDER SELECT DROP DOWN
-
     public function select_order()
     {
         require '../app/core/database.php';
