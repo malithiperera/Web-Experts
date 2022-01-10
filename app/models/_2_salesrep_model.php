@@ -36,7 +36,7 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-    
+
     public function select_order()
     {
         require '../app/core/database.php';
@@ -80,6 +80,7 @@ class _2_salesrep_model extends model
         };
     }
 
+
     // INSERT CHEQUE PAYMENT
 
     public function insert_chequePayment($order_id, $total, $date)
@@ -97,6 +98,8 @@ class _2_salesrep_model extends model
         };
     }
 
+    // DAILY PRODUCT LIST
+
     public function daily_productList()
     {
         require '../app/core/database.php';
@@ -104,6 +107,8 @@ class _2_salesrep_model extends model
         $result = $conn->query($sql);
         return $result;
     }
+
+
     public function get_orders_data()
     {
         require '../app/core/database.php';
@@ -115,7 +120,8 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-    //get order product of particular route
+    //GET ORDER PRODUCT FOR PATICULAR ROUTE
+
     public function get_order_products($route_id){
         require '../app/core/database.php';
 
@@ -130,6 +136,8 @@ class _2_salesrep_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    //GET HOME CARDS
 
     function get_home_cards($userid)
     {
@@ -167,7 +175,8 @@ class _2_salesrep_model extends model
 
     }
 
-    #rep achievements
+    //REP ACHIVEMENTS
+
     function target($userid)
     {
         require '../app/core/database.php';
@@ -179,7 +188,8 @@ class _2_salesrep_model extends model
 
     }
 
-    //search customer
+    //SEARCH CUSTOMER
+
     public function search_customer($cus_id){
         require '../app/core/database.php';
 
@@ -189,7 +199,8 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-    //get data for charts in rep achievements
+    //GET DATA FOR CHARTS IN REP ACHIEVEMENTS
+
     public function achievements($userid){
 
         require '../app/core/database.php';
