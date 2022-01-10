@@ -112,6 +112,12 @@ class notification extends controller
                     $subject = "Credit Request Rejected";
                     break;
 
+                case 15:
+                        // $detail = $this->model->change_target($row['rep_id']);
+                        // $rep_details = $detail->fetch_assoc();
+                        $subject = "Rep Target changed";
+                        break;
+
                 default:
                     $subject = 'subject';
             }
@@ -151,6 +157,19 @@ class notification extends controller
 
         $this->model('notification_model');
         $result = $this->model->product_addition($get_data);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+    }
+
+    // notifications about rep target change
+    public function change_target()
+    {
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('notification_model');
+        $result = $this->model->change_target($get_data);
 
         echo json_encode($result->fetch_assoc());
         exit;

@@ -16,8 +16,7 @@ if (!isset($_SESSION['username'])) {
   <link rel="stylesheet" href="../../public/styles/view_rep_customerHome.css">
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -80,8 +79,8 @@ if (!isset($_SESSION['username'])) {
     </ul>
   </div>
   <div class="header">
-      <?php require 'view_headertype2.php'; ?>
-    </div>
+    <?php require 'view_headertype2.php'; ?>
+  </div>
   <section class="home-section">
     <section class="cards-section">
       <div class="cards">
@@ -112,28 +111,27 @@ if (!isset($_SESSION['username'])) {
             <th>Order ID</th>
             <th>Order Date</th>
             <th>Amount</th>
-            <th >Pay Now</th>
+            <th>Pay Now</th>
 
           </tr>
         </thead>
         <?php
-        if($this->result->num_rows>0){
-          while($row=$this->result->fetch_assoc()){
-            if($row['status']=="D"){
-            echo"<tr>
-                    <td>".$row['order_id']."</td>
-                    <td>".$row['date']."</td>
-                    <td>".$row['amount']."</td>
+        if ($this->result->num_rows > 0) {
+          while ($row = $this->result->fetch_assoc()) {
+            if ($row['status'] == "D") {
+              echo "<tr>
+                    <td>" . $row['order_id'] . "</td>
+                    <td>" . $row['date'] . "</td>
+                    <td>" . $row['amount'] . "</td>
                     <td><button onclick=\"location.href='../salesRep/cashPayment';\">Cash</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick=\"location.href='../salesRep/chequePayment';\">Cheque</button></td>
                     
         </tr>";
             }
-
-            }
           }
-        
-      ?>
-        
+        }
+
+        ?>
+
       </table>
     </div>
     <h2>NOT DELIVERED</h2>
@@ -148,24 +146,43 @@ if (!isset($_SESSION['username'])) {
           </tr>
         </thead>
         <?php
-        if($this->result1->num_rows>0){
-          while($row=$this->result1->fetch_assoc()){
-            if($row['status']=="not-delivered"){
-            echo"<tr>
-                    <td>".$row['order_id']."</td>
-                    <td>".$row['date']."</td>
-                    <td>".$row['amount']."</td>
+        if ($this->result1->num_rows > 0) {
+          while ($row = $this->result1->fetch_assoc()) {
+            if ($row['status'] == "not-delivered") {
+              echo "<tr>
+                    <td>" . $row['order_id'] . "</td>
+                    <td>" . $row['date'] . "</td>
+                    <td>" . $row['amount'] . "</td>
                   </tr>";
-          }
+            }
           }
         }
-      ?>
-       
+        ?>
+
       </table>
     </div>
     <div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>
 
     <script src="../../public/java script/view_rep_Home.js"></script>
+
+    <script>
+      let cus_id = '<?php $_GET['cus_id'] ?>';
+
+      fetch('http://localhost/web-Experts/public/salesRep/search_customer', {
+          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+         
+          headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        });
+    </script>
 
 
 </body>

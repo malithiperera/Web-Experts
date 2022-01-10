@@ -65,7 +65,7 @@ class notification{
       
                 //choose subject and message according to the notification type
       
-                for (let i = 0; i < num_of_rows; i++) {
+                for (let i = 0; i < data.length; i++) {
       
                   this.subcontainer2.innerHTML += `
       
@@ -152,7 +152,36 @@ class notification{
         }
 
        
+        change_target(user_id){
+          fetch('http://localhost/web-Experts/public/notification/change_target', {
+                    method: 'POST',
 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(user_id)
+                })
+                .then(response => response.json())
+                .then(data => {
+                  console.log(user_id)
+
+                  
+                    this.notification_subcontainer.innerHTML = ``;
+
+                    //fill subject for the notification
+                    this.subject.innerHTML += `Rep target changed`;
+
+                    //div element for message
+                    this.notification_subcontainer.innerHTML = ``;
+                    let message_div = document.createElement('div');
+                    message_div.className = "message_div";
+                    this.notification_subcontainer.appendChild(message_div);
+
+                    message_div.innerHTML = `The company has change the current target of the sales rep with rep id `;
+
+                   
+                });
+        }
 
         product_addition(product_id){
          
@@ -185,7 +214,6 @@ class notification{
                                             is ${data['price']}. And you can buy it with ${data['discount']}%. 
                                             ${data['product_name']} has ${data['description']}.You can buy ${data['product_name']}
                                             any our branch through our sales reps.`;
-
                     //div element for image
                     let image_div = document.createElement('div');
                     image_div.className = "image_div";
@@ -196,7 +224,6 @@ class notification{
                     image.className = "product_image";
                     image_div.appendChild(image);
                     image.src = '../../public/images/uploads/' + data['image'];
-
                    
                 });
         }

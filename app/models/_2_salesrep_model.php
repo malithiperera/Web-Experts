@@ -185,5 +185,38 @@ class _2_salesrep_model extends model
         return $result;
 
     }
+
+    //search customer
+    public function search_customer($cus_id){
+        require '../app/core/database.php';
+
+        $sql = "select * from customer where cus_id = '$cus_id' or shop_name = '$cus_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
+    //get data for charts in rep achievements
+    public function achievements($userid){
+
+        require '../app/core/database.php';
+
+        $result = array();
+
+        $sql1 ="SELECT sum(orders.amount) AS achieved from route,orders 
+        where route.route_id = orders.route_id 
+        and 
+        route.rep_id = '$userid' 
+        and 
+        month(orders.date) =   month(CURRENT_DATE)";
+        $result1 = mysqli_query($conn, $sql1);
+        array_push($result, $result1->fetch_assoc());
+
+        $sql2 = "SELECT target AS tar FROM sales_rep WHERE rep_id='$userid'";
+        $result2 = mysqli_query($conn, $sql2);
+        array_push($result, $result2->fetch_assoc());
+
+        return $result;
+    }
     
 }

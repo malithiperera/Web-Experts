@@ -1,7 +1,7 @@
 <?php session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("Location:http://localhost/web-Experts/public/login/index");
+  header("Location:http://localhost/web-Experts/public/login/index");
 }
 
 ?>
@@ -15,8 +15,7 @@ if (!isset($_SESSION['username'])) {
   <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -43,14 +42,14 @@ if (!isset($_SESSION['username'])) {
         </a>
         <!-- <span class="tooltip">Customer Profile</span> -->
         <div class="form-popup" id="myForm">
-          <form action="../salesRep/customer_home" class="form-container">
+          <div class="form-container">
 
             <label for="cus_id"><b>Enter Customer ID</b></label>
-            <input type="text" placeholder="Enter ID" name="cus_id" required>
+            <input type="text" placeholder="Enter ID" id="searchCus_cusId" required>
 
-            <button type="submit" class="btn" src=>Search</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-          </form>
+            <button class="btn" onclick="searchRep()">Search</button>
+            <button class="btn cancel" onclick="closeForm()">Close</button>
+          </div>
         </div>
       </li>
       <li>
@@ -119,12 +118,12 @@ if (!isset($_SESSION['username'])) {
     </ul>
   </div>
   <div class="header">
-      <?php require 'view_headertype2.php'; ?>
-    </div>
+    <?php require 'view_headertype2.php'; ?>
+  </div>
   <section class="home-section">
-  
+
     <section class="cards-section">
-    <div class="top">
+      <div class="top">
         <div class="card-1">
           <p><i class="fas fa-user-tie"></i><br>Rep Id</p>
           <p id="top-detail-1"><?php echo $_SESSION['userid'];  ?></p>
@@ -166,8 +165,8 @@ if (!isset($_SESSION['username'])) {
           </tr>
         </thead>
         <tbody class="orders">
-      
-     
+
+
         <tbody>
       </table>
     </div>
@@ -175,6 +174,8 @@ if (!isset($_SESSION['username'])) {
 
     <script src="../../public/java script/view_rep_Home.js"></script>
     <script>
+      searchCus_cusId = document.getElementById('searchCus_cusId');
+
       function openForm() {
         document.getElementById("myForm").style.display = "block";
       }
@@ -182,22 +183,41 @@ if (!isset($_SESSION['username'])) {
       function closeForm() {
         document.getElementById("myForm").style.display = "none";
       }
+
+      function searchRep() {
+        let cus_id = searchCus_cusId.value;
+        fetch('http://localhost/web-Experts/public/salesRep/search_customer', {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            
+            headers: {
+              'Content-Type': 'application/json'
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(cus_id)
+          })
+          .then(response => response.json())
+          .then(data => {
+            window.location.href = '../salesRep/customer_home?cus_id='+cus_id;
+            
+          });
+
+      }
     </script>
 
-       <!-- fill table -->
+    <!-- fill table -->
     <script>
       var orders_table = document.querySelector('.orders');
 
       const fill_table = () => {
-        fetch('http://localhost/web-Experts/public/salesRep/fill_home',{
+        fetch('http://localhost/web-Experts/public/salesRep/fill_home', {
 
-        })
-        .then(response => response.json())
-        .then(data=>{
+          })
+          .then(response => response.json())
+          .then(data => {
 
-          for (i = 0; i < data.length; i++) {
-                
-                        orders_table.innerHTML += `
+            for (i = 0; i < data.length; i++) {
+
+              orders_table.innerHTML += `
 
                             <tr >
                                
@@ -211,34 +231,34 @@ if (!isset($_SESSION['username'])) {
                             </tr>
                         
                         `;
-                        
-                    }
-              console.log(data);
-        });
+
+            }
+            console.log(data);
+          });
       }
       fill_table();
     </script>
-  <script>
-    //load cards 
-    function load_cards() {
+    <script>
+      //load cards 
+      function load_cards() {
 
-fetch('http://localhost/web-Experts/public/salesRep/load_card')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    target.innerHTML = data[0][0]['tar'];
-    pro.innerHTML = data[0][1]['count_products'];
-    pen.innerHTML = data[0][2]['Pending'];
-    CusNo.innerHTML = data[0][3]['NoOfCus'];
-    RouteNo.innerHTML = data[0][4]['NoOfRoutes'];
+        fetch('http://localhost/web-Experts/public/salesRep/load_card')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            target.innerHTML = data[0][0]['tar'];
+            pro.innerHTML = data[0][1]['count_products'];
+            pen.innerHTML = data[0][2]['Pending'];
+            CusNo.innerHTML = data[0][3]['NoOfCus'];
+            RouteNo.innerHTML = data[0][4]['NoOfRoutes'];
 
 
 
-  });
-}
+          });
+      }
 
-load_cards();
-  </script>
+      load_cards();
+    </script>
 </body>
 
 </html>
