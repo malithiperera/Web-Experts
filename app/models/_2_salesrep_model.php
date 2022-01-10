@@ -10,6 +10,7 @@ class _2_salesrep_model extends model
         parent::__construct();
     }
 
+    // NOT DELIVERED ORDERS
     public function not_delivered()
     {
         require '../app/core/database.php';
@@ -21,6 +22,8 @@ class _2_salesrep_model extends model
         
         return $result;
     }
+
+    // DELIVERED ORDERS
     public function delivered()
     {
         require '../app/core/database.php';
@@ -33,6 +36,7 @@ class _2_salesrep_model extends model
         return $result;
     }
 
+    
     public function select_order()
     {
         require '../app/core/database.php';
