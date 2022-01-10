@@ -48,6 +48,9 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
+
+<!-- START SIDE BAR -->
+
   <div class="sidebar">
     <div class="logo-details">
 
@@ -114,10 +117,16 @@ if (!isset($_SESSION['username'])) {
     </ul>
   </div>
 
+  <!-- END SIDE BAR -->
+
   <section class="home-section">
+
     <div class="all_notifications">
+
       <button class="back_button_button" onclick="back()"><i class="fas fa-chevron-circle-left fa-2x"></i></button>
+
       <h1>NOTIFICATIONS</h1>
+
       <div class="filter">
         <label for="unread" id="unread_label">Unread</label>
         <input type="checkbox" id="unread">
@@ -126,8 +135,6 @@ if (!isset($_SESSION['username'])) {
       <div class="container">
 
         <div class="subcontainer2">
-
-
 
         </div>
 
@@ -146,10 +153,6 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
-
-
-
   <script src="../../public/java script/side_bar.js"></script>
   <script src="../../public/java script/view_all_notification.js"></script>
   <script defer>
@@ -163,6 +166,7 @@ if (!isset($_SESSION['username'])) {
     my_notification.load_notification('%');
 
     //when click a notification , then render the message
+
     subcontainer2.addEventListener("click", (event) => {
       
       let temp_type;
