@@ -66,13 +66,50 @@ if (!isset($_SESSION['username'])) {
    }
 
    .pop-up{
-     width: 80%;
+     width: 85%;
+     display: flex;
+     justify-content: center;
      height: 800px;
-     background-color: red;
+     background-color: transparent;
      top: 10px;
      position: fixed;
      z-index: 1000;
      visibility: hidden;
+   }
+
+   .success{
+     width: 600px;
+     background-color: #fff;
+     height: 300px;
+     margin-top: 300px;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     padding: 40px;
+     border-radius: 5px;
+     border:2px solid darkblue;
+   }
+   .success button{
+     width: 100px;
+     align-items: center;
+     background-color: darkblue;
+     color: #fff;
+     padding: 10px;
+     border-radius: 5px;
+     border:none;
+     outline: none;
+   }
+   .success h3{
+     text-align: center;
+   }
+   .button-div{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     margin: 10px;
+   }
+   #deli_id{
+     text-align: center;
    }
   </style>
 
@@ -180,7 +217,15 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <div class="pop-up">
-
+<div class="success">
+  <h3>Order Confirm successfully</h3>
+  <h3>Your Deliver ID</h3>
+  <h4 id="deli_id"></h4>
+  <div class="button-div">
+  <button id="button_ok" onclick="close_window()">Okay</button>
+  </div>
+ 
+</div>
     </div>
 
   </section>
@@ -245,6 +290,9 @@ if (!isset($_SESSION['username'])) {
       select_one.style.display = "block";
     });
 
+var del_id=document.getElementById('deli_id');
+var pop_up=document.querySelector('.pop-up');
+
 
     window.onclick = function(event) {
 
@@ -263,6 +311,8 @@ if(event.target.className=='but_confirm'){
         .then(data => {
           
  console.log(data);
+ pop_up.style.visibility="visible";
+ del_id.innerHTML=data;
         
            
         });
@@ -271,7 +321,9 @@ if(event.target.className=='but_confirm'){
 }
     }
 
-    
+    function close_window(){
+      pop_up.style.visibility="hidden";
+    }
   </script>
 
   <script>
