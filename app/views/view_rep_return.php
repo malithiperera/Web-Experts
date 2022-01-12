@@ -52,13 +52,7 @@
         </a>
         <span class="tooltip">Place Order</span>
       </li>
-      <!-- <li>
-        <a href="../salesRep/product_list">
-          <i class="fas fa-clipboard-list"></i>
-          <span class="links_name">Product List</span>
-        </a>
-        <span class="tooltip">Product List</span>
-      </li> -->
+      
       <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>

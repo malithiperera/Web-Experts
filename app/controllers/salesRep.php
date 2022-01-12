@@ -292,5 +292,9 @@ class salesRep extends controller
         $this->view->render('view_rep_achievements');
     }
     
-
+    //CONFIRM ORDER DELIVERY- REP PROFILE
+    public function ConfirmOrder()
+    {
+        
+    }
 }

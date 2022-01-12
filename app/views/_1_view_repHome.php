@@ -242,7 +242,7 @@ if (!isset($_SESSION['username'])) {
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
-                                <td><button id="confirm">Confirm</button></td>
+                                <td><button id="confirm" onclick="orderConfirm()">Confirm</button></td>
                                 
                             
                   
@@ -276,6 +276,14 @@ if (!isset($_SESSION['username'])) {
       }
 
       load_cards();
+    </script>
+
+    <script>
+      //confirm order
+      function orderConfirm(){
+        fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder')
+        
+      }
     </script>
 </body>
 
