@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +42,9 @@
 </style>
 
 <body>
+
+<!-- START SIDE BAR -->
+
 <div class="sidebar">
     <div class="logo-details">
 
@@ -75,13 +84,6 @@
         </a>
         <span class="tooltip">Place Order</span>
       </li>
-      <!-- <li>
-        <a href="../salesRep/product_list">
-          <i class="fas fa-clipboard-list"></i>
-          <span class="links_name">Product List</span>
-        </a>
-        <span class="tooltip">Product List</span>
-      </li> -->
       <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
@@ -132,12 +134,22 @@
       </li>
     </ul>
   </div>
+
+<!-- END SIDE BAR -->
+
+<!-- START HEADER -->
+
     <div class="header">
         <?php
         require 'view_headertype2.php';
         ?>
 
     </div>
+
+<!-- END HEADER -->
+
+
+<!-- START CARD SECTION -->
     
 
     <section class="cards-section">
@@ -146,6 +158,7 @@
                 <p><i class="fas fa-user"></i><br>Rep ID</p>
                 <p class="result"><?php echo $_SESSION['userid'];  ?></p>
             </div>
+
             <div class="card" id="target">
                 <p><i class="fas fa-trophy"></i><br>Target</p>
                 <p class="result" id="target_num"><span id="targetValue"></span></p>
@@ -157,22 +170,21 @@
                 <p id="change_here">change here</p>
             </div>
 
-
-
-            <!-- <div class="card">
-                <p><i class="fas fa-file-alt"></i><br>View Reports</p>
-                <p class="result">Active</p>
-            </div> -->
-
         </div>
     </section>
+
+
+<!-- END CARD SECTION -->
+
+<!-- CHARTS -->
+
     <div class="charts">
         <div class="chart">
-            <canvas id="myChart"></canvas>
+            <div id="piechart" style="width: 500px; height: 500px;"></div>
         </div>
-        <div class="chart1">
-            <canvas id="myChart1"></canvas>
-        </div>
+        <!-- <div class="chart1">
+            <div id="piechart"></div>
+        </div> -->
     </div>
 
 
@@ -214,48 +226,46 @@
             }
         });
     </script>
-    <script>
-        var ctx = document.getElementById('myChart1').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                datasets: [{
-                    label: '# of Sales',
-                    data: [5, 16, 8, 22, 10, 20],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)',
-                        'rgba(75, 192, 192, 0.5)',
-                        'rgba(153, 102, 255, 0.5)',
-                        'rgba(255, 159, 64,0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        fetch('http://localhost/web-Experts/public/salesRep/achievement')
+        .then(response => response.json())
+        
+
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Achieved',     11],
+          ['Remaining',      2],
+  
+        ]);
+
+        var options = {
+          title: 'Monthly Performance'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
     </script>
+
+
+    <!-- END CHARTS -->
+
+    <!-- BACK BUTTON -->
+
     <div><input type="submit" value="Back" id="confirm" onclick="window.location.href='../salesRep/home';"></div>
 
+
+    <!-- CHANGE TARGET OPTION START -->
     <script>
-
-
 
 
         var type = '<?php echo $_SESSION['type']; ?>';
@@ -285,8 +295,13 @@
         
     </script>
 
+    <!-- CHANGE TARGET OPTION END -->
+
+
+<!-- START LOAD CARDS FOR REP ACHIEVEMENTS -->
+
 <script>
-    //load cards 
+    
     function load_cards() {
 
 fetch('http://localhost/web-Experts/public/salesRep/target')
@@ -299,7 +314,27 @@ fetch('http://localhost/web-Experts/public/salesRep/target')
 }
 
 load_cards();
-  </script>
+</script>
+
+<!-- END LOAD CARDS FOR REP ACHIEVEMENTS -->
+
+<!-- START LOAD CHARTS FOR REP ACHIEVEMENTS -->
+
+<script>
+  function achievements(){
+    fetch('http://localhost/web-Experts/public/salesRep/achievement')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      achievedValue.innerHTML = data[0][0]['achieved'];
+
+  });
+  }
+  achievements();
+</script>
+
+<!-- END LOAD CHARTS FOR REP ACHIEVEMENTS -->
+  
 
 <script src="../../public/java script/view_rep_Home.js"></script>
     <script>

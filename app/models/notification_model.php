@@ -39,6 +39,16 @@ class notification_model extends model
         return $result;
     }
 
+    //change Rep target
+    public function change_target($user_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM sales_rep WHERE rep_id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
     //get product details
     public function get_product_details($product_id){
         require '../app/core/database.php';
