@@ -198,15 +198,15 @@ i{
 </head>
 <body>
 <!--Navigation-->
-    <nav>
+    <nav id="nav_id">
       
-        <h1>Himalee Dairy Produts</h1>
+        <h1 id="topic">Himalee Dairy Produts</h1>
         <h3>Everyone Needs Milk. Dairy always a Good Choice</h3>
-        <ul>
+        <ul id="username">
          
             <!-- <li><a href=""><i class="fas fa-arrow-left"></i></a></li> -->
             
-            <li><span><?php echo $_SESSION['username']; ?></span></li>
+            <li><span ><?php echo $_SESSION['username']; ?></span></li>
             
              
             

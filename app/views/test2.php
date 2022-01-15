@@ -387,6 +387,10 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <section class="home-section">
+    <div class="header">
+      <?php  require 'view_headertype2.php'; ?>
+    </div>
+    
 
       
         <div class="container">
