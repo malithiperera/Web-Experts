@@ -56,6 +56,15 @@ exit;
 
 }
 
+public function testmali(){
+    $this->view->render('testmali');
+}
 
-
+public function test(){
+    $get_data=file_get_contents('php://input');
+    $get_data=json_decode($get_data,true);
+    $this->model('profile_model');
+    $result=$this->model->test($get_data);
+    echo json_encode($result);
+}
 }

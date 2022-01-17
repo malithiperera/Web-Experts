@@ -39,6 +39,16 @@ class notification_model extends model
         return $result;
     }
 
+    //change Rep target
+    public function change_target($user_id){
+        require '../app/core/database.php';
+
+        $sql = "SELECT * FROM sales_rep WHERE rep_id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
     //get product details
     public function get_product_details($product_id){
         require '../app/core/database.php';
@@ -294,28 +304,40 @@ return $result_set;
 
     public function inform_delivery($order_id,$user_id){
         require '../app/core/database.php';
+        $repid="SELECT route.rep_id FROM customer,route WHERE customer.route_id=route.route_id and customer.cus_id='$user_id'";
+
+        $data=[];
+       
+        $result_rep=mysqli_query($conn,$repid);
+        $repid_re=$result_rep->fetch_assoc();
+        $rep=$repid_re["rep_id"];
+        array_push($data,$rep);
+
         $sql="UPDATE orders set status='delivered' WHERE order_id='$order_id'";
         $result1=mysqli_query($conn,$sql);
         if($result1==true){
-            // $date=date("Y/m/d");
-            // $t=time();
-            $sql2="INSERT into delivery values('','2021.10.09','19.00.00','23','HR001','$user_id')";
+        $date=date("Y/m/d");
+        date_default_timezone_set("Asia/Colombo");
+        $time=date("h:i:sa");
+            $sql2="INSERT into delivery values('','$date','$time','$order_id','$rep','$user_id','pending','0')";
         
-           $result2=mysqli_query($conn,$sql2);
+         $result2=mysqli_query($conn,$sql2);
         
            if($result2){
                $sql3="SELECT LAST_INSERT_ID()";
                $result3=mysqli_query($conn,$sql3);
-               return $result3->fetch_assoc();
+               $del_index= $result3->fetch_assoc();
+               array_push($data,$del_index);
+               return $data;
+           
            }
            else{
                return 'Jiiiaia';
            }
-        }
-        // else{
-        //     return 'Hiiii';
-        // }
 
+       
+        }
+       
 
 
     }
@@ -349,5 +371,40 @@ return $result_set;
         }
 
         return $data;
+   }
+
+   //reduce stock
+   public function reduce_products($order_id,$rep_id){
+
+    require '../app/core/database.php';
+    $sql=" SELECT product_id,issue_qty from  order_product WHERE order_id=$order_id;";
+    $result2=mysqli_query($conn,$sql);
+    $data=[];
+    while($row2 = $result2->fetch_assoc()){
+        array_push($data, $row2);
+    }
+$sql1="SELECT issue_id FROM product_issue WHERE rep_id='$rep_id' and date=CURRENT_DATE";
+$issue_id=mysqli_query($conn,$sql1)->fetch_assoc();
+$issue_id_en= $issue_id['issue_id'];
+
+
+ for($x=0;$x<sizeof($data);$x++){
+    $pro_id=$data[$x]['product_id'];
+    //get delivered qty
+   $sql="SELECT deliver_qty from product_issue_products where issue_id='$issue_id_en' and product_id='$pro_id'";
+   $result=mysqli_query($conn,$sql);
+   $qty=$result->fetch_assoc();
+
+   //calculate final qty
+   $final_qty=$qty['deliver_qty']-$data[$x]['issue_qty'];
+
+   //update delivered qty 
+   $sql1="UPDATE product_issue_products SET deliver_qty='$final_qty' where issue_id='$issue_id_en' and product_id='$pro_id' ";
+   $result1=mysqli_query($conn,$sql1);
+   
+
+  
+ }
+return $result1;
    }
 }

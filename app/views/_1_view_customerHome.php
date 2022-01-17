@@ -44,15 +44,11 @@ if (!isset($_SESSION['username'])) {
   <div class="sidebar">
     <div class="logo-details">
 
-      <div class="logo_name">H</div>
+    <div class="logo_name">Himalee Dairy Products</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-      <!-- <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li> -->
+     
       <li>
         <a href="../customer/home">
           <i class='bx bx-home'></i>
@@ -125,6 +121,10 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <section class="home-section">
+  <div class="header">
+      <?php  require 'view_headertype2.php'; ?>
+    </div>
+    
 
     <section class="cards-section">
 
@@ -255,11 +255,13 @@ if (!isset($_SESSION['username'])) {
 
 
       </div>
-
+    
     </section>
     <div class="pop-up-report" id="pop-up-report">
       <?php require 'view_all_report_popup.php'; ?>
     </div>
+
+   
 
   </section>
 
@@ -507,14 +509,17 @@ if (!isset($_SESSION['username'])) {
         .then(response => response.json())
         .then(data => {
           // console.log(data.length);
-          let date = new Date();
-          console.log(data);
+          // let date = new Date();
+          // console.log(data[1][1]['date']);
+          // var today = new Date(); 
+          // console.log(today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate());
           // date.setDate(date.getDate() + 1);
+        
           // date_del=data[1][0]['date'];
           // date.setDate(date_del.getDate());
           // console.log(date)
-          // credit=data[0]['credit_time']
-          if(data[1].length==2){
+           credit=data[0]['credit_time']
+          if(data[1].length==0){
             field_name.innerHTML += `<h2 id="zero">No Due Payments</h2>`;
           }
           else{

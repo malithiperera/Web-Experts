@@ -32,6 +32,17 @@ class profile_model extends model{
 
     }
     
+    public function test($name){
+        require '../app/core/database.php';
+        $sql="SELECT product_name FROM product where product_name like '%$name%' ";
+        $result=mysqli_query($conn,$sql);
+$data=[];
+while($row=$result->fetch_assoc()){
+    array_push($data,$row);
+}
+return $data;
+
+    }
 
 
 

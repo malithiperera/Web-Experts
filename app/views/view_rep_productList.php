@@ -95,6 +95,7 @@ if (!isset($_SESSION['username'])) {
         get_product();
 
         //suggestions 
+        
         suggestions = document.querySelector(".suggestions");
 
         async function fetchText(value) {

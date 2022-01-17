@@ -3,14 +3,25 @@ class report {
     this.main = document.querySelector(".container");
     this.card_con = document.querySelector(".card-section");
     this.report_title = document.getElementById("report-title");
-   
   }
 
   //customer summary report
   customer_summary(year, month) {
-    const month_array = ["January","Febraury","March","April","May","June",'July','August','September','October','November',
-   "December"];
-  console.log(month_array)
+    const month_array = [
+      "January",
+      "Febraury",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
     let string_month = this.get_month(month);
 
     if (month != 0) {
@@ -46,7 +57,6 @@ class report {
       this.pay_section.appendChild(this.pay_table);
       this.pay_table.classList.add("table-info");
 
-      // this.delivery_table.innerHTML+='<tr> <th>Deliver Id Id</th><th>Order ID</th> <th>Deliver date</th> <th>Deliver Time</th><th> PaymentStatus</th>   </tr> '
       this.report_title.innerHTML =
         "customer summary Monthly Report" + " " + string_month + " " + year;
 
@@ -54,7 +64,7 @@ class report {
         year: year,
         month: month,
       };
-      
+
       fetch("http://localhost/web-Experts/public/reports/customer_summary", {
         method: "POST",
         headers: {
@@ -64,7 +74,7 @@ class report {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
+          console.log(data);
           this.create_card(
             '<i class="fas fa-luggage-cart"></i>',
             "No Of orders",
@@ -139,8 +149,8 @@ class report {
             } else {
               this.pay_table.innerHTML +=
                 "<tr> <th>Payment Id</th><th>Order ID</th> <th>Amount(RS.)</th> <th>Method</th><th>Payment status</th>  </tr> ";
-  
-           //payment
+
+              //payment
               let i;
               for (i = 0; i < data[3].length; i++) {
                 this.pay_table.innerHTML += `
@@ -158,13 +168,13 @@ class report {
                                   
                                   `;
               }
+            }
           }
-        }
           console.log(data);
         });
     }
 
-    //year
+    //yearly customer summary
     else {
       var data_set = {
         year: year,
@@ -181,11 +191,11 @@ class report {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(month[5])
-          
+          console.log(month[5]);
+
           this.report_title.innerHTML =
             " Customer Summary Yearly Report" + " " + year;
-      
+
           this.create_card(
             '<i class="fas fa-luggage-cart"></i>',
             "No Of orders",
@@ -201,13 +211,13 @@ class report {
             "No Of Payment",
             data[0][0]["count_orders"]
           );
-console.log(data);
+
+          console.log(data);
           let result = this.create_dataset_array(data[1]);
           let result1 = this.create_dataset_array(data[2]);
-          let result2=this.create_dataset_array_month(data[3]);
-          let result4=this.create_dataset_array_month(data[4]);
-         // let result5=this.create_dataset_array_month(data[5]);
-        
+          let result2 = this.create_dataset_array_month(data[3]);
+          let result4 = this.create_dataset_array_month(data[4]);
+          let result5 = this.create_dataset_array_month(data[5]);
 
           this.order_section = document.createElement("div");
           this.main.appendChild(this.order_section);
@@ -222,26 +232,25 @@ console.log(data);
           this.ordertable.classList.add("table-info");
           let i;
           for (i = 0; i < 12; i++) {
-               this.ordertable.innerHTML += ` <tr>
+            this.ordertable.innerHTML += ` <tr>
 
                <td class="pro_name">${month_array[i]}</td>
                <td class="pro_name">${result2[i][1]}</td>
                <td class="pro_name">${result4[i][1]}</td>
-               
+               <td class="pro_name">${result5[i][1]}</td>
               
-               </tr>`
-
+               </tr>`;
           }
 
           this.graph_section = document.createElement("div");
           this.main.appendChild(this.graph_section);
           this.graph_section.classList.add("section", "cus-section");
-          this.graph_section.innerHTML +='<h3>Delivery And Order Summary</h3>'
+          this.graph_section.innerHTML += "<h3>Delivery And Order Summary</h3>";
 
           this.graph_section.innerHTML +=
             '<div id="barchart_material" style="width: 80%; height:1000px;"></div>';
 
-          this.bar_charts(result, result1,result4);
+          this.bar_charts(result, result1, result4);
 
           console.log(result1);
         });
@@ -252,7 +261,7 @@ console.log(data);
     // this.card_con.classList.add('table');
     // this.main.appendChild(message_div);
   }
-//sales summary
+  //sales summary
   sales_summary(year, month) {
     let string_month = this.get_month(month);
 
@@ -294,6 +303,29 @@ console.log(data);
             data[0][2]["SUM(amount)"]
           );
 
+          //create a dataset to pass the graph
+          var dataArray_route = [];
+          var dataArray_amount = [];
+          for (let i = 0; i < data[1].length; i++) {
+            dataArray_route.push(data[1][i]["route_id"]);
+            dataArray_amount.push(data[1][i]["sum(orders.amount)"]);
+          }
+          var data_array = [];
+          for (let i = 0; i < data[1].length; i++) {
+            data_array.push([dataArray_route[i], dataArray_amount[i]]);
+          }
+          console.log(data_array);
+
+          //graph section
+          this.summary_section_graph = document.createElement("div");
+          this.main.appendChild(this.summary_section_graph);
+          this.summary_section_graph.classList.add("section", "cus-section");
+
+          this.summary_section_graph.innerHTML += `  <div id="curve_chart" style="width: 1300px; height: 700px"></div>`;
+          this.line_chart(data_array, "Summary Of Month", 2);
+
+          //table section
+
           this.summary_section = document.createElement("div");
           this.main.appendChild(this.summary_section);
           this.summary_section.classList.add("section", "cus-section");
@@ -324,9 +356,12 @@ console.log(data);
             `;
           }
         });
-    } else {
+    }
+    
+    //sales summary yearly
+    else {
       this.report_title.innerHTML =
-      " Sales Summary Monthly Report" + " " + " " + year;
+        " Sales Summary Monthly Report" + " " + " " + year;
       var data_set = {
         year: year,
       };
@@ -341,11 +376,29 @@ console.log(data);
         .then((data) => {
           console.log(data);
 
-          this.create_card('<i class="fas fa-luggage-cart"></i>','No Of orders',data[0][0]['count_orders']);
-          this.create_card('<i class="fas fa-truck"></i>','No Of Deliveries',data[0][1]['count_delivery']);
-          this.create_card('<i class="fas fa-money-bill-alt"></i>','Total Sales(RS.)',
-          data[0][2]['SUM(amount)']);
+          this.create_card(
+            '<i class="fas fa-luggage-cart"></i>',
+            "No Of orders",
+            data[0][0]["count_orders"]
+          );
+          this.create_card(
+            '<i class="fas fa-truck"></i>',
+            "No Of Deliveries",
+            data[0][1]["count_delivery"]
+          );
+          this.create_card(
+            '<i class="fas fa-money-bill-alt"></i>',
+            "Total Sales(RS.)",
+            data[0][2]["SUM(amount)"]
+          );
 
+          //garph
+          // let resultArray = this.create_dataset_array_month(data[1][1]);
+          // this.summary_section_graph = document.createElement("div");
+          // this.main.appendChild(this.summary_section_graph);
+          // this.summary_section_graph.classList.add("section", "cus-section");
+
+          //table
           this.summary_section = document.createElement("div");
           this.main.appendChild(this.summary_section);
           this.summary_section.classList.add("section", "cus-section");
@@ -355,97 +408,132 @@ console.log(data);
           this.summary_section_table.classList.add("table-info");
 
           this.summary_section_table.innerHTML +=
-          "<tr> <th>Route ID</th><th>Route Name</th> <th>Rep ID</th> <th>Rep Name </th><th> Total sales(RS.)</th>   </tr> ";
-        let i;
+            "<tr> <th>Route ID</th><th>Route Name</th> <th>Rep ID</th> <th>Rep Name </th><th> Total sales(RS.)</th>   </tr> ";
+          let i;
 
-        for (i = 0; i < 12; i++) {
-          this.summary_section_table.innerHTML += `
+          for (i = 0; i < 12; i++) {
+            this.summary_section_table.innerHTML += `
           
           <tr>
           
-          <td class="pro_name">${data[1][i]["route_id"]}</td>
-          <td class="pro_name">${data[1][i]["route_name"]}</td>
-          <td class="pro_name">${data[1][i]["rep_id"]}</td>
-          <td class="price">${data[1][i]["name"]}</td>
-          <td class="dis">${data[1][i]["sum(orders.amount)"]}</td>
+          <td class="pro_name">${data[1][0][i]["route_id"]}</td>
+          <td class="pro_name">${data[1][0][i]["route_name"]}</td>
+          <td class="pro_name">${data[1][0][i]["rep_id"]}</td>
+          <td class="price">${data[1][0][i]["name"]}</td>
+          <td class="dis">${data[1][0][i]["sum(orders.amount)"]}</td>
          
           
           
           </tr>
           
           `;
-        }
+          }
+          let resultArray = this.create_dataset_array_month(data[1][1]);
+          this.summary_section_graph = document.createElement("div");
+          this.summary_section_graph1 = document.createElement("div");
+          this.summary_section_graph2 = document.createElement("div");
+          this.main.appendChild(this.summary_section_graph);
+          this.summary_section_graph.appendChild(this.summary_section_graph1);
+          this.summary_section_graph.appendChild(this.summary_section_graph2);
+          this.summary_section_graph.classList.add("section", "cus-section","graph_section");
+
+          this.summary_section_graph1.innerHTML += `  <div id="curve_chart" style="width: 1300px; height: 700px"></div>`;
+          this.line_chart(resultArray, "Summary Of Month", 12);
+          this.summary_section_graph2.innerHTML += `   <div id="piechart" style="width: 900px; height: 500px;"></div>`;
+          this.pie_chart();
+
           this.summary_section_route = document.createElement("div");
           this.main.appendChild(this.summary_section_route);
           this.summary_section_route.classList.add("section", "cus-section");
           this.summary_section_route.innerHTML = `<h3>Summary Of Month</h3>`;
           this.summary_section_route_table = document.createElement("table");
+          this.summary_section_route.appendChild(
+            this.summary_section_route_table
+          );
+          this.summary_section_route_table.classList.add("table-info");
 
-
-
-          
+          console.log(resultArray);
+          this.summary_section_route_table.innerHTML +=
+            "<tr> <th>Month</th><th> Total Sales(RS.)</th> </tr> ";
+          const month_array = [
+            "January",
+            "Febraury",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          for (i = 0; i < 12; i++) {
+            this.summary_section_route_table.innerHTML += `
+            
+            <tr>
+            
+            <td class="pro_name">${month_array[i]}</td>
+            <td class="pro_name">${resultArray[i][1]}</td>
+           
+            
+            
+            </tr>
+            
+            `;
+          }
         });
     }
   }
-//rep summary
-rep_summary(year, month){
-  //monthly report
-  if(month!=0)
-  {
-    let string_month = this.get_month(month);
-    console.log(0);
-    console.log(month);
-    this.report_title.innerHTML =
-      " Sales Reprsentative Summary" + " " + string_month + " " + year;
+  //rep summary
+  rep_summary(year, month) {
+    //monthly report
+    if (month != 0) {
+      let string_month = this.get_month(month);
+      console.log(0);
+      console.log(month);
+      this.report_title.innerHTML =
+        " Sales Reprsentative Summary" + " " + string_month + " " + year;
 
-    var data_set = {
-      year: year,
-      month: month,
-    };
+      var data_set = {
+        year: year,
+        month: month,
+      };
 
-   
+      fetch("http://localhost/web-Experts/public/reports/rep_summary_month", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data_set),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
 
-    fetch("http://localhost/web-Experts/public/reports/rep_summary_month", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data_set),
-    
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+          this.summary_section = document.createElement("div");
+          this.main.appendChild(this.summary_section);
+          this.summary_section.classList.add("section", "cus-section");
+          this.summary_section.innerHTML = `<h3>Summary Of Month ${string_month}</h3>`;
+          this.summary_section_table = document.createElement("table");
+          this.summary_section.appendChild(this.summary_section_table);
+          this.summary_section_table.classList.add("table-info");
 
+          this.summary_section_table.innerHTML +=
+            "<tr> <th>Rep ID</th><th>REp name</th> <th>target(RS.)</th> <th>Total sales(RS.) </th><th> Status</th>   </tr> ";
+          let i;
+          for (i = 0; i < data.length; i++) {
+            var status = "";
 
-       
-
-        this.summary_section = document.createElement("div");
-        this.main.appendChild(this.summary_section);
-        this.summary_section.classList.add("section", "cus-section");
-        this.summary_section.innerHTML = `<h3>Summary Of Month ${string_month}</h3>`;
-        this.summary_section_table = document.createElement("table");
-        this.summary_section.appendChild(this.summary_section_table);
-        this.summary_section_table.classList.add("table-info");
-
-        this.summary_section_table.innerHTML +=
-          "<tr> <th>Rep ID</th><th>REp name</th> <th>target(RS.)</th> <th>Total sales(RS.) </th><th> Status</th>   </tr> ";
-        let i;
-        for (i = 0; i < data.length; i++) {
-          var status="";
-
-        
-          var a = parseInt(data[i]["target"]);
-          var b = parseInt(data[i]["sumSales"]);
-          if(a<=b){
-           status="Completed";
-
-          }
-          else 
-          {
-            status="not Completed";
-          }
-          this.summary_section_table.innerHTML += `
+            var a = parseInt(data[i]["target"]);
+            var b = parseInt(data[i]["sumSales"]);
+            if (a <= b) {
+              status = "Completed";
+            } else {
+              status = "not Completed";
+            }
+            this.summary_section_table.innerHTML += `
           
           <tr>
           
@@ -462,63 +550,61 @@ rep_summary(year, month){
           </tr>
           
           `;
-          status="";
-        }
-       
-      });
-
-
+            status = "";
+          }
+        });
+    }
   }
 
-}
-
-//
+  //
 
   //return report
   return_summary(year, month) {
     if (month != 0) {
-
-        var data_set={
-            year:year,
-            month:month
-
-        };
-        console.log(data_set);
-        let string_month = this.get_month(month);
-        this.report_title.innerHTML =
-        " Return  Monthly Report" +" "+ string_month + " " + year;
-        fetch("http://localhost/web-Experts/public/reports/return_month",
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(data_set),
-                }
-
-        )
-
+      var data_set = {
+        year: year,
+        month: month,
+      };
+      console.log(data_set);
+      let string_month = this.get_month(month);
+      this.report_title.innerHTML =
+        " Return  Monthly Report" + " " + string_month + " " + year;
+      fetch("http://localhost/web-Experts/public/reports/return_month", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data_set),
+      })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+          console.log(data);
 
-            this.create_card('<i class="fas fa-exchange-alt"></i>','Total Returns(RS.)',data[0][0]['total_amount']);
-            this.create_card('<i class="fas fa-store-alt"></i>','No Of Shops',data[0][1]['shops']);
-           
-            this.summary_section = document.createElement("div");
-            this.main.appendChild(this.summary_section);
-            this.summary_section.classList.add("section", "cus-section");
-            this.summary_section.innerHTML = `<h3>Return Summary Of Month</h3>`;
-            this.summary_section_table = document.createElement("table");
-            this.summary_section.appendChild(this.summary_section_table);
-            this.summary_section_table.classList.add("table-info");
-  
-            this.summary_section_table.innerHTML +=
-              "<tr> <th>Route ID</th><th>Route Name</th><th>Rep Name </th><th> Total Return(RS.)</th>   </tr> ";
-            let i;
-  
-            for (i = 0; i < data[1].length; i++) {
-              this.summary_section_table.innerHTML += `
+          this.create_card(
+            '<i class="fas fa-exchange-alt"></i>',
+            "Total Returns(RS.)",
+            data[0][0]["total_amount"]
+          );
+          this.create_card(
+            '<i class="fas fa-store-alt"></i>',
+            "No Of Shops",
+            data[0][1]["shops"]
+          );
+
+          this.summary_section = document.createElement("div");
+          this.main.appendChild(this.summary_section);
+          this.summary_section.classList.add("section", "cus-section");
+          this.summary_section.innerHTML = `<h3>Return Summary Of Month</h3>`;
+          this.summary_section_table = document.createElement("table");
+          this.summary_section.appendChild(this.summary_section_table);
+          this.summary_section_table.classList.add("table-info");
+
+          this.summary_section_table.innerHTML +=
+            "<tr> <th>Route ID</th><th>Route Name</th><th>Rep Name </th><th> Total Return(RS.)</th>   </tr> ";
+          let i;
+
+          for (i = 0; i < data[1].length; i++) {
+            this.summary_section_table.innerHTML += `
               
               <tr>
               
@@ -535,9 +621,7 @@ rep_summary(year, month){
               </tr>
               
               `;
-            }
-         
-          
+          }
         });
     }
   }
@@ -625,7 +709,6 @@ rep_summary(year, month){
     return result;
   }
 
-
   create_dataset_array_month(data) {
     let i;
 
@@ -655,8 +738,7 @@ rep_summary(year, month){
     return result;
   }
 
-  bar_charts(result, result1,result2) {
-   
+  bar_charts(result, result1, result2) {
     google.charts.load("current", { packages: ["bar"] });
     google.charts.setOnLoadCallback(drawChart);
 
@@ -694,5 +776,66 @@ rep_summary(year, month){
       chart.draw(data, google.charts.Bar.convertOptions(options));
     }
   }
+
+  line_chart(array, title, no) {
+    console.log(array);
+    let years = [];
+    let sales = [];
+    for (let i = 0; i < no; i++) {
+      years.push(array[i][0]);
+      sales.push(array[i][1]);
+    }
+    let data_array = [["Month", "Sales"]];
+
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      console.log(data_array);
+
+      for (let i = 0; i < no; i++) {
+        data_array.push([String(years[i]), parseInt(sales[i])]);
+      }
+      var data = google.visualization.arrayToDataTable(data_array);
+
+      var options = {
+        title: title,
+        curveType: "function",
+        legend: { position: "bottom" },
+        titleTextStyle: {
+          color: "green",
+        },
+      };
+
+      var chart = new google.visualization.LineChart(
+        document.getElementById("curve_chart")
+      );
+
+      chart.draw(data, options);
+    }
+  }
+pie_chart(){
+  google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+}
   // </script>
 }

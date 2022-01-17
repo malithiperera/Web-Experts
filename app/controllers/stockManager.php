@@ -75,7 +75,7 @@ class stockManager extends controller {
     public function fillNoOfRepRequests_cont () {
         $this->model ('_4_stockmanager_model');
         $result = $this->model->fillNoOfRepRequests_mod ();
-        echo json_encode ($result);
+        echo json_encode ($result->fetch_assoc ());
         exit;
 
     }

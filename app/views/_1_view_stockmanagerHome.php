@@ -247,6 +247,7 @@
                 });
         }
         fillNoOfCategories();
+        
     </script>
 
     <script>
@@ -257,13 +258,15 @@
                 .then(response => response.json())
                 .then(data => {
                     noOfRepRequests.innerHTML = `
-                        <p class="value_repRequests">${data}</p>
+                        <p class="value_repRequests">${data['reqCount']}</p>
 
                     `;
                     console.log(data);
 
                 })
         }
+        fillNoOfRepRequests ()
+
     </script>
 
 </body>

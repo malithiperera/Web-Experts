@@ -240,6 +240,10 @@ h1{
     cursor: pointer;
     display: none;
 }
+#nav_id .open{
+  background-color: green;
+}
+
   </style>
 
 </head>
@@ -248,7 +252,7 @@ h1{
   <div class="sidebar">
     <div class="logo-details">
 
-      <div class="logo_name">H</div>
+      <div class="logo_name">Himalee Dairy Products</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
@@ -326,11 +330,7 @@ h1{
       <?php  require 'view_headertype2.php'; ?>
     </div>
     
-<!-- <div class="profile-pic-div">
-  <img src="image.jpg" id="photo">
-  <input type="file" id="file">
-  <label for="file" id="uploadBtn">Choose Photo</label>
-</div> -->
+
   <div class="pro-container">
     <div class="pro-sub">
     <div class="row">
@@ -370,7 +370,7 @@ h1{
                   <input type="password" placeholder="Enetr new password" id="new-pass">
               </div>
               <div class="confirm-pass">
-                  <input type="password" placeholder="Confirm password" onkeyup="pass_update()" id="new-con-pass">
+                  <input type="password" placeholder="Confirm password" onkeyup="password_updates()" id="new-con-pass">
                   <br>
 
                   <span id="tool-tip"></span>
@@ -388,7 +388,7 @@ h1{
 
   </section>
 
-
+  <script src="../../public/java script/side_bar.js"></script>
 <script>
 
          let name= document.getElementById('name');
@@ -400,7 +400,20 @@ h1{
          let con_pass=document.getElementById('new-con-pass');
          let save_change=document.getElementById('save-change');
          let pop_up_pass=document.getElementById('pop_up_password');
-  let status=0;
+        
+
+
+
+        //  function header(){
+        //    nav_id.style.background="red";
+
+        //  }
+        //  header();
+  // let status=0;
+
+
+
+
     function change_password()
     {
       
@@ -410,7 +423,27 @@ h1{
    pop_up_pass.style.marginTop="-30px";
 
     }
-
+    function password_updates()
+{
+  var pass_old=document.getElementById('new-pass').value;
+  var new_p=document.getElementById('new-con-pass');
+  var new_pass=document.getElementById('new-con-pass').value;
+  var tool=document.getElementById('tool-tip');
+  if(pass_old!=new_pass)
+  {
+    
+    new_p.style.border="thick solid red";
+        
+    tool.innerHTML="Password does not match";
+    
+  }
+  else{
+    new_p.style.border="thick solid green";
+        
+    tool.innerHTML="Password Matched";
+  
+}
+}
     function close_pass()
     {
         document.getElementById('pop_up_password').style.visibility="hidden";
@@ -482,27 +515,9 @@ window.onclick=function(event)
    console.log(x);
 }
 
-function pass_update()
-{
-  var pass_old=document.getElementById('new-pass').value;
-  var new_p=document.getElementById('new-con-pass');
-  var new_pass=document.getElementById('new-con-pass').value;
-  var tool=document.getElementById('tool-tip');
-  if(pass_old!=new_pass)
-  {
-    
-    new_p.style.border="thick solid red";
-        
-    tool.innerHTML="Password does not match";
-    
-  }
-  else{
-    new_p.style.border="thick solid green";
-        
-    tool.innerHTML="Password Matched";
-  
-}
-}
+
+
+
 function save_pass()
 {
   var pass=document.getElementById('old_pass').value;
@@ -550,7 +565,7 @@ function save_pass()
   </script>
 
 
-  <script src="../../public/java script/side_bar.js"></script>
+ 
 </body>
 
 </html>

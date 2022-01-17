@@ -10,6 +10,7 @@ class _2_salesrep_model extends model
         parent::__construct();
     }
 
+    // NOT DELIVERED ORDERS
     public function not_delivered()
     {
         require '../app/core/database.php';
@@ -21,6 +22,8 @@ class _2_salesrep_model extends model
         
         return $result;
     }
+
+    // DELIVERED ORDERS
     public function delivered()
     {
         require '../app/core/database.php';
@@ -33,16 +36,6 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-
-    // public function delivered()
-    // {
-    //     require '../app/core/database.php';
-    //     $sql = "SELECT order_id, date, amount FROM orders WHERE status='D'";
-    //     $result = $conn->query($sql);
-    //     return $result;
-    // }
-    
-    // CASH,CHEQUE PAYMENT ORDER SELECT DROP DOWN
 
     public function select_order()
     {
@@ -87,11 +80,13 @@ class _2_salesrep_model extends model
         };
     }
 
+
     // INSERT CHEQUE PAYMENT
 
     public function insert_chequePayment($order_id, $total, $date)
     {
         require '../app/core/database.php';
+        
         //insert query
         $sql = "INSERT INTO payment (amount, order_id, date,type,delivery_id,time)
         VALUES ('$total','$order_id','$date','cheque','1',CURDATE())";
@@ -104,6 +99,8 @@ class _2_salesrep_model extends model
         };
     }
 
+    // DAILY PRODUCT LIST
+
     public function daily_productList()
     {
         require '../app/core/database.php';
@@ -111,6 +108,8 @@ class _2_salesrep_model extends model
         $result = $conn->query($sql);
         return $result;
     }
+
+
     public function get_orders_data()
     {
         require '../app/core/database.php';
@@ -122,7 +121,8 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-    //get order product of particular route
+    //GET ORDER PRODUCT FOR PATICULAR ROUTE
+
     public function get_order_products($route_id){
         require '../app/core/database.php';
 
@@ -137,6 +137,8 @@ class _2_salesrep_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
     }
+
+    //GET HOME CARDS
 
     function get_home_cards($userid)
     {
@@ -174,7 +176,8 @@ class _2_salesrep_model extends model
 
     }
 
-    #rep achievements
+    //REP ACHIVEMENTS
+
     function target($userid)
     {
         require '../app/core/database.php';
@@ -184,6 +187,41 @@ class _2_salesrep_model extends model
         $result = mysqli_query($conn, $sql);
         return $result;
 
+    }
+
+    //SEARCH CUSTOMER
+
+    public function search_customer($cus_id){
+        require '../app/core/database.php';
+
+        $sql = "select * from customer where cus_id = '$cus_id' or shop_name = '$cus_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
+    //GET DATA FOR CHARTS IN REP ACHIEVEMENTS
+
+    public function achievements($userid){
+
+        require '../app/core/database.php';
+
+        $result = array();
+
+        $sql1 ="SELECT sum(orders.amount) AS achieved from route,orders 
+        where route.route_id = orders.route_id 
+        and 
+        route.rep_id = '$userid' 
+        and 
+        month(orders.date) =   month(CURRENT_DATE)";
+        $result1 = mysqli_query($conn, $sql1);
+        array_push($result, $result1->fetch_assoc());
+
+        $sql2 = "SELECT target AS tar FROM sales_rep WHERE rep_id='$userid'";
+        $result2 = mysqli_query($conn, $sql2);
+        array_push($result, $result2->fetch_assoc());
+
+        return $result;
     }
     
 }
