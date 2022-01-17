@@ -31,4 +31,17 @@ class issue extends controller{
         echo json_encode($result);
 
     }
+
+    //issue products to sales rep
+    public function issue_products(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('issue_model');
+        $result = $this->model->issue_product_list_to_rep($get_data['issue_list'], $get_data['issue_id']);
+
+        echo json_encode($result);
+        exit;
+
+    }
 }

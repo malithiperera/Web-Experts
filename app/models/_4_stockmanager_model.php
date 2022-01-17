@@ -93,4 +93,14 @@ class _4_stockmanager_model extends model
         return $result;
         
     }
+
+    //render some initial information like notify amount of the product
+    public function initial_information($product_id){
+        require '../app/core/database.php';
+
+        $sql = "select * from product where product_id = '$product_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result->fetch_assoc();
+    }
 }

@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockManager_manageStocks.css">
     <title>Manage Stocks</title>
+    <style>
+        .notify_limit_label {
+            position: relative;
+            top: 100px;
+            left: -210px;
+        }
+        #notify_limit_input{
+            position: relative;
+            top: 60px;
+            left:200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -93,6 +105,10 @@
                 <div class="div_currentDiscount">
                     <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
                     <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="">
+
+                    <!-- notify limit of product to notify the stock manager -->
+                    <label for="" class="notify_limit_label">Notify Limit </label>
+                    <input type="text" id="notify_limit_input">
 
                     <script src="../../public/java script/manageStocks.js"></script>
 
@@ -231,6 +247,26 @@
             // console.log (dataSet)
 
         })
+    </script>
+
+    <!-- change the notify limit to stockmanager -->
+    <script>
+        let notify_limit_input = document.getElementById('notify_limit_input');
+
+        fetch('http://localhost/web-Experts/public/stockManager/initial_information', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+
+                },
+                body: JSON.stringify(productId)
+            })
+            .then(response => response.json())
+            .then(data => {
+                notify_limit_input.value = data['notify_limit'];
+            });
+        
     </script>
 
 </body>
