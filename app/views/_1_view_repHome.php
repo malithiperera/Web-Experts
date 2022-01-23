@@ -5,7 +5,9 @@ if (!isset($_SESSION['username'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
+
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
 
@@ -24,11 +26,13 @@ if (!isset($_SESSION['username'])) {
 <!-- START SIDE BAR -->
 
   <div class="sidebar">
+
     <div class="logo-details">
 
       <div class="logo_name">Himalee Dairy Products</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
+
     <ul class="nav-list">
       <li>
         <a href="../salesRep/customer_registration">
@@ -122,6 +126,10 @@ if (!isset($_SESSION['username'])) {
 
 <!-- END SIDE BAR -->
 
+
+
+
+
 <!-- ADD HEADER -->
 
   <div class="header">
@@ -134,46 +142,74 @@ if (!isset($_SESSION['username'])) {
   <section class="home-section">
 
     <section class="cards-section">
+
       <div class="top">
+
         <div class="card-1">
+
           <p><i class="fas fa-user-tie"></i><br>Rep Id</p>
           <p id="top-detail-1"><?php echo $_SESSION['userid'];  ?></p>
+
         </div>
+
         <div class="card-1">
+
           <p><i class="fas fa-trophy"></i><br>Target</p>
           <p id="item"><span id="target"></span></p>
-        </div>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
-          <p id="item"><span id='pro'></span></p>
-        </div>
-        <div class="card">
-          <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
-          <p id="item"><span id='pen'></span></p>
-        </div>
-        <div class="card">
-          <p><i class="fas fa-users"></i><br>No of Customers</p>
-          <p id="item"><span id='CusNo'></span></p>
-        </div>
-        <div class="card">
-          <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
-          <p id="item"><span id='RouteNo'></span></p>
+
         </div>
 
       </div>
+
+      <div class="cards">
+
+        <div class="card">
+
+          <p><i class="fas fa-ice-cream"></i><br>Kinds of Products</p>
+          <p id="item"><span id='pro'></span></p>
+
+        </div>
+
+        <div class="card">
+
+          <p><i class="fas fa-shopping-cart"></i><br>Pending deliveries</p>
+          <p id="item"><span id='pen'></span></p>
+
+        </div>
+
+        <div class="card">
+
+          <p><i class="fas fa-users"></i><br>No of Customers</p>
+          <p id="item"><span id='CusNo'></span></p>
+
+        </div>
+
+        <div class="card">
+
+          <p><i class="fas fa-map-marker-alt"></i><br>No of Routes</p>
+          <p id="item"><span id='RouteNo'></span></p>
+
+        </div>
+
+      </div>
+
     </section>
 
 <!-- END CARD SECTION -->
 
 
+
+
     <h2>ORDERS</h2>
+
+
 
 <!-- ORDERS TABLE -->
 
     <div class="table-wrapper">
+
       <table class="fl-table">
+
         <thead>
           <tr>
             <th>Route</th>
@@ -191,16 +227,25 @@ if (!isset($_SESSION['username'])) {
 
 
     <script src="../../public/java script/view_rep_Home.js"></script>
+
+
     <script>
       searchCus_cusId = document.getElementById('searchCus_cusId');
+
+
 
       function openForm() {
         document.getElementById("myForm").style.display = "block";
       }
 
+
+
+
       function closeForm() {
         document.getElementById("myForm").style.display = "none";
       }
+
+
 
       function searchRep() {
         let cus_id = searchCus_cusId.value;
@@ -220,13 +265,20 @@ if (!isset($_SESSION['username'])) {
           });
 
       }
+
     </script>
 
+
+
+
     <!-- fill table -->
+
     <script>
+
       var orders_table = document.querySelector('.orders');
 
       const fill_table = () => {
+
         fetch('http://localhost/web-Experts/public/salesRep/fill_home', {
 
           })
@@ -254,10 +306,18 @@ if (!isset($_SESSION['username'])) {
             console.log(data);
           });
       }
+
+
       fill_table();
+
     </script>
+
+
+
     <script>
+
       //load cards 
+
       function load_cards() {
 
         fetch('http://localhost/web-Experts/public/salesRep/load_card')
@@ -276,15 +336,25 @@ if (!isset($_SESSION['username'])) {
       }
 
       load_cards();
+
     </script>
 
+
+
+
     <script>
+
       //confirm order
       function orderConfirm(){
         fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder')
         
       }
+
     </script>
+
+
 </body>
+
+
 
 </html>
