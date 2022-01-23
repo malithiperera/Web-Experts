@@ -1,7 +1,9 @@
 <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
 
 <button type="submit" id="payhere-payment" >PayHere Pay</button>
+
 <script>
+
     // Called when user completed the payment. It can be a successful payment or failure
     payhere.onCompleted = function onCompleted(orderId) {
         console.log("Payment completed. OrderID:" + orderId);
