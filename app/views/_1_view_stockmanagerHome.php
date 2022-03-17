@@ -101,16 +101,16 @@
                     <p class="value_kindOfProducts"></p>
                 </div>
                 <div class="div_noOfReps">
-                    <p><i class="fas fa-user-tie"></i></i><br>No of Sales rep</p>
+                    <p><i class="fas fa-user-tie"></i><br>No of Sales rep</p>
                     <p class="value_noOfReps"></p>
                 </div>
                 <div class="div_catogories">
-                    <p><i class="fab fa-product-hunt"></i></i><br>Categories</p>
+                    <p><i class="fab fa-product-hunt"></i><br>Categories</p>
                     <p class="value_catogories"></p>
                 </div>
                 <div class="div_repRequests">
                     <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p> <!-- ../stockManager/viewList -->
-                    <p class="value_repRequests"></p>
+                    <p class="value_repRequests">test</p>
                 </div>
 
 
@@ -248,7 +248,7 @@
                 });
         }
         fillNoOfCategories();
-        
+
     </script>
 
     <script>
@@ -264,7 +264,7 @@
                     `;
                     console.log(data);
 
-                })
+                });
         }
         fillNoOfRepRequests ()
 
