@@ -1,3 +1,4 @@
+
 <?php session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -5,7 +6,6 @@ if (!isset($_SESSION['username'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +33,7 @@ if (!isset($_SESSION['username'])) {
   visibility: hidden;
 }
 .request-container{
+  top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,6 +42,7 @@ if (!isset($_SESSION['username'])) {
 
 
 .form-container{
+  top: 200px;
     width: 60%;
 }
         input[type=text], select,textarea {
@@ -62,7 +64,8 @@ button{
   background-color: #184A78;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 8px 10px;
+  margin-right: 100px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -90,12 +93,43 @@ label{
 font-size: 20px;
 font-weight: 700;
 }
+
+#submit_request{
+  width: 20%;
+  
+  background-color: #184A78;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+
+#cancel_req{
+  margin-left: 300px;
+  background-color: #184A78;
+  color: white;
+  padding: 14px 20px;
+  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button-req{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-evenly;
+}
+
     </style>
 </head>
 <body>
-  <div class="side">
-  <? require 'view_customer_side.php'; ?>
-  </div>
+
+<?php require 'view_customer_side.php' ?>
+<section class="home-section">
 
     <div class="request-container">
     <h2>Request Form</h2>
@@ -124,9 +158,17 @@ font-weight: 700;
 
     <label for="">Reason and other notes</label>
     <textarea id="reason" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+  <div class="button-req">
+    <div class="req_but">
+    <button type="submit"  id="submit_request"><a href="#" onclick="submit_form()">Request</a></button>
+    </div>
+ <br>
+   <div class="cancel-bu">
+   <button type="submit" id="cancel_req"><a href="../customer/back_cus_home">cancel</a></button>
+
+   </div> 
+  </div>
   
-    <button type="submit" ><a href="#" onclick="submit_form()">Request</a></button>
-    <button type="submit"><a href="../customer/back_cus_home">cancel</a></button>
   </form>
     </div>
 
@@ -142,7 +184,7 @@ font-weight: 700;
 
     </div>
 
-
+</section>
 
     <script>
       let id=document.getElementById('id');

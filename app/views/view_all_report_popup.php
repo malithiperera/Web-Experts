@@ -17,14 +17,15 @@
         display: flex;
         justify-content: center;
     }
-        select {
+        .report-select select {
             width: 250px;
             height: 30px;
             outline: black 2px solid;
+            color: black;
 
         }
 
-        input {
+        .report-select input {
             width: 250px;
             margin-bottom: 20px;
             background-color: transparent;
@@ -86,6 +87,21 @@
         .view-button{
             margin-top: 20px;
         }
+
+        #submit-but{
+            background-color: #184A78;
+            outline: none;
+            border: none;
+            padding: 10px;
+            color: #fff;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+       .view-report-container option{
+            color: black;
+        }
     </style>
 </head>
 
@@ -98,17 +114,12 @@
                     <label for="type">Report Type:</label>
                     <br>
                     <select id="type" name="type">
-                        <!-- <option value="salesreport">Customer Summary</option> -->
-                        <!-- <option value="ProductSalereport">Product Sale report</option>
-              <option value="ReturnReport">Return Report</option>
-              <option value="Productreport">Product report</option> -->
+                     
                     </select>
                     <select id="cat" name="cat" onchange="myFunction()">
                         <option value="year">Yearly</option>
                         <option value="month">Monthly</option>
-                        <!-- <option value="ProductSalereport">Product Sale report</option>
-              <option value="ReturnReport">Return Report</option>
-              <option value="Productreport">Product report</option> -->
+               
                     </select>
                 </div>
                 <div class="select1">
@@ -142,7 +153,7 @@
                   
                 </div>
                 <div class="view-button">
-                        <input type="submit" value="submit">
+                        <input type="submit" value="submit" id="submit-but">
                     </div>
         </form>
     </div>

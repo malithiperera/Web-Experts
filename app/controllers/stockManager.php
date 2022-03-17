@@ -152,6 +152,20 @@ class stockManager extends controller {
         exit;
 
     }
+
+    //render initial information(notify amount of the product)
+    public function initial_information(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->initial_information($get_data);
+
+        echo json_encode($result);
+        exit;
+    }
+
+    
 }
 
 ?>

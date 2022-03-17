@@ -231,6 +231,7 @@ if (!isset($_SESSION['username'])) {
         }
        .choose_product{
         z-index: 20000;
+        visibility: hidden;
        }
         .charts {
             width: 1300px;
