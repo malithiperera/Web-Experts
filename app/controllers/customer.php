@@ -46,7 +46,7 @@ class customer extends controller
 
     public function place_order_view()
     {
-        $this->view->render('test2');
+        $this->view->render('test1234');
     }
 
     public function get_details_place_order()
@@ -266,7 +266,7 @@ class customer extends controller
     //render view reqiest
     public function send_request()
     {
-        $this->view->render('view_customer_requset');
+        $this->view->render('stockmanager_sketch');
     }
 
 

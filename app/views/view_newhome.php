@@ -23,11 +23,18 @@
     </a> -->
 
     <nav class="navbar">
+        <div class="titles">
         <a href="#home">home</a>
         <a href="#about">about</a>
-        
+        <a href="#begin">history</a>
+        <a href="#vision">vision</a>
         <a href="#contact">contact</a>
+        </div>
+       
       
+        <div class="login">
+        <a href="login" class="btn">Get started</a>
+        </div>
     </nav>
 
     
@@ -41,36 +48,14 @@
 <section class="home" id="home">
 
 <?php require 'view_slider.php';?>
-<!-- <div class="up-photo">
-    
-    </div>
-    <div class="home-main">
 
-
-    <div class="content">
-        
-    <div class="centertext">
-        <h1>Himalee Dairy Products</h1>
-       
-    </div>
-    <div class="sub-text">
-    <p>Everyone Needs Milk Dairy Always a good choice</p>
-    </div>
-    <div class="get-start">
-    <a href="login" class="btn">Get started</a>
-    </div>
-       
-    </div>
-    <div class="home-img">
-        hello
-    </div>
     </div> -->
     
     
 
 </section>
 
-<section class="welcome">
+<!-- <section class="welcome">
 <div class="row">
 
 
@@ -83,11 +68,11 @@
 </div>
             
            
-        </div>
+        </div> -->
         
-<div class="image">
+<!-- <div class="image">
             <img src="../../public/images/welcome.jpg" alt="">
-        </div>
+        </div> -->
 
 </div>
 
@@ -190,7 +175,7 @@
         </div>
     </div>
 
-<section class="begin">
+<section class="begin" id="begin">
 <h1 class="heading"> <span>Where  </span> it <span>All</span>  began</h1>
     <div class="row">
 <div class="image">
@@ -228,7 +213,7 @@ Ulankulama Dairies (Pvt) Ltd is a limited Liability company which incorporated u
 
 </section>
 
-<section class="mission">
+<section class="mission" id="vision">
 <h1 class="heading"> <span>Our</span> Vission  </h1>
     <div class="row">
         <div class="content">
@@ -261,19 +246,19 @@ Ulankulama Dairies (Pvt) Ltd is a limited Liability company which incorporated u
 
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.8233424750074!2d80.56424471414502!3d8.11946210480667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afc916405e78cdb%3A0x2f94cb88fd2d71c6!2sHimalee%20Dairy%20Farms%20(Pvt)%20Ltd!5e0!3m2!1sen!2slk!4v1633425328622!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-        <form action="">
+        <form action="../profile/landform" method="POST">
             <h3>get in touch</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="name">
+                <input type="text" placeholder="name" name="name">
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="email">
+                <input type="email" placeholder="email" name="email">
             </div>
             <div class="inputBox">
                 <span class="fas fa-phone"></span>
-                <input type="number" placeholder="number">
+                <input type="number" placeholder="number" name="phone">
             </div>
             <input type="submit" value="contact now" class="btn">
         </form>

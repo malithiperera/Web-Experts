@@ -452,7 +452,7 @@ text-align: center;
   height: 40%;
   padding: 30px;
   border-radius: 5px;
-  background-color: #ADD8E6;
+  /* background-color: #ADD8E6; */
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   overflow-y: auto;
 }
@@ -610,7 +610,7 @@ font-weight: 700;
   /* background-color: rgb(201, 201, 201); */
 }
 .pending_deliveries td{
-  background:#ADD8E6;
+  /* background:#ADD8E6; */
 }
 
  #payhere-payment{
@@ -701,7 +701,7 @@ tr {
   text-decoration: line-through red 3px;
 }
 .dis-table .pro-list{
-  background: grey;
+  background: #fff;
 }
 .pro-list {
   margin-bottom: 20px;

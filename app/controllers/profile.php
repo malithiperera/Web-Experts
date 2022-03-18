@@ -67,4 +67,20 @@ public function test(){
     $result=$this->model->test($get_data);
     echo json_encode($result);
 }
+
+public function landform(){
+    // if(isset($_POST['submit'])){
+
+        $name=$_POST['name'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+
+    $this->model('')
+
+    // }
+
+    
+
+
+}
 }
