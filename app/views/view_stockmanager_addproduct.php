@@ -11,6 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockmanager_addproduct.css">
+    <script defer src="../../public/java script/validate.js"></script>
     <title>Products</title>
 
 </head>
@@ -25,12 +26,12 @@ session_start();
     <div class="container">
         <div class="form"><br>
             <p class="text_addProduct">Add Product</p><br>
-            <form action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data">
+            <form id="productForm" action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data">
                 <p class="label_productId">Product Id</p>
-                <input class="input_productId" type="text" name="id" required>
+                <input id="input_productId" class="input_productId" type="text" name="id" required>
 
                 <p class="label_productName">Product Name</p>
-                <input class="input_productName" type="text" name="name" required>
+                <input id="input_productName" class="input_productName" type="text" name="name" required>
 
                 <p class="label_category">Category</p>
                 <select class="input_category" name="category" id="type">
@@ -42,13 +43,13 @@ session_start();
 
                 <!-- <input type="text" name="category" required> -->
                 <p class="label_description">Descrption</p>
-                <input class="input_description" type="text" name="des" required>
+                <input id="input_description" class="input_description" type="text" name="des" required>
 
                 <p class="label_price">Price</p>
-                <input class="input_price" type="text" name="price" required>
+                <input id="input_price" class="input_price" type="text" name="price" required>
 
                 <p class="label_image">Image</p>
-                <input class="input_image" type="file" name="file" style="width:90%" class="custom-file-input" required><br>
+                <input  class="input_image" type="file" name="file" style="width:90%" class="custom-file-input" required><br>
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
