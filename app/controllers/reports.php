@@ -91,6 +91,8 @@ class reports extends controller
        $month= $_GET['month'];
        $year=$_GET['year'];
        $type=$_GET['type'];
+       $startdate=$_GET['startdate'];
+       $enddate=$_GET['enddate'];
        $this->view->added=$month;
        $this->view->added1=$year;
        $this->view->added2=$type;

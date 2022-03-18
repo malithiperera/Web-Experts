@@ -100,7 +100,7 @@ h1 {
 /*  */
 
 .btn:hover{
-    letter-spacing: .7rem;
+    letter-spacing: .1rem;
 }
 
 .header{
@@ -113,6 +113,16 @@ h1 {
     position: fixed;
     top:0; left: 0; right: 0;
     z-index: 1000;
+}
+
+.header .navbar{
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+
+.header .navbar .login{
+    margin-left: 700px;
 }
 
 
