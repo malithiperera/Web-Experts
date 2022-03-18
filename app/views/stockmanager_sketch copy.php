@@ -34,10 +34,10 @@ if (!isset($_SESSION['username'])) {
          
             <li>
                 <a href="#">
-                <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
                 </a>
-                <span class="tooltip">Home</span>
+                <span class="tooltip">Dashboard</span>
             </li>
             <li>
                 <a href="#">
@@ -51,7 +51,7 @@ if (!isset($_SESSION['username'])) {
 
                     <a href="../stockManager/moveToNotificationPage">
 
-                    <i class='bx bx-bell'></i>
+                        <i class='bx bx-chat'></i>
                         <span class="links_name">Notification</span>
                     </a>
                     <span class="tooltip">Notification</span>
@@ -97,9 +97,8 @@ if (!isset($_SESSION['username'])) {
       <?php  require 'view_headertype2.php'; ?>
     </div>
 
-
-    <?php require "stockmanagerHome.php"; ?>
-
+    
+    
     </section>
 
 
