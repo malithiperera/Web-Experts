@@ -228,11 +228,7 @@
 	</style>
 </head>
 <body style="height: 2000px;">
-	<!-- <header>
-		<div id="logo">Colon<span id="logo-s">code</span></div>
-		<span class="sign"><a class="act" href="#">SIGN UP</a></span>
-		<span class="sign"><a href="#">SIGN IN</a></span>
-	</header> -->
+	
 	
     <div class="slider">
 		<!-- fade css -->
@@ -240,19 +236,17 @@
 			<div class="txt">
 				<h1>Himalee Dairy Products</h1>
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+                
 			</div>
-            <!-- <div class="get-start">
-    <a href="login" class="btn">Get started</a>
-    </div> -->
+
 			<img src="../../public/images/homes.jpg" style="width: 100%; height: 100%;">
 		</div>
 		
 		<div class="myslide fade">
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
-				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+				<p>Himalee is your one stop shop for all your dairy products.</p>
+               
 			</div>
 			<img src="../../public/images/h_freshmilk.jpg" style="width: 100%; height: 100%;">
 		</div>
@@ -260,8 +254,8 @@
 		<div class="myslide fade">
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
-				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+				<p>We distribute clean, affordable and nutritious dairy products island wide.</p>
+                
 			</div>
 			<img src="../../public/images/cheese.jpg" style="width: 100%; height: 100%;">
 		</div>
@@ -270,7 +264,7 @@
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+               
 			</div>
 			<img src="../../public/images/h_icecream.jpg" style="width: 100%; height: 100%;">
 		</div>
@@ -279,7 +273,7 @@
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+               
 			</div>
 			<img src="../../public/images/milk_beve.jpg style="width: 100%; height: 100%;">
 		</div>
@@ -287,7 +281,7 @@
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+                
 			</div>
 			<img src="../../public/images/h_icecream.jpg" style="width: 100%; height: 100%;">
 		</div>
@@ -295,7 +289,7 @@
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+               
 			</div>
 			<img src="../../public/images/cheese.jpg" style="width: 100%; height: 100%;">
 		</div>
@@ -303,15 +297,15 @@
 			<div class="txt">
             <h1>Himalee Dairy Products</h1>
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
-                <a href="login" class="btn">Get started</a>
+                
 			</div>
 			<img src="../../public/images/cheese.jpg" style="width: 100%; height: 100%;">
 		</div>
 		<!-- /fade css -->
 		
 		<!-- onclick js -->
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		<!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  		<a class="next" onclick="plusSlides(1)">&#10095;</a> -->
 		
 		<div class="dotsbox" style="text-align:center">
 			<span class="dot" onclick="currentSlide(1)"></span>
@@ -319,6 +313,7 @@
 			<span class="dot" onclick="currentSlide(3)"></span>
 			<span class="dot" onclick="currentSlide(4)"></span>
 			<span class="dot" onclick="currentSlide(5)"></span>
+			<span class="dot" onclick="currentSlide(6)"></span>
 		</div>
 		<!-- /onclick js -->
 	</div>

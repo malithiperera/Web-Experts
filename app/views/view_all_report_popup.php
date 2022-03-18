@@ -85,7 +85,10 @@
             visibility: hidden;
         }
         .view-button{
-            margin-top: 20px;
+            margin-top: -30px;
+        }
+        #duration1{
+            visibility: hidden;
         }
 
         #submit-but{
@@ -119,6 +122,7 @@
                     <select id="cat" name="cat" onchange="myFunction()">
                         <option value="year">Yearly</option>
                         <option value="month">Monthly</option>
+                        <option value="duration">Duration</option>
                
                     </select>
                 </div>
@@ -148,9 +152,26 @@
 
 
                     </select>
+                    </div>
 
+                <div id="duration1" class="duration1">
+                    <div>
+                    <label for="start">Start date:</label>
+                    <br>
 
-                  
+<input type="date" id="start" name="startdate" value="2021-01-01" min="2021-01-01" max="2022-12-31">
+                    </div>
+                
+                    
+              
+                   <div>
+                   <label for="start">End date:</label>
+                   <br>
+
+<input type="date" id="start" name="enddate" value="2021-01-01" min="2018-01-01" max="2022-12-31">
+
+                   </div>
+                
                 </div>
                 <div class="view-button">
                         <input type="submit" value="submit" id="submit-but">
@@ -177,28 +198,41 @@
 
             
         };
-
+        
+      
 
         function myFunction() {
   var x = document.getElementById("cat").value;
   var select=document.querySelector('.select');
   var select1=document.querySelector('.select1');
   var month=document.getElementById('ddlMonth');
+  var duration1=document.getElementById('duration1');
 
   if(x=='month'){
       console.log(x);
       select.style.visibility = "visible";
+      duration1.style.visibility="hidden";
+      select1.style.visibility="visible";
       console.log(month.value);
   }
+else if(x=='duration'){
+    select.style.visibility = "hidden";
+   duration1.style.visibility="visible";
+   select1.style.visibility="hidden";
+   duration1.style.marginTop="-80px";
+   year.value=" ";
+   month.value=" ";
 
+}
   else{
     select.style.visibility = "hidden"
+    select1.style.visibility = "visible"
+    duration1.style.visibility="hidden";
     console.log(month.value);
     month.value=0;
     console.log(month.value);
    
-    
-;  }
+     }
 }
 
 

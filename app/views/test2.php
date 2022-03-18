@@ -6,7 +6,7 @@ if (!isset($_SESSION['username'])) {
 
 ?>
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+
 <html lang="en" dir="ltr">
 
 <head>
@@ -14,7 +14,6 @@ if (!isset($_SESSION['username'])) {
     <title>Home </title>
     <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
     <link rel="stylesheet" href="../../public/styles/view_customer_ourproduct.css">
-    <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -768,16 +767,7 @@ console.log(data_set);
 
             cal_tot_amount();
 
-            //             var y=document.getElementById('new_product');
-            //         //  x.style.removeProperty="readonly";
-            //         //  x.rows[value-1].cells[1].
-            //         // $(this).closest('tr').find('input').removeAttr('readonly');
-            //         // x.rows[value-1].cells[3].children[0].removeAttribute('readonly');
-            //         var new_qua=y.rows[x-1].cells[3].children[0].value;
-            //         var dis=y.rows[x-1].cells[2].innerHTML;
-            //         var unit_price=y.rows[x-1].cells[1].innerHTML;
-            //    var total=(unit_price*new_qua)*(100-dis)/100;
-            //         y.rows[x-1].cells[4].innerHTML=total;
+     
 
 
 
