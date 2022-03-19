@@ -100,24 +100,14 @@ if (!isset($_SESSION['username'])) {
     <div class="header">
       <?php  require 'view_headertype2.php'; ?>
     </div>
-    
 
-      
-        <div class="container">
-
-            
-
-            
-        </div>
 
     
     </section>
 
 
 
-    <div class="confirmation" id="confirm_message">
-        <?php require 'view_order_complete_popup.php'; ?>
-    </div>
+    
 
 
 

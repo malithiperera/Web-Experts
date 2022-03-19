@@ -266,7 +266,7 @@ class customer extends controller
     //render view reqiest
     public function send_request()
     {
-        $this->view->render('view_customer_credit_req');
+        $this->view->render('stockmanager_sketch');
     }
 
 
