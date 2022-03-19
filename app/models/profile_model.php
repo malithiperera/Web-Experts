@@ -44,6 +44,51 @@ return $data;
 
     }
 
+    //change password
+
+    public function changepass($oldpass,$userid){
+        require '../app/core/database.php';
+        
+$sql="SELECT password from user where user_id='$userid'";
+$result=mysqli_query($conn,$sql);
+$password=$result->fetch_assoc();
+if($password['password']==$oldpass){
+return true;
+}
+else{
+    return false;
+}
+        
+
+
+
+
+
+
+    }
+
+    //update password
+    public function savepass($newpass,$userid){
+        require '../app/core/database.php';
+        
+        $sql="UPDATE user
+        SET
+        password='$newpass'
+        WHERE user_id='$userid'";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+    }
+//save changes
+
+public function save_change_info($name,$address,$email,$nic,$tele,$userid){
+    require '../app/core/database.php';
+    $sql="UPDATE user SET name='$name',email='$email',tel='$tele',nic='$nic' WHERE user_id='$userid'";
+    $result=mysqli_query($conn,$sql);
+    return $result;
+
+
+}
 
 
 }
