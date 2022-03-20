@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
 <html lang="en" dir="ltr">
 
 <head>
+
   <meta charset="UTF-8">
   <title>Home </title>
   <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
@@ -19,6 +20,7 @@ if (!isset($_SESSION['username'])) {
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
@@ -34,6 +36,7 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <ul class="nav-list">
+
       <li>
         <a href="../salesRep/customer_registration">
           <i class='fas fa-user-plus fa-lg'></i>
@@ -41,6 +44,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Customer Registration</span>
       </li>
+
       <li>
         <a href="#">
           <i class='bx bx-user open-button' onclick="openForm()"></i>
@@ -58,6 +62,7 @@ if (!isset($_SESSION['username'])) {
           </div>
         </div>
       </li>
+
       <li>
         <!-- <a href="../orders/create_bill"> -->
         <a href="../customer/place_order_view">
@@ -66,6 +71,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Place Order</span>
       </li>
+
       <!-- <li>
         <a href="../salesRep/product_list">
           <i class="fas fa-clipboard-list"></i>
@@ -73,6 +79,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Product List</span>
       </li> -->
+
       <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
@@ -80,6 +87,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Reports</span>
       </li>
+
       <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
@@ -87,6 +95,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Notifications</span>
       </li>
+
       <li>
         <a href="../salesRep/achievements">
 
@@ -111,6 +120,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Logout</span>
       </li>
+
       <li class="profile">
         <div class="profile-details">
           <img src="profile.jpg" alt="profileImg">
@@ -121,7 +131,9 @@ if (!isset($_SESSION['username'])) {
         </div>
         <i class="fas fa-store" id="log_out"></i>
       </li>
+
     </ul>
+
   </div>
 
 <!-- END SIDE BAR -->
@@ -349,7 +361,7 @@ if (!isset($_SESSION['username'])) {
         fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder')
         
       }
-
+      orderConfirm();
     </script>
 
 
