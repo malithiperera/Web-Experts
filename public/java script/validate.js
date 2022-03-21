@@ -5,6 +5,26 @@ const price = document.getElementById("input_price")
 const form = document.getElementById("productForm")
 const errorElement = document.getElementById("error")
 
+const setError = (element, message) => {
+    const inputControl = element.parentElement
+    const errorDisplay = inputControl.querySelector('.error')
+
+    errorDisplay.innerText = message
+    inputControl.classList.add('success')
+    inputControl.classList.remove('error')
+
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement
+    const errorDisplay = inputControl.querySelector('.error')
+
+    errorDisplay.innerText = ''
+    inputControl.classList.add('success')
+    inputControl.classList.remove('error')
+
+}
+
 form.addEventListener ('submit', (e) => {
     // let message = []
     // if (productId.value === '' || productId.value == null) {
@@ -33,25 +53,25 @@ form.addEventListener ('submit', (e) => {
 
 })
 
-const setError = (element, message) => {
-    const inputControl = element.parentElement
-    const errorDisplay = inputControl.querySelector ('.error')
+// const setError = (element, message) => {
+//     const inputControl = element.parentElement
+//     const errorDisplay = inputControl.querySelector ('.error')
 
-    errorDisplay.innerText = message
-    inputControl.classList.add ('success')
-    inputControl.classList.remove ('error')
+//     errorDisplay.innerText = message
+//     inputControl.classList.add ('success')
+//     inputControl.classList.remove ('error')
 
-}
+// }
 
-const setSuccess = element => {
-    const inputControl = element.parentElement
-    const errorDisplay = inputControl.querySelector('.error')
+// const setSuccess = element => {
+//     const inputControl = element.parentElement
+//     const errorDisplay = inputControl.querySelector('.error')
 
-    errorDisplay.innerText = ''
-    inputControl.classList.add('success')
-    inputControl.classList.remove('error')
+//     errorDisplay.innerText = ''
+//     inputControl.classList.add('success')
+//     inputControl.classList.remove('error')
 
-}
+// }
 
 const validateInputs = () => {
     const productIdValue = productId.value.trim ()
@@ -85,6 +105,38 @@ const validateInputs = () => {
 
     } else {
         setSuccess (input_price)
+        
+    }
+} 
+
+const adminName = document.getElementById('admin_name')
+const adminId = document.getElementById('admin_userid')
+const adminNIC = document.getElementById('admin_nic')
+const adminDOB = document.getElementById('admin_dob')
+const adminEmail = document.getElementById('admin_email')
+const adminAddress = document.getElementById('admin_add')
+const adminTele = document.getElementById('admin_tel')
+
+form.addEventListener ('submit ', (e) => {
+    e.preventDefault ()
+    addAdminInputValidation ()
+
+})
+
+const addAdminInputValidation = () => {
+    const adminNameValue = adminName.value.trim ()
+    const adminIdValue = adminId.value.trim ()
+    const adminNICValue = adminNIC.value.trim ()
+    const adminDOBValue = adminDOB.value.trim ()
+    const adminEmailValue = adminEmail.value.trim ()
+    const adminAddressValue = adminAddress.value.trim ()
+    const adminTeleValue = adminTele.value.trim ()
+    
+    if (adminNameValue === '') {
+        setError(admin_name, 'Enter the name')
+
+    } else {
+        setSuccess (admin_name)
         
     }
 }

@@ -111,7 +111,7 @@
 <body>
     <div class="view-report-container">
         <h3>Select Your Report Type</h3>
-        <form action="../reports/reports" method="GET">
+        <form action="../reports/reports" method="POST">
             <div class="report-select">
                 <div class="type1">
                     <label for="type">Report Type:</label>
@@ -119,7 +119,7 @@
                     <select id="type" name="type">
                      
                     </select>
-                    <select id="cat" name="cat" onchange="myFunction()">
+                    <select id="cat" name="cat" onchange="myFunction()" id="cat">
                         <option value="year">Yearly</option>
                         <option value="month">Monthly</option>
                         <option value="duration">Duration</option>
@@ -159,7 +159,7 @@
                     <label for="start">Start date:</label>
                     <br>
 
-<input type="date" id="start" name="startdate" value="2021-01-01" min="2021-01-01" max="2022-12-31">
+<input type="date" id="start" name="startdate" >
                     </div>
                 
                     
@@ -168,7 +168,7 @@
                    <label for="start">End date:</label>
                    <br>
 
-<input type="date" id="start" name="enddate" value="2021-01-01" min="2018-01-01" max="2022-12-31">
+<input type="date" id="start" name="enddate">
 
                    </div>
                 
@@ -206,6 +206,7 @@
   var select=document.querySelector('.select');
   var select1=document.querySelector('.select1');
   var month=document.getElementById('ddlMonth');
+  var years=document.getElementById('ddlYears');
   var duration1=document.getElementById('duration1');
 
   if(x=='month'){
@@ -220,8 +221,7 @@ else if(x=='duration'){
    duration1.style.visibility="visible";
    select1.style.visibility="hidden";
    duration1.style.marginTop="-80px";
-   year.value=" ";
-   month.value=" ";
+   
 
 }
   else{
@@ -255,6 +255,17 @@ function fill_types(){
 }
 
 fill_types();
+
+
+
+function submitform(){
+
+    var type=document.getElementById('cat').value;
+    console.log(type);
+
+
+    fetch('http://localhost/web-Experts/public/reports/get_types')
+}
     </script>
 
 

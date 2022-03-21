@@ -28,71 +28,6 @@ if (!isset($_SESSION['username'])) {
         }
 
 
-
-        .sidebar {
-            position: fixed;
-            width: 80px;
-            height: 100vh;
-            background-color: #184A78;
-            /* opacity:50%; */
-        }
-
-        .sidebar>p {
-            margin-left: 10px;
-            letter-spacing: 5px;
-            visibility: hidden;
-        }
-
-        .sidebar>i {
-            position: absolute;
-            top: 5px;
-            right: 35px;
-        }
-
-        .fa-align-right {
-            visibility: hidden;
-        }
-
-        .icons {
-            position: absolute;
-            top: 150px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .icons a {
-            margin-bottom: 50px;
-            margin-left: 20px;
-        }
-
-        .links {
-            position: absolute;
-            top: 150px;
-            display: flex;
-            flex-direction: column;
-            visibility: hidden;
-            width: 250px;
-        }
-
-        .links a {
-            margin-bottom: 50px;
-            margin-left: 60px;
-            width: 230px;
-            text-decoration: none;
-        }
-
-        .links a:hover {
-            color: #1d1b31;
-        }
-
-        .sidebar_footer {
-            position: absolute;
-            bottom: 0;
-            background-color: #1d1b31;
-            width: 100%;
-            height: 60px;
-        }
-
         .fa-building {
             position: absolute;
             top: 20px;
@@ -106,6 +41,7 @@ if (!isset($_SESSION['username'])) {
         }
 
         .container {
+            margin-top: 60px;
             position: relative;
             left: 40px;
             width: calc(100% - 80px);
@@ -587,19 +523,7 @@ if (!isset($_SESSION['username'])) {
                     </div>
                 </div>
 
-                <!-- buttons for more options -->
-                <div>
-                    <button id='send_warn' class="warn"><i class="fas fa-envelope-open-text" onclick="popup_message('.popup_update_status')"></i>Send Messege</button>
-
-                </div>
-                <div>
-                    <button id="report" class="report"><i class="fas fa-chart-line"></i>View Report</button>
-
-                </div>
-                <div>
-                    <button id="report" class="Hold"><i class="fas fa-exclamation"></i>Hold</button>
-
-                </div>
+            
             </div>
             <!-- ending of header details -->
             <div class="cards">

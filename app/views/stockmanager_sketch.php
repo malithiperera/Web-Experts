@@ -19,19 +19,19 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_button.css">
     <link rel="stylesheet" href="../../public/styles/sketch.css">
-    
+
 </head>
 
 <body>
 
-<div class="sidebar">
+    <div class="sidebar">
         <div class="logo-details">
 
             <div class="logo_name">Himalee Dairy Product</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
-         
+
             <li>
                 <a href="#">
                     <i class='bx bx-grid-alt'></i>
@@ -93,43 +93,43 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <section class="home-section">
-    <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
-    </div>
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
+        <?php require 'view_stockManager_manageStocks.php'; ?>
 
-    
-    
+
     </section>
 
 
 
-    
+
 
 
 
     <script>
-        
-
-                
-
-        
 
 
 
 
 
-            
 
 
-        
-            
 
-        
-        
 
-        
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 
