@@ -46,7 +46,28 @@ class customer extends controller
 
     public function place_order_view()
     {
-        $this->view->render('test1234');
+        session_start();
+        $userid=$_SESSION['userid'];
+
+        $this->model('order_model');
+
+        //check pending orders
+        $result=$this->model->checkorders($userid);
+        // $result1=mysqli_fetch_assoc($result);
+        // print_r($result1);
+
+if(mysqli_num_rows($result)==0){
+     $this->view->render('test2');
+
+
+}
+else{
+   
+    $this->view->flag=1;
+    $this->view->render("_1_view_customerHome");
+}
+
+        
     }
 
     public function get_details_place_order()
@@ -128,7 +149,8 @@ class customer extends controller
 
     public function view_orders()
     {
-        $this->view->render('view_vieworder');
+
+        $this->view->render('view_customer_vieworders');
     }
 
     public function view_notification()
@@ -138,7 +160,7 @@ class customer extends controller
 
     public function profile()
     {
-        $this->view->render('view_profileEdit');
+        $this->view->render('admin_sketch');
     }
 
 

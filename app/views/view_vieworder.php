@@ -1,12 +1,3 @@
-<?php session_start();
-
-if (!isset($_SESSION['username'])) {
-    header("Location:http://localhost/web-Experts/public/login/index");
-}
-
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -90,11 +81,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-    <div class="header">
-        <?php
-        require 'view_headertype2.php';
-        ?>
-    </div>
+    
     <div class="container">
 
         <div class="addnew">

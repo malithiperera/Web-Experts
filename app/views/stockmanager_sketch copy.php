@@ -96,7 +96,7 @@ if (!isset($_SESSION['username'])) {
     <div class="header">
       <?php  require 'view_headertype2.php'; ?>
     </div>
-
+<?php ?>
     
     
     </section>

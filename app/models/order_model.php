@@ -135,4 +135,14 @@ class order_model extends model
         
 
     }
+
+    //check whether have pending orders
+public function checkorders($userid){
+    require '../app/core/database.php';
+    $sql=" SELECT * FROM orders where cus_id='$userid' and status ='not-delivered' ";
+    $result=mysqli_query($conn,$sql);
+    return $result;
+
+}
+
 }

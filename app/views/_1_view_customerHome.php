@@ -1,10 +1,3 @@
-<?php session_start();
-
-if (!isset($_SESSION['username'])) {
-  header("Location:http://localhost/web-Experts/public/login/index");
-}
-
-?>
 
 
 <!DOCTYPE html>
@@ -607,7 +600,16 @@ payhere.startPayment(updated_pay);
 
 
     }
- 
+    //pending orders check
+    var flag="<?php echo $this->flag?>";
+
+    if(flag==1){
+      
+    console.log(flag);
+    
+
+    }
+ console.log("Hello")
   </script>
 
   <script src="../../public/java script/view_customer_Home.js"></script>

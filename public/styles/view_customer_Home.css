@@ -775,6 +775,10 @@ tr {
   .payment{
     width: 100%;
   }
+  .field table{
+    border: none;
+    outline: none;
+  }
 }
 
 
@@ -820,11 +824,21 @@ tr {
   .card{
     width: 400px;
   }
+
+  .field table{
+    border: none;
+    outline: none;
+  }
 }
 @media (max-width: 370px){
 .left{
   width: 100%;
   margin-left: 10px;
+}
+
+.field table{
+  border: none;
+  outline: none;
 }
 }
 
