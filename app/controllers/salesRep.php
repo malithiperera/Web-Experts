@@ -177,6 +177,15 @@ class salesRep extends controller
         header("Location: http://localhost/web-Experts/public/salesRep/chequePayment");
     }
 
+    //CONFIRM ORDER DELIVERY- REP PROFILE
+
+    public function ConfirmOrder()
+    {
+        $orders_id = $_POST['orderId'];
+        $this->model('_2_salesrep_model');
+        $this->model->confirm_delivery($orders_id);  
+    }
+
     public function view_notifications()
     {
         $this->view->render('view_rep_notification');
@@ -292,6 +301,7 @@ class salesRep extends controller
         $this->view->render('view_rep_achievements');
     }
     
+<<<<<<< HEAD
     //CONFIRM ORDER DELIVERY- REP PROFILE
     public function ConfirmOrder()
     {
@@ -302,4 +312,7 @@ class salesRep extends controller
     public function request_product_list(){
         $this->view->render('view_rep_stock_request');
     }
+=======
+    
+>>>>>>> 8fe4a5b54bc9c1e3076fe3159e624f78210a56d9
 }

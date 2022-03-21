@@ -46,13 +46,23 @@ public function save_profile(){
 }
 
 public function changepassword(){
+    session_start();
+    $userid=$_SESSION['userid'];
     $get_data = file_get_contents('php://input');
     $get_data = json_decode($get_data, true);
 
-// $this->model('profile_model');
-// $this->model->changepassword()
-echo json_encode($get_data);
+$this->model('profile_model');
+$result=$this->model->changepass($get_data['old_password'],$userid);
+if($result){
+$result1=$this->model->savepass($get_data['new_pass'],$userid);
+echo json_encode($result1);
 exit;
+}
+else{
+    echo json_encode($result);
+    exit;
+}
+
 
 }
 
@@ -67,4 +77,34 @@ public function test(){
     $result=$this->model->test($get_data);
     echo json_encode($result);
 }
+
+public function landform(){
+    // if(isset($_POST['submit'])){
+
+        $name=$_POST['name'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+
+  
+
+    // }
+
+    
+
+
+}
+
+//save changes
+public function save_changes(){
+
+    session_start();
+    $userid=$_SESSION['userid'];
+    $get_data=file_get_contents('php://input');
+    $get_data=json_decode($get_data,true);
+    $this->model('profile_model');
+    $result=$this->model->save_change_info($get_data['name'],$get_data['address'],$get_data['email'],$get_data['nic'],$get_data['tele'],$userid);
+    echo json_encode($result);
+
+}
+
 }

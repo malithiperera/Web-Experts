@@ -75,7 +75,7 @@ class order_model extends model
             $amount = $row[4];
 
             $sql3 = "INSERT INTO order_product
-                    VALUES ('$order_id', '$product_id', '$price', '$discount', '$qty', '$amount')";
+                    VALUES ('$order_id', '$product_id', '$price', '$discount', '$qty','0', '$amount')";
             mysqli_query($conn, $sql3);
 
         }
@@ -111,9 +111,9 @@ class order_model extends model
                 $amount = $row[4];
     
                 $sql3 = "INSERT INTO order_product
-                        VALUES ('$order_id', '$product_id', '$price', '$discount', '$qty', '$amount')";
+                        VALUES ('$order_id', '$product_id', '$price', '$discount', '$qty', '0','$amount')";
                 mysqli_query($conn, $sql3);
-              
+               
             }
        
 

@@ -6,32 +6,42 @@ if (!isset($_SESSION['username'])) {
 
 ?>
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../public/styles/view_rep_cash.css">
   <title>CashPayment</title>
+
 </head>
 
 <body>
+
 <div class="header">
+
         <?php
         require 'view_headertype2.php';
         ?>
 
-    </div>
+</div>
 
   <div class="container">
+
     <div class="sub-container">
+
       <div class="title1">Cash Payment</div>
 
       <form class="new" method="post" action="add_cashPayment">
+
         <div class="input-fields"><label for="order">Order ID</label>
+
           <div class="radio">
             <select id="orders" name="orderId" onchange="selectOrder()">
+
               <?php
         if($this->result->num_rows>0){
           while($row=$this->result->fetch_assoc()){
@@ -40,16 +50,24 @@ if (!isset($_SESSION['username'])) {
         }
       ?>
             </select>
+
           </div>
+
         </div>
+
         <div class="input-fields"><label for="total">Total Amount</label><input type="text" name="total" id="total"
             class="inputf">
 
         </div>
+
         <div class="input-fields"><label for="date">Date</label><input type="date" name="date" id="date" class="inputf">
+
         </div>
+
         <div class="input-fields"><input type="submit" value="Confirm" id="confirm"></div>
+
       </form>
+
     </div>
     
   </div>
@@ -57,9 +75,13 @@ if (!isset($_SESSION['username'])) {
 
 
   <script>
-document.getElementById("confirm").addEventListener("click", function() {
+
+document.getElementById("confirm").addEventListener("click", function() 
+{
   alert("Payment Succesfull!");
-});
+}
+);
+
 </script>
 
   <script>

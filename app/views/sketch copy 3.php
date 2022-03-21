@@ -24,7 +24,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-<div class="sidebar">
+    <div class="sidebar">
         <div class="logo-details">
 
             <div class="logo_name">Himalee Dairy Product</div>
@@ -33,40 +33,45 @@ if (!isset($_SESSION['username'])) {
         <ul class="nav-list">
          
             <li>
-                <a href="#">
-                <i class='bx bx-home'></i>
+                <a href="../customer/home">
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
                 <span class="tooltip">Home</span>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">User</span>
+                <a href="../customer/place_order_view">
+
+                    <i class='bx bxs-cart-add'></i>
+                    <span class="links_name">Place Order</span>
                 </a>
-                <span class="tooltip">User</span>
+                <span class="tooltip">Place Order</span>
+            </li>
+
+            <li>
+                <a href="#" onclick="pop_up_report()">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="links_name">Reports</span>
+                </a>
+                <span class="tooltip">Reports</span>
             </li>
             <li>
-                <a href="../stockManager/notification">
-
-                    <a href="../stockManager/moveToNotificationPage">
-
+                <a href="../customer/our_products">
+                    <i class="fas fa-ice-cream"></i>
+                    <span class="links_name">Our Products</span>
+                </a>
+                <span class="tooltip">Our Products</span>
+            </li>
+            <li>
+                <a href="../customer/view_notification">
                     <i class='bx bx-bell'></i>
-                        <span class="links_name">Notification</span>
-                    </a>
-                    <span class="tooltip">Notification</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-chart-line"></i>
-                    <span class="links_name">View Reports</span>
+                    <span class="links_name">Notification</span>
                 </a>
-                <span class="tooltip">View Reports</span>
+                <span class="tooltip">Notification</span>
             </li>
-
             <li>
-                <a href="#">
-                    <i class="fas fa-user"></i>
+                <a href="../customer/profile">
+                    <i class="far fa-user-circle"></i>
                     <span class="links_name">Profile</span>
                 </a>
                 <span class="tooltip">Profile</span>
@@ -78,16 +83,15 @@ if (!isset($_SESSION['username'])) {
                 </a>
                 <span class="tooltip">Logout</span>
             </li>
-
             <li class="profile">
                 <div class="profile-details">
-
+                    <img src="profile.jpg" alt="profileImg">
                     <div class="name_job">
-                        <div class="name">M.Bandara</div>
-                        <div class="job">Stock Manager</div>
+                        <div class="name"></div>
+                        <div class="job">Customer</div>
                     </div>
                 </div>
-                <i class='bx bx-log-out' id="log_out"></i>
+                <i class="fas fa-store" id="log_out"></i>
             </li>
         </ul>
     </div>
@@ -98,8 +102,7 @@ if (!isset($_SESSION['username'])) {
     </div>
 
 
-    <?php require "stockmanagerHome.php"; ?>
-
+    
     </section>
 
 

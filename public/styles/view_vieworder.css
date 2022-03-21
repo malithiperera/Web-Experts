@@ -22,12 +22,12 @@
     justify-content: center;
 }
 
-.data_form button{
+/* .data_form button{
     margin:10px;
     width:80px;
     height:40px;
     border-radius:20px;
-}
+} */
 .data_form input{
     margin:10px;
     padding-left:10px;
