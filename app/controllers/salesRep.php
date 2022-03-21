@@ -181,9 +181,23 @@ class salesRep extends controller
 
     public function ConfirmOrder()
     {
-        $orders_id = $_POST['orderId'];
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
         $this->model('_2_salesrep_model');
-        $this->model->confirm_delivery($orders_id);  
+        $result=$this->model->confirm_delivery($get_data);  
+
+        $data = [];
+
+        // while ($row = $result->fetch_assoc()) {
+        //     array_push($data, $row);
+        // }
+
+        echo json_encode($data);
+        exit;
+        
+        
+
     }
 
     public function view_notifications()

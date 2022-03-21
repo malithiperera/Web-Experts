@@ -306,7 +306,7 @@ if (!isset($_SESSION['username'])) {
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
-                                <td><button id="confirm" onclick="orderConfirm()">Confirm</button></td>
+                                <td><button id="confirm" onclick="orderConfirm('${data[i]['order_id']}')">Confirm</button></td>
                                 
                             
                   
@@ -357,8 +357,18 @@ if (!isset($_SESSION['username'])) {
     <script>
 
       //confirm order
-      function orderConfirm(){
-        fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder')
+      function orderConfirm(order_id){
+        fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder', {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(order_id),
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(order_id);
+          })
         
       }
       orderConfirm();
