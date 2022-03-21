@@ -1,4 +1,11 @@
+<?php session_start();
 
+if (!isset($_SESSION['username'])) {
+    header("Location:http://localhost/web-Experts/public/login/index");
+}
+$userid=$_SESSION['userid'];
+
+?>
 
 <!DOCTYPE html>
 
@@ -50,7 +57,7 @@
         <span class="tooltip">Home</span>
       </li>
       <li>
-        <a href="../customer/place_order_view">
+        <a href="../customer/place_order_view?$userid">
 
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>

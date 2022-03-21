@@ -12,13 +12,14 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <title>Home </title>
-    <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
-    <link rel="stylesheet" href="../../public/styles/view_customer_ourproduct.css">
+    
+   
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_button.css">
-    <link rel="stylesheet" href="../../public/styles/sketch.css">
+    <!-- <link rel="stylesheet" href="../../public/styles/sketch.css"> -->
+    <link rel="stylesheet" href="../../public/styles/sidebar.css">
 
 </head>
 
@@ -34,29 +35,13 @@ if (!isset($_SESSION['username'])) {
 
             <li>
                 <a href="#">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Dashboard</span>
+                <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
                 </a>
-                <span class="tooltip">Dashboard</span>
+                <span class="tooltip">Home</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">User</span>
-                </a>
-                <span class="tooltip">User</span>
-            </li>
-            <li>
-                <a href="../stockManager/notification">
-
-                    <a href="../stockManager/moveToNotificationPage">
-
-                        <i class='bx bx-chat'></i>
-                        <span class="links_name">Notification</span>
-                    </a>
-                    <span class="tooltip">Notification</span>
-            </li>
-            <li>
+           <li>
+           
                 <a href="#">
                     <i class="fas fa-chart-line"></i>
                     <span class="links_name">View Reports</span>
@@ -67,16 +52,16 @@ if (!isset($_SESSION['username'])) {
             <li>
                 <a href="#">
                     <i class="fas fa-user"></i>
-                    <span class="links_name">Profile</span>
+                    <span class="links_name">Send Messege</span>
                 </a>
-                <span class="tooltip">Profile</span>
+                <span class="tooltip">Send Messege</span>
             </li>
             <li>
                 <a href="logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="links_name">Logout</span>
+                <i class="fas fa-exclamation"></i>
+                    <span class="links_name">Hold Customer</span>
                 </a>
-                <span class="tooltip">Logout</span>
+                <span class="tooltip">Hold Customer</span>
             </li>
 
             <li class="profile">
@@ -96,7 +81,7 @@ if (!isset($_SESSION['username'])) {
         <div class="header">
             <?php require 'view_headertype2.php'; ?>
         </div>
-        <?php require 'view_stockManager_manageStocks.php'; ?>
+        <?php require 'view_admin_customerProfile.php'; ?>
 
 
     </section>
