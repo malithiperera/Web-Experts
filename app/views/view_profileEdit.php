@@ -15,8 +15,9 @@ if (!isset($_SESSION['username'])) {
   <meta charset="UTF-8">
   <title>Customer Home </title>
   <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
+  <link rel="stylesheet" href="../../public/styles/view_profileEdit.css">
 
-  <!-- Boxicons CDN Link -->
+  
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
@@ -24,227 +25,7 @@ if (!isset($_SESSION['username'])) {
   <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <style>
-   .prof-img img{
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-}
 
-
-
-input{
-	font-size: 1.2rem !important;
-}
-
-
-
-
-
-
-
-
-.pro-data{
-    display: flex;
-    flex-direction: column;
-}
-
-.pro-data input{
-    background-color:rgb(212, 209, 209);
-    color:black;
-    padding: 10px;
-    width: 300px;
-    margin: 10px;
-}
-.data-bio input{
-    width: 400px;
-}
-
-.pro-container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 100px;
-}
-
-.pro-sub{
-  width: 900px;
-  height: 600px;
-  background-color:#ADD8E6   ;
-  justify-content: space-around;
-  border-radius: 10px;
-  padding: 40px;
-  display: flex;
-  z-index: 1;
-}
-
-.pro-sub .long{
-  width: 1000px;
-}
-.prof-img{
-	margin: 0 1rem 1rem 1rem;
-	width: 15rem;
-	height: 15rem;
-	padding: .3rem ;
-	background-size: cover;
-	border-radius: 50%;
-	box-shadow: 0 0 1.5rem rgba(0,0,0,0.5);
-}
-
-.edit-button{
-	position: relative;
-	top: -3rem;
-	left: 10rem;
-	background-color: var(--icon);
-
-	width: 3rem;
-	height: 3rem;
-	line-height: 3rem;
-	display: flex;
-	justify-content: space-around !important;
-	align-content:center !important; 
-	border-radius: 50%;
-	box-shadow: 0 0 1.5rem rgba(0,0,0,0.5);
-}
-
-.edit-button i{
-	width: 100%;
-
-	font-size: 1.4rem !important;
-}
-
-.bio-data footer{
-	border-left: .5px solid gray;
-	margin: 0 -1rem ;
-}
-
-input[type="file"]{
-	display: none;
-}
-.pencil{
-	cursor: pointer;
-}
-.pop-up-password{
-    visibility: hidden;
-}
-
-#save-change{
-    width: 200px;
-    padding: 10px;
-    background-color: #184A78;
-    border:none;
-    outline: none;
-    color: #fff;
-    margin: 20px;
-    border-radius: 10px;
-}
-#change-pass-but{
-    width: 400px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-left: 5px;
-    background-color: rgb(212, 209, 209);
-    border: 3px solid green;
-   
-    outline: none;
-    color: green;
-    /* margin: 20px; */
-    border-radius: 10px;
-
-}
-
-#save-pass , #close-pass{
-  width: 150px;
-  height: 40px;
-  background-color: #184A78;
-  color: #fff;
-  margin-left: 20px;
-}
-@media (max-width:742px){
-/*	main{
-		grid-template-columns: 12rem calc(100vw - 12rem);
-	}*/
-	.prof-img{
-		width: 10rem;
-		height: 10rem;
-	}
-	.edit-button{
-		top: -3rem;
-		left: 8rem;
-		width: 2.2rem;
-		height: 2.2rem;
-		line-height: 2.2rem;
-	}
-	.side-container{
-		width: 12rem;
-	}
-}
-#address .back{
-  background-color: #fff;
-}
-
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    height: 100vh;
-    width: 100%;
-}
-
-h1{
-    font-family: sans-serif;
-    text-align: center;
-    font-size: 30px;
-    color: #222;
-}
-
-.profile-pic-div{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid grey;
-}
-
-#photo{
-    height: 100%;
-    width: 100%;
-}
-
-#file{
-    display: none;
-}
-
-#uploadBtn{
-    height: 40px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7);
-    color: wheat;
-    line-height: 30px;
-    font-family: sans-serif;
-    font-size: 15px;
-    cursor: pointer;
-    display: none;
-}
-#nav_id .open{
-  background-color: green;
-}
-
-  </style>
 
 </head>
 
@@ -358,7 +139,7 @@ h1{
               <button id="change-pass-but" onclick="change_password()">Change password</button>
           </div>
           <div class="save-changes">
-          <button id="save-change">save changes</button>
+          <button id="save-change" onclick="save_changes()">save changes</button>
       </div>
 
 
@@ -383,186 +164,17 @@ h1{
       </div>
       </div>
       </div>  
+
+      <div class="pop-up-profile">
+<?php require 'view_successfull_pop-up.php' ;?>
+      </div>
     </section>
    
 
   </section>
 
   <script src="../../public/java script/side_bar.js"></script>
-<script>
-
-         let name= document.getElementById('name');
-         let email= document.getElementById('email');
-         let tele= document.getElementById('tele');
-         let nic=document.getElementById('nic');
-         let address=document.getElementById('address');
-         let pro= document.querySelector('.pro-sub');
-         let con_pass=document.getElementById('new-con-pass');
-         let save_change=document.getElementById('save-change');
-         let pop_up_pass=document.getElementById('pop_up_password');
-        
-
-
-
-        //  function header(){
-        //    nav_id.style.background="red";
-
-        //  }
-        //  header();
-  // let status=0;
-
-
-
-
-    function change_password()
-    {
-      
-   document.getElementById('pop_up_password').style.visibility="visible";
-   pro.style.height="800px";
-   save_change.style.visibility="hidden";
-   pop_up_pass.style.marginTop="-30px";
-
-    }
-    function password_updates()
-{
-  var pass_old=document.getElementById('new-pass').value;
-  var new_p=document.getElementById('new-con-pass');
-  var new_pass=document.getElementById('new-con-pass').value;
-  var tool=document.getElementById('tool-tip');
-  if(pass_old!=new_pass)
-  {
-    
-    new_p.style.border="thick solid red";
-        
-    tool.innerHTML="Password does not match";
-    
-  }
-  else{
-    new_p.style.border="thick solid green";
-        
-    tool.innerHTML="Password Matched";
-  
-}
-}
-    function close_pass()
-    {
-        document.getElementById('pop_up_password').style.visibility="hidden";
-        pro.style.height="600px";
-        save_change.style.visibility="visible";
-    }
-
-
-    function edit_info(type){
-      console.log(type);
-     var color='rgb(212, 209, 209)';
-      name.setAttribute('readonly','true');
-      email.setAttribute('readonly','true');
-      tele.setAttribute('readonly','true');
-      nic.setAttribute('readonly','true');
-      address.setAttribute('readonly','true');
-      name.style.background=color;
-      email.style.background=color;
-      tele.style.background=color;
-      nic.style.background=color;
-      address.style.background=color;
-      
-type.removeAttribute('readonly');
-type.style.background="white";
-// email.setAttribute('readonly');
-// nic.setAttribute('readonly');
-// address.setAttribute('readonly');
-
-    }
-
-    function edit_add()
-    {
-      
-      document.getElementById('address').style.background="white";
-      document.getElementById('address').removeAttribute('readonly');
-     document.getElementById('tele').setAttribute('readonly');
-email.setAttribute('readonly');
-nic.setAttribute('readonly');
-address.setAttribute('tele')
-
-    }
-</script>
-
-<script>
-function get_data_profile()
-{
-  fetch('http://localhost/web-Experts/public/profile/edit_profile')
-        .then(response => response.json())
-        .then(data => {
-         
-          console.log(data);
-          document.getElementById('name').value=data[0]['name'];
-          document.getElementById('email').value=data[0]['email'];
-          document.getElementById('tele').value=data[0]['tel'];
-          document.getElementById('nic').value=data[0]['nic'];
-          document.getElementById('address').value=data[0]['address'];
-          document.getElementById('photo-pic').src='../../public/images/uploads/'+data[0]['profile_pic'];
-        });
-
-
-}
-
-get_data_profile();
-
-
-window.onclick=function(event)
-{
-   x=document.getElementById('reset').value;
-   console.log(x);
-}
-
-
-
-
-function save_pass()
-{
-  var pass=document.getElementById('old_pass').value;
-  var pass_old=document.getElementById('new-pass').value;
-  var new_pass=document.getElementById('new-con-pass').value;
-  var tool=document.getElementById('tool-tip');
-  
-
-  if(pass_old!=new_pass)
-  {
-    
-    tool.innerHTML="Password does not match";
-
-    
-  }
-
-  else{
-    var data_set={
-      old_password=pass,
-      new_pass=pass_old,
-      new_con_pass=new_pass
-    }
-//     fetch('http://localhost/web-experts/public/profile/changepassword',{
-//       method: 'POST',
-
-// headers: {
-//   'Content-Type': 'application/json'
-
-// },
-
-// body: JSON.stringify(data_set)
-
-
-
-
-//     })
-//     .then(response => response.json())
-//         .then(data => {
-// console.log(data);
-  
-
-// });
- }
-}
-  </script>
+  <script src="../../public/java script/view_profile_edit.js"></script>
 
 
  
