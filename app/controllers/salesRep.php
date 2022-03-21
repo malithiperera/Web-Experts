@@ -301,18 +301,10 @@ class salesRep extends controller
         $this->view->render('view_rep_achievements');
     }
     
-<<<<<<< HEAD
-    //CONFIRM ORDER DELIVERY- REP PROFILE
-    public function ConfirmOrder()
-    {
-        
-    }
+ 
 
     //request a product list from stock manager
     public function request_product_list(){
         $this->view->render('view_rep_stock_request');
     }
-=======
-    
->>>>>>> 8fe4a5b54bc9c1e3076fe3159e624f78210a56d9
 }
