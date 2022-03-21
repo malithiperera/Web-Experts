@@ -297,4 +297,9 @@ class salesRep extends controller
     {
         
     }
+
+    //request a product list from stock manager
+    public function request_product_list(){
+        $this->view->render('view_rep_stock_request');
+    }
 }
