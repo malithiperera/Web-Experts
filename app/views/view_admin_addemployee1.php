@@ -11,6 +11,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../../public/java script/validate.js"></script>
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="../../public/styles/view_admin_addemployee.css">
@@ -29,8 +30,6 @@ if (!isset($_SESSION['username'])) {
         color: black;
         font-size: 30px;
     }
-
-    
 </style>
 
 
@@ -60,33 +59,62 @@ if (!isset($_SESSION['username'])) {
                 <h3>Admin Registration</h3>
                 <div>
                     <div class="content">
+                        <div class="input_control">
+                            <label for="name"><b>Name</b></label><br>
+                            <input type="text" placeholder="N" name="name" id="admin_name">
+                            <div class="error"></div>
 
-                        <label for="name"><b>Name</b></label><br>
-                        <input type="text" placeholder="Name" name="name" id="admin_name" required>
-                        <br>
-                        <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
-                        <input type="text" placeholder="Name" name="userid" id="admin_userid" required>
-                        <br>
+                        </div><br>
+
+                        <div class="input_control">
+                            <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
+                            <input type="text" placeholder="Name" name="userid" id="admin_userid">
+                            <div class="error"></div>
+
+                        </div><br>
+
                         <label for="name"><b>Level</b></label><br>
                         <select name="level" id="admin_type">
                             <option value="Junior">Junior</option>
                             <option value="Senior">Senior</option>
                         </select>
                         <br>
-                        <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label><br>
-                        <input type="text" placeholder="nic" name="nic" id="admin_nic" required>
-                        <br>
-                        <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label><br>
-                        <input type="date" placeholder="dob" name="dob" id="admin_dob" required>
-                        <br>
-                        <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-                        <input type="text" placeholder="Enter Email" name="email" id="admin_email" required>
-                        <br>
-                        <label for="psw"><b>Address&nbsp;</b></label><br>
-                        <input type="address" placeholder="address" name="add" id="admin_add" required>
-                        <br>
-                        <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-                        <input type="tel" placeholder="Telephone" name="tel" id="admin_tel" required>
+
+                        <div class="input_control">
+                            <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label><br>
+                            <input type="text" placeholder="nic" name="nic" id="admin_nic">
+                            <div class="error"></div>
+
+                        </div><br>
+
+                        <div class="input_control">
+                            <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label><br>
+                            <input type="date" placeholder="dob" name="dob" id="admin_dob">
+                            <div class="error"></div>
+
+                        </div><br>
+
+                        <div class="input_control">
+                            <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+                            <input type="text" placeholder="Enter Email" name="email" id="admin_email">
+                            <div class="error"></div>
+
+                        </div><br>
+
+                        <div class="input_control">
+                            <label for="psw"><b>Address&nbsp;</b></label><br>
+                            <input type="address" placeholder="address" name="add" id="admin_add">
+                            <div class="error"></div>
+
+                        </div><br>
+
+                        <div class="input_control">
+                            <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+                            <input type="tel" placeholder="Telephone" name="tel" id="admin_tel">
+                            <div class="error"></div>
+
+                        </div>
+
 
 
                         <button type="submit" class="registerbtn" id="validate" name="submit" onsubmit="validate()" onclick="reg_user('admin')">Register</button>
@@ -100,30 +128,74 @@ if (!isset($_SESSION['username'])) {
                 <h3>Sales Representative Registration</h3>
                 <div>
                     <div class="content">
+                        <div class="input_control">
+                            <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="text" placeholder="Name" name="name" id="salesrep_namesalesrep_name" required>
+                            <div class="error"></div>
 
-                        <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="text" placeholder="Name" name="name" id="salesrep_namesalesrep_name" required>
+                        </div>
+
                         <br>
-                        <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="text" placeholder="Name" name="userid" id="salesrep_useridsalesrep_userid" required>
+
+                        <div class="input_control">
+                            <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="text" placeholder="Name" name="userid" id="salesrep_useridsalesrep_userid" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
-                        <input type="text" placeholder="nic" name="nic" id="salesrep_nicsalesrep_nic" required>
+
+                        <div class="input_control">
+                            <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
+                            <input type="text" placeholder="nic" name="nic" id="salesrep_nicsalesrep_nic" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
-                        <input type="date" placeholder="dob" name="dob" id="salesrep_dobsalesrep_dob" required>
+
+                        <div class="input_control">
+                            <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
+                            <input type="date" placeholder="dob" name="dob" id="salesrep_dobsalesrep_dob" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="name"><b>Target&nbsp;&nbsp; </b></label>
-                        <input type="text" placeholder="Traget" name="target" id="salesrep_targetsalesrep_target" required>
+
+                        <div class="input_control">
+                            <label for="name"><b>Target&nbsp;&nbsp; </b></label>
+                            <input type="text" placeholder="Traget" name="target" id="salesrep_targetsalesrep_target" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" id="salesrep_emailsalesrep_email" required>
+
+                        <div class="input_control">
+                            <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" id="salesrep_emailsalesrep_email" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="psw"><b>Address&nbsp;</b></label>
-                        <input type="address" placeholder="address" name="add" id="salesrep_addsalesrep_add" required>
+                        <div class="input_control">
+                            <label for="psw"><b>Address&nbsp;</b></label>
+                            <input type="address" placeholder="address" name="add" id="salesrep_addsalesrep_add" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="tel" placeholder="Telephone" name="tel" id="salesrep_telsalesrep_tel" required>
+                        <div class="input_control">
+                            <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="tel" placeholder="Telephone" name="tel" id="salesrep_telsalesrep_tel" required>
+                            <div class="error"></div>
+
+                        </div>
+
 
 
 
@@ -138,30 +210,63 @@ if (!isset($_SESSION['username'])) {
                 <h3>Stock Manager Registration</h3>
                 <div>
                     <div class="content">
+                        <div class="input_control">
+                            <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="text" placeholder="Name" name="name" id="stockmanager_name" required>
+                            <div class="error"></div>
+                        </div>
 
-                        <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="text" placeholder="Name" name="name" id="stockmanager_name" required>
                         <br>
-                        <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="text" placeholder="Name" name="userid" id="stockmanager_userid" required>
+                        <div class="input_control">
+                            <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="text" placeholder="Name" name="userid" id="stockmanager_userid" required>
+                            <div class="error"></div>
+                        </div>
+
                         <br>
-                        <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
-                        <input type="text" placeholder="nic" name="nic" id="stockmanager_nic" required>
+                        <div class="input_control">
+                            <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
+                            <input type="text" placeholder="nic" name="nic" id="stockmanager_nic" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
 
-                        <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
-                        <input type="date" placeholder="dob" name="dob" id="stockmanager_dob" required>
+                        <div class="input_control">
+                            <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
+                            <input type="date" placeholder="dob" name="dob" id="stockmanager_dob" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" id="stockmanager_email" required>
+
+                        <div class="input_control">
+                            <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" id="stockmanager_email" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="psw"><b>Address&nbsp;</b></label>
-                        <input type="address" placeholder="address" name="add" id="stockmanager_add" required>
+
+                        <div class="inputcontrol">
+                            <label for="psw"><b>Address&nbsp;</b></label>
+                            <input type="address" placeholder="address" name="add" id="stockmanager_add" required>
+                            <div class="error"></div>
+
+                        </div>
+
                         <br>
-                        <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                        <input type="tel" placeholder="Telephone" name="tel" id="stockmanager_tel" required>
-                        <label for="name" id="hid1"><b>&nbsp;&nbsp; </b></label>
-                        <input style="background-color:white;" type="text" name="target" id="stockmanager_hid2" required>
+                        <div class="input_control">
+                            <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <input type="tel" placeholder="Telephone" name="tel" id="stockmanager_tel" required>
+                            <label for="name" id="hid1"><b>&nbsp;&nbsp; </b></label>
+                            <input style="background-color:white;" type="text" name="target" id="stockmanager_hid2" required>
+                            
+                        </div>
+
                         <br>
 
                         <button type="submit" name="submit" class="registerbtn" id="validate" onclick="reg_user('stockmanager')">Register</button>

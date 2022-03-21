@@ -13,9 +13,10 @@ if (!isset($_SESSION['username'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="../../public/java script/validate.js"></script>
   <title>Document</title>
 
-  
+
 </head>
 <link rel="stylesheet" href="../../public/styles/view_admin_addemployee.css">
 
@@ -47,12 +48,22 @@ if (!isset($_SESSION['username'])) {
         <form method="post" action="../register/employee_register?user=admin">
           <div class="content">
 
-            <label for="name"><b>Name</b></label><br>
-            <input type="text" placeholder="Name" name="name" id="name" required>
+            <div class="input_control">
+              <label for="name"><b>Name</b></label><br>
+              <input type="text" placeholder="Name" name="name" id="name" required>
+              <div class="error"></div>
+
+            </div>
             <br>
-            <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
-            <input type="text" placeholder="Name" name="userid" id="userid" required>
+
+            <div class="input_control">
+              <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
+              <input type="text" placeholder="Name" name="userid" id="userid" required>
+              <div class="error"></div>
+
+            </div>
             <br>
+
             <label for="name"><b>Level</b></label><br>
             <select name="level" id="type">
               <option value="Junior">Junior</option>
@@ -160,7 +171,7 @@ if (!isset($_SESSION['username'])) {
     </div>
   </div>
   <div class="message">
-    
+
     <div class="pop-up-div">
 
 
@@ -169,7 +180,7 @@ if (!isset($_SESSION['username'])) {
   </div>
 
 
-  
+
 
   <?php
 
