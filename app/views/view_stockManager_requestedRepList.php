@@ -48,16 +48,16 @@
             fetch('http://localhost/web-Experts/public/stockManager/getRepList_cont', {})
                 .then(response => response.json())
                 .then(data => {
-                    repList.innerHTML += `
-                        <tr>
-                            <td>${data ['rep_id']}</td>
-                            <td>${data ['date']}</td>
-                        </tr>
-                    `
-                    console.log(data ['rep_id'])
+
+
+                  
 
                 })
         }
+
+
+        let type = <?php echo "Malithi"; ?>
+        console.log("Malithi");
         getRepList()
     </script>
 </body>
