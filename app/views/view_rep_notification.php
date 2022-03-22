@@ -81,6 +81,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Target</span>
       </li>
       <li>
+        <a href="#" onclick="my_notification.load_notification(25)">
+          <i class="fas fa-truck-loading lg-3x"></i>
+          <span class="links_name">Stock Requests</span>
+        </a>
+        <span class="tooltip">Stock Requests</span>
+      </li>
+      <li>
         <a href="#" onclick="my_notification.load_notification(2)">
           <i class="fas fa-truck-loading lg-3x"></i>
           <span class="links_name">Deliveries</span>
@@ -182,6 +189,8 @@ if (!isset($_SESSION['username'])) {
             my_notification.request_credit_period(data['req_id']);
           } else if (temp_type == 5) {
             my_notification.add_returns(data['return_id']);
+          } else if (temp_type == 25) {
+            my_notification.rep_request_completion(data['issue_id']);
           } else if (temp_type == 6) {
             my_notification.stock_crashes(data['issue_id']);
           // }else if (temp_type == 15) {
@@ -192,7 +201,7 @@ if (!isset($_SESSION['username'])) {
       select_one.style.display = "block";
     });
   </script>
-
++
   <script>
     function back() {
       window.history.back();

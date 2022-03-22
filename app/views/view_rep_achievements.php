@@ -46,12 +46,15 @@ if (!isset($_SESSION['username'])) {
 <!-- START SIDE BAR -->
 
 <div class="sidebar">
+
     <div class="logo-details">
 
       <div class="logo_name">Himalee Dairy Products</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
+
     <ul class="nav-list">
+
       <li>
         <a href="../salesRep/customer_registration">
           <i class='fas fa-user-plus fa-lg'></i>
@@ -59,23 +62,8 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Customer Registration</span>
       </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-user open-button' onclick="openForm()"></i>
-          <span class="links_name ">Customer Profile</span>
-        </a>
-        <!-- <span class="tooltip">Customer Profile</span> -->
-        <div class="form-popup" id="myForm">
-          <form action="../salesRep/customer_home" class="form-container">
 
-            <label for="cus_id"><b>Enter Customer ID</b></label>
-            <input type="text" placeholder="Enter ID" name="cus_id" required>
 
-            <button type="submit" class="btn" src=>Search</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-          </form>
-        </div>
-      </li>
       <li>
         <!-- <a href="../orders/create_bill"> -->
         <a href="../customer/place_order_view">
@@ -84,6 +72,15 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Place Order</span>
       </li>
+
+      <!-- <li>
+        <a href="../salesRep/product_list">
+          <i class="fas fa-clipboard-list"></i>
+          <span class="links_name">Product List</span>
+        </a>
+        <span class="tooltip">Product List</span>
+      </li> -->
+
       <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
@@ -91,6 +88,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Reports</span>
       </li>
+
       <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
@@ -98,6 +96,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Notifications</span>
       </li>
+
       <li>
         <a href="../salesRep/achievements">
 
@@ -122,6 +121,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Logout</span>
       </li>
+
       <li class="profile">
         <div class="profile-details">
           <img src="profile.jpg" alt="profileImg">
@@ -132,8 +132,11 @@ if (!isset($_SESSION['username'])) {
         </div>
         <i class="fas fa-store" id="log_out"></i>
       </li>
+
     </ul>
+
   </div>
+
 
 <!-- END SIDE BAR -->
 
