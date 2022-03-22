@@ -12,8 +12,14 @@
 </head>
 
 <body>
-    
-    <!-- <?php require 'view_headerType2.php';  ?> -->
+
+
+<!-- ADD HEADER -->
+
+<div class="header">
+    <?php require 'view_headertype2.php'; ?>
+</div>
+
     <h2>DAILY PRODUCT LIST</h2>
     <div class="table-wrapper">
         <table class="fl-table">
