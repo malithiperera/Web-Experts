@@ -229,10 +229,12 @@ if (!isset($_SESSION['username'])) {
         .routes {
             visibility: hidden;
         }
-       .choose_product{
-        z-index: 20000;
-        visibility: hidden;
-       }
+
+        .choose_product {
+            z-index: 20000;
+            visibility: hidden;
+        }
+
         .charts {
             width: 1300px;
             height: 1000px;
@@ -382,7 +384,7 @@ if (!isset($_SESSION['username'])) {
             <a href="#" onclick="popup_message('.search_salesrep')">SALES REPS</a>
             <a href="#" onclick="popup_message('.select_report')">REPORTS</a>
             <a href="../admin/add_user">ADD USER</a>
-            <a href="#" onclick="popup_message('.removeuser')">REMOVE USER</a>
+            <a href="#" onclick="check_privillage_to_remove_employee()">REMOVE USER</a>
             <a href="#" onclick="popup_message('.routes')">ROUTES</a>
             <a href="../admin/notification">NOTIFICATION</a>
             <a href="../admin/profile">PROFILE</a>
@@ -475,8 +477,8 @@ if (!isset($_SESSION['username'])) {
         </div>
     </div>
 
-     <!-- popup for choose a product -->
-     <div class="choose_product">
+    <!-- popup for choose a product -->
+    <div class="choose_product">
         <?php require 'view_admin_choose_product_popup.php'; ?>
     </div>
 
@@ -499,7 +501,7 @@ if (!isset($_SESSION['username'])) {
         <?php require 'view_all_report_popup.php'; ?>
     </div>
 
-   
+
 
 
 
@@ -830,6 +832,37 @@ if (!isset($_SESSION['username'])) {
                 }
 
             });
+    </script>
+
+    <script>
+        //check privillages to remove an employee
+        function check_privillage_to_remove_employee() {
+            
+            let user_id = "<?php echo $_SESSION['userid'] ?>";
+            console.log(user_id);
+
+            //pass the user id and get the admin level
+            fetch('http://localhost/web-Experts/public/admin/check_level', {
+                    method: 'POST',
+                    
+                    headers: {
+                        'Content-Type': 'application/json'
+                        
+                    },
+                   
+                    body: JSON.stringify(user_id)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if(data['level'] == "senior"){
+                        popup_message('.removeuser');
+                    }
+                    else{
+                        console.log("you cannot remove an employee");
+                    }
+                });
+        }
     </script>
 
 </body>
