@@ -305,7 +305,7 @@ if (!isset($_SESSION['username'])) {
                                
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
-                                <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
+                                <td><a href="../salesRep/shop_product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
                                 <td><button id="confirm" onclick="orderConfirm('${data[i]['order_id']}')">Confirm</button></td>
                                 
                             

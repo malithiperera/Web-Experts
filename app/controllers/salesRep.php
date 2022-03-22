@@ -142,6 +142,14 @@ class salesRep extends controller
         $this->view->result = $this->model->daily_productList();
         $this->view->render('view_rep_productList');
     }
+
+    public function shop_product_list()
+    {
+        $this->model('_2_salesrep_model');
+        $this->view->result = $this->model->daily_productList();
+        $this->view->render('view_rep_shopProductList');
+    }
+
     public function place_order()
     {
         $this->view->render('test2');

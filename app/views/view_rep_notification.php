@@ -81,6 +81,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Target</span>
       </li>
       <li>
+        <a href="#" onclick="my_notification.load_notification(25)">
+          <i class="fas fa-truck-loading lg-3x"></i>
+          <span class="links_name">Stock Requests</span>
+        </a>
+        <span class="tooltip">Stock Requests</span>
+      </li>
+      <li>
         <a href="#" onclick="my_notification.load_notification(2)">
           <i class="fas fa-truck-loading lg-3x"></i>
           <span class="links_name">Deliveries</span>
