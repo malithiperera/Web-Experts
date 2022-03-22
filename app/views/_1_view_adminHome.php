@@ -19,6 +19,7 @@ if (!isset($_SESSION['username'])) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<<<<<<< HEAD
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
@@ -356,12 +357,15 @@ if (!isset($_SESSION['username'])) {
             font-size: 24px;
         }
     </style>
+=======
+    <link rel="stylesheet" href="../../public/styles/admin_Home.css">
+>>>>>>> f6bc536c53f24ec8b4d339d13b085fd8d322b477
 </head>
 
 <body>
 
 
-    <div class="sidebar">
+    <!-- <div class="sidebar">
         <p id="company_name">HIMALEE DAIRY </br>PRODUCTS</p>
         <i class="fas fa-bars fa-lg"></i>
         <i class="fas fa-align-right fa-lg"></i>
@@ -396,7 +400,7 @@ if (!isset($_SESSION['username'])) {
                 <p class="username"><?php echo $_SESSION['username']; ?></p>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
@@ -506,82 +510,6 @@ if (!isset($_SESSION['username'])) {
 
 
 
-    <!-- scripts for side bar -->
-    <script>
-        let openbtn = document.querySelector(".fa-bars");
-        let closebtn = document.querySelector(".fa-align-right")
-        let sidebar = document.querySelector(".sidebar");
-        let company_name = document.querySelector("#company_name");
-        let links = document.querySelector(".links");
-        let username = document.querySelector(".username");
-        let container = document.querySelector(".container");
-
-
-        openbtn.addEventListener("click", function() {
-
-            let widthdiv = 80;
-            let opacity = 0;
-
-            var id = setInterval(frame, 10);
-
-            function frame() {
-                if (sidebar.style.width == "250px") {
-                    var id1 = setInterval(frame1, 10);
-                    opacity = 0;
-
-                    function frame1() {
-                        if (opacity == 100) {
-                            clearInterval(id1);
-                        } else {
-                            links.style.visibility = "visible";
-                            company_name.style.visibility = "visible";
-                            username.style.visibility = "visible";
-                            opacity = opacity + 10;
-                            links.style.opacity = opacity + "%";
-                            company_name.style.opacity = opacity + "%";
-                            username.style.opacity = opacity + "%";
-
-                        }
-                    }
-                    clearInterval(id);
-                } else {
-                    widthdiv = widthdiv + 10;
-                    sidebar.style.width = widthdiv + "px";
-                    container.style.left = widthdiv + "px";
-                    container.style.setProperty('width', 'calc(100% - ' + widthdiv + 'px)');
-                }
-            }
-
-            openbtn.style.visibility = "hidden";
-            closebtn.style.visibility = "visible";
-            closebtn.style.right = "5px";
-        });
-
-        closebtn.addEventListener("click", function() {
-            let widthdiv = 250;
-            let opacity = 100;
-
-            var id = setInterval(frame, 20);
-
-            function frame() {
-                if (sidebar.style.width == "80px") {
-                    clearInterval(id);
-                } else {
-                    widthdiv = widthdiv - 10;
-                    sidebar.style.width = widthdiv + "px";
-                    container.style.left = widthdiv + "px";
-                    opacity = opacity - 10;
-                    company_name.style.opacity = opacity + "%";
-                    links.style.opacity = opacity + "%";
-                    username.style.opacity = opacity + "%";
-                    container.style.setProperty('width', 'calc((100%-250px) - ' + widthdiv + 'px)');
-                }
-            }
-
-            closebtn.style.visibility = "hidden";
-            openbtn.style.visibility = "visible";
-        });
-    </script>
 
     <!-- scripts for charts -->
 

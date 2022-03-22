@@ -91,7 +91,7 @@ class _2_salesrep_model extends model
         require '../app/core/database.php';
 
         //update query
-        $sql = "UPDATE orders SET status='D' WHERE order_id=$order_id";
+        $sql = "UPDATE orders SET status='D' WHERE order_id='$order_id'";
 
         $result = $conn->query($sql);
         return $result;
@@ -179,7 +179,8 @@ class _2_salesrep_model extends model
         array_push($result, $result3->fetch_assoc());
 
         // No of customers
-        $sql4 = "SELECT target AS NoOfCus FROM sales_rep WHERE rep_id='$userid'";
+        //$sql4 = "SELECT COUNT(cus_id) NoOfCus FROM customer";
+        $sql4 = "SELECT COUNT(*) AS NoOfCus FROM `route`,`customer` WHERE customer.route_id = route.route_id and route.rep_id = '$userid'";
         $result4 = mysqli_query($conn, $sql4);
         array_push($result, $result4->fetch_assoc());
 

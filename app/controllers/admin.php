@@ -174,7 +174,7 @@ class admin extends controller{
     // render customer profile for admin
     public function customerProfile(){
         $this->view->cus_id = $_GET['cus_id'];
-        $this->view->render('view_admin_customerProfile');
+        $this->view->render('view_admin_cusProfile');
     }
 
     //get data to load customer profile view

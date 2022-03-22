@@ -837,5 +837,18 @@ pie_chart(){
         chart.draw(data, options);
       }
 }
-  // </script>
+  //duration reports
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }

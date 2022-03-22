@@ -11,6 +11,7 @@ if (!isset($_SESSION['username'])) {
 <html lang="en" dir="ltr">
 
 <head>
+
   <meta charset="UTF-8">
   <title>Home </title>
   <link rel="stylesheet" href="../../public/styles/view_rep_customerHome.css">
@@ -18,6 +19,7 @@ if (!isset($_SESSION['username'])) {
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
@@ -45,6 +47,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Place Order</span>
       </li>
+
       <li>
         <a href="../customer/place_order_view">
           <i class="fas fa-exchange-alt"></i>
@@ -52,6 +55,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Returns</span>
       </li>
+
       <li>
         <a href="../salesRep/cashPayment">
           <i class="fas fa-money-bill-alt"></i>
@@ -59,6 +63,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Cash Payment</span>
       </li>
+
       <li>
         <a href="../salesRep/chequePayment">
           <i class="fas fa-money-check-alt"></i>
@@ -66,6 +71,7 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Cheque Payment</span>
       </li>
+
       <li class="profile">
         <div class="profile-details">
           <img src="profile.jpg" alt="profileImg">
@@ -76,6 +82,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <i class="fas fa-store" id="log_out"></i>
       </li>
+      
     </ul>
   </div>
   <div class="header">

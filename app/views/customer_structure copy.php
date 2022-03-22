@@ -5,35 +5,46 @@ if (!isset($_SESSION['username'])) {
 }
 
 ?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <title>Home </title>
-    <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
-    <link rel="stylesheet" href="../../public/styles/view_customer_ourproduct.css">
+    <title>Customer Home </title>
+    <link rel="stylesheet" href="../../public/styles/view_customer_Home.css">
+
+    <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles/view_button.css">
-    <link rel="stylesheet" href="../../public/styles/sketch.css">
-    
+    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <style>
+       
+    </style>
+
 </head>
 
 <body>
-
     <div class="sidebar">
         <div class="logo-details">
 
-            <div class="logo_name">Himalee Dairy Product</div>
+            <div class="logo_name">H</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
-         
+            <!-- <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li> -->
             <li>
-                <a href="../customer/home">
+                <a href="#">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
@@ -97,47 +108,27 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <section class="home-section">
-    <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
-    </div>
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
+       
 
-<?php require "" ?>
-    
+        <?php  require "view_vieworder.php" ; ?>
+
+
+        </div>
+    </section>
+
+
     </section>
 
 
 
-    
-
-
-
-    <script>
-        
-
-                
-
-        
 
 
 
 
-
-            
-
-
-        
-            
-
-        
-        
-
-        
-
-        
-
-    </script>
-
-    <script src="../../public/java script/side_bar.js"></script>
+    <script src="../../public/java script/view_customer_Home.js"></script>
 </body>
 
 </html>

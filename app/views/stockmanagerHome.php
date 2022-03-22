@@ -85,7 +85,7 @@
     </section>
 
 
-   
+
     <!-- fill table -->
     <script>
         var product_table = document.querySelector('.product');
@@ -181,7 +181,6 @@
                 });
         }
         fillNoOfCategories();
-
     </script>
 
     <script>
@@ -199,8 +198,11 @@
 
                 });
         }
-        fillNoOfRepRequests ()
+        fillNoOfRepRequests()
 
+
+        let type = <?php echo "Malithi"; ?>
+        console.log("Malithi");
     </script>
 
 </body>

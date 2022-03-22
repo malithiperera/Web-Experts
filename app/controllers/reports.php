@@ -96,19 +96,45 @@ class reports extends controller
        $this->view->added=$month;
        $this->view->added1=$year;
        $this->view->added2=$type;
-        $this->view->render('view_all_report');
+        // $this->view->render('view_all_report');
+    //     echo $year;
+    //     echo $month;
+
+//    if(isset($_POST['submit']))
+//    {
+// $name=$_POST['cat'];
+// echo $name;
+//     $category = $_POST['cat'];
+//     $year=$_POST['year'];
+//     $month=$_POST['month'];
+//     $startdate=$_POST['startdate'];
+//     $enddate=$_POST['enddate'];
+
+    
+//     echo $category;
+//     echo $year;
+//     echo $month;
+//     echo $startdate;
+//     echo $enddate;
+
+
+// if($category=='duration'){
+
+//     $this->view->added=$;
+    //    $this->view->added1=$year;
+    //    $this->view->added2=$type;
+
+
+
+    }
+
 
 
      
 
-    //   
-        if(isset($_POST['submit'])){
-          
-        
-       
-    }
+   
 
-    }
+    
 
 
     public function customer_summary_year(){

@@ -1,11 +1,11 @@
 <?php session_start();
 
 if (!isset($_SESSION['username'])) {
-  header("Location:http://localhost/web-Experts/public/login/index");
+    header("Location:http://localhost/web-Experts/public/login/index");
 }
+$userid=$_SESSION['userid'];
 
 ?>
-
 
 <!DOCTYPE html>
 
@@ -57,7 +57,7 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Home</span>
       </li>
       <li>
-        <a href="../customer/place_order_view">
+        <a href="../customer/place_order_view?$userid">
 
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
@@ -607,7 +607,16 @@ payhere.startPayment(updated_pay);
 
 
     }
- 
+    //pending orders check
+    var flag="<?php echo $this->flag?>";
+
+    if(flag==1){
+      
+    console.log(flag);
+    
+
+    }
+ console.log("Hello")
   </script>
 
   <script src="../../public/java script/view_customer_Home.js"></script>
