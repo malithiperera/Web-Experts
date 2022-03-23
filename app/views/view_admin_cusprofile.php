@@ -3,7 +3,7 @@
 if (!isset($_SESSION['username'])) {
     header("Location:http://localhost/web-Experts/public/login/index");
 }
-
+$cusid=$_GET['cus_id'];
 ?>
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@ if (!isset($_SESSION['username'])) {
             </li>
            <li>
            
-                <a href="#">
+                <a href="#" onclick="view_report()">
                     <i class="fas fa-chart-line"></i>
                     <span class="links_name">View Reports</span>
                 </a>
@@ -96,7 +96,12 @@ if (!isset($_SESSION['username'])) {
 
 
 
+function view_report(){
+    var cusid="<?php echo $_GET['cus_id'] ;?>"
 
+console.log(cusid);
+fetch('',{})
+}
 
 
 
