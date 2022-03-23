@@ -1,0 +1,210 @@
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #184A78; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #184A78; 
+  }
+  
+          .routes {
+              position: fixed;
+              width: 100%;
+              height: 800px;
+              top: 20px;
+              display: flex;
+              justify-content: center;
+              z-index: 20000;
+              /* background-color: red; */
+          }
+  
+  
+          .content {
+              position: absolute;
+              top: 100px;
+              z-index: 2000;
+              background-color: white;
+              /* border: 3px solid #184A78; */
+              border-radius: 20px;
+              padding-right: 50px;
+              height: 600px;
+          }
+  
+          .table {
+              position: relative;
+              width: 100%;
+              z-index: 2000;
+              height: 300px;
+              overflow: scroll;
+              overflow-x: hidden;
+          }
+  
+          table {
+              margin-left: 50px;
+              z-index: 2000;
+  
+          }
+  
+          tr {
+              background-color: white;
+          }
+  
+          thead th {
+              padding-left: 100px;
+              padding-right: 100px;
+              text-align: center;
+              background-color: white;
+              padding-top: 10px;
+              padding-bottom: 10px;
+          }
+  
+          tr td {
+              text-align: center;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              color: #184A78;
+          }
+  
+          tr td a {
+              text-decoration: none;
+              color: #184A78;
+          }
+  
+          tr td a:hover {
+              text-decoration: underline;
+          }
+  
+          table th {
+              color: #000000;
+              background: #4FC3A1;
+          }
+  
+          table th:nth-child(odd) {
+              color: #ffffff;
+              background: #324960;
+          }
+  
+          .buttons {
+              position: relative;
+              width: 100%;
+              margin-left: 50px;
+              margin-top: 30px;
+              margin-bottom: 70px;
+          }
+  
+          .buttons p {
+              color: #184A78;
+          }
+  
+          button {
+              width: 100px;
+              height: 30px;
+              background-color: white;
+              border-radius: 20px;
+  
+          }
+  
+          .new_added_row {
+              position: relative;
+              left: 50px;
+              top: -50px;
+          }
+  
+          .new_added_row input {
+              padding: 10px;
+              color: #184A78;
+          }
+  
+          #suggestion {
+              position: absolute;
+              top: 108px;
+              left: 450px;
+              width: 190px;
+              /* height: 100px; */
+              background-color: white;
+              z-index: 10001;
+              display: flex;
+              flex-direction: column;
+          }
+  
+          #suggestion a {
+              color: #184A78;
+              margin: 5px;
+              text-decoration: none;
+          }
+  
+          #content-routes {
+              height: 200px;
+              overflow: scroll;
+          }
+  
+          .route_add_popup {
+              position: fixed;
+              top: 200px;
+              width: 100%;
+              /* background-color: blue; */
+              z-index: 20000;
+              /* visibility: hidden; */
+              display: flex;
+              justify-content: center;
+          }
+  
+          .back_button {
+              position: absolute;
+              top: 520px;
+              left: 60px;
+              width: 70px;
+              height: 40px;
+              background-color: #184A78;
+          }
+  
+          .delete_button {
+              background-color: white;
+          }
+  
+          .delete_button a {
+              color: rgb(255, 253, 253);
+          }
+          #edit {
+              width: 70px;
+              height: 20px;
+              margin: 10px;
+              background: rgb(39, 214, 104);
+              color: #fff;
+              font-size: 17px;
+              outline: none;
+              padding-top: 15px 15px;
+              border-radius: 5px;
+              border: none;
+              cursor: pointer;
+          }
+  
+          #del {
+              width: 70px;
+              height: 20px;
+              margin: 10px;
+              background: rgb(220, 53, 69);
+              color: #fff;
+              font-size: 17px;
+              outline: none;
+              padding-top: 15px 15px;
+              border-radius: 5px;
+              border: none;
+              cursor: pointer;
+          }
+          button a i {
+              margin-right: 10px;
+              padding-right: 20px;
+          }

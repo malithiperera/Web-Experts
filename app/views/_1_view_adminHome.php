@@ -86,7 +86,8 @@ if (!isset($_SESSION['username'])) {
             <li>
             <li>
             <li>
-            <a href="#" onclick="popup_message('.routes')"><i class="fas fa-map-marker-alt fa-lg"></i>
+            <a href="http://localhost/web-Experts/public/admin/route_file">
+                <i class="fas fa-map-marker-alt fa-lg"></i>
                     <span class="links_name">Routes</span>
                 </a>
                 <span class="tooltip">Routes</span>

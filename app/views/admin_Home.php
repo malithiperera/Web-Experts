@@ -158,9 +158,7 @@ if (!isset($_SESSION['username'])) {
         <?php require 'view_admin_popup_search_salesrep.php'; ?>
     </div>
 
-    <div class="routes">
-        <?php require 'view_admin_routes.php'; ?>
-    </div>
+
     <div class="select_report">
         <?php require 'view_all_report_popup.php'; ?>
     </div>
