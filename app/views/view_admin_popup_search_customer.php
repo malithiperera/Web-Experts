@@ -138,7 +138,7 @@
     #count {
         color: rgb(45, 211, 45);
         font-size: 25px;
-        font-weight: 700;
+        font-weight: 300;
         margin-top: -10px;
 
     }
@@ -160,18 +160,18 @@
         background-color: #184A78;
         color: #fff;
         width: 150px; 
-        border-radius: 10px;
-        padding-right: 30px;
-        padding-left: 30px;
+        border-radius: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
       
-      font-size: 20px;
+      font-size: 16px;
     }
 
     #link:hover{
         background-color: blue;
     }
     .search_customer p{
-        font-weight: 700;
+        font-weight: 500;
     }
     #link i{
         padding: 5px;

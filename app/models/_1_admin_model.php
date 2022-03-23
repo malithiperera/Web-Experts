@@ -289,6 +289,15 @@ class _1_admin_model extends model
         return $result;
 
     }
+
+    public function search_rep($rep){
+        require '../app/core/database.php';
+
+        $sql = "select * from user where (name LIKE '%$rep%' or user_id LIKE '%$rep%') and type = 'rep'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
        
 
 }

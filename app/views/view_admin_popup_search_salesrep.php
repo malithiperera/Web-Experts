@@ -16,7 +16,7 @@
         justify-content: center;
     }
 
-    .search_salesrep{
+    .search_salesrep {
         position: fixed;
         top: 0px;
         left: 0px;
@@ -30,6 +30,7 @@
     }
 
     .search_salesrep_container {
+        position: relative;
         width: 400px;
         height: 200px;
         background-color: white;
@@ -48,6 +49,7 @@
     .search_salesrep_search_bar {
         align-content: center;
         margin-top: 10px;
+        z-index: 1000;
     }
 
     .search_salesrep_subcontainer p {
@@ -71,6 +73,7 @@
 
     .search_salesrep_confirm_button button {
         color: #184A78;
+        z-index: 0;
     }
 
     #close-pop_up {
@@ -81,10 +84,20 @@
     }
 
     #con_button {
+        position: absolute;
+        top: 150px;
+        left: 150px;
         width: 100px;
         background-color: #184A78;
         color: #fff;
         height: 30px;
+        /* z-index: 0; */
+    }
+    .suggestion{
+        width: 200px;
+        height: 100px;
+        background-color: blue;
+        z-index: 1000;
     }
 </style>
 
@@ -94,11 +107,12 @@
             <p>Search Sales Rep</p>
             <div class="search_salesrep_search_bar">
 
-                <input type="text" placeholder="search sales rep">
+                <input type="text" placeholder="search sales rep" onkeyup="search_rep(this.value)">
+                <div class="suggestion"></div>
             </div>
             <div class="search_salesrep_confirm_button">
                 <button onclick="direct_to_salesrep()" id="con_button">Go...</button>
-                <button id="close-pop_up" onclick="close_popup()">close</button>
+
             </div>
 
         </div>
@@ -109,11 +123,19 @@
             window.location.href = "../salesRep/achievements";
         }
 
-        function close_popup() {
-            var pop_up = document.querySelector('.search_salesrep');
-            pop_up.style.visibility = "hidden";
-            var sidebar = document.querySelector('.sidebar');
-            sidebar.style.opacity = '1';
+        function search_rep(rep) {
+           // console.log(rep);
+            fetch('http://localhost/web-Experts/public/admin/search_rep', {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(rep),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                });
         }
     </script>
 </body>
