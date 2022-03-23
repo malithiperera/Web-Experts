@@ -44,7 +44,7 @@
                 </div>
                 <div class="div_repRequests">
                     <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p> <!-- ../stockManager/viewList -->
-                    <p class="value_repRequests">test</p>
+                    <p class="value_repRequests"></p>
                 </div>
 
 
@@ -191,7 +191,7 @@
             fetch('http://localhost/web-Experts/public/stockManager/fillNoOfRepRequests_cont', {})
                 .then(response => response.json())
                 .then(data => {
-                    noOfRepRequests.innerHTML = `
+                    noOfRepRequests.innerHTML += `
                         <p class="value_repRequests">${data['reqCount']}</p>
 
                     `;

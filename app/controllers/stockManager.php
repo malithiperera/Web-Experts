@@ -94,7 +94,7 @@ class stockManager extends controller {
 
     }
     public function viewList () {
-        $this->view->render ("view_stockmanager_repRequest");
+        $this->view->render ("view_stockManager_requestedRepList");
         // $this->view->render("view_stockManager_requestedRepList");
         
     }
@@ -165,6 +165,16 @@ class stockManager extends controller {
         exit;
     }
 
+
+    //get the current stock
+    public function currentstock(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+
+        echo json_encode($get_data);
+        exit;
+    }
     
 }
 
