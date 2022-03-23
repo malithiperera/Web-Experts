@@ -20,6 +20,11 @@ if (!isset($_SESSION['username'])) {
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <link rel="stylesheet" href="../../public/styles/admin_Home.css">
+   <style>
+       .container{
+           z-index: 0;
+       }
+   </style>
 </head>
 
 <body>
@@ -178,6 +183,7 @@ if (!isset($_SESSION['username'])) {
         function popup_message(popup_message) {
 
             popup_message = document.querySelector(popup_message);
+            container = document.querySelector('.container');
 
             popup_message.style.visibility = "visible";
             sidebar.style.opacity = "30%";
@@ -400,11 +406,7 @@ if (!isset($_SESSION['username'])) {
     </script>
 
     <script>
-        const back_to_home = () => {
-            document.querySelector('.routes').style.visibility = "hidden";
-            sidebar.style.opacity = "100%";
-            container.style.opacity = "100%";
-        }
+        
     </script>
 
     <!-- fill best of reps table -->

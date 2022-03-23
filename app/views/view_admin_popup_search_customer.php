@@ -23,10 +23,15 @@
 
     .popup {
         position: fixed;
-        top: 70px;
+        top: 0px;
+        left:0px;
         width: 100%;
         display: flex;
         justify-content: center;
+        /* background-color: white; */
+        
+        height: 100vh;
+        z-index: 10000;
     }
 
     .search_customer {
@@ -36,6 +41,9 @@
         background-color: white;
         border: 4px solid #184A78;
         border-radius: 10px;
+        z-index: 100000;
+        top: 120px;
+        
     }
 
     .serach_bar {
@@ -61,7 +69,7 @@
         width: 250px;
         /* height: 100px; */
         background-color: white;
-        z-index: 1000;
+        z-index: 10000000;
     }
     .suggestion1 p{
         margin-left:20px;
@@ -208,7 +216,7 @@
             </div>
 
         <a href="#" id="link" onclick="redirect_to_customer_profile()">Go.</a> 
-        <a href="#" id="link" onclick="redirect_to_customer_profile()">Close</a> 
+        
 
         <!-- <div class="close-but">
             <button>close</button>
