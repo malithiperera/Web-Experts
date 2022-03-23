@@ -50,6 +50,19 @@
         .search_salesrep_confirm_button button{
             color: #184A78;
         }
+
+        #close-pop_up{
+            width: 100px;
+            background-color: #184A78;
+            color: #fff;
+            height: 30px;
+        }
+        #con_button{
+            width: 100px;
+            background-color: #184A78;
+            color: #fff;
+            height: 30px;
+        }
     </style>
 <body>
     <div class="search_salesrep_container">
@@ -60,14 +73,23 @@
                 <input type="text" placeholder="search sales rep">
             </div>
             <div class="search_salesrep_confirm_button">
-                <button onclick="direct_to_salesrep()">GO...</button>
+                <button onclick="direct_to_salesrep()" id="con_button">Go...</button>
+                <button id="close-pop_up" onclick="close_popup()">close</button>
             </div>
+            
         </div>
     </div>
 
     <script>
         const direct_to_salesrep = () =>{
             window.location.href = "../salesRep/achievements";
+        }
+
+        function close_popup(){
+            var pop_up=document.querySelector('.search_salesrep');
+            pop_up.style.visibility="hidden";
+           var sidebar=document.querySelector('.sidebar');
+           sidebar.style.opacity='1';
         }
     </script>
 </body>

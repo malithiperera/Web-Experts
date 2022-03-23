@@ -151,11 +151,11 @@
     #link{
         background-color: #184A78;
         color: #fff;
-        width: 200px;
+        width: 150px; 
         border-radius: 10px;
         padding-right: 30px;
         padding-left: 30px;
-      font-weight: 800;
+      
       font-size: 20px;
     }
 
@@ -207,11 +207,17 @@
                 </select>
             </div>
 
-        <a href="#" id="link" onclick="redirect_to_customer_profile()">GO<i class="fas fa-arrow-right"></i></a> 
+        <a href="#" id="link" onclick="redirect_to_customer_profile()">Go.</a> 
+        <a href="#" id="link" onclick="redirect_to_customer_profile()">Close</a> 
+
+        <!-- <div class="close-but">
+            <button>close</button>
+        </div> -->
         </div>
         <div class="add_new_cus">
         
         <a href="../admin/add_new_cus"><i class="fas fa-plus"></i>Add New Customer</a>
+      
         </div>
     </div>
 
