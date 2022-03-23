@@ -103,4 +103,14 @@ class _4_stockmanager_model extends model
 
         return $result->fetch_assoc();
     }
+
+    public function currentstock($productId){
+        require '../app/core/database.php';
+
+        $sql="SELECT qty from product where product_id='$productId'";
+        $result=mysqli_query($conn,$sql);
+        return $result->fetch_assoc();
+
+
+    }
 }

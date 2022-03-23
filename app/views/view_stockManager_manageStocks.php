@@ -9,17 +9,6 @@
     <link rel="stylesheet" href="../../public/styles/view_stockManager_manageStocks.css">
     <title>Manage Stocks</title>
     <style>
-        .notify_limit_label {
-            position: relative;
-            top: 100px;
-            left: -210px;
-        }
-
-        #notify_limit_input {
-            position: relative;
-            top: 60px;
-            left: 200px;
-        }
     </style>
 </head>
 
@@ -37,12 +26,18 @@
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
-                <button class="addBtn" onclick="showHideAdd ()">Add</i></i></button>
-                <button class="removeBtn" onclick="showHideRemove ()">Remove</button><br><br>
+                <button class="addBtn" onclick="showHideAdd ()">
+                  
+                </button>
+                <button class="removeBtn" onclick="showHideRemove ()">
+                    <!--i class="fas fa-minus"--></i>
+                </button><br><br>
 
                 <div class="classA">
                     <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()">add to stock</button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()">
+                        <!--i class="fas fa-calendar-check"></i-->
+                    </button>
 
                 </div>
 
@@ -56,7 +51,9 @@
                     <label class="removeReason" for="removeReason">Reason</label>
                     <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder=" Type Reason">
 
-                    <button class="btn_submitRemove" onclick="showHideRemove ()"><i class="fas fa-check"></i></button>
+                    <button class="btn_submitRemove" onclick="showHideRemove ()">
+                        <!--i class="fas fa-check"></i-->
+                    </button>
 
                 </fieldset>
 
@@ -64,7 +61,7 @@
 
             <div class="div_currentPrice">
                 <label class="label_currentPrice" for="currentPrice">Current Price</label>
-                <input class="input_currentPrice" type="text" name="currentPrice" id="currentPrice" value="Rs.">
+                <input class="input_currentPrice" type="text" name="currentPrice" id="currentPrice" value="Rs." readonly>
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
@@ -85,6 +82,7 @@
             <div class="withRep">
                 <p class="text_withRep">With Rep</p>
                 <table>
+                    <!-- <div class="repTable"> -->
                     <thead>
                         <tr>
                             <th>Sales Rep</th>
@@ -94,9 +92,12 @@
 
                     </thead>
 
-                    <tbody class="tbody">
+                    <div class="repTable">
+                        <tbody class="tbody">
 
-                    </tbody>
+                        </tbody>
+
+                    </div>
 
                 </table>
 
@@ -106,11 +107,11 @@
                 <h2>Discount</h2>
                 <div class="div_currentDiscount">
                     <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
-                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="">
+                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="" readonly>
 
                     <!-- notify limit of product to notify the stock manager -->
-                    <label for="" class="notify_limit_label">Notify Limit </label>
-                    <input type="text" id="notify_limit_input">
+                    <!-- <label for="" class="notify_limit_label">Notify Limit </label>
+                    <input type="text" id="notify_limit_input"> -->
 
                     <script src="../../public/java script/manageStocks.js"></script>
 
@@ -126,8 +127,8 @@
 
                     <button class="btn_updateDiscount" onclick="showHideNewDiscount ()">Update</button>
 
-                </div> -->
-            </div>
+                </div>
+                <!-- </div> -->
 
         </fieldset>
 
@@ -299,23 +300,45 @@
             .then(data => {
                 notify_limit_input.value = data['notify_limit'];
             });
-    </script> -->
-    <!-- <script>
-        // let ProductId = 1234;
-        // //current stock
-        // fetch('http://localhost/web-Experts/public/stockManager/currentstock', {
-        //         method: 'POST', 
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(ProductId),
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => {
-                console.log("data");
-            // });
-    </script> -->
-    
+
+
+
+
+        let type = "<?php echo $_SESSION['type']; ?>"
+        console.log(type);
+
+
+        if (type == "stockmanager") {
+            var disbutton = document.querySelector('.btn_changeDiscount');
+            var price = document.querySelector('.btn_change');
+            price.style.visibility = "hidden";
+            disbutton.style.visibility = "hidden";
+
+        }
+
+
+        function currentStock() {
+            var currentStock = document.querySelector('.input_inStock');
+
+            fetch('http://localhost/web-Experts/public/stockManager/currentStock', {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+
+                    },
+                    body: JSON.stringify(productId)
+                })
+
+                .then(response => response.json())
+                .then(data => {
+                    currentStock.value=data['qty'];
+                });
+
+        }
+
+        currentStock();
+    </script>
 
 </body>
 

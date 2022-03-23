@@ -8,7 +8,7 @@ class notification{
         this.user_id = user_id;
         this.type = type;
 
-        // console.log(this.user_id,this.type)
+        console.log(this.user_id,this.type)
         //for notification front view
         this.home_section = document.querySelector('.home-section');
         this.all_notifications = document.querySelector('.all_notifications');

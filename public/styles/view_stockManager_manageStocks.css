@@ -39,9 +39,10 @@
 }
 .input_inStock {                                            /* input of " in stock " */
     width: 40%;
-    /*background-color: black;*/
+    height: 24%;
+    background-color: black;
     border-radius: 10px;
-    background-color: #f3f3f3;
+    /* background-color: #f3f3f3; */
     border-color: white;
     font-size: x-large;
     font-weight: lighter;
@@ -51,7 +52,7 @@
 }
 .input_inStock, .input_discount, .input_buy, .input_get {            /* input boxes of 'in stock' and 'Discount'  'Buy'and 'Get' */
     padding: 10px;
-    width: 100px;
+    /* width: 100px; */
     
 }
 .label_inStock, .label_discount, .label_buy, .label_get {           /* 'In Stock' and 'Discount' texts */
@@ -81,6 +82,7 @@
 .withRep {                                                          /* 'With Rep' division */
     width: 50%;
     height: 290px;
+
     /*background-color: aquamarine;*/
     
 }
@@ -101,6 +103,7 @@ tr:nth-of-type(even) {
 table {
     margin: auto;
     width: 90%;
+    overflow: scroll;
 
 }
 thead {
@@ -108,6 +111,7 @@ thead {
     color: white;
     text-align: center;
     font-weight: light;
+    /* position: fixed; */
 
 }
 th {
@@ -134,6 +138,10 @@ td {
     height: 40%;
       
 }
+/* .classA {
+    position: absolute;
+    bottom: 10%;
+} */
 .inputAdd {                                                         /* input text of "+" */
     width: 35%;
     height: 25%;
@@ -141,7 +149,7 @@ td {
     background-color: #dddd;
     visibility: hidden;
     position: absolute;
-    bottom: 10%;
+    bottom: 20%;
     right: 15%;
     border-color: white;
 
@@ -153,7 +161,7 @@ td {
     background-color: #165692;
     visibility: hidden;
     position: absolute;
-    bottom: 11%;
+    bottom: 20%;
     right: 5%;
     color: white;
 
@@ -168,11 +176,11 @@ td {
 
 }
 .removeStocksFieldset {                                             /* fieldset of the text box of "-" */
-    width: 70%;
+    width: 90%;
     height: 80%;
     border-radius: 10px;
     position: absolute;
-    left: 7%;
+    left: 9%;
     visibility: hidden;
     padding: 10PX 10px;
     background-color: #dddd;
@@ -182,8 +190,8 @@ td {
 .inputRemoveQuantity {                                              /* input text of " quantity " in " - " */
     width: 50%;
     position: absolute;
-    left: 27%;
-    height: 20%;
+    left: 35%;
+    height: 20%;    
 
 }
 .inputRemoveReason {                                                /* input text of " reason " in "-" */
@@ -192,15 +200,15 @@ td {
     padding: 1px;
     align-items: center;
     position: absolute;
-    left: 27%;
+    left: 35%;
     bottom: 5%;
 
 }
 .btn_submitRemove {                                                 /* submit remove */
     position: absolute;
     bottom: 5%;
-    right: 4%;
-    width: 15%;
+    right: 3%;
+    width: 10%;
     height: 30%;
     background-color: #165692;
     border-radius: 20%;
@@ -238,7 +246,7 @@ td {
 }
 .btn_change {                                                       /* btn " change " */
     width: 20%;
-    height: 50%;
+    height: 70%;
     position: absolute;
     right: 10%;
     background-color: #165692;
@@ -253,7 +261,7 @@ td {
     top: 22%;
     width: 40%;
     padding: 1%;
-    height: 7%;
+    height: 10%;
     visibility: hidden;
     font-size: x-large;
 
@@ -274,7 +282,7 @@ td {
 }
 .btn_update {                                                       /* btn " update " */
     width: 20%;
-    height: 50%;
+    height: 53%;
     position: absolute;
     right: 10%;
     background-color: #165692;
@@ -295,12 +303,12 @@ td {
     font-size: x-large;
     position: relative;
     /* position: absolute; */
-    top: 0%;
+    top: 10%;
     background-color: #dddd;
     visibility: hidden;
     height: 20%;
     padding: 5%;
-    width: 75%;
+    width: 90%;
 
 }
 .label_currentDiscount {                                        /* current discount label */    
@@ -308,12 +316,14 @@ td {
 }
 .label_newDiscount {                                            /* new discount label */
     /* visibility: hidden; */
+    position: absolute;
+    top: 12%;
 
 }
 .input_currentDiscount {                                        /* current discount input */
     position: absolute;
-    left: 38%;
-    height: 45%;
+    left: 50%;
+    height: 70%;
     width: 20%;
     background-color: #dddd;
     font-size: x-large;
@@ -324,16 +334,17 @@ td {
 }
 .input_newDiscount {                                            /* new discount input */
     position: absolute;
-    left: 40%;
-    height: 37%;
+    top: 15%;
+    left: 45%;
+    height: 55%;
     /* visibility: hidden; */
     width: 22%;
 
 }
 .btn_changeDiscount {                                           /* change discount btn */
     position: absolute;
-    right: 15%;
-    height: 39%;
+    right: 6%;
+    height: 65%;
     width: 20%;
     background-color: #165692;
     color: aliceblue;
@@ -342,8 +353,9 @@ td {
 }
 .btn_updateDiscount {                                           /* update discount */
     position: absolute;
-    right: 10%;
-    height: 31%;
+    top: 15%;
+    right: 8%;
+    height: 50%;
     width: 21%;
     background-color: #165692;
     color: aliceblue;
@@ -373,5 +385,22 @@ input, button {
 input {
     font-size: large;
     font-weight: light;
+
+}
+.repTable {
+    overflow: scroll;
+    height: 70%;
+
+}
+.notify_limit_label {
+    position: relative;
+    top: 100px;
+    left: -210px;
+
+}
+#notify_limit_input {
+    position: relative;
+    top: 60px;
+    left: 200px;
 
 }

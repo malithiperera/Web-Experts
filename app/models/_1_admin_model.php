@@ -278,6 +278,17 @@ class _1_admin_model extends model
 
         return $result;
     }
+
+    //check the admin level
+    public function check_level($user_id){
+        require '../app/core/database.php';
+
+        $sql = "select level from admin where admin_id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+
+    }
        
 
 }

@@ -165,15 +165,15 @@ class stockManager extends controller {
         exit;
     }
 
-
-    //get the current stock
-    public function currentstock(){
+    public function currentStock(){
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
+        $this->model('_4_stockmanager_model');
+        $result=$this->model->currentStock($get_data);
 
-        echo json_encode($get_data);
-        exit;
+        echo json_encode($result);
+        
     }
     
 }

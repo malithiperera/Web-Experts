@@ -102,6 +102,10 @@
                 })
 
         }
+
+
+        let type = <?php echo "Malithi"; ?>
+        console.log("Malithi");
         getRepList()
     </script>
 </body>
