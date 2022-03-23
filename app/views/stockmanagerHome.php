@@ -44,7 +44,7 @@
                 </div>
                 <div class="div_repRequests">
                     <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p> <!-- ../stockManager/viewList -->
-                    <p class="value_repRequests">test</p>
+                    <p class="value_repRequests"></p>
                 </div>
 
 
@@ -85,7 +85,7 @@
     </section>
 
 
-   
+
     <!-- fill table -->
     <script>
         var product_table = document.querySelector('.product');
@@ -181,7 +181,6 @@
                 });
         }
         fillNoOfCategories();
-
     </script>
 
     <script>
@@ -191,7 +190,7 @@
             fetch('http://localhost/web-Experts/public/stockManager/fillNoOfRepRequests_cont', {})
                 .then(response => response.json())
                 .then(data => {
-                    noOfRepRequests.innerHTML = `
+                    noOfRepRequests.innerHTML += `
                         <p class="value_repRequests">${data['reqCount']}</p>
 
                     `;
@@ -199,8 +198,11 @@
 
                 });
         }
-        fillNoOfRepRequests ()
+        fillNoOfRepRequests()
 
+
+        let type = <?php echo "Malithi"; ?>
+        console.log("Malithi");
     </script>
 
 </body>

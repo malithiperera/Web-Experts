@@ -24,31 +24,20 @@ html::-webkit-scrollbar-thumb {
     border-radius: 2rem;
 }
 
-.sidebar {
+/* .sidebar {
     position: fixed;
     width: 80px;
     height: 100vh;
     background-color: #184A78;
     /* opacity:50%; */
+
+
+span .tooltips{
+    color: black;
 }
 
-.sidebar>p {
-    margin-left: 10px;
-    letter-spacing: 5px;
-    visibility: hidden;
-}
 
-.sidebar>i {
-    position: absolute;
-    top: 5px;
-    right: 35px;
-}
-
-.fa-align-right {
-    visibility: hidden;
-}
-
-.icons {
+/* .icons {
     position: absolute;
     top: 108px;
     display: flex;
@@ -58,7 +47,7 @@ html::-webkit-scrollbar-thumb {
 .icons a {
     margin-bottom: 40px;
     margin-left: 20px;
-}
+} */
 
 .links {
     position: absolute;

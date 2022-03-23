@@ -120,7 +120,7 @@ if (!isset($_SESSION['username'])) {
       <h1>NOTIFICATIONS</h1>
       <div class="filter">
         <label for="unread" id="unread_label">Unread</label>
-        <input type="checkbox" id="unread">
+        <input type="checkbox" id="unread" onchange="filterRead()">
 
       </div>
       <div class="container">
@@ -160,7 +160,7 @@ if (!isset($_SESSION['username'])) {
     let user_id = '<?php echo $_SESSION['userid'] ?>';
     let type = '<?php echo $_SESSION['type'] ?>';
     let my_notification = new notification(user_id, type);
-    my_notification.load_notification('%');
+    my_notification.load_notification('%',0);
 
     //when click a notification , then render the message
     subcontainer2.addEventListener("click", (event) => {
@@ -190,6 +190,24 @@ if (!isset($_SESSION['username'])) {
   <script>
     function back() {
       window.history.back();
+    }
+  </script>
+
+  <script>
+
+    let unread = document.querySelector('#unread');
+
+    function filterRead(){
+      if(unread.checked == true){
+        console.log("read");
+        my_notification.load_notification('%',1);
+
+      }
+      else{
+        console.log("all");
+        my_notification.load_notification('%',0);
+
+      }
     }
   </script>
 </body>

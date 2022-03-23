@@ -210,7 +210,6 @@ i{
             
              
             
-                    <li><a href="#"><i class="fas fa-bell fa-large" id="s4"></i></li></a>
         </ul>
         
      </nav>

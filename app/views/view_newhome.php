@@ -33,7 +33,7 @@
        
       
         <div class="login">
-        <a href="login" class="btn">Get started</a>
+        <a href="login" class="btn">Login</a>
         </div>
     </nav>
 

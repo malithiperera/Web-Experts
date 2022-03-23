@@ -8,7 +8,7 @@ class notification{
         this.user_id = user_id;
         this.type = type;
 
-        // console.log(this.user_id,this.type)
+        console.log(this.user_id,this.type)
         //for notification front view
         this.home_section = document.querySelector('.home-section');
         this.all_notifications = document.querySelector('.all_notifications');
@@ -30,7 +30,7 @@ class notification{
     
         
 
-        load_notification(type, num_of_rows = 10) {
+        load_notification(type, isRead) {
 
 
             const dataset = {
@@ -53,7 +53,7 @@ class notification{
               })
               .then(response => response.json())
               .then(data => {
-                console.log(data);
+                // console.log(data);
       
                 // if(num_of_rows >= data.length){
                 //   this.view_more.style.visibility = "hidden";
@@ -64,10 +64,12 @@ class notification{
                 // }
       
                 //choose subject and message according to the notification type
-      
+                if(isRead == 0){
+                  this.subcontainer2.innerHTML = ``;
                 for (let i = 0; i < data.length; i++) {
-      
-                  this.subcontainer2.innerHTML += `
+                
+                  
+                    this.subcontainer2.innerHTML += `
       
                       <div class='notification' id='${data[i]['notification_id']}'>
       
@@ -93,20 +95,58 @@ class notification{
                       </div>
                       
                       `;
-      
-      
+                  
+                  } 
+                 
                 }
+                else{
+                  console.log("read mails");
+                  this.subcontainer2.innerHTML = ``;
+                  for (let i = 0; i < data.length; i++) {
+                    if(data[i]['is_read'] == 1){
+                   
+                      this.subcontainer2.innerHTML += `
+        
+                        <div class='notification' id='${data[i]['notification_id']}'>
+        
+                            <div class='from from_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
+                              ${data[i]['from_whom']}
+                            </div>
+                            <div class='header_notification header_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
+                               ${data[i][0]}
+                            </div>
+                            <div class='date_notification date_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
+                              ${data[i]['date']}
+                            </div>
+                            <div class='time_notification time_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
+                              ${data[i]['time']}
+                            </div>
+                            <div class='delete delete_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
+        
+                              <div class='trash'>
+                                <a> <i class='fas fa-trash'></i></a>
+                              </div>
+                              
+                            </div>
+                        </div>
+                        
+                        `;
+                       
+                      }
+                    } 
+                }
+                console.log(isRead);
                 console.log(data);
 
                 
 
-                this.view_more.addEventListener("click", ()=>{
-                  console.log(num_of_rows);
-                  if(data.length > num_of_rows){
-                    console.log(type);
-                  this.load_notification(type, num_of_rows+10);
-                  }
-                });
+                // this.view_more.addEventListener("click", ()=>{
+                //   console.log(num_of_rows);
+                //   if(data.length > num_of_rows){
+                //     console.log(type);
+                //   this.load_notification(type, num_of_rows+10);
+                //   }
+                // });
 
                 
 

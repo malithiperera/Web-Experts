@@ -88,7 +88,7 @@ class _4_stockmanager_model extends model
     }
     public function getRepList_mod () {
         require '../app/core/database.php';
-        $sql = "SELECT rep_id, date FROM product_issue";
+        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 1";
         $result = mysqli_query ($conn, $sql);
         return $result;
         
@@ -102,5 +102,15 @@ class _4_stockmanager_model extends model
         $result = mysqli_query($conn, $sql);
 
         return $result->fetch_assoc();
+    }
+
+    public function currentstock($productId){
+        require '../app/core/database.php';
+
+        $sql="SELECT qty from product where product_id='$productId'";
+        $result=mysqli_query($conn,$sql);
+        return $result->fetch_assoc();
+
+
     }
 }

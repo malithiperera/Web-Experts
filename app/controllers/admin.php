@@ -343,6 +343,22 @@ class admin extends controller{
         exit;
     }
 
+    //check the admin level
+    public function check_level(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->check_level($get_data);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+    }
+//routes
+
+public function route_file(){
+    $this->view->render("view_admin_routes_new");
+}
 }
 
 ?>
