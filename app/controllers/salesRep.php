@@ -309,7 +309,7 @@ class salesRep extends controller
 
         $this->model('_2_salesrep_model');
         $result = $this->model->achievements($_SESSION['userid']);
-        //$row = $result -> fetch_assoc();
+        
 
        
 
