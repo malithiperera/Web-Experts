@@ -251,12 +251,13 @@ $resultArray=[];
        $this->model('report_model');
        $rescards=$this->model->return_month_cards($recieved_data['year'],$recieved_data['month']);
        array_push($resultArray,$rescards);
+
        $result=$this->model->return_month($recieved_data['year'],$recieved_data['month']);
        $data=[];
 
        while ($row = $result->fetch_assoc()) {
         array_push($data, $row);
-    }
+        }
 array_push($resultArray,$data);
 
     echo json_encode($resultArray);
@@ -280,5 +281,22 @@ array_push($resultArray,$data);
        }
        echo json_encode($data2);
        exit;
+    }
+
+    public function return_year(){
+
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+        $this->model('report_model');
+         $result=$this->model->return_year($recieved_data);
+    //      $data2 = [];
+    //    while ($row = $result->fetch_assoc()) {
+    //        array_push($data2, $row);
+    //    }
+    //     // echo json_encode($result);
+        echo json_encode($result);
+        exit;
+        
     }
 }
