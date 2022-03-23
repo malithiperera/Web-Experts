@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../../public/styles/view_stockManager_manageStocks.css">
     <title>Manage Stocks</title>
     <style>
-
     </style>
 </head>
 
@@ -28,7 +27,7 @@
                 <script src="../../public/java script/manageStocks.js"></script>
 
                 <button class="addBtn" onclick="showHideAdd ()">
-                    <!--i class="fas fa-plus"--></i>
+                  
                 </button>
                 <button class="removeBtn" onclick="showHideRemove ()">
                     <!--i class="fas fa-minus"--></i>
@@ -139,7 +138,7 @@
 
     </section>
 
-    <script>
+    <!-- <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
         var currentPrice = document.getElementById('currentPrice');
         var productName = document.getElementById('leg_productName');
@@ -169,6 +168,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     currentPrice.value = "      Rs." + data['price'];
                     productName.innerHTML = data['product_name'];
                     discount.value = "           " + data['discount'] + "%";
@@ -178,9 +178,39 @@
         }
 
         details_of_product();
-    </script>
 
-    <script>
+        function getcurrentStock() {
+
+
+
+            fetch('http://localhost/web-Experts/public/stockManager/currentstock', {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+
+                    body: JSON.stringify("data_set")
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                });
+
+        }
+
+
+
+
+
+
+        getcurrentStock();
+    </script> -->
+
+    <!-- <script>
         var productId = '<?php echo $_GET['product_id'] ?>';
         var repItemsTable = document.querySelector('.tbody');
 
@@ -191,37 +221,37 @@
         }
         //var test = 1103;
 
-        const fillRepItemsTable = () => {
-            fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                    headers: {
-                        'Content-Type': 'application/json'
-                        // 'Content-Type': 'application/x-www-form-urlencoded',
+        // const fillRepItemsTable = () => {
+        //     fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
+        //             method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
 
-                    },
-                    body: JSON.stringify(productId)
+        //             },
+        //             body: JSON.stringify(productId)
 
-                })
-                .then(response => response.json())
-                .then(data => {
-                    for (let index = 0; index < data.length; index++) {
-                        repItemsTable.innerHTML += `
-                            <tr>
-                                <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
-                                <td>${data [index] ['qty']}</td>
+                // })
+                // .then(response => response.json())
+                // .then(data => {
+                //     for (let index = 0; index < data.length; index++) {
+                //         repItemsTable.innerHTML += `
+                //             <tr>
+                //                 <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
+                //                 <td>${data [index] ['qty']}</td>
 
-                            </tr>
-                        `;
+                //             </tr>
+                //         `;
 
-                    }
-                    console.log(data);
+                //     }
+                //     console.log(data);
 
-                });
-        }
-        fillRepItemsTable();
-    </script>
+                // });
+        // }
+        // fillRepItemsTable();
+    </script> -->
 
-    <script>
+    <!-- <script>
         var btnUpdate = document.querySelector(".btn_update")
         // var productId = '<?php echo $_GET['product_id']; ?>'
         var newPrice = document.querySelector(".input_newPrice")
@@ -251,10 +281,10 @@
             // console.log (dataSet)
 
         })
-    </script>
+    </script> -->
 
     <!-- change the notify limit to stockmanager -->
-    <script>
+    <!-- <script>
         let notify_limit_input = document.getElementById('notify_limit_input');
 
         fetch('http://localhost/web-Experts/public/stockManager/initial_information', {

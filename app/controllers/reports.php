@@ -88,15 +88,15 @@ class reports extends controller
     }
 
     public function reports(){
-       $month= $_GET['month'];
-       $year=$_GET['year'];
-       $type=$_GET['type'];
-       $startdate=$_GET['startdate'];
-       $enddate=$_GET['enddate'];
+       $month= $_POST['month'];
+       $year=$_POST['year'];
+       $type=$_POST['type'];
+    //    $startdate=$_GET['startdate'];
+    //    $enddate=$_GET['enddate'];
        $this->view->added=$month;
        $this->view->added1=$year;
        $this->view->added2=$type;
-        // $this->view->render('view_all_report');
+     $this->view->render('view_all_report');
     //     echo $year;
     //     echo $month;
 

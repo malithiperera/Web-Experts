@@ -354,7 +354,11 @@ class admin extends controller{
         echo json_encode($result->fetch_assoc());
         exit;
     }
+//routes
 
+public function route_file(){
+    $this->view->render("view_admin_routes_new");
+}
 }
 
 ?>

@@ -94,7 +94,7 @@ class stockManager extends controller {
 
     }
     public function viewList () {
-        $this->view->render ("view_stockmanager_repRequest");
+        $this->view->render ("view_stockManager_requestedRepList");
         // $this->view->render("view_stockManager_requestedRepList");
         
     }
