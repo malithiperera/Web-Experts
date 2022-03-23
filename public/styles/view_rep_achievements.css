@@ -281,8 +281,8 @@ body{
     top:180px;
 }
 .chart{
-    margin-top:150px;
-    margin-left:100px; 
+    margin-top:90px;
+    margin-left:300px; 
     width:400px;
     height:400px;
 }
@@ -319,8 +319,8 @@ grid-template-areas:
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 5px;
-    margin-left: 100px;
-    margin-bottom: 50px;
+    margin-left: 200px;
+    margin-top: 350px;
     transition: ease-in-out;
   }
   #confirm:hover{
@@ -329,3 +329,25 @@ grid-template-areas:
     box-shadow: 0 0 3px 1px rgb(66, 133, 187);
   
   }
+
+  /* admin target change option */
+
+  .change_target {
+    margin-top: 12px;
+    margin-left: 25px;
+    width: 200px;
+    height: 60px;
+    background-color: white;
+    visibility: hidden;
+    border: 2px solid #184A78;
+
+}
+
+#new_target {
+    text-align: center;
+}
+#change_here{
+    margin-top: -80px;
+    font-size: 9px;
+    visibility: hidden;
+}

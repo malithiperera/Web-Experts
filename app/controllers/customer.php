@@ -289,7 +289,7 @@ class customer extends controller
     //render view reqiest
     public function send_request()
     {
-        $this->view->render('admin_sketch');
+        $this->view->render('repsketch');
     }
 
 
