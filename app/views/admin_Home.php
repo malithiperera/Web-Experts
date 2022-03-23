@@ -284,12 +284,14 @@ if (!isset($_SESSION['username'])) {
 
 
         load_page().then(data => {
-            console.log(data);
+            
+            
             for (let i = 0; i < 4; i++) {
                 years.push(data[1][i]['year']);
                 sales.push(data[1][i]['year_amount']);
                 returns.push(data[1][i][0]['amount']);
             }
+           
 
             // begining sales Overview chart
             google.charts.load('current', {
@@ -299,13 +301,14 @@ if (!isset($_SESSION['username'])) {
 
 
             let data_array = [
-                ['Year', 'Sales', 'Returns']
+                ['Years', 'Sales', 'Returns']
             ];
 
             // let returns = [145, 267, 898, 567];
-
+            console.log("hellow");
             for (let i = 0; i < 4; i++) {
                 data_array.push([String(years[i]), parseInt(sales[i]), parseInt(returns[i])]);
+               
             }
 
             function drawChart() {
