@@ -227,6 +227,7 @@ class salesRep extends controller
     }
     public function fill_home()
     {
+
         $data = [];
 
         $this->model('_2_salesrep_model');
@@ -334,4 +335,6 @@ class salesRep extends controller
     public function offline_placeOrder(){
         $this->view->render('view_offline_placeorder');
     }
+
+   
 }

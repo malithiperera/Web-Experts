@@ -14,27 +14,34 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
     <link rel="stylesheet" href="../../public/styles/view_rep_productList.css">
+    <style>
+        .requested_qty{
+            border: none;
+            text-align: center;
+            height: 30px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="header">
-      <?php require 'view_headertype2.php'; ?>
-</div>
+    <div class="header">
+        <?php require 'view_headertype2.php'; ?>
+    </div>
     <h2>DAILY PRODUCT LIST</h2>
 
     <div class="data_form">
-                <div class="search_product">
-                    <input type="text" id="product_name" placeholder="Search Product" onkeyup="fetchText(this.value)">
-                    <div>
-                        <ul class="suggestions">
+        <div class="search_product">
+            <input type="text" id="product_name" placeholder="Search Product" onkeyup="fetchText(this.value)">
+            <div>
+                <ul class="suggestions">
 
-                        </ul>
-                    </div>
-                </div>
+                </ul>
+            </div>
+        </div>
 
-                <input type="text" id="quantity" placeholder="quantity" onkeyup=" cal_tot_suggest()">
-               
-                <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
+        <input type="text" id="quantity" placeholder="quantity">
+
+        <button id="new" onclick="add_product()"><i class="fas fa-plus"></i>Add New</button>
     </div>
 
     <div class="table-wrapper">
@@ -44,7 +51,7 @@ if (!isset($_SESSION['username'])) {
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Requested Quantity</th>
-                   
+                    
                 </tr>
             </thead>
             <tbody class="content">
@@ -82,6 +89,7 @@ if (!isset($_SESSION['username'])) {
                             <tr>
                             <td>${data[i]['product_name']}</td>
                             <td>${data[i]['SUM(quantity)']}</td>
+                            <td><input type="text" id="${data[i]['product_name']}" class="requested_qty" value="${data[i]['SUM(quantity)']}"></td>
                             </tr>
 
                             `;
@@ -94,7 +102,7 @@ if (!isset($_SESSION['username'])) {
         get_product();
 
         //suggestions 
-        
+
         suggestions = document.querySelector(".suggestions");
 
         async function fetchText(value) {
@@ -131,7 +139,32 @@ if (!isset($_SESSION['username'])) {
             })
         }
 
+        //fill another fields according to the product name
+        let product_name_input = document.getElementById('product_name');
+        let quantity = document.querySelector('#quantity');
 
+        function select_row(product_name) {
+            product_name_input.value = `${product_name}`;
+           suggestions.innerHTML = ``;
+           
+           console.log(product_name);
+        }
+
+        function add_product(){
+            
+            content.innerHTML += `
+                    
+                            <tr>
+                            <td>${product_name_input.value}</td>
+                            <td>${quantity.value}</td>
+                            <td><input type="text" id="${product_name}" class="requested_qty" value="${quantity.value}"></td>
+                            </tr>
+
+                            `;
+            product_name_input.value = ``;
+            quantity.value = ``;
+        }
+        
     </script>
 </body>
 

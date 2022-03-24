@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
@@ -18,7 +18,7 @@
 
 <body>
 
-<!-- START SIDE BAR -->
+  <!-- START SIDE BAR -->
 
   <div class="sidebar">
 
@@ -121,14 +121,14 @@
 
   </div>
 
-<!-- END SIDE BAR -->
+  <!-- END SIDE BAR -->
 
 
 
 
 
 
-<!-- START CARD SECTION -->
+  <!-- START CARD SECTION -->
 
   <section class="home-section">
 
@@ -186,7 +186,7 @@
 
     </section>
 
-<!-- END CARD SECTION -->
+    <!-- END CARD SECTION -->
 
 
 
@@ -195,7 +195,7 @@
 
 
 
-<!-- ORDERS TABLE -->
+    <!-- ORDERS TABLE -->
 
     <div class="table-wrapper">
 
@@ -242,7 +242,7 @@
         let cus_id = searchCus_cusId.value;
         fetch('http://localhost/web-Experts/public/salesRep/search_customer', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            
+
             headers: {
               'Content-Type': 'application/json'
               // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -251,12 +251,11 @@
           })
           .then(response => response.json())
           .then(data => {
-            window.location.href = '../salesRep/customer_home?cus_id='+cus_id;
-            
+            window.location.href = '../salesRep/customer_home?cus_id=' + cus_id;
+
           });
 
       }
-
     </script>
 
 
@@ -265,14 +264,12 @@
     <!-- fill table -->
 
     <script>
-
       var orders_table = document.querySelector('.orders');
+      
 
       const fill_table = () => {
 
-        fetch('http://localhost/web-Experts/public/salesRep/fill_home', {
-
-          })
+        fetch('http://localhost/web-Experts/public/salesRep/fill_home', { })
           .then(response => response.json())
           .then(data => {
 
@@ -306,7 +303,6 @@
 
 
     <script>
-
       //load cards 
 
       function load_cards() {
@@ -327,18 +323,16 @@
       }
 
       load_cards();
-
     </script>
 
 
 
 
     <script>
-
       //confirm order
-      function orderConfirm(order_id){
+      function orderConfirm(order_id) {
         fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder', {
-            method: 'POST', 
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -348,7 +342,7 @@
           .then(data => {
             console.log(order_id);
           })
-        
+
       }
       orderConfirm();
     </script>
