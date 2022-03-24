@@ -9,7 +9,6 @@ body {
     height: 700px;
 
 }
-
 .container {
     display: flex;
     align-items: center;
@@ -59,7 +58,6 @@ body {
     padding: 7px;
    
 }
-
 select {
     width:320px;
     height:30px;
