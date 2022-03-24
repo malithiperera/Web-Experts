@@ -213,15 +213,42 @@ html::-webkit-scrollbar-thumb{
     top: 0%;
     width: 100%;
     height: 110%;
-    visibility: hidden;
+    /* visibility: hidden; */
 
 }
 .messageArea {
     background-color: #08975b;
     position: absolute;
-    width: 50%;
-    height: 50%;
+    width: 40%;
+    height: 45%;
     left: 25%;
     top: 25%;
+
+}
+.popUpTextArea {
+    width: 36%;
+    height: 10%;
+    background-color: darkorange;
+    position: absolute;
+    left: 32%;
+    top: 20%;
+
+}
+.popUpTextArea2 {
+    width: 24%;
+    height: 10%;
+    background-color: darkviolet;
+    position: absolute;
+    left: 38%;
+    top: 30%;
+
+}
+.done {
+    width: 12%;
+    height: 10%;
+    background-color: gold;
+    position: absolute;
+    bottom: 15%;
+    left: 44%;
 
 }

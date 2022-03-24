@@ -113,8 +113,18 @@ session_start();
     </div> -->
     <div class="messagecontainer">
         <div class="messageArea">
-            <h1>shirantha</h1>
-            
+            <div class="popUpTextArea">
+                <h2>The product added</h2>
+
+            </div>
+            <div class="popUpTextArea2">
+                <h2>Successfully</h2>
+
+            </div>
+            <div class="divDoneBTN">
+                <button class="done">done</button>
+            </div>
+
         </div>
 
     </div>
