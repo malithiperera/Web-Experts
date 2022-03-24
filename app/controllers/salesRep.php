@@ -47,7 +47,7 @@ class salesRep extends controller
             }
         }
     }
-/
+
     public function addEmployee()
     {
         if ($_GET['succuss'] == true) {

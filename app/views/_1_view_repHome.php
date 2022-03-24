@@ -1,4 +1,12 @@
 
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
+
 <!DOCTYPE html>
 
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
@@ -123,7 +131,11 @@
 
 <!-- END SIDE BAR -->
 
+<!-- ADD HEADER -->
 
+<div class="header">
+    <?php require 'view_headertype2.php'; ?>
+  </div>
 
 
 
