@@ -120,9 +120,9 @@
 
 <body>
     <div class="view-report-container">
-        <div class="close">
+        <!-- <div class="close">
             <button id="close" onclick="close_pop_up()">close</button>
-        </div>
+        </div> -->
         <h3>Select Your Report Type</h3>
         <form action="../reports/reports" method="POST">
             <div class="report-select">
@@ -287,7 +287,7 @@ function close_pop_up(){
 
     var view_report_container=document.querySelector('.view-report-container');
     view_report_container.style.visibility="hidden";
-    
+
 
 }
     </script>
