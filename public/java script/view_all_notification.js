@@ -68,7 +68,7 @@ class notification{
                   this.subcontainer2.innerHTML = ``;
                 for (let i = 0; i < data.length; i++) {
                 
-                  
+                    console.log("tharushan");
                     this.subcontainer2.innerHTML += `
       
                       <div class='notification' id='${data[i]['notification_id']}'>
@@ -103,8 +103,8 @@ class notification{
                   console.log("read mails");
                   this.subcontainer2.innerHTML = ``;
                   for (let i = 0; i < data.length; i++) {
-                    if(data[i]['is_read'] == 1){
-                   
+                    if(data[i]['isRead'] == 1){
+                      console.log("dineth");
                       this.subcontainer2.innerHTML += `
         
                         <div class='notification' id='${data[i]['notification_id']}'>

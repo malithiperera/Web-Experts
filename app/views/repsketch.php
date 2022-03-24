@@ -24,107 +24,124 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-    <div class="sidebar">
-        <div class="logo-details">
+    <!-- START SIDE BAR -->
 
-            <div class="logo_name">Himalee Dairy Product</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-         
-            <li>
-                <a href="../customer/home">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
-                </a>
-                <span class="tooltip">Home</span>
-            </li>
-            <li>
-            <a href="#" onclick="popup_message('.popup')">
-                    <i class='bx bxs-cart-add'></i>
-                    <span class="links_name">Products</span>
-                </a>
-                <span class="tooltip">Products</span>
-            </li>
+  <div class="sidebar">
 
-            <li>
-            <a href="#" onclick="popup_message('.popup')">
-                    <i class='bx bx-line-chart'></i>
-                    <span class="links_name">Customers</span>
-                </a>
-                <span class="tooltip">Customers</span>
-            </li>
-            <li>
-            <a href="#" onclick="popup_message('.search_salesrep')">
-                    <i class="fas fa-ice-cream"></i>
-                    <span class="links_name">Sales Rep</span>
-                </a>
-                <span class="tooltip">Sales Rep</span>
-            </li>
-            <li>
-            <a href="#" onclick="popup_message('.select_report')">
-                    <i class='bx bx-bell'></i>
-                    <span class="links_name">Reports</span>
-                </a>
-                <span class="tooltip">Reports</span>
-            </li>
-            <li>
-            <a href="../admin/add_user">
-                    <i class="far fa-user-circle"></i>
-                    <span class="links_name">Add User</span>
-                </a>
-                <span class="tooltip">Add User</span>
-            </li>
-            <li>
-            <li>
-            <a href="#" onclick="popup_message('.removeuser')"></i>
-                    <span class="links_name">Remove User</span>
-                </a>
-                <span class="tooltip">Remove User</span>
-            </li>
-            <li>
-            <li>
-            <li>
-            <a href="#" onclick="popup_message('.routes')"><i>
+<div class="logo-details">
 
-            </i>
-                    <span class="links_name">Routes</span>
-                </a>
-                <span class="tooltip">Routes</span>
-            </li>
-            <li>
-            <li>
-            <a href="../admin/notification">
-                    <i class="far fa-user-circle"></i>
-                    <span class="links_name">Notificationr</span>
-                </a>
-                <span class="tooltip">Notification</span>
-            </li>
-            <li>
-                <a href="logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span class="links_name">Logout</span>
-                </a>
-                <span class="tooltip">Logout</span>
-            </li>
-            <li class="profile">
-                <div class="profile-details">
-                    <img src="profile.jpg" alt="profileImg">
-                    <div class="name_job">
-                        <div class="name"></div>
-                        <div class="job">Customer</div>
-                    </div>
-                </div>
-                <i class="fas fa-store" id="log_out"></i>
-            </li>
-        </ul>
+  <div class="logo_name">Himalee Dairy Products</div>
+  <i class='bx bx-menu' id="btn"></i>
+</div>
+
+<ul class="nav-list">
+
+  <li>
+    <a href="../salesRep/customer_registration">
+      <i class='fas fa-user-plus fa-lg'></i>
+      <span class="links_name">Customer Registration</span>
+    </a>
+    <span class="tooltip">Customer Registration</span>
+  </li>
+
+  <li>
+    <a href="#">
+      <i class='bx bx-user open-button' onclick="openForm()"></i>
+      <span class="links_name ">Customer Profile</span>
+    </a>
+    <!-- <span class="tooltip">Customer Profile</span> -->
+    <div class="form-popup" id="myForm">
+      <div class="form-container">
+
+        <label for="cus_id"><b>Enter Customer ID</b></label>
+        <input type="text" placeholder="Enter ID" id="searchCus_cusId" required>
+
+        <button class="btn" onclick="searchRep()">Search</button>
+        <button class="btn cancel" onclick="closeForm()">Close</button>
+      </div>
     </div>
+  </li>
+
+  <li>
+    <!-- <a href="../orders/create_bill"> -->
+    <a href="../customer/place_order_view">
+      <i class='bx bxs-cart-add'></i>
+      <span class="links_name">Place Order</span>
+    </a>
+    <span class="tooltip">Place Order</span>
+  </li>
+
+  <!-- <li>
+    <a href="../salesRep/product_list">
+      <i class="fas fa-clipboard-list"></i>
+      <span class="links_name">Product List</span>
+    </a>
+    <span class="tooltip">Product List</span>
+  </li> -->
+
+  <li>
+    <a href="../salesRep/view_report">
+      <i class='bx bx-line-chart'></i>
+      <span class="links_name">Reports</span>
+    </a>
+    <span class="tooltip">Reports</span>
+  </li>
+
+  <li>
+    <a href="../salesRep/view_notifications">
+      <i class='bx bx-bell'></i>
+      <span class="links_name">Notifications</span>
+    </a>
+    <span class="tooltip">Notifications</span>
+  </li>
+
+  <li>
+    <a href="../salesRep/achievements">
+
+      <i class="fas fa-trophy"></i>
+      <span class="links_name">Achievements</span>
+    </a>
+    <span class="tooltip">Achievements</span>
+  </li>
+
+  <li>
+    <a href="../salesRep/profile">
+      <i class="far fa-user-circle"></i>
+      <span class="links_name">Profile</span>
+    </a>
+    <span class="tooltip">Profile</span>
+  </li>
+
+  <li>
+    <a href="../login/logout">
+      <i class="fas fa-sign-out-alt"></i>
+      <span class="links_name">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+  </li>
+
+  <li class="profile">
+    <div class="profile-details">
+      <img src="profile.jpg" alt="profileImg">
+      <div class="name_job">
+        <div class="name">ABC</div>
+        <div class="job">Sales Rep</div>
+      </div>
+    </div>
+    <i class="fas fa-store" id="log_out"></i>
+  </li>
+
+</ul>
+
+</div>
+
+<!-- END SIDE BAR -->
 
     <section class="home-section">
     <div class="header">
       <?php  require 'view_headertype2.php'; ?>
     </div>
-   
+   <?php require '_1_view_repHome.php'; ?>
 
     
     </section>

@@ -9,56 +9,35 @@
         *{
             font-family: Arial, Helvetica, sans-serif;
         }
-        .view_rep_stock_request_main_container {
-            
-            width: 90%;
-            margin-left: 5%;
-            
+        .view_rep_stock_request_main_container{
             border: 1px solid black;
-            border-radius: 20px;
-        }
-
-        .view_rep_stock_request_information {
-            margin-left: 20px;
-            margin-right: 20px;
-            margin-top: 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
         }
-
-        .view_rep_stock_request_product_list {
-            margin-top: 20px;
-            margin-left: 20px;
+        .view_rep_stock_request_information{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
         }
-
-        #view_rep_stock_request_product_list_table {
-            margin-top: 20px;
-            margin-left:20px;
-            margin-right:20px;
-            width:100%;
-
+        #view_rep_stock_request_product_list_table{
+            width: 100%;
+            margin-top: 30px;
         }
         td{
             text-align: center;
         }
-        .view_rep_stock_request_hope_to_visit_another_route {
-            
+        .view_rep_stock_request_hope_to_visit_another_route{
+            align-self: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             height: 100px;
-            width: 350px;
-            margin-left: 35%;
-            margin-top:20px;
-            
-        }
-
-        .view_rep_stock_request_buttons {
+            justify-content: space-evenly;
             margin-top: 20px;
+        }
+        .view_rep_stock_request_buttons{
+            align-self: flex-end;
+            margin-bottom: 20px;
             margin-right: 20px;
-            margin-bottom:30px;
-            float: right;
-
         }
     </style>
     <title>Document</title>
@@ -160,12 +139,15 @@
             </div>
         
 
-        <div class="view_rep_stock_request_buttons">
-            <button id="view_rep_stock_request_request_button">Request</button>
-            <button id="view_rep_stock_request_close_button">close</button>
-        </div>
+            <div class="view_rep_stock_request_buttons">
+                <button id="view_rep_stock_request_request_button">Request</button>
+                <button id="view_rep_stock_request_close_button">close</button>
+            </div>
 
     </div>
 </body>
+<script>
+    
+</script>
 
 </html>

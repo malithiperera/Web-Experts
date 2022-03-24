@@ -23,10 +23,15 @@
 
     .popup {
         position: fixed;
-        top: 70px;
+        top: 0px;
+        left:0px;
         width: 100%;
         display: flex;
         justify-content: center;
+        /* background-color: white; */
+        
+        height: 100vh;
+        z-index: 10000;
     }
 
     .search_customer {
@@ -36,6 +41,9 @@
         background-color: white;
         border: 4px solid #184A78;
         border-radius: 10px;
+        z-index: 100000;
+        top: 120px;
+        
     }
 
     .serach_bar {
@@ -61,7 +69,7 @@
         width: 250px;
         /* height: 100px; */
         background-color: white;
-        z-index: 1000;
+        z-index: 10000000;
     }
     .suggestion1 p{
         margin-left:20px;
@@ -130,7 +138,7 @@
     #count {
         color: rgb(45, 211, 45);
         font-size: 25px;
-        font-weight: 700;
+        font-weight: 300;
         margin-top: -10px;
 
     }
@@ -151,19 +159,19 @@
     #link{
         background-color: #184A78;
         color: #fff;
-        width: 200px;
-        border-radius: 10px;
-        padding-right: 30px;
-        padding-left: 30px;
-      font-weight: 800;
-      font-size: 20px;
+        width: 150px; 
+        border-radius: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
+      
+      font-size: 16px;
     }
 
     #link:hover{
         background-color: blue;
     }
     .search_customer p{
-        font-weight: 700;
+        font-weight: 500;
     }
     #link i{
         padding: 5px;
@@ -207,11 +215,17 @@
                 </select>
             </div>
 
-        <a href="#" id="link" onclick="redirect_to_customer_profile()">GO<i class="fas fa-arrow-right"></i></a> 
+        <a href="#" id="link" onclick="redirect_to_customer_profile()">Go.</a> 
+        
+
+        <!-- <div class="close-but">
+            <button>close</button>
+        </div> -->
         </div>
         <div class="add_new_cus">
         
         <a href="../admin/add_new_cus"><i class="fas fa-plus"></i>Add New Customer</a>
+      
         </div>
     </div>
 
