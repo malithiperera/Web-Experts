@@ -137,15 +137,15 @@ select {
     color: red;
 
 }
-.div_MessageContainer {                                    /* division message container */
-    position: fixed;
+/* .div_MessageContainer {                                    division message container */
+    /* position: fixed;
     width: 100%;
     height: 35%;
-    top: 35%;
+    top: 35%; */
     /* background-color: aqua; */
     /* visibility: hidden; */
 
-}
+/* } */
 .div_messageArea {
     position: fixed;
     width: 455px;
@@ -207,3 +207,21 @@ html::-webkit-scrollbar-thumb{
     align-self: center;
 
 } */
+.messagecontainer {
+    background-color: aqua;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 110%;
+    visibility: hidden;
+
+}
+.messageArea {
+    background-color: #08975b;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+
+}

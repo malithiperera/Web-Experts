@@ -20,6 +20,11 @@ if (!isset($_SESSION['username'])) {
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <link rel="stylesheet" href="../../public/styles/admin_Home.css">
+   <style>
+       .container{
+           z-index: 100;
+       }
+   </style>
 </head>
 
 <body>
@@ -178,6 +183,7 @@ if (!isset($_SESSION['username'])) {
         function popup_message(popup_message) {
 
             popup_message = document.querySelector(popup_message);
+            container = document.querySelector('.container');
 
             popup_message.style.visibility = "visible";
             sidebar.style.opacity = "30%";
@@ -284,12 +290,14 @@ if (!isset($_SESSION['username'])) {
 
 
         load_page().then(data => {
-            console.log(data);
+            
+            
             for (let i = 0; i < 4; i++) {
                 years.push(data[1][i]['year']);
                 sales.push(data[1][i]['year_amount']);
                 returns.push(data[1][i][0]['amount']);
             }
+           
 
             // begining sales Overview chart
             google.charts.load('current', {
@@ -299,13 +307,14 @@ if (!isset($_SESSION['username'])) {
 
 
             let data_array = [
-                ['Year', 'Sales', 'Returns']
+                ['Years', 'Sales', 'Returns']
             ];
 
             // let returns = [145, 267, 898, 567];
-
+            console.log("hellow");
             for (let i = 0; i < 4; i++) {
                 data_array.push([String(years[i]), parseInt(sales[i]), parseInt(returns[i])]);
+               
             }
 
             function drawChart() {
@@ -397,11 +406,7 @@ if (!isset($_SESSION['username'])) {
     </script>
 
     <script>
-        const back_to_home = () => {
-            document.querySelector('.routes').style.visibility = "hidden";
-            sidebar.style.opacity = "100%";
-            container.style.opacity = "100%";
-        }
+        
     </script>
 
     <!-- fill best of reps table -->

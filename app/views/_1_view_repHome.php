@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <?php session_start();
 
@@ -7,6 +8,9 @@ if (!isset($_SESSION['username'])) {
 
 ?>
 
+=======
+<?php session_start(); ?>
+>>>>>>> 550eb31775e6f9e3322ffd671fd2a5afc7e4a87c
 <!DOCTYPE html>
 
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
@@ -26,7 +30,7 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-<!-- START SIDE BAR -->
+  <!-- START SIDE BAR -->
 
   <div class="sidebar">
 
@@ -66,7 +70,7 @@ if (!isset($_SESSION['username'])) {
 
       <li>
         <!-- <a href="../orders/create_bill"> -->
-        <a href="../customer/place_order_view">
+        <a href="../salesRep/offline_placeOrder">
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
         </a>
@@ -129,7 +133,7 @@ if (!isset($_SESSION['username'])) {
 
   </div>
 
-<!-- END SIDE BAR -->
+  <!-- END SIDE BAR -->
 
 <!-- ADD HEADER -->
 
@@ -140,7 +144,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-<!-- START CARD SECTION -->
+  <!-- START CARD SECTION -->
 
   <section class="home-section">
 
@@ -198,7 +202,7 @@ if (!isset($_SESSION['username'])) {
 
     </section>
 
-<!-- END CARD SECTION -->
+    <!-- END CARD SECTION -->
 
 
 
@@ -207,7 +211,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-<!-- ORDERS TABLE -->
+    <!-- ORDERS TABLE -->
 
     <div class="table-wrapper">
 
@@ -254,7 +258,7 @@ if (!isset($_SESSION['username'])) {
         let cus_id = searchCus_cusId.value;
         fetch('http://localhost/web-Experts/public/salesRep/search_customer', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            
+
             headers: {
               'Content-Type': 'application/json'
               // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -263,12 +267,11 @@ if (!isset($_SESSION['username'])) {
           })
           .then(response => response.json())
           .then(data => {
-            window.location.href = '../salesRep/customer_home?cus_id='+cus_id;
-            
+            window.location.href = '../salesRep/customer_home?cus_id=' + cus_id;
+
           });
 
       }
-
     </script>
 
 
@@ -277,14 +280,12 @@ if (!isset($_SESSION['username'])) {
     <!-- fill table -->
 
     <script>
-
       var orders_table = document.querySelector('.orders');
+      
 
       const fill_table = () => {
 
-        fetch('http://localhost/web-Experts/public/salesRep/fill_home', {
-
-          })
+        fetch('http://localhost/web-Experts/public/salesRep/fill_home', { })
           .then(response => response.json())
           .then(data => {
 
@@ -318,7 +319,6 @@ if (!isset($_SESSION['username'])) {
 
 
     <script>
-
       //load cards 
 
       function load_cards() {
@@ -339,18 +339,16 @@ if (!isset($_SESSION['username'])) {
       }
 
       load_cards();
-
     </script>
 
 
 
 
     <script>
-
       //confirm order
-      function orderConfirm(order_id){
+      function orderConfirm(order_id) {
         fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder', {
-            method: 'POST', 
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -360,7 +358,7 @@ if (!isset($_SESSION['username'])) {
           .then(data => {
             console.log(order_id);
           })
-        
+
       }
       orderConfirm();
     </script>

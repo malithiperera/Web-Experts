@@ -30,6 +30,20 @@ if (!isset($_SESSION['username'])) {
         color: black;
         font-size: 30px;
     }
+
+    #email_avail{
+        visibility: hidden;
+        margin-left: 50px;
+    }
+    #user_avail{
+        visibility: hidden;
+        margin-left: 50px;
+    }
+
+    #valid_birthday{
+        visibility: hidden;
+        margin-left: 40px;
+    }
 </style>
 
 
@@ -62,14 +76,15 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Name</b></label><br>
                             <input type="text" placeholder="N" name="name" id="admin_name">
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div><br>
 
                         <div class="input_control">
                             <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
-                            <input type="text" placeholder="Name" name="userid" id="admin_userid">
-                            <div class="error"></div>
+                            <input type="text" placeholder="Name" name="userid" id="admin_userid" class="check_user_id" onkeyup="check_avail_userid()"><br>
+                            <span id="user_avail">User id is not available</span>
+                            <!-- <div class="error"></div> -->
 
                         </div><br>
 
@@ -83,21 +98,23 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label><br>
                             <input type="text" placeholder="nic" name="nic" id="admin_nic">
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div><br>
 
                         <div class="input_control">
                             <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label><br>
-                            <input type="date" placeholder="dob" name="dob" id="admin_dob">
-                            <div class="error"></div>
+                            <input type="date" placeholder="dob" name="dob" id="admin_dob" onchange="birthday_validate()" class="validate_birthday">
+                            <span id="valid_birthday">Enter a valid birthday</span>
+                            <!-- <div class="error"></div> -->
 
                         </div><br>
 
                         <div class="input_control">
-                            <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-                            <input type="text" placeholder="Enter Email" name="email" id="admin_email">
-                            <div class="error"></div>
+                            <label for="email" ><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+                            <input type="text" placeholder="Enter Email" name="email" id="admin_email" onkeyup="check_email()" class="mail_check" >
+                           <br> <span id="email_avail">email is not available</span>
+                            <!-- <div class="error"></div> -->
 
                         </div><br>
 
@@ -111,7 +128,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
                             <input type="tel" placeholder="Telephone" name="tel" id="admin_tel">
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -131,7 +148,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="text" placeholder="Name" name="name" id="salesrep_namesalesrep_name" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -139,8 +156,8 @@ if (!isset($_SESSION['username'])) {
 
                         <div class="input_control">
                             <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
-                            <input type="text" placeholder="Name" name="userid" id="salesrep_useridsalesrep_userid" required>
-                            <div class="error"></div>
+                            <input type="text" placeholder="Name" name="userid" id="salesrep_useridsalesrep_userid" class="check_user_id" onkeyup="check_avail_userid()" required>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -149,7 +166,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
                             <input type="text" placeholder="nic" name="nic" id="salesrep_nicsalesrep_nic" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -158,7 +175,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
                             <input type="date" placeholder="dob" name="dob" id="salesrep_dobsalesrep_dob" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -167,7 +184,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Target&nbsp;&nbsp; </b></label>
                             <input type="text" placeholder="Traget" name="target" id="salesrep_targetsalesrep_target" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -175,8 +192,8 @@ if (!isset($_SESSION['username'])) {
 
                         <div class="input_control">
                             <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" id="salesrep_emailsalesrep_email" required>
-                            <div class="error"></div>
+                            <input type="text" placeholder="Enter Email" name="email" id="salesrep_emailsalesrep_email" onkeyup="check_email()" class="mail_check"  required>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -184,7 +201,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="psw"><b>Address&nbsp;</b></label>
                             <input type="address" placeholder="address" name="add" id="salesrep_addsalesrep_add" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -192,7 +209,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="tel" placeholder="Telephone" name="tel" id="salesrep_telsalesrep_tel" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -213,21 +230,21 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="text" placeholder="Name" name="name" id="stockmanager_name" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
                         </div>
 
                         <br>
                         <div class="input_control">
                             <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
-                            <input type="text" placeholder="Name" name="userid" id="stockmanager_userid" required>
-                            <div class="error"></div>
+                            <input type="text" placeholder="Name" name="userid" id="stockmanager_userid" class="check_user_id" onkeyup="check_avail_userid()" required>
+                            <!-- <div class="error"></div> -->
                         </div>
 
                         <br>
                         <div class="input_control">
                             <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
                             <input type="text" placeholder="nic" name="nic" id="stockmanager_nic" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -236,7 +253,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
                             <input type="date" placeholder="dob" name="dob" id="stockmanager_dob" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -244,8 +261,8 @@ if (!isset($_SESSION['username'])) {
 
                         <div class="input_control">
                             <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" id="stockmanager_email" required>
-                            <div class="error"></div>
+                            <input type="text" placeholder="Enter Email" name="email" id="stockmanager_email" onkeyup="check_email()" class="mail_check" required>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -254,7 +271,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="inputcontrol">
                             <label for="psw"><b>Address&nbsp;</b></label>
                             <input type="address" placeholder="address" name="add" id="stockmanager_add" required>
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div>
 
@@ -410,6 +427,7 @@ if (!isset($_SESSION['username'])) {
                 data_set = salesrep_data_set;
             } else {
                 data_set = stockmanager_data_set;
+                console.log(stockmanager_data_set);
             }
 
             fetch('http://localhost/web-Experts/public/register/reg_user', {
@@ -474,6 +492,127 @@ if (!isset($_SESSION['username'])) {
             stockmanager_tel.value = "";
 
         }
+//check email available
+        function check_email(){
+            var email_check=document.querySelector('.mail_check');
+            var email_avail=document.getElementById('email_avail');
+
+            fetch("http://localhost/web-Experts/public/register/check_email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(email_check.value),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+if(data!=0){
+email_check.style.border = "thick solid red";
+email_avail.style.visibility="visible";
+email_avail.style.color="red";
+
+}
+      else{
+        email_check.style.border = "thick solid green";
+        email_avail.innerHTML="email is available";
+        email_avail.style.color="green";
+      }    
+         
+        });
+
+        }
+
+
+        //check userid
+        function user_id_check(){
+
+            fetch("http://localhost/web-Experts/public/register/check_email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+if(data!=0){
+email_check.style.border = "thick solid red";
+email_avail.style.visibility="visible";
+email_avail.style.color="red";
+
+}
+      else{
+        email_check.style.border = "thick solid green";
+        email_avail.innerHTML="email is available";
+        email_avail.style.color="green";
+      }    
+         
+        });
+
+        }
+
+        function check_avail_userid(){
+            var check_user_id=document.querySelector('.check_user_id');
+            user_avail=document.getElementById('user_avail');
+            fetch("http://localhost/web-Experts/public/register/check_userid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(check_user_id.value),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          if(data!=0){
+              check_user_id.style.border = "thick solid red";
+user_avail.style.visibility="visible";
+user_avail.style.color="red";
+
+}
+      else{
+        check_user_id.style.border = "thick solid green";
+        user_avail.innerHTML="user id is available";
+        user_avail.style.color="green";
+      }    
+
+         
+        });
+        }
+
+        function birthday_validate(){
+            var valid_birthday=document.getElementById('valid_birthday');
+
+            //valid year
+            const d = new Date();
+            let year = d.getFullYear();
+  let valid_year=year-18;
+  console.log(valid_year)
+
+  //birthday year
+            var validate_birthday=document.querySelector('.validate_birthday');
+            var birthday_date=validate_birthday.value;
+            var real_date=parseInt(birthday_date.slice(0,4));
+            console.log(real_date);
+            if(valid_year>real_date){
+                console.log("Hello")
+                valid_birthday.innerHTML="Your birthday is valid";
+            }
+            else{
+                console.log("Errrrrrr")
+                valid_birthday.style.visibility="visible"
+            }
+
+
+           
+        }
+
+
+
+
     </script>
 
 

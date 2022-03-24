@@ -109,13 +109,24 @@ function confirmation_message() {
     document.querySelector('.container').style.opacity="0.5";
 
 }
+//get route name
+function get_routes(){
+    var user_id1=document.getElementById('user_id1').value;
+    var route_id1=document.getElementById('route_id1').value;
+    var shop_name1=document.getElementById('shop_name1').value;
 
+    console.log(user_id);
+    console.log(route_id);
+    console.log(shop_name1);
+
+}
 
 
 
 
 //place Order
 function place_order() {
+    
     if (table_info.rows.length != 2) {
         for (i = 1; i < table_info.rows.length - 1; i++) {
             let table_cell = table_info.rows.item(i).cells;
