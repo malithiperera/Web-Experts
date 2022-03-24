@@ -54,7 +54,7 @@ class salesRep extends controller
             $this->view->added = 1;
             $this->view->render('view_admin_addemployee');
         }
-        $_GET['success'] = 'false';
+        $_GET['succuss'] = 'false';
     }
 
 

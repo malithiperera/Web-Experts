@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <?php session_start();
 
@@ -8,9 +7,6 @@ if (!isset($_SESSION['username'])) {
 
 ?>
 
-=======
-<?php session_start(); ?>
->>>>>>> 550eb31775e6f9e3322ffd671fd2a5afc7e4a87c
 <!DOCTYPE html>
 
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
