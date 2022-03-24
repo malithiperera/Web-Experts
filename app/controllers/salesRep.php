@@ -47,14 +47,14 @@ class salesRep extends controller
             }
         }
     }
-
+/
     public function addEmployee()
     {
         if ($_GET['succuss'] == true) {
             $this->view->added = 1;
             $this->view->render('view_admin_addemployee');
         }
-        $_GET['succuss'] = 'false';
+        $_GET['success'] = 'false';
     }
 
 
