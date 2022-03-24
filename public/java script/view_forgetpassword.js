@@ -75,3 +75,9 @@ else{
 
 
 }
+
+function close_pop_up(){
+  console.log("Helooo")
+// form.style.opacity = '100%';
+// success_failed.style.visibility = "hidden";
+}

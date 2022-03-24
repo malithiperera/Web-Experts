@@ -9,7 +9,7 @@ class register_model extends model
         parent::__construct();
     }
 
-    public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$target,$level, $shop = "abc", $route = "abc",)
+    public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$target,$level, $shop = "abc", $route = "abc")
     {
 
         require '../app/core/database.php';
@@ -98,10 +98,10 @@ class register_model extends model
     //begin new reg process
     public function reg_admin($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $admin_type){
         require '../app/core/database.php';
-
+        $date=date("Y-m-d");
         $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online',$date,'')";
         $result1 = mysqli_query($conn, $sql1);
 
         $sql2 = "INSERT INTO admin VALUES ('$user_id', '$admin_type')";
@@ -117,10 +117,10 @@ class register_model extends model
 
     public function reg_salesrep($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $target){
         require '../app/core/database.php';
-
+        $date=date("Y-m-d");
         $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online','$date','')";
         $result1 = mysqli_query($conn, $sql1);
 
         $sql2 = "INSERT INTO sales_rep VALUES ('$user_id', '$target')";
@@ -138,10 +138,11 @@ class register_model extends model
     public function reg_stockmanager($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online){
         require '../app/core/database.php';
 
+        $date=date("Y-m-d");
        $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
-        $result1 = mysqli_query($conn, $sql1);
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online',' $date',' null')";
+        $result1 = mysqli_query($conn,$sql1);
 
         $sql2 = "INSERT INTO stockmanager VALUES ('$user_id')";
         $result2 = mysqli_query($conn, $sql2);
@@ -152,5 +153,24 @@ class register_model extends model
         else{
             return false;
         }
+    }
+
+    //validate email
+    public function validate_email($email){
+        require '../app/core/database.php';
+        $sql="SELECT email from user where email LIKE '%$email%' ";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+
+    }
+
+    public function validate_userid($user_id){
+        require '../app/core/database.php';
+        $sql="SELECT user_id  from user where user_id LIKE '%$user_id%' ";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+
     }
 }

@@ -145,4 +145,12 @@ public function checkorders($userid){
 
 }
 
+
+public function suggest_user($userid){
+    require '../app/core/database.php';
+    $sql="SELECT * FROM customer where cus_id LIKE '%$userid%' or shop_name like '%$userid%'";
+    $result=mysqli_query($conn,$sql);
+    return $result;
+
+}
 }

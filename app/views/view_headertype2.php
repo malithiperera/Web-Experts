@@ -142,6 +142,10 @@ top: -0px;
  /* nav ul li .open{
   color: #D78B2E;
  } */
+
+ #username{
+   text-transform: lowercase;
+ }
 @media(max-width:700px) {
     
     nav{

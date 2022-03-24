@@ -27,4 +27,23 @@ class orders extends controller{
        
        
     }
+//suggest user and shop name
+    public function suggest_user(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+        $this->model('order_model');
+        $result=$this->model->suggest_user($recieved_data);
+
+
+$data = [];
+while ($row = $result->fetch_assoc()) {
+    array_push($data, $row);
+}
+
+        echo json_encode($data);
+        exit;
+
+
+
+    }
 }
