@@ -41,6 +41,8 @@ public function add_product()
             if($result){
                 $error= 1;
                 $_SESSION["error"] = $error;
+                $this->view->added=$_SESSION["error"];
+                // echo $_SESSION["error"];
                 $this->view->render('view_stockmanager_addproduct');
                
            
@@ -57,7 +59,7 @@ else{
     $_SESSION["error"] = $error;
    
 }
-}
+}   
 else{
     $error = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
     $_SESSION["error"] = $error;
@@ -75,28 +77,5 @@ else{
 // Display status message
 echo $statusMsg;
 
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
+}    
 }

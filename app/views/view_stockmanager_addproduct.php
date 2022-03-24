@@ -11,10 +11,15 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockmanager_addproduct.css">
-    <script defer src="../../public/java script/validate.js"></script>
+    <!-- <script defer src="../../public/java script/validate.js"></script> -->
     <title>Products</title>
 
 </head>
+<style>
+    .messagecontainer {
+        visibility: hidden;
+    }
+</style>
 
 <body>
     <!-- <div id="error" class="error"></div> -->
@@ -82,7 +87,7 @@ session_start();
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <input class="btn_submit" type="submit" name="submit" value="Add to Products" onclick=""><br>
+                <input class="btn_submit" type="submit" name="submit" value="Add to Products"><br>
                 <!-- <button type="submit" class="btn_submit"  name="submit" value="Add to Products"></button> -->
 
                 <div class="error">
@@ -98,6 +103,9 @@ session_start();
             </form>
 
         </div>
+
+    </div>
+    <div class="pop-up-div">
 
     </div>
     <!-- <div class="div_messageContainer">
@@ -122,7 +130,7 @@ session_start();
 
             </div>
             <div class="divDoneBTN">
-                <button class="done">done</button>
+                <button class="done" onclick="backToAddProduct ()">done</button>
             </div>
 
         </div>
@@ -133,11 +141,24 @@ session_start();
         <a href="../stockManager/backToSMHome"><button class="btn_back">Back</button></a>
 
     </div>
+    <script>
+        var error = "<?php echo $this->added; ?>";
+        console.log(error);
+        if (error == 1) {
+            document.querySelector('.messagecontainer').style.visibility = "visible"
+            document.getElementById('.productForm').style.opacity = "0.5"
 
+        }
+
+        function backToAddProduct() {
+            document.querySelector('.messagecontainer').style.visibility = "hidden"
+        }
+        // const backToAddProduct = () => {
+        //     document.querySelector('.messagecontainer').style.visibility = "hidden"
+
+        // }
+        backToAddProduct()
+    </script>
 </body>
 
 </html>
-
-<?php
-unset($_SESSION["error"]);
-?>
