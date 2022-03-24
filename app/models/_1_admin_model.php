@@ -76,7 +76,7 @@ class _1_admin_model extends model
                  WHERE 
                  delivery.order_id = orders.order_id
                  AND
-                 EXTRACT(YEAR FROM delivery.date) >= YEAR(CURDATE())-3 
+                 EXTRACT(YEAR FROM delivery.date) >= YEAR(CURDATE())-4 
                  GROUP BY EXTRACT(YEAR FROM delivery.date)";
 
         $result1 = mysqli_query($conn, $sql1);
@@ -87,7 +87,7 @@ class _1_admin_model extends model
                  AND
                  return_product.product_id = product.product_id
                  AND
-                 EXTRACT(YEAR FROM returns.date) >= YEAR(CURDATE())-3 
+                 EXTRACT(YEAR FROM returns.date) >= YEAR(CURDATE())-4 
                  GROUP BY EXTRACT(YEAR FROM date) 
                  ORDER BY EXTRACT(YEAR FROM date)";
 
@@ -274,6 +274,26 @@ class _1_admin_model extends model
         require '../app/core/database.php';
 
         $sql = "update customer set credit_time = '$new_time' where cus_id = '$cus_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
+    //check the admin level
+    public function check_level($user_id){
+        require '../app/core/database.php';
+
+        $sql = "select level from admin where admin_id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+
+    }
+
+    public function search_rep($rep){
+        require '../app/core/database.php';
+
+        $sql = "select * from user where (name LIKE '%$rep%' or user_id LIKE '%$rep%') and type = 'rep'";
         $result = mysqli_query($conn, $sql);
 
         return $result;

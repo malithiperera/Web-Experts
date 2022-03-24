@@ -343,6 +343,39 @@ class admin extends controller{
         exit;
     }
 
+    //check the admin level
+    public function check_level(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_1_admin_model');
+        $result = $this->model->check_level($get_data);
+
+        echo json_encode($result->fetch_assoc());
+        exit;
+    }
+//routes
+
+public function route_file(){
+    $this->view->render("view_admin_routes_new");
+}
+
+//search sales rep in popup 
+public function search_rep(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    $this->model('_1_admin_model');
+    $result = $this->model->search_rep($get_data);
+
+    $data = [];
+
+    while($row = $result->fetch_assoc()){
+        array_push($data, $row);
+    }
+
+    echo json_encode($data);
+}
 }
 
 ?>

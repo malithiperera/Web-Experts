@@ -261,6 +261,8 @@ class report {
     // this.card_con.classList.add('table');
     // this.main.appendChild(message_div);
   }
+
+
   //sales summary
   sales_summary(year, month) {
     let string_month = this.get_month(month);
@@ -361,7 +363,7 @@ class report {
     //sales summary yearly
     else {
       this.report_title.innerHTML =
-        " Sales Summary Monthly Report" + " " + " " + year;
+        " Sales Summary Yearly Report" + " " + " " + year;
       var data_set = {
         year: year,
       };
@@ -440,7 +442,9 @@ class report {
           this.summary_section_graph1.innerHTML += `  <div id="curve_chart" style="width: 1300px; height: 700px"></div>`;
           this.line_chart(resultArray, "Summary Of Month", 12);
           this.summary_section_graph2.innerHTML += `   <div id="piechart" style="width: 900px; height: 500px;"></div>`;
-          this.pie_chart();
+
+
+          this.pie_chart(resultArray);
 
           this.summary_section_route = document.createElement("div");
           this.main.appendChild(this.summary_section_route);
@@ -488,11 +492,11 @@ class report {
   }
   //rep summary
   rep_summary(year, month) {
-    //monthly report
-    if (month != 0) {
-      let string_month = this.get_month(month);
-      console.log(0);
-      console.log(month);
+    //yaerly report
+    if (month!=0) {
+     
+       let string_month = this.get_month(month);
+      
       this.report_title.innerHTML =
         " Sales Reprsentative Summary" + " " + string_month + " " + year;
 
@@ -500,6 +504,8 @@ class report {
         year: year,
         month: month,
       };
+
+      console.log(data_set)
 
       fetch("http://localhost/web-Experts/public/reports/rep_summary_month", {
         method: "POST",
@@ -554,12 +560,72 @@ class report {
           }
         });
     }
+
+    else{
+      console.log(year);
+      this.report_title.innerHTML =
+      " Sales Reprsentative Summary" + " " + year;
+
+      fetch("http://localhost/web-Experts/public/reports/rep_summary_year", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(year),
+      })
+
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.summary_section = document.createElement("div");
+        this.main.appendChild(this.summary_section);
+        this.summary_section.classList.add("section", "cus-section");
+        this.summary_section.innerHTML = `<h3>Summary Of Year</h3>`;
+        
+        this.summary_section_table = document.createElement("table");
+          this.summary_section.appendChild(this.summary_section_table);
+          this.summary_section_table.classList.add("table-info");
+
+          this.summary_section_table.innerHTML +=
+            "<tr> <th>Rep ID</th><th>REp name</th> <th>Total Sales(RS.)</th> <th>Current Target(RS.)</th>  </tr> ";
+       
+            let i;
+            for (i = 0; i < data.length; i++) {
+              
+  
+            
+              this.summary_section_table.innerHTML += `
+            
+            <tr>
+            
+            <td class="pro_name">${data[i]["rep_id"]}</td>
+            <td class="pro_name">${data[i]["name"]}</td>
+            
+            <td class="price">${data[i]["sumSales"]}</td>
+            <td class="pro_name">${data[i]["target"]}</td>
+            
+          
+           
+           
+            
+            
+            </tr>
+            
+            `;
+            
+            }
+        
+      });
+
+    }
   }
 
   //
 
   //return report
   return_summary(year, month) {
+
+    console.log(year,month)
     if (month != 0) {
       var data_set = {
         year: year,
@@ -623,6 +689,71 @@ class report {
               `;
           }
         });
+    }
+    else{
+
+      var data_set = {
+        year: year
+      };
+      console.log(data_set);
+      let string_month = this.get_month(month);
+      this.report_title.innerHTML =
+        " Return  Monthly Report" + " " + year;
+      fetch("http://localhost/web-Experts/public/reports/return_year", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data_set),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          // this.create_card(
+          //   '<i class="fas fa-exchange-alt"></i>',
+          //   "Total Returns(RS.)",
+          //   data[0][0]["total_amount"]
+          // );
+          // this.create_card(
+          //   '<i class="fas fa-store-alt"></i>',
+          //   "No Of Shops",
+          //   data[0][1]["shops"]
+          // );
+
+          // this.summary_section = document.createElement("div");
+          // this.main.appendChild(this.summary_section);
+          // this.summary_section.classList.add("section", "cus-section");
+          // this.summary_section.innerHTML = `<h3>Return Summary Of Month</h3>`;
+          // this.summary_section_table = document.createElement("table");
+          // this.summary_section.appendChild(this.summary_section_table);
+          // this.summary_section_table.classList.add("table-info");
+
+          // this.summary_section_table.innerHTML +=
+          //   "<tr> <th>Route ID</th><th>Route Name</th><th>Rep Name </th><th> Total Return(RS.)</th>   </tr> ";
+          // let i;
+
+          // for (i = 0; i < data[1].length; i++) {
+          //   this.summary_section_table.innerHTML += `
+              
+          //     <tr>
+              
+          //     <td class="pro_name">${data[1][i]["route_id"]}</td>
+          //     <td class="price">${data[1][i]["route_name"]}</td>
+          //     <td class="pro_name">${data[1][i]["rep_name"]}</td>
+          //     <td class="pro_name">${data[1][i]["total_amount"]}</td>
+              
+              
+            
+             
+              
+              
+          //     </tr>
+              
+          //     `;
+          // }
+        });
+
     }
   }
   //card section
@@ -813,19 +944,31 @@ class report {
       chart.draw(data, options);
     }
   }
-pie_chart(){
+
+
+  //pie charts
+pie_chart(result){
+  console.log("Heloooo")
+  console.log(result)
   google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Month', 'Sales Precentage'],
+          ['January',result[0][1]],
+          ['Feb', result[1][1]],
+          ['March',result[2][1]],
+          ['April', result[3][1]],
+          ['May', result[4][1]],
+          ['June',result[5][1]],
+          ['July', result[6][1]],
+          ['August', result[7][1]],
+          ['Sep',result[8][1]],
+          ['Oct', result[9][1]],
+          ['Nov',result[10][1]],
+          ['Dec', result[11][1]]
         ]);
 
         var options = {
@@ -837,10 +980,7 @@ pie_chart(){
         chart.draw(data, options);
       }
 }
-  //duration reports
-
-
-
+  
 
 
 

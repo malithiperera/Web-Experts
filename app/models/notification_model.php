@@ -14,8 +14,8 @@ class notification_model extends model
     public function load_notification($to_whom, $user_id, $notification_type){
         require '../app/core/database.php';
 
-        $sql = "SELECT * FROM notification WHERE notification_type LIKE '$notification_type' 
-                AND to_whom LIKE '%$to_whom%' OR to_whom LIKE '%$user_id%' ORDER BY date,time ";
+        $sql = "SELECT * FROM notification,notification_user WHERE notification.notification_id = notification_user.notification_id and notification.notification_type LIKE '$notification_type' 
+                AND notification.to_whom LIKE '%$to_whom%' OR notification.to_whom LIKE '%$user_id%' ORDER BY notification.date,notification.time ";
         $result = mysqli_query($conn, $sql);
         return $result;
     }

@@ -1,10 +1,3 @@
-<?php session_start();
-
-if (!isset($_SESSION['username'])) {
-  header("Location:http://localhost/web-Experts/public/login/index");
-}
-
-?>
 
 <!DOCTYPE html>
 
@@ -65,20 +58,12 @@ if (!isset($_SESSION['username'])) {
 
       <li>
         <!-- <a href="../orders/create_bill"> -->
-        <a href="../customer/place_order_view">
+        <a href="../salesRep/offline_placeOrder">
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
         </a>
         <span class="tooltip">Place Order</span>
       </li>
-
-      <!-- <li>
-        <a href="../salesRep/product_list">
-          <i class="fas fa-clipboard-list"></i>
-          <span class="links_name">Product List</span>
-        </a>
-        <span class="tooltip">Product List</span>
-      </li> -->
 
       <li>
         <a href="../salesRep/view_report">
@@ -141,12 +126,6 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
-<!-- ADD HEADER -->
-
-  <div class="header">
-    <?php require 'view_headertype2.php'; ?>
-  </div>
 
 
 <!-- START CARD SECTION -->

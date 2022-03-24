@@ -410,6 +410,7 @@ if (!isset($_SESSION['username'])) {
                 data_set = salesrep_data_set;
             } else {
                 data_set = stockmanager_data_set;
+                console.log(stockmanager_data_set);
             }
 
             fetch('http://localhost/web-Experts/public/register/reg_user', {

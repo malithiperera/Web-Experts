@@ -44,8 +44,7 @@ if (!isset($_SESSION['username'])) {
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Requested Quantity</th>
-                    <th colspan="2"></th>
-
+                   
                 </tr>
             </thead>
             <tbody class="content">

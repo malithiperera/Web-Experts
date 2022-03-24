@@ -281,4 +281,34 @@ array_push($result_set,$data1);
         $result2=mysqli_query($conn,$sql);
         return $result2;
     }
+//yaerly reports sales rep
+public function rep_summary_year($year)
+{  require '../app/core/database.php';
+    $sql="SELECT delivery.rep_id,user.name ,sum(orders.amount) as sumSales, sales_rep.target from orders,delivery,user,sales_rep WHERE orders.order_id=delivery.delivery_id AND year(delivery.date)='2021' AND user.user_id=delivery.rep_id AND sales_rep.rep_id=delivery.rep_id GROUP BY delivery.rep_id;";
+    $result2=mysqli_query($conn,$sql);
+    return $result2;
+
+}
+    //return yearly report
+
+    public function return_year($year){
+        $month=11;
+        require '../app/core/database.php';
+
+    //     $sql = "SELECT customer.route_id,sum(product.price*return_product.qty) as total_amount,user.name as rep_name,route.route_name from returns,return_product,customer,product,user,route
+    //     where returns.return_id = return_product.return_id
+    //     AND
+    //     returns.cus_id = customer.cus_id
+    //     AND
+    //     return_product.product_id = product.product_id
+    //     AND
+    //     returns.rep_id = user.user_id
+    //     AND
+    //     customer.route_id=route.route_id 
+    //   and month(date)='$month' and
+    //    year(date)='$year' group by customer.route_id;";
+    //    $result=mysqli_query($conn,$sql);
+        return $year;
+
+    }
 }

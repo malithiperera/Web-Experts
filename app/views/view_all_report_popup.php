@@ -36,7 +36,7 @@
 
         .view-report-container {
             width: 500px;
-            height: 500px;
+            height: 600px;
             /* temperary commented */
             /* margin-left: 600px; */
             background-color: #fff;
@@ -105,11 +105,24 @@
        .view-report-container option{
             color: black;
         }
+        #close{
+            border-radius: 10px;
+            margin-right: 0px;
+            margin-left: 430px;
+            width: 50px;
+            height: 40px;
+            background-color: #184A78;
+
+
+        }
     </style>
 </head>
 
 <body>
     <div class="view-report-container">
+        <!-- <div class="close">
+            <button id="close" onclick="close_pop_up()">close</button>
+        </div> -->
         <h3>Select Your Report Type</h3>
         <form action="../reports/reports" method="POST">
             <div class="report-select">
@@ -175,8 +188,9 @@
                 </div>
                 <div class="view-button">
                         <input type="submit" value="submit" id="submit-but">
+                      
                     </div>
-        </form>
+                   
     </div>
 
     <script>
@@ -265,6 +279,16 @@ function submitform(){
 
 
     fetch('http://localhost/web-Experts/public/reports/get_types')
+}
+
+
+//close pop up
+function close_pop_up(){
+
+    var view_report_container=document.querySelector('.view-report-container');
+    view_report_container.style.visibility="hidden";
+
+
 }
     </script>
 

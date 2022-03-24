@@ -19,27 +19,6 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
-<style>
-    .change_target {
-        margin-top: 12px;
-        margin-left: 25px;
-        width: 200px;
-        height: 60px;
-        background-color: white;
-        visibility: hidden;
-        border: 2px solid #184A78;
-
-    }
-
-    #new_target {
-        text-align: center;
-    }
-    #change_here{
-        margin-top: -80px;
-        font-size: 9px;
-        visibility: hidden;
-    }
-</style>
 
 <body>
 
@@ -64,22 +43,13 @@ if (!isset($_SESSION['username'])) {
       </li>
 
 
-      <li>
-        <!-- <a href="../orders/create_bill"> -->
+      <li> 
         <a href="../customer/place_order_view">
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
         </a>
         <span class="tooltip">Place Order</span>
       </li>
-
-      <!-- <li>
-        <a href="../salesRep/product_list">
-          <i class="fas fa-clipboard-list"></i>
-          <span class="links_name">Product List</span>
-        </a>
-        <span class="tooltip">Product List</span>
-      </li> -->
 
       <li>
         <a href="../salesRep/view_report">
@@ -181,54 +151,17 @@ if (!isset($_SESSION['username'])) {
 
 <!-- CHARTS -->
 
-    <div class="charts">
+    
+
         <div class="chart">
-            <div id="piechart" style="width: 500px; height: 500px;"></div>
+            <div id="piechart" style="width: 1000px; height: 1000px;"></div>
         </div>
-        <!-- <div class="chart1">
-            <div id="piechart"></div>
-        </div> -->
-    </div>
+
+    
 
 
 
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                datasets: [{
-                    label: '# of Sales',
-                    data: [5, 16, 8, 22, 10, 20],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.5)',
-                        'rgba(54, 162, 235, 0.5)',
-                        'rgba(255, 206, 86, 0.5)',
-                        'rgba(75, 192, 192, 0.5)',
-                        'rgba(153, 102, 255, 0.5)',
-                        'rgba(255, 159, 64, 0.5)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+  
 
     
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -239,7 +172,18 @@ if (!isset($_SESSION['username'])) {
       function drawChart() {
         fetch('http://localhost/web-Experts/public/salesRep/achievement')
         .then(response => response.json())
-        
+        .then(data => {
+          console.log(data[1]['tar']-data[0]['achieved']);
+          console.log(data[0]['achieved']);
+          // achievedValue.innerHTML = data[0][0]['achieved']
+        });
+        // achievements();
+        // var data = google.visualization.arrayToDataTable(x);
+
+
+
+
+
 
 
         var data = google.visualization.arrayToDataTable([

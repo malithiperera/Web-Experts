@@ -1,9 +1,9 @@
 <?php session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("Location:http://localhost/web-Experts/public/login/index");
+  header("Location:http://localhost/web-Experts/public/login/index");
 }
-$userid=$_SESSION['userid'];
+$userid = $_SESSION['userid'];
 
 ?>
 
@@ -44,11 +44,11 @@ $userid=$_SESSION['userid'];
   <div class="sidebar">
     <div class="logo-details">
 
-    <div class="logo_name">Himalee Dairy Products</div>
+      <div class="logo_name">Himalee Dairy Products</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-     
+
       <li>
         <a href="../customer/home">
           <i class='bx bx-home'></i>
@@ -57,7 +57,7 @@ $userid=$_SESSION['userid'];
         <span class="tooltip">Home</span>
       </li>
       <li>
-        <a href="../customer/place_order_view?$userid">
+        <a href="../customer/place_order_view">
 
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
@@ -121,10 +121,10 @@ $userid=$_SESSION['userid'];
   </div>
 
   <section class="home-section">
-  <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
+    <div class="header">
+      <?php require 'view_headertype2.php'; ?>
     </div>
-    
+
 
     <section class="cards-section">
 
@@ -255,69 +255,68 @@ $userid=$_SESSION['userid'];
 
 
       </div>
-    
+
     </section>
     <div class="pop-up-report" id="pop-up-report">
       <?php require 'view_all_report_popup.php'; ?>
     </div>
 
-   
+
 
   </section>
 
-  <script>
-    const myslide = document.querySelectorAll('.myslide'),
-      dot = document.querySelectorAll('.dot');
-    let counter = 1;
-    slidefun(counter);
-
-    let timer = setInterval(autoSlide, 8000);
-
-    function autoSlide() {
-      counter += 1;
-      slidefun(counter);
-    }
-
-    function plusSlides(n) {
-      counter += n;
-      slidefun(counter);
-      resetTimer();
-    }
-
-    function currentSlide(n) {
-      counter = n;
-      slidefun(counter);
-      resetTimer();
-    }
-
-    function resetTimer() {
-      clearInterval(timer);
-      timer = setInterval(autoSlide, 8000);
-    }
-
-    function slidefun(n) {
-
-      let i;
-      for (i = 0; i < myslide.length; i++) {
-        myslide[i].style.display = "none";
-      }
-      for (i = 0; i < dot.length; i++) {
-        dot[i].className = dot[i].className.replace(' active', '');
-      }
-      if (n > myslide.length) {
-        counter = 1;
-      }
-      if (n < 1) {
-        counter = myslide.length;
-      }
-      myslide[counter - 1].style.display = "block";
-      dot[counter - 1].className += " active";
-    }
-  </script>
-
-
+    
 
   <script>
+
+let field = document.querySelector('.field');
+function get_pending_orders(){
+  console.log("Hello owgwh")
+   let data_set = {
+        user_id: 'HC001'
+      }
+
+      fetch('http://localhost/web-Experts/public/customer/get_pending_orders', {
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/json'
+
+          },
+
+          body: JSON.stringify(data_set)
+        })
+        .then(response => response.json())
+        .then(data => {
+           console.log(data);
+          for (i = 0; i < data.length; i++) {
+
+            field.innerHTML += `
+            
+            <table class="pending_order_tabel">
+              <tr>
+                <td>
+               
+                    <tr><td colspan="2"><span>Order ID :</span>${data[i]['order_id']}</td></tr>
+                    <tr><td colspan="2"><span>Order Date :</span>${data[i]['date']}</td></tr>
+                    <tr><td colspan="2"><span>Amount :</span>RS.${data[i]['amount']}</td></tr>
+                
+                </td>
+                <td><button id="view-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
+                <td><button id="del-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>Delete</button></td>
+                
+              </tr>+
+            </table>
+            
+            `;
+
+          }
+        });
+
+        console.log("Hello owgwh")
+}
+
+get_pending_orders();
     order_id = document.getElementById('onum');
     order_date = document.getElementById('o_date');
     order_amount = document.getElementById('amount');
@@ -352,7 +351,7 @@ $userid=$_SESSION['userid'];
 
 
 
-    //load cards 
+    // //load cards 
     function load_cards() {
 
       fetch('http://localhost/web-Experts/public/customer/load_card')
@@ -374,7 +373,7 @@ $userid=$_SESSION['userid'];
 
 
 
-    //discounts
+    // //discounts
     function discounts() {
       dis_pro = document.querySelector('.dis-pro');
 
@@ -386,7 +385,7 @@ $userid=$_SESSION['userid'];
           for (i = 0; i < data.length; i++) {
             let new_price = data[i]['price'] * (100 - data[i]['discount']) / 100;
             dis_pro.innerHTML += `<tr class="pro-list">
-              
+
               <td>${data[i]['product_name']}</td>
               <td>${data[i]['description']}</td>
               <td class="dis">${data[i]['discount']}%</td>
@@ -401,223 +400,222 @@ $userid=$_SESSION['userid'];
         });
     }
     discounts();
+
+
+    //get deliveries
+    function get_deliveries() {
+          console.log("Helooooooo")
+          let field_name = document.querySelector('.field-name');
+
+
+          fetch('http://localhost/web-Experts/public/customer/get_deliveries')
+            .then(response => response.json())
+            .then(data => {
+              // console.log(data.length);
+              // let date = new Date();
+              // console.log(data[1][1]['date']);
+              // var today = new Date(); 
+              // console.log(today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate());
+              // date.setDate(date.getDate() + 1);
+
+              // date_del=data[1][0]['date'];
+              // date.setDate(date_del.getDate());
+              // console.log(date)
+               credit=data[0]['credit_time']
+              if(data[1].length==0){
+                field_name.innerHTML += `<h2 id="zero">No Due Payments</h2>`;
+              }
+              else{
+              for (i = 0; i < data.length; i++) {
+               date_del=data[1][i]['date'];
+
+
+
+
+                field_name.innerHTML += `
+
+    <table class="pending_deliveries">
+      <tr>
+        <td>
+
+            <tr><td colspan='2'><span>Delivery ID :</span>${data[1][i]['delivery_id']}</td></tr>
+            <tr><td colspan='2'><span>Date       :</span>${data[1][i]['date']}</td></tr>
+            <tr><td colspan='2'><span>Order ID    :</span>${data[1][i]['order_id']}</td></tr>
+            <tr><td colspan='2'><span>Amount      : </span>RS.${data[1][i]['amount']}</td></tr>
+
+        </td>
+        <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[1][i]['order_id']}&cus_id=${data[1][i]['delivery_id']}&route_id=${data[1][i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button></td>
+        <td> <button id="payhere-payment" onclick='pay_here(${data[1][i]['delivery_id']},${data[1][i]['order_id']},${data[1][i]['amount']})'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
+
+      </tr>
+    </table>
+
+    `;
+
+             }
+            }
+
+            });
+
+
+
+
+
+       }
+
+     get_deliveries();
+
+
+     function pay_here(deliveryId,orderId,amount) {
+       console.log("JJJJJJJJ")
+
+// document.getElementById('payhere-payment').onclick = function (e) {
+
+
+
+let updated_pay = Object.assign(payment, {"order_id":orderId},{"delivery_id":deliveryId},{"amount":amount});
+payhere.startPayment(updated_pay);
+
+console.log(updated_pay);
+
+
+}
+
+pop_up_div = document.getElementById('pop-up-report');
+card = document.querySelector('.cards-section');
+detail = document.querySelector('.detail');
+
+var home = document.querySelector('.home-section');
+var view = import("test2.php");
+
+function load_orders_view() {
+document.querySelector('.home-section').innerHTML = " ";
+home.load('test2.php');
+
+
+}
+    
   </script>
 
 
 
 
-  <script type="text/javascript">
-    google.charts.load("current", {
-      packages: ["corechart"]
-    });
-    google.charts.setOnLoadCallback(drawChart);
+ <script type="text/javascript">
+      google.charts.load("current", {
+        packages: ["corechart"]
+      });
+      google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Element", "Density", {
-          role: "style"
-        }],
-        ["Ice Cream", 8.94, "#32a852"],
-        ["Yoghurts", 10.49, "#31aab5"],
-        ["Curd", 19.30, "#e6b815"],
-        ["Fresh-Milk", 21.45, "color: #e5e4e2"]
-      ]);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Density", {
+            role: "style"
+          }],
+          ["Ice Cream", 8.94, "#32a852"],
+          ["Yoghurts", 10.49, "#31aab5"],
+          ["Curd", 19.30, "#e6b815"],
+          ["Fresh-Milk", 21.45, "color: #e5e4e2"]
+        ]);
 
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-        {
-          calc: "stringify",
-          sourceColumn: 1,
-          type: "string",
-          role: "annotation"
-        },
-        2
-      ]);
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+          {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+          },
+          2
+        ]);
 
-      var options = {
-        title: "Product Buying Summary",
-        width: 600,
-        height: 400,
-        bar: {
-          groupWidth: "95%"
-        },
-        legend: {
-          position: "none"
-        },
-      };
-      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
-      chart.draw(view, options);
-    }
-  </script>
+        var options = {
+          title: "Product Buying Summary",
+          width: 600,
+          height: 400,
+          bar: {
+            groupWidth: "95%"
+          },
+          legend: {
+            position: "none"
+          },
+        };
+        var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+        chart.draw(view, options);
+      }
+    
+  </script> 
 
 
   <script>
-    //get prnding orders
-    let field = document.querySelector('.field');
-
-    function get_pending_orders() {
-      var user_id = '<?php echo $_SESSION['userid']; ?>';
-      let data_set = {
-        user_id: user_id
-      }
-
-      fetch('http://localhost/web-Experts/public/customer/get_pending_orders', {
-          method: 'POST',
-
-          headers: {
-            'Content-Type': 'application/json'
-
-          },
-
-          body: JSON.stringify(data_set)
-        })
-        .then(response => response.json())
-        .then(data => {
-          // console.log(data);
-          for (i = 0; i < data.length; i++) {
-
-            field.innerHTML += `
-            
-            <table class="pending_order_tabel">
-              <tr>
-                <td>
-               
-                    <tr><td colspan="2"><span>Order ID :</span>${data[i]['order_id']}</td></tr>
-                    <tr><td colspan="2"><span>Order Date :</span>${data[i]['date']}</td></tr>
-                    <tr><td colspan="2"><span>Amount :</span>RS.${data[i]['amount']}</td></tr>
-                
-                </td>
-                <td><button id="view-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
-                <td><button id="del-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>Delete</button></td>
-                
-              </tr>+
-            </table>
-            
-            `;
-
-          }
-        });
-
-    }
-    get_pending_orders();
-//get deliveries
-    function get_deliveries() {
-      let field_name = document.querySelector('.field-name');
-
-
-      fetch('http://localhost/web-Experts/public/customer/get_deliveries')
-        .then(response => response.json())
-        .then(data => {
-          // console.log(data.length);
-          // let date = new Date();
-          // console.log(data[1][1]['date']);
-          // var today = new Date(); 
-          // console.log(today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate());
-          // date.setDate(date.getDate() + 1);
-        
-          // date_del=data[1][0]['date'];
-          // date.setDate(date_del.getDate());
-          // console.log(date)
-           credit=data[0]['credit_time']
-          if(data[1].length==0){
-            field_name.innerHTML += `<h2 id="zero">No Due Payments</h2>`;
-          }
-          else{
-          for (i = 0; i < data.length; i++) {
-           date_del=data[1][i]['date'];
-
-
-
-
-            field_name.innerHTML += `
-
-<table class="pending_deliveries">
-  <tr>
-    <td>
-      
-        <tr><td colspan='2'><span>Delivery ID :</span>${data[1][i]['delivery_id']}</td></tr>
-        <tr><td colspan='2'><span>Date       :</span>${data[1][i]['date']}</td></tr>
-        <tr><td colspan='2'><span>Order ID    :</span>${data[1][i]['order_id']}</td></tr>
-        <tr><td colspan='2'><span>Amount      : </span>RS.${data[1][i]['amount']}</td></tr>
-      
-    </td>
-    <td><button onclick="location.href = '../customer/view_orders_deliver?order_id=${data[1][i]['order_id']}&cus_id=${data[1][i]['delivery_id']}&route_id=${data[1][i]['cus_id']}';" id="view-del"><i class="fas fa-eye"></i>view</button></td>
-    <td> <button id="payhere-payment" onclick='pay_here(${data[1][i]['delivery_id']},${data[1][i]['order_id']},${data[1][i]['amount']})'><i class="fab fa-cc-amazon-pay"></i>Pay Now</button></td>
+ 
     
-  </tr>
-</table>
-
-`;
-
-         }
-        }
-
-        });
 
 
 
 
-
-    }
-
-    get_deliveries();
     payhere.onCompleted = function onCompleted(orderId) {
       console.log("Payment completed. OrderID:" + orderId);
       //Note: validate the payment and show success or failure page to the customer
     };
 
-   
 
 
-    function pay_here(deliveryId,orderId,amount) {
-     
-     // document.getElementById('payhere-payment').onclick = function (e) {
-      
 
-      
-let updated_pay = Object.assign(payment, {"order_id":orderId},{"delivery_id":deliveryId},{"amount":amount});
-payhere.startPayment(updated_pay);
+        function pay_here(deliveryId,orderId,amount) {
 
- console.log(updated_pay);
+         // document.getElementById('payhere-payment').onclick = function (e) {
 
 
-    }
+
+    let updated_pay = Object.assign(payment, {"order_id":orderId},{"delivery_id":deliveryId},{"amount":amount});
+    payhere.startPayment(updated_pay);
+
+     console.log(updated_pay);
+
+
+        }
 
     pop_up_div = document.getElementById('pop-up-report');
     card = document.querySelector('.cards-section');
     detail = document.querySelector('.detail');
 
+    var home = document.querySelector('.home-section');
+    var view = import("test2.php");
+
+    function load_orders_view() {
+      document.querySelector('.home-section').innerHTML = " ";
+      home.load('test2.php');
+
+
+    }
+    //pending orders check
+    // var flag="<?php echo $this->flag ?>";
+
+    // if(flag==1){
+
+    // console.log(flag);
+
+
+    // }
+    console.log("Hello")
+  </script>
+  <script>
+    
     function pop_up_report() {
+      pop_up_div = document.getElementById('pop-up-report');
+      card = document.querySelector('.cards-section');
+      detail = document.querySelector('.detail');
+
 
 
       pop_up_div.style.visibility = "visible";
 
       card.style.opacity = "50%";
       detail.style.opacity = "50%";
-
-
-
+     
     }
-    var home=document.querySelector('.home-section');
-    var view=import("test2.php");
-    
-     function load_orders_view(){
-       document.querySelector('.home-section').innerHTML=" ";
-      home.load('test2.php');
-
-
-    }
-    //pending orders check
-    var flag="<?php echo $this->flag?>";
-
-    if(flag==1){
-      
-    console.log(flag);
-    
-
-    }
- console.log("Hello")
   </script>
+
 
   <script src="../../public/java script/view_customer_Home.js"></script>
 </body>

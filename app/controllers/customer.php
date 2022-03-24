@@ -48,6 +48,7 @@ class customer extends controller
     {
         session_start();
         $userid=$_SESSION['userid'];
+        $this->view->render("test2");
 
         $this->model('order_model');
         
@@ -161,7 +162,7 @@ class customer extends controller
 
     public function profile()
     {
-        $this->view->render('admin_sketch');
+        $this->view->render('view_profileEdit');
     }
 
 
@@ -289,7 +290,7 @@ class customer extends controller
     //render view reqiest
     public function send_request()
     {
-        $this->view->render('admin_sketch');
+        $this->view->render('repsketch');
     }
 
 

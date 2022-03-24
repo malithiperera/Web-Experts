@@ -309,10 +309,11 @@ class salesRep extends controller
 
         $this->model('_2_salesrep_model');
         $result = $this->model->achievements($_SESSION['userid']);
+        
 
-        $data = [$result];
+       
 
-        echo json_encode($data);
+        echo json_encode($result);
         exit;
 
         // $this->view->render('view_rep_achievements');
@@ -328,5 +329,9 @@ class salesRep extends controller
     //request a product list from stock manager
     public function request_product_list(){
         $this->view->render('view_rep_stock_request');
+    }
+
+    public function offline_placeOrder(){
+        $this->view->render('view_offline_placeorder');
     }
 }

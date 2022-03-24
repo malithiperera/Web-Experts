@@ -88,15 +88,15 @@ class reports extends controller
     }
 
     public function reports(){
-       $month= $_GET['month'];
-       $year=$_GET['year'];
-       $type=$_GET['type'];
-       $startdate=$_GET['startdate'];
-       $enddate=$_GET['enddate'];
+       $month= $_POST['month'];
+       $year=$_POST['year'];
+       $type=$_POST['type'];
+    //    $startdate=$_GET['startdate'];
+    //    $enddate=$_GET['enddate'];
        $this->view->added=$month;
        $this->view->added1=$year;
        $this->view->added2=$type;
-        // $this->view->render('view_all_report');
+     $this->view->render('view_all_report');
     //     echo $year;
     //     echo $month;
 
@@ -251,12 +251,13 @@ $resultArray=[];
        $this->model('report_model');
        $rescards=$this->model->return_month_cards($recieved_data['year'],$recieved_data['month']);
        array_push($resultArray,$rescards);
+
        $result=$this->model->return_month($recieved_data['year'],$recieved_data['month']);
        $data=[];
 
        while ($row = $result->fetch_assoc()) {
         array_push($data, $row);
-    }
+        }
 array_push($resultArray,$data);
 
     echo json_encode($resultArray);
@@ -280,5 +281,35 @@ array_push($resultArray,$data);
        }
        echo json_encode($data2);
        exit;
+    }
+//sales rep yaerly
+public function rep_summary_year(){
+    $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+        $this->model('report_model');
+        $result=$this->model->rep_summary_year($recieved_data);
+        $data2 = [];
+       while ($row = $result->fetch_assoc()) {
+           array_push($data2, $row);
+       }
+       echo json_encode($data2);
+        exit;
+
+}
+    public function return_year(){
+
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+        $this->model('report_model');
+         $result=$this->model->return_year($recieved_data);
+    //      $data2 = [];
+    //    while ($row = $result->fetch_assoc()) {
+    //        array_push($data2, $row);
+    //    }
+    //     // echo json_encode($result);
+        echo json_encode($result);
+        exit;
+        
     }
 }
