@@ -98,10 +98,10 @@ class register_model extends model
     //begin new reg process
     public function reg_admin($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $admin_type){
         require '../app/core/database.php';
-
+        $date=date("Y-m-d");
         $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online',$date,'')";
         $result1 = mysqli_query($conn, $sql1);
 
         $sql2 = "INSERT INTO admin VALUES ('$user_id', '$admin_type')";
@@ -117,10 +117,10 @@ class register_model extends model
 
     public function reg_salesrep($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online, $target){
         require '../app/core/database.php';
-
+        $date=date("Y-m-d");
         $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online','$date','')";
         $result1 = mysqli_query($conn, $sql1);
 
         $sql2 = "INSERT INTO sales_rep VALUES ('$user_id', '$target')";
@@ -138,10 +138,11 @@ class register_model extends model
     public function reg_stockmanager($user_id, $name, $email, $password, $verification_code, $active, $type, $nic, $address, $dob, $tel, $deleted, $is_online){
         require '../app/core/database.php';
 
+        $date=date("Y-m-d");
        $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online')";
-        $result1 = mysqli_query($conn, $sql1);
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online',' $date',' null')";
+        $result1 = mysqli_query($conn,$sql1);
 
         $sql2 = "INSERT INTO stockmanager VALUES ('$user_id')";
         $result2 = mysqli_query($conn, $sql2);
