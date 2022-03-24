@@ -907,10 +907,10 @@ pie_chart(result){
           ['June',result[5][1]],
           ['July', result[6][1]],
           ['August', result[7][1]],
-          ['Sep',    result[8][1]],
-          ['Oct',    result[9][1]],
-          ['Nov',    result[10][1]],
-          ['Dec',    result[11][1]]
+          ['Sep',result[8][1]],
+          ['Oct', result[9][1]],
+          ['Nov',result[10][1]],
+          ['Dec', result[11][1]]
         ]);
 
         var options = {
@@ -922,8 +922,11 @@ pie_chart(result){
         chart.draw(data, options);
       }
 }
-  //duration reports
+  //sales rep reports
 
+  sales_rep(){
+
+  }
 
 
 
