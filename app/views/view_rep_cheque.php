@@ -46,23 +46,12 @@ if (!isset($_SESSION['username'])) {
   font-size: 35px;
 }
 
-/* Popup arrow */
-/* .popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-} */
+
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
   visibility: visible;
-  /* -webkit-animation: fadeIn 5s;
-  animation: fadeIn 5s; */
+  
 }
 
 /* Add animation (fade in the popup) */

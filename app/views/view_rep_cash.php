@@ -47,23 +47,12 @@ if (!isset($_SESSION['username'])) {
   font-size: 35px;
 }
 
-/* Popup arrow */
-/* .popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-} */
+
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
   visibility: visible;
-  /* -webkit-animation: fadeIn 5s;
-  animation: fadeIn 5s; */
+ 
 }
 
 /* Add animation (fade in the popup) */
@@ -137,15 +126,9 @@ if (!isset($_SESSION['username'])) {
   <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
 
 
-  <!-- <script>
-
-document.getElementById("confirm").addEventListener("click", function() 
-{
-  alert("Payment Succesfull!");
-}
-); -->
 
 <script>
+
 // When the user clicks on div, open the popup
 function myFunction() {
   var popup = document.getElementById("myPopup");
