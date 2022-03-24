@@ -40,11 +40,11 @@
 .input_inStock {                                            /* input of " in stock " */
     width: 40%;
     height: 24%;
-    background-color: black;
+    /* background-color: black; */
     border-radius: 10px;
     /* background-color: #f3f3f3; */
     border-color: white;
-    font-size: x-large;
+    font-size: large;
     font-weight: lighter;
     border: none;
     
@@ -57,7 +57,7 @@
 }
 .label_inStock, .label_discount, .label_buy, .label_get {           /* 'In Stock' and 'Discount' texts */
     padding: 0px;
-    font-size: x-large;
+    font-size: large;
 
 }
 .addBtn, .removeBtn {                                               /* '+' button and '-' button in 'in stock' */
@@ -117,6 +117,8 @@ thead {
 th {
     font-size: medium;
     font-weight: light;
+    position:sticky;
+
 }
 td {
     text-align: center;
@@ -125,16 +127,17 @@ td {
     position: relative;
     left: 5%;
     /* border-bottom: black; */
-    font-size: x-large;
+    font-size: large;
     font-weight: light;
 
 }
 .discount {   
     /* background-color: rgb(202, 22, 112);                                                      'Discount' division */
-    width: 50%;
+    width: 70%;
     position: absolute;
-    right: 0;
-    top: 200px;
+    right: 10%;
+    top: 20%;
+    /* border-color: aqua; */
     height: 40%;
       
 }
@@ -216,14 +219,15 @@ td {
 
 }
 .div_currentPrice {                                                 /* division "current price" */
-    /* background-color: rgb(184, 202, 202); */
+    background-color: rgb(184, 202, 202);
     position: absolute;
-    right: 8%;
+    left: 8%;
     top: 10%;
-    width: 40%;
-    height: 7%;
-    padding: 1%;
-    font-size: x-large;
+    width: 80%;
+    height: 40%;
+    /* padding: 1%; */
+    font-size: large; 
+    padding: 5px;
 
 }
 .label_currentPrice {                                               /* label 'current price' */
@@ -234,7 +238,7 @@ td {
 .input_currentPrice {                                               /* input field of " current Price " */
     width: 22%;
     height: 60%;
-    font-size: x-large;
+    font-size: large;
     border-color: #f3f3f3;
     background-color: #f3f3f3;
     cursor: none;
@@ -291,12 +295,16 @@ td {
 
 }
 .div_currentDiscount {                                          /* current discount division */
-    font-size: x-large;
-    position: relative;
-    height: 15%;
-    /* background-color: #165692; */
-    padding: 4%;
-    width: 82%;
+    /* font-size: large;
+    position: absolute;
+    bottom: 0%;
+    background-color: bisque;    
+    width: 20%; */
+    width: 120%;
+    height: 70%;
+    /* background-color: aliceblue; */
+    position: absolute;
+    left: -20%;font-size: large;
 
 }
 .div_newDiscount {                                              /* new discount division */
@@ -312,24 +320,27 @@ td {
 
 }
 .label_currentDiscount {                                        /* current discount label */    
-
-}
-.label_newDiscount {                                            /* new discount label */
-    /* visibility: hidden; */
     position: absolute;
-    top: 12%;
+    top: 13%;
+    /* background-color: antiquewhite; */
+    left: 5%;
+    padding: 1.5px;
 
 }
 .input_currentDiscount {                                        /* current discount input */
-    position: absolute;
+    /* position: absolute;
     left: 50%;
     height: 70%;
     width: 20%;
     background-color: #dddd;
     font-size: x-large;
-    font-weight: light
-    ;
-
+    font-weight: light; */
+    width: 25%;
+    height: 90%;
+    border-color: #165692;
+    position: absolute;
+    left:40%;
+    top: 11%;
 
 }
 .input_newDiscount {                                            /* new discount input */
@@ -403,4 +414,30 @@ input {
     top: 60px;
     left: 200px;
 
+}
+.a {
+    position: absolute;
+    right: 0%;
+    top: 10%;
+    /* background-color: rgb(17, 202, 27); */
+
+}
+.fieldsetPrice {
+    width: 45%;
+    height: 20%;
+    position: absolute;
+    right: 3%;
+    top: 15%;
+    border-radius: 20px;
+
+}
+.fieldsetDiscount {
+    /* height: 2%; */
+    position: absolute;
+    height: 25%;
+    right: 3%;
+    border-radius: 20px;
+    width: 45%;
+    top: 50%;
+    /* background-color: aquamarine; */
 }
