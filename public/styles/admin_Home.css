@@ -96,7 +96,7 @@ span .tooltips{
 .container {
     position: relative;
     left: 80px;
-    width: calc(100% - 80px);
+    width: calc(100% - 100px);
     display: flex;
     flex-direction: column;
     margin-top: 40px;

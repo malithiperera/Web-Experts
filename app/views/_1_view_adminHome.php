@@ -20,7 +20,7 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../public/styles/view_button.css">
     <style>
         .sidebar {
-            z-index: 0;
+            z-index: 100000;
         }
     </style>
 
