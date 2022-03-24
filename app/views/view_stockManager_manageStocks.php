@@ -60,76 +60,95 @@
 
             </div>
 
-            <div class="div_currentPrice">
-                <label class="label_currentPrice" for="currentPrice">Current Price</label>
-                <input class="input_currentPrice" type="text" name="currentPrice" id="currentPrice" value="Rs." readonly>
+            <fieldset class="fieldsetPrice">
+                <legend>Price</legend>
+                <!-- <div class="a"> -->
 
-                <script src="../../public/java script/manageStocks.js"></script>
+                </div>
+                <!-- <h1>shirantha</h1> -->
+                <div class="div_currentPrice">
 
-                <button class="btn_change" onclick="showHideNewPrice ()">Change</button>
+                    <label class="label_currentPrice" for="currentPrice">Current Price</label>
+                    <input class="input_currentPrice" type="text" name="currentPrice" id="currentPrice" value="Rs." readonly>
 
-            </div>
+                    <script src="../../public/java script/manageStocks.js"></script>
 
-            <div class="div_newPrice" id="newPrice">
-                <label class="label_newPrice" for="newPrice">New Price</label>
-                <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="">
+                    <button class="btn_change" onclick="showHideNewPrice ()">Change</button>
 
-                <script src="../../public/java script/manageStocks.js"></script>
+                </div>
 
-                <button class="btn_update">Update</button>
+                <div class="div_newPrice" id="newPrice">
+                    <label class="label_newPrice" for="newPrice">New Price</label>
+                    <input class="input_newPrice" type="text" name="newPrice" id="newPrice" value="">
 
-            </div>
+                    <script src="../../public/java script/manageStocks.js"></script>
+
+                    <button class="btn_update">Update</button>
+
+                </div>
+            </fieldset>
 
             <div class="withRep">
                 <p class="text_withRep">With Rep</p>
-                <table>
-                    <!-- <div class="repTable"> -->
-                    <thead>
-                        <tr>
-                            <th>Sales Rep</th>
-                            <th>Quantity</th>
+                <div class="repTable">
+                    <table>
+                        <!-- <div class="repTable"> -->
+                        <thead>
+                            <tr>
+                                <th>Sales Rep</th>
+                                <th>Quantity</th>
 
-                        </tr>
+                            </tr>
 
-                    </thead>
+                        </thead>
 
-                    <div class="repTable">
+
                         <tbody class="tbody">
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr></tr>
 
                         </tbody>
 
-                    </div>
+                </div>
 
                 </table>
 
             </div>
+            <fieldset class="fieldsetDiscount">
+                <legend>Discount</legend>
+                <div class="discount">
+                    <!-- <h2>Discount</h2> -->
+                    <div class="div_currentDiscount">
+                        <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
+                        <!-- <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
+                        <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="" readonly> -->
+                        <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="" readonly>
 
-            <div class="discount">
-                <h2>Discount</h2>
-                <div class="div_currentDiscount">
-                    <label class="label_currentDiscount" for="currentDiscount">Current Discount</label>
-                    <input class="input_currentDiscount" type="text" name="currntDiscount" id="currentDiscount" value="" readonly>
-
-                    <!-- notify limit of product to notify the stock manager -->
-                    <!-- <label for="" class="notify_limit_label">Notify Limit </label>
+                        <!-- notify limit of product to notify the stock manager -->
+                        <!-- <label for="" class="notify_limit_label">Notify Limit </label>
                     <input type="text" id="notify_limit_input"> -->
 
-                    <script src="../../public/java script/manageStocks.js"></script>
+                        <script src="../../public/java script/manageStocks.js"></script>
 
-                    <button class="btn_changeDiscount" onclick="showHideNewDiscount ()">Change</button>
+                        <button class="btn_changeDiscount" onclick="showHideNewDiscount ()">Change</button>
 
+                    </div>
+
+                    <div class="div_newDiscount" id="div_newDiscount">
+                        <label class="label_newDiscount" for="newDiscount">New Discount</label>
+                        <input class="input_newDiscount" type="text" name="newDiscount" id="newDiscount">
+
+                        <script src="../../public/java script/manageStocks.js"></script>
+
+                        <button class="btn_updateDiscount" onclick="showHideNewDiscount ()">Update</button>
+
+                    </div>
                 </div>
+            </fieldset>
 
-                <div class="div_newDiscount" id="div_newDiscount">
-                    <label class="label_newDiscount" for="newDiscount">New Discount</label>
-                    <input class="input_newDiscount" type="text" name="newDiscount" id="newDiscount">
-
-                    <script src="../../public/java script/manageStocks.js"></script>
-
-                    <button class="btn_updateDiscount" onclick="showHideNewDiscount ()">Update</button>
-
-                </div>
-                <!-- </div> -->
+            <!-- </div> -->
 
         </fieldset>
 
@@ -302,7 +321,7 @@
 
                 .then(response => response.json())
                 .then(data => {
-                    currentStock.value=data['qty'];
+                    currentStock.value = data['qty'];
                 });
 
         }

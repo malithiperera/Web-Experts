@@ -82,7 +82,8 @@ session_start();
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <input class="btn_submit" type="submit" name="submit" value="Add to Products"><br>
+                <input class="btn_submit" type="submit" name="submit" value="Add to Products" onclick=""><br>
+                <!-- <button type="submit" class="btn_submit"  name="submit" value="Add to Products"></button> -->
 
                 <div class="error">
                     <?php
@@ -99,7 +100,7 @@ session_start();
         </div>
 
     </div>
-    <div class="div_messageContainer">
+    <!-- <div class="div_messageContainer">
         <div class="div_messageArea" id="div_messageArea">
             <h4>Added Successfully</h4>
 
@@ -107,6 +108,13 @@ session_start();
 
             <button onclick="popSuccessMsg ()">OK</button>
 
+        </div>
+
+    </div> -->
+    <div class="messagecontainer">
+        <div class="messageArea">
+            <h1>shirantha</h1>
+            
         </div>
 
     </div>
