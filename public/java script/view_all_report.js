@@ -493,9 +493,9 @@ class report {
   //rep summary
   rep_summary(year, month) {
     //yaerly report
-    if (month==0) {
-      console.log("Helooooooooooo")
-      // let string_month = this.get_month(month);
+    if (month!=0) {
+     
+       let string_month = this.get_month(month);
       
       this.report_title.innerHTML =
         " Sales Reprsentative Summary" + " " + string_month + " " + year;
@@ -559,6 +559,64 @@ class report {
             status = "";
           }
         });
+    }
+
+    else{
+      console.log(year);
+      this.report_title.innerHTML =
+      " Sales Reprsentative Summary" + " " + year;
+
+      fetch("http://localhost/web-Experts/public/reports/rep_summary_year", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(year),
+      })
+
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.summary_section = document.createElement("div");
+        this.main.appendChild(this.summary_section);
+        this.summary_section.classList.add("section", "cus-section");
+        this.summary_section.innerHTML = `<h3>Summary Of Year</h3>`;
+        
+        this.summary_section_table = document.createElement("table");
+          this.summary_section.appendChild(this.summary_section_table);
+          this.summary_section_table.classList.add("table-info");
+
+          this.summary_section_table.innerHTML +=
+            "<tr> <th>Rep ID</th><th>REp name</th> <th>Total Sales(RS.)</th> <th>Current Target(RS.)</th>  </tr> ";
+       
+            let i;
+            for (i = 0; i < data.length; i++) {
+              
+  
+            
+              this.summary_section_table.innerHTML += `
+            
+            <tr>
+            
+            <td class="pro_name">${data[i]["rep_id"]}</td>
+            <td class="pro_name">${data[i]["name"]}</td>
+            
+            <td class="price">${data[i]["sumSales"]}</td>
+            <td class="pro_name">${data[i]["target"]}</td>
+            
+          
+           
+           
+            
+            
+            </tr>
+            
+            `;
+            
+            }
+        
+      });
+
     }
   }
 
@@ -922,13 +980,7 @@ pie_chart(result){
         chart.draw(data, options);
       }
 }
-  //sales rep reports
-
-  sales_rep(){
-
-  }
-
-
+  
 
 
 

@@ -128,7 +128,8 @@
                         <p id="email">Email : </p>
                     </div>
                     <div class="sub">
-                        <button id="done_button" onclick="done()">Done..</button>
+                        <!-- <button id="done_button" onclick="close_pop_up()">Done..</button> -->
+                        <button onclick="close_pop_up()">done</button>
                     </div>
 
                 </div>
@@ -140,37 +141,35 @@
     <script src="../../public/java script/view_forgetpassword.js"></script>
 
     <script>
+        
 
-        let name = document.getElementById('name');
-        let user_id = document.getElementById('user_id');
-        let email = document.getElementById('email');
+        // let name = document.getElementById('name');
+        // let user_id = document.getElementById('user_id');
+        // let email = document.getElementById('email');
 
-        let form = document.getElementById('form');
-        let success_failed = document.querySelector('.success_failed');
+        // let form = document.getElementById('form');
+        // let success_failed = document.querySelector('.success_failed');
 
-        let success = '<?php echo $this->success; ?>';
+        // let success = '<?php echo $this->success; ?>';
 
-        if (success == 1) {
-            let data_set_name = '<?php echo $this->data_set['name']; ?>';
-            let data_set_user_id = '<?php echo $this->data_set['user_id']; ?>';
-            let data_set_email = '<?php echo $this->data_set['email']; ?>';
+        // if (success == 1) {
+        //     let data_set_name = '<?php echo $this->data_set['name']; ?>';
+        //     let data_set_user_id = '<?php echo $this->data_set['user_id']; ?>';
+        //     let data_set_email = '<?php echo $this->data_set['email']; ?>';
             
-            name.innerHTML += data_set_name;
-            user_id.innerHTML += data_set_user_id;
-            email.innerHTML += data_set_email;
+        //     name.innerHTML += data_set_name;
+        //     user_id.innerHTML += data_set_user_id;
+        //     email.innerHTML += data_set_email;
 
-            console.log(data_set_name);
-        }
-        else{
-            name.innerHTML = '';
-            user_id.innerHTML = '';
-            email.innerHTML = '';
-        }
+        //     console.log(data_set_name);
+        // }
+        // else{
+        //     name.innerHTML = '';
+        //     user_id.innerHTML = '';
+        //     email.innerHTML = '';
+        // }
 
-        const done = () =>{
-            form.style.opacity = '100%';
-            success_failed.style.visibility = "hidden";
-        }
+      
     </script>
 
 </body>

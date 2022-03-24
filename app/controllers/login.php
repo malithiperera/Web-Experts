@@ -194,16 +194,21 @@ class login extends controller
 
     public function resetMail()
     {
+        
         $this->model('home_model');
         $email = $_POST['email'];
+      
 
         $verificationCode = sha1($email);
+        
         if (isset($_POST['submit'])) {
+            
 
             $result = $this->model->resetMail($email, $verificationCode);
 
             $count = mysqli_num_rows($result);
             $row = $result->fetch_assoc();
+            echo $count;
 
             if ($count == 1) {
 

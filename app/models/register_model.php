@@ -9,7 +9,7 @@ class register_model extends model
         parent::__construct();
     }
 
-    public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$target,$level, $shop = "abc", $route = "abc",)
+    public function register_user($user_id, $name, $email, $verificationCode, $type, $active, $nic, $address, $dob, $tele,$target,$level, $shop = "abc", $route = "abc")
     {
 
         require '../app/core/database.php';
