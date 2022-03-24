@@ -260,4 +260,39 @@ class register extends controller
         echo json_encode($data);
         exit;
     }
+
+
+    //validate email
+    public function check_email(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+        $this->model('register_model');
+       $result= $this->model->validate_email($recieved_data );
+       $row=mysqli_num_rows($result);
+        
+        echo json_encode($row);
+        exit;
+        
+    }
+
+    public function check_userid(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+        $this->model('register_model');
+       $result= $this->model->validate_userid($recieved_data );
+       $row=mysqli_num_rows($result);
+
+        echo json_encode($row);
+        exit;
+
+    }
+
+    //validate birthday
+    public function birthday_validate(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+        echo json_encode($recieved_data);
+
+    }
 }

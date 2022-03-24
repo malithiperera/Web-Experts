@@ -154,4 +154,23 @@ class register_model extends model
             return false;
         }
     }
+
+    //validate email
+    public function validate_email($email){
+        require '../app/core/database.php';
+        $sql="SELECT email from user where email LIKE '%$email%' ";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+
+    }
+
+    public function validate_userid($user_id){
+        require '../app/core/database.php';
+        $sql="SELECT user_id  from user where user_id LIKE '%$user_id%' ";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+
+    }
 }
