@@ -22,7 +22,7 @@
     #user_id1,
     #shop_name1,
     #route_id1 {
-        border: 1px solid black;
+        /* border: 1px solid black; */
         width: 120px;
         margin: 10px;
         color: black;
@@ -40,6 +40,50 @@
         z-index: 5000;
         border: 1px solid black;
     }
+
+    .data_form-1 {
+
+display: flex;
+margin-top: 100px;
+
+}
+
+.data_form-1 button {
+/* margin: 10px; */
+width: 80px;
+height: 40px;
+border-radius: 10px;
+background-color: #184A78;
+color: #fff;
+}
+
+.data_form-1 button:hover {
+background-color: #4d647a;
+cursor: pointer;
+}
+
+.data_form-1 input {
+margin: 10px;
+margin-top: 30px;
+padding-left: 10px;
+width: 200px;
+height: 40px;
+border-radius: 10px;
+text-align: center;
+
+}
+h2{
+    margin-top: 100px;
+}
+.customer-serach{
+    /* display: flex; */
+}
+
+#serach_user,#route_name,#route_id{
+    width: 200px;
+    color: black;
+    font-size: 18px;
+}
 </style>
 
 <body>
@@ -152,7 +196,19 @@
 
                             </ul>
                         </div>
+                        
+                        
+
+
                     </div>
+                    <div class="route-name">
+                            <input type="text" value="" id="route_name">
+                            
+                        </div>
+                        <div class="route-name">
+                            <input type="text" value="" id="route_id">
+                            
+                        </div>
 
 
                 </div>
@@ -164,11 +220,11 @@
 
             <h2>Insert Product to bill</h2>
 
-            <div class="data_form">
+            <div class="data_form-1">
                 <div class="serach_product">
                     <input type="text" id="product_name" placeholder="Insert Product Name" onkeyup="fetchText(this.value)">
                     <div>
-                        <ul class="suggestions_user" id="suggestions_user">
+                        <ul class="suggestions" id="suggestions">
 
                         </ul>
                     </div>
@@ -292,9 +348,10 @@
 
         function select_row_user(userid, shop_name, route) {
 
-            let product_name = document.querySelector('#product_name');
+            let product_name = document.querySelector('#serach_user');
             product_name.value = userid+` - `+shop_name;
             console.log(userid+' '+shop_name);
+            suggestions_user.innerHTML = ``;
 
         }
     </script>

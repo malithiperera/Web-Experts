@@ -187,6 +187,7 @@
         var noOfRepRequests = document.querySelector('.div_repRequests');
 
         const fillNoOfRepRequests = () => {
+            console.log(data);
             fetch('http://localhost/web-Experts/public/stockManager/fillNoOfRepRequests_cont', {})
                 .then(response => response.json())
                 .then(data => {

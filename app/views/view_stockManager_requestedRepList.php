@@ -6,19 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../../public/styles/view_stockManager_viewStocks.css"> -->
-    <!-- <link rel="stylesheet" href="../../public/styles/view_stockManager_requestedRepList.css"> -->
+    <link rel="stylesheet" href="../../public/styles/view_stockManager_requestedRepList.css">
+    <link rel="stylesheet" href="../../public/styles/view_stockmanager_repRequest.css">
     <title>Document</title>
     <style>
         .container {
-            background-color: blue;
+            /* background-color: blue; */
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
         .details {
             height: 100px;
             width: 100%;
-            /* background-color: green; */
+            background-color: green;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -36,20 +38,38 @@
 
         .search_bar {
             height: 80px;
-            width: 200px;
+          width: 100%;
             border-radius: 10px;
             background-color: white;
         }
 
         .list {
             height: 100px;
-            width: 500px;
-            background-color: red;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 200px;
+
+            /* background-color: red; */
         }
 
         .rep_request {
             display: flex;
 
+        }
+
+        .view_list_rep{
+            /* display: flex; */
+            justify-content: center;
+            width: 100%;
+            margin-left: 50px;
+        }
+        .view_list_rep tr{
+            padding: 20px;
+        }
+        .view_list_rep td{
+            padding: 10px;
         }
     </style>
 </head>
@@ -70,12 +90,27 @@
             </div>
         </div>
         <div class="list">
+            <table id="view_list_rep" class="fl-table">
+                <thead>
+                    <tr></tr>
+                    <th>Request id</th>
+                    <th>Rep id</th>
+                    <th>Rep name</th>
+                    <th>Rep name</th>
+
+                </tr>
+
+                    
+                </thead>
+
+
+            </table>
 
         </div>
     </div>
 
     <script>
-        let list = document.querySelector('.list');
+        let list = document.getElementById('view_list_rep');
 
 
         // console.log ("test")
@@ -85,12 +120,9 @@
                 .then(data => {
 
                     for (let i = 0; i < data.length; i++) {
-                        list.innerHTML +=  `< div class = "rep_request" >`
-                        // <div class = "rep_name" > ${data[i]['name']} < /div> 
-                        // <div class = "rep_no" > ${data[i]['name']} < /div> 
-                        // <div class = "request_time" > ${data[i]['name']} < /div> 
-                        // <div class = "view" > < button class = "view_button" > View < /button></div >
-                        // </div>`
+                        
+
+                        list.innerHTML+=`<tr><td>${data[i]['issue_id']}</td><td>${data[i]['rep_id']}</td><td>${data[i]['name']}</td><td><a href="../issue/issue_list?reqid=${data[i]['issue_id']}">view</a></td></tr>`
 
 
                
@@ -104,9 +136,26 @@
         }
 
 
-        let type = <?php echo "Malithi"; ?>
-        console.log("Malithi");
         getRepList()
+
+
+        function show_list($issue_id){
+            console.log($issue_id)
+            fetch('http://localhost/web-Experts/public/issue/view_issue_list', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify($issue_id)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+           
+            });
+      
+
+        }
     </script>
 </body>
 

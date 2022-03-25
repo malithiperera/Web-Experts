@@ -57,4 +57,30 @@ class issue_model extends model
         
         return $result;
     }
+
+    public function view_list_rep($issue_id){
+        require '../app/core/database.php';
+        $sql="SELECT * FROM product_issue_products,product where issue_id='$issue_id' AND product_issue_products.product_id=product.product_id;";
+        $result=mysqli_query($conn,$sql);
+        return $result;
+
+
+    }
+    public function issue_rep_pro($get_data){
+        require '../app/core/database.php';
+        $issue_id=$_SESSION['issue_id'];
+        // session_start();
+        // foreach($get_data as $row){
+        //     $sql="INSERT INTO product_issue_products values('$row')"
+        // }
+        for ($x = 0; $x <= sizeof($get_data);$x++) {
+           $sql="UPDATE product_issue_products SET issue_qty='$get_data[$x]['2']',deliver_qty='$get_data[$x]['3']' where issue_id='$issue_id' and product_id='$get_data[$x]['0']' ";
+           $result=mysqli_query($conn,$sql);
+        return $result;
+          }
+      
+        
+    //   return $_SESSION['issue_id'];
+
+    }
 }
