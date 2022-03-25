@@ -22,6 +22,58 @@ if (!isset($_SESSION['username'])) {
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+  <style>
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  /* cursor: pointer; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 300px;
+  height:250px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 50px ;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+  font-size: 35px;
+}
+
+
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+ 
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+
 </head>
 
 <body>
@@ -294,7 +346,13 @@ if (!isset($_SESSION['username'])) {
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
                                 <td><a href="../salesRep/shop_product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
-                                <td><button id="confirm" onclick="orderConfirm('${data[i]['order_id']}')">Confirm</button></td>
+                                <td>
+                                  <div class="popup" >
+                                  <button id="confirm" onclick="orderConfirm('${data[i]['order_id']}');window.location.href='../salesRep/home';myFunction();">Confirm
+                                  </button>
+                                  <span class="popuptext" id="myPopup">Payment Successfull!</span>
+                                  </div>
+                                </td>
                                 
                             
                   
@@ -337,7 +395,14 @@ if (!isset($_SESSION['username'])) {
       load_cards();
     </script>
 
+    <script>
 
+    // When the user clicks on div, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    </script>
 
 
     <script>

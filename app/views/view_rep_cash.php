@@ -18,7 +18,8 @@ if (!isset($_SESSION['username'])) {
   <title>CashPayment</title>
 
   <style>
-/* Popup container - can be anything you want */
+
+/* Popup container */
 .popup {
   position: relative;
   display: inline-block;
@@ -114,7 +115,7 @@ if (!isset($_SESSION['username'])) {
 
         </div>
 
-        <div class="popup"  onclick="myFunction()"><input type="submit" value="Confirm" id="confirm">
+        <div class="popup"  onclick="myFunction()"><input type="submit" value="Confirm" id="confirm" >
         <span class="popuptext" id="myPopup">Payment Successfull!</span>
       </div>
 
