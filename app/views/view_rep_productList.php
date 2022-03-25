@@ -159,7 +159,8 @@ if (!isset($_SESSION['username'])) {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(reqBody)
-                });
+                }); 
+                
                 if (res.status !== 200) // http status code 200 means success
                     throw new Error("Fetching process failed");
                 let data = await res.json();
