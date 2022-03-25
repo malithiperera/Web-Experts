@@ -76,20 +76,28 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
+        <a href="../salesRep/returns">
+          <i class="fas fa-exchange-alt"></i>
+          <span class="links_name">Returns</span>
+        </a>
+        <span class="tooltip">Returns</span>
+      </li>
+
+      <!-- <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
         <span class="tooltip">Reports</span>
-      </li>
+      </li> --> 
 
-      <li>
+      <!-- <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
         <span class="tooltip">Notifications</span>
-      </li>
+      </li> -->
 
       <li>
         <a href="../salesRep/achievements">
@@ -101,7 +109,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="../salesRep/profile">
+        <a href="../  customer/profile">
           <i class="far fa-user-circle"></i>
           <span class="links_name">Profile</span>
         </a>
@@ -219,6 +227,7 @@ if (!isset($_SESSION['username'])) {
           <tr>
             <th>Route</th>
             <th>Shop</th>
+            <th>Date</th>
             <th>Delivery</th>
 
           </tr>
@@ -295,7 +304,8 @@ if (!isset($_SESSION['username'])) {
                                
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
-                                <td><a href="../salesRep/shop_product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
+                                <td>${data[i]['shop_name']}</a></td>
+                                <td>${data[i]['date']}</a></td>
                                 <td>
                                   <button id="confirm" onclick="orderConfirm('${data[i]['order_id']}');window.location.href='../salesRep/home';">Confirm
                                   </button>
