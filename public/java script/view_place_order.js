@@ -77,7 +77,13 @@ function add_product() {
     } else if (quantity_input.value == "") {
         alert("Enter a valid product");
 
-    } else {
+    }
+    else if(quantity_input.value<0){
+        alert("Enetr a valid quality")
+
+    }
+    
+    else {
         change.style.visibility = "visible";
         new_product.innerHTML += '<tr><td>' + product_name_input.value + '</td><td>' + unit_price_input.value + '</td><td>' + discount_input.value + `</td><td><input type="text" value="${quantity_input.value}" class="qty" readonly onkeyup="cal_tot1()">` + '</td><td>' + tot_price_input.value + '</td><td>' + '<button class="edit">Edit</button> ' + '</td><td>' + '<button class="delete">Delete</button> ' + '</td></tr>';
 
@@ -126,6 +132,8 @@ function get_routes(){
 
 //place Order
 function place_order() {
+    console.log(table_info.rows.length);
+    console.log("hello orders")
     
     if (table_info.rows.length != 2) {
         for (i = 1; i < table_info.rows.length - 1; i++) {
