@@ -8,8 +8,15 @@
     <title>Product List</title>
     <link rel="stylesheet" href="../../public/styles/view_stockmanager_repRequest.css">
 </head>
-
+<style>
+    .header-con{
+        margin-top:-80px;
+    }
+</style>
 <body>
+    <div class="header-con">
+    <?php require "view_headertype2.php"; ?>
+    </div>
 
     <h2>DAILY PRODUCT LIST</h2>
     <div class="table-wrapper">

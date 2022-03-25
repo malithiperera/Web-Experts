@@ -20,7 +20,7 @@
         .details {
             height: 100px;
             width: 100%;
-            background-color: green;
+            /* background-color: green; */
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -40,7 +40,7 @@
             height: 80px;
           width: 100%;
             border-radius: 10px;
-            background-color: white;
+            /* background-color: white; */
         }
 
         .list {
@@ -71,17 +71,34 @@
         .view_list_rep td{
             padding: 10px;
         }
+
+        #date_id{
+            margin-top: 90px;
+            font-size: 24px;
+        }
+        #view_but{
+            text-decoration: none;
+            width: 250px;
+            height: 40px;
+            background-color: green;
+            color: #fff;
+        }
     </style>
 </head>
-
+<?php
+    $currentDate = new DateTime();
+    // echo $currentDate->format('Y-m-d H:i:s');
+?>
 <body>
+    <?php require "view_headertype2.php"; ?>
     <div class="container">
         <div class="details">
-            <div class="route">
+            <!-- <div class="route">
                 <p>Route : </p>
-            </div>
+            </div> -->
+
             <div class="date">
-                <p>Date : </p>
+                <p id="date_id">Date : <?php echo $currentDate->format('Y-m-d')?></p>
             </div>
         </div>
         <div class="search_bar_div">
@@ -122,7 +139,7 @@
                     for (let i = 0; i < data.length; i++) {
                         
 
-                        list.innerHTML+=`<tr><td>${data[i]['issue_id']}</td><td>${data[i]['rep_id']}</td><td>${data[i]['name']}</td><td><a href="../issue/issue_list?reqid=${data[i]['issue_id']}">view</a></td></tr>`
+                        list.innerHTML+=`<tr><td>${data[i]['issue_id']}</td><td>${data[i]['rep_id']}</td><td>${data[i]['name']}</td><td><a href="../issue/issue_list?reqid=${data[i]['issue_id']}" id="view_but">view</a></td></tr>`
 
 
                
