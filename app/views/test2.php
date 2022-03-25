@@ -146,7 +146,7 @@
                     <div class="table-content">
                         <table id="order_table">
                             <thead>
-                                <th>Product Name</th>
+                                <th>Product Name</th> 
                                 <th>Unit Price</th>
                                 <th>Discount</th>
                                 <th>Quantity</th>

@@ -21,6 +21,14 @@ $cusid=$_GET['cus_id'];
     <!-- <link rel="stylesheet" href="../../public/styles/sketch.css"> -->
     <link rel="stylesheet" href="../../public/styles/sidebar.css">
 
+    <style>
+        .header{
+            z-index: 1000000;
+        }
+        .container{
+            z-index: 1000;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,13 +41,13 @@ $cusid=$_GET['cus_id'];
         </div>
         <ul class="nav-list">
 
-            <li>
+            <!-- <li>
                 <a href="#">
                 <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
                 <span class="tooltip">Home</span>
-            </li>
+            </li> -->
            <li>
            
                 <a href="#" onclick="view_report()">
@@ -50,21 +58,21 @@ $cusid=$_GET['cus_id'];
             </li>
 
             <li>
-                <a href="#">
+                <a href="#" onclick="open_the_message()">
                     <i class="fas fa-user"></i>
                     <span class="links_name">Send Messege</span>
                 </a>
                 <span class="tooltip">Send Messege</span>
             </li>
             <li>
-                <a href="logout">
+                <a href="#" onclick="open_func_hold_cus()">
                 <i class="fas fa-exclamation"></i>
                     <span class="links_name">Hold Customer</span>
                 </a>
                 <span class="tooltip">Hold Customer</span>
             </li>
 
-            <li class="profile">
+            <!-- <li class="profile">
                 <div class="profile-details">
 
                     <div class="name_job">
@@ -73,7 +81,7 @@ $cusid=$_GET['cus_id'];
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>
-            </li>
+            </li> -->
         </ul>
     </div>
 
