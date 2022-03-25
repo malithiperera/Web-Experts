@@ -275,7 +275,7 @@
 				<p>Everyone needs milk...Dairy always a Good Choice</p>
                
 			</div>
-			<img src="../../public/images/milk_beve.jpg style="width: 100%; height: 100%;">
+			<img src="../../public/images/milk_beve.jpg" style="width: 100%; height: 100%;">
 		</div>
 		<div class="myslide fade">
 			<div class="txt">
@@ -314,6 +314,8 @@
 			<span class="dot" onclick="currentSlide(4)"></span>
 			<span class="dot" onclick="currentSlide(5)"></span>
 			<span class="dot" onclick="currentSlide(6)"></span>
+			<span class="dot" onclick="currentSlide(7)"></span>
+			<span class="dot" onclick="currentSlide(8)"></span>
 		</div>
 		<!-- /onclick js -->
 	</div>

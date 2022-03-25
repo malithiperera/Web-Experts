@@ -88,7 +88,7 @@ class _4_stockmanager_model extends model
     }
     public function getRepList_mod () {
         require '../app/core/database.php';
-        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 1";
+        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 0";
         $result = mysqli_query ($conn, $sql);
         return $result;
         
