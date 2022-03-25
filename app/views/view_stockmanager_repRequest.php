@@ -14,11 +14,9 @@
     }
 </style>
 <body>
-    <div class="header-con">
-    <?php require "view_headertype2.php"; ?>
-    </div>
-
-    <h2>DAILY PRODUCT LIST</h2>
+    
+<div class="container">
+<h2>DAILY PRODUCT LIST</h2>
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
@@ -38,6 +36,8 @@
     </div>
     <div class="input-fields"><input type="submit" value="Back" id="back" onclick="window.location.href='../stockManager/backToSMHome';"></div>
     <div class="input-fields"><input type="submit" value="Confirm" id="confirm" onclick="issue_products_save()"></div>
+</div>
+    
 
     <script>
      
