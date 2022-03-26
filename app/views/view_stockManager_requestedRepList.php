@@ -44,7 +44,7 @@
         }
 
         .list {
-            height: 100px;
+            height: auto;
             width: 80%;
             display: flex;
             justify-content: center;
@@ -73,15 +73,27 @@
         }
 
         #date_id{
-            margin-top: 90px;
+            /* margin-top: 90px; */
             font-size: 24px;
         }
         #view_but{
             text-decoration: none;
-            width: 250px;
-            height: 40px;
+            width: 300px;
+            height: 20px;
+            padding: 5px;
+            margin: 20px;
             background-color: green;
             color: #fff;
+        }
+
+        #filter_table_input{
+            text-align: center;
+            margin-top: 40px;
+            width: 80%;
+            margin-left: 200px;
+            height: 40px;
+            background-color: lavender;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -90,20 +102,24 @@
     // echo $currentDate->format('Y-m-d H:i:s');
 ?>
 <body>
-    <?php require "view_headertype2.php"; ?>
+
     <div class="container">
+       
         <div class="details">
+       
             <!-- <div class="route">
                 <p>Route : </p>
             </div> -->
 
             <div class="date">
                 <p id="date_id">Date : <?php echo $currentDate->format('Y-m-d')?></p>
+              
             </div>
         </div>
+        
         <div class="search_bar_div">
             <div class="search_bar">
-
+            <input type="text" name="" id="filter_table_input" value="" onkeyup="filter_table()" placeholder="Enter sales rep name">
             </div>
         </div>
         <div class="list">
@@ -172,6 +188,30 @@
             });
       
 
+        }
+
+        function filter_table(){
+            console.log("Heloooo")
+
+            let input=document.getElementById('filter_table_input');
+            let filter=input.value.toUpperCase();
+            let table=document.getElementById('view_list_rep');
+            let tr=table.getElementsByTagName("tr");
+            for(let i=0;i<tr.length;i++){
+                td=tr[i].getElementsByTagName("td")[2]
+                if(td){
+                let txtvalue=td.innerHTML;
+                if(txtvalue.toUpperCase().indexOf(filter)>-1){
+                    tr[i].style.display="";
+                    console.log(txtvalue.toUpperCase().indexOf(filter));
+                }
+                else{
+                    tr[i].style.display="none";
+                }
+
+            }
+           
+            }
         }
     </script>
 </body>

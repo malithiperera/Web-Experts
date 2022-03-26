@@ -87,11 +87,16 @@ class issue_model extends model
            if($result == false){
                $check = 1;
            }
+
        
+          }
+          if($check==0){
+              $sql1="UPDATE product_issue SET issue_status=1 where issue_id='$issue_id'";
+$result1=mysqli_query($conn,$sql1);
           }
       
         
     //   return $_SESSION['issue_id'];
-    return $check;
+    return $result1;
     }
 }

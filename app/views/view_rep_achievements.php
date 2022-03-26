@@ -231,6 +231,10 @@ if (!isset($_SESSION['username'])) {
         target = document.getElementById('target');
         new_target = document.getElementById('new_target');
         target_num = document.getElementById('target_num');
+        result = document.querySelector('.result');
+        let user_id = "<?php echo $_GET['user_id']; ?>";
+
+        result.innerHTML = user_id;
 
         if (type == 'admin') {
 
@@ -303,6 +307,8 @@ load_cards();
         document.getElementById("myForm").style.display = "none";
       }
     </script>
+
+   
 
 </body>
 

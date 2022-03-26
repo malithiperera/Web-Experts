@@ -376,6 +376,30 @@ public function search_rep(){
 
     echo json_encode($data);
 }
+
+//check admin level
+public function check_admin(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    $this->model('_1_admin_model');
+    $result = $this->model->check_admin($get_data);
+
+
+    echo json_encode($result->fetch_assoc());
+    exit;
+}
+
+public function remove_the_user(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    $this->model('_1_admin_model');
+    $result = $this->model->remove_the_user($get_data['user_id'], $get_data['position'], $get_data['purpose']);
+
+    echo json_encode($result);
+    exit;
+}
 }
 
 ?>

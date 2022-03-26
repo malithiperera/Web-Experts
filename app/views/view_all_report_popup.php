@@ -115,6 +115,9 @@
 
 
         }
+        .view-report-container label{
+            color: black;
+        }
     </style>
 </head>
 
@@ -145,7 +148,7 @@
                     <select id="ddlYears" name="year"></select>
                     
                 </div>
-                <div class="select">
+                <div class="select-1">
                 <label for="">Select Month</label>
                 <br>
                     <select id="ddlMonth" name="month">

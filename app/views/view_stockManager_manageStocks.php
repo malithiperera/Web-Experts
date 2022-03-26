@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockManager_manageStocks.css">
     <title>Manage Stocks</title>
+    <!-- <script src="https://kit.fontawesome.com/d2020d2b7c.js" crossorigin="anonymous"></script> -->
     <style>
     </style>
 </head>
@@ -22,23 +23,27 @@
 
             <div class="inStock">
                 <label class="label_inStock" for="quantity">In Stock</label><br>
-                <input class="input_inStock" type="text" name="quantity" id="quantity" value="1500">
+                <input class="input_inStock" type="text" name="quantity" id="quantity" value="">
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
                 <button class="addBtn" onclick="showHideAdd ()">
-                  
+
                 </button>
                 <button class="removeBtn" onclick="showHideRemove ()">
                     <!--i class="fas fa-minus"--></i>
                 </button><br><br>
 
-                <div class="classA">
+                <!-- <div class="classA">
                     <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()">
-                        <!--i class="fas fa-calendar-check"></i-->
-                    </button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="myfunc()"> -->
+                <!--i class="fas fa-calendar-check"></i-->
+                <!-- </button>
 
+                </div> -->
+                <div class="addAmountDiv">
+                    <input type="text" class="addAmountInput">
+                    <button class="submitAddAmount">S</button>
                 </div>
 
             </div>
@@ -156,8 +161,33 @@
 
 
     </section>
+    <!-- <div class="messagecontainer">
+        <div class="messageArea">
+            <div class="checkIcon">
+               
+                <i class="fa-solid fa-location-question"></i>
+            </div>
+            <div class="popUpTextArea_1">
+                <h2>Are you sure</h2>
 
-    <!-- <script>
+            </div>
+
+            <div class="popUpTextArea_2">
+                <h2>removing 50 items ?</h2>
+            </div>
+            <div class="divDoneBTN">
+                <button class="Yes" >Yes</button>
+            </div>
+
+            <div class="divDoneBTN">
+                <button class="No" >No</button>
+            </div>
+
+        </div> -->
+
+
+
+    <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
         var currentPrice = document.getElementById('currentPrice');
         var productName = document.getElementById('leg_productName');
@@ -227,9 +257,9 @@
 
 
         getcurrentStock();
-    </script> -->
 
-    <!-- <script>
+
+
         var productId = '<?php echo $_GET['product_id'] ?>';
         var repItemsTable = document.querySelector('.tbody');
 
@@ -238,41 +268,39 @@
             productId: productId
 
         }
-        //var test = 1103;
+        var test = 1103;
 
-        // const fillRepItemsTable = () => {
-        //     fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
-        //             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        //             headers: {
-        //                 'Content-Type': 'application/json'
-        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
+        const fillRepItemsTable = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
 
-        //             },
-        //             body: JSON.stringify(productId)
+                    },
+                    body: JSON.stringify(productId)
 
-                // })
-                // .then(response => response.json())
-                // .then(data => {
-                //     for (let index = 0; index < data.length; index++) {
-                //         repItemsTable.innerHTML += `
-                //             <tr>
-                //                 <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
-                //                 <td>${data [index] ['qty']}</td>
+                })
+                .then(response => response.json())
+                .then(data => {
+                    for (let index = 0; index < data.length; index++) {
+                        repItemsTable.innerHTML += `
+                             <tr>
+                                 <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
+                                 <td>${data [index] ['qty']}</td>
 
-                //             </tr>
-                //         `;
+                             </tr>
+                         `;
 
-                //     }
-                //     console.log(data);
+                    }
+                    console.log(data);
 
-                // });
-        // }
-        // fillRepItemsTable();
-    </script> -->
+                });
+        }
+        fillRepItemsTable();
 
-    <!-- <script>
         var btnUpdate = document.querySelector(".btn_update")
-        // var productId = '<?php echo $_GET['product_id']; ?>'
+        var productId = '<?php echo $_GET['product_id']; ?>'
         var newPrice = document.querySelector(".input_newPrice")
 
         btnUpdate.addEventListener("click", () => {
@@ -300,10 +328,9 @@
             // console.log (dataSet)
 
         })
-    </script> -->
 
-    <!-- change the notify limit to stockmanager -->
-    <!-- <script>
+        // <!-- change the notify limit to stockmanager -->
+
         let notify_limit_input = document.getElementById('notify_limit_input');
 
         fetch('http://localhost/web-Experts/public/stockManager/initial_information', {
@@ -355,12 +382,68 @@
                 });
 
         }
-
         currentStock();
+
+        var btnRemove = document.querySelector('.btn_submitRemove') // remove stocks
+        var removeAmount = document.querySelector('.inputRemoveQuantity')
+
+        btnRemove.addEventListener('click', () => {
+            let dataSet = {
+                productId: productId,
+                amount: removeAmount.value
+
+            }
+            // console.log (dataSet)
+            fetch('http://localhost/web-Experts/public/stockManager/removeStocks_con', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+                    body: JSON.stringify(dataSet)
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+
+                })
+        })
+
+        function myfunc() {
+            console.log("Malithii")
+        }
+
+        var addBtn = document.querySelector('.submitAddAmount')
+        var addAmount = document.querySelector('.addAmountInput')
+
+        addBtn.addEventListener('click', () => {
+          
+            let dataSet = {
+                productId: productId,
+                amount: addAmount.value
+
+            }
+            console.log (dataSet)
+            fetch('http://localhost/web-Experts/public/stockManager/addStocks_con', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify(dataSet)
+
+            })
+            .then (response => response.json ())
+            .then (data => {
+                console.log (data)
+
+            })
+        })
     </script>
-<!-- <script>
-console.log ('dineth');
-    </script> -->
+
+
+
 </body>
 
 </html>

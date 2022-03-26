@@ -9,7 +9,7 @@
     
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="../../public/styles/customer_report.css">
-    <link rel="stylesheet" href="../../public/styles/report_print.css"  type="text/css" media="print">
+    <link rel="stylesheet" href="../../public/styles/print.css"  type="text/css" media="print">
 
     <title>Document</title>
     
@@ -25,6 +25,13 @@
         <h2 id="report-title"></h2>
         <div class="card-section">
 
+        </div>
+        <div class="card-section-3">
+            <ul>
+                <!-- <p>place</p>
+                <p>gtaya</p>
+                <p>uauj</p> -->
+            </ul>
         </div>
 
 

@@ -2,6 +2,7 @@ class report {
   constructor() {
     this.main = document.querySelector(".container");
     this.card_con = document.querySelector(".card-section");
+    this.card_con_1 = document.querySelector(".card-section-3");
     this.report_title = document.getElementById("report-title");
   }
 
@@ -192,6 +193,7 @@ class report {
         .then((response) => response.json())
         .then((data) => {
           console.log(month[5]);
+         
 
           this.report_title.innerHTML =
             " Customer Summary Yearly Report" + " " + year;
@@ -287,6 +289,14 @@ class report {
       })
         .then((response) => response.json())
         .then((data) => {
+
+          this.card_con_1.innerHTML=`<ul id="print_list"><li><p>Total Orders : ${data[0][0]['count_orders']}</p></li>
+         
+          <li><p>Total Orders : ${data[0][1]['count_delivery']}</p></li>
+        
+          
+          
+          </ul>`
           console.log(data);
 
           this.create_card(
@@ -362,6 +372,8 @@ class report {
     
     //sales summary yearly
     else {
+
+      console.log("Jjjjaj")
       this.report_title.innerHTML =
         " Sales Summary Yearly Report" + " " + " " + year;
       var data_set = {
@@ -376,7 +388,17 @@ class report {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+
+
+           console.log(data);
+          this.card_con_1.innerHTML=`<ul id="print_list"><li><p>Total Orders : ${data[0][0]['count_orders']}</p></li>
+         
+          <li><p>Total Orders : ${data[0][1]['count_delivery']}</p></li>
+          <li><p>Total Sales : RS.${data[0][2]['SUM(amount)']}</p></li>
+          
+          
+          </ul>`
+          
 
           this.create_card(
             '<i class="fas fa-luggage-cart"></i>',
@@ -972,7 +994,7 @@ pie_chart(result){
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          title: 'Summary of year'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));

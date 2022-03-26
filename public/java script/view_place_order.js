@@ -73,13 +73,17 @@ function cal_tot() {
 function add_product() {
 
     if (product_name_input.value == "") {
-        alert("Enter a valid product");
+        document.querySelector('.error_pop_up').style.visibility="visible";
+        document.querySelector('#err_msg').innerHTML="Plaese Enter a valid product";
+
     } else if (quantity_input.value == "") {
-        alert("Enter a valid product");
+        document.querySelector('.error_pop_up').style.visibility="visible";
+        document.querySelector('#err_msg').innerHTML="Plaese enter a valid  quantity";
 
     }
     else if(quantity_input.value<0){
-        alert("Enetr a valid quality")
+        document.querySelector('.error_pop_up').style.visibility="visible";
+        document.querySelector('#err_msg').innerHTML="please enter a valid quantity";
 
     }
     
@@ -132,10 +136,12 @@ function get_routes(){
 
 //place Order
 function place_order() {
-    console.log(table_info.rows.length);
-    console.log("hello orders")
+
+    var length=parseInt(table_info.rows.length)
     
-    if (table_info.rows.length != 2) {
+    if (length!=2) {
+        console.log(length)
+
         for (i = 1; i < table_info.rows.length - 1; i++) {
             let table_cell = table_info.rows.item(i).cells;
             table_data[i - 1] = new Array(table_cell.length);
@@ -155,52 +161,66 @@ function place_order() {
 
         }
         console.log(table_data);
-
-    }
-    if (new_product.rows.length == 0) {
-        change.style.visibility = "hidden";
-    }
-
-    var total_amount = total_of_all_prices.innerHTML;
-    var cus_id = user_id.value;
-    var route_id_obj = route_id.value;
-    var today = new Date();
-    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
-    var data_set = {
-        amount: total_amount,
-        status: 'not-delivered',
-        date: date,
-        working: 1,
-        cus_id: cus_id,
-        route_id: route_id_obj,
-        table: table_data
-    };
-console.log(data_set);
-
-    fetch('http://localhost/web-Experts/public/customer/place_order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data_set)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            confirmation_message();
-            order_id.innerHTML = `${data[7]}`;
-            order_date.innerHTML = `${data[2]}`;
-            order_amount.innerHTML = `${data[0]}`;
-            done.addEventListener("click", () => {
-                confirm_message.style.visibility = "hidden";
+        if (new_product.rows.length == 0) {
+            change.style.visibility = "hidden";
+        }
+    
+        var total_amount = total_of_all_prices.innerHTML;
+        var cus_id = user_id.value;
+        var route_id_obj = route_id.value;
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    
+        var data_set = {
+            amount: total_amount,
+            status: 'not-delivered',
+            date: date,
+            working: 1,
+            cus_id: cus_id,
+            route_id: route_id_obj,
+            table: table_data
+        };
+    console.log(data_set);
+    
+        fetch('http://localhost/web-Experts/public/customer/place_order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data_set)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                confirmation_message();
+                order_id.innerHTML = `${data[7]}`;
+                order_date.innerHTML = `${data[2]}`;
+                order_amount.innerHTML = `${data[0]}`;
+                done.addEventListener("click", () => {
+                    confirm_message.style.visibility = "hidden";
+                });
             });
-        });
+    
+        new_product.innerHTML = '';
+        total_of_all_prices.innerHTML = '';
 
-    new_product.innerHTML = '';
-    total_of_all_prices.innerHTML = '';
+    }
+    else{
+ 
+        document.querySelector('.error_pop_up').style.visibility="visible";
+      
+        document.querySelector('.container').style.opacity="0.5";
+        // const myTimeout=setTimeout(myFunction, 3000);
+
+    }
+    
 }
+function myFunction(){
 
+    document.querySelector('.error_pop_up').style.visibility="hidden";
+    document.querySelector('.container').style.opacity="1";
+
+}
 
 
 // fill details
@@ -218,6 +238,8 @@ const fill_details = () => {
 fill_details();
 
 
+//delete pop up view visisbilty
+
 window.onclick = function(event) {
     var x = document.getElementById('new_product');
     console.log(event);
@@ -226,7 +248,7 @@ window.onclick = function(event) {
         delete_pop_up.style.display = "block";
 
         pop_up.style.display = 'block';
-        pop_up.style.marginLeft = '600px';
+        pop_up.style.marginLeft = '500px';
 
         msg_content.innerHTML = "Are You Sure ??";
         msg_content.style.color = "red";
@@ -234,7 +256,7 @@ window.onclick = function(event) {
         conf.style.background = "red";
         conf.value = "delete_pro";
         cancel.style.background = "#184A78";
-
+        cal_tot_amount();
 
 
 
@@ -262,6 +284,7 @@ window.onclick = function(event) {
 }
 
 function delete_pro() {
+    console.log("JjJJJJJJj");
     var x = document.getElementById('new_product');
     var conf = document.getElementById('conf');
     if (conf.value == "delete_pro") {
@@ -286,7 +309,7 @@ function cal_tot1() {
     cal_tot_amount();
 
 
-
+// var x="<?php echo $_session['user_id'] ?>"
 
 
 }
