@@ -145,6 +145,7 @@ td {
     background-color: #0e9b49;
     width: 200px;
     height: 50px;
+    bottom: 500px;
 
 }
 .inputAdd {                                                         /* input text of "+" */
@@ -521,4 +522,29 @@ input {
     position: absolute;
     top: 35%;
     left: 15%;
+}
+.addAmountDiv {
+    width: 100%;
+    height: 25%;
+    /* top: 0%; */
+    background-color: aqua;
+    position: absolute;
+    bottom: 20%;
+
+}
+.addAmountInput {
+    background-color: coral;
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+.submitAddAmount {
+    background-color: #184A78;
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    right: 0%;
+    border-radius: 10px;
 }

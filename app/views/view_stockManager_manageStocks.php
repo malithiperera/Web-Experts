@@ -23,7 +23,7 @@
 
             <div class="inStock">
                 <label class="label_inStock" for="quantity">In Stock</label><br>
-                <input class="input_inStock" type="text" name="quantity" id="quantity" value="1500">
+                <input class="input_inStock" type="text" name="quantity" id="quantity" value="">
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
@@ -34,12 +34,16 @@
                     <!--i class="fas fa-minus"--></i>
                 </button><br><br>
 
-                <div class="classA">
+                <!-- <div class="classA">
                     <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="myfunc()">
-                        <!--i class="fas fa-calendar-check"></i-->
-                    </button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="myfunc()"> -->
+                <!--i class="fas fa-calendar-check"></i-->
+                <!-- </button>
 
+                </div> -->
+                <div class="addAmountDiv">
+                    <input type="text" class="addAmountInput">
+                    <button class="submitAddAmount">S</button>
                 </div>
 
             </div>
@@ -406,10 +410,36 @@
                 })
         })
 
-
-        function myfunc(){
+        function myfunc() {
             console.log("Malithii")
         }
+
+        var addBtn = document.querySelector('.submitAddAmount')
+        var addAmount = document.querySelector('.addAmountInput')
+
+        addBtn.addEventListener('click', () => {
+          
+            let dataSet = {
+                productId: productId,
+                amount: addAmount.value
+
+            }
+            console.log (dataSet)
+            fetch('http://localhost/web-Experts/public/stockManager/addStocks_con', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify(dataSet)
+
+            })
+            .then (response => response.json ())
+            .then (data => {
+                console.log (data)
+
+            })
+        })
     </script>
 
 

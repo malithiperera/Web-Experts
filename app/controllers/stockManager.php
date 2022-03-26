@@ -186,7 +186,17 @@ class stockManager extends controller {
         echo json_encode($result);
 
     }
-    
+
+    public function addStocks_con () {
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->addStocks_mod($get_data['productId'], $get_data['amount']);
+
+        echo json_encode($result);
+
+    }
 }
 
 ?>
