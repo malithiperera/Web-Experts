@@ -22,7 +22,7 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../public/styles/admin_Home.css">
    <style>
        .container{
-           z-index: 0;
+           z-index: 100;
        }
    </style>
 </head>

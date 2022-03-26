@@ -461,6 +461,77 @@ if (!isset($_SESSION['username'])) {
             margin-top: 10px;
             width: 50px;
         }
+        .center{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100vh;
+            /* background-color: blue; */
+            display: flex;
+            justify-content: center;
+        }
+        .send_message_div{
+            position: absolute;
+            top: 100px;
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            border: 4px solid #184A78;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+        }
+        .subject_of_message{
+            color: #184A78;
+            margin-top: 30px;
+            align-self: center;
+        }
+        .input_of_subject{
+            width: 250px;
+            height: 40px;
+            /* background-color: blue; */
+            align-self: center;
+        }
+        .message_of_message{
+            color: #184A78;
+            align-self: center;
+        }
+        .input_of_message{
+            width: 250px;
+            height: 100px;
+            /* background-color: blue; */
+            align-self: center;
+        }
+        .hold_customer_div{
+            position: absolute;
+            top: 160px;
+            width: 400px;
+            height: 250px;
+            background-color: white;
+            border: 4px solid #184A78;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+        }
+        .reason_hold_cus{
+            color: #184A78;
+            align-self: center;
+            margin-top: 25px;
+        }
+        .message_hold_cus{
+            align-self: center;
+            width: 300px;
+            height: 100px;
+        }
+        .confirm_hold_cus{
+
+        }
+        .close_hold_cus{
+
+        }
     </style>
 </head>
 
@@ -651,8 +722,122 @@ if (!isset($_SESSION['username'])) {
 
             </div>
         </div>
+    </div>
+    <!-- div for center the popup messages -->
+    <div class="center">
+        <!-- <div class="send_message_div"></div> -->
+    </div>
+
+        <script>
+
+            let sidebar1 = document.querySelector('.sidebar');
+            let header = document.querySelector('.header');
+            let container = document.querySelector('.container');
+
+            center = document.querySelector('.center');
+
+            //view reports
+            
+            //send message
+
+            let send_message_div = document.createElement('DIV');
+            send_message_div.classList.add("send_message_div");
+            center.appendChild(send_message_div);
+
+            let subject_of_message = document.createElement('p');
+            subject_of_message.classList.add("subject_of_message");
+            send_message_div.appendChild(subject_of_message);
+            subject_of_message.innerHTML = `Subject : `;
+
+            let input_of_subject = document.createElement('INPUT');
+            input_of_subject.classList.add("input_of_subject");
+            send_message_div.appendChild(input_of_subject);
+           
+
+            let message_of_message = document.createElement('P');
+            message_of_message.classList.add("message_of_message");
+            send_message_div.appendChild(message_of_message);
+            message_of_message.innerHTML = `Message : `;
+
+            let input_of_message = document.createElement('INPUT');
+            input_of_message.classList.add("input_of_message");
+            send_message_div.appendChild(input_of_message);
+
+            let buttons = document.createElement('DIV');
+            buttons.classList.add("buttons");
+            send_message_div.appendChild(buttons);
+
+            let send_button = document.createElement('BUTTON');
+            send_button.classList.add("send_button");
+            buttons.appendChild(send_button);
+            send_button.innerHTML = `Send`;
+
+            let close_button = document.createElement('BUTTON');
+            close_button.classList.add("close_button");
+            buttons.appendChild(close_button);
+            close_button.innerHTML = `Close`;
+            close_button.setAttribute("onclick", "close_the_msg()")
+           
+            function close_the_msg(){
+                send_message_div.style.visibility = "hidden";
+                sidebar1.style.opacity = "100%";
+                header.style.opacity = "100%";
+                container.style.opacity = "100%";
+            }
+
+            function open_the_message(){
+                send_message_div.style.visibility = "visible";
+                sidebar1.style.opacity = "30%";
+                header.style.opacity = "30%";
+                container.style.opacity = "30%";
+            }
 
 
+
+            //hold customers
+            let hold_customer_div = document.createElement('DIV');
+            hold_customer_div.classList.add("hold_customer_div");
+            center.appendChild(hold_customer_div);
+
+            let reason_hold_cus = document.createElement('p');
+            reason_hold_cus.classList.add('reason_hold_cus');
+            hold_customer_div.appendChild(reason_hold_cus);
+            reason_hold_cus.innerHTML = `Reason Of Hold : `;
+
+            let message_hold_cus = document.createElement('INPUT');
+            message_hold_cus.classList.add('message_hold_cus');
+            hold_customer_div.appendChild(message_hold_cus);
+
+            let buttons_hold_cus = document.createElement('DIV');
+            buttons_hold_cus.classList.add("buttons");
+            hold_customer_div.appendChild(buttons_hold_cus);
+
+            let confirm_hold_cus = document.createElement('BUTTON');
+            confirm_hold_cus.classList.add("confirm_hold_cus");
+            buttons_hold_cus.appendChild(confirm_hold_cus);
+            confirm_hold_cus.innerHTML = `Confirm`;
+
+            let close_hold_cus = document.createElement('BUTTON');
+            close_hold_cus.classList.add("close_hold_cus");
+            buttons_hold_cus.appendChild(close_hold_cus);
+            close_hold_cus.innerHTML = `Close`;
+            close_hold_cus.setAttribute("onclick", "close_func_hold_cus()");
+
+            function close_func_hold_cus(){
+                hold_customer_div.style.visibility = "hidden";
+                sidebar1.style.opacity = "100%";
+                header.style.opacity = "100%";
+                container.style.opacity = "100%";
+            }
+
+            function open_func_hold_cus(){
+                hold_customer_div.style.visibility = "visible";
+                sidebar1.style.opacity = "30%";
+                header.style.opacity = "30%";
+                container.style.opacity = "30%";
+            }
+
+        </script>
 
         <script>
             //get html elements to js
@@ -848,6 +1033,15 @@ if (!isset($_SESSION['username'])) {
             });
             
         </script>
+        
+        <script>
+            //pending cheques
+            function pending_cheques(){
+                let cus_id = <?php echo $_GET?>
+            }
+        </script>
+       
+        
 </body>
 
 </html>

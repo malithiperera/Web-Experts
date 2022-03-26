@@ -1,4 +1,12 @@
 
+<?php session_start();
+
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+
+?>
+
 <!DOCTYPE html>
 
 <!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
@@ -14,11 +22,13 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+ 
 </head>
 
 <body>
 
-<!-- START SIDE BAR -->
+  <!-- START SIDE BAR -->
 
   <div class="sidebar">
 
@@ -66,20 +76,28 @@
       </li>
 
       <li>
+        <a href="../salesRep/returns">
+          <i class="fas fa-exchange-alt"></i>
+          <span class="links_name">Returns</span>
+        </a>
+        <span class="tooltip">Returns</span>
+      </li>
+
+      <!-- <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
         <span class="tooltip">Reports</span>
-      </li>
+      </li> --> 
 
-      <li>
+      <!-- <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
         <span class="tooltip">Notifications</span>
-      </li>
+      </li> -->
 
       <li>
         <a href="../salesRep/achievements">
@@ -91,7 +109,7 @@
       </li>
 
       <li>
-        <a href="../salesRep/profile">
+        <a href="../  customer/profile">
           <i class="far fa-user-circle"></i>
           <span class="links_name">Profile</span>
         </a>
@@ -121,14 +139,18 @@
 
   </div>
 
-<!-- END SIDE BAR -->
+  <!-- END SIDE BAR -->
+
+<!-- ADD HEADER -->
+
+<div class="header">
+    <?php require 'view_headertype2.php'; ?>
+  </div>
 
 
 
 
-
-
-<!-- START CARD SECTION -->
+  <!-- START CARD SECTION -->
 
   <section class="home-section">
 
@@ -186,7 +208,7 @@
 
     </section>
 
-<!-- END CARD SECTION -->
+    <!-- END CARD SECTION -->
 
 
 
@@ -195,7 +217,7 @@
 
 
 
-<!-- ORDERS TABLE -->
+    <!-- ORDERS TABLE -->
 
     <div class="table-wrapper">
 
@@ -205,6 +227,7 @@
           <tr>
             <th>Route</th>
             <th>Shop</th>
+            <th>Date</th>
             <th>Delivery</th>
 
           </tr>
@@ -242,7 +265,7 @@
         let cus_id = searchCus_cusId.value;
         fetch('http://localhost/web-Experts/public/salesRep/search_customer', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            
+
             headers: {
               'Content-Type': 'application/json'
               // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -251,12 +274,11 @@
           })
           .then(response => response.json())
           .then(data => {
-            window.location.href = '../salesRep/customer_home?cus_id='+cus_id;
-            
+            window.location.href = '../salesRep/customer_home?cus_id=' + cus_id;
+
           });
 
       }
-
     </script>
 
 
@@ -265,14 +287,12 @@
     <!-- fill table -->
 
     <script>
-
       var orders_table = document.querySelector('.orders');
+      
 
       const fill_table = () => {
 
-        fetch('http://localhost/web-Experts/public/salesRep/fill_home', {
-
-          })
+        fetch('http://localhost/web-Experts/public/salesRep/fill_home', { })
           .then(response => response.json())
           .then(data => {
 
@@ -284,8 +304,12 @@
                                
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
-                                <td><a href="../salesRep/shop_product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
-                                <td><button id="confirm" onclick="orderConfirm('${data[i]['order_id']}')">Confirm</button></td>
+                                <td>${data[i]['shop_name']}</a></td>
+                                <td>${data[i]['date']}</a></td>
+                                <td>
+                                  <button id="confirm" onclick="orderConfirm('${data[i]['order_id']}');window.location.href='../salesRep/home';">Confirm
+                                  </button>
+                                </td>
                                 
                             
                   
@@ -306,7 +330,6 @@
 
 
     <script>
-
       //load cards 
 
       function load_cards() {
@@ -327,18 +350,14 @@
       }
 
       load_cards();
-
     </script>
 
 
-
-
     <script>
-
       //confirm order
-      function orderConfirm(order_id){
+      function orderConfirm(order_id) {
         fetch('http://localhost/web-Experts/public/salesRep/ConfirmOrder', {
-            method: 'POST', 
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -348,7 +367,7 @@
           .then(data => {
             console.log(order_id);
           })
-        
+
       }
       orderConfirm();
     </script>

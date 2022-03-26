@@ -3,7 +3,7 @@
 if (!isset($_SESSION['username'])) {
     header("Location:http://localhost/web-Experts/public/login/index");
 }
-$cusid=$_GET['cus_id'];
+
 ?>
 <!DOCTYPE html>
 
@@ -12,23 +12,14 @@ $cusid=$_GET['cus_id'];
 <head>
     <meta charset="UTF-8">
     <title>Home </title>
-    
-   
+    <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
+    <link rel="stylesheet" href="../../public/styles/view_customer_ourproduct.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_button.css">
-    <!-- <link rel="stylesheet" href="../../public/styles/sketch.css"> -->
-    <link rel="stylesheet" href="../../public/styles/sidebar.css">
+    <link rel="stylesheet" href="../../public/styles/sketch.css">
 
-    <style>
-        .header{
-            z-index: 1000000;
-        }
-        .container{
-            z-index: 1000;
-        }
-    </style>
 </head>
 
 <body>
@@ -41,16 +32,32 @@ $cusid=$_GET['cus_id'];
         </div>
         <ul class="nav-list">
 
-            <!-- <li>
+            <li>
                 <a href="#">
-                <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
                 </a>
-                <span class="tooltip">Home</span>
-            </li> -->
-           <li>
-           
-                <a href="#" onclick="view_report()">
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="../stockManager/notification">
+
+                    <a href="../stockManager/moveToNotificationPage">
+
+                        <i class='bx bx-chat'></i>
+                        <span class="links_name">Notification</span>
+                    </a>
+                    <span class="tooltip">Notification</span>
+            </li>
+            <li>
+                <a href="#">
                     <i class="fas fa-chart-line"></i>
                     <span class="links_name">View Reports</span>
                 </a>
@@ -58,21 +65,21 @@ $cusid=$_GET['cus_id'];
             </li>
 
             <li>
-                <a href="#" onclick="open_the_message()">
+                <a href="#">
                     <i class="fas fa-user"></i>
-                    <span class="links_name">Send Messege</span>
+                    <span class="links_name">Profile</span>
                 </a>
-                <span class="tooltip">Send Messege</span>
+                <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="#" onclick="open_func_hold_cus()">
-                <i class="fas fa-exclamation"></i>
-                    <span class="links_name">Hold Customer</span>
+                <a href="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="links_name">Logout</span>
                 </a>
-                <span class="tooltip">Hold Customer</span>
+                <span class="tooltip">Logout</span>
             </li>
 
-            <!-- <li class="profile">
+            <li class="profile">
                 <div class="profile-details">
 
                     <div class="name_job">
@@ -81,7 +88,7 @@ $cusid=$_GET['cus_id'];
                     </div>
                 </div>
                 <i class='bx bx-log-out' id="log_out"></i>
-            </li> -->
+            </li>
         </ul>
     </div>
 
@@ -89,7 +96,7 @@ $cusid=$_GET['cus_id'];
         <div class="header">
             <?php require 'view_headertype2.php'; ?>
         </div>
-        <?php require 'view_admin_customerProfile.php'; ?>
+        <?php require 'view_stockManager_requestedRepList.php'; ?>
 
 
     </section>
@@ -104,12 +111,7 @@ $cusid=$_GET['cus_id'];
 
 
 
-function view_report(){
-    var cusid="<?php echo $_GET['cus_id'] ;?>"
 
-console.log(cusid);
-fetch('',{})
-}
 
 
 

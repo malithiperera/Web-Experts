@@ -241,5 +241,40 @@ class _2_salesrep_model extends model
 
         return "result";
     }
+
+    //request product from stock manager
+    public function request_product_from_stock($product_name, $requested_qty, $final_qty, $rep_id){
+        require '../app/core/database.php';
+
+        $check = 0;
+
+        $sql1 = "insert into product_issue (date, time, rep_id, issue_status) VALUES (curdate(), current_time(), '$rep_id', '0')";
+        $result = mysqli_query($conn, $sql1);
+
+        $last_issue_id = "select last_insert_id()";
+        $result1 = mysqli_query($conn, $last_issue_id);
+        $issue_id = $result1->fetch_assoc()['last_insert_id()'];
+
+        $sql2 = "select product_id from product where product_name = 'Kiri pani'";
+        $result2 = mysqli_query($conn, $sql2);
+
+        for($i = 0 ; $i < sizeof($product_name) ; $i++){
+            $sql2 = "select product_id from product where product_name = '$product_name[$i]'";
+            $result2 = mysqli_query($conn, $sql2);
+            $product_id = $result2->fetch_assoc()['product_id'];
+
+            $sql3 = "insert into product_issue_products (issue_id, product_id, requested_qty, issue_qty) values ('$issue_id', '$product_id', '$requested_qty[$i]', '$final_qty[$i]')";
+            $result3 = mysqli_query($conn, $sql3);
+
+            if($result3 == false){
+                $check = 1;
+            }
+           
+        }
+        
+        return $check;
+
+       
+    }
     
 }

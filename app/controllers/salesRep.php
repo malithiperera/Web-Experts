@@ -227,6 +227,7 @@ class salesRep extends controller
     }
     public function fill_home()
     {
+
         $data = [];
 
         $this->model('_2_salesrep_model');
@@ -320,7 +321,6 @@ class salesRep extends controller
     }
     public function achievements()
     {
-
         $this->view->render('view_rep_achievements');
     }
     
@@ -334,4 +334,19 @@ class salesRep extends controller
     public function offline_placeOrder(){
         $this->view->render('view_offline_placeorder');
     }
+
+   //request product list from stockmanager
+   public function request_product_from_stock(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+
+        $this->model('_2_salesRep_model');
+        $result = $this->model->request_product_from_stock($get_data[0], $get_data[1], $get_data[2], $get_data[3]);
+
+        echo json_encode($result);
+        exit;
+   }
+
+   
 }
