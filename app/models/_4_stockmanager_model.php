@@ -113,4 +113,24 @@ class _4_stockmanager_model extends model
 
 
     }
+
+    public function removeStocks_mod ($productId, $amount) {
+        require '../app/core/database.php';
+
+        $sql = "SELECT qty FROM `product` WHERE product_id ='$productId'";
+        $result = mysqli_query($conn, $sql);
+        $qty=$result->fetch_assoc();
+        $new_amount=$qty['qty']-$amount;
+        
+        if ($result) {
+            # code...
+            $sql_1 = "UPDATE product SET qty='$new_amount' WHERE product_id = '$productId'";
+            $result_1 = mysqli_query($conn, $sql_1);
+            return $result_1;
+
+        }
+        else{
+            return "error";
+        }
+    }
 }

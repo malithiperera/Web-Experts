@@ -176,6 +176,17 @@ class stockManager extends controller {
         
     }
     
+    public function removeStocks_con (){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->removeStocks_mod ($get_data ['productId'], $get_data ['amount']);
+
+        echo json_encode($result);
+
+    }
+    
 }
 
 ?>

@@ -29,7 +29,7 @@
 
 }
 .inStock {                                                          /* 'in stock' division */
-    /* background-color: greenyellow; */
+    background-color: greenyellow;
     width: 20%;
     height: 33%;
     /*margin: auto; */
@@ -141,10 +141,12 @@ td {
     height: 40%;
       
 }
-/* .classA {
-    position: absolute;
-    bottom: 10%;
-} */
+.classA {
+    background-color: #0e9b49;
+    width: 200px;
+    height: 50px;
+
+}
 .inputAdd {                                                         /* input text of "+" */
     width: 35%;
     height: 25%;
@@ -158,7 +160,7 @@ td {
 
 }
 .addamountAddBtn {                                                  /* submit btn of input text of + btn  */
-    width: 10%;
+    width: 100%;
     height: 24%;
     border-radius: 5px;
     background-color: #165692;
@@ -440,4 +442,83 @@ input {
     width: 45%;
     top: 50%;
     /* background-color: aquamarine; */
+}
+.messagecontainer {
+    background-color: transparent;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 110%;
+    
+}
+.messageArea {
+    background-color: #f6f8f7;
+    position: absolute;
+    width: 40%;
+    height: 45%;
+    left: 30%;
+    top: 25%;
+    border-radius: 15px;
+    /* border-color: #184A78; */
+    border: 4px solid #184A78;
+ display: none;
+
+}
+.Yes {
+    width: 12%;
+    height: 10%;
+    background-color: #184A78;
+    position: absolute;
+    bottom: 15%;
+    left: 20%;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 400;
+    border: none;
+
+}
+.No {
+    width: 12%;
+    height: 10%;
+    background-color: #0e9b49;
+    position: absolute;
+    bottom: 15%;
+    right: 20%;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 400;
+    border: none;
+
+}
+.checkIcon {
+    width: 8%;
+    height: 14%;
+    position: absolute;
+    /* background-color: lawngreen; */
+    left: 46%;
+    top: 14%;
+    
+}
+.fa-solid fa-circle-check fa-3x {
+    position: absolute;
+    top: 10%;
+    color: #05be3d;
+    
+}
+.popUpTextArea_1 {
+    /* border-color: rgb(11, 95, 67); */
+    width: 50%;
+    height: 20%;
+    position: absolute;
+    border-color: rgb(11, 95, 67);
+    left: 25%;
+    top: 25%;
+
+}
+.popUpTextArea_2 {
+    width: 70%;
+    height: 20%;
+    position: absolute;
+    top: 35%;
+    left: 15%;
 }
