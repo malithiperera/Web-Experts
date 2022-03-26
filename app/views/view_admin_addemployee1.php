@@ -121,7 +121,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="psw"><b>Address&nbsp;</b></label><br>
                             <input type="address" placeholder="address" name="add" id="admin_add">
-                            <div class="error"></div>
+                            <!-- <div class="error"></div> -->
 
                         </div><br>
 

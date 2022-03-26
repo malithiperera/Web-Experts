@@ -11,10 +11,17 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockmanager_addproduct.css">
-    <script defer src="../../public/java script/validate.js"></script>
+    <!-- <script defer src="../../public/java script/validate.js"></script> -->
+    <script src="https://kit.fontawesome.com/d2020d2b7c.js" crossorigin="anonymous"></script>
     <title>Products</title>
 
 </head>
+<style>
+    .messagecontainer {
+        visibility: hidden;
+
+    }
+</style>
 
 <body>
     <!-- <div id="error" class="error"></div> -->
@@ -24,7 +31,7 @@ session_start();
     <div class="container">
         <div class="form"><br>
             <p class="text_addProduct">Add Product</p><br>
-            <form id="productForm" action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data">
+            <form id="productForm" action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data" onsubmit="validate ()">
                 <div class="input_control">
                     <p class="label_productId">Product Id</p>
                     <input id="input_productId" class="input_productId" type="text" name="id">
@@ -82,7 +89,7 @@ session_start();
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <input class="btn_submit" type="submit" name="submit" value="Add to Products" onclick=""><br>
+                <input class="btn_submit" type="submit" name="submit" value="Add to Products"><br>
                 <!-- <button type="submit" class="btn_submit"  name="submit" value="Add to Products"></button> -->
 
                 <div class="error">
@@ -100,6 +107,9 @@ session_start();
         </div>
 
     </div>
+    <div class="pop-up-div">
+
+    </div>
     <!-- <div class="div_messageContainer">
         <div class="div_messageArea" id="div_messageArea">
             <h4>Added Successfully</h4>
@@ -113,8 +123,22 @@ session_start();
     </div> -->
     <div class="messagecontainer">
         <div class="messageArea">
-            <h1>shirantha</h1>
-            
+            <div class="checkIcon">
+                <!-- <h4>shirantha</h4> -->
+                <i class="fa-solid fa-circle-check fa-3x"></i>
+            </div>
+            <div class="popUpTextArea">
+                <h2>The product added</h2>
+
+            </div>
+            <div class="popUpTextArea2">
+                <h2>Successfully</h2>
+
+            </div>
+            <div class="divDoneBTN">
+                <button class="done" onclick="backToAddProduct ()">done</button>
+            </div>
+
         </div>
 
     </div>
@@ -123,11 +147,21 @@ session_start();
         <a href="../stockManager/backToSMHome"><button class="btn_back">Back</button></a>
 
     </div>
+    <script>
+        var error = "<?php echo $this->added; ?>";
+        console.log(error);
+        if (error == 1) {
+            document.querySelector('.messagecontainer').style.visibility = "visible"
+            // console.log("shir")
 
+        }
+
+        function backToAddProduct() {
+            document.querySelector('.messagecontainer').style.visibility = "hidden"
+
+        }
+        backToAddProduct()
+    </script>
 </body>
 
 </html>
-
-<?php
-unset($_SESSION["error"]);
-?>
