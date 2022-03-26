@@ -27,7 +27,7 @@
                 <script src="../../public/java script/manageStocks.js"></script>
 
                 <button class="addBtn" onclick="showHideAdd ()">
-                  
+
                 </button>
                 <button class="removeBtn" onclick="showHideRemove ()">
                     <!--i class="fas fa-minus"--></i>
@@ -157,7 +157,7 @@
 
     </section>
 
-    <!-- <script>
+    <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
         var currentPrice = document.getElementById('currentPrice');
         var productName = document.getElementById('leg_productName');
@@ -227,9 +227,9 @@
 
 
         getcurrentStock();
-    </script> -->
 
-    <!-- <script>
+
+
         var productId = '<?php echo $_GET['product_id'] ?>';
         var repItemsTable = document.querySelector('.tbody');
 
@@ -238,41 +238,39 @@
             productId: productId
 
         }
-        //var test = 1103;
+        var test = 1103;
 
-        // const fillRepItemsTable = () => {
-        //     fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
-        //             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        //             headers: {
-        //                 'Content-Type': 'application/json'
-        //                 // 'Content-Type': 'application/x-www-form-urlencoded',
+        const fillRepItemsTable = () => {
+            fetch('http://localhost/web-Experts/public/stockManager/fillRepItemsTable_con', {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
 
-        //             },
-        //             body: JSON.stringify(productId)
+                    },
+                    body: JSON.stringify(productId)
 
-                // })
-                // .then(response => response.json())
-                // .then(data => {
-                //     for (let index = 0; index < data.length; index++) {
-                //         repItemsTable.innerHTML += `
-                //             <tr>
-                //                 <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
-                //                 <td>${data [index] ['qty']}</td>
+                })
+                .then(response => response.json())
+                .then(data => {
+                    for (let index = 0; index < data.length; index++) {
+                        repItemsTable.innerHTML += `
+                             <tr>
+                                 <td>${data [index] ['rep_id'] + " - " + data [index] ['name']}</td>
+                                 <td>${data [index] ['qty']}</td>
 
-                //             </tr>
-                //         `;
+                             </tr>
+                         `;
 
-                //     }
-                //     console.log(data);
+                    }
+                    console.log(data);
 
-                // });
-        // }
-        // fillRepItemsTable();
-    </script> -->
+                });
+        }
+        fillRepItemsTable();
 
-    <!-- <script>
         var btnUpdate = document.querySelector(".btn_update")
-        // var productId = '<?php echo $_GET['product_id']; ?>'
+        var productId = '<?php echo $_GET['product_id']; ?>'
         var newPrice = document.querySelector(".input_newPrice")
 
         btnUpdate.addEventListener("click", () => {
@@ -300,10 +298,9 @@
             // console.log (dataSet)
 
         })
-    </script> -->
 
-    <!-- change the notify limit to stockmanager -->
-    <!-- <script>
+        // <!-- change the notify limit to stockmanager -->
+
         let notify_limit_input = document.getElementById('notify_limit_input');
 
         fetch('http://localhost/web-Experts/public/stockManager/initial_information', {
@@ -355,12 +352,15 @@
                 });
 
         }
-
         currentStock();
+
+        var btnRemove = document.querySelector('.btn_submitRemove') // remove stocks
+        var removeAmount = document.querySelector('.inputRemoveQuantity')
+
+        btnRemove.addEventListener ('', () => {
+            
+        })
     </script>
-<!-- <script>
-console.log ('dineth');
-    </script> -->
 </body>
 
 </html>

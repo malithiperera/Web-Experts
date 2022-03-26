@@ -12,12 +12,14 @@ session_start();
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockmanager_addproduct.css">
     <!-- <script defer src="../../public/java script/validate.js"></script> -->
+    <script src="https://kit.fontawesome.com/d2020d2b7c.js" crossorigin="anonymous"></script>
     <title>Products</title>
 
 </head>
 <style>
     .messagecontainer {
         visibility: hidden;
+
     }
 </style>
 
@@ -29,7 +31,7 @@ session_start();
     <div class="container">
         <div class="form"><br>
             <p class="text_addProduct">Add Product</p><br>
-            <form id="productForm" action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data">
+            <form id="productForm" action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data" onsubmit="validate ()">
                 <div class="input_control">
                     <p class="label_productId">Product Id</p>
                     <input id="input_productId" class="input_productId" type="text" name="id">
@@ -121,6 +123,10 @@ session_start();
     </div> -->
     <div class="messagecontainer">
         <div class="messageArea">
+            <div class="checkIcon">
+                <!-- <h4>shirantha</h4> -->
+                <i class="fa-solid fa-circle-check fa-3x"></i>
+            </div>
             <div class="popUpTextArea">
                 <h2>The product added</h2>
 
@@ -146,17 +152,14 @@ session_start();
         console.log(error);
         if (error == 1) {
             document.querySelector('.messagecontainer').style.visibility = "visible"
-            document.getElementById('.productForm').style.opacity = "0.5"
+            // console.log("shir")
 
         }
 
         function backToAddProduct() {
             document.querySelector('.messagecontainer').style.visibility = "hidden"
-        }
-        // const backToAddProduct = () => {
-        //     document.querySelector('.messagecontainer').style.visibility = "hidden"
 
-        // }
+        }
         backToAddProduct()
     </script>
 </body>
