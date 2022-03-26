@@ -61,6 +61,7 @@
                         <th>Product</th>
                         <th>Current Stock</th>
                         <th>Unit Price</th>
+                        <!-- <th>description</th> -->
 
                     </tr>
 
@@ -106,8 +107,9 @@
                             <tr>
                                 <td><a href="../stockManager/managestock?product_id=${data[i]['product_id']}">${data[i]['product_id']}</a></td>
                                 <td>${data[i]['product_name']}</td>
-                                <td>100</td>
+                                <td>${data[i]['qty']}</td>
                                 <td>${data[i]['price']}</td>
+                                
                             </tr>
                         
                         `;
@@ -187,6 +189,7 @@
         var noOfRepRequests = document.querySelector('.div_repRequests');
 
         const fillNoOfRepRequests = () => {
+            console.log(data);
             fetch('http://localhost/web-Experts/public/stockManager/fillNoOfRepRequests_cont', {})
                 .then(response => response.json())
                 .then(data => {

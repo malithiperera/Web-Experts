@@ -219,7 +219,7 @@ td {
 
 }
 .div_currentPrice {                                                 /* division "current price" */
-    background-color: rgb(184, 202, 202);
+    /* background-color: rgb(184, 202, 202); */
     position: absolute;
     left: 8%;
     top: 10%;

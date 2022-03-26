@@ -44,4 +44,47 @@ class issue extends controller{
         exit;
 
     }
+    //view issue list sales rep
+    public function view_issue_list(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('issue_model');
+        $result=$this->model->view_list_rep($get_data);
+        $data=[];
+
+        while ($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+        }
+      
+        echo json_encode($data);
+        exit;
+
+    }
+
+    public function issue_list(){
+        $issue_id=$_GET['reqid'];
+        session_start();
+        $_SESSION['issue_id']=$issue_id;
+        $this->view->added=$issue_id;
+        $this->view->render('view_stockManager_repList_products');
+
+        // echo $issue_id;
+
+    }
+
+    //save in the database after issuing
+
+    public function issue_rep(){
+        session_start();
+        $issueid=$_SESSION['issue_id'];
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('issue_model');
+        $result=$this->model->issue_rep_pro($get_data);
+
+        
+        echo json_encode($result);
+        exit;
+
+    }
 }

@@ -603,7 +603,8 @@ user_avail.style.color="red";
             }
             else{
                 console.log("Errrrrrr")
-                valid_birthday.style.visibility="visible"
+                valid_birthday.style.visibility="visible";
+                
             }
 
 

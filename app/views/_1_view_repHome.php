@@ -23,57 +23,7 @@ if (!isset($_SESSION['username'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <style>
-
-/* Popup container */
-.popup {
-  position: relative;
-  display: inline-block;
-  /* cursor: pointer; */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 300px;
-  height:250px;
-  background-color: green;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 20px 50px ;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-  font-size: 35px;
-}
-
-
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
  
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
-
 </head>
 
 <body>
@@ -126,20 +76,28 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
+        <a href="../salesRep/returns">
+          <i class="fas fa-exchange-alt"></i>
+          <span class="links_name">Returns</span>
+        </a>
+        <span class="tooltip">Returns</span>
+      </li>
+
+      <!-- <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
         <span class="tooltip">Reports</span>
-      </li>
+      </li> --> 
 
-      <li>
+      <!-- <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
         <span class="tooltip">Notifications</span>
-      </li>
+      </li> -->
 
       <li>
         <a href="../salesRep/achievements">
@@ -151,7 +109,7 @@ if (!isset($_SESSION['username'])) {
       </li>
 
       <li>
-        <a href="../salesRep/profile">
+        <a href="../  customer/profile">
           <i class="far fa-user-circle"></i>
           <span class="links_name">Profile</span>
         </a>
@@ -269,6 +227,7 @@ if (!isset($_SESSION['username'])) {
           <tr>
             <th>Route</th>
             <th>Shop</th>
+            <th>Date</th>
             <th>Delivery</th>
 
           </tr>
@@ -345,13 +304,11 @@ if (!isset($_SESSION['username'])) {
                                
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
-                                <td><a href="../salesRep/shop_product_list?route_id=${data[i]['route_id']}">${data[i]['shop_name']}</a></td>
+                                <td>${data[i]['shop_name']}</a></td>
+                                <td>${data[i]['date']}</a></td>
                                 <td>
-                                  <div class="popup" >
-                                  <button id="confirm" onclick="orderConfirm('${data[i]['order_id']}');window.location.href='../salesRep/home';myFunction();">Confirm
+                                  <button id="confirm" onclick="orderConfirm('${data[i]['order_id']}');window.location.href='../salesRep/home';">Confirm
                                   </button>
-                                  <span class="popuptext" id="myPopup">Payment Successfull!</span>
-                                  </div>
                                 </td>
                                 
                             
@@ -393,15 +350,6 @@ if (!isset($_SESSION['username'])) {
       }
 
       load_cards();
-    </script>
-
-    <script>
-
-    // When the user clicks on div, open the popup
-    function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
     </script>
 
 

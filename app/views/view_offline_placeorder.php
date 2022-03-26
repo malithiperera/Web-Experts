@@ -22,7 +22,7 @@
     #user_id1,
     #shop_name1,
     #route_id1 {
-        border: 1px solid black;
+        /* border: 1px solid black; */
         width: 120px;
         margin: 10px;
         color: black;
@@ -40,6 +40,50 @@
         z-index: 5000;
         border: 1px solid black;
     }
+
+    .data_form-1 {
+
+display: flex;
+margin-top: 150px;
+
+}
+
+.data_form-1 button {
+/* margin: 10px; */
+width: 80px;
+height: 40px;
+border-radius: 10px;
+background-color: #184A78;
+color: #fff;
+}
+
+.data_form-1 button:hover {
+background-color: #4d647a;
+cursor: pointer;
+}
+
+.data_form-1 input {
+margin: 10px;
+margin-top: 30px;
+padding-left: 10px;
+width: 200px;
+height: 40px;
+border-radius: 10px;
+text-align: center;
+
+}
+h2{
+    margin-top: 100px;
+}
+.customer-serach{
+    /* display: flex; */
+}
+
+#serach_user,#shop_name,#route_id{
+    width: 200px;
+    color: black;
+    font-size: 18px;
+}
 </style>
 
 <body>
@@ -152,7 +196,19 @@
 
                             </ul>
                         </div>
+                        
+                        
+
+
                     </div>
+                    <div class="route-name">
+                            <input type="text" value="" id="shop_name">
+                            
+                        </div>
+                        <div class="route-name">
+                            <input type="text" value="" id="route_id">
+                            
+                        </div>
 
 
                 </div>
@@ -164,11 +220,11 @@
 
             <h2>Insert Product to bill</h2>
 
-            <div class="data_form">
+            <div class="data_form-1">
                 <div class="serach_product">
                     <input type="text" id="product_name" placeholder="Insert Product Name" onkeyup="fetchText(this.value)">
                     <div>
-                        <ul class="suggestions_user" id="suggestions_user">
+                        <ul class="suggestions" id="suggestions">
 
                         </ul>
                     </div>
@@ -205,7 +261,7 @@
                 </div>
 
                 <div class="place_button">
-                    <button onclick="get_routes()">PLACE ORDER</button>
+                    <button onclick="place_order_offline()">PLACE ORDER</button>
                 </div>
 
             </div>
@@ -292,11 +348,91 @@
 
         function select_row_user(userid, shop_name, route) {
 
-            let product_name = document.querySelector('#product_name');
-            product_name.value = userid+` - `+shop_name;
-            console.log(userid+' '+shop_name);
+            let product_name = document.querySelector('#serach_user');
+            let shp_name=document.getElementById('shop_name');
+            let route_id=document.getElementById('route_id');
+            product_name.value = userid;
+
+            // console.log(userid+' '+shop_name);
+            suggestions_user.innerHTML = ``;
+            route_id.value=route;
+            shp_name.value=shop_name;
 
         }
+
+
+        //place order offline
+function place_order_offline() {
+    
+    if (table_info.rows.length != 2) {
+        for (i = 1; i < table_info.rows.length - 1; i++) {
+            let table_cell = table_info.rows.item(i).cells;
+            table_data[i - 1] = new Array(table_cell.length);
+            for (j = 0; j < table_cell.length; j++) {
+                if(j==3){
+                    
+                table_data[i - 1][j]=table_cell.item(j).children[0].value;
+                }
+
+                else{
+                    table_data[i - 1][j] = table_cell.item(j).innerHTML;
+                }
+               
+                console.log(table_data[i - 1][j])
+               
+            }
+
+        }
+        console.log(table_data);
+
+    }
+    if (new_product.rows.length == 0) {
+        change.style.visibility = "hidden";
+    }
+
+    var total_amount = total_of_all_prices.innerHTML;
+    // var cus_id = user_id.value;
+    // var route_id_obj = route_id.value;
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+    let product_name = document.querySelector('#serach_user');
+            // let shp_name=document.getElementById('shop_name');
+            let route_id=document.getElementById('route_id');
+
+    var data_set = {
+        amount: total_amount,
+        status: 'not-delivered',
+        date: date,
+        working: 1,
+        cus_id: product_name.value,
+        route_id: route_id.value,
+        table: table_data
+    };
+console.log(data_set);
+
+    fetch('http://localhost/web-Experts/public/customer/place_order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data_set)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            confirmation_message();
+            order_id.innerHTML = `${data[7]}`;
+            order_date.innerHTML = `${data[2]}`;
+            order_amount.innerHTML = `${data[0]}`;
+            done.addEventListener("click", () => {
+                confirm_message.style.visibility = "hidden";
+            });
+        });
+
+    new_product.innerHTML = '';
+    total_of_all_prices.innerHTML = '';
+}
     </script>
 </body>
 
