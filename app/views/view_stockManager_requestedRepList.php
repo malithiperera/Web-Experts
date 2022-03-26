@@ -200,9 +200,10 @@
             for(let i=0;i<tr.length;i++){
                 td=tr[i].getElementsByTagName("td")[2]
                 if(td){
-                let txtvalue=td.textContent || td.innerText;
+                let txtvalue=td.innerHTML;
                 if(txtvalue.toUpperCase().indexOf(filter)>-1){
                     tr[i].style.display="";
+                    console.log(txtvalue.toUpperCase().indexOf(filter));
                 }
                 else{
                     tr[i].style.display="none";

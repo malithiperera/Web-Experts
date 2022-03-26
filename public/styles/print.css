@@ -4,3 +4,16 @@
 .from_whom{
     display: none;
 }
+
+.card-section{
+    /* visibility: hidden; */
+    display: none;
+}
+
+#print_list li p{
+    font-size: 30px;
+}
+
+.card-section-3{
+    display: block;
+}
