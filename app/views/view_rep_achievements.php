@@ -16,8 +16,9 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../public/styles/view_rep_achievements.css">
     <title>Achievements</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
 
@@ -36,6 +37,14 @@ if (!isset($_SESSION['username'])) {
 <ul class="nav-list">
 
   <li>
+    <a href="../salesRep/home">
+      <i class='bx bx-home'></i>
+      <span class="links_name">Home</span>
+    </a>
+    <span class="tooltip">Home</span>
+  </li>
+
+  <li>
     <a href="../salesRep/customer_registration">
       <i class='fas fa-user-plus fa-lg'></i>
       <span class="links_name">Customer Registration</span>
@@ -43,23 +52,6 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Customer Registration</span>
   </li>
 
-  <!-- <li>
-    <a href="#">
-      <i class='bx bx-user open-button' onclick="openForm()"></i>
-      <span class="links_name ">Customer Profile</span>
-    </a> -->
-    <!-- <span class="tooltip">Customer Profile</span> -->
-    <!-- <div class="form-popup" id="myForm">
-      <div class="form-container">
-
-        <label for="cus_id"><b>Enter Customer ID</b></label>
-        <input type="text" placeholder="Enter ID" id="searchCus_cusId" required>
-
-        <button class="btn" onclick="searchRep()">Search</button>
-        <button class="btn cancel" onclick="closeForm()">Close</button>
-      </div>
-    </div>
-  </li> -->
 
   <li>
     <!-- <a href="../orders/create_bill"> -->

@@ -116,10 +116,7 @@ class salesRep extends controller
     {
         $this->view->render('_1_view_repHome');
     }
-    public function returns()
-    {
-        $this->view->render('view_rep_return');
-    }
+   
     public function cashPayment()
     {
         $this->model('_2_salesrep_model');
@@ -331,6 +328,7 @@ class salesRep extends controller
         $this->view->render('view_rep_stock_request');
     }
 
+    //place orders on behalf of offline customers
     public function offline_placeOrder(){
         $this->view->render('view_offline_placeorder');
     }
@@ -346,6 +344,70 @@ class salesRep extends controller
 
         echo json_encode($result);
         exit;
+   }
+
+   public function returns()
+   {
+
+       $this->model('_2_salesrep_model');
+       $this->view->render('view_rep_return');
+   }
+
+   public function return_product(){
+
+       $this->model('_2_salesrep_model');
+       $result=$this->model->return_products();
+
+       $data = [];
+
+       while ($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+        }
+       
+       echo json_encode($data);
+       exit;
+
+
+   }
+
+   public function fillReturns()
+   {
+       $recieved_data_encoded = file_get_contents("php://input");
+       $recieved_data = json_decode($recieved_data_encoded, true);
+
+
+       $this->model('_2_salesrep_model');
+
+       
+
+           // set data object
+           $data = [
+               $recieved_data['cus_id'],
+               $recieved_data['rep_id'],
+               $recieved_data['table']
+           ];
+
+           // set order
+           $this->model->fillReturns(
+             
+               $recieved_data['cus_id'],
+               $recieved_data['rep_id'],
+
+               $recieved_data['table']
+               
+           );
+
+           // fill order_product table
+        //    $order_id = $this->model->fill_return_product($recieved_data['table']);
+        //    array_push($data, $order_id);
+
+           // set 0 working order
+        //    $this->model->complete_place_order();
+
+           echo json_encode($data);
+           exit;
+       
+
    }
 
    
