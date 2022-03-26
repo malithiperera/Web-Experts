@@ -75,7 +75,7 @@ if (!isset($_SESSION['username'])) {
                 </li>
                 <li>
                 <li>
-                    <a href="#" onclick="popup_message('.removeuser')">
+                    <a href="#" onclick="remove_user_func()">
                         <i class="fas fa-user-minus fa-lg"></i>
                         <span class="links_name">Remove User</span>
                     </a>
@@ -175,6 +175,33 @@ if (!isset($_SESSION['username'])) {
     </script>
 
     <script src="../../public/java script/side_bar.js"></script>
+
+    <script>
+        function remove_user_func() {
+            let user_id = "<?php echo $_SESSION['userid'] ?>";
+
+            fetch('http://localhost/web-Experts/public/admin/check_admin', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(user_id)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data['level']);
+                    if(data['level'] == "junior"){
+                        console.log("you have not access to the function");
+                    }
+                    else{
+                        popup_message('.removeuser');
+                    }
+
+                });
+            
+
+        }
+    </script>
 </body>
 
 </html>

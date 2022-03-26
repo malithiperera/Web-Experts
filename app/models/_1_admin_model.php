@@ -31,7 +31,8 @@ class _1_admin_model extends model
     }
 
     //get data for cards in admin view
-    public function load_view_data(){
+    public function load_view_data()
+    {
         require '../app/core/database.php';
 
         $result = array();
@@ -69,7 +70,8 @@ class _1_admin_model extends model
     }
 
     //get data for charts in admin view
-    public function get_data_for_charts(){
+    public function get_data_for_charts()
+    {
         require '../app/core/database.php';
 
         $sql1 = "SELECT EXTRACT(YEAR FROM delivery.date) AS year, SUM(orders.amount) AS year_amount FROM delivery,orders 
@@ -95,7 +97,7 @@ class _1_admin_model extends model
 
         $data = [];
 
-        while($row1 = $result1->fetch_assoc()){
+        while ($row1 = $result1->fetch_assoc()) {
             array_push($row1, $result2->fetch_assoc());
             array_push($data, $row1);
         }
@@ -104,7 +106,8 @@ class _1_admin_model extends model
     }
 
     //get data for best sales reps chart
-    public function get_best_sales_reps(){
+    public function get_best_sales_reps()
+    {
         require '../app/core/database.php';
 
         $sql1 = "SELECT SUM(orders.amount) AS amount,delivery.rep_id,user.name FROM delivery
@@ -115,12 +118,12 @@ class _1_admin_model extends model
                  GROUP BY delivery.rep_id 
                  ORDER BY SUM(orders.amount) DESC
                  LIMIT 6
-                 " ;
+                 ";
         $result1 = mysqli_query($conn, $sql1);
 
         $data = [];
 
-        while($row1 = $result1->fetch_assoc()){
+        while ($row1 = $result1->fetch_assoc()) {
             array_push($data, $row1);
         }
 
@@ -128,7 +131,8 @@ class _1_admin_model extends model
     }
 
     //get customer reg data to admin view chart
-    public function get_customer_reg_data(){
+    public function get_customer_reg_data()
+    {
         require '../app/core/database.php';
 
         $sql1 = "SELECT COUNT(*) AS count, DATE_FORMAT(reg_date, '%b') AS month FROM user
@@ -142,39 +146,41 @@ class _1_admin_model extends model
 
         $data = [];
 
-        while($row1 = $result1->fetch_assoc()){
+        while ($row1 = $result1->fetch_assoc()) {
             array_push($data, $row1);
         }
 
         return $data;
     }
 
-    public function search_customer($customer_id){
+    public function search_customer($customer_id)
+    {
         require '../app/core/database.php';
 
         $sql = "SELECT * FROM customer 
                 WHERE 
-                cus_id LIKE '%".$customer_id."%' 
+                cus_id LIKE '%" . $customer_id . "%' 
                 OR 
-                shop_name LIKE '%".$customer_id."%' 
+                shop_name LIKE '%" . $customer_id . "%' 
                 LIMIT 5";
-                
+
         $result = mysqli_query($conn, $sql);
         return $result;
     }
 
     //search custoemr using route
-    public function search_customer_by_route_get_route(){
+    public function search_customer_by_route_get_route()
+    {
         require '../app/core/database.php';
 
         $sql = "SELECT * FROM route";
         $result = mysqli_query($conn, $sql);
         return $result;
-
     }
 
     //filter customers in the route
-    public function filter_customer_in_route($route_id){
+    public function filter_customer_in_route($route_id)
+    {
         require '../app/core/database.php';
 
         $sql = "SELECT * FROM customer WHERE route_id = '$route_id'";
@@ -183,22 +189,23 @@ class _1_admin_model extends model
     }
 
     //to suggest rep 
-    public function suggest_rep($rep_id){
+    public function suggest_rep($rep_id)
+    {
 
         require '../app/core/database.php';
 
         $sql = "SELECT * FROM sales_rep
-                WHERE rep_id LIKE '%".$rep_id."%'
+                WHERE rep_id LIKE '%" . $rep_id . "%'
                 ";
 
         $result = mysqli_query($conn, $sql);
         return $result;
-       
     }
 
     //add new route
-    public function add_new_route($route_name, $destination, $rep_id_input){
-        
+    public function add_new_route($route_name, $destination, $rep_id_input)
+    {
+
         require '../app/core/database.php';
 
         $sql = "INSERT INTO route (route_name, end, rep_id)
@@ -208,7 +215,8 @@ class _1_admin_model extends model
     }
 
     //delete route
-    public function delete_route($route_id){
+    public function delete_route($route_id)
+    {
 
         require '../app/core/database.php';
 
@@ -221,7 +229,8 @@ class _1_admin_model extends model
     }
 
     //test reports
-    public function test_report1(){
+    public function test_report1()
+    {
 
         require '../app/core/database.php';
 
@@ -232,29 +241,29 @@ class _1_admin_model extends model
 
         $data1 = [];
 
-        while($row1 = $result1->fetch_assoc()){
+        while ($row1 = $result1->fetch_assoc()) {
             array_push($data1, $row1);
         }
 
-        
+
 
         $sql2 = "SELECT user_id FROM user";
         $result2 = mysqli_query($conn, $sql2);
 
         $data2 = [];
 
-        while($row2 = $result2->fetch_assoc()){
+        while ($row2 = $result2->fetch_assoc()) {
             array_push($data2, $row2);
         }
 
-        
+
 
         return [$data1, $data2];
-
     }
 
     //get data to load customer profile for admin
-    public function load_cus_data($cus_id){
+    public function load_cus_data($cus_id)
+    {
         require '../app/core/database.php';
 
         $sql1 = "SELECT * FROM user, customer,route
@@ -266,11 +275,11 @@ class _1_admin_model extends model
 
         $result1 = mysqli_query($conn, $sql1);
         return $result1->fetch_assoc();
-
     }
 
     //change customer credit time
-    public function change_credit_period($cus_id, $new_time){
+    public function change_credit_period($cus_id, $new_time)
+    {
         require '../app/core/database.php';
 
         $sql = "update customer set credit_time = '$new_time' where cus_id = '$cus_id'";
@@ -280,24 +289,57 @@ class _1_admin_model extends model
     }
 
     //check the admin level
-    public function check_level($user_id){
+    public function check_level($user_id)
+    {
         require '../app/core/database.php';
 
         $sql = "select level from admin where admin_id = '$user_id'";
         $result = mysqli_query($conn, $sql);
 
         return $result;
-
     }
 
-    public function search_rep($rep){
+    public function search_rep($rep)
+    {
         require '../app/core/database.php';
 
-        $sql = "select * from user where (name LIKE '%$rep%' or user_id LIKE '%$rep%') and type = 'rep'";
+        $sql = "select * from user where (name LIKE '%$rep%' or user_id LIKE '%$rep%') and type = 'rep' LIMIT 5";
         $result = mysqli_query($conn, $sql);
 
         return $result;
     }
-       
 
+    public function check_admin($user_id)
+    {
+        require '../app/core/database.php';
+
+        $sql = "select * from admin where admin_id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
+    //remove user function
+    public function remove_the_user($user_id, $position, $purpose)
+    {
+        require '../app/core/database.php';
+
+        $check = 0;
+
+        $sql1 = "update user set deleted = '1' where user_id = '$user_id'";
+        $result1 = mysqli_query($conn, $sql1);
+
+        if ($result1 == false) {
+            $check = 1;
+        }
+
+        $sql2 = "insert into removed_users (user_id, position, purpose) values ('$user_id', '$position', '$purpose')";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if ($result2 == false) {
+            $check = 1;
+        }
+
+        return $check;
+    }
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../public/styles/view_stockManager_manageStocks.css">
     <title>Manage Stocks</title>
+    <!-- <script src="https://kit.fontawesome.com/d2020d2b7c.js" crossorigin="anonymous"></script> -->
     <style>
     </style>
 </head>
@@ -22,7 +23,7 @@
 
             <div class="inStock">
                 <label class="label_inStock" for="quantity">In Stock</label><br>
-                <input class="input_inStock" type="text" name="quantity" id="quantity" value="1500">
+                <input class="input_inStock" type="text" name="quantity" id="quantity" value="">
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
@@ -33,12 +34,16 @@
                     <!--i class="fas fa-minus"--></i>
                 </button><br><br>
 
-                <div class="classA">
+                <!-- <div class="classA">
                     <input class="inputAdd" type="text" id="inputAdd" placeholder="Amount">
-                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="showHideAdd ()">
-                        <!--i class="fas fa-calendar-check"></i-->
-                    </button>
+                    <button class="addamountAddBtn" id="addamountAddBtn" onclick="myfunc()"> -->
+                <!--i class="fas fa-calendar-check"></i-->
+                <!-- </button>
 
+                </div> -->
+                <div class="addAmountDiv">
+                    <input type="text" class="addAmountInput">
+                    <button class="submitAddAmount">S</button>
                 </div>
 
             </div>
@@ -156,6 +161,31 @@
 
 
     </section>
+    <!-- <div class="messagecontainer">
+        <div class="messageArea">
+            <div class="checkIcon">
+               
+                <i class="fa-solid fa-location-question"></i>
+            </div>
+            <div class="popUpTextArea_1">
+                <h2>Are you sure</h2>
+
+            </div>
+
+            <div class="popUpTextArea_2">
+                <h2>removing 50 items ?</h2>
+            </div>
+            <div class="divDoneBTN">
+                <button class="Yes" >Yes</button>
+            </div>
+
+            <div class="divDoneBTN">
+                <button class="No" >No</button>
+            </div>
+
+        </div> -->
+
+
 
     <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
@@ -357,10 +387,63 @@
         var btnRemove = document.querySelector('.btn_submitRemove') // remove stocks
         var removeAmount = document.querySelector('.inputRemoveQuantity')
 
-        btnRemove.addEventListener ('', () => {
-            
+        btnRemove.addEventListener('click', () => {
+            let dataSet = {
+                productId: productId,
+                amount: removeAmount.value
+
+            }
+            // console.log (dataSet)
+            fetch('http://localhost/web-Experts/public/stockManager/removeStocks_con', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+
+                    },
+                    body: JSON.stringify(dataSet)
+
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+
+                })
+        })
+
+        function myfunc() {
+            console.log("Malithii")
+        }
+
+        var addBtn = document.querySelector('.submitAddAmount')
+        var addAmount = document.querySelector('.addAmountInput')
+
+        addBtn.addEventListener('click', () => {
+          
+            let dataSet = {
+                productId: productId,
+                amount: addAmount.value
+
+            }
+            console.log (dataSet)
+            fetch('http://localhost/web-Experts/public/stockManager/addStocks_con', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify(dataSet)
+
+            })
+            .then (response => response.json ())
+            .then (data => {
+                console.log (data)
+
+            })
         })
     </script>
+
+
+
 </body>
 
 </html>
