@@ -30,7 +30,7 @@ class notification{
     
         
 
-        load_notification(type, isRead) {
+        load_notification(type) {
 
 
             const dataset = {
@@ -64,46 +64,12 @@ class notification{
                 // }
       
                 //choose subject and message according to the notification type
-                if(isRead == 0){
-                  this.subcontainer2.innerHTML = ``;
-                for (let i = 0; i < data.length; i++) {
                 
-                    console.log("tharushan");
-                    this.subcontainer2.innerHTML += `
-      
-                      <div class='notification' id='${data[i]['notification_id']}'>
-      
-                          <div class='from from_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                            ${data[i]['from_whom']}
-                          </div>
-                          <div class='header_notification header_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                             ${data[i][0]}
-                          </div>
-                          <div class='date_notification date_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                            ${data[i]['date']}
-                          </div>
-                          <div class='time_notification time_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-                            ${data[i]['time']}
-                          </div>
-                          <div class='delete delete_${data[i]['notification_id']}' id='${data[i]['notification_id']}'>
-      
-                            <div class='trash'>
-                              <a> <i class='fas fa-trash'></i></a>
-                            </div>
-                            
-                          </div>
-                      </div>
-                      
-                      `;
-                  
-                  } 
-                 
-                }
-                else{
+                
                   console.log("read mails");
                   this.subcontainer2.innerHTML = ``;
                   for (let i = 0; i < data.length; i++) {
-                    if(data[i]['isRead'] == 1){
+                    
                       console.log("dineth");
                       this.subcontainer2.innerHTML += `
         
@@ -132,9 +98,9 @@ class notification{
                         
                         `;
                        
-                      }
+                      
                     } 
-                }
+                
                 console.log(isRead);
                 console.log(data);
 

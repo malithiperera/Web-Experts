@@ -200,12 +200,12 @@ if (!isset($_SESSION['username'])) {
     function filterRead(){
       if(unread.checked == true){
         console.log("read");
-        my_notification.load_notification('%',1);
+        my_notification.load_notification('%');
 
       }
       else{
         console.log("all");
-        my_notification.load_notification('%',0);
+        my_notification.load_notification('%');
 
       }
     }

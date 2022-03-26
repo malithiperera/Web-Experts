@@ -15,6 +15,40 @@
 
 </head>
 
+<style>
+    .error_pop_up{
+        width: 100%;
+        /* background-color: red; */
+        height: 1000px;
+        display: flex;
+        margin-top:-400px;
+        justify-content: center;
+        visibility: hidden;
+
+    }
+
+    .pop-up_errror{
+        border-radius: 10px;
+        border: 3px solid #184A78;;
+        width: 500px;
+        margin-top: 350px;
+        background-color: #fff;
+        height: 200px;
+    }
+    .pop-up_errror h3{
+        margin-top: 40px;
+        color: red;
+    }
+
+    #close_button{
+        width: 100px;
+        height: 30px;
+        background-color: #fff;
+        border: 2px solid #184A78 ;
+        margin-left: 200px;
+        margin-top: 40px;
+    }
+</style>
 <body>
 
     <div class="sidebar">
@@ -175,6 +209,15 @@
         <div class="confirmation" id="confirm_message">
             <?php require 'view_order_complete_popup.php'; ?>
         </div>
+        <div class="error_pop_up">
+    <div class="pop-up_errror">
+        <h3>Cannot process your request</h3>
+
+    <h4 id="err_msg">you must enter a atleast one product to place the orders</h4>
+    <button onclick="myFunction()" id="close_button">ok</button>
+
+    </div>
+</div>
 
         <div class="delete-pop-up">
             <div class="msg-pop">
