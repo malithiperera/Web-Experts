@@ -25,27 +25,57 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-    <!-- START SIDE BAR -->
+   
 
-    <div class="sidebar">
+   <!-- START SIDE BAR -->
 
-    <div class="logo-details">
+  <div class="sidebar">
 
-      <div class="logo_name">Himalee Dairy Products</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
+<div class="logo-details">
 
-    <ul class="nav-list">
+  <div class="logo_name">Himalee Dairy Products</div>
+  <i class='bx bx-menu' id="btn"></i>
+</div>
 
-      <li>
-        <a href="../salesRep/customer_registration">
-          <i class='fas fa-user-plus fa-lg'></i>
-          <span class="links_name">Customer Registration</span>
+<ul class="nav-list">
+<li>
+        <a href="../salesRep/home">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Home</span>
         </a>
-        <span class="tooltip">Customer Registration</span>
+        <span class="tooltip">Home</span>
       </li>
+  <li>
+    <a href="../salesRep/customer_registration">
+      <i class='fas fa-user-plus fa-lg'></i>
+      <span class="links_name">Customer Registration</span>
+    </a>
+    <span class="tooltip">Customer Registration</span>
+  </li>
+  <li>
+<a href="../salesRep/customer_home">
+<i class='bx bx-money'></i>
+  <span class="links_name">Payments</span>
+</a>
+<span class="tooltip">Payments</span>
+</li>
+ <!-- <li>
+    <a href="#">
+      <i class='bx bx-user open-button' onclick="openForm()"></i>
+      <span class="links_name ">Customer Profile</span>
+    </a> -->
+    <!-- <span class="tooltip">Customer Profile</span> -->
+    <!-- <div class="form-popup" id="myForm">
+      <div class="form-container">
 
-  
+        <label for="cus_id"><b>Enter Customer ID</b></label>
+        <input type="text" placeholder="Enter ID" id="searchCus_cusId" required>
+
+        <button class="btn" onclick="searchRep()">Search</button>
+        <button class="btn cancel" onclick="closeForm()">Close</button>
+      </div>
+    </div>
+  </li> -->
 
   <li>
     <!-- <a href="../orders/create_bill"> -->
@@ -116,11 +146,13 @@ if (!isset($_SESSION['username'])) {
     <i class="fas fa-store" id="log_out"></i>
   </li>
 
-    </ul>
+</ul>
 
-  </div>
+</div>
 
-  <!-- END SIDE BAR -->
+<!-- END SIDE BAR -->
+
+ 
 
     <section class="home-section">
         <div class="header">
