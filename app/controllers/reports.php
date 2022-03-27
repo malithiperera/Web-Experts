@@ -296,6 +296,8 @@ public function rep_summary_year(){
         exit;
 
 }
+
+//yearly return reports
     public function return_year(){
 
         $recieved_data_encoded = file_get_contents("php://input");
@@ -303,11 +305,8 @@ public function rep_summary_year(){
 
         $this->model('report_model');
          $result=$this->model->return_year($recieved_data);
-    //      $data2 = [];
-    //    while ($row = $result->fetch_assoc()) {
-    //        array_push($data2, $row);
-    //    }
-    //     // echo json_encode($result);
+        
+    
         echo json_encode($result);
         exit;
         

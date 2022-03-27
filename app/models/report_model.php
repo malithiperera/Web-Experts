@@ -219,7 +219,8 @@ array_push($result_set,$data1);
         where returns.return_id = return_product.return_id
         AND
 
-        return_product.product_id = product.product_id;";
+        return_product.product_id = product.product_id and month(date)='$month' and
+       year(date)='$year';";
 
         $result=mysqli_query($conn,$sql);
        array_push($cards,$result->fetch_assoc());
@@ -289,26 +290,60 @@ public function rep_summary_year($year)
     return $result2;
 
 }
-    //return yearly report
+    
+
+
+
+//return yearly report
 
     public function return_year($year){
-        $month=11;
+        
         require '../app/core/database.php';
+        $year=$year['year'];
 
-    //     $sql = "SELECT customer.route_id,sum(product.price*return_product.qty) as total_amount,user.name as rep_name,route.route_name from returns,return_product,customer,product,user,route
-    //     where returns.return_id = return_product.return_id
-    //     AND
-    //     returns.cus_id = customer.cus_id
-    //     AND
-    //     return_product.product_id = product.product_id
-    //     AND
-    //     returns.rep_id = user.user_id
-    //     AND
-    //     customer.route_id=route.route_id 
-    //   and month(date)='$month' and
-    //    year(date)='$year' group by customer.route_id;";
-    //    $result=mysqli_query($conn,$sql);
-        return $year;
+
+        $maninarray=[];
+//card datas
+        $data1=[];
+
+        //card1
+        $sql="SELECT sum(product.price*return_product.qty) as total_amount from returns,return_product,product
+        where returns.return_id = return_product.return_id
+        AND
+
+        return_product.product_id = product.product_id AND  year(date)='$year';";
+        $result=mysqli_query($conn,$sql);
+        $result1=mysqli_fetch_assoc($result);
+        array_push($data1,$result1);
+//card-2
+$sql1="SELECT COUNT(DISTINCT(cus_id)) as shops FROM returns where year(date)='$year'";
+       $result1=mysqli_query($conn,$sql1);
+       array_push($data1,$result1->fetch_assoc());
+       array_push($maninarray,$data1);
+
+
+       //queary for table
+
+        $sql = "SELECT customer.route_id,sum(product.price*return_product.qty) as total_amount,user.name as rep_name,route.route_name from returns,return_product,customer,product,user,route
+        where returns.return_id = return_product.return_id
+        AND
+        returns.cus_id = customer.cus_id
+        AND
+        return_product.product_id = product.product_id
+        AND
+        returns.rep_id = user.user_id
+        AND
+        customer.route_id=route.route_id 
+      and 
+       year(date)='$year' group by customer.route_id;";
+
+       $result=mysqli_query($conn,$sql);
+       $data2 = [];
+       while ($row = $result->fetch_assoc()) {
+           array_push($data2, $row);
+       }
+       array_push($maninarray,$data2);
+       return $maninarray;
 
     }
 }

@@ -28,7 +28,7 @@ width: 100%;
 height: 80px;
 background-color: #184A78;
 position: fixed;
-text-transform: uppercase;
+/* text-transform: uppercase; */
 
 }
 
@@ -68,7 +68,7 @@ nav ul li{
    display: inline-block;
     line-height: 60px;
     margin: 0 15px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   list-style: none;
 position: relative;
 }
@@ -118,7 +118,7 @@ top: -0px;
   background: #184A78;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000;
+    z-index:1000;
     
   }
   
@@ -193,6 +193,10 @@ i{
     display: block;
     font-size: small;
   }
+
+  #user_email{
+    text-transform: lowercase;
+  }
   
 }
 
@@ -210,7 +214,7 @@ i{
          
             <!-- <li><a href=""><i class="fas fa-arrow-left"></i></a></li> -->
             
-            <li><span ><?php echo $_SESSION['username']; ?></span></li>
+            <li><span id="user_email" class="user_email"><?php echo $_SESSION['username']; ?></span></li>
             
              
             

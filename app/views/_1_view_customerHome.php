@@ -36,6 +36,7 @@ $userid = $_SESSION['userid'];
       display: none;
 
     }
+
   </style>
 
 </head>
@@ -261,6 +262,10 @@ $userid = $_SESSION['userid'];
       <?php require 'view_all_report_popup.php'; ?>
     </div>
 
+    <div class="delete_order_pop">
+
+    </div>
+
 
 
   </section>
@@ -303,7 +308,7 @@ function get_pending_orders(){
                 
                 </td>
                 <td><button id="view-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>view</button></td>
-                <td><button id="del-del" onclick="location.href = '../customer/view_orders?order_id=${data[i]['order_id']}&cus_id=${data[i]['cus_id']}&route_id=${data[i]['route_id']}';"><i class="fas fa-eye"></i>Delete</button></td>
+                <td><button id="del-del" onclick="delete_order(${data[i]['order_id']})"><i class="fas fa-eye"></i>Delete</button></td>
                 
               </tr>+
             </table>
@@ -589,14 +594,15 @@ home.load('test2.php');
 
     }
     //pending orders check
-    // var flag="<?php echo $this->flag ?>";
+    var flag="<?php echo $this->flag ?>";
 
-    // if(flag==1){
+    if(flag==1){
 
-    // console.log(flag);
+      // pop_report=document.querySelector('.pop-up-report');
+      // pop_report.style.visibility="visible";
+      // flag=0;
 
-
-    // }
+    }
     console.log("Hello")
   </script>
   <script>
@@ -613,6 +619,13 @@ home.load('test2.php');
       card.style.opacity = "50%";
       detail.style.opacity = "50%";
      
+    }
+
+    function delete_order(orderid){
+      pop_up_div = document.getElementById('pop-up-report');
+      pop_up_div.style.visibility="visible";
+      // pop_up_div.innerHTML=" ";
+
     }
   </script>
 
