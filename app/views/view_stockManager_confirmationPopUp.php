@@ -23,7 +23,7 @@
             </div>
 
             <div class="popUpTextArea_2">
-                <h2>removing 50 items ?</h2>
+                <h2>removing <span><?php  echo $this->qty ;?></span> items ?</h2>
 
             </div>
 

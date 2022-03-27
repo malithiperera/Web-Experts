@@ -199,7 +199,9 @@ class stockManager extends controller {
 
     }
 
-    public function popUpComfirm () {                                       // pop up confirm delete message
+    public function popUpComfirm () {  
+        $amount=$_GET['removeqty'];
+        $this->view->qty=$amount;                                     // pop up confirm delete message
         $this->view->render ('view_stockManager_confirmationPopUp');
 
     }
