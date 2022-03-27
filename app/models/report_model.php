@@ -283,9 +283,37 @@ array_push($result_set,$data1);
         return $result2;
     }
 //yaerly reports sales rep
+//cards 
+public function  rep_summary_year_cards($year){
+$cards=[];
+require '../app/core/database.php';
+$sql="SELECT COUNT(sales_rep.rep_id) as sales_rep FROM sales_rep";
+$result=mysqli_query($conn,$sql);
+array_push($cards,mysqli_fetch_assoc($result));
+
+$sql2="SELECT count(customer.cus_id) as shops from customer";
+$result1=mysqli_query($conn,$sql2);
+array_push($cards,mysqli_fetch_assoc($result1));
+
+$sql3="SELECT count(route.route_id) as route from route";
+$result2=mysqli_query($conn,$sql3);
+array_push($cards,mysqli_fetch_assoc($result2));
+
+
+return $cards;
+}
+
+
 public function rep_summary_year($year)
 {  require '../app/core/database.php';
-    $sql="SELECT delivery.rep_id,user.name ,sum(orders.amount) as sumSales, sales_rep.target from orders,delivery,user,sales_rep WHERE orders.order_id=delivery.delivery_id AND year(delivery.date)='2021' AND user.user_id=delivery.rep_id AND sales_rep.rep_id=delivery.rep_id GROUP BY delivery.rep_id;";
+
+    //details for cards
+   
+
+
+
+
+    $sql="SELECT delivery.rep_id,user.name ,sum(orders.amount) as sumSales, sales_rep.target from orders,delivery,user,sales_rep WHERE orders.order_id=delivery.delivery_id AND year(delivery.date)='2021' AND user.user_id=delivery.rep_id AND sales_rep.rep_id=delivery.rep_id and year(delivery.date)='$year' GROUP BY delivery.rep_id;";
     $result2=mysqli_query($conn,$sql);
     return $result2;
 

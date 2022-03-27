@@ -627,6 +627,22 @@ class report {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+
+        this.create_card(
+          '<i class="fas fa-luggage-cart"></i>',
+          "Total Sales Rep",
+          data[0][0]["sales_rep"]
+        );
+        this.create_card(
+          '<i class="fas fa-truck"></i>',
+          "No Of Routes",
+          data[0][1]["shops"]
+        );
+        this.create_card(
+          '<i class="fas fa-money-bill-alt"></i>',
+          "Shops",
+          data[0][2]["route"]
+        );
         this.summary_section = document.createElement("div");
         this.main.appendChild(this.summary_section);
         this.summary_section.classList.add("section", "cus-section");
