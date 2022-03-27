@@ -210,7 +210,7 @@ class stockManager extends controller {
 
     //stock return to stockmanager in the evening
     public function stock_return(){
-        $this->view->render('view_stockManager_repList_products');
+        $this->view->render('view_stockManager_stock_return');
     }
 }
 

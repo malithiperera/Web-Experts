@@ -411,6 +411,9 @@ public function remove_the_user(){
     exit;
 }
 
+//add employee new view
+public function add_employee_new(){
+    $this->view->render('view_admin_addemployee2');
 }
 
-?>
+}
