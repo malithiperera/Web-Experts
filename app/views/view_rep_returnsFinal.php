@@ -88,125 +88,77 @@ h2{
 
 <body>
 
-    <!-- START SIDE BAR -->
+    <div class="sidebar">
+        <div class="logo-details">
 
-  <div class="sidebar">
+            <div class="logo_name">Himalee Dairy Product</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
 
-<div class="logo-details">
+            <li>
+                <a href="../customer/home">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="../customer/place_order_view">
 
-  <div class="logo_name">Himalee Dairy Products</div>
-  <i class='bx bx-menu' id="btn"></i>
-</div>
+                    <i class='bx bxs-cart-add'></i>
+                    <span class="links_name">Place Order</span>
+                </a>
+                <span class="tooltip">Place Order</span>
+            </li>
 
-<ul class="nav-list">
-
-    <li>
-        <a href="../salesRep/home">
-          <i class='bx bx-home'></i>
-          <span class="links_name">Home</span>
-        </a>
-        <span class="tooltip">Home</span>
-      </li>
-  <li>
-    <a href="../salesRep/customer_registration">
-      <i class='fas fa-user-plus fa-lg'></i>
-      <span class="links_name">Customer Registration</span>
-    </a>
-    <span class="tooltip">Customer Registration</span>
-  </li>
-
-  <li>
-    <a href="#">
-      <i class='bx bx-user open-button' onclick="openForm()"></i>
-      <span class="links_name ">Customer Profile</span>
-    </a>
-    <!-- <span class="tooltip">Customer Profile</span> -->
-    <div class="form-popup" id="myForm">
-      <div class="form-container">
-
-        <label for="cus_id"><b>Enter Customer ID</b></label>
-        <input type="text" placeholder="Enter ID" id="searchCus_cusId" required>
-
-        <button class="btn" onclick="searchRep()">Search</button>
-        <button class="btn cancel" onclick="closeForm()">Close</button>
-      </div>
+            <li>
+                <a href="#" onclick="pop_up_report()">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="links_name">Reports</span>
+                </a>
+                <span class="tooltip">Reports</span>
+            </li>
+            <li>
+                <a href="../customer/our_products">
+                    <i class="fas fa-ice-cream"></i>
+                    <span class="links_name">Our Products</span>
+                </a>
+                <span class="tooltip">Our Products</span>
+            </li>
+            <li>
+                <a href="../customer/view_notification">
+                    <i class='bx bx-bell'></i>
+                    <span class="links_name">Notification</span>
+                </a>
+                <span class="tooltip">Notification</span>
+            </li>
+            <li>
+                <a href="../customer/profile">
+                    <i class="far fa-user-circle"></i>
+                    <span class="links_name">Profile</span>
+                </a>
+                <span class="tooltip">Profile</span>
+            </li>
+            <li>
+                <a href="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="links_name">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="profile.jpg" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name"></div>
+                        <div class="job">Customer</div>
+                    </div>
+                </div>
+                <i class="fas fa-store" id="log_out"></i>
+            </li>
+        </ul>
     </div>
-  </li>
-
-  <li>
-    <!-- <a href="../orders/create_bill"> -->
-    <a href="../salesRep/offline_placeOrder">
-      <i class='bx bxs-cart-add'></i>
-      <span class="links_name">Place Order</span>
-    </a>
-    <span class="tooltip">Place Order</span>
-  </li>
-
-  <li>
-    <a href="../salesRep/returns">
-      <i class="fas fa-exchange-alt"></i>
-      <span class="links_name">Returns</span>
-    </a>
-    <span class="tooltip">Returns</span>
-  </li>
-
-  <li>
-    <a href="../salesRep/view_report">
-      <i class='bx bx-line-chart'></i>
-      <span class="links_name">Reports</span>
-    </a>
-    <span class="tooltip">Reports</span>
-  </li> 
-
-  <li>
-    <a href="../salesRep/view_notifications">
-      <i class='bx bx-bell'></i>
-      <span class="links_name">Notifications</span>
-    </a>
-    <span class="tooltip">Notifications</span>
-  </li>
-
-  <li>
-    <a href="../salesRep/achievements">
-
-      <i class="fas fa-trophy"></i>
-      <span class="links_name">Achievements</span>
-    </a>
-    <span class="tooltip">Achievements</span>
-  </li>
-
-  <li>
-    <a href="../  customer/profile">
-      <i class="far fa-user-circle"></i>
-      <span class="links_name">Profile</span>
-    </a>
-    <span class="tooltip">Profile</span>
-  </li>
-
-  <li>
-    <a href="../login/logout">
-      <i class="fas fa-sign-out-alt"></i>
-      <span class="links_name">Logout</span>
-    </a>
-    <span class="tooltip">Logout</span>
-  </li>
-
-  <li class="profile">
-    <div class="profile-details">
-      <img src="profile.jpg" alt="profileImg">
-      <div class="name_job">
-        <div class="name">ABC</div>
-        <div class="job">Sales Rep</div>
-      </div>
-    </div>
-    <i class="fas fa-store" id="log_out"></i>
-  </li>
-
-</ul>
-
-</div>
-
-<!-- END SIDE BAR -->
 
     <section class="home-section">
         <div class="header">
@@ -220,21 +172,7 @@ h2{
             <div class="subcontainer">
 
                 <div class="details">
-                    <!-- <div class="detail_id">
-                        <i class="fas fa-house-user"></i>
-                        <label for="" id="det1">Customer Id/Name : </label>
-                        <input type="text" id="user_id1"  placeholder="Enter the customer Id" onkeyup="customer_name_suggest()">
-                    </div>
-
-                    <div class="detail_id">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <label for="" id="det1">Route Name : </label>
-                        <input type="text" id="route_id1" placeholder="Enter the Route name">
-                    </div>
-                    <div class="detail_id">
-                        <i class="fas fa-store"></i>
-                        <label for="" id="det1">Shop Name: </label>
-                        <input type="text" id="shop_name1" placeholder="Enter the Shop name"> -->
+    
 
                     <div class="customer-serach">
                         <input type="text" placeholder="enter the cus id or cus name" id="serach_user" onkeyup="place_order_intial()">

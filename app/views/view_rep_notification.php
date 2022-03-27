@@ -75,17 +75,17 @@ if (!isset($_SESSION['username'])) {
       </li>
       <li>
         <a href="#" onclick="my_notification.load_notification(15)">
-          <i class="fas fa-not-equal lg-3x"></i>
+        <i class='bx bx-target-lock' ></i>
           <span class="links_name">Target</span>
         </a>
         <span class="tooltip">Target</span>
       </li>
       <li>
-        <a href="#" onclick="my_notification.load_notification(25)">
-          <i class="fas fa-truck-loading lg-3x"></i>
-          <span class="links_name">Stock Requests</span>
+        <a href="#" onclick="my_notification.load_notification(81)">
+        <i class="fas fa-money-check-alt"></i>
+          <span class="links_name">Cheque returns</span>
         </a>
-        <span class="tooltip">Stock Requests</span>
+        <span class="tooltip">Cheque returns</span>
       </li>
       <li>
         <a href="#" onclick="my_notification.load_notification(2)">
@@ -95,16 +95,16 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Deliveries</span>
       </li>
       <li>
-        <a href="#" onclick="my_notification.load_notification(18)">
-          <i class="fas fa-baby lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification(17)">
+        <i class='bx bxs-discount'></i>
           <span class="links_name">Discounts</span>
         </a>
         <span class="tooltip">Discounts</span>
       </li>
 
       <li>
-        <a href="#" onclick="my_notification.load_notification(17)">
-          <i class="fas fa-undo lg-3x"></i>
+        <a href="#" onclick="my_notification.load_notification(18)">
+        <i class='bx bx-purchase-tag-alt'></i>
           <span class="links_name">New Prices</span>
         </a>
         <span class="tooltip">New Prices</span>
@@ -183,6 +183,13 @@ if (!isset($_SESSION['username'])) {
           temp_type = data['notification_type'];
           if (temp_type == 1) {
             my_notification.product_addition(data['product_id']);
+          }else if (temp_type == 17) {
+            my_notification.discount_addition(data['product_id']);
+          }else if(temp_type == 18){
+            my_notification.price_change(data['product_id']);
+          }else if (temp_type == 81) {
+            my_notification.cheque_status(data['payment_id'],81);
+            
           } else if (temp_type == 2) {
             my_notification.confirm_delivery(data['delivery_id']);
           } else if (temp_type == 4) {

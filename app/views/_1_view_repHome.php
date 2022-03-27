@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <ul class="nav-list">
-
+      
       <li>
         <a href="../salesRep/customer_registration">
           <i class='fas fa-user-plus fa-lg'></i>
@@ -47,14 +47,20 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Customer Registration</span>
       </li>
-
+      <li>
+    <a href="../salesRep/customer_home">
+      <i class='fas fa-user-plus fa-lg'></i>
+      <span class="links_name">Payments</span>
+    </a>
+    <span class="tooltip">Payments</span>
+  <!-- </li>
       <li>
         <a href="#">
           <i class='bx bx-user open-button' onclick="openForm()"></i>
           <span class="links_name ">Customer Profile</span>
-        </a>
+        </a> -->
         <!-- <span class="tooltip">Customer Profile</span> -->
-        <div class="form-popup" id="myForm">
+        <!-- <div class="form-popup" id="myForm">
           <div class="form-container">
 
             <label for="cus_id"><b>Enter Customer ID</b></label>
@@ -64,7 +70,7 @@ if (!isset($_SESSION['username'])) {
             <button class="btn cancel" onclick="closeForm()">Close</button>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <li>
         <!-- <a href="../orders/create_bill"> -->
@@ -91,13 +97,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Reports</span>
       </li> --> 
 
-      <!-- <li>
+      <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
         <span class="tooltip">Notifications</span>
-      </li> -->
+      </li>
 
       <li>
         <a href="../salesRep/achievements">
@@ -142,17 +148,18 @@ if (!isset($_SESSION['username'])) {
   <!-- END SIDE BAR -->
 
 <!-- ADD HEADER -->
+<section class="home-section">
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
 
-<div class="header">
-    <?php require 'view_headertype2.php'; ?>
-  </div>
 
 
 
 
   <!-- START CARD SECTION -->
 
-  <section class="home-section">
+  
 
     <section class="cards-section">
 

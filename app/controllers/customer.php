@@ -48,27 +48,29 @@ class customer extends controller
     {
         session_start();
         $userid=$_SESSION['userid'];
-        $this->view->render("test2");
+        //  $this->view->render("test2");
+         
 
         $this->model('order_model');
         
 
         //check pending orders
-//         $result=$this->model->checkorders($userid);
-//         // $result1=mysqli_fetch_assoc($result);
-//         // print_r($result1);
+        $result=$this->model->checkorders($userid);
+        $result1=mysqli_fetch_assoc($result);
+        // print_r($result1);
 
-// if(mysqli_num_rows($result)==0){
-//     //  $this->view->render('test2');
+if(mysqli_num_rows($result)==0){
+     $this->view->render('test2');
 
 
-// }
-// else{
+}
+else{
    
-//     $this->view->flag=1;
-//     $this->view->render("_1_view_customerHome");
-// }
-
+    $this->view->flag=1;
+    session_abort();
+    $this->view->render("_1_view_customerHome");
+}
+echo mysqli_num_rows($result);
         
     }
 

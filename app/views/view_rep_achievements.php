@@ -10,22 +10,39 @@ if (!isset($_SESSION['username'])) {
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../public/styles/view_rep_achievements.css">
   <title>Achievements</title>
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+=======
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/styles/view_rep_achievements.css">
+    <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
+    <title>Achievements</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+>>>>>>> f0238bde2cfdd9171a5a0f551aa74d8ca27d76cc
 </head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 
 
 <body>
 
+<<<<<<< HEAD
   <!-- START SIDE BAR -->
 
   <div class="sidebar">
+=======
+    <!-- START SIDE BAR -->
+
+    <div class="sidebar">
+>>>>>>> f0238bde2cfdd9171a5a0f551aa74d8ca27d76cc
 
     <div class="logo-details">
 
@@ -43,6 +60,7 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Customer Registration</span>
       </li>
 
+<<<<<<< HEAD
       <!-- <li>
     <a href="#">
       <i class='bx bx-user open-button' onclick="openForm()"></i>
@@ -121,6 +139,78 @@ if (!isset($_SESSION['username'])) {
         </div>
         <i class="fas fa-store" id="log_out"></i>
       </li>
+=======
+  
+
+  <li>
+    <!-- <a href="../orders/create_bill"> -->
+    <a href="../salesRep/offline_placeOrder">
+      <i class='bx bxs-cart-add'></i>
+      <span class="links_name">Place Order</span>
+    </a>
+    <span class="tooltip">Place Order</span>
+  </li>
+
+  <li>
+    <a href="../salesRep/returns">
+      <i class="fas fa-exchange-alt"></i>
+      <span class="links_name">Returns</span>
+    </a>
+    <span class="tooltip">Returns</span>
+  </li>
+
+  <!-- <li>
+    <a href="../salesRep/view_report">
+      <i class='bx bx-line-chart'></i>
+      <span class="links_name">Reports</span>
+    </a>
+    <span class="tooltip">Reports</span>
+  </li> --> 
+
+  <li>
+    <a href="../salesRep/view_notifications">
+      <i class='bx bx-bell'></i>
+      <span class="links_name">Notifications</span>
+    </a>
+    <span class="tooltip">Notifications</span>
+  </li>
+
+  <li>
+    <a href="../salesRep/achievements">
+
+      <i class="fas fa-trophy"></i>
+      <span class="links_name">Achievements</span>
+    </a>
+    <span class="tooltip">Achievements</span>
+  </li>
+
+  <li>
+    <a href="../  customer/profile">
+      <i class="far fa-user-circle"></i>
+      <span class="links_name">Profile</span>
+    </a>
+    <span class="tooltip">Profile</span>
+  </li>
+
+  <li>
+    <a href="../login/logout">
+      <i class="fas fa-sign-out-alt"></i>
+      <span class="links_name">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+  </li>
+
+  <li class="profile">
+    <div class="profile-details">
+      <img src="profile.jpg" alt="profileImg">
+      <div class="name_job">
+        <div class="name">ABC</div>
+        <div class="job">Sales Rep</div>
+      </div>
+    </div>
+    <i class="fas fa-store" id="log_out"></i>
+  </li>
+>>>>>>> f0238bde2cfdd9171a5a0f551aa74d8ca27d76cc
 
     </ul>
 
@@ -128,6 +218,7 @@ if (!isset($_SESSION['username'])) {
 
   <!-- END SIDE BAR -->
 
+<<<<<<< HEAD
   <!-- START HEADER -->
 
   <div class="header">
@@ -138,6 +229,14 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <!-- END HEADER -->
+=======
+    <section class="home-section">
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
+
+
+>>>>>>> f0238bde2cfdd9171a5a0f551aa74d8ca27d76cc
 
 
   <!-- START CARD SECTION -->

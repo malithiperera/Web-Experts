@@ -281,5 +281,50 @@ class _2_salesrep_model extends model
 
        
     }
+
+    public function return_products(){
+        require '../app/core/database.php';
+
+        $sql = "select * from product";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
+
+    public function fillReturns($cus_id,$rep_id,$get_data){
+        require '../app/core/database.php';
+
+        $sql1 = "insert into returns (rep_id,cus_id) values ('$rep_id','$cus_id')";
+        $result1 = mysqli_query($conn, $sql1);
+
+        return $result1;
+
+        // $check = 0;
+
+
+        for ($x = 0; $x < sizeof($get_data);$x++) {
+            $product_id = $get_data[$x][0];
+            $qty = $get_data[$x][2];
+            $reason = $get_data[$x][3];
+
+
+            $sql2 = "insert into return_product (product_id,qty,reason) values ('$product_id','$qty','$reason')";
+           
+           $result2 = mysqli_query($conn,$sql2);
+           return $result2;
+
+    //        if($result2 == false){
+    //            $check = 1;
+    //        }
+       
+      }
+      
+        
+
+    // return $check;
+    }
+
+       
+    
     
 }

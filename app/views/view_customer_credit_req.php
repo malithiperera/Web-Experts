@@ -24,8 +24,20 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../public/styles/view_customer_req.css">
     <style>
         
+.container{
+    z-index: 5000;
+}
 
-       
+.pop-up-success{
+    margin-top: 100px;
+}
+      
+#submit_request{
+    width: 120px;
+    margin-left: 50px;
+}
+
+
     </style>
 </head>
 
@@ -84,7 +96,7 @@ if (!isset($_SESSION['username'])) {
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="logout">
+                <a href="../login/logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="links_name">Logout</span>
                 </a>
