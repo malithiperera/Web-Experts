@@ -629,20 +629,30 @@ class report {
         console.log(data);
 
         this.create_card(
-          '<i class="fas fa-luggage-cart"></i>',
+          '<i class="fas fa-user-tie fa-lg"></i>',
           "Total Sales Rep",
           data[0][0]["sales_rep"]
         );
         this.create_card(
-          '<i class="fas fa-truck"></i>',
+          '<i class="fas fa-map-marker-alt fa-lg"></i>',
           "No Of Routes",
           data[0][1]["shops"]
         );
         this.create_card(
-          '<i class="fas fa-money-bill-alt"></i>',
+          ' <i class="fas fa-landmark fa-lg"></i>',
           "Shops",
           data[0][2]["route"]
+
+          
         );
+
+        this.card_con_1.innerHTML=`<ul id="print_list"><li><p>Total Registered sales rep: ${data[0][0]["sales_rep"]}</p></li>
+         
+        <li><p>Total registered shops: ${ data[0][1]["shops"]}</p></li>
+        <li><p>Total Routes: RS.${data[0][2]["route"]}</p></li>
+        
+        
+        </ul>`
         this.summary_section = document.createElement("div");
         this.main.appendChild(this.summary_section);
         this.summary_section.classList.add("section", "cus-section");
@@ -664,11 +674,11 @@ class report {
             
             <tr>
             
-            <td class="pro_name">${data[i]["rep_id"]}</td>
-            <td class="pro_name">${data[i]["name"]}</td>
+            <td class="pro_name">${data[1][i]["rep_id"]}</td>
+            <td class="pro_name">${data[1][i]["name"]}</td>
             
-            <td class="price">${data[i]["sumSales"]}</td>
-            <td class="pro_name">${data[i]["target"]}</td>
+            <td class="price">${data[1][i]["sumSales"]}</td>
+            <td class="pro_name">${data[1][i]["target"]}</td>
             
           
            

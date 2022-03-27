@@ -71,6 +71,19 @@ class issue extends controller{
         // echo $issue_id;
 
     }
+    public function issue_list_handover(){
+        $issue_id=$_GET['reqid'];
+        session_start();
+        $_SESSION['issue_id']=$issue_id;
+        $this->view->added=$issue_id;
+        $this->view->render('view_stockManager_handover_products');
+        
+
+        // echo $issue_id;
+
+    }
+    //handover products
+
 
     //save in the database after issuing
 
@@ -81,6 +94,20 @@ class issue extends controller{
         $get_data = json_decode($get_data, true);
         $this->model('issue_model');
         $result=$this->model->issue_rep_pro($get_data);
+
+        
+        echo json_encode($result);
+        exit;
+
+    }
+
+    public function final_process(){
+        session_start();
+        $issueid=$_SESSION['issue_id'];
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('issue_model');
+        $result=$this->model->issue_rep_final($get_data);
 
         
         echo json_encode($result);

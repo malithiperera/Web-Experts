@@ -26,8 +26,8 @@
         visibility: hidden;
         /* z-index: -1; */
     }
-
-    .suceesful_pop {
+    
+    .suceesful_pop{
 
         width: 40%;
         /* background-color: #fff; */
@@ -124,8 +124,9 @@
                         <tr>
                             <th>Product</th>
                             <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>edit</th>
+                            <th>Issue Quantity</th>
+                            <th>Delivered Quantity</th>
+                            <th>Final Quantity</th>
 
                         </tr>
                     </thead>
@@ -142,15 +143,15 @@
 
         <div class="pop-up-suc">
             <div class="suceesful_pop">
-                <?php require "view_successfull_pop-up.php"; ?>
+<?php require "view_successfull_pop-up.php"; ?>
 
             </div>
 
-        </div>
+</div>
 
 
     </section>
-
+   
 
 
 
@@ -177,7 +178,7 @@
                     for (let i = 0; i < data.length; i++) {
 
                         fl_table.innerHTML += `<tr><td>${data[i]['product_id']}</td><td>${data[i]['product_name']}</td>
-         <td>${data[i]['requested_qty']}</td><td><input value="${data[i]['requested_qty']}"></td></tr>`;
+         <td>${data[i]['requested_qty']}</td><td>${data[i]['deliver_qty']}</td><td><input></td></tr>`;
                     }
                 });
 
@@ -187,6 +188,7 @@
 
 
         function issue_products_save() {
+            console.log("Malithi")
             var table_data = new Array(fl_table.rows.length - 1);
             console.log(document.querySelector('.fl-table').rows.length)
             for (i = 1; i < fl_table.rows.length; i++) {
@@ -195,7 +197,7 @@
                 table_data[i - 1] = new Array(table_cell.length);
 
                 for (j = 0; j < table_cell.length; j++) {
-                    if (j == 3) {
+                    if (j == 4) {
 
                         table_data[i - 1][j] = table_cell.item(j).children[0].value;
                     } else {
@@ -207,9 +209,9 @@
                 }
 
             }
-            console.log(table_data);
+            // console.log(table_data);
 
-            fetch('http://localhost/web-Experts/public/issue/issue_rep', {
+            fetch('http://localhost/web-Experts/public/issue/final_process', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -219,12 +221,10 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    if (data == true) {
-                        var pop_up = document.querySelector('.pop-up-suc');
-                        pop_up.style.visibility = "visible";
+                    if (data == 0) {
                         var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="visible";
-            document.getElementById('msg').innerHTML="requested confirm";
+            document.getElementById('msg').innerHTML="Process Completed";
 
 
                     }
@@ -233,16 +233,11 @@
 
         }
 
-        // function hide_popup() {
-        //     var pop_up = document.querySelector('.pop-up-suc');
-        //     pop_up.style.visibility = "hidden";
-
-
         function hide_popup(){
             var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="hidden";
             
-            window.location.href="http://localhost/web-Experts/public/stockManager/viewList?rep=6";
+            window.location.href="http://localhost/web-Experts/public/stockManager/ rep_list_back";
         }
     </script>
 

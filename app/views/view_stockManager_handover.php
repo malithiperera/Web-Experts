@@ -72,6 +72,14 @@
             padding: 10px;
         }
 
+        
+
+
+
+        .fl-table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
         #date_id{
             /* margin-top: 90px; */
             font-size: 24px;
@@ -82,7 +90,7 @@
             height: 20px;
             padding: 5px;
             margin: 20px;
-            background-color: green;
+            background-color: #184A78;
             color: #fff;
         }
 
@@ -148,14 +156,14 @@
 
         // console.log ("test")
         const getRepList = () => {
-            fetch('http://localhost/web-Experts/public/stockManager/getRepList_cont', {})
+            fetch('http://localhost/web-Experts/public/stockManager/getRepList_cont_handover', {})
                 .then(response => response.json())
                 .then(data => {
 
                     for (let i = 0; i < data.length; i++) {
                         
 
-                        list.innerHTML+=`<tr><td>${data[i]['issue_id']}</td><td>${data[i]['rep_id']}</td><td>${data[i]['name']}</td><td><a href="../issue/issue_list?reqid=${data[i]['issue_id']}" id="view_but">view</a></td></tr>`
+                        list.innerHTML+=`<tr><td>${data[i]['issue_id']}</td><td>${data[i]['rep_id']}</td><td>${data[i]['name']}</td><td><a href="../issue/issue_list_handover?reqid=${data[i]['issue_id']}" id="view_but">view</a></td></tr>`
 
 
                
