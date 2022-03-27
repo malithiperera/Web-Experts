@@ -48,6 +48,9 @@
         margin-left: 200px;
         margin-top: 40px;
     }
+    .container{
+z-index: 1000;
+    }
 </style>
 <body>
 
@@ -104,7 +107,7 @@
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="logout">
+                <a href="../login/logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="links_name">Logout</span>
                 </a>

@@ -291,12 +291,15 @@ function delete_pro() {
         x.deleteRow(event.path[2]);
         pop_up.style.display = "none";
         delete_pop_up.style.display = "none";
+        cal_tot_amount();
     }
     if (new_product.rows.length == 0) {
         change.style.visibility = "hidden";
     }
+
 }
 
+//calculating discounts
 function cal_tot1() {
     var unit_price = event.path[2].children[1].innerHTML;
     var dis = event.path[2].children[2].innerHTML;
@@ -306,8 +309,7 @@ function cal_tot1() {
 
     event.path[2].children[4].innerHTML = (unit_price * new_qua) * (100 - dis) / 100;
 
-    cal_tot_amount();
-
+  
 
 // var x="<?php echo $_session['user_id'] ?>"
 
@@ -315,6 +317,7 @@ function cal_tot1() {
 }
 
 function cal_tot_amount() {
+    console.log("H9999999")
 
     var x = document.getElementById('new_product');
 
@@ -339,7 +342,7 @@ window.onload = function() {
 
 
 
-};
+}
 
 
 function cancel_pro() {
