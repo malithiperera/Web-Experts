@@ -18,10 +18,12 @@ if (!isset($_SESSION['username'])) {
     </head>
 
     <body>
-
-          <div>Customer ID:<input type="text" id="cus_id"></div>
+            <h2> RETURNS</h2>
+          <div class="Customer">Enter Customer ID:<input type="text" id="cus_id"></div>
 
             <div class="table-wrapper">
+
+            
                 <table class="fl-table">
                     <thead>
                         <tr>
@@ -52,8 +54,8 @@ if (!isset($_SESSION['username'])) {
                             <tr>
                             <td>${data[i]['product_id']}</td>
                             <td>${data[i]['product_name']}</td>
-                            <td><input type="text" ></td>
-                            <td><input type="text" ></td>
+                            <td><input type="text" id="input-field"></td>
+                            <td><input type="text" id="input-field"></td>
                             </tr>
 
                             `;
