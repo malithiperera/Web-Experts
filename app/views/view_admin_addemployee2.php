@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             font-family: Arial, Helvetica, sans-serif;
         }
+
         .add_employee_container {
             position: relative;
         }
@@ -19,7 +20,7 @@
             left: 40px;
             width: 800px;
             height: 40px;
-           
+
             display: flex;
             justify-content: space-evenly;
         }
@@ -31,9 +32,11 @@
             background-color: #abcdef;
 
         }
-        .add_employee_choose_user_button{
+
+        .add_employee_choose_user_button {
             font-size: 18px;
         }
+
         .add_employee_forms {
             position: absolute;
             left: 40px;
@@ -95,6 +98,10 @@
             height: 30px;
         }
 
+        .select_option{
+            width: 100px;
+        }
+
         .add_employee_submit_button {
             margin-top: 20px;
             margin-left: 180px;
@@ -127,19 +134,22 @@
                     <div class="add_employee_inputs">
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Name : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Name">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="User Id">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Level : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <select name="" id="" class="add_employee_input_field">
+                                <option value="senior" class="select_option">Senior</option>
+                                <option value="junior" class="select_option">Junior</option>
+                            </select>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">NIC : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="NIC No">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
@@ -147,15 +157,15 @@
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
-                            <input type="email" class="add_employee_input_field">
+                            <input type="email" class="add_employee_input_field" placeholder="Email">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Address : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Address">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Mobile : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Mobile">
                         </div>
                         <div class="add_employee_field">
                             <button class="add_employee_submit_button">Submit</button>
@@ -164,40 +174,40 @@
                 </div>
             </div>
             <div class="add_employee_salesRep_form">
-                <div class="add_employee_inputs">
-                    <div class="to_center">
-                        <p>Register Sales Rep</p>
+                <div class="to_center">
+                    <p>Register Sales Rep</p>
+                    <div class="add_employee_inputs">
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Name : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Name">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="User Id">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">NIC : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="NIC No">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
                             <input type="date" class="add_employee_input_field">
                         </div>
                         <div class="add_employee_field">
-                            <label for="" class="add_employee_label">Target : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <label for="" class="add_employee_label">Target(Rs.) : </label>
+                            <input type="text" class="add_employee_input_field" placeholder="Target">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
-                            <input type="email" class="add_employee_input_field">
+                            <input type="email" class="add_employee_input_field" placeholder="Email">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Address : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Address">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Mobile : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Mobile">
                         </div>
                         <div class="add_employee_field">
                             <button class="add_employee_submit_button">Submit</button>
@@ -211,31 +221,31 @@
                     <div class="add_employee_inputs">
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Name : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Name">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="User Id">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">NIC : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="NIC">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
-                            <input type="date" class="add_employee_input_field">
+                            <input type="date" class="add_employee_input_field" placeholder="DOB">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
-                            <input type="email" class="add_employee_input_field">
+                            <input type="email" class="add_employee_input_field" placeholder="Email">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Address : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Address">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Mobile : </label>
-                            <input type="text" class="add_employee_input_field">
+                            <input type="text" class="add_employee_input_field" placeholder="Mobile">
                         </div>
                         <div class="add_employee_field">
                             <button class="add_employee_submit_button">Submit</button>
