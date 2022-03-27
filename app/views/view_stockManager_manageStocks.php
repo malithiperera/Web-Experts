@@ -63,7 +63,7 @@
                     <fieldset class="addAmountFieldset">
                         <input type="text" class="addAmountInput">
                         <!-- <a href="../stockManager/backToSMHome"><button class="submitAddAmount">S</button></a> -->
-                        <button class="submitAddAmount" onclick="showHideAdd ();showHideConfirmAdd ();"></button>
+                        <button class="submitAddAmount" onclick="showHideConfirmAdd ()"></button>
 
                     </fieldset>
                 </div>
@@ -217,7 +217,7 @@
             </div>
 
             <div class="Btn">
-                <button class="yes" onclick="change()">Yes</button>
+                <button class="yes" onclick="change(); showHideAdd (); validateEmptyAndMinusValues ();">Yes</button>
                 <button class="no" onclick="hideAddConfirmMessage ()">No</button>
 
             </div>
@@ -459,7 +459,7 @@
             console.log("Malithii")
         }
 
-        var addBtn = document.querySelector('.submitAddAmount')
+        var addBtn = document.querySelector('.yes') // add amount
         var addAmount = document.querySelector('.addAmountInput')
 
         addBtn.addEventListener('click', () => {
@@ -486,14 +486,45 @@
                 })
         })
 
+        function validateEmptyAndMinusValues() {
+            if (addAmount.value == '' || addAmount.value <= 0) {
+                var popUpText = document.querySelector('.confirmTextArea_1').innerHTML = `
+                    <h2>Invalid input or empty input</h2>
+                
+                `
+
+                var tryAgain = document.querySelector('.Btn').innerHTML = `
+                    <button class="tryAgainBtn" onclick="showHideConfirmAdd ()">Try Again</button>
+                
+                `
+            }
+        }
+
         function myfunc() {
             var removeqty = document.querySelector('.inputRemoveQuantity').value;
 
             window.location.href = "http://localhost/web-Experts/public/stockManager/popUpComfirm?removeqty=" + removeqty
         }
 
-        function change() {
-            var x = document.querySelector('.confirmTextArea_1').innerHTML=" ";
+        function addingConfirmation() {                                                     // if add amount input is not empty the 1st pop up be
+            var confirmationText = document.querySelector('.confirmTextArea_1').innerHTML = `
+                <h2>Are you sure adding 50 items ?</h2>
+
+            `
+
+            
+        }
+
+        function change() { // load content of the 'added successfully ' message
+            var text = document.querySelector('.confirmTextArea_1').innerHTML = `
+                <h2>Added successfully</h2>
+
+            `
+            // done btn of the 'added successfully' message
+            var doneBtn = document.querySelector('.Btn').innerHTML = `                          
+                <button class="addedSuccessfullyDoneBtn" onclick="showHideConfirmAdd ()">OK</button>
+
+            `
         }
     </script>
 

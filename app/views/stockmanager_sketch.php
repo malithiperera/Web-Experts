@@ -98,16 +98,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <?php require 'view_stockManager_manageStocks.php'; ?>
 
-
     </section>
-
-
-
-
-
-
-
-    <script>
 
 
 
