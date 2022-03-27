@@ -86,9 +86,12 @@ class _4_stockmanager_model extends model
         return $result;
 
     }
-    public function getRepList_mod () {
+    public function getRepList_mod(){
         require '../app/core/database.php';
-        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 0";
+
+        date_default_timezone_set('Asia/Colombo');
+        $date=date('Y-m-d');
+        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 0 and product_issue.date='$date'";
         $result = mysqli_query ($conn, $sql);
         return $result;
         

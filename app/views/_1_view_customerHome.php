@@ -600,7 +600,7 @@ home.load('test2.php');
 
       // pop_report=document.querySelector('.pop-up-report');
       // pop_report.style.visibility="visible";
-      // flag=0;
+      
 
     }
     console.log("Hello")

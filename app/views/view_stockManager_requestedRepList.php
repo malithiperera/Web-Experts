@@ -172,23 +172,23 @@
         getRepList()
 
 
-        function show_list($issue_id){
-            console.log($issue_id)
-            fetch('http://localhost/web-Experts/public/issue/view_issue_list', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify($issue_id)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
+        // function show_list($issue_id){
+        //     console.log($issue_id)
+        //     fetch('http://localhost/web-Experts/public/issue/view_issue_list', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify($issue_id)
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //     console.log(data);
            
-            });
+        //     });
       
 
-        }
+        // }
 
         function filter_table(){
             console.log("Heloooo")

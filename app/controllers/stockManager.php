@@ -94,8 +94,10 @@ class stockManager extends controller {
 
     }
     public function viewList () {
+        
         $this->view->render ("view_stockManager_repList");
-        // $this->view->render("view_stockManager_requestedRepList");
+        
+        exit;
         
     }
     public function get_request_con() {
@@ -142,7 +144,7 @@ class stockManager extends controller {
 
     public function getRepList_cont () {
         $this->model ('_4_stockmanager_model');
-        $result = $this->model->getRepList_mod ();
+        $result = $this->model->getRepList_mod();
         $data = [];
         while ($row = $result->fetch_assoc ()) {
             array_push ($data, $row);

@@ -222,6 +222,7 @@
                     if (data == true) {
                         var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="visible";
+            document.getElementById('msg').innerHTML="requested confirm";
 
 
                     }
@@ -234,7 +235,7 @@
             var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="hidden";
             
-
+            window.location.href="http://localhost/web-Experts/public/stockManager/viewList?rep=6";
         }
     </script>
 
