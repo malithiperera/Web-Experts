@@ -9,11 +9,17 @@
 </head>
 
 <body>
-    
+
 
 
     <script>
-        
+
+        fetch('http://localhost/web-Experts/public/admin/test_test')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+       
     </script>
 
 </body>
