@@ -19,39 +19,39 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_button.css">
     <link rel="stylesheet" href="../../public/styles/sketch.css">
-    
+
 </head>
 
 <body>
 
-<div class="sidebar">
+    <div class="sidebar">
         <div class="logo-details">
 
             <div class="logo_name">Himalee Dairy Product</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
-         
+
             <li>
                 <a href="#">
-                <i class='bx bx-home'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Home</span>
                 </a>
                 <span class="tooltip">Home</span>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">User</span>
-                </a>
-                <span class="tooltip">User</span>
-            </li>
+                <!-- <li>
+                    <a href="#">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">User</span>
+                    </a>
+                    <span class="tooltip">User</span>
+                </li> -->
             <li>
                 <a href="../stockManager/notification">
 
                     <a href="../stockManager/moveToNotificationPage">
 
-                    <i class='bx bx-bell'></i>
+                        <i class='bx bx-bell'></i>
                         <span class="links_name">Notification</span>
                     </a>
                     <span class="tooltip">Notification</span>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['username'])) {
             </li>
 
             <li>
-                <a href="#">
+                <a href="../customer/profile">
                     <i class="fas fa-user"></i>
                     <span class="links_name">Profile</span>
                 </a>
@@ -93,44 +93,44 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <section class="home-section">
-    <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
-    </div>
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
 
 
-    <?php require "stockmanagerHome.php"; ?>
+        <?php require "stockmanagerHome.php"; ?>
 
     </section>
 
 
 
-    
+
 
 
 
     <script>
-        
-
-    
-
-        
 
 
 
 
 
-            
 
 
-        
-            
 
-        
-        
 
-        
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 
