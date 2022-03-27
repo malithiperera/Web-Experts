@@ -43,7 +43,8 @@
                 </div> -->
                 <div class="addAmountDiv">
                     <input type="text" class="addAmountInput">
-                    <button class="submitAddAmount">S</button>
+                    <a href="../stockManager/backToSMHome"><button class="submitAddAmount">S</button></a>
+                    <!-- <button class="submitAddAmount">S</button> -->
                 </div>
 
             </div>
@@ -56,9 +57,14 @@
                     <label class="removeReason" for="removeReason">Reason</label>
                     <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder=" Type Reason">
 
-                    <button class="btn_submitRemove" onclick="showHideRemove ()">
-                        <!--i class="fas fa-check"></i-->
-                    </button>
+                    <a href="../stockManager/popUpComfirm">
+                        <button class="btn_submitRemove"></button>
+
+                    </a>
+
+                    <!-- <button class="btn_submitRemove" onclick="showHideRemove ()"> -->
+                    <!--i class="fas fa-check"></i-->
+                    <!-- </button> -->
 
                 </fieldset>
 
@@ -108,10 +114,6 @@
 
 
                         <tbody class="tbody">
-                            <tr></tr>
-                            <tr></tr>
-                            <tr></tr>
-                            <tr></tr>
 
                         </tbody>
 
@@ -164,7 +166,7 @@
     <!-- <div class="messagecontainer">
         <div class="messageArea">
             <div class="checkIcon">
-               
+
                 <i class="fa-solid fa-location-question"></i>
             </div>
             <div class="popUpTextArea_1">
@@ -176,16 +178,14 @@
                 <h2>removing 50 items ?</h2>
             </div>
             <div class="divDoneBTN">
-                <button class="Yes" >Yes</button>
+                <button class="Yes">Yes</button>
             </div>
 
             <div class="divDoneBTN">
-                <button class="No" >No</button>
+                <button class="No">No</button>
             </div>
 
         </div> -->
-
-
 
     <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
@@ -418,27 +418,27 @@
         var addAmount = document.querySelector('.addAmountInput')
 
         addBtn.addEventListener('click', () => {
-          
+
             let dataSet = {
                 productId: productId,
                 amount: addAmount.value
 
             }
-            console.log (dataSet)
+            console.log(dataSet)
             fetch('http://localhost/web-Experts/public/stockManager/addStocks_con', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
 
-                },
-                body: JSON.stringify(dataSet)
+                    },
+                    body: JSON.stringify(dataSet)
 
-            })
-            .then (response => response.json ())
-            .then (data => {
-                console.log (data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
 
-            })
+                })
         })
     </script>
 
