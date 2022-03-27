@@ -176,7 +176,7 @@ class stockManager extends controller {
         
     }
     
-    public function removeStocks_con (){
+    public function removeStocks_con (){                        // remove from the stock
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -187,7 +187,7 @@ class stockManager extends controller {
 
     }
 
-    public function addStocks_con () {
+    public function addStocks_con () {                          // add to stock
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 

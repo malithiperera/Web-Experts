@@ -43,8 +43,8 @@
                 </div> -->
                 <div class="addAmountDiv">
                     <input type="text" class="addAmountInput">
-                    <a href="../stockManager/backToSMHome"><button class="submitAddAmount">S</button></a>
-                    <!-- <button class="submitAddAmount">S</button> -->
+                    <!-- <a href="../stockManager/backToSMHome"><button class="submitAddAmount">S</button></a> -->
+                    <button class="submitAddAmount">S</button>
                 </div>
 
             </div>
