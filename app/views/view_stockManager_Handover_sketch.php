@@ -19,25 +19,25 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_button.css">
     <link rel="stylesheet" href="../../public/styles/sketch.css">
-    
+
 </head>
 
 <body>
 
-<div class="sidebar">
+    <div class="sidebar">
         <div class="logo-details">
 
             <div class="logo_name">Himalee Dairy Product</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
-         
+
             <li>
                 <a href="#">
-                <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
                 </a>
-                <span class="tooltip">Home</span>
+                <span class="tooltip">Dashboard</span>
             </li>
             <li>
                 <a href="#">
@@ -47,18 +47,11 @@ if (!isset($_SESSION['username'])) {
                 <span class="tooltip">User</span>
             </li>
             <li>
-                <a href="../stockManager/rep_list_back">
-                <i class='bx bx-home'></i>
-                    <span class="links_name">Handover</span>
-                </a>
-                <span class="tooltip">Handover</span>
-            </li>
-            <li>
                 <a href="../stockManager/notification">
 
                     <a href="../stockManager/moveToNotificationPage">
 
-                    <i class='bx bx-bell'></i>
+                        <i class='bx bx-chat'></i>
                         <span class="links_name">Notification</span>
                     </a>
                     <span class="tooltip">Notification</span>
@@ -100,44 +93,43 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <section class="home-section">
-    <div class="header">
-      <?php  require 'view_headertype2.php'; ?>
-    </div>
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
+        <?php require 'view_stockManager_handover.php'; ?>
 
-
-    <?php require "stockmanagerHome.php"; ?>
 
     </section>
 
 
 
-    
+
 
 
 
     <script>
-        
-
-    
-
-        
 
 
 
 
 
-            
 
 
-        
-            
 
-        
-        
 
-        
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 

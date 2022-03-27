@@ -94,7 +94,7 @@ class stockManager extends controller {
 
     }
     public function viewList () {
-        
+
         $this->view->render ("view_stockManager_repList");
         
         exit;
@@ -155,6 +155,19 @@ class stockManager extends controller {
 
     }
 
+
+    public function getRepList_cont_handover () {
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->getRepList_mod_handover();
+        $data = [];
+        while ($row = $result->fetch_assoc ()) {
+            array_push ($data, $row);
+
+        }
+        echo json_encode($data);
+        exit;
+
+    }
     //render initial information(notify amount of the product)
     public function initial_information(){
         $get_data = file_get_contents('php://input');
@@ -198,6 +211,10 @@ class stockManager extends controller {
 
         echo json_encode($result);
 
+    }
+
+    public function rep_list_back(){
+        $this->view->render('view_stockManager_handover_sketch');
     }
 }
 
