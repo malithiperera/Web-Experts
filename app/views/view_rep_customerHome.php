@@ -48,13 +48,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Place Order</span>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="../customer/place_order_view">
           <i class="fas fa-exchange-alt"></i>
           <span class="links_name">Returns</span>
         </a>
         <span class="tooltip">Returns</span>
-      </li>
+      </li> -->
 
       <li>
         <a href="../salesRep/cashPayment">

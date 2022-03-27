@@ -268,7 +268,10 @@ array_push($resultArray,$data);
 
         // select extract(month from returns.date),count(return_product.return_id), sum(product.price*return_product.qty) from returns,return_product,product where returns.return_id = return_product.return_id and extract(year from returns.date) and return_product.product_id = product.product_id and extract(year from returns.date) = '2021' group by extract(month from returns.date);
     }
-//sales rep montgy report
+
+
+
+//sales rep month report
     public function rep_summary_month(){
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
@@ -287,15 +290,21 @@ public function rep_summary_year(){
     $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
         $this->model('report_model');
+        $mainarray=[];
+        $result1=$this->model->rep_summary_year_cards($recieved_data);
+        array_push($mainarray,$result1);
         $result=$this->model->rep_summary_year($recieved_data);
         $data2 = [];
        while ($row = $result->fetch_assoc()) {
            array_push($data2, $row);
        }
-       echo json_encode($data2);
+       array_push($mainarray,$data2);
+       echo json_encode($mainarray);
         exit;
 
 }
+
+//yearly return reports
     public function return_year(){
 
         $recieved_data_encoded = file_get_contents("php://input");
@@ -303,11 +312,8 @@ public function rep_summary_year(){
 
         $this->model('report_model');
          $result=$this->model->return_year($recieved_data);
-    //      $data2 = [];
-    //    while ($row = $result->fetch_assoc()) {
-    //        array_push($data2, $row);
-    //    }
-    //     // echo json_encode($result);
+        
+    
         echo json_encode($result);
         exit;
         
