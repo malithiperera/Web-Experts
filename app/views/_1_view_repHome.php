@@ -91,13 +91,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Reports</span>
       </li> --> 
 
-      <!-- <li>
+      <li>
         <a href="../salesRep/view_notifications">
           <i class='bx bx-bell'></i>
           <span class="links_name">Notifications</span>
         </a>
         <span class="tooltip">Notifications</span>
-      </li> -->
+      </li>
 
       <li>
         <a href="../salesRep/achievements">
@@ -142,17 +142,18 @@ if (!isset($_SESSION['username'])) {
   <!-- END SIDE BAR -->
 
 <!-- ADD HEADER -->
+<section class="home-section">
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
 
-<div class="header">
-    <?php require 'view_headertype2.php'; ?>
-  </div>
 
 
 
 
   <!-- START CARD SECTION -->
 
-  <section class="home-section">
+  
 
     <section class="cards-section">
 

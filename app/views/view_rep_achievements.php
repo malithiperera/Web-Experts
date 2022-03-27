@@ -14,6 +14,7 @@ if (!isset($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/view_rep_achievements.css">
+    <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
     <title>Achievements</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -24,9 +25,9 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-<!-- START SIDE BAR -->
+    <!-- START SIDE BAR -->
 
-<div class="sidebar">
+    <div class="sidebar">
 
 <div class="logo-details">
 
@@ -37,14 +38,6 @@ if (!isset($_SESSION['username'])) {
 <ul class="nav-list">
 
   <li>
-    <a href="../salesRep/home">
-      <i class='bx bx-home'></i>
-      <span class="links_name">Home</span>
-    </a>
-    <span class="tooltip">Home</span>
-  </li>
-
-  <li>
     <a href="../salesRep/customer_registration">
       <i class='fas fa-user-plus fa-lg'></i>
       <span class="links_name">Customer Registration</span>
@@ -52,6 +45,7 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Customer Registration</span>
   </li>
 
+  
 
   <li>
     <!-- <a href="../orders/create_bill"> -->
@@ -63,12 +57,20 @@ if (!isset($_SESSION['username'])) {
   </li>
 
   <li>
+    <a href="../salesRep/returns">
+      <i class="fas fa-exchange-alt"></i>
+      <span class="links_name">Returns</span>
+    </a>
+    <span class="tooltip">Returns</span>
+  </li>
+
+  <!-- <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li>
+  </li> --> 
 
   <li>
     <a href="../salesRep/view_notifications">
@@ -88,7 +90,7 @@ if (!isset($_SESSION['username'])) {
   </li>
 
   <li>
-    <a href="../salesRep/profile">
+    <a href="../  customer/profile">
       <i class="far fa-user-circle"></i>
       <span class="links_name">Profile</span>
     </a>
@@ -120,16 +122,12 @@ if (!isset($_SESSION['username'])) {
 
 <!-- END SIDE BAR -->
 
-<!-- START HEADER -->
+    <section class="home-section">
+        <div class="header">
+            <?php require 'view_headertype2.php'; ?>
+        </div>
 
-    <div class="header">
-        <?php
-        require 'view_headertype2.php';
-        ?>
 
-    </div>
-
-<!-- END HEADER -->
 
 
 <!-- START CARD SECTION -->
