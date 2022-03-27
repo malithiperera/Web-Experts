@@ -124,8 +124,8 @@
                         <tr>
                             <th>Product</th>
                             <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>edit</th>
+                            <th>Remaining QTY</th>
+                            <th>Count</th>
 
                         </tr>
                     </thead>
@@ -220,14 +220,8 @@
                 .then(data => {
                     console.log(data);
                     if (data == true) {
-<<<<<<< HEAD
                         var pop_up = document.querySelector('.pop-up-suc');
                         pop_up.style.visibility = "visible";
-=======
-                        var pop_up=document.querySelector('.pop-up-suc');
-            pop_up.style.visibility="visible";
-            document.getElementById('msg').innerHTML="requested confirm";
->>>>>>> dd3508d1a09e56d9899169d20c340f7d1c3a5919
 
 
                     }
@@ -236,19 +230,11 @@
 
         }
 
-<<<<<<< HEAD
         function hide_popup() {
             var pop_up = document.querySelector('.pop-up-suc');
             pop_up.style.visibility = "hidden";
 
 
-=======
-        function hide_popup(){
-            var pop_up=document.querySelector('.pop-up-suc');
-            pop_up.style.visibility="hidden";
-            
-            window.location.href="http://localhost/web-Experts/public/stockManager/viewList?rep=6";
->>>>>>> dd3508d1a09e56d9899169d20c340f7d1c3a5919
         }
     </script>
 

@@ -229,6 +229,11 @@ class stockManager extends controller {
         $this->view->render ('view_stockManager_removeSuccessPopUp');
 
     }
+
+    //stock return to stockmanager in the evening
+    public function stock_return(){
+        $this->view->render('view_stockManager_stock_return');
+    }
 }
 
 ?>
