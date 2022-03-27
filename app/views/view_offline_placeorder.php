@@ -100,6 +100,13 @@ h2{
 
 <ul class="nav-list">
 
+    <li>
+        <a href="../salesRep/home">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+      </li>
   <li>
     <a href="../salesRep/customer_registration">
       <i class='fas fa-user-plus fa-lg'></i>
@@ -143,13 +150,13 @@ h2{
     <span class="tooltip">Returns</span>
   </li>
 
-  <!-- <li>
+  <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li> --> 
+  </li> 
 
   <li>
     <a href="../salesRep/view_notifications">

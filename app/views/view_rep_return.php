@@ -33,7 +33,13 @@ if (!isset($_SESSION['username'])) {
 </div>
 
 <ul class="nav-list">
-
+<li>
+        <a href="../salesRep/home">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+      </li>
   <li>
     <a href="../salesRep/customer_registration">
       <i class='fas fa-user-plus fa-lg'></i>
