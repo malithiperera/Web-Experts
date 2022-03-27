@@ -285,9 +285,9 @@ class salesRep extends controller
         $this->model('_2_salesrep_model');
         $result = $this->model->get_home_cards($_SESSION['userid']);
 
-        $data = [$result];
+        // $data = [$result];
 
-        echo json_encode($data);
+        echo json_encode($result);
         exit;
     }
 

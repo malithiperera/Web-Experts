@@ -342,4 +342,13 @@ class _1_admin_model extends model
 
         return $check;
     }
+
+    public function test_test(){
+        require '../app/core/database.php';
+
+        $sql = "select date from date where order_id = '23'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
 }

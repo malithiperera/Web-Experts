@@ -227,6 +227,13 @@ class admin extends controller{
     public function test(){
         $this->view->render('test');
     }
+    public function test_test(){
+        $this->model('_1_admin_model');
+        $result = $this->model->test_test();
+
+        json_encode($result);
+        exit;
+    }
 
     //get suggestions for search customer
     public function search_customer(){
@@ -400,6 +407,7 @@ public function remove_the_user(){
     echo json_encode($result);
     exit;
 }
+
 }
 
 ?>

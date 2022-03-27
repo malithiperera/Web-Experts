@@ -224,22 +224,22 @@ class _2_salesrep_model extends model
 
         require '../app/core/database.php';
 
-        // $result = array();
+        $result = array();
 
-        // $sql1 ="SELECT sum(orders.amount) AS achieved from route,orders 
-        // where route.route_id = orders.route_id 
-        // and 
-        // route.rep_id = '$userid' 
-        // and 
-        // month(orders.date) =   month(CURRENT_DATE)";
-        // $result1 = mysqli_query($conn, $sql1);
-        // array_push($result, $result1->fetch_assoc());
+        $sql1 ="SELECT sum(orders.amount) AS achieved from route,orders 
+        where route.route_id = orders.route_id 
+        and 
+        route.rep_id = '$userid' 
+        and 
+        month(orders.date) =   month(CURRENT_DATE)";
+        $result1 = mysqli_query($conn, $sql1);
+        array_push($result, $result1->fetch_assoc());
 
-        // $sql2 = "SELECT target AS tar FROM sales_rep WHERE rep_id='$userid'";
-        // $result2 = mysqli_query($conn, $sql2);
-        // array_push($result, $result2->fetch_assoc());
+        $sql2 = "SELECT target AS tar FROM sales_rep WHERE rep_id='$userid'";
+        $result2 = mysqli_query($conn, $sql2);
+        array_push($result, $result2->fetch_assoc());
 
-        return "result";
+        return $result;
     }
 
     //request product from stock manager
@@ -255,24 +255,29 @@ class _2_salesrep_model extends model
         $result1 = mysqli_query($conn, $last_issue_id);
         $issue_id = $result1->fetch_assoc()['last_insert_id()'];
 
-        $sql2 = "select product_id from product where product_name = 'Kiri pani'";
-        $result2 = mysqli_query($conn, $sql2);
+        // $sql2 = "select product_id from product where product_name = 'Kiri pani'";
+        // $result2 = mysqli_query($conn, $sql2);
+
+        $errors = [];
 
         for($i = 0 ; $i < sizeof($product_name) ; $i++){
             $sql2 = "select product_id from product where product_name = '$product_name[$i]'";
             $result2 = mysqli_query($conn, $sql2);
             $product_id = $result2->fetch_assoc()['product_id'];
-
+           
+            
             $sql3 = "insert into product_issue_products (issue_id, product_id, requested_qty, issue_qty) values ('$issue_id', '$product_id', '$requested_qty[$i]', '$final_qty[$i]')";
             $result3 = mysqli_query($conn, $sql3);
 
+            
+
             if($result3 == false){
-                $check = 1;
+                $check = $check+1 ;
             }
            
         }
         
-        return $check;
+       
 
        
     }
