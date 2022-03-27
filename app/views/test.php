@@ -13,13 +13,20 @@
 
 
     <script>
-
-        fetch('http://localhost/web-Experts/public/admin/test_test')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        });
-       
+        let user_id = "dineth";
+        fetch('http://localhost/web-Experts/public/admin/test_test', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user_id)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+               
+            });
+        
     </script>
 
 </body>

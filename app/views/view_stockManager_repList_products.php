@@ -26,8 +26,8 @@
         visibility: hidden;
         /* z-index: -1; */
     }
-    
-    .suceesful_pop{
+
+    .suceesful_pop {
 
         width: 40%;
         /* background-color: #fff; */
@@ -142,15 +142,15 @@
 
         <div class="pop-up-suc">
             <div class="suceesful_pop">
-<?php require "view_successfull_pop-up.php"; ?>
+                <?php require "view_successfull_pop-up.php"; ?>
 
             </div>
 
-</div>
+        </div>
 
 
     </section>
-   
+
 
 
 
@@ -220,8 +220,8 @@
                 .then(data => {
                     console.log(data);
                     if (data == true) {
-                        var pop_up=document.querySelector('.pop-up-suc');
-            pop_up.style.visibility="visible";
+                        var pop_up = document.querySelector('.pop-up-suc');
+                        pop_up.style.visibility = "visible";
 
 
                     }
@@ -230,10 +230,10 @@
 
         }
 
-        function hide_popup(){
-            var pop_up=document.querySelector('.pop-up-suc');
-            pop_up.style.visibility="hidden";
-            
+        function hide_popup() {
+            var pop_up = document.querySelector('.pop-up-suc');
+            pop_up.style.visibility = "hidden";
+
 
         }
     </script>

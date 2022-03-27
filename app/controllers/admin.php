@@ -228,10 +228,13 @@ class admin extends controller{
         $this->view->render('test');
     }
     public function test_test(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
         $this->model('_1_admin_model');
         $result = $this->model->test_test();
 
-        json_encode($result);
+        echo json_encode($result);
         exit;
     }
 
