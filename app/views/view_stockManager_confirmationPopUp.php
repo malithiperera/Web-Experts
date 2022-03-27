@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/styles/view_stockManager_confirmationPopUp.css">
+    <script src="https://kit.fontawesome.com/d2020d2b7c.js" crossorigin="anonymous"></script>
     <title>confirm</title>
 </head>
 
@@ -12,8 +14,8 @@
     <div class="messagecontainer">
         <div class="messageArea">
             <div class="checkIcon">
+                <i class="fa-solid fa-face-scream fa-3x"></i>
 
-                <i class="fa-solid fa-location-question"></i>
             </div>
             <div class="popUpTextArea_1">
                 <h2>Are you sure</h2>
@@ -31,7 +33,8 @@
             </div>
 
             <div class="divDoneBTN">
-                <button class="No">No</button>
+                <a href="../stockManager/product_profile"><button class="No">No</button></a>
+
             </div>
 
         </div>
