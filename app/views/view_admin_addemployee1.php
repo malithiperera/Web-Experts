@@ -70,22 +70,20 @@ if (!isset($_SESSION['username'])) {
         <div class="container">
             <span id=msg></span>
             <div class="div1" id="div1">
-                <h3>Admin Registration</h3>
+                <h3>Sales Admin Registration</h3>
                 <div>
                     <div class="content">
                         <div class="input_control">
                             <label for="name"><b>Name</b></label><br>
-                            <input type="text" placeholder="N" name="name" id="admin_name">
-                            <!-- <div class="error"></div> -->
-
+                            <input type="text" placeholder="Name" name="name" id="admin_name" autocomplete="FALSE">
+                           
                         </div><br>
 
                         <div class="input_control">
                             <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label><br>
-                            <input type="text" placeholder="Name" name="userid" id="admin_userid" class="check_user_id" onkeyup="check_avail_userid()"><br>
+                            <input type="text" placeholder="User Id" name="userid" id="admin_userid" class="check_user_id" onkeyup="check_avail_userid()"><br>
                             <span id="user_avail">User id is not available</span>
-                            <!-- <div class="error"></div> -->
-
+                           
                         </div><br>
 
                         <label for="name"><b>Level</b></label><br>
@@ -98,15 +96,14 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label><br>
                             <input type="text" placeholder="nic" name="nic" id="admin_nic">
-                            <!-- <div class="error"></div> -->
-
+                           
                         </div><br>
 
                         <div class="input_control">
                             <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label><br>
                             <input type="date" placeholder="dob" name="dob" id="admin_dob" onchange="birthday_validate()" class="validate_birthday">
                             <span id="valid_birthday">Enter a valid birthday</span>
-                            <!-- <div class="error"></div> -->
+                           
 
                         </div><br>
 
@@ -127,7 +124,9 @@ if (!isset($_SESSION['username'])) {
 
                         <div class="input_control">
                             <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-                            <input type="tel" placeholder="Telephone" name="tel" id="admin_tel">
+                            <input type="tel" placeholder="Telephone" name="tel" id="admin_tel" onkeyup="phone_number()">
+                            <br>
+                            <span>Phon enumber length is invalid</span>
                             <!-- <div class="error"></div> -->
 
                         </div>
@@ -148,15 +147,14 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="text" placeholder="Name" name="name" id="salesrep_namesalesrep_name" required>
-                            <!-- <div class="error"></div> -->
-
+                         
                         </div>
 
                         <br>
 
                         <div class="input_control">
                             <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
-                            <input type="text" placeholder="Name" name="userid" id="salesrep_useridsalesrep_userid" class="check_user_id" onkeyup="check_avail_userid()" required>
+                            <input type="text" placeholder="User Id" name="userid" id="salesrep_useridsalesrep_userid" class="check_user_id" onkeyup="check_avail_userid()" required>
                             <!-- <div class="error"></div> -->
 
                         </div>
@@ -166,8 +164,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
                             <input type="text" placeholder="nic" name="nic" id="salesrep_nicsalesrep_nic" required>
-                            <!-- <div class="error"></div> -->
-
+                           
                         </div>
 
                         <br>
@@ -175,7 +172,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
                             <input type="date" placeholder="dob" name="dob" id="salesrep_dobsalesrep_dob" required>
-                            <!-- <div class="error"></div> -->
+                           
 
                         </div>
 
@@ -184,7 +181,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Target&nbsp;&nbsp; </b></label>
                             <input type="text" placeholder="Traget" name="target" id="salesrep_targetsalesrep_target" required>
-                            <!-- <div class="error"></div> -->
+                          ]
 
                         </div>
 
@@ -193,7 +190,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="text" placeholder="Enter Email" name="email" id="salesrep_emailsalesrep_email" onkeyup="check_email()" class="mail_check"  required>
-                            <!-- <div class="error"></div> -->
+                            
 
                         </div>
 
@@ -201,16 +198,14 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="psw"><b>Address&nbsp;</b></label>
                             <input type="address" placeholder="address" name="add" id="salesrep_addsalesrep_add" required>
-                            <!-- <div class="error"></div> -->
-
+                           
                         </div>
 
                         <br>
                         <div class="input_control">
                             <label for="psw-repeat"><b>Mobile&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="tel" placeholder="Telephone" name="tel" id="salesrep_telsalesrep_tel" required>
-                            <!-- <div class="error"></div> -->
-
+                           
                         </div>
 
 
@@ -230,7 +225,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="text" placeholder="Name" name="name" id="stockmanager_name" required>
-                            <!-- <div class="error"></div> -->
+                            
                         </div>
 
                         <br>
@@ -244,7 +239,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>NIC NO&nbsp;&nbsp; </b></label>
                             <input type="text" placeholder="nic" name="nic" id="stockmanager_nic" required>
-                            <!-- <div class="error"></div> -->
+                           
 
                         </div>
 
@@ -253,7 +248,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="name"><b>DOB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> </label>
                             <input type="date" placeholder="dob" name="dob" id="stockmanager_dob" required>
-                            <!-- <div class="error"></div> -->
+                           
 
                         </div>
 
@@ -262,7 +257,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input_control">
                             <label for="email"><b>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <input type="text" placeholder="Enter Email" name="email" id="stockmanager_email" onkeyup="check_email()" class="mail_check" required>
-                            <!-- <div class="error"></div> -->
+                         
 
                         </div>
 
@@ -271,7 +266,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="inputcontrol">
                             <label for="psw"><b>Address&nbsp;</b></label>
                             <input type="address" placeholder="address" name="add" id="stockmanager_add" required>
-                            <!-- <div class="error"></div> -->
+                           
 
                         </div>
 
@@ -611,7 +606,9 @@ user_avail.style.color="red";
            
         }
 
+function phone_number(){
 
+}
 
 
     </script>

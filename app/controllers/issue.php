@@ -71,6 +71,19 @@ class issue extends controller{
         // echo $issue_id;
 
     }
+    public function issue_list_handover(){
+        $issue_id=$_GET['reqid'];
+        session_start();
+        $_SESSION['issue_id']=$issue_id;
+        $this->view->added=$issue_id;
+        $this->view->render('view_stockManager_handover_products');
+        
+
+        // echo $issue_id;
+
+    }
+    //handover products
+
 
     //save in the database after issuing
 

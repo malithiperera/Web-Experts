@@ -49,12 +49,12 @@ if (!isset($_SESSION['username'])) {
       </li>
       <li>
     <a href="../salesRep/customer_home">
-      <i class='fas fa-user-plus fa-lg'></i>
+    <i class='bx bx-money'></i>
       <span class="links_name">Payments</span>
     </a>
     <span class="tooltip">Payments</span>
-  <!-- </li>
-      <li>
+   </li>
+     <!-- <li>
         <a href="#">
           <i class='bx bx-user open-button' onclick="openForm()"></i>
           <span class="links_name ">Customer Profile</span>

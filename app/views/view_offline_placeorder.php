@@ -114,14 +114,20 @@ h2{
     </a>
     <span class="tooltip">Customer Registration</span>
   </li>
-
   <li>
+    <a href="../salesRep/customer_home">
+    <i class='bx bx-money'></i>
+      <span class="links_name">Payments</span>
+    </a>
+    <span class="tooltip">Payments</span>
+   </li>
+  <!-- <li>
     <a href="#">
       <i class='bx bx-user open-button' onclick="openForm()"></i>
       <span class="links_name ">Customer Profile</span>
-    </a>
+    </a> -->
     <!-- <span class="tooltip">Customer Profile</span> -->
-    <div class="form-popup" id="myForm">
+    <!-- <div class="form-popup" id="myForm">
       <div class="form-container">
 
         <label for="cus_id"><b>Enter Customer ID</b></label>
@@ -131,7 +137,7 @@ h2{
         <button class="btn cancel" onclick="closeForm()">Close</button>
       </div>
     </div>
-  </li>
+  </li> -->
 
   <li>
     <!-- <a href="../orders/create_bill"> -->

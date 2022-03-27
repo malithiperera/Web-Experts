@@ -26,8 +26,8 @@
         visibility: hidden;
         /* z-index: -1; */
     }
-
-    .suceesful_pop {
+    
+    .suceesful_pop{
 
         width: 40%;
         /* background-color: #fff; */
@@ -124,8 +124,9 @@
                         <tr>
                             <th>Product</th>
                             <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>edit</th>
+                            <th>Issue Quantity</th>
+                            <th>Delivered Quantity</th>
+                            <th>Final Quantity</th>
 
                         </tr>
                     </thead>
@@ -142,15 +143,15 @@
 
         <div class="pop-up-suc">
             <div class="suceesful_pop">
-                <?php require "view_successfull_pop-up.php"; ?>
+<?php require "view_successfull_pop-up.php"; ?>
 
             </div>
 
-        </div>
+</div>
 
 
     </section>
-
+   
 
 
 
@@ -177,7 +178,7 @@
                     for (let i = 0; i < data.length; i++) {
 
                         fl_table.innerHTML += `<tr><td>${data[i]['product_id']}</td><td>${data[i]['product_name']}</td>
-         <td>${data[i]['requested_qty']}</td><td><input value="${data[i]['requested_qty']}"></td></tr>`;
+         <td>${data[i]['requested_qty']}</td><td>${data[i]['deliver_qty']}</td><td><input></td></tr>`;
                     }
                 });
 
@@ -220,14 +221,9 @@
                 .then(data => {
                     console.log(data);
                     if (data == true) {
-<<<<<<< HEAD
-                        var pop_up = document.querySelector('.pop-up-suc');
-                        pop_up.style.visibility = "visible";
-=======
                         var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="visible";
             document.getElementById('msg').innerHTML="requested confirm";
->>>>>>> dd3508d1a09e56d9899169d20c340f7d1c3a5919
 
 
                     }
@@ -236,19 +232,11 @@
 
         }
 
-<<<<<<< HEAD
-        function hide_popup() {
-            var pop_up = document.querySelector('.pop-up-suc');
-            pop_up.style.visibility = "hidden";
-
-
-=======
         function hide_popup(){
             var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="hidden";
             
             window.location.href="http://localhost/web-Experts/public/stockManager/viewList?rep=6";
->>>>>>> dd3508d1a09e56d9899169d20c340f7d1c3a5919
         }
     </script>
 
