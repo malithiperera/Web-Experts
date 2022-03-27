@@ -18,7 +18,7 @@
     border-color: rgb(11, 95, 67);
     left: 36%;
     top: 25%;
-    background-color: aqua;
+    /* background-color: aqua; */
 
 }
 .popUpTextArea_2 {
@@ -27,7 +27,7 @@
     position: absolute;
     top: 40%;
     left: 38.5%;
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
 
 }
 .done {

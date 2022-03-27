@@ -11,6 +11,7 @@ class stockManager extends controller {
 
     }
     public function product_profile() {
+        
         $this->view->render('view_stockManager_manageStocks');
 
     }
