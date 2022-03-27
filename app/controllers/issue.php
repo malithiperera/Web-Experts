@@ -100,4 +100,18 @@ class issue extends controller{
         exit;
 
     }
+
+    public function final_process(){
+        session_start();
+        $issueid=$_SESSION['issue_id'];
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+        $this->model('issue_model');
+        $result=$this->model->issue_rep_final($get_data);
+
+        
+        echo json_encode($result);
+        exit;
+
+    }
 }

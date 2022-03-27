@@ -72,6 +72,14 @@
             padding: 10px;
         }
 
+        
+
+
+
+        .fl-table tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
         #date_id{
             /* margin-top: 90px; */
             font-size: 24px;
@@ -82,7 +90,7 @@
             height: 20px;
             padding: 5px;
             margin: 20px;
-            background-color: green;
+            background-color: #184A78;
             color: #fff;
         }
 

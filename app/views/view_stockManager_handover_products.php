@@ -188,6 +188,7 @@
 
 
         function issue_products_save() {
+            console.log("Malithi")
             var table_data = new Array(fl_table.rows.length - 1);
             console.log(document.querySelector('.fl-table').rows.length)
             for (i = 1; i < fl_table.rows.length; i++) {
@@ -196,7 +197,7 @@
                 table_data[i - 1] = new Array(table_cell.length);
 
                 for (j = 0; j < table_cell.length; j++) {
-                    if (j == 3) {
+                    if (j == 4) {
 
                         table_data[i - 1][j] = table_cell.item(j).children[0].value;
                     } else {
@@ -208,9 +209,9 @@
                 }
 
             }
-            console.log(table_data);
+            // console.log(table_data);
 
-            fetch('http://localhost/web-Experts/public/issue/issue_rep', {
+            fetch('http://localhost/web-Experts/public/issue/final_process', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -220,10 +221,10 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    if (data == true) {
+                    if (data == 0) {
                         var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="visible";
-            document.getElementById('msg').innerHTML="requested confirm";
+            document.getElementById('msg').innerHTML="Process Completed";
 
 
                     }
@@ -236,7 +237,7 @@
             var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="hidden";
             
-            window.location.href="http://localhost/web-Experts/public/stockManager/viewList?rep=6";
+            window.location.href="http://localhost/web-Experts/public/stockManager/ rep_list_back";
         }
     </script>
 
