@@ -76,7 +76,7 @@ class issue extends controller{
         session_start();
         $_SESSION['issue_id']=$issue_id;
         $this->view->added=$issue_id;
-        $this->view->render('view_stockManager_repList_products');
+        $this->view->render('view_stockManager_handover_products');
         
 
         // echo $issue_id;
