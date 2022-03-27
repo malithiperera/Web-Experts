@@ -24,74 +24,140 @@ if (!isset($_SESSION['username'])) {
 
 <body>
 
-  <div class="sidebar">
-    <div class="logo-details">
+ <!-- START SIDE BAR -->
 
-      <div class="logo_name">Himalee Dairy Products</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
+ <div class="sidebar">
+
+<div class="logo-details">
+
+  <div class="logo_name">Himalee Dairy Products</div>
+  <i class='bx bx-menu' id="btn"></i>
+</div>
+
+<ul class="nav-list">
+<li>
         <a href="../salesRep/home">
           <i class='bx bx-home'></i>
           <span class="links_name">Home</span>
         </a>
         <span class="tooltip">Home</span>
       </li>
+  <li>
+    <a href="../salesRep/customer_registration">
+      <i class='fas fa-user-plus fa-lg'></i>
+      <span class="links_name">Customer Registration</span>
+    </a>
+    <span class="tooltip">Customer Registration</span>
+  </li>
+  <li>
+<a href="../salesRep/customer_home">
+<i class='bx bx-money'></i>
+  <span class="links_name">Payments</span>
+</a>
+<span class="tooltip">Payments</span>
+<!-- </li>
+  <li>
+    <a href="#">
+      <i class='bx bx-user open-button' onclick="openForm()"></i>
+      <span class="links_name ">Customer Profile</span>
+    </a> -->
+    <!-- <span class="tooltip">Customer Profile</span> -->
+    <!-- <div class="form-popup" id="myForm">
+      <div class="form-container">
 
-      <li>
-        <a href="../customer/place_order_view">
+        <label for="cus_id"><b>Enter Customer ID</b></label>
+        <input type="text" placeholder="Enter ID" id="searchCus_cusId" required>
 
-          <i class='bx bxs-cart-add'></i>
-          <span class="links_name">Place Order</span>
-        </a>
-        <span class="tooltip">Place Order</span>
-      </li>
+        <button class="btn" onclick="searchRep()">Search</button>
+        <button class="btn cancel" onclick="closeForm()">Close</button>
+      </div>
+    </div>
+  </li> -->
 
-      <!-- <li>
-        <a href="../customer/place_order_view">
-          <i class="fas fa-exchange-alt"></i>
-          <span class="links_name">Returns</span>
-        </a>
-        <span class="tooltip">Returns</span>
-      </li> -->
+  <li>
+    <!-- <a href="../orders/create_bill"> -->
+    <a href="../salesRep/offline_placeOrder">
+      <i class='bx bxs-cart-add'></i>
+      <span class="links_name">Place Order</span>
+    </a>
+    <span class="tooltip">Place Order</span>
+  </li>
 
-      <li>
-        <a href="../salesRep/cashPayment">
-          <i class="fas fa-money-bill-alt"></i>
-          <span class="links_name">Cash Payment</span>
-        </a>
-        <span class="tooltip">Cash Payment</span>
-      </li>
+  <li>
+    <a href="../salesRep/returns">
+      <i class="fas fa-exchange-alt"></i>
+      <span class="links_name">Returns</span>
+    </a>
+    <span class="tooltip">Returns</span>
+  </li>
 
-      <li>
-        <a href="../salesRep/chequePayment">
-          <i class="fas fa-money-check-alt"></i>
-          <span class="links_name">Cheque Payment</span>
-        </a>
-        <span class="tooltip">Cheque Payment</span>
-      </li>
+  <!-- <li>
+    <a href="../salesRep/view_report">
+      <i class='bx bx-line-chart'></i>
+      <span class="links_name">Reports</span>
+    </a>
+    <span class="tooltip">Reports</span>
+  </li> --> 
 
-      <li class="profile">
-        <div class="profile-details">
-          <img src="profile.jpg" alt="profileImg">
-          <div class="name_job">
-            <div class="name">ABC</div>
-            <div class="job">Sales Rep</div>
-          </div>
-        </div>
-        <i class="fas fa-store" id="log_out"></i>
-      </li>
-      
-    </ul>
-  </div>
-  <div class="header">
-    <?php require 'view_headertype2.php'; ?>
-  </div>
-  <section class="home-section">
+  <li>
+    <a href="../salesRep/view_notifications">
+      <i class='bx bx-bell'></i>
+      <span class="links_name">Notifications</span>
+    </a>
+    <span class="tooltip">Notifications</span>
+  </li>
+
+  <li>
+    <a href="../salesRep/achievements">
+
+      <i class="fas fa-trophy"></i>
+      <span class="links_name">Achievements</span>
+    </a>
+    <span class="tooltip">Achievements</span>
+  </li>
+
+  <li>
+    <a href="../  customer/profile">
+      <i class="far fa-user-circle"></i>
+      <span class="links_name">Profile</span>
+    </a>
+    <span class="tooltip">Profile</span>
+  </li>
+
+  <li>
+    <a href="../login/logout">
+      <i class="fas fa-sign-out-alt"></i>
+      <span class="links_name">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+  </li>
+
+  <li class="profile">
+    <div class="profile-details">
+      <img src="profile.jpg" alt="profileImg">
+      <div class="name_job">
+        <div class="name">ABC</div>
+        <div class="job">Sales Rep</div>
+      </div>
+    </div>
+    <i class="fas fa-store" id="log_out"></i>
+  </li>
+
+</ul>
+
+</div>
+
+<!-- END SIDE BAR -->
+
+<!-- ADD HEADER -->
+<section class="home-section">
+    <div class="header">
+        <?php require 'view_headertype2.php'; ?>
+    </div>
+
     <section class="cards-section">
       <div class="cards">
-        <div class="card">
+        <!-- <div class="card">
           <p><i class="fas fa-user"></i><br>Customer ID</p>
           <p id="result">C1025</p>
         </div>
@@ -106,7 +172,7 @@ if (!isset($_SESSION['username'])) {
         <div class="card">
           <p><i class="fas fa-credit-card"></i><br>Credit Period</p>
           <p id="result">3 weeks</p>
-        </div>
+        </div> -->
 
       </div>
     </section>

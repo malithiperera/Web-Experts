@@ -2,13 +2,16 @@ var a = 1, g = 1;
 
 function showHideAdd() {
     if (a == 1 && g == 1) {
-        document.getElementById("inputAdd").style.visibility = "visible";
-        document.getElementById("addamountAddBtn").style.visibility = "visible";
+        // document.getElementById("inputAdd").style.visibility = "visible";
+        // document.getElementById("addamountAddBtn").style.visibility = "visible";
+        document.querySelector('.addAmountDiv').style.visibility = "visible"
+
         return a = 0;
 
     } else {
-        document.getElementById("inputAdd").style.visibility = "hidden";
-        document.getElementById("addamountAddBtn").style.visibility = "hidden";
+        // document.getElementById("inputAdd").style.visibility = "hidden";
+        // document.getElementById("addamountAddBtn").style.visibility = "hidden";
+        document.querySelector('.addAmountDiv').style.visibility = "hidden"
         return a = 1;
         
 
@@ -57,4 +60,23 @@ function showHideNewDiscount() {
         return d = 1;
 
     }
+}
+
+var h = 1
+
+function showHideConfirmAdd () {
+    if (h == 1) {
+        document.querySelector('.pop_up').style.visibility = "visible"
+        return h = 0
+
+    } else {
+        document.querySelector('.pop_up').style.visibility = "hidden"
+        return h = 1
+
+    }
+}
+
+function hideAddConfirmMessage () {
+    document.querySelector('.pop_up').style.visibility = "hidden"
+
 }

@@ -29,7 +29,7 @@
 
 }
 .inStock {                                                          /* 'in stock' division */
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     width: 20%;
     height: 33%;
     /*margin: auto; */
@@ -178,7 +178,7 @@ td {
     height: 25%;
     position: absolute;
     top: 15%;
-    left: 20%;
+    left: 21%;
 
 }
 .removeStocksFieldset {                                             /* fieldset of the text box of "-" */
@@ -186,11 +186,12 @@ td {
     height: 80%;
     border-radius: 10px;
     position: absolute;
-    left: 9%;
+    left: 0%;
     visibility: hidden;
     padding: 10PX 10px;
     background-color: #dddd;
     border: none;
+    top: 10%;
 
 }
 .inputRemoveQuantity {                                              /* input text of " quantity " in " - " */
@@ -452,8 +453,13 @@ input {
     height: 110%;
     
 }
-.messageArea {
-    background-color: #f6f8f7;
+.pop_up_msg {
+    width: 500px;
+    background-color: #fff;
+    height: 300px;
+    border: 3px solid #184A78;
+
+    /* background-color: #f6f8f7;
     position: absolute;
     width: 40%;
     height: 45%;
@@ -461,8 +467,8 @@ input {
     top: 25%;
     border-radius: 15px;
     /* border-color: #184A78; */
-    border: 4px solid #184A78;
- display: none;
+    /* border: 4px solid #184A78;
+    visibility: hidden; */
 
 }
 .Yes {
@@ -506,45 +512,103 @@ input {
     color: #05be3d;
     
 }
-.popUpTextArea_1 {
-    /* border-color: rgb(11, 95, 67); */
-    width: 50%;
-    height: 20%;
-    position: absolute;
-    border-color: rgb(11, 95, 67);
-    left: 25%;
-    top: 25%;
+.confirmTextArea_1 {
+    width: 100%;
+    height: 30%;
+    background-color: #0e9b49;
 
 }
-.popUpTextArea_2 {
-    width: 70%;
-    height: 20%;
-    position: absolute;
-    top: 35%;
-    left: 15%;
+.confirmTextArea_2 {
+    width: 100%;
+    height: 30%;
+    background-color: #0e9b49;
+
+
 }
 .addAmountDiv {
     width: 100%;
-    height: 25%;
+    height: 30%;
     /* top: 0%; */
-    background-color: aqua;
+    /* background-color: aqua; */
     position: absolute;
     bottom: 20%;
-
+    visibility: hidden;
+    
 }
 .addAmountInput {
-    background-color: coral;
+    /* background-color: coral; */
     position: absolute;
-    width: 75%;
-    height: 100%;
+    width: 40%;
+    height: 80%;
     border-radius: 10px;
+    left: 10%;
+    top: 10%;
 
 }
 .submitAddAmount {
     background-color: #184A78;
     position: absolute;
-    width: 25%;
-    height: 100%;
-    right: 0%;
+    width: 15%;
+    height: 80%;
+    left: 50%;
     border-radius: 10px;
+    top: 10%;
+
+}
+.addAmountFieldset {
+    height: 100%;
+    width: 75%;
+    border-radius: 10px;
+    background-color: #dddd;
+    border: none;
+
+}
+.Btn {
+    width: 100%;
+    height: 10%;
+    background-color: #ad1799;
+    /* position: absolute; */
+    margin-top: 25%;
+    margin-left: 0%;
+
+}
+.yes {
+    width: 10%;
+    height: 100%;
+    background-color: #184A78;
+    margin-left: 15%;
+    border-radius: 10px;
+
+}
+.no {
+    width: 10%;
+    height: 100%;
+    background-color: red;
+    margin-left: 50%;
+    border-radius: 10px;
+
+}
+.addedSuccessfullyPopUppop_up {                 
+    width: 100%;
+    height: 500px;
+    background-color: red;
+    margin-top: -600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* visibility: hidden; */
+
+}
+.addedSuuccessfullyMessage {
+    width: 500px;
+    background-color: #fff;
+    height: 300px;
+    border: 3px solid #184A78;
+
+}
+.successfullText {
+    width: 100%;
+    height: 30%;
+    background-color: #0e9b49;
+
 }
