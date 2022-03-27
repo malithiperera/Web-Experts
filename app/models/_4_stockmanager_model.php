@@ -102,7 +102,7 @@ class _4_stockmanager_model extends model
 
         date_default_timezone_set('Asia/Colombo');
         $date=date('Y-m-d');
-        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and product_issue.date='$date'";
+        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and product_issue.date='$date' and issue_status=1";
         $result = mysqli_query ($conn, $sql);
         return $result;
 

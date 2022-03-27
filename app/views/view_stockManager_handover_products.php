@@ -221,13 +221,13 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
-            //         if (data == true) {
-            //             var pop_up=document.querySelector('.pop-up-suc');
-            // pop_up.style.visibility="visible";
-            // document.getElementById('msg').innerHTML="requested confirm";
+                    if (data == 0) {
+                        var pop_up=document.querySelector('.pop-up-suc');
+            pop_up.style.visibility="visible";
+            document.getElementById('msg').innerHTML="Process Completed";
 
 
-                    // }
+                    }
 
                 });
 
@@ -237,7 +237,7 @@
             var pop_up=document.querySelector('.pop-up-suc');
             pop_up.style.visibility="hidden";
             
-            window.location.href="http://localhost/web-Experts/public/stockManager/viewList?rep=6";
+            window.location.href="http://localhost/web-Experts/public/stockManager/ rep_list_back";
         }
     </script>
 
