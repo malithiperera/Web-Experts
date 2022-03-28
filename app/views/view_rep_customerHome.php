@@ -91,13 +91,13 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Returns</span>
   </li>
 
-  <li>
+  <!-- <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li> 
+  </li>  -->
 
   <li>
     <a href="../salesRep/view_notifications">
@@ -191,6 +191,7 @@ if (!isset($_SESSION['username'])) {
         <?php
         if ($this->result->num_rows > 0) {
           while ($row = $this->result->fetch_assoc()) {
+            
             if ($row['status'] == "D") {
               echo "<tr>
                     <td>" . $row['order_id'] . "</td>

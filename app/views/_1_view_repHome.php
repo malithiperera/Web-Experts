@@ -23,6 +23,20 @@ if (!isset($_SESSION['username'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+  <style>
+        .pop_up {
+            width: 100%;
+            height: 500px;
+            /* background-color: red; */
+            margin-top: -600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+
+        }
+
+    </style>
  
 </head>
 
@@ -89,13 +103,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Returns</span>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
         <span class="tooltip">Reports</span>
-      </li> 
+      </li>  -->
 
       <li>
         <a href="../salesRep/view_notifications">
@@ -216,7 +230,7 @@ if (!isset($_SESSION['username'])) {
     </section>
 
     <!-- END CARD SECTION -->
-
+        
 
 
 
@@ -234,7 +248,6 @@ if (!isset($_SESSION['username'])) {
           <tr>
             <th>Route</th>
             <th>Shop</th>
-            <th>Date</th>
             <th>Delivery</th>
 
           </tr>
@@ -312,7 +325,7 @@ if (!isset($_SESSION['username'])) {
                                 
                                 <td><a href="../salesRep/product_list?route_id=${data[i]['route_id']}">${data[i]['route_name']}</a></td>
                                 <td>${data[i]['shop_name']}</a></td>
-                                <td>${data[i]['date']}</a></td>
+                                
                                 <td>
                                   <button id="confirm" onclick="orderConfirm('${data[i]['order_id']}');window.location.href='../salesRep/home';">Confirm
                                   </button>
@@ -325,6 +338,7 @@ if (!isset($_SESSION['username'])) {
                         `;
 
             }
+          
             console.log(data);
           });
       }

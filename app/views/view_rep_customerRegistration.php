@@ -17,56 +17,6 @@ if (!isset($_SESSION['username'])) {
     
     <title>CustomerRegistration</title>
 
-    <style>
-/* Popup container - can be anything you want */
-.popup {
-  position: relative;
-  display: inline-block;
-  /* cursor: pointer; */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 300px;
-  height:250px;
-  background-color: green;
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 20px 50px ;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-  font-size: 35px;
-}
-
-
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
-
 
 </head>
 
@@ -129,7 +79,7 @@ if (!isset($_SESSION['username'])) {
 
 
                 <div class="popup" onclick="myFunction()"><input type="submit" value="Confirm" id="confirm" name="submit" onsubmit="validate()">
-                <span class="popuptext" id="myPopup">Registration Successfull!</span>
+                
         </div>
         </div>
         </form>
