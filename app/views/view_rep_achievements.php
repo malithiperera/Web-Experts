@@ -214,26 +214,26 @@ if (!isset($_SESSION['username'])) {
         .then(response => response.json())
         .then(data => {
           console.log(data[0]['achieved']);
-          let achieved_val = data[0]['achieved'];
-          let data_array = [
-            ['Task', 'Hours per Day'],
-            ['Achieved', parseInt(achieved_val)],
-            ['Remaining', parseInt(data[1]['tar']-data[0]['achieved'])],
+          // let achieved_val = data[0]['achieved'];
+          // let data_array = [
+          //   ['Task', 'Hours per Day'],
+          //   ['Achieved', parseInt(achieved_val)],
+          //   ['Remaining', parseInt(data[1]['tar']-data[0]['achieved'])],
             
-          ];
-          console.log(data_array);
-          // console.log(data[1]['tar']-data[0]['achieved']);
-          // console.log(data[0]['achieved']);
-          // achievedValue.innerHTML = data[0][0]['achieved']
-          var data = google.visualization.arrayToDataTable(data_array);
+          // ];
+          // console.log(data_array);
+          // // console.log(data[1]['tar']-data[0]['achieved']);
+          // // console.log(data[0]['achieved']);
+          // // achievedValue.innerHTML = data[0][0]['achieved']
+          // var data = google.visualization.arrayToDataTable(data_array);
           
-          var options = {
-            title: 'Monthly Performance'
-          };
+          // var options = {
+          //   title: 'Monthly Performance'
+          // };
 
-          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          // var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-          chart.draw(data, options);
+          // chart.draw(data, options);
         });
       // achievements();
       // var data = google.visualization.arrayToDataTable(x);
@@ -300,7 +300,7 @@ if (!isset($_SESSION['username'])) {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          targetValue.innerHTML = data[0]['tar'];
+          // targetValue.innerHTML = data[0]['tar'];
 
         });
     }

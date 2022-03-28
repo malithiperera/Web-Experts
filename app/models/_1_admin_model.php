@@ -356,12 +356,48 @@ class _1_admin_model extends model
     }
 
     //give suggestions according to the user role in remove user function
-    public function remove_user_suggestions($user){
+    public function remove_user_suggestions($user, $position){
         require '../app/core/database.php';
 
-        $sql = "select * from user where type = '$user'";
+        $sql = "select * from user where type = '$position' and user_id LIKE '%$user%' limit 5";
         $result = mysqli_query($conn, $sql);
 
-        return $result;
+        $data_array = [];
+
+        while($row = $result->fetch_assoc()){
+            array_push($data_array, $row);
+        }
+
+        return $data_array;
+    }
+
+    //load tables customer profile admin
+    public function load_customer_tables($cus_id){
+        require '../app/core/database.php';
+
+        $data_array = [];
+
+        $pending_orders = [];
+
+        $sql = "select * from orders where cus_id = '$cus_id' and status = 'not-delivered'";
+        $result = mysqli_query($conn, $sql);
+
+        while($row = $result->fetch_assoc()){
+            array_push($pending_orders, $row);
+        }
+
+        $sql1 = "select * from payment, cheque, orders where payment.payment_id = cheque.payment_id and payment.order_id = orders.order_id and orders.cus_id = '$cus_id'";
+        $result1 = mysqli_query($conn, $sql1);
+
+        $pending_cheques = [];
+
+        while($row1 = $result1->fetch_assoc()){
+            array_push($pending_cheques, $row1);
+        }
+
+        array_push($data_array, $pending_orders);
+        array_push($data_array, $pending_cheques);
+
+        return $data_array;
     }
 }

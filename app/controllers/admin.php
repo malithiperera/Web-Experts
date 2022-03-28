@@ -440,10 +440,22 @@ public function remove_user_suggestions(){
     $get_data = file_get_contents('php://input');
     $get_data = json_decode($get_data, true);
 
-    // $this->model('_1_admin_model');
-    // $result = $this->model->remove_user_suggestions($get_data);
+    $this->model('_1_admin_model');
+    $result = $this->model->remove_user_suggestions($get_data['user'], $get_data['position']);
 
-    echo json_encode($get_data);
+    echo json_encode($result);
+    exit;
+}
+
+//load tables customer profile in admin 
+public function load_customer_tables(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    $this->model('_1_admin_model');
+    $result = $this->model->load_customer_tables($get_data);
+
+    echo json_encode($result);
     exit;
 }
 
