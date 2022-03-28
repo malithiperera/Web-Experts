@@ -101,7 +101,7 @@ class register_model extends model
         $date=date("Y-m-d");
         $sql1 = "INSERT INTO user 
                 VALUES 
-                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online',$date,'')";
+                ('$user_id', '$name', '$email', '$password', '$verification_code', '$active', '$type', '$nic', '$address', '$dob', '$tel', '$deleted', '$is_online','$date')";
         $result1 = mysqli_query($conn, $sql1);
 
         $sql2 = "INSERT INTO admin VALUES ('$user_id', '$admin_type')";
@@ -111,7 +111,7 @@ class register_model extends model
             return true;
         }
         else{
-            return false;
+            return mysqli_error($conn);
         }
     }
 

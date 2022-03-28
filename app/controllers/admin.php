@@ -412,8 +412,27 @@ public function remove_the_user(){
 }
 
 //add employee new view
-public function add_employee_new(){
-    $this->view->render('view_admin_addemployee2');
-}
+// public function add_employee_new(){
+//     $this->view->render('view_admin_addemployee2');
+// }
+
+// //new registration function
+// public function new_registration_func(){
+//     $get_data = file_get_contents('php://input');
+//     $get_data = json_decode($get_data, true);
+
+//     if($get_data['user'] == "admin"){
+
+//     }
+//     else if($get_data['user'] == "rep"){
+
+//     }
+//     else if($get_data['user'] == "stockManager"){
+
+//     }
+
+//     echo json_encode($get_data);
+//     exit;
+// }
 
 }
