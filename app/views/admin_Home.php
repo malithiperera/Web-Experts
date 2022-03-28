@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 
 if (!isset($_SESSION['username'])) {
     header("Location:http://localhost/web-Experts/public/login/index");
@@ -30,6 +30,7 @@ if (!isset($_SESSION['username'])) {
            height: 100vh;
            background-color: blue;
        }
+      
    </style>
 </head>
 

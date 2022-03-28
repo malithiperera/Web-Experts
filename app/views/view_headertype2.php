@@ -28,6 +28,7 @@ width: 100%;
 height: 80px;
 background-color: #184A78;
 position: fixed;
+top: 0px;
 /* text-transform: uppercase; */
 
 }

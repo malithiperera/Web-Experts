@@ -4,6 +4,7 @@ class admin extends controller{
 
     function __construct(){
         parent::__construct();
+        session_start();
     }
 
     public function load_view(){
