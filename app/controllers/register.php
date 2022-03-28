@@ -104,7 +104,6 @@ class register extends controller
             $_SESSION['code'] = $url;
 
             $this->view->render('view_createpassword');
-
         } else {
             $this->view->success = 0;
             $this->view->render('view_createpassword');
@@ -177,7 +176,11 @@ class register extends controller
         }
     }
 
-
+    //add employee new view
+    public function add_employee_new()
+    {
+        $this->view->render('view_admin_addemployee2');
+    }
 
     //beigin new employee adding process
     public function reg_user()
@@ -189,69 +192,71 @@ class register extends controller
 
         $data = [];
 
-        if ($get_data['position'] == 'admin') {
+        if ($get_data['user'] == 'admin') {
             $result = $this->model->reg_admin(
-                $get_data['user_id'],
-                $get_data['name'],
-                $get_data['email'],
+                $get_data['ad_user_id'],
+                $get_data['ad_name'],
+                $get_data['ad_email'],
                 "",
-                sha1($get_data['email']),
+                sha1($get_data['ad_email']),
                 "pending",
                 "admin",
-                $get_data['nic'],
-                $get_data['add'],
-                $get_data['dob'],
-                $get_data['tel'],
+                $get_data['ad_nic'],
+                $get_data['ad_address'],
+                $get_data['ad_dob'],
+                $get_data['ad_mobile'],
                 "0",
                 "0",
-                $get_data['type']
+                $get_data['ad_level']
+          
             );
 
             $data = [$result];
-            $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
+            $mail = $this->send_mail($get_data['ad_name'], $get_data['ad_email'], sha1($get_data['ad_email']));
             array_push($data, $mail);
-        } elseif ($get_data['position'] == 'salesrep') {
+        } elseif ($get_data['user'] == 'salesrep') {
             $result = $this->model->reg_salesrep(
-                $get_data['user_id'],
-                $get_data['name'],
-                $get_data['email'],
+                $get_data['re_user_id'],
+                $get_data['re_name'],
+                $get_data['re_email'],
                 "",
-                sha1($get_data['email']),
+                sha1($get_data['re_email']),
                 "pending",
                 "rep",
-                $get_data['nic'],
-                $get_data['add'],
-                $get_data['dob'],
-                $get_data['tel'],
+                $get_data['re_nic'],
+                $get_data['re_address'],
+                $get_data['re_dob'],
+                $get_data['re_mobile'],
                 "0",
                 "0",
-                $get_data['target']
+                $get_data['re_target']
+
             );
 
             $data = [$result];
-            $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
+            $mail = $this->send_mail($get_data['re_name'], $get_data['re_email'], sha1($get_data['re_email']));
             array_push($data, $mail);
-
         } else {
-            $result = $this->model->reg_stockmanager($get_data['user_id'],
-            $get_data['name'],
-            $get_data['email'],
-            "",
-            sha1($get_data['email']),
-            "pending",
-            "stockmanager",
-            $get_data['nic'],
-            $get_data['add'],
-            $get_data['dob'],
-            $get_data['tel'],
-            "0",
-            "0");
+            $result = $this->model->reg_stockmanager(
+                $get_data['sm_user_id'],
+                $get_data['sm_name'],
+                $get_data['sm_email'],
+                "",
+                sha1($get_data['sm_email']),
+                "pending",
+                "stockmanager",
+                $get_data['sm_nic'],
+                $get_data['sm_address'],
+                $get_data['sm_dob'],
+                $get_data['sm_mobile'],
+                "0",
+                "0"
+
+            );
 
             $data = [$result];
-            $mail = $this->send_mail($get_data['name'], $get_data['email'], sha1($get_data['email']));
+            $mail = $this->send_mail($get_data['sm_name'], $get_data['sm_email'], sha1($get_data['sm_email']));
             array_push($data, $mail);
-            
-            
         }
 
 
@@ -263,36 +268,36 @@ class register extends controller
 
 
     //validate email
-    public function check_email(){
+    public function check_email()
+    {
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
         $this->model('register_model');
-       $result= $this->model->validate_email($recieved_data );
-       $row=mysqli_num_rows($result);
-        
+        $result = $this->model->validate_email($recieved_data);
+        $row = mysqli_num_rows($result);
+
         echo json_encode($row);
         exit;
-        
     }
 
-    public function check_userid(){
+    public function check_userid()
+    {
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
         $this->model('register_model');
-       $result= $this->model->validate_userid($recieved_data );
-       $row=mysqli_num_rows($result);
+        $result = $this->model->validate_userid($recieved_data);
+        $row = mysqli_num_rows($result);
 
         echo json_encode($row);
         exit;
-
     }
 
     //validate birthday
-    public function birthday_validate(){
+    public function birthday_validate()
+    {
         $recieved_data_encoded = file_get_contents("php://input");
         $recieved_data = json_decode($recieved_data_encoded, true);
 
         echo json_encode($recieved_data);
-
     }
 }
