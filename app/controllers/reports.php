@@ -318,4 +318,20 @@ public function rep_summary_year(){
         exit;
         
     }
+
+
+    //stock summary
+    public function stock_month(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+        $this->model('report_model');
+        $result=$this->model->stock_summary($recieved_data['year'],$recieved_data['month']);
+
+
+        
+        echo json_encode($result);
+        exit;
+        
+
+    }
 }

@@ -36,6 +36,7 @@ class stockManager extends controller {
 
     public function managestock(){
         $this->view->render('stockmanager_sketch');
+        
     }
 
     public function details_of_product(){

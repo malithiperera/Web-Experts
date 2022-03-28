@@ -515,7 +515,7 @@ input {
 .confirmTextArea_1 {
     width: 100%;
     height: 30%;
-    background-color: #0e9b49;
+    /* background-color: #0e9b49; */
 
 }
 .confirmTextArea_2 {
@@ -566,7 +566,7 @@ input {
 .Btn {
     width: 100%;
     height: 10%;
-    background-color: #ad1799;
+    /* background-color: #ad1799; */
     /* position: absolute; */
     margin-top: 25%;
     margin-left: 0%;
@@ -591,7 +591,7 @@ input {
 .addedSuccessfullyPopUppop_up {                 
     width: 100%;
     height: 500px;
-    background-color: red;
+    /* background-color: red; */
     margin-top: -600px;
     display: flex;
     justify-content: center;
@@ -609,6 +609,15 @@ input {
 .successfullText {
     width: 100%;
     height: 30%;
-    background-color: #0e9b49;
+    /* background-color: #0e9b49; */
+    margin-bottom: 20%;
 
+}
+.addedSuccessfullyDoneBtn {
+    width: 10%;
+    height: 100%;
+    background-color: #184A78;
+    margin-left: 45%;
+    border-radius: 10px;
+    
 }

@@ -21,6 +21,7 @@
     $type = $this->added2;
     ?>
     <div class="container">
+        <?php  require "view_headerType.php";?>
         <button onclick="window.print()" id="print">Print the report</button>
         <h2 id="report-title"></h2>
         <div class="card-section">

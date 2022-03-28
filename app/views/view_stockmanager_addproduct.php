@@ -34,8 +34,8 @@ session_start();
             <form id="productForm" action="../product/add_product" method="post" autocomplete="off" enctype="multipart/form-data" onsubmit="validate ()">
                 <div class="input_control">
                     <p class="label_productId">Product Id</p>
-                    <input id="input_productId" class="input_productId" type="text" name="id">
-                    <div class="error"></div>
+                    <input id="input_productId" class="input_productId" type="text" name="id" onkeyup="errorProductId ()">
+                    <span class="errorPId"></span>
 
                 </div>
                 <!-- <p class="label_productId">Product Id</p>
@@ -45,7 +45,7 @@ session_start();
                 <div class="input_control">
                     <p class="label_productName">Product Name</p>
                     <input id="input_productName" class="input_productName" type="text" name="name">
-                    <div class="error"></div>
+                    <span></span>
 
                 </div>
                 <!-- <p class="label_productName">Product Name</p>
@@ -63,7 +63,7 @@ session_start();
                 <div class="input_control">
                     <p class="label_description">Descrption</p>
                     <input id="input_description" class="input_description" type="text" name="des">
-                    <div class="error"></div>
+                    <span></span>
 
                 </div>
                 <!-- <p class="label_description">Descrption</p>
@@ -72,7 +72,7 @@ session_start();
                 <div class="input_control">
                     <p class="label_price">Price</p>
                     <input id="input_price" class="input_price" type="text" name="price">
-                    <div class="error"></div>
+                    <span></span>
 
                 </div>
                 <!-- <p class="label_price">Price</p>
@@ -81,7 +81,7 @@ session_start();
                 <div class="inputcontrol">
                     <p class="label_image">Image</p>
                     <input class="input_image" type="file" name="file" style="width:90%" class="custom-file-input"><br>
-                    <div class="error"></div>
+                    <span></span>
 
                 </div>
                 <!-- <p class="label_image">Image</p>
@@ -161,6 +161,16 @@ session_start();
 
         }
         backToAddProduct()
+
+        var productId = document.querySelector('.input_productId').value
+        var productIdError = document.querySelector('.errorPId').value
+
+        function errorProductId() {
+            if (productId == '') {
+                productIdError.innerHTML = "Error"
+
+            }
+        }
     </script>
 </body>
 
