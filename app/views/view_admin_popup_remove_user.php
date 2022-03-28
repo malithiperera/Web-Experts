@@ -10,7 +10,7 @@
     <style>
         .removeuser {
             position: fixed;
-            top: 0px;
+            top: 50px;
             left: 0px;
             width: 100%;
             display: flex;
@@ -112,15 +112,15 @@
             <label for="">Position : </label>
             <select name="select_position" id="select_position">
                 <option value="admin">Admin</option>
-                <option value="salesRep">Sales Rep</option>
+                <option value="rep">Sales Rep</option>
                 <option value="customer">Customer</option>
-                <option value="stockManager">Stock Manager</option>
+                <option value="stockmanager">Stock Manager</option>
             </select>
         </div>
 
         <div class="remove_user_userid">
             <label for="">User Id : </label>
-            <input type="text" name="" id="remove_user_userid_input">
+            <input type="text" name="" id="remove_user_userid_input" onkeyup = "select_user(this.value)">
         </div>
 
         <div class="remove_user_purpose">
@@ -146,7 +146,7 @@
 
             let dataset = {
                 user_id: user_id,
-                position : position,
+                position: position,
                 purpose: purpose
             }
 
@@ -156,6 +156,31 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(dataset)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                });
+        }
+
+
+        //for give suggestions according to the user
+
+
+        
+
+        function select_user(user) {
+            let position = document.getElementById('select_position').value;
+
+            let dataset = {user : user ,  position : position};
+            // console.log(user);
+
+            fetch('http://localhost/web-Experts/public/admin/remove_user_suggestions', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataset),
                 })
                 .then(response => response.json())
                 .then(data => {
