@@ -72,6 +72,33 @@ if (!isset($_SESSION['username'])) {
   font-weight: 500;
 }
 
+#BankVal{
+  visibility:hidden;
+  color: red;
+  font-size: small;
+  font-weight: 500;
+}
+
+.pop_up{
+  width: 100%;
+  height: 700px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  /* margin-top: 100px; */
+}
+.pop_up_msg{
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid black;
+  margin-top: 100px;
+  visibility: hidden;
+}
+
+
+
 </style>
 
 
@@ -104,17 +131,19 @@ if (!isset($_SESSION['username'])) {
       <div class="input-fields"><label for="total">Total Amount</label> <input type="text" name="total" id="total"
           class="inputf">
       </div>
-      <div class="input-fields"><label for="bank">Bank</label><input type="text" name="bank" id="bank" class="inputf">
+      <div class="input-fields" onchange="BankValidate()"><label for="bank">Bank</label><input type="text" name="bank" id="bank" class="inputf">
+      <span class="valBank" id="BankVal">Enter letters only</span>
       </div>
-      <div class="input-fields"><label for="ChequeNo">Cheque No</label><input type="text" name="ChequeNo" id="ChequeNo"
+      <div class="input-fields" ><label for="ChequeNo">Cheque No</label><input type="text" name="ChequeNo" id="ChequeNo"
           class="inputf">
+          
       </div>
       <div class="input-fields" onchange="DateValidate()"><label for="date">Deposit Date</label><input type="date" name="date" id="date"
           class="inputf">
           <br>
           <span class="valDate" id="vali">Enter a valid date</span>
       </div>
-      <div class="popup" ><input type="submit" value="Confirm" id="confirm" onclick="ConfirmDate()">
+      <div class="popup" ><input type="submit" value="Confirm" id="confirm" onclick="ConfirmBank();">
       <!-- <span class="popuptext" id="myPopup">Payment Successfull!</span> -->
     </div>
 
@@ -123,7 +152,11 @@ if (!isset($_SESSION['username'])) {
     <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
     
   </div>
-  
+  <div class="pop_up">
+  <div class="pop_up_msg">
+
+  </div>
+</div>
 
   <script>
 // When the user clicks on div, open the popup
@@ -136,6 +169,8 @@ function myFunction() {
 
 <script>
   var flag=0;
+  var con=0;
+  
 function DateValidate(){
   var inputDate = document.getElementById("date").value;
   var valiD =document.getElementById("vali").innerHTML;
@@ -196,9 +231,47 @@ fetch('http://localhost/web-Experts/public/salesRep/add_chequePayment', {
         })
         .then(response => response.json())
         .then(data => {
+            
             console.log(data);
+            if(data==0){
+
+              document.querySelector('..pop_up_msg').style.visibility="visible";
+            }
+
            
         });
+}
+
+
+function BankValidate(){
+  var inputBank = document.getElementById("bank").value;
+  var letters = /^[a-zA-Z\s]*$/; 
+  // console.log(inputBank);
+  if(inputBank.match(letters))
+      {
+      // alert('Your name have accepted : you can try another');
+      var valiD =document.getElementById("BankVal").style.visibility="hidden";
+      con=1;
+      return true;
+      
+      }
+      else
+      {
+      // alert('Please input alphabet characters only');
+      var valiD =document.getElementById("BankVal").style.visibility="visible";
+      // console.log("sdf");
+      return false;
+      // 
+      }
+}
+
+function ConfirmBank(){
+  if(con==1){
+    ConfirmDate();
+  }else{
+    // console.log("sumudu");
+    alert("enter valid details");
+  }
 }
 
 </script>

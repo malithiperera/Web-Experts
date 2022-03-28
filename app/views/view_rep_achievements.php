@@ -21,7 +21,16 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+<style>
+  .header1{
+    margin-top: -100px;
+  }
 
+
+  .cards{
+    margin-top: 100px;
+  }
+</style>
 
 <body>
 
@@ -94,13 +103,13 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Returns</span>
   </li>
 
-  <li>
+  <!-- <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li> 
+  </li>  -->
 
   <li>
     <a href="../salesRep/view_notifications">
@@ -154,7 +163,7 @@ if (!isset($_SESSION['username'])) {
 
 <!-- ADD HEADER -->
 <section class="home-section">
-    <div class="header">
+    <div class="header1">
         <?php require 'view_headertype2.php'; ?>
 </div></div>
 
