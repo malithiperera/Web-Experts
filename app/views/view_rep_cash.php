@@ -132,7 +132,7 @@ if (!isset($_SESSION['username'])) {
         </div>
 
        
-        <div  ><input type="submit" value="Confirm" id="confirm" >
+        <div><input type="submit" value="Confirm" id="confirm"></div>
       </form>
 
     </div>

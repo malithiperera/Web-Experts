@@ -59,13 +59,13 @@ if (!isset($_SESSION['username'])) {
     </div>
     <ul class="nav-list">
 
-      <li>
+      <!-- <li>
         <a href="#" onclick="my_notification.load_notification('%')">
           <i class="far fa-envelope lg-3x"></i>
           <span class="links_name">All</span>
         </a>
         <span class="tooltip">All</span>
-      </li>
+      </li> -->
       <li>
         <a href="#" onclick="my_notification.load_notification(1)">
           <i class="fas fa-cart-plus lg-3x"></i>
@@ -80,20 +80,20 @@ if (!isset($_SESSION['username'])) {
         </a>
         <span class="tooltip">Target</span>
       </li>
-      <li>
+      <!-- <li>
         <a href="#" onclick="my_notification.load_notification(81)">
         <i class="fas fa-money-check-alt"></i>
           <span class="links_name">Cheque returns</span>
         </a>
         <span class="tooltip">Cheque returns</span>
-      </li>
-      <li>
+      </li> -->
+      <!-- <li>
         <a href="#" onclick="my_notification.load_notification(2)">
           <i class="fas fa-truck-loading lg-3x"></i>
           <span class="links_name">Deliveries</span>
         </a>
         <span class="tooltip">Deliveries</span>
-      </li>
+      </li> -->
       <li>
         <a href="#" onclick="my_notification.load_notification(17)">
         <i class='bx bxs-discount'></i>
@@ -170,7 +170,7 @@ if (!isset($_SESSION['username'])) {
     let user_id = '<?php echo $_SESSION['userid'] ?>';
     let type = '<?php echo $_SESSION['type'] ?>';
     let my_notification = new notification(user_id, type);
-    my_notification.load_notification('%');
+    my_notification.load_notification('1');
 
     //when click a notification , then render the message
 
