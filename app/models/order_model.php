@@ -153,4 +153,21 @@ public function suggest_user($userid){
     return $result;
 
 }
+
+//delete order
+public function delete_order($recieved_data){
+    require '../app/core/database.php';
+    $sql="DELETE FROM order_product WHERE order_id='$recieved_data';";
+    $result=mysqli_query($conn,$sql);
+
+    if($result){
+        $sql="DELETE FROM orders WHERE order_id='$recieved_data';";
+    $result=mysqli_query($conn,$sql);
+    return $result;
+    }
+
+    else{
+        return false;
+    }
+}
 }

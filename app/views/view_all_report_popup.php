@@ -118,6 +118,10 @@
         .view-report-container label{
             color: black;
         }
+
+        .select-1{
+            display: none;
+        }
     </style>
 </head>
 
@@ -135,6 +139,10 @@
                     <select id="type" name="type">
                      
                     </select>
+                    
+                    <br>
+
+                    <label for="type">Report Frame:</label><br>
                     <select id="cat" name="cat" onchange="myFunction()" id="cat">
                         <option value="year">Yearly</option>
                         <option value="month">Monthly</option>

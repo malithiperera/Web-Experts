@@ -1091,6 +1091,8 @@ fetch("http://localhost/web-Experts/public/reports/stock_month", {
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
+    
+
 
     this.create_card(
       '<i class="fas fa-exchange-alt"></i>',
@@ -1134,9 +1136,20 @@ fetch("http://localhost/web-Experts/public/reports/stock_month", {
         
         `;
     }
+
+    // let result = this.create_dataset_array(data[1]);
+this.bar_charts_stock(data[1]);
+this.graph_section = document.createElement("div");
+this.main.appendChild(this.graph_section);
+this.graph_section.classList.add("section", "cus-section");
+this.graph_section.innerHTML += "<h3>Delivery And Order Summary</h3>";
+
+this.graph_section.innerHTML +=
+  '<div id="barchart_material" style="width: 80%; height:1000px;"></div>';
+
   });
 
-
+  
 
   }
 
@@ -1217,17 +1230,31 @@ fetch("http://localhost/web-Experts/public/reports/stock_month", {
 }
 
 
+//chart for stock
+bar_charts_stock(data) {
 
-bar_charts(result, result1, result2) {
+console.log(data)
+const products=new Array()
+const amount=new Array()
+  for(let i=0;i<data.length;i++){
+    // products.push(data[i]['product_name'])
+    amount.push(data[i]['sum(product_issue_products.deliver_qty)'])
+  }
+  console.log(products)
   google.charts.load("current", { packages: ["bar"] });
   google.charts.setOnLoadCallback(drawChart);
 
+
+  let data_array=[
+['Products','Amount'] 
+
+  ];
+  for(let i=0;i<data.length;i++){
+   data.array.push(String(products[i]),parseInt(amount[i]))
+  }
+
   function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ["Month", "Orders", "Deliveries"],
-      ["Jan", result[0][1], result1[0][1]],
-   
-    ]);
+    var data = google.visualization.arrayToDataTable(data_array);
 
     var options = {
       chart: {

@@ -37,6 +37,93 @@ $userid = $_SESSION['userid'];
 
     }
 
+    .delete_order_pop{
+      width: 100%;
+      height: 1000px;
+      /* background-color: red; */
+      margin-top: -1300px;
+      display: flex;
+      justify-content: center;
+      visibility: hidden;
+      /* position: relative; */
+    }
+
+    .order-pop_up,.place_pop{
+      width: 500px;
+      height: 300px;
+      border: 3px solid #184A78;
+      border-radius: 10px;
+      background-color: #fff;
+
+    }
+    .order-pop_up h4{
+      text-align: center;
+    }
+.button-div{
+  width: 100%;
+  margin-top: 40px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-evenly
+}
+    #confirm-delete{
+      width: 30%;
+      background-color: red;
+      border: none;
+      color: #fff;
+      outline: none;
+    }
+
+    #cancel-delete{
+      width: 30%;
+      color: #fff;
+      height: 30px;
+      background-color: #184A78;
+      border: none;
+      outline: none;
+    }
+
+    .no_orders_1,.no_delivers_1{
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      border: 3px solid red;
+      display: none;
+    }
+
+    #no_orders{
+      text-align: center;
+      /* margin-top: 100px; */
+    }
+  .place_order_pop{
+    width: 100%;
+      height: 1000px;
+      /* background-color: red; */
+      margin-top: -1400px;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      visibility: hidden;
+      
+  }
+
+  .place_pop h2{
+    color: red;
+    margin-top: 30px;
+  }
+.butt{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+  .but_class{
+    width: 30%;
+    height: 40px;
+      background-color: #184A78;
+      border: none;
+      color: #fff;
+      outline: none;
+  }
   </style>
 
 </head>
@@ -58,7 +145,7 @@ $userid = $_SESSION['userid'];
         <span class="tooltip">Home</span>
       </li>
       <li>
-        <a href="../customer/place_order_view">
+        <a href="#" onclick="check_pending_orders()">
 
           <i class='bx bxs-cart-add'></i>
           <span class="links_name">Place Order</span>
@@ -226,7 +313,9 @@ $userid = $_SESSION['userid'];
         <div class="orders">
 
           <h2 id="orders-head">Pending Orders</h2>
-
+<div class="no_orders_1">
+<h3 id="no_orders">No Pending Orders</h3>
+</div>
 
 
           <div class="field">
@@ -241,7 +330,9 @@ $userid = $_SESSION['userid'];
         <div class="payment">
           <h2>Due Payment</h2>
 
-
+          <div class="no_delivers_1">
+<h3 id="no_orders">No Due Payments</h3>
+</div>
 
           <div class="field-name">
 
@@ -258,19 +349,38 @@ $userid = $_SESSION['userid'];
       </div>
 
     </section>
+
+    <div class="place_order_pop">
+<div class="place_pop">
+  <h2>Cannot place order</h2>
+  <h3>Please edit previous order</h3>
+  <div class="butt">
+    <button class="but_class" onclick="place_order_close()">Ok</button>
+  </div>
+</div>
+    </div>
+    <div class="delete_order_pop">
+      <div class="order-pop_up">
+        <h3 id="sure_id">Are you Sure want to delete Order?</h3>
+        <h4>Order Id:<span id="o_id"></span></h4>
+<div class="button-div">
+  <button id="confirm-delete" onclick="delete_order_func()">Yes</button>
+  <button id="cancel-delete">No</button>
+</div>
+      </div>
+
+</div>
     <div class="pop-up-report" id="pop-up-report">
       <?php require 'view_all_report_popup.php'; ?>
     </div>
 
-    <div class="delete_order_pop">
-
-    </div>
 
 
 
   </section>
 
     
+
 
   <script>
 
@@ -294,6 +404,9 @@ function get_pending_orders(){
         .then(response => response.json())
         .then(data => {
            console.log(data);
+           if(data.length==0){
+             document.querySelector('.no_orders_1').style.display="block"
+           }
           for (i = 0; i < data.length; i++) {
 
             field.innerHTML += `
@@ -428,7 +541,9 @@ get_pending_orders();
               // console.log(date)
                credit=data[0]['credit_time']
               if(data[1].length==0){
-                field_name.innerHTML += `<h2 id="zero">No Due Payments</h2>`;
+             
+             document.querySelector('.no_delivers_1').style.display="block"
+           
               }
               else{
               for (i = 0; i < data.length; i++) {
@@ -621,11 +736,113 @@ home.load('test2.php');
      
     }
 
-    function delete_order(orderid){
-      pop_up_div = document.getElementById('pop-up-report');
-      pop_up_div.style.visibility="visible";
-      // pop_up_div.innerHTML=" ";
 
+    function close_delete(){
+
+      pop_up_div = document.getElementById('pop-up-report');
+      card = document.querySelector('.cards-section');
+      detail = document.querySelector('.detail');
+
+
+
+      pop_up_div.style.visibility = "hidden";
+
+      card.style.opacity = "100%";
+      detail.style.opacity = "100%";
+     
+
+    }
+
+    function delete_order(orderid){
+     document.querySelector('.delete_order_pop').style.visibility="visible";
+     card = document.querySelector('.cards-section');
+     document.getElementById('o_id').innerHTML=orderid;
+     detail = document.querySelector('.detail');
+     card.style.opacity = "50%";
+      detail.style.opacity = "50%";
+
+    }
+
+    function delete_order_func(){
+      var oId=document.getElementById('o_id').innerHTML;
+      console.log(oId)
+      document.querySelector('.delete_order_pop').style.visibility="hidden";
+      fetch('http://localhost/web-Experts/public/orders/delete_orders', {
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/json'
+
+          },
+
+          body: JSON.stringify(oId)
+        })
+        .then(response => response.json())
+        .then(data => {
+           console.log(data);
+          
+          //   if(data){
+          //      document.querySelector('.delete_order_pop').style.visibility="visible";
+          //     document.querySelector('.delete_order_pop').innerHTML="";
+          //     document.querySelector('#sure_id').innerHTML="Order deleted successfully";
+
+          //     document.querySelector('.button-div').innerHTML="";
+          //     document.querySelector('.button-div').innerHTML=`<button onclick="close_delete()">Ok</button>`
+
+          //   }
+          // else{
+          //   document.querySelector('.delete_order_pop').innerHTML="";
+          //     document.querySelector('#sure_id').innerHTML="Error!! Try Again Shortly";
+          // }
+
+          
+        });
+
+
+    }
+
+
+    function check_pending_orders(){
+
+      var userid="<?php echo $_SESSION['userid'] ?>"
+      console.log(userid)
+      fetch('http://localhost/web-Experts/public/customer/get_pending_orders_check', {
+          method: 'POST',
+
+          headers: {
+            'Content-Type': 'application/json'
+
+          },
+
+          body: JSON.stringify(userid)
+        })
+        .then(response => response.json())
+        .then(data => {
+           console.log(data);
+        if(data==0){
+          document.querySelector('.place_order_pop').style.visibility="visible";
+          card = document.querySelector('.cards-section');
+     
+     detail = document.querySelector('.detail');
+     card.style.opacity = "50%";
+      detail.style.opacity = "50%";
+        
+        }  
+        else{
+          console.log("jajagj")
+          window.location.href="http://localhost/web-Experts/public/customer/place_order_view"
+        }
+        
+        });
+    }
+
+    function place_order_close(){
+      document.querySelector('.place_order_pop').style.visibility="hidden";
+          card = document.querySelector('.cards-section');
+     
+     detail = document.querySelector('.detail');
+     card.style.opacity = "100%";
+      detail.style.opacity = "100%";
     }
   </script>
 
