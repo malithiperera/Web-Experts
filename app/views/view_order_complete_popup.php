@@ -107,7 +107,7 @@
                 <span><label for="">Total Amount:</label> <span id="order_amount">12000</span></span>
                 <span id="order_id"></span>
 
-                <div class="button-pop"><button>Done</button></div>
+                <div class="button-pop" onclick="hide_pop()"><button>Done</button></div>
 
             </div>
 

@@ -7,12 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      
+      
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins" , sans-serif;
+    color: black;
+}
 
         .add_employee_container {
             position: relative;
+            top: 100px;
+            z-index: 100;
+            right: 450px;
         }
 
         .add_employee_choose_user {
@@ -47,7 +58,8 @@
             width: 800px;
             top: 50px;
             visibility: visible;
-            border: 4px solid #184A78;
+            /* border: 4px solid #184A78; */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             border-radius: 20px;
             display: flex;
             justify-content: center;
@@ -58,7 +70,8 @@
             width: 800px;
             top: 50px;
             visibility: hidden;
-            border: 4px solid #184A78;
+            /* border: 4px solid #184A78; */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             border-radius: 20px;
             display: flex;
             justify-content: center;
@@ -69,7 +82,8 @@
             width: 800px;
             top: 50px;
             visibility: hidden;
-            border: 4px solid #184A78;
+            /* border: 4px solid #184A78; */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             border-radius: 20px;
             display: flex;
             justify-content: center;
@@ -88,6 +102,7 @@
             display: block;
             margin-left: 20px;
             margin-top: 15px;
+            font-weight: 600;
         }
 
         .add_employee_input_field {
@@ -95,7 +110,7 @@
             margin-left: 40px;
             margin-top: 15px;
             width: 400px;
-            height: 30px;
+            height: 40px;
         }
 
         .select_option {
@@ -108,7 +123,7 @@
             margin-bottom: 20px;
             width: 90px;
             height: 40px;
-            border-radius: 20px;
+            border-radius: 10px;
             background-color: #abcdef;
             border: none;
         }
@@ -130,11 +145,65 @@
         color: black;
         font-size: 30px;
     }
+
+    .main-container{
+        width: 100%;
+        height: 500px;
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+    }
+
+    #user_avail{
+        visibility: hidden;
+    }
+
+    #valid_birthday{
+        visibility: hidden;
+        color: red;
+    }
+
+    #email_avail{
+        visibility: hidden;
+        color: red;
+    }
+
+    #phone_number{
+        visibility: hidden;
+        color: red;
+    }
+
+    .null_msg{
+        width: 100%;
+        height: 600px;
+        /* position: fixed; */
+        /* background-color: red; */
+        /* margin-top: -500px; */
+        display: flex;
+        justify-content: center;
+        display: none;
+
+    }
+
+    .error{
+        width: 400px;
+        height: 300px;
+        background-color: #fff;
+        margin-top: 200px;
+        border: 4px solid black;
+    }
     </style>
 </head>
 
 <body>
+    <div class="main-container">
+        <!-- <div class="null_msg">
+<div class="error">
+
+</div>
+        </div> -->
     <div class="add_employee_container">
+   
         <div class="add_employee_choose_user">
             <button class="add_employee_choose_user_button" id="add_employee_admin_button" onclick="choose_user('admin')">Admin</button>
             <button class="add_employee_choose_user_button" id="add_employee_salesRep_button" onclick="choose_user('salesRep')">Sales Rep</button>
@@ -147,11 +216,12 @@
                     <div class="add_employee_inputs">
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Name : </label>
-                            <input type="text" class="add_employee_input_field" id="admin_name" placeholder="Name">
+                            <input type="text" class="add_employee_input_field" id="admin_name" placeholder="Name" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field" id="admin_user_id" placeholder="User Id">
+                            <input type="text" class="add_employee_input_field check_user_id" id="admin_user_id" placeholder="User Id" onkeyup="check_avail_userid()" require>
+                            <span id="user_avail">User id is not available</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Level : </label>
@@ -162,23 +232,26 @@
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">NIC : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="NIC No" id="admin_nic">
+                            <input type="text" class="add_employee_input_field" placeholder="NIC No" id="admin_nic" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
-                            <input type="date" class="add_employee_input_field" id="admin_dob">
+                            <input type="date" class="add_employee_input_field validate_birthday" id="admin_dob"  onkeyup="check_avail_userid()" require>
+                            <span id="valid_birthday">Enter a valid birthday</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
-                            <input type="email" class="add_employee_input_field" placeholder="Email" id="admin_email">
+                            <input type="email" class="add_employee_input_field mail_check" placeholder="Email" id="admin_email" onkeyup="check_email()" require>
+                            <span id="email_avail">email is already exists</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Address : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Address" id="admin_address">
+                            <input type="text" class="add_employee_input_field" placeholder="Address" id="admin_address" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Mobile : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Mobile" id="admin_mobile">
+                            <input type="text" class="add_employee_input_field phone_num" placeholder="Mobile" id="admin_mobile" onkeyup="phone_number()" require>
+                            <span id="phone_number">Phone number length is invalid</span>
                         </div>
                         <div class="add_employee_field">
                             <button class="add_employee_submit_button" id="admin_submit_button" onclick="reg_user('admin')">Submit</button>
@@ -192,19 +265,21 @@
                     <div class="add_employee_inputs">
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Name : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Name" id="rep_name">
+                            <input type="text" class="add_employee_input_field" placeholder="Name" id="rep_name" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="User Id" id="rep_user_id">
+                            <input type="text" class="add_employee_input_field check_user_id" placeholder="User Id" id="rep_user_id"  onkeyup="check_avail_userid()" require>
+                            <span id="user_avail">User id is not available</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">NIC : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="NIC No" id="rep_nic">
+                            <input type="text" class="add_employee_input_field" placeholder="NIC No" id="rep_nic" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
-                            <input type="date" class="add_employee_input_field" id="rep_dob">
+                            <input type="date" class="add_employee_input_field validate_birthday" id="rep_dob" onchange="birthday_validate()" require>
+                            <span id="valid_birthday">Enter a valid birthday</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Target(Rs.) : </label>
@@ -212,15 +287,18 @@
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
-                            <input type="email" class="add_employee_input_field" placeholder="Email" id="rep_email">
+                            <input type="email" class="add_employee_input_field  mail_check" placeholder="Email" id="rep_email" onkeyup="check_email()" require>
+                            <span id="email_avail">email is already exists</span>
+                            
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Address : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Address" id="rep_address">
+                            <input type="text" class="add_employee_input_field" placeholder="Address" id="rep_address" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Mobile : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Mobile" id="rep_mobile">
+                            <input type="text" class="add_employee_input_field phone_num" placeholder="Mobile" id="rep_mobile" onkeyup="phone_number()" require>
+                            <span id="phone_number">Phone number length is invalid</span>
                         </div>
                         <div class="add_employee_field">
                             <button class="add_employee_submit_button" id="rep_submit_button" onclick="reg_user('salesRep')">Submit</button>
@@ -234,31 +312,35 @@
                     <div class="add_employee_inputs">
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Name : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Name" id="stockManager_name">
+                            <input type="text" class="add_employee_input_field" placeholder="Name" id="stockManager_name" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="User Id" id="stockManager_user_id">
+                            <input type="text" class="add_employee_input_field check_user_id" placeholder="User Id" id="stockManager_user_id"  onkeyup="check_avail_userid()" require>
+                            <span id="user_avail">User id is not available</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">NIC : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="NIC" id="stockManager_nic">
+                            <input type="text" class="add_employee_input_field" placeholder="NIC" id="stockManager_nic" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
-                            <input type="date" class="add_employee_input_field" placeholder="DOB" id="stockManager_dob">
+                            <input type="date" class="add_employee_input_field validate_birthday" placeholder="DOB" id="stockManager_dob" onkeyup="check_avail_userid()" require>
+                            <span id="valid_birthday">Enter a valid birthday</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
-                            <input type="email" class="add_employee_input_field" placeholder="Email" id="stockManager_email">
+                            <input type="email" class="add_employee_input_field  mail_check" placeholder="Email" id="stockManager_email" onkeyup="check_email()" require>
+                            <span id="email_avail">email is already exists</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Address : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Address" id="stockManager_address">
+                            <input type="text" class="add_employee_input_field" placeholder="Address" id="stockManager_address" require>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Mobile : </label>
-                            <input type="text" class="add_employee_input_field" placeholder="Mobile" id="stockManager_mobile">
+                            <input type="text" class="add_employee_input_field phone_num" placeholder="Mobile" id="stockManager_mobile" onkeyup="phone_number()" require>
+                            <span id="phone_number">Phone number length is invalid</span>
                         </div>
                         <div class="add_employee_field">
                             <button class="add_employee_submit_button" id="stockManager_submit_button" onclick="reg_user('stockManager')">Submit</button>
@@ -267,6 +349,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    
 
         <div class="message">
 
@@ -275,7 +359,10 @@
 
 
             </div>
+
+        
         </div>
+        
 
         <div class="loading">
         <div class="loading_message">
@@ -354,7 +441,14 @@
                     let ad_address = admin_address.value;
                     let ad_mobile = admin_mobile.value;
 
-                    admin_dataset = {
+                    if(ad_name=="" || ad_user_id==""|| ad_level=="" || ad_nic=="" || ad_email==""||ad_address==""||ad_mobile){
+
+alert("Inputs vields cannot be null")
+                        
+                    }
+
+                    else{
+                        admin_dataset = {
                         user: "admin",
                         ad_name: ad_name,
                         ad_user_id: ad_user_id,
@@ -365,6 +459,8 @@
                         ad_address: ad_address,
                         ad_mobile: ad_mobile
                     };
+                    }
+                  
 
                     // console.log(admin_dataset);
 
@@ -440,6 +536,147 @@
                         console.log(data);
                     });
             }
+
+
+            function check_email(){
+            var email_check=document.querySelector('.mail_check');
+            var email_avail=document.getElementById('email_avail');
+
+            fetch("http://localhost/web-Experts/public/register/check_email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(email_check.value),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+if(data!=0){
+email_check.style.border = "thick solid red";
+email_avail.style.visibility="visible";
+email_avail.style.color="red";
+
+}
+      else{
+        email_check.style.border = "thick solid green";
+        email_avail.innerHTML="email is available";
+        email_avail.style.color="green";
+      }    
+         
+        });
+
+        }
+
+
+        //check userid
+        function user_id_check(){
+
+            fetch("http://localhost/web-Experts/public/register/check_email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+if(data!=0){
+email_check.style.border = "thick solid red";
+email_avail.style.visibility="visible";
+email_avail.style.color="red";
+email_check.style.visibility="visible"
+
+}
+      else{
+          
+        email_check.style.border = "thick solid green";
+        email_avail.innerHTML="email is available";
+        email_avail.style.color="green";
+      }    
+         
+        });
+
+        }
+
+        function check_avail_userid(){
+            var check_user_id=document.querySelector('.check_user_id');
+            user_avail=document.getElementById('user_avail');
+            fetch("http://localhost/web-Experts/public/register/check_userid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(check_user_id.value),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          if(data!=0){
+              check_user_id.style.border = "thick solid red";
+user_avail.style.visibility="visible";
+user_avail.style.color="red";
+
+}
+      else{
+        check_user_id.style.border = "thick solid green";
+        user_avail.innerHTML="user id is available";
+        user_avail.style.color="green";
+      }    
+
+         
+        });
+        }
+
+        function birthday_validate(){
+            var valid_birthday=document.getElementById('valid_birthday');
+            
+
+            //valid year
+            const d = new Date();
+            let year = d.getFullYear();
+  let valid_year=year-18;
+  console.log(valid_year)
+
+  //birthday year
+            var validate_birthday=document.querySelector('.validate_birthday');
+            var birthday_date=validate_birthday.value;
+            var real_date=parseInt(birthday_date.slice(0,4));
+            console.log(real_date);
+            if(valid_year>real_date){
+                console.log("Hello")
+                valid_birthday.innerHTML="Your birthday is valid";
+                valid_birthday.style.color="green"
+            }
+            else{
+                console.log("Errrrrrr")
+                valid_birthday.style.visibility="visible";
+                
+            }
+
+
+           
+        }
+
+function phone_number(){
+
+var phone_length=document.querySelector('.phone_num').value.length
+console.log(phone_length)
+if(phone_length!=10){
+  document.getElementById('phone_number').style.visibility="visible"
+  document.getElementById('phone_number').innerHTML="Phone number length is Invalid"
+  document.getElementById('phone_number').style.color="red"
+}
+
+else{
+    document.getElementById('phone_number').innerHTML=""
+    document.getElementById('phone_number').innerHTML="Phone number length is valid"
+    document.getElementById('phone_number').style.color="green"
+}
+
+}
         </script>
     </div>
 </body>

@@ -40,10 +40,13 @@ if (!isset($_SESSION['username'])) {
         margin-left: 50px;
     }
 
-    #valid_birthday{
+    .valid_birthday{
         visibility: hidden;
         margin-left: 40px;
+        color: red;
     }
+
+    
 </style>
 
 
@@ -154,7 +157,7 @@ if (!isset($_SESSION['username'])) {
 
                         <div class="input_control">
                             <label for="name"><b>User Id&nbsp;&nbsp;&nbsp;</b></label>
-                            <input type="text" placeholder="User Id" name="userid" id="salesrep_useridsalesrep_userid" class="check_user_id" onkeyup="check_avail_userid()" required>
+                            <input type="text" placeholder="User Id" name="userid" id="salesrep_useridsalesrep_userid" class="check_user_id " onkeyup="check_avail_userid()" required>
                             <!-- <div class="error"></div> -->
 
                         </div>
