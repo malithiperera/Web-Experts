@@ -89,16 +89,7 @@
                     <label class="removeReason" for="removeReason">Reason</label>
                     <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder="Type Reason">
 
-                    <button class="btn_submitRemove" onclick="showHideConfirmAdd ()"></button>
-
-                    <!-- <a href="#" onclick="myfunc()">
-                        <button class="btn_submitRemove"></button>
-
-                    </a> -->
-
-                    <!-- <button class="btn_submitRemove" onclick="showHideRemove ()"> -->
-                    <!--i class="fas fa-check"></i-->
-                    <!-- </button> -->
+                    <button class="btn_submitRemove" onclick="test ()"></button>
 
                 </fieldset>
 
@@ -194,7 +185,10 @@
                 <div class="divLimit">
                     <label for="" class="lblNotifyLimit">Limit</label>
                     <input type="text" class="inputNotifyLimit" readonly>
-                    <button class="changeLimitBtn" onclick="changeLimit ()">Change</button>
+                    <label for="" class="newLimitLbl">New limit</label>
+                    <input type="text" class="updateLimit">
+                    <button class="changeLimitBtn" onclick="showHideNewLimit ()">Change</button>
+                    <button class="updateLimitBtn" onclick="showHideNewLimit ()">Update</button>
 
                 </div>
             </fieldset>
@@ -207,35 +201,12 @@
 
 
     </section>
-    <!-- <div class="messagecontainer">
-        <div class="messageArea">
-            <div class="checkIcon">
-
-                <i class="fa-solid fa-location-question"></i>
-            </div>
-            <div class="popUpTextArea_1">
-                <h2>Are you sure</h2>
-
-            </div>
-
-            <div class="popUpTextArea_2">
-                <h2>removing 50 items ?</h2>
-            </div>
-            <div class="divDoneBTN">
-                <button class="Yes">Yes</button>
-            </div>
-
-            <div class="divDoneBTN">
-                <button class="No">No</button>
-            </div> -->
-
-    <!-- </div> -->
 
     <div class="pop_up">
         <!-- Adding confirmation pop up -->
         <div class="pop_up_msg">
             <div class="confirmTextArea_1">
-                <h2>Are you sure adding 50 items ?</h2>
+                <h2>Are you sure changing 50 items ?</h2>
 
             </div>
 
@@ -389,23 +360,6 @@
 
         // var limit = document.querySelector('.inputNotifyLimit')
 
-        fetch('http://localhost/web-Experts/public/stockManager/initial_information', {
-                method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                headers: {
-                    'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-
-                },
-                body: JSON.stringify(productId)
-            })
-            .then(response => response.json())
-            .then(data => {
-                notify_limit_input.value = data['notify_limit'];
-            });
-
-
-
-
         let type = "<?php echo $_SESSION['type']; ?>"
         console.log(type);
 
@@ -466,10 +420,6 @@
                 })
         })
 
-        function myfunc() {
-            console.log("Malithii")
-        }
-
         var addBtn = document.querySelector('.yes') // add amount
         var addAmount = document.querySelector('.addAmountInput')
 
@@ -517,22 +467,6 @@
             window.location.href = "http://localhost/web-Experts/public/stockManager/popUpComfirm?removeqty=" + removeqty
         }
 
-        // function addingConfirmation() { // if add amount input is not empty the 1st pop up be
-        //     if (addAmount.value != '' || addAmount.value > 0) {
-        //         var confirmationText = document.querySelector('.confirmTextArea_1').innerHTML = `
-        //         <h2>Are you sure adding 50 items ?</h2>
-
-        //     `
-
-        //         var btnArea = document.querySelector('.Btn').innerHTML = `
-        //         <button class="yes" onclick="change(); showHideAdd (); validateEmptyAndMinusValues ();">Yes</button>
-        //         <button class="no" onclick="hideAddConfirmMessage ()">No</button>
-
-        //     `
-        //     }
-
-        // }
-
         function change() { // load content of the 'added successfully ' message
             var text = document.querySelector('.confirmTextArea_1').innerHTML = `
                 <h2>Added successfully</h2>
@@ -545,29 +479,28 @@
             `
         }
 
-        function confirmRemovePopUp() { // pop up remove confirmation
-            var messageDiv = document.querySelector('.pop_up').innerHTML = `
-                <div class="pop_up_msg">
-                    <div class="confirmTextArea_1">
-                        <h2>Are you sure adding 50 items ?</h2>
+        var btnUpdate = document.querySelector('.updateLimitBtn')
+        var newLimit = document.querySelector('.updateLimit')
 
-                    </div>
+        btnUpdate.addEventListener('click', () => {
+            let dataSet = {
+                productId: productId,
+                newLimit: newLimit.value
 
-                    <div class="Btn">
-                        <button class="yes" onclick="change(); showHideAdd (); validateEmptyAndMinusValues ();">Yes</button>
-                        <button class="no" onclick="hideAddConfirmMessage ()">No</button>
+            }
+            // console.log (dataSet)
 
-                    </div>
-                </div>
-            
-            `
-        }
+            fetch('http://localhost/web-Experts/public/stockManager/updateNewLimit_con', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
 
-        function changeLimit() { // clicking change btn in notify limit
-            document.querySelector('.inputNotifyLimit').removeAttribute("readonly")
-            document.querySelector('.changeLimitBtn').visibility = "hidden"
+                },
+                body: JSON.stringify(dataSet)
 
-        }
+            })
+
+        })
     </script>
 
 

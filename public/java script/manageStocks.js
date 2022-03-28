@@ -80,3 +80,23 @@ function hideAddConfirmMessage () {
     document.querySelector('.pop_up').style.visibility = "hidden"
 
 }
+
+var i = 1
+
+function showHideNewLimit () {
+    console.log ("start")
+    if (i == 1) {
+        document.querySelector('.newLimitLbl').style.visibility = "visible"
+        document.querySelector('.updateLimit').style.visibility = "visible"
+        document.querySelector('.updateLimitBtn').style.visibility = "visible"
+        return i = 0
+        
+    } else {
+        document.querySelector('.newLimitLbl').style.visibility = "hidden"
+        document.querySelector('.updateLimit').style.visibility = "hidden"
+        document.querySelector('.updateLimitBtn').style.visibility = "hidden"
+        return i = 1
+
+    }
+    
+}
