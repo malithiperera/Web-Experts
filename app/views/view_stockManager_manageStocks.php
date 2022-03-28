@@ -22,6 +22,17 @@
 
         }
 
+        .pop_up_msg_remove {
+            width: 100%;
+            height: 500px;
+            background-color: violet;
+            margin-top: -600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
         /* .pop_up_msg {
             width: 300px;
             background-color: #fff;
@@ -32,7 +43,7 @@
 </head>
 
 <body>
-    <br><br><br><br><br>
+    <br>
 
 
     <section class="sec_1">
@@ -76,12 +87,14 @@
                     <input class="inputRemoveQuantity" type="text" name="removeQuantity" id="removeQuantity" placeholder=" Enter Amount"><br><br>
 
                     <label class="removeReason" for="removeReason">Reason</label>
-                    <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder=" Type Reason">
+                    <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder="Type Reason">
 
-                    <a href="#" onclick="myfunc()">
+                    <button class="btn_submitRemove" onclick="showHideConfirmAdd ()"></button>
+
+                    <!-- <a href="#" onclick="myfunc()">
                         <button class="btn_submitRemove"></button>
 
-                    </a>
+                    </a> -->
 
                     <!-- <button class="btn_submitRemove" onclick="showHideRemove ()"> -->
                     <!--i class="fas fa-check"></i-->
@@ -175,6 +188,16 @@
                 </div>
             </fieldset>
 
+            <fieldset class="notifyLimit">
+                <!-- Notify limit -->
+                <legend class="textNotifyLimit">Notify Limit</legend>
+                <div class="divLimit">
+                    <label for="" class="lblNotifyLimit">Limit</label>
+                    <input type="text" class="inputNotifyLimit" readonly>
+                    <button class="changeLimitBtn" onclick="changeLimit ()">Change</button>
+
+                </div>
+            </fieldset>
             <!-- </div> -->
 
         </fieldset>
@@ -209,7 +232,7 @@
     <!-- </div> -->
 
     <div class="pop_up">
-        <!-- Adding confirmation pop up-->
+        <!-- Adding confirmation pop up -->
         <div class="pop_up_msg">
             <div class="confirmTextArea_1">
                 <h2>Are you sure adding 50 items ?</h2>
@@ -222,21 +245,18 @@
 
             </div>
         </div>
-    </div>
 
-    <!-- <div class="addedSuccessfullyPopUp">
-            <div class="addedSuuccessfullyMessage">
-                <div class="successfullText">
+        <!-- <div class="pop_up_msg_remove">
 
-                </div>
-            </div>
         </div> -->
+    </div>
 
     <script>
         var product_id = '<?php echo $_GET['product_id']; ?>';
         var currentPrice = document.getElementById('currentPrice');
         var productName = document.getElementById('leg_productName');
         var discount = document.getElementById('currentDiscount');
+        var limit = document.querySelector('.inputNotifyLimit')
 
 
         console.log(product_id);
@@ -247,7 +267,7 @@
 
         }
 
-        const details_of_product = () => {
+        const details_of_product = () => { // get all product details
 
             fetch('http://localhost/web-Experts/public/stockManager/details_of_product', {
                     method: 'POST',
@@ -266,17 +286,14 @@
                     currentPrice.value = "      Rs." + data['price'];
                     productName.innerHTML = data['product_name'];
                     discount.value = "           " + data['discount'] + "%";
+                    limit.value = "       " + data['lim'];
 
                 });
 
         }
-
         details_of_product();
 
         function getcurrentStock() {
-
-
-
             fetch('http://localhost/web-Experts/public/stockManager/currentstock', {
                     method: 'POST',
 
@@ -295,15 +312,7 @@
                 });
 
         }
-
-
-
-
-
-
         getcurrentStock();
-
-
 
         var productId = '<?php echo $_GET['product_id'] ?>';
         var repItemsTable = document.querySelector('.tbody');
@@ -335,7 +344,7 @@
                                  <td>${data [index] ['qty']}</td>
 
                              </tr>
-                         `;
+                        `;
 
                     }
                     console.log(data);
@@ -377,6 +386,8 @@
         // <!-- change the notify limit to stockmanager -->
 
         let notify_limit_input = document.getElementById('notify_limit_input');
+
+        // var limit = document.querySelector('.inputNotifyLimit')
 
         fetch('http://localhost/web-Experts/public/stockManager/initial_information', {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -506,14 +517,21 @@
             window.location.href = "http://localhost/web-Experts/public/stockManager/popUpComfirm?removeqty=" + removeqty
         }
 
-        function addingConfirmation() {                                                     // if add amount input is not empty the 1st pop up be
-            var confirmationText = document.querySelector('.confirmTextArea_1').innerHTML = `
-                <h2>Are you sure adding 50 items ?</h2>
+        // function addingConfirmation() { // if add amount input is not empty the 1st pop up be
+        //     if (addAmount.value != '' || addAmount.value > 0) {
+        //         var confirmationText = document.querySelector('.confirmTextArea_1').innerHTML = `
+        //         <h2>Are you sure adding 50 items ?</h2>
 
-            `
+        //     `
 
-            
-        }
+        //         var btnArea = document.querySelector('.Btn').innerHTML = `
+        //         <button class="yes" onclick="change(); showHideAdd (); validateEmptyAndMinusValues ();">Yes</button>
+        //         <button class="no" onclick="hideAddConfirmMessage ()">No</button>
+
+        //     `
+        //     }
+
+        // }
 
         function change() { // load content of the 'added successfully ' message
             var text = document.querySelector('.confirmTextArea_1').innerHTML = `
@@ -525,6 +543,30 @@
                 <button class="addedSuccessfullyDoneBtn" onclick="showHideConfirmAdd ()">OK</button>
 
             `
+        }
+
+        function confirmRemovePopUp() { // pop up remove confirmation
+            var messageDiv = document.querySelector('.pop_up').innerHTML = `
+                <div class="pop_up_msg">
+                    <div class="confirmTextArea_1">
+                        <h2>Are you sure adding 50 items ?</h2>
+
+                    </div>
+
+                    <div class="Btn">
+                        <button class="yes" onclick="change(); showHideAdd (); validateEmptyAndMinusValues ();">Yes</button>
+                        <button class="no" onclick="hideAddConfirmMessage ()">No</button>
+
+                    </div>
+                </div>
+            
+            `
+        }
+
+        function changeLimit() { // clicking change btn in notify limit
+            var updateLimit = document.querySelector('.inputNotifyLimit').removeAttribute("readonly")
+            var btnChange = document.querySelector('.changeLimitBtn').visibility = "hidden"
+            
         }
     </script>
 

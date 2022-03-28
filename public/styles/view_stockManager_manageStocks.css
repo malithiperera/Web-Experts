@@ -442,7 +442,7 @@ input {
     right: 3%;
     border-radius: 20px;
     width: 45%;
-    top: 50%;
+    top: 35%;
     /* background-color: aquamarine; */
 }
 .messagecontainer {
@@ -620,4 +620,72 @@ input {
     margin-left: 45%;
     border-radius: 10px;
     
+}
+.pop_up_msg_remove {
+    width: 500px;
+    background-color: #fff;
+    height: 300px;
+    border: 3px solid #184A78;
+
+    /* background-color: #f6f8f7;
+    position: absolute;
+    width: 40%;
+    height: 45%;
+    left: 30%;
+    top: 25%;
+    border-radius: 15px;
+    /* border-color: #184A78; */
+    /* border: 4px solid #184A78;
+    visibility: hidden; */
+
+}
+.confirmTextArea_1_remove {
+    width: 100%;
+    height: 30%;
+    /* background-color: #0e9b49; */
+
+}
+.notifyLimit {
+    position: absolute;
+    width: 45%;
+    height: 20%;
+    top: 60%;
+    border-radius: 20px;
+    right: 3%;
+    
+}
+.divLimit {
+    position: absolute;
+    width: 100%;
+    height: 27%;
+    top: 35%;
+    /* background-color: rgb(226, 12, 12); */
+    
+}
+.lblNotifyLimit {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    /* background-color: rgb(7, 88, 158); */
+    left: 10%;
+    font-size: large;
+
+}
+.inputNotifyLimit {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background-color: #dddd;
+    left: 40%;
+
+}
+.changeLimitBtn {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background-color: #184A78;
+    right: 10%;
+    border-radius: 10px;
+    color: #fff;
+
 }
