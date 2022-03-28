@@ -374,4 +374,38 @@ $sql1="SELECT COUNT(DISTINCT(cus_id)) as shops FROM returns where year(date)='$y
        return $maninarray;
 
     }
+
+    //stock summary monthly
+    public function  stock_summary($year,$month){
+
+        require '../app/core/database.php';
+
+
+        $cards=[];
+        $mainArray=[];
+        $sql="SELECT COUNT(product_id) FROM product;";
+        $result=mysqli_query($conn,$sql);
+        array_push($cards,$result->fetch_assoc());
+
+        $sql1="SELECT count(DISTINCT(type)) FROM product;";
+        $result=mysqli_query($conn,$sql1);
+        array_push($cards,$result->fetch_assoc());
+
+        array_push($mainArray,$cards);
+
+
+  $sql2="SELECT product_issue_products.product_id,product.product_name, sum(product_issue_products.deliver_qty) from product_issue, product_issue_products,product where product_issue.issue_id = product_issue_products.issue_id and product.product_id=product_issue_products.product_id group by product_issue_products.product_id;";
+
+       $result2=mysqli_query($conn,$sql2);
+
+        $data2 =[];
+        while ($row = $result2->fetch_assoc()) {
+            array_push($data2, $row);
+        }
+        array_push($mainArray,$data2);
+
+        return $mainArray;
+
+
+    }
 }

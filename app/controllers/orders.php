@@ -46,4 +46,17 @@ while ($row = $result->fetch_assoc()) {
 
 
     }
+
+
+    //deltee order
+    public function delete_orders()
+    {
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+
+        $this->model('order_model');
+        $result=$this->model->delete_order($recieved_data);
+        echo json_encode($result);
+        exit;
+    }
 }

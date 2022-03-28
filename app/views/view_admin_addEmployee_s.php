@@ -22,10 +22,6 @@ if (!isset($_SESSION['username'])) {
         .sidebar {
             z-index: 100000;
         }
-        .header{
-            position: relative;
-            top: 0;
-        }
     </style>
 
 </head>
@@ -40,13 +36,6 @@ if (!isset($_SESSION['username'])) {
             </div>
             <ul class="nav-list">
 
-                <li>
-                    <a href="../admin/renderAdminHome">
-                        <i class='bx bx-home'></i>
-                        <span class="links_name">Home</span>
-                    </a>
-                    <span class="tooltip">Home</span>
-                </li>
 
                 <li>
                     <a href="../login/adminHome?viewname=_1_view_stockmanagerHome">
@@ -140,7 +129,7 @@ if (!isset($_SESSION['username'])) {
             <div class="header">
                 <?php require 'view_headertype2.php'; ?>
             </div>
-            <?php require "admin_Home.php"; ?>
+            <?php require "view_admin_addemployee2.php"; ?>
 
 
         </section>
@@ -148,69 +137,11 @@ if (!isset($_SESSION['username'])) {
 
 
 
-
-
-
-
-
-    <script>
-        function popup_message(popup_message) {
-
-            popup_message = document.querySelector(popup_message);
-            container = document.querySelector('.container');
-            header = document.querySelector('.header');
-
-            popup_message.style.visibility = "visible";
-            sidebar.style.opacity = "30%";
-            container.style.opacity = "30%";
-            header.style.opacity = "30%";
-
-            window.onclick = function(event) {
-                if (event.target == popup_message) {
-                    popup_message.style.visibility = "hidden";
-                    sidebar.style.opacity = "100%";
-                    container.style.opacity = "100%";
-                    header.style.opacity = "100%";
-                }
-            }
-
-        }
-
-
-        const back_to_home = () => {
-            document.querySelector('.routes').style.visibility = "hidden";
-            sidebar.style.opacity = "100%";
-            container.style.opacity = "100%";
-            header.style.opacity = "100%";
-        }
-    </script>
-
     <script src="../../public/java script/side_bar.js"></script>
 
     <script>
-        function remove_user_func() {
-            let user_id = "<?php echo $_SESSION['userid'] ?>";
-
-            fetch('http://localhost/web-Experts/public/admin/check_admin', {
-                    method: 'POST', // or 'PUT'
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(user_id)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data['level']);
-                    if (data['level'] == "junior") {
-                        console.log("you have not access to the function");
-                    } else {
-                        popup_message('.removeuser');
-                    }
-
-                });
-
-
-        }
+       
+        
     </script>
 </body>
 

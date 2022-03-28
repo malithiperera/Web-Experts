@@ -1058,12 +1058,221 @@ pie_chart(result){
         chart.draw(data, options);
       }
 }
+ 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//stock summary reports
+
+ stock_summary(year,month) {
+
+  //...............................Monthly Repoty >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  if(month!=0){
+
+//create data set
+var data_set={
+  year:year,
+  month:month
+}
+
+////get month in name
+let string_month = this.get_month(month);
+
+//title
+this.report_title.innerHTML =
+" Stock Monthly Report" + " " + string_month + " " + year;
+
+fetch("http://localhost/web-Experts/public/reports/stock_month", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data_set),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    
+
+
+    this.create_card(
+      '<i class="fas fa-exchange-alt"></i>',
+      "No Of Products",
+      data[0][0]["COUNT(product_id)"]
+    );
+    this.create_card(
+      '<i class="fas fa-store-alt"></i>',
+      "No Of Shops",
+      data[0][1]["count(DISTINCT(type))"]
+    );
+
+    this.summary_section = document.createElement("div");
+    this.main.appendChild(this.summary_section);
+    this.summary_section.classList.add("section", "cus-section");
+    this.summary_section.innerHTML = `<h3>Stock Summary Of Month</h3>`;
+    this.summary_section_table = document.createElement("table");
+    this.summary_section.appendChild(this.summary_section_table);
+    this.summary_section_table.classList.add("table-info");
+
+    this.summary_section_table.innerHTML +=
+      "<tr> <th>Product ID</th><th>Product Name</th><th>No of Products Issued</th>   </tr> ";
+    let i;
+
+    for (i = 0; i < data[1].length; i++) {
+      this.summary_section_table.innerHTML += `
+        
+        <tr>
+        
+        <td class="pro_name">${data[1][i]["product_id"]}</td>
+        <td class="price">${data[1][i]["product_name"]}</td>
+        <td class="pro_name">${data[1][i]["sum(product_issue_products.deliver_qty)"]}</td>
+      
+        
+        
+      
+       
+        
+        
+        </tr>
+        
+        `;
+    }
+
+    // let result = this.create_dataset_array(data[1]);
+this.bar_charts_stock(data[1]);
+this.graph_section = document.createElement("div");
+this.main.appendChild(this.graph_section);
+this.graph_section.classList.add("section", "cus-section");
+this.graph_section.innerHTML += "<h3>Delivery And Order Summary</h3>";
+
+this.graph_section.innerHTML +=
+  '<div id="barchart_material" style="width: 80%; height:1000px;"></div>';
+
+  });
+
   
 
+  }
 
 
 
+  //>>>>>>>>>>>>>>>>>>>>>>>>>>>>Yearly Repoty>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  else{
+    var data_set={
+      year:year,
+      month:month
+    }
+    
+    ////get month in name
+    let string_month = this.get_month(month);
+    
+    //title
+    this.report_title.innerHTML =
+    " Stock Monthly Report" + " " + year;
+    
+    fetch("http://localhost/web-Experts/public/reports/stock_month", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data_set),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+    
+        this.create_card(
+          '<i class="fas fa-exchange-alt"></i>',
+          "No Of Products",
+          data[0][0]["COUNT(product_id)"]
+        );
+        this.create_card(
+          '<i class="fas fa-store-alt"></i>',
+          "No Of Shops",
+          data[0][1]["count(DISTINCT(type))"]
+        );
+    
+        this.summary_section = document.createElement("div");
+        this.main.appendChild(this.summary_section);
+        this.summary_section.classList.add("section", "cus-section");
+        this.summary_section.innerHTML = `<h3>Stock Summary Of Month</h3>`;
+        this.summary_section_table = document.createElement("table");
+        this.summary_section.appendChild(this.summary_section_table);
+        this.summary_section_table.classList.add("table-info");
+    
+        this.summary_section_table.innerHTML +=
+          "<tr> <th>Product ID</th><th>Product Name</th><th>No of Products Issued</th>   </tr> ";
+        let i;
+    
+        for (i = 0; i < data[1].length; i++) {
+          this.summary_section_table.innerHTML += `
+            
+            <tr>
+            
+            <td class="pro_name">${data[1][i]["product_id"]}</td>
+            <td class="price">${data[1][i]["product_name"]}</td>
+            <td class="pro_name">${data[1][i]["sum(product_issue_products.deliver_qty)"]}</td>
+          
+            
+            
+          
+           
+            
+            
+            </tr>
+            
+            `;
+        }
+      });
+    
 
+  }
+  
+}
+
+
+//chart for stock
+bar_charts_stock(data) {
+
+console.log(data)
+const products=new Array()
+const amount=new Array()
+  for(let i=0;i<data.length;i++){
+    // products.push(data[i]['product_name'])
+    amount.push(data[i]['sum(product_issue_products.deliver_qty)'])
+  }
+  console.log(products)
+  google.charts.load("current", { packages: ["bar"] });
+  google.charts.setOnLoadCallback(drawChart);
+
+
+  let data_array=[
+['Products','Amount'] 
+
+  ];
+  for(let i=0;i<data.length;i++){
+   data.array.push(String(products[i]),parseInt(amount[i]))
+  }
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable(data_array);
+
+    var options = {
+      chart: {
+        title: "Summary of Orders and deliveries",
+        subtitle: "Year 2021",
+        width: 400,
+        height: 300,
+      },
+      bars: "horizontal", // Required for Material Bar Charts.
+    };
+
+    var chart = new google.charts.Bar(
+      document.getElementById("barchart_material")
+    );
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+  }
+}
 
 
 

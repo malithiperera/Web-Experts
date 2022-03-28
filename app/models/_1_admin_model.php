@@ -354,4 +354,14 @@ class _1_admin_model extends model
 
         return $result1->fetch_assoc();
     }
+
+    //give suggestions according to the user role in remove user function
+    public function remove_user_suggestions($user){
+        require '../app/core/database.php';
+
+        $sql = "select * from user where type = '$user'";
+        $result = mysqli_query($conn, $sql);
+
+        return $result;
+    }
 }
