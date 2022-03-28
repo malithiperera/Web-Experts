@@ -22,6 +22,10 @@ if (!isset($_SESSION['username'])) {
         .sidebar {
             z-index: 100000;
         }
+        .header{
+            position: relative;
+            top: 0;
+        }
     </style>
 
 </head>
@@ -36,6 +40,13 @@ if (!isset($_SESSION['username'])) {
             </div>
             <ul class="nav-list">
 
+                <li>
+                    <a href="../admin/renderAdminHome">
+                        <i class='bx bx-home'></i>
+                        <span class="links_name">Home</span>
+                    </a>
+                    <span class="tooltip">Home</span>
+                </li>
 
                 <li>
                     <a href="../login/adminHome?viewname=_1_view_stockmanagerHome">
@@ -190,15 +201,14 @@ if (!isset($_SESSION['username'])) {
                 .then(response => response.json())
                 .then(data => {
                     console.log(data['level']);
-                    if(data['level'] == "junior"){
+                    if (data['level'] == "junior") {
                         console.log("you have not access to the function");
-                    }
-                    else{
+                    } else {
                         popup_message('.removeuser');
                     }
 
                 });
-            
+
 
         }
     </script>

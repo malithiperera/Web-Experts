@@ -308,7 +308,6 @@ else{
 
 
     //credit request
-
     public function creit_request()
     {
 
