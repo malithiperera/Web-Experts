@@ -23,6 +23,7 @@ body {
     /* text-transform: uppercase; */
     /* margin-top: 10px; */
     font-size: x-large;
+    /* background-color: #05be3d; */
 
 }
 .form {
@@ -32,8 +33,8 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 100px;
-    z-index: 0;
+    margin-top: 1px;
+    z-index: -1100;
     color: rgb(0, 0, 0);
     border-radius: 30px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -177,7 +178,7 @@ html::-webkit-scrollbar-thumb{
 .div_btnBack {
     position: absolute;
     top: 110%;
-    left: 45%;
+    left: 43%;
     height: 15%;
     width: 10%;
     color: white;

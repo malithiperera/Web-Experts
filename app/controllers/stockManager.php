@@ -7,7 +7,7 @@ class stockManager extends controller {
     }
       
     public function add_product() {
-        $this->view->render('view_stockmanager_addproduct');
+        $this->view->render('stockmanager_sketch_1');
 
     }
     public function product_profile() {

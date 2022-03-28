@@ -564,9 +564,9 @@
         }
 
         function changeLimit() { // clicking change btn in notify limit
-            var updateLimit = document.querySelector('.inputNotifyLimit').removeAttribute("readonly")
-            var btnChange = document.querySelector('.changeLimitBtn').visibility = "hidden"
-            
+            document.querySelector('.inputNotifyLimit').removeAttribute("readonly")
+            document.querySelector('.changeLimitBtn').visibility = "hidden"
+
         }
     </script>
 
