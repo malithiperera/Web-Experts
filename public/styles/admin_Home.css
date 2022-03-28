@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    color: white;
+    /* color: white; */
 }
 
 
@@ -101,7 +101,9 @@ span .tooltips{
     flex-direction: column;
     margin-top: 40px;
     /* opacity:50%; */
+    /* visibility: hidden; */
 }
+
 
 .cards {
     display: flex;

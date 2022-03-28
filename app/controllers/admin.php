@@ -228,10 +228,13 @@ class admin extends controller{
         $this->view->render('test');
     }
     public function test_test(){
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
         $this->model('_1_admin_model');
         $result = $this->model->test_test();
 
-        json_encode($result);
+        echo json_encode($result);
         exit;
     }
 
@@ -408,6 +411,40 @@ public function remove_the_user(){
     exit;
 }
 
+//add employee new view
+// public function add_employee_new(){
+//     $this->view->render('view_admin_addemployee2');
+// }
+
+// //new registration function
+// public function new_registration_func(){
+//     $get_data = file_get_contents('php://input');
+//     $get_data = json_decode($get_data, true);
+
+//     if($get_data['user'] == "admin"){
+
+//     }
+//     else if($get_data['user'] == "rep"){
+
+//     }
+//     else if($get_data['user'] == "stockManager"){
+
+//     }
+
+//     echo json_encode($get_data);
+//     exit;
+// }
+
+//give suggestions according to the user role in remove user
+public function remove_user_suggestions(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    // $this->model('_1_admin_model');
+    // $result = $this->model->remove_user_suggestions($get_data);
+
+    echo json_encode($get_data);
+    exit;
 }
 
-?>
+}

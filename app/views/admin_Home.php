@@ -24,6 +24,7 @@ if (!isset($_SESSION['username'])) {
        .container{
            z-index: 100;
        }
+       
    </style>
 </head>
 
@@ -167,6 +168,9 @@ if (!isset($_SESSION['username'])) {
     <div class="select_report">
         <?php require 'view_all_report_popup.php'; ?>
     </div>
+
+
+    
 
    
 
@@ -423,6 +427,11 @@ if (!isset($_SESSION['username'])) {
                 }
 
             });
+    </script>
+
+    <script>
+        // let container = document.querySelector('.container');
+        // container.innerHTML = ``;
     </script>
 
 </body>

@@ -319,7 +319,7 @@
 }
 .left-graph{
   height: 400px;
-  /* margin: 20px; */
+  margin: 20px;
   background-color:#fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
@@ -734,11 +734,11 @@ tr {
     flex-wrap: wrap;
   }
   .orders{
-    width:50%;
+    width:100%;
     height: auto;
   }
   .payment{
-    width: 50%;
+    width: 100%;
     height: auto;
   }
   .detail{

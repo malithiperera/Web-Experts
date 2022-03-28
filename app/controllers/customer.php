@@ -46,32 +46,42 @@ class customer extends controller
 
     public function place_order_view()
     {
-        session_start();
-        $userid=$_SESSION['userid'];
-        //  $this->view->render("test2");
+        
+         $this->view->render("test2");
          
 
+
+        
+    }
+
+
+    public function get_pending_orders_check(){
+        $recieved_data_encoded = file_get_contents("php://input");
+        $recieved_data = json_decode($recieved_data_encoded, true);
+        
         $this->model('order_model');
         
 
         //check pending orders
-        $result=$this->model->checkorders($userid);
+        $result=$this->model->checkorders($recieved_data);
         $result1=mysqli_fetch_assoc($result);
-        // print_r($result1);
-
+        
 if(mysqli_num_rows($result)==0){
-     $this->view->render('test2');
+ 
+    echo json_encode(1);
+    exit;
 
 
 }
 else{
+    
+    echo json_encode(0);
+    exit;
    
-    $this->view->flag=1;
-    session_abort();
-    $this->view->render("_1_view_customerHome");
+    
 }
-echo mysqli_num_rows($result);
-        
+
+
     }
 
     public function get_details_place_order()

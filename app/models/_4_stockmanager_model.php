@@ -86,12 +86,26 @@ class _4_stockmanager_model extends model
         return $result;
 
     }
-    public function getRepList_mod () {
+    public function getRepList_mod(){
         require '../app/core/database.php';
-        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 0";
+
+        date_default_timezone_set('Asia/Colombo');
+        $date=date('Y-m-d');
+        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and issue_status = 0 and product_issue.date='$date'";
         $result = mysqli_query ($conn, $sql);
         return $result;
         
+    }
+
+    public function getRepList_mod_handover(){
+        require '../app/core/database.php';
+
+        date_default_timezone_set('Asia/Colombo');
+        $date=date('Y-m-d');
+        $sql = "SELECT * FROM product_issue,user where product_issue.rep_id = user.user_id and product_issue.date='$date' and issue_status=1";
+        $result = mysqli_query ($conn, $sql);
+        return $result;
+
     }
 
     //render some initial information like notify amount of the product
@@ -114,7 +128,7 @@ class _4_stockmanager_model extends model
 
     }
 
-    public function removeStocks_mod ($productId, $amount) {
+    public function removeStocks_mod ($productId, $amount) {                                            // remove from the stocks
         require '../app/core/database.php';
 
         $sql = "SELECT qty FROM `product` WHERE product_id ='$productId'";
@@ -134,24 +148,24 @@ class _4_stockmanager_model extends model
         }
     }
 
-    public function addStocks_mod($productId, $amount) {
+    public function addStocks_mod($productId, $amount) {                                                // add to stock
         require '../app/core/database.php';
 
-        $sql = "SELECT qty FROM `product` WHERE product_id ='1101'";
+        $sql = "SELECT qty FROM `product` WHERE product_id ='$productId'";
         $result = mysqli_query($conn, $sql);
         $qty = $result->fetch_assoc();
         $new_amount = $qty['qty'] + $amount;
 
-        // if ($result) {
-        //     $sql_1 = "UPDATE product SET qty='$new_amount' WHERE product_id = '$productId'";
-        //     $result_1 = mysqli_query($conn, $sql_1);
-        //     return $result_1;
+        if ($result) {
+            $sql_1 = "UPDATE product SET qty='$new_amount' WHERE product_id = '$productId'";
+            $result_1 = mysqli_query($conn, $sql_1);
+            return $result_1;
 
-        // } else {
-        //     return "error";
+        } else {
+            return "error";
 
-        // }
-        return $new_amount;
+        }
+        // return $new_amount;
        
     }
 }

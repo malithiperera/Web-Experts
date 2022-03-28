@@ -10,6 +10,24 @@
     <title>Manage Stocks</title>
     <!-- <script src="https://kit.fontawesome.com/d2020d2b7c.js" crossorigin="anonymous"></script> -->
     <style>
+        .pop_up {
+            width: 100%;
+            height: 500px;
+            /* background-color: red; */
+            margin-top: -600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+
+        }
+
+        /* .pop_up_msg {
+            width: 300px;
+            background-color: #fff;
+            height: 300px;
+            border: 3px solid black;
+        } */
     </style>
 </head>
 
@@ -23,7 +41,7 @@
 
             <div class="inStock">
                 <label class="label_inStock" for="quantity">In Stock</label><br>
-                <input class="input_inStock" type="text" name="quantity" id="quantity" value="">
+                <input class="input_inStock" type="text" name="quantity" id="quantity" value="" readonly>
 
                 <script src="../../public/java script/manageStocks.js"></script>
 
@@ -42,9 +60,12 @@
 
                 </div> -->
                 <div class="addAmountDiv">
-                    <input type="text" class="addAmountInput">
-                    <a href="../stockManager/backToSMHome"><button class="submitAddAmount">S</button></a>
-                    <!-- <button class="submitAddAmount">S</button> -->
+                    <fieldset class="addAmountFieldset">
+                        <input type="text" class="addAmountInput">
+                        <!-- <a href="../stockManager/backToSMHome"><button class="submitAddAmount">S</button></a> -->
+                        <button class="submitAddAmount" onclick="showHideConfirmAdd ()"></button>
+
+                    </fieldset>
                 </div>
 
             </div>
@@ -57,7 +78,7 @@
                     <label class="removeReason" for="removeReason">Reason</label>
                     <input class="inputRemoveReason" type="text" name="removeReason" id="removeReason" placeholder=" Type Reason">
 
-                    <a href="../stockManager/popUpComfirm">
+                    <a href="#" onclick="myfunc()">
                         <button class="btn_submitRemove"></button>
 
                     </a>
@@ -183,8 +204,32 @@
 
             <div class="divDoneBTN">
                 <button class="No">No</button>
+            </div> -->
+
+    <!-- </div> -->
+
+    <div class="pop_up">
+        <!-- Adding confirmation pop up-->
+        <div class="pop_up_msg">
+            <div class="confirmTextArea_1">
+                <h2>Are you sure adding 50 items ?</h2>
+
             </div>
 
+            <div class="Btn">
+                <button class="yes" onclick="change(); showHideAdd (); validateEmptyAndMinusValues ();">Yes</button>
+                <button class="no" onclick="hideAddConfirmMessage ()">No</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="addedSuccessfullyPopUp">
+            <div class="addedSuuccessfullyMessage">
+                <div class="successfullText">
+
+                </div>
+            </div>
         </div> -->
 
     <script>
@@ -414,7 +459,7 @@
             console.log("Malithii")
         }
 
-        var addBtn = document.querySelector('.submitAddAmount')
+        var addBtn = document.querySelector('.yes') // add amount
         var addAmount = document.querySelector('.addAmountInput')
 
         addBtn.addEventListener('click', () => {
@@ -440,6 +485,47 @@
 
                 })
         })
+
+        function validateEmptyAndMinusValues() {
+            if (addAmount.value == '' || addAmount.value <= 0) {
+                var popUpText = document.querySelector('.confirmTextArea_1').innerHTML = `
+                    <h2>Invalid input or empty input</h2>
+                
+                `
+
+                var tryAgain = document.querySelector('.Btn').innerHTML = `
+                    <button class="tryAgainBtn" onclick="showHideConfirmAdd ()">Try Again</button>
+                
+                `
+            }
+        }
+
+        function myfunc() {
+            var removeqty = document.querySelector('.inputRemoveQuantity').value;
+
+            window.location.href = "http://localhost/web-Experts/public/stockManager/popUpComfirm?removeqty=" + removeqty
+        }
+
+        function addingConfirmation() {                                                     // if add amount input is not empty the 1st pop up be
+            var confirmationText = document.querySelector('.confirmTextArea_1').innerHTML = `
+                <h2>Are you sure adding 50 items ?</h2>
+
+            `
+
+            
+        }
+
+        function change() { // load content of the 'added successfully ' message
+            var text = document.querySelector('.confirmTextArea_1').innerHTML = `
+                <h2>Added successfully</h2>
+
+            `
+            // done btn of the 'added successfully' message
+            var doneBtn = document.querySelector('.Btn').innerHTML = `                          
+                <button class="addedSuccessfullyDoneBtn" onclick="showHideConfirmAdd ()">OK</button>
+
+            `
+        }
     </script>
 
 

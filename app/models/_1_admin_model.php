@@ -346,7 +346,20 @@ class _1_admin_model extends model
     public function test_test(){
         require '../app/core/database.php';
 
-        $sql = "select date from date where order_id = '23'";
+        $sql = "select date from orders where order_id = '23'";
+        $result = mysqli_query($conn, $sql);
+        $date = $result->fetch_assoc()['date'];
+        $sql1 = "SELECT DATE_ADD('$date', INTERVAL 7 DAY)";  
+        $result1 = mysqli_query($conn, $sql1);
+
+        return $result1->fetch_assoc();
+    }
+
+    //give suggestions according to the user role in remove user function
+    public function remove_user_suggestions($user){
+        require '../app/core/database.php';
+
+        $sql = "select * from user where type = '$user'";
         $result = mysqli_query($conn, $sql);
 
         return $result;

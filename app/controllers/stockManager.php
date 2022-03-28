@@ -11,6 +11,7 @@ class stockManager extends controller {
 
     }
     public function product_profile() {
+        
         $this->view->render('view_stockManager_manageStocks');
 
     }
@@ -35,6 +36,7 @@ class stockManager extends controller {
 
     public function managestock(){
         $this->view->render('stockmanager_sketch');
+        
     }
 
     public function details_of_product(){
@@ -94,8 +96,10 @@ class stockManager extends controller {
 
     }
     public function viewList () {
+
         $this->view->render ("view_stockManager_repList");
-        // $this->view->render("view_stockManager_requestedRepList");
+        
+        exit;
         
     }
     public function get_request_con() {
@@ -142,7 +146,7 @@ class stockManager extends controller {
 
     public function getRepList_cont () {
         $this->model ('_4_stockmanager_model');
-        $result = $this->model->getRepList_mod ();
+        $result = $this->model->getRepList_mod();
         $data = [];
         while ($row = $result->fetch_assoc ()) {
             array_push ($data, $row);
@@ -153,6 +157,19 @@ class stockManager extends controller {
 
     }
 
+
+    public function getRepList_cont_handover () {
+        $this->model ('_4_stockmanager_model');
+        $result = $this->model->getRepList_mod_handover();
+        $data = [];
+        while ($row = $result->fetch_assoc ()) {
+            array_push ($data, $row);
+
+        }
+        echo json_encode($data);
+        exit;
+
+    }
     //render initial information(notify amount of the product)
     public function initial_information(){
         $get_data = file_get_contents('php://input');
@@ -176,7 +193,7 @@ class stockManager extends controller {
         
     }
     
-    public function removeStocks_con (){
+    public function removeStocks_con (){                        // remove from the stock
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -187,7 +204,7 @@ class stockManager extends controller {
 
     }
 
-    public function addStocks_con () {
+    public function addStocks_con () {                          // add to stock
         $get_data = file_get_contents('php://input');
         $get_data = json_decode($get_data, true);
 
@@ -198,7 +215,13 @@ class stockManager extends controller {
 
     }
 
-    public function popUpComfirm () {                                       // pop up confirm delete message
+    public function rep_list_back(){
+        $this->view->render('view_stockManager_handover_sketch');
+
+    }
+    public function popUpComfirm () {  
+        $amount=$_GET['removeqty'];
+        $this->view->qty=$amount;                                     // pop up confirm delete message
         $this->view->render ('view_stockManager_confirmationPopUp');
 
     }
@@ -206,6 +229,11 @@ class stockManager extends controller {
     public function popUpRemoveSuccessfully () {                                     // pop up removed successfully message
         $this->view->render ('view_stockManager_removeSuccessPopUp');
 
+    }
+
+    //stock return to stockmanager in the evening
+    public function stock_return(){
+        $this->view->render('view_stockManager_stock_return');
     }
 }
 
