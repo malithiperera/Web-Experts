@@ -93,10 +93,10 @@ class salesRep extends controller
     }
 
 
-    public function view_report()
-    {
-        $this->view->render('view_customer_viewreport');
-    }
+    // public function view_report()
+    // {
+    //     $this->view->render('view_all_report_popup');
+    // }
     
     public function customer_registration()
     {
@@ -152,23 +152,47 @@ class salesRep extends controller
         $this->view->render('test2');
     }
 
-    // INSERT CASH PAYMENT
+    //LOAD CARDS
 
-    public function add_cashPayment()
+    public function load_card()
     {
-        // echo $_POST['abc'];
-        $orders_id = $_POST['orderId'];
-        $total = $_POST['total'];
-        $date = $_POST['date'];
-
+        session_start();
         $this->model('_2_salesrep_model');
-        $this->model->insert_cashPayment($orders_id, $total, $date);
-        header("Location: http://localhost/web-Experts/public/salesRep/cashPayment");
+        $result = $this->model->get_home_cards($_SESSION['userid']);
+
+        $data = [$result];
+
+        echo json_encode($data);
+        exit;
     }
 
-    // INSERT CHEQUE PAYMENT
+
+    // INSERT Cheque PAYMENT
 
     public function add_chequePayment()
+    {
+        // echo $_POST['abc'];
+        // $orders_id = $_POST['orderId'];
+        // $total = $_POST['total'];
+        // $date = $_POST['date'];
+
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_2_salesrep_model');
+        $result=$this->model->insert_chequePayment($get_data['OrderId'], $get_data['Total'], $get_data['Bank'],$get_data['ChequeNo'],$get_data['Date']);
+        // header("Location: http://localhost/web-Experts/public/salesRep/cashPayment");
+
+        $get_data = [$result];
+        echo json_encode($get_data);
+        exit;
+    }
+
+
+
+    // INSERT Cash PAYMENT
+
+    public function add_cashPayment()
     {
         // echo $_POST['abc'];
         $orders_id = $_POST['orderId'];
@@ -261,18 +285,7 @@ class salesRep extends controller
         exit;
     }
 
-    public function load_card()
-    {
-        session_start();
-        $this->model('_2_salesrep_model');
-        $result = $this->model->get_home_cards($_SESSION['userid']);
-
-        $data = [$result];
-
-        echo json_encode($data);
-        exit;
-    }
-
+   
 
     //achievements 
 
@@ -388,7 +401,7 @@ class salesRep extends controller
            ];
 
            // set order
-           $this->model->fillReturns(
+           $result=$this->model->fillReturns(
              
                $recieved_data['cus_id'],
                $recieved_data['rep_id'],
@@ -404,7 +417,7 @@ class salesRep extends controller
            // set 0 working order
         //    $this->model->complete_place_order();
 
-           echo json_encode($data);
+           echo json_encode($result);
            exit;
        
 

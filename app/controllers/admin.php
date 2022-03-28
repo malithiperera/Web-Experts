@@ -35,7 +35,7 @@ class admin extends controller{
     }
 
     public function add_user(){
-        $this->view->render('view_admin_addemployee1');
+        $this->view->render('view_admin_addEmployee_s');
     }
 
     public function send_mail($name, $email, $verificationCode){
@@ -90,7 +90,7 @@ class admin extends controller{
     public function addEmployee(){
         if($_GET['succuss'] == true){
             $this->view->added = 1;
-            $this->view->render('view_admin_addemployee');
+            $this->view->render('view_admin_addEmployee_s');
         }
         $_GET['succuss'] = 'false';
     }

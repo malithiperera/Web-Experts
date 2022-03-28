@@ -89,13 +89,13 @@ if (!isset($_SESSION['username'])) {
         <span class="tooltip">Returns</span>
       </li>
 
-      <!-- <li>
+      <li>
         <a href="../salesRep/view_report">
           <i class='bx bx-line-chart'></i>
           <span class="links_name">Reports</span>
         </a>
         <span class="tooltip">Reports</span>
-      </li> --> 
+      </li> 
 
       <li>
         <a href="../salesRep/view_notifications">

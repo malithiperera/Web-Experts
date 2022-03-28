@@ -50,9 +50,7 @@
 
         </div>
 
-        <button class="back_button" onclick="back_to_home()">
-            back
-        </button>
+       
 
     </div>
 
