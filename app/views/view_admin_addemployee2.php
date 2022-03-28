@@ -443,7 +443,7 @@
 
                     if(ad_name=="" || ad_user_id==""|| ad_level=="" || ad_nic=="" || ad_email==""||ad_address==""||ad_mobile){
 
-alert("Inputs vields cannot be null")
+alert("Inputs Fields cannot be null")
                         
                     }
 
