@@ -20,18 +20,18 @@ if (!isset($_SESSION['username'])) {
   <style>
 
 /* Popup container */
-.popup {
+/* .popup {
   position: relative;
-  display: inline-block;
+  display: inline-block; */
   /* cursor: pointer; */
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+} */
 
 /* The actual popup */
-.popup .popuptext {
+/* .popup .popuptext {
   visibility: hidden;
   width: 300px;
   height:250px;
@@ -46,25 +46,41 @@ if (!isset($_SESSION['username'])) {
   left: 50%;
   margin-left: -80px;
   font-size: 35px;
-}
+} */
 
 
 
 /* Toggle this class - hide and show the popup */
-.popup .show {
+/* .popup .show {
   visibility: visible;
  
-}
+} */
 
 /* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
+/* @-webkit-keyframes fadeIn {
   from {opacity: 0;} 
   to {opacity: 1;}
-}
+} */
 
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+} */
+
+.pop_up{
+  width: 100%;
+  height: 600px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  margin-top: -600px;
+}
+.pop_up_msg{
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid black;
 }
 </style>
 
@@ -115,10 +131,8 @@ if (!isset($_SESSION['username'])) {
 
         </div>
 
-        <div class="popup"  onclick="myFunction()"><input type="submit" value="Confirm" id="confirm" >
-        <span class="popuptext" id="myPopup">Payment Successfull!</span>
-      </div>
-
+       
+        <div  ><input type="submit" value="Confirm" id="confirm" >
       </form>
 
     </div>
@@ -126,14 +140,20 @@ if (!isset($_SESSION['username'])) {
   </div>
   <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
 
+<!-- <div class="pop_up">
+  <div class="pop_up_msg">
 
+  </div>
+</div> -->
 
 <script>
 
 // When the user clicks on div, open the popup
 function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
+  
+  document.getElementById("myPopup").style.visibility= "visible";
+  
+
 }
 </script>
 
@@ -168,6 +188,11 @@ function myFunction() {
           // console.log(item['amount']);
         }
       })
+    }
+
+    function hide_popup(){
+      document.getElementById("myPopup").style.visibility= "hidden";
+  
     }
   </script>
 

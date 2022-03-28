@@ -14,8 +14,10 @@ if (!isset($_SESSION['username'])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Returns</title>
-        <link rel="stylesheet" href="../../public/styles/view_rep_return.css">
         <link rel="stylesheet" href="../../public/styles/view_rep_Home.css">
+        <link rel="stylesheet" href="../../public/styles/view_rep_return.css">
+        
+        
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     </head>
@@ -24,7 +26,7 @@ if (!isset($_SESSION['username'])) {
 
         <!-- START SIDE BAR -->
 
-  <div class="sidebar">
+ <div class="sidebar">
 
 <div class="logo-details">
 
@@ -48,13 +50,13 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Customer Registration</span>
   </li>
   <li>
-    <a href="../salesRep/customer_home">
-    <i class='bx bx-money'></i>
-      <span class="links_name">Payments</span>
-    </a>
-    <span class="tooltip">Payments</span>
-   </li>
-  <!-- <li>
+<a href="../salesRep/customer_home">
+<i class='bx bx-money'></i>
+  <span class="links_name">Payments</span>
+</a>
+<span class="tooltip">Payments</span>
+<!-- </li>
+  <li>
     <a href="#">
       <i class='bx bx-user open-button' onclick="openForm()"></i>
       <span class="links_name ">Customer Profile</span>
@@ -89,13 +91,13 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Returns</span>
   </li>
 
-  <!-- <li>
+  <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li> --> 
+  </li> 
 
   <li>
     <a href="../salesRep/view_notifications">
@@ -147,12 +149,13 @@ if (!isset($_SESSION['username'])) {
 
 <!-- END SIDE BAR -->
 
-    <section class="home-section">
-        <div class="header">
-            <?php require 'view_headertype2.php'; ?>
-        </div>
+<!-- ADD HEADER -->
+<section class="home-section">
+    <div class="header">
+        <?php require 'view_headertype2.php'; ?>
+    </div>
             <h2> RETURNS</h2>
-          <div class="Customer">Enter Customer ID:<input type="text" id="cus_id"></div>
+          <div class="Customer">Enter Customer ID : <input type="text" id="cus_id"></div>
 
             <div class="table-wrapper">
 
