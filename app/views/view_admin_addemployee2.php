@@ -7,12 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      
+      
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins" , sans-serif;
+    color: black;
+}
 
         .add_employee_container {
             position: relative;
+            top: 100px;
+            z-index: 100;
+            right: 450px;
         }
 
         .add_employee_choose_user {
@@ -88,6 +99,7 @@
             display: block;
             margin-left: 20px;
             margin-top: 15px;
+            font-weight: 600;
         }
 
         .add_employee_input_field {
@@ -95,7 +107,7 @@
             margin-left: 40px;
             margin-top: 15px;
             width: 400px;
-            height: 30px;
+            height: 40px;
         }
 
         .select_option {
@@ -130,10 +142,27 @@
         color: black;
         font-size: 30px;
     }
+
+    .main-container{
+        width: 100%;
+        height: 500px;
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+    }
+
+    #user_avail{
+        visibility: hidden;
+    }
+
+    #valid_birthday{
+        visibility: hidden;
+    }
     </style>
 </head>
 
 <body>
+    <div class="main-container">
     <div class="add_employee_container">
         <div class="add_employee_choose_user">
             <button class="add_employee_choose_user_button" id="add_employee_admin_button" onclick="choose_user('admin')">Admin</button>
@@ -151,7 +180,8 @@
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">User Id : </label>
-                            <input type="text" class="add_employee_input_field" id="admin_user_id" placeholder="User Id">
+                            <input type="text" class="add_employee_input_field check_user_id" id="admin_user_id" placeholder="User Id" onkeyup="check_avail_userid()">
+                            <span id="user_avail">User id is not available</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Level : </label>
@@ -166,7 +196,8 @@
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
-                            <input type="date" class="add_employee_input_field" id="admin_dob">
+                            <input type="date" class="add_employee_input_field validate_birthday" id="admin_dob" onchange="birthday_validate()">
+                            <span id="valid_birthday">Enter a valid birthday</span>
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Email : </label>
@@ -204,7 +235,7 @@
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">DOB : </label>
-                            <input type="date" class="add_employee_input_field" id="rep_dob">
+                            <input type="date" class="add_employee_input_field" id="rep_dob" onchange="birthday_validate()">
                         </div>
                         <div class="add_employee_field">
                             <label for="" class="add_employee_label">Target(Rs.) : </label>
@@ -267,6 +298,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    
 
         <div class="message">
 
@@ -440,6 +473,132 @@
                         console.log(data);
                     });
             }
+
+
+            function check_email(){
+            var email_check=document.querySelector('.mail_check');
+            var email_avail=document.getElementById('email_avail');
+
+            fetch("http://localhost/web-Experts/public/register/check_email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(email_check.value),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+if(data!=0){
+email_check.style.border = "thick solid red";
+email_avail.style.visibility="visible";
+email_avail.style.color="red";
+
+}
+      else{
+        email_check.style.border = "thick solid green";
+        email_avail.innerHTML="email is available";
+        email_avail.style.color="green";
+      }    
+         
+        });
+
+        }
+
+
+        //check userid
+        function user_id_check(){
+
+            fetch("http://localhost/web-Experts/public/register/check_email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+if(data!=0){
+email_check.style.border = "thick solid red";
+email_avail.style.visibility="visible";
+email_avail.style.color="red";
+email_check.style.visibility="visible"
+
+}
+      else{
+          
+        email_check.style.border = "thick solid green";
+        email_avail.innerHTML="email is available";
+        email_avail.style.color="green";
+      }    
+         
+        });
+
+        }
+
+        function check_avail_userid(){
+            var check_user_id=document.querySelector('.check_user_id');
+            user_avail=document.getElementById('user_avail');
+            fetch("http://localhost/web-Experts/public/register/check_userid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(check_user_id.value),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+
+          if(data!=0){
+              check_user_id.style.border = "thick solid red";
+user_avail.style.visibility="visible";
+user_avail.style.color="red";
+
+}
+      else{
+        check_user_id.style.border = "thick solid green";
+        user_avail.innerHTML="user id is available";
+        user_avail.style.color="green";
+      }    
+
+         
+        });
+        }
+
+        function birthday_validate(){
+            var valid_birthday=document.getElementById('valid_birthday');
+            
+
+            //valid year
+            const d = new Date();
+            let year = d.getFullYear();
+  let valid_year=year-18;
+  console.log(valid_year)
+
+  //birthday year
+            var validate_birthday=document.querySelector('.validate_birthday');
+            var birthday_date=validate_birthday.value;
+            var real_date=parseInt(birthday_date.slice(0,4));
+            console.log(real_date);
+            if(valid_year>real_date){
+                console.log("Hello")
+                valid_birthday.innerHTML="Your birthday is valid";
+            }
+            else{
+                console.log("Errrrrrr")
+                valid_birthday.style.visibility="visible";
+                
+            }
+
+
+           
+        }
+
+function phone_number(){
+
+}
         </script>
     </div>
 </body>
