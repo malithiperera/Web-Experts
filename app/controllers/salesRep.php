@@ -183,8 +183,8 @@ class salesRep extends controller
         $result=$this->model->insert_chequePayment($get_data['OrderId'], $get_data['Total'], $get_data['Bank'],$get_data['ChequeNo'],$get_data['Date']);
         // header("Location: http://localhost/web-Experts/public/salesRep/cashPayment");
 
-        $get_data = [$result];
-        echo json_encode($get_data);
+    
+        echo json_encode("ucsc");
         exit;
     }
 

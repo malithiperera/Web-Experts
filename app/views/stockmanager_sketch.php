@@ -100,28 +100,6 @@ if (!isset($_SESSION['username'])) {
 
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
     <script src="../../public/java script/side_bar.js"></script>

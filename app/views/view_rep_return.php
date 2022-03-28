@@ -91,13 +91,13 @@ if (!isset($_SESSION['username'])) {
     <span class="tooltip">Returns</span>
   </li>
 
-  <li>
+  <!-- <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li> 
+  </li>  -->
 
   <li>
     <a href="../salesRep/view_notifications">
@@ -174,7 +174,7 @@ if (!isset($_SESSION['username'])) {
                     <tbody>
                 </table>
             </div>
-            <div class="submit"><input type="submit" value="Submit" id="submit" onclick="returns()"></div>
+            <div class="submit"><input type="submit" value="Submit" id="submit" onclick="returns();location.href='../salesRep/returns';"></div>
 
     <script>
 

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("Location:http://localhost/web-Experts/public/login/index");
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -156,13 +162,13 @@ h2{
     <span class="tooltip">Returns</span>
   </li>
 
-  <li>
+  <!-- <li>
     <a href="../salesRep/view_report">
       <i class='bx bx-line-chart'></i>
       <span class="links_name">Reports</span>
     </a>
     <span class="tooltip">Reports</span>
-  </li> 
+  </li>  -->
 
   <li>
     <a href="../salesRep/view_notifications">

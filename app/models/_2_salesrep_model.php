@@ -347,7 +347,7 @@ public function insert_chequePayment($order_id, $total,$bank,$chequeNo, $date)
 
     $result = $conn->query($sql2);
     if (mysqli_query($conn, $sql1) == TRUE) {
-        return 1;
+        return true;
     } else {
         return mysqli_error($conn);
     };

@@ -34,31 +34,24 @@ if (!isset($_SESSION['username'])) {
 
             <li>
                 <a href="#">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Home</span>
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
                 </a>
-                <span class="tooltip">Home</span>
+                <span class="tooltip">Dashboard</span>
             </li>
-            <!-- <li>
-                    <a href="#">
-                        <i class='bx bx-user'></i>
-                        <span class="links_name">User</span>
-                    </a>
-                    <span class="tooltip">User</span>
-                </li> -->
             <li>
-                <a href="../stockManager/rep_list_back">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Handover</span>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
                 </a>
-                <span class="tooltip">Handover</span>
+                <span class="tooltip">User</span>
             </li>
             <li>
                 <a href="../stockManager/notification">
 
                     <a href="../stockManager/moveToNotificationPage">
 
-                        <i class='bx bx-bell'></i>
+                        <i class='bx bx-chat'></i>
                         <span class="links_name">Notification</span>
                     </a>
                     <span class="tooltip">Notification</span>
@@ -72,14 +65,14 @@ if (!isset($_SESSION['username'])) {
             </li>
 
             <li>
-                <a href="../customer/profile">
+                <a href="#">
                     <i class="fas fa-user"></i>
                     <span class="links_name">Profile</span>
                 </a>
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="../login/logout">
+                <a href="logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="links_name">Logout</span>
                 </a>
@@ -103,41 +96,9 @@ if (!isset($_SESSION['username'])) {
         <div class="header">
             <?php require 'view_headertype2.php'; ?>
         </div>
-
-
-        <?php require "stockmanagerHome.php"; ?>
+        <?php require 'view_stockmanager_addproduct.php '; ?>
 
     </section>
-
-
-
-
-
-
-
-    <script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </script>
 

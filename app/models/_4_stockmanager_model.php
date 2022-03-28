@@ -23,7 +23,12 @@ class _4_stockmanager_model extends model
 
         $sql = "SELECT * FROM product WHERE product_id = '$product_id'";
         $result = mysqli_query($conn, $sql);
+        // $com = mysqli_fetch_assoc($result);
+        // $qty = $com['qty'];
+        // $lim = $com['lim'];
+        // echo($qty);
         return $result;
+
     }
     public function kindOfProducts_mod () {
         require '../app/core/database.php';
@@ -167,5 +172,13 @@ class _4_stockmanager_model extends model
         }
         // return $new_amount;
        
+    }
+
+    public function updateNewLimit_mod ($product_id, $newLimit) {                   // update new limit
+        require '../app/core/database.php';
+        $sql = "UPDATE product SET lim = '$newLimit' WHERE product_id = '$product_id'";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+
     }
 }

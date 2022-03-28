@@ -252,6 +252,12 @@ z-index: 1000;
 
     <script src="../../public/java script/side_bar.js"></script>
     <script src="../../public/java script/view_place_order.js"></script>
+    <script>
+        function hide_pop(){
+           
+            window.location.href="http://localhost/web-Experts/public/customer/home";
+        }
+    </script>
 </body>
 
 </html>
