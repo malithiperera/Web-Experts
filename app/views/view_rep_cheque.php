@@ -18,18 +18,18 @@ if (!isset($_SESSION['username'])) {
 
   <style>
 /* Popup container - can be anything you want */
-.popup {
+/* .popup {
   position: relative;
   display: inline-block;
   /* cursor: pointer; */
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+} */
 
 /* The actual popup */
-.popup .popuptext {
+/* .popup .popuptext {
   visibility: hidden;
   width: 300px;
   height:250px;
@@ -44,18 +44,18 @@ if (!isset($_SESSION['username'])) {
   left: 50%;
   margin-left: -80px;
   font-size: 35px;
-}
+} */
 
 
 
 /* Toggle this class - hide and show the popup */
-.popup .show {
+/* .popup .show {
   visibility: visible;
   
-}
+} */
 
 /* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
+/* @-webkit-keyframes fadeIn {
   from {opacity: 0;} 
   to {opacity: 1;}
 }
@@ -63,7 +63,15 @@ if (!isset($_SESSION['username'])) {
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}  */
+
+#vali{
+  visibility:hidden;
+  color: red;
+  font-size: small;
+  font-weight: 500;
 }
+
 </style>
 
 
@@ -80,7 +88,7 @@ if (!isset($_SESSION['username'])) {
     <div class="sub-container">
       <div class="title1">Cheque Payment</div>
 
-      <form class="new" method="post" action="add_chequePayment">
+      <form class="new" method="post" action="#">
       <div class="input-fields"><label for="order">Order</label><div class="radio">
             <select id="orders" onchange="selectOrder()">
             <?php
@@ -101,16 +109,21 @@ if (!isset($_SESSION['username'])) {
       <div class="input-fields"><label for="ChequeNo">Cheque No</label><input type="text" name="ChequeNo" id="ChequeNo"
           class="inputf">
       </div>
-      <div class="input-fields"><label for="date">Deposit Date</label><input type="date" name="date" id="date"
+      <div class="input-fields" onchange="DateValidate()"><label for="date">Deposit Date</label><input type="date" name="date" id="date"
           class="inputf">
+          <br>
+          <span class="valDate" id="vali">Enter a valid date</span>
       </div>
-      <div class="popup" onclick="myFunction()"><input type="submit" value="Confirm" id="confirm">
-      <span class="popuptext" id="myPopup">Payment Successfull!</span>
+      <div class="popup" ><input type="submit" value="Confirm" id="confirm" onclick="ConfirmDate()">
+      <!-- <span class="popuptext" id="myPopup">Payment Successfull!</span> -->
     </div>
+
+      </form>
     </div>
+    <div class="r1"><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
     
   </div>
-  <div  ><input type="submit" value="Back" id="back" onclick="window.location.href='../salesRep/customer_home';"></div>
+  
 
   <script>
 // When the user clicks on div, open the popup
@@ -119,6 +132,77 @@ function myFunction() {
   popup.classList.toggle("show");
 }
 </script>
+
+
+<script>
+  var flag=0;
+function DateValidate(){
+  var inputDate = document.getElementById("date").value;
+  var valiD =document.getElementById("vali").innerHTML;
+
+  
+  var today = new Date();
+  var date = today.getFullYear()+'-0'+(today.getMonth()+1)+'-'+today.getDate();
+
+  
+  // console.log(inputDate);
+  // console.log(date);
+  console.log(valiD);
+ 
+  
+  if(inputDate >= date) {
+    var valiD =document.getElementById("vali").style.visibility="hidden";
+    console.log("true");
+    // console.log(flag);
+  }else{
+    var valiD =document.getElementById("vali").style.visibility="visible";
+    console.log("false");
+    flag=1;
+    // console.log(flag);
+  }
+}
+
+
+function ConfirmDate(){
+  
+   console.log(flag);
+
+   if(flag==0){
+     var order_id = document.getElementById("orders").value;
+     var total = document.getElementById("total").value;
+     var bank = document.getElementById("bank").value;
+     var cheque_no = document.getElementById("ChequeNo").value;
+     var date = document.getElementById("date").value;
+    //  console.log(order_id);
+   }
+  //  console.log("hello");
+  var data_set={
+
+    OrderId: order_id,
+    Total: total,
+    Bank: bank,
+    ChequeNo: cheque_no,
+    Date:date
+
+};
+console.log(data_set);
+
+fetch('http://localhost/web-Experts/public/salesRep/add_chequePayment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data_set)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+           
+        });
+}
+
+</script>
+
 
   <script>
   

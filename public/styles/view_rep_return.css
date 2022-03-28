@@ -230,10 +230,12 @@ h2{
  
 }
 
-.customer{
-    padding-top: 50px;
-    margin-top: 100px;
+.Customer{
+    /* padding-top: 50px; */
+    margin-top: 50px;
     margin-left: 200px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 

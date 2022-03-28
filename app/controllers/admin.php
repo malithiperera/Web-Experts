@@ -435,4 +435,16 @@ public function remove_the_user(){
 //     exit;
 // }
 
+//give suggestions according to the user role in remove user
+public function remove_user_suggestions(){
+    $get_data = file_get_contents('php://input');
+    $get_data = json_decode($get_data, true);
+
+    // $this->model('_1_admin_model');
+    // $result = $this->model->remove_user_suggestions($get_data);
+
+    echo json_encode($get_data);
+    exit;
+}
+
 }

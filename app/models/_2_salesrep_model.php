@@ -98,23 +98,7 @@ class _2_salesrep_model extends model
     }
 
 
-    // INSERT CHEQUE PAYMENT
-
-    public function insert_chequePayment($order_id, $total, $date)
-    {
-        require '../app/core/database.php';
-        
-        //insert query
-        $sql = "INSERT INTO payment (amount, order_id, date,type,delivery_id,time)
-        VALUES ('$total','$order_id','$date','cheque','1',CURDATE())";
-        $sql1 = "UPDATE orders SET status='pending' WHERE order_id=$order_id";
-        $result = $conn->query($sql1);
-        if (mysqli_query($conn, $sql) == TRUE) {
-            return 1;
-        } else {
-            return mysqli_error($conn);
-        };
-    }
+    
 
     // DAILY PRODUCT LIST
 
@@ -294,37 +278,82 @@ class _2_salesrep_model extends model
     public function fillReturns($cus_id,$rep_id,$get_data){
         require '../app/core/database.php';
 
+        $data=[];
+
         $sql1 = "insert into returns (rep_id,cus_id) values ('$rep_id','$cus_id')";
         $result1 = mysqli_query($conn, $sql1);
-
-        return $result1;
-
+        // $last_id = $conn->insert_id;
+   
         // $check = 0;
 
+// if($result1){
+// return "Malthi";
 
+
+//  }
+
+
+        if($result1){
+                $sql3="SELECT LAST_INSERT_ID() as last1";
+                $result3=mysqli_query($conn,$sql3);
+                $del_index= $result3->fetch_assoc();
+                $del_index=$del_index['last1'];
+                array_push($data,$del_index);
+           
+                
+            }
+            else{
+                return 'Jiiiaia';
+        }
         for ($x = 0; $x < sizeof($get_data);$x++) {
             $product_id = $get_data[$x][0];
             $qty = $get_data[$x][2];
             $reason = $get_data[$x][3];
 
 
-            $sql2 = "insert into return_product (product_id,qty,reason) values ('$product_id','$qty','$reason')";
-           
-           $result2 = mysqli_query($conn,$sql2);
-           return $result2;
+            
 
-    //        if($result2 == false){
-    //            $check = 1;
-    //        }
+        $sql2 = "INSERT into return_product values('$del_index','$product_id','$qty','$reason')";
+           
+        $result2 = mysqli_query($conn,$sql2);
+
+    
+
+
+        //    if($result2 == false){
+        //        $check = 1;
+        //    }
        
       }
       
         
 
-    // return $check;
-    }
+    return $result2;
+   }
 
-       
+// INSERT CHEQUE PAYMENT
+
+public function insert_chequePayment($order_id, $total,$bank,$chequeNo, $date)
+{
+    require '../app/core/database.php';
+    $result = array();
+    
+    //insert query1
+    $sql1 = "INSERT INTO payment (amount, order_id, date,type,delivery_id,time)
+    VALUES ('$total','$order_id','$date','cheque','1',CURDATE())";
+
+    //update query
+    $sql2 = "UPDATE orders SET status='pending' WHERE order_id=$order_id";
+
+    $result = $conn->query($sql2);
+    if (mysqli_query($conn, $sql1) == TRUE) {
+        return 1;
+    } else {
+        return mysqli_error($conn);
+    };
+
+} 
+
     
     
 }
