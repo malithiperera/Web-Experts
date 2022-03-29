@@ -84,7 +84,24 @@ h2{
     color: black;
     font-size: 18px;
 }
+/* sort */
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
 </style>
+
 
 <body>
 
@@ -420,6 +437,9 @@ console.log(data_set);
     total_of_all_prices.innerHTML = '';
 }
     </script>
-</body>
 
+
+</body>
 </html>
+
+

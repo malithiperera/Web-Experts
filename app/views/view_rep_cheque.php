@@ -79,6 +79,13 @@ if (!isset($_SESSION['username'])) {
   font-weight: 500;
 }
 
+#ChequeVal{
+  visibility:hidden;
+  color: red;
+  font-size: small;
+  font-weight: 500;
+}
+
 .pop_up{
   width: 100%;
   height: 700px;
@@ -129,14 +136,14 @@ if (!isset($_SESSION['username'])) {
         </div>
       </div>
       <div class="input-fields"><label for="total">Total Amount</label> <input type="text" name="total" id="total"
-          class="inputf">
+          class="inputf" readonly>
       </div>
       <div class="input-fields" onchange="BankValidate()"><label for="bank">Bank</label><input type="text" name="bank" id="bank" class="inputf">
-      <span class="valBank" id="BankVal">Enter letters only</span>
+      <span class="valBank" id="BankVal">Letters are only allowed</span>
       </div>
-      <div class="input-fields" ><label for="ChequeNo">Cheque No</label><input type="text" name="ChequeNo" id="ChequeNo"
+      <div class="input-fields" onchange="ChequeValidate()"><label for="ChequeNo">Cheque No</label><input type="text" name="ChequeNo" id="ChequeNo"
           class="inputf">
-          
+      <span class="valCheque" id="ChequeVal">Numbers only allowed</span>    
       </div>
       <div class="input-fields" onchange="DateValidate()"><label for="date">Deposit Date</label><input type="date" name="date" id="date"
           class="inputf">
@@ -169,7 +176,9 @@ function myFunction() {
 
 <script>
   var flag=0;
-  var con=0;
+  var ban=0;
+  var che=0;
+  var dat=0;
   
 function DateValidate(){
   var inputDate = document.getElementById("date").value;
@@ -187,6 +196,7 @@ function DateValidate(){
   
   if(inputDate >= date) {
     var valiD =document.getElementById("vali").style.visibility="hidden";
+    dat=1;
     console.log("true");
     // console.log(flag);
   }else{
@@ -251,7 +261,7 @@ function BankValidate(){
       {
       // alert('Your name have accepted : you can try another');
       var valiD =document.getElementById("BankVal").style.visibility="hidden";
-      con=1;
+      ban=1;
       return true;
       
       }
@@ -265,8 +275,30 @@ function BankValidate(){
       }
 }
 
+function ChequeValidate(){
+  var inputBank = document.getElementById("ChequeNo").value;
+  var letters = /^[0-9\s]*$/; 
+  // console.log(inputBank);
+  if(inputBank.match(letters))
+      {
+      // alert('Your name have accepted : you can try another');
+      var valiD =document.getElementById("ChequeVal").style.visibility="hidden";
+      che=1;
+      return true;
+      
+      }
+      else
+      {
+      // alert('Please input alphabet characters only');
+      var valiD =document.getElementById("ChequeVal").style.visibility="visible";
+      // console.log("sdf");
+      return false;
+      // 
+      }
+}
+
 function ConfirmBank(){
-  if(con==1){
+  if(ban==1 && che==1 && dat==1){
     ConfirmDate();
   }else{
     // console.log("sumudu");

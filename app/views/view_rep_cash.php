@@ -123,11 +123,11 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <div class="input-fields"><label for="total">Total Amount</label><input type="text" name="total" id="total"
-            class="inputf">
+            class="inputf" readonly>
 
         </div>
 
-        <div class="input-fields"><label for="date">Date</label><input type="date" name="date" id="date" class="inputf">
+        <div class="input-fields"><label for="date">Date</label><input type="date" onload="getDate()" name="date" id="date" class="inputf">
 
         </div>
 
@@ -194,6 +194,20 @@ function myFunction() {
       document.getElementById("myPopup").style.visibility= "hidden";
   
     }
+  </script>
+
+  <!-- get today date to the form -->
+  <script>
+
+function getDate(){
+
+var today = new Date();
+
+document.getElementById("date").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+// console.log("sumu");
+
+}
+
   </script>
 
 </body>

@@ -10,11 +10,11 @@ class _2_salesrep_model extends model
         parent::__construct();
     }
 
-    // NOT DELIVERED ORDERS
+    //  DELIVERED ORDERS
     public function not_delivered()
     {
         require '../app/core/database.php';
-        $sql = "SELECT * FROM orders ";
+        $sql = "SELECT * FROM orders";
         
 
         $result = $conn->query($sql);
@@ -23,7 +23,7 @@ class _2_salesrep_model extends model
         return $result;
     }
 
-    // DELIVERED ORDERS
+    // NOT DELIVERED ORDERS
     public function delivered()
     {
         require '../app/core/database.php';
