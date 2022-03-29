@@ -40,7 +40,7 @@ if (!isset($_SESSION['username'])) {
             visibility: hidden;
         }
 
-        .container {
+        .containers {
             margin-top: 60px;
             position: relative;
             left: 40px;
@@ -429,7 +429,7 @@ if (!isset($_SESSION['username'])) {
             color: black;
         }
 
-        .buttons {
+        .buttonss {
             display: block;
             width: 100%;
             display: flex;
@@ -437,7 +437,7 @@ if (!isset($_SESSION['username'])) {
             margin-top: 30px;
         }
 
-        .buttons button {
+        .buttonss button {
             margin-right: 10px;
             border-radius: 20px;
             padding: 1px 5px;
@@ -461,7 +461,8 @@ if (!isset($_SESSION['username'])) {
             margin-top: 10px;
             width: 50px;
         }
-        .center{
+
+        .center {
             position: fixed;
             top: 0px;
             left: 0px;
@@ -471,7 +472,8 @@ if (!isset($_SESSION['username'])) {
             display: flex;
             justify-content: center;
         }
-        .send_message_div{
+
+        .send_message_div {
             position: absolute;
             top: 100px;
             width: 400px;
@@ -483,28 +485,33 @@ if (!isset($_SESSION['username'])) {
             flex-direction: column;
             visibility: hidden;
         }
-        .subject_of_message{
+
+        .subject_of_message {
             color: #184A78;
             margin-top: 30px;
             align-self: center;
         }
-        .input_of_subject{
+
+        .input_of_subject {
             width: 250px;
             height: 40px;
             /* background-color: blue; */
             align-self: center;
         }
-        .message_of_message{
+
+        .message_of_message {
             color: #184A78;
             align-self: center;
         }
-        .input_of_message{
+
+        .input_of_message {
             width: 250px;
             height: 100px;
             /* background-color: blue; */
             align-self: center;
         }
-        .hold_customer_div{
+
+        .hold_customer_div {
             position: absolute;
             top: 160px;
             width: 400px;
@@ -516,22 +523,22 @@ if (!isset($_SESSION['username'])) {
             flex-direction: column;
             visibility: hidden;
         }
-        .reason_hold_cus{
+
+        .reason_hold_cus {
             color: #184A78;
             align-self: center;
             margin-top: 25px;
         }
-        .message_hold_cus{
+
+        .message_hold_cus {
             align-self: center;
             width: 300px;
             height: 100px;
         }
-        .confirm_hold_cus{
 
-        }
-        .close_hold_cus{
+        .confirm_hold_cus {}
 
-        }
+        .close_hold_cus {}
     </style>
 </head>
 
@@ -571,7 +578,7 @@ if (!isset($_SESSION['username'])) {
 
     </div>
 
-    <div class="container">
+    <div class="containers">
         <div class="detail">
             <!--begining header details -->
             <div class="div0">
@@ -584,17 +591,17 @@ if (!isset($_SESSION['username'])) {
             </div>
             <div class="div1">
                 <div class="credit"><label for="">Credit Period</label>
-                 
+
                     <input type="text" value="2 weeks" id="credit" class="credit_input" readonly>
                     <button id="cred"><i class="fas fa-pen"></i>Change</button>
 
                     <!-- popup message to credit time change -->
                     <div class="change_credit_time">
-                       
+
                     </div>
                 </div>
 
-            
+
             </div>
             <!-- ending of header details -->
             <div class="cards">
@@ -636,16 +643,18 @@ if (!isset($_SESSION['username'])) {
                     <h3> Pending Cheques</h3>
                     <table>
 
-                        <tr>
+                        <thead>
                             <th>cheque Id</th>
                             <th>Bank</th>
                             <th>Amount</th>
                             <th>Deposite date</th>
-                            <th colspan="2">Change staus</th>
-                        </tr>
+                            <!-- <th colspan="2">Change staus</th> -->
+                        </thead>
+
+                        <tbody id="pending_cheques"></tbody>
 
 
-                        <tr>
+                        <!-- <tr>
                             <td>001</td>
                             <td>Bank Of ceylon</td>
                             <td>12 000</td>
@@ -660,7 +669,7 @@ if (!isset($_SESSION['username'])) {
                             <td>30.12.2021</td>
                             <td><button id="depo">Deposit</button></td>
                             <td><button id="rej">reject</button></td>
-                        </tr>
+                        </tr> -->
 
                     </table>
 
@@ -677,17 +686,7 @@ if (!isset($_SESSION['username'])) {
                             <th>AMOUNT</th>
                             <th>DATE</th>
                         </thead>
-                        <?php
-
-                        for ($i = 0; $i < 3; $i++) {
-                            echo '<tr>
-                            <td>001</td>
-                            <td>1000</td>
-                            <td>30.12.2021</td>
-                            </tr>';
-                        }
-
-                        ?>
+                       <tbody id="tbody_pending_orders"></tbody>
                     </table>
 
                 </div>
@@ -728,320 +727,342 @@ if (!isset($_SESSION['username'])) {
         <!-- <div class="send_message_div"></div> -->
     </div>
 
-        <script>
+    <script>
+        let sidebar1 = document.querySelector('.sidebar');
+        let header = document.querySelector('.header');
+        let containers = document.querySelector('.containers');
 
-            let sidebar1 = document.querySelector('.sidebar');
-            let header = document.querySelector('.header');
-            let container = document.querySelector('.container');
+        center = document.querySelector('.center');
 
-            center = document.querySelector('.center');
+        //view reports
 
-            //view reports
-            
-            //send message
+        //send message
 
-            let send_message_div = document.createElement('DIV');
-            send_message_div.classList.add("send_message_div");
-            center.appendChild(send_message_div);
+        let send_message_div = document.createElement('DIV');
+        send_message_div.classList.add("send_message_div");
+        center.appendChild(send_message_div);
 
-            let subject_of_message = document.createElement('p');
-            subject_of_message.classList.add("subject_of_message");
-            send_message_div.appendChild(subject_of_message);
-            subject_of_message.innerHTML = `Subject : `;
+        let subject_of_message = document.createElement('p');
+        subject_of_message.classList.add("subject_of_message");
+        send_message_div.appendChild(subject_of_message);
+        subject_of_message.innerHTML = `Subject : `;
 
-            let input_of_subject = document.createElement('INPUT');
-            input_of_subject.classList.add("input_of_subject");
-            send_message_div.appendChild(input_of_subject);
-           
-
-            let message_of_message = document.createElement('P');
-            message_of_message.classList.add("message_of_message");
-            send_message_div.appendChild(message_of_message);
-            message_of_message.innerHTML = `Message : `;
-
-            let input_of_message = document.createElement('INPUT');
-            input_of_message.classList.add("input_of_message");
-            send_message_div.appendChild(input_of_message);
-
-            let buttons = document.createElement('DIV');
-            buttons.classList.add("buttons");
-            send_message_div.appendChild(buttons);
-
-            let send_button = document.createElement('BUTTON');
-            send_button.classList.add("send_button");
-            buttons.appendChild(send_button);
-            send_button.innerHTML = `Send`;
-
-            let close_button = document.createElement('BUTTON');
-            close_button.classList.add("close_button");
-            buttons.appendChild(close_button);
-            close_button.innerHTML = `Close`;
-            close_button.setAttribute("onclick", "close_the_msg()")
-           
-            function close_the_msg(){
-                send_message_div.style.visibility = "hidden";
-                sidebar1.style.opacity = "100%";
-                header.style.opacity = "100%";
-                container.style.opacity = "100%";
-            }
-
-            function open_the_message(){
-                send_message_div.style.visibility = "visible";
-                sidebar1.style.opacity = "30%";
-                header.style.opacity = "30%";
-                container.style.opacity = "30%";
-            }
+        let input_of_subject = document.createElement('INPUT');
+        input_of_subject.classList.add("input_of_subject");
+        send_message_div.appendChild(input_of_subject);
 
 
+        let message_of_message = document.createElement('P');
+        message_of_message.classList.add("message_of_message");
+        send_message_div.appendChild(message_of_message);
+        message_of_message.innerHTML = `Message : `;
 
-            //hold customers
-            let hold_customer_div = document.createElement('DIV');
-            hold_customer_div.classList.add("hold_customer_div");
-            center.appendChild(hold_customer_div);
+        let input_of_message = document.createElement('INPUT');
+        input_of_message.classList.add("input_of_message");
+        send_message_div.appendChild(input_of_message);
 
-            let reason_hold_cus = document.createElement('p');
-            reason_hold_cus.classList.add('reason_hold_cus');
-            hold_customer_div.appendChild(reason_hold_cus);
-            reason_hold_cus.innerHTML = `Reason Of Hold : `;
+        let buttonss = document.createElement('DIV');
+        buttonss.classList.add("buttonss");
+        send_message_div.appendChild(buttonss);
 
-            let message_hold_cus = document.createElement('INPUT');
-            message_hold_cus.classList.add('message_hold_cus');
-            hold_customer_div.appendChild(message_hold_cus);
+        let send_button = document.createElement('BUTTON');
+        send_button.classList.add("send_button");
+        buttonss.appendChild(send_button);
+        send_button.innerHTML = `Send`;
 
-            let buttons_hold_cus = document.createElement('DIV');
-            buttons_hold_cus.classList.add("buttons");
-            hold_customer_div.appendChild(buttons_hold_cus);
+        let close_button = document.createElement('BUTTON');
+        close_button.classList.add("close_button");
+        buttonss.appendChild(close_button);
+        close_button.innerHTML = `Close`;
+        close_button.setAttribute("onclick", "close_the_msg()")
 
-            let confirm_hold_cus = document.createElement('BUTTON');
-            confirm_hold_cus.classList.add("confirm_hold_cus");
-            buttons_hold_cus.appendChild(confirm_hold_cus);
-            confirm_hold_cus.innerHTML = `Confirm`;
+        function close_the_msg() {
+            send_message_div.style.visibility = "hidden";
+            sidebar1.style.opacity = "100%";
+            header.style.opacity = "100%";
+            containers.style.opacity = "100%";
+        }
 
-            let close_hold_cus = document.createElement('BUTTON');
-            close_hold_cus.classList.add("close_hold_cus");
-            buttons_hold_cus.appendChild(close_hold_cus);
-            close_hold_cus.innerHTML = `Close`;
-            close_hold_cus.setAttribute("onclick", "close_func_hold_cus()");
+        function open_the_message() {
+            send_message_div.style.visibility = "visible";
+            sidebar1.style.opacity = "30%";
+            header.style.opacity = "30%";
+            containers.style.opacity = "30%";
+        }
 
-            function close_func_hold_cus(){
-                hold_customer_div.style.visibility = "hidden";
-                sidebar1.style.opacity = "100%";
-                header.style.opacity = "100%";
-                container.style.opacity = "100%";
-            }
 
-            function open_func_hold_cus(){
-                hold_customer_div.style.visibility = "visible";
-                sidebar1.style.opacity = "30%";
-                header.style.opacity = "30%";
-                container.style.opacity = "30%";
-            }
 
-        </script>
+        //hold customers
+        let hold_customer_div = document.createElement('DIV');
+        hold_customer_div.classList.add("hold_customer_div");
+        center.appendChild(hold_customer_div);
 
-        <script>
-            //get html elements to js
-            //headre elements
-            customer_id = document.getElementById('cus_id');
-            shop_name = document.getElementById('shop_name');
-            tele = document.getElementById('tele');
-            address = document.getElementById('address');
+        let reason_hold_cus = document.createElement('p');
+        reason_hold_cus.classList.add('reason_hold_cus');
+        hold_customer_div.appendChild(reason_hold_cus);
+        reason_hold_cus.innerHTML = `Reason Of Hold : `;
 
-            //credit period
-            credit_period = document.getElementById('credit');
-            credit_input = document.querySelector('.credit_input');
+        let message_hold_cus = document.createElement('INPUT');
+        message_hold_cus.classList.add('message_hold_cus');
+        hold_customer_div.appendChild(message_hold_cus);
 
-            //button to change credit period pop up
-            popup_change_credit_period = document.getElementById('cred');
+        let buttons_hold_cus = document.createElement('DIV');
+        buttons_hold_cus.classList.add("buttonss");
+        hold_customer_div.appendChild(buttons_hold_cus);
 
-            //access cards from js
-            route = document.querySelector('.route_card');
-            overdue_payments = document.querySelector('.overdue_payments_card');
-            pending_payments = document.querySelector('.pending_payments_card');
-            return_cheques = document.querySelector('.return_cheques_card');
-            status = document.querySelector('.status_card');
-            credit_period = document.querySelector('.credit_period_card');
+        let confirm_hold_cus = document.createElement('BUTTON');
+        confirm_hold_cus.classList.add("confirm_hold_cus");
+        buttons_hold_cus.appendChild(confirm_hold_cus);
+        confirm_hold_cus.innerHTML = `Confirm`;
 
-            //in change credit period popup
-            let current_credit_period = document.createElement('P');
-            current_credit_period.id = "current_credit_period";
+        let close_hold_cus = document.createElement('BUTTON');
+        close_hold_cus.classList.add("close_hold_cus");
+        buttons_hold_cus.appendChild(close_hold_cus);
+        close_hold_cus.innerHTML = `Close`;
+        close_hold_cus.setAttribute("onclick", "close_func_hold_cus()");
 
-            let new_credit_time_p = document.createElement('P');
-            new_credit_time_p.id = "new_credit_time_p";
+        function close_func_hold_cus() {
+            hold_customer_div.style.visibility = "hidden";
+            sidebar1.style.opacity = "100%";
+            header.style.opacity = "100%";
+            container.style.opacity = "100%";
+        }
 
-            let new_credit_time_input = document.createElement('INPUT');
-            new_credit_time_input.id = "new_credit_time_input";
+        function open_func_hold_cus() {
+            hold_customer_div.style.visibility = "visible";
+            sidebar1.style.opacity = "30%";
+            header.style.opacity = "30%";
+            container.style.opacity = "30%";
+        }
+    </script>
 
-            let buttons = document.createElement('P');
-            buttons.classList.add("buttons");
+    <script>
+        //get html elements to js
+        //headre elements
+        customer_id = document.getElementById('cus_id');
+        shop_name = document.getElementById('shop_name');
+        tele = document.getElementById('tele');
+        address = document.getElementById('address');
 
-            let change = document.createElement("BUTTON");
-            change.setAttribute("onclick", "change_credit_period()");
-            change.id = "change_btn";
+        //credit period
+        credit_period = document.getElementById('credit');
+        credit_input = document.querySelector('.credit_input');
 
-            let cancel = document.createElement('BUTTON');
-            cancel.setAttribute("onclick", "cancel_window()");
-            cancel.id = "change_btn";
+        //button to change credit period pop up
+        popup_change_credit_period = document.getElementById('cred');
 
-            //html elements that want to change credit time
-            change_credit_time = document.querySelector('.change_credit_time');
+        //access cards from js
+        route = document.querySelector('.route_card');
+        overdue_payments = document.querySelector('.overdue_payments_card');
+        pending_payments = document.querySelector('.pending_payments_card');
+        return_cheques = document.querySelector('.return_cheques_card');
+        status = document.querySelector('.status_card');
+        credit_period = document.querySelector('.credit_period_card');
 
-            // assign cus id to js variable
-            let cus_id = '<?php echo $this->cus_id; ?>';
+        //in change credit period popup
+        let current_credit_period = document.createElement('P');
+        current_credit_period.id = "current_credit_period";
 
-            //load change credit time popup
-            const load_change_credit_time_popup = () => {
-                
-                change_credit_time.innerHTML = ``;
+        let new_credit_time_p = document.createElement('P');
+        new_credit_time_p.id = "new_credit_time_p";
 
-                current_credit_period.innerHTML = `Current Credit Period : `;
-                change_credit_time.appendChild(current_credit_period);
+        let new_credit_time_input = document.createElement('INPUT');
+        new_credit_time_input.id = "new_credit_time_input";
 
-                new_credit_time_p.innerHTML = `New Credit Period(weeks) `;
-                change_credit_time.appendChild(new_credit_time_p);
+        let buttons = document.createElement('P');
+        buttons.classList.add("buttonss");
 
-                change_credit_time.appendChild(new_credit_time_input);
+        let change = document.createElement("BUTTON");
+        change.setAttribute("onclick", "change_credit_period()");
+        change.id = "change_btn";
 
-                change_credit_time.appendChild(buttons);
+        let cancel = document.createElement('BUTTON');
+        cancel.setAttribute("onclick", "cancel_window()");
+        cancel.id = "change_btn";
 
-                change.innerHTML = `change`;
-                cancel.innerHTML = `cancel`;
+        //html elements that want to change credit time
+        change_credit_time = document.querySelector('.change_credit_time');
 
-                buttons.appendChild(change);
-                buttons.appendChild(cancel);
-            }
+        // assign cus id to js variable
+        let cus_id = '<?php echo $this->cus_id; ?>';
 
+        //load change credit time popup
+        const load_change_credit_time_popup = () => {
+
+            change_credit_time.innerHTML = ``;
+
+            current_credit_period.innerHTML = `Current Credit Period : `;
+            change_credit_time.appendChild(current_credit_period);
+
+            new_credit_time_p.innerHTML = `New Credit Period(weeks) `;
+            change_credit_time.appendChild(new_credit_time_p);
+
+            change_credit_time.appendChild(new_credit_time_input);
+
+            change_credit_time.appendChild(buttons);
+
+            change.innerHTML = `change`;
+            cancel.innerHTML = `cancel`;
+
+            buttons.appendChild(change);
+            buttons.appendChild(cancel);
+        }
+
+        load_change_credit_time_popup();
+
+        //    load page function
+        const load_page = (cus_id) => {
+            fetch('http://localhost/web-Experts/public/admin/load_cus_view', {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify(cus_id)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    //fill header elements in the view
+                    customer_id.innerHTML = `${data['cus_id']}`;
+                    shop_name.innerHTML = `${data['shop_name']}`;
+                    tele.innerHTML = `${data['tel']}`;
+                    address.innerHTML = `${data['address']}`;
+
+                    //fill credit period
+                    credit_input.value = `${data['credit_time']} weeks`;
+
+                    //fill cards
+                    route.innerHTML = `${data['route_name']}`;
+                    overdue_payments
+                    pending_payments
+                    return_cheques
+                    status.innerHTML = `${data['active']}`;
+                    credit_period.innerHTML = `${data['credit_time']} weeks`;
+
+                    //fill change credit period popup
+                    current_credit_period.innerHTML += `${data['credit_time']} weeks`;
+                });
+        }
+
+        // run load page function
+        load_page(cus_id);
+
+        //to pop up the change credit period div
+        popup_change_credit_period.addEventListener("click", () => {
+            change_credit_time.style.display = "block";
             load_change_credit_time_popup();
 
-            //    load page function
-            const load_page = (cus_id) => {
-                fetch('http://localhost/web-Experts/public/admin/load_cus_view', {
-                        method: 'POST',
+        });
 
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
+        //created yes no buttons on confirm credit period
+        let yes = document.createElement("BUTTON");
+        let no = document.createElement("BUTTON");
 
-                        body: JSON.stringify(cus_id)
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
 
-                        //fill header elements in the view
-                        customer_id.innerHTML = `${data['cus_id']}`;
-                        shop_name.innerHTML = `${data['shop_name']}`;
-                        tele.innerHTML = `${data['tel']}`;
-                        address.innerHTML = `${data['address']}`;
+        //confirmation msg to change credit time
+        const confirm_change = () => {
 
-                        //fill credit period
-                        credit_input.value = `${data['credit_time']} weeks`;
+            let new_time = new_credit_time_input.value;
 
-                        //fill cards
-                        route.innerHTML = `${data['route_name']}`;
-                        overdue_payments
-                        pending_payments
-                        return_cheques
-                        status.innerHTML = `${data['active']}`;
-                        credit_period.innerHTML = `${data['credit_time']} weeks`;
+            change_credit_time.innerHTML = `Are you sure to change credit time to ${new_time} weeks?`;
+            let buttons_confirm = document.createElement('DIV');
+            buttons_confirm.classList.add("buttonss");
 
-                        //fill change credit period popup
-                        current_credit_period.innerHTML += `${data['credit_time']} weeks`;
-                    });
+            change_credit_time.appendChild(buttons_confirm);
+            buttons_confirm.appendChild(yes);
+            buttons_confirm.appendChild(no);
+
+            yes.innerHTML = `YES`;
+            no.innerHTML = `NO`;
+        }
+
+        //change credit period
+        const change_credit_period = () => {
+            console.log('pressed the change button : ' + new_credit_time_input.value);
+            confirm_change();
+
+        }
+
+        //cancel the window
+        const cancel_window = () => {
+            console.log('pressed the cancel button');
+
+            change_credit_time.style.display = "none";
+        }
+
+        yes.addEventListener("click", () => {
+            console.log("confirmed");
+
+            let data_set = {
+                cus_id: cus_id,
+                new_time: new_credit_time_input.value
             }
+            fetch('http://localhost/web-Experts/public/admin/change_credit_time', {
+                    method: 'POST',
 
-            // run load page function
-            load_page(cus_id);
+                    headers: {
+                        'Content-Type': 'application/json'
 
-            //to pop up the change credit period div
-            popup_change_credit_period.addEventListener("click", () => {
-                change_credit_time.style.display = "block";
-                load_change_credit_time_popup();
+                    },
 
-            });
+                    body: JSON.stringify(data_set)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
 
-            //created yes no buttons on confirm credit period
-            let yes = document.createElement("BUTTON");
-            let no = document.createElement("BUTTON");
+                    //to refresh with new credit time
+                    if (data[1] == true) {
+                        load_page(cus_id);
+                    }
+                });
+
+            change_credit_time.style.display = "none";
+        });
+
+        no.addEventListener('click', () => {
+            console.log('not confirmed');
+
+            change_credit_time.style.display = "none";
+        });
+    </script>
+
+    <script>
+
+        pending_orders = document.getElementById('tbody_pending_orders');
+        pending_cheques = document.getElementById('pending_cheques');
+        //load tables
+        function load_tables() {
+            let cus_id = "<?php echo $_GET['cus_id'] ?>";
+            console.log(cus_id);
+            fetch('http://localhost/web-Experts/public/admin/load_customer_tables', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(cus_id),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    for(let i = 0 ; i < data[0].length ; i++){
+                        pending_orders.innerHTML += `<tr><td>${data[0][i]['order_id']}</td><td>${data[0][i]['amount']}</td><td>${data[0][i]['date']}</td></tr>`;
+
+                    }
+
+                    for(let j = 0 ; j < data[1].length ; j++){
+                        pending_cheques.innerHTML += `<tr><td>${data[1][j]['payment_id']}</td><td>${data[1][j]['bank']}</td><td>${data[1][j]['amount']}</td><td>${data[1][j]['date']}</td></tr>`;
+                    }
+                });
+        }
+
+        load_tables();
+    </script>
 
 
-            //confirmation msg to change credit time
-            const confirm_change = () => {
-
-                let new_time = new_credit_time_input.value;
-
-                change_credit_time.innerHTML = `Are you sure to change credit time to ${new_time} weeks?`;
-                let buttons_confirm = document.createElement('DIV');
-                buttons_confirm.classList.add("buttons");
-
-                change_credit_time.appendChild(buttons_confirm);
-                buttons_confirm.appendChild(yes);
-                buttons_confirm.appendChild(no);
-
-                yes.innerHTML = `YES`;
-                no.innerHTML = `NO`;
-            }
-
-            //change credit period
-            const change_credit_period = () => {
-                console.log('pressed the change button : ' + new_credit_time_input.value);
-                confirm_change();
-
-            }
-
-            //cancel the window
-            const cancel_window = () => {
-                console.log('pressed the cancel button');
-
-                change_credit_time.style.display = "none";
-            }
-
-            yes.addEventListener("click", () => {
-                console.log("confirmed");
-
-                let data_set = {
-                    cus_id: cus_id,
-                    new_time: new_credit_time_input.value
-                }
-                fetch('http://localhost/web-Experts/public/admin/change_credit_time', {
-                        method: 'POST',
-
-                        headers: {
-                            'Content-Type': 'application/json'
-
-                        },
-
-                        body: JSON.stringify(data_set)
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-
-                        //to refresh with new credit time
-                        if (data[1] == true) {
-                            load_page(cus_id);
-                        }
-                    });
-
-                    change_credit_time.style.display = "none";
-            });
-
-            no.addEventListener('click', () => {
-                console.log('not confirmed');
-
-                change_credit_time.style.display = "none";
-            });
-            
-        </script>
-        
-        <script>
-            //pending cheques
-            function pending_cheques(){
-                let cus_id = <?php echo $_GET?>
-            }
-        </script>
-       
-        
 </body>
 
 </html>

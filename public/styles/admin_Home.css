@@ -99,7 +99,7 @@ span .tooltips{
     width: calc(100% - 100px);
     display: flex;
     flex-direction: column;
-    /* margin-top: 40px; */
+    margin-top: 40px;
     /* opacity:50%; */
     /* visibility: hidden; */
 }
@@ -110,7 +110,7 @@ span .tooltips{
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .card {

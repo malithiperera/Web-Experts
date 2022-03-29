@@ -82,7 +82,7 @@
 
 
         .select{
-            visibility: hidden;
+            /* visibility: hidden; */
         }
         .view-button{
             margin-top: -30px;
@@ -120,7 +120,7 @@
         }
 
         .select-1{
-            display: none;
+            /* visibility: hidden; */
         }
     </style>
 </head>
@@ -146,7 +146,7 @@
                     <select id="cat" name="cat" onchange="myFunction()" id="cat">
                         <option value="year">Yearly</option>
                         <option value="month">Monthly</option>
-                        <option value="duration">Duration</option>
+                        
                
                     </select>
                 </div>
@@ -237,7 +237,7 @@
   if(x=='month'){
       console.log(x);
       select.style.visibility = "visible";
-      duration1.style.visibility="hidden";
+   
       select1.style.visibility="visible";
       console.log(month.value);
   }

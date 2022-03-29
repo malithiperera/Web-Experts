@@ -98,6 +98,21 @@
             color: #184A78;
             text-align: center;
         }
+        .sugestion_remove_employee{
+            position: absolute;
+            width: 170px;
+            /* height: 100px; */
+            background-color: white;
+            margin-left: 125px;
+            margin-top: -10px;
+            font-size: 16px;
+            color: #184A78;
+        }
+        .sugestion_remove_employee a{
+            font-size: 14px;
+            text-decoration: none;
+            color: #184A78;
+        }
     </style>
 </head>
 
@@ -121,6 +136,7 @@
         <div class="remove_user_userid">
             <label for="">User Id : </label>
             <input type="text" name="" id="remove_user_userid_input" onkeyup = "select_user(this.value)">
+            <div class="sugestion_remove_employee"></div>
         </div>
 
         <div class="remove_user_purpose">
@@ -167,10 +183,11 @@
         //for give suggestions according to the user
 
 
-        
+        let suggestions = document.querySelector('.sugestion_remove_employee');
 
         function select_user(user) {
             let position = document.getElementById('select_position').value;
+           
 
             let dataset = {user : user ,  position : position};
             // console.log(user);
@@ -185,7 +202,18 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
+                    suggestions.innerHTML = '';
+                    for(let i = 0 ; i < data.length ; i++){
+                        suggestions.innerHTML += `<p><a href="#" onclick="select_user_remove_emp('${data[i]['user_id']}', '${data[i]['name']}')">${data[i]['user_id']} - ${data[i]['name']}</a></p>`;
+                    }
                 });
+        }
+
+        function select_user_remove_emp(user_id, name){
+            let user_id_input = document.getElementById('remove_user_userid_input');
+
+            user_id_input.value = user_id + " - " + name;
+            suggestions.innerHTML = ``;
         }
     </script>
 

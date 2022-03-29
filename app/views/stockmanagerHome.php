@@ -44,7 +44,7 @@
                 </div>
                 <div class="div_repRequests">
                     <p><i class="fas fa-envelope"></i><br><a href="../stockManager/viewList">Rep Requests</a></p> <!-- ../stockManager/viewList -->
-                    <p class="value_repRequests"></p>
+                    <p class="value_repRequests">4</p>
                 </div>
 
 
