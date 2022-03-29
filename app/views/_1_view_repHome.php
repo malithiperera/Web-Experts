@@ -189,7 +189,7 @@ if (!isset($_SESSION['username'])) {
         <div class="card-1">
 
           <p><i class="fas fa-trophy"></i><br>Target</p>
-          <p id="item"><span id="target"></span></p>
+          <p id="item">Rs.<span id="target"></span></p>
 
         </div>
 

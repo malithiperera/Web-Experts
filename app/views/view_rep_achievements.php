@@ -181,7 +181,7 @@ if (!isset($_SESSION['username'])) {
 
       <div class="card" id="target">
         <p><i class="fas fa-trophy"></i><br>Target</p>
-        <p class="result" id="target_num"><span id="targetValue"></span></p>
+        <p class="result" id="target_num">Rs.<span id="targetValue"></span></p>
 
         <div class="change_target">
           <input type="text" id="new_target">

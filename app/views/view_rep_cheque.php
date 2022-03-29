@@ -136,7 +136,7 @@ if (!isset($_SESSION['username'])) {
         </div>
       </div>
       <div class="input-fields"><label for="total">Total Amount</label> <input type="text" name="total" id="total"
-          class="inputf">
+          class="inputf" readonly>
       </div>
       <div class="input-fields" onchange="BankValidate()"><label for="bank">Bank</label><input type="text" name="bank" id="bank" class="inputf">
       <span class="valBank" id="BankVal">Letters are only allowed</span>
