@@ -116,6 +116,9 @@ console.log('jii')
   .then(response => response.json())
   .then(data => {
     console.log(data);
+    if(data){
+      location.reload();
+    }
 
   });
 

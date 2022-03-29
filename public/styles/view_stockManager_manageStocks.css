@@ -578,6 +578,7 @@ input {
     background-color: #184A78;
     margin-left: 15%;
     border-radius: 10px;
+    color: #fff;
 
 }
 .no {
@@ -586,6 +587,7 @@ input {
     background-color: red;
     margin-left: 50%;
     border-radius: 10px;
+    color: #fff;
 
 }
 .addedSuccessfullyPopUppop_up {                 
@@ -657,15 +659,15 @@ input {
 .divLimit {
     position: absolute;
     width: 100%;
-    height: 27%;
-    top: 35%;
+    height: 60%;
+    top: 20%;
     /* background-color: rgb(226, 12, 12); */
     
 }
 .lblNotifyLimit {
     position: absolute;
     width: 20%;
-    height: 100%;
+    height: 49%;
     /* background-color: rgb(7, 88, 158); */
     left: 10%;
     font-size: large;
@@ -674,18 +676,59 @@ input {
 .inputNotifyLimit {
     position: absolute;
     width: 20%;
-    height: 100%;
+    height: 49%;
     background-color: #dddd;
     left: 40%;
 
 }
 .changeLimitBtn {
     position: absolute;
-    width: 20%;
-    height: 100%;
+    width: 12%;
+    height: 49%;
     background-color: #184A78;
-    right: 10%;
+    right: 20%;
+    border-radius: 6px;
+    color: #fff;
+
+}
+.updateLimitBtn {
+    position: absolute;
+    width: 12%;
+    height: 49%;
+    background-color: #184A78;
+    right: 20%;
+    border-radius: 6px;
+    color: #fff;
+    bottom: 0%;
+    visibility: hidden;
+
+}
+.tryAgainBtn {
+    width: 18%;
+    height: 100%;
+    background-color: red;
+    margin-left: 41%;
     border-radius: 10px;
     color: #fff;
 
+}
+.updateLimit {
+    position: absolute;
+    width: 20%;
+    height: 49%;
+    background-color: #dddd;
+    left: 40%;
+    bottom: 0%;
+    visibility: hidden;
+    
+}
+.newLimitLbl {
+    position: absolute;
+    width: 20%;
+    height: 49%;
+    /* background-color: rgb(7, 88, 158); */
+    left: 10%;
+    font-size: large;
+    bottom: 0%;
+    visibility: hidden;
 }

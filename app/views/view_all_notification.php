@@ -119,8 +119,8 @@ if (!isset($_SESSION['username'])) {
       <button class="back_button_button" onclick="back()"><i class="fas fa-chevron-circle-left fa-2x"></i></button>
       <h1>NOTIFICATIONS</h1>
       <div class="filter">
-        <label for="unread" id="unread_label">Unread</label>
-        <input type="checkbox" id="unread" onchange="filterRead()">
+        <!-- <label for="unread" id="unread_label">Unread</label>
+        <input type="checkbox" id="unread" onchange="filterRead()"> -->
 
       </div>
       <div class="container">

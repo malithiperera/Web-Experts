@@ -24,12 +24,11 @@ if (!isset($_SESSION['username'])) {
        .container{
            z-index: 100;
        }
-       .choose_product_new{
+       .sample_div{
            position: fixed;
            width: 100%;
            height: 100vh;
            background-color: blue;
-           z-index: 100000000;
        }
    </style>
 </head>
@@ -171,13 +170,14 @@ if (!isset($_SESSION['username'])) {
     </div>
 
 
+
     <div class="select_report">
         <?php require 'view_all_report_popup.php'; ?>
     </div>
 
-    <div class="choose_product_new">
+   
 
-    </div>
+    
 
 
     

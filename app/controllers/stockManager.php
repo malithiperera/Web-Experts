@@ -234,6 +234,16 @@ class stockManager extends controller {
     //stock return to stockmanager in the evening
     public function stock_return(){
         $this->view->render('view_stockManager_stock_return');
+
+    }
+
+    public function updateNewLimit_con () {                         // update the limit
+        $get_data = file_get_contents('php://input');
+        $get_data = json_decode($get_data, true);
+
+        $this->model('_4_stockmanager_model');
+        $result = $this->model->updateNewLimit_mod ($get_data ['productId'], $get_data ['newLimit']);
+        
     }
 }
 

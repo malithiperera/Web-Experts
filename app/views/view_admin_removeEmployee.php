@@ -104,6 +104,11 @@
         .container{
             flex-wrap: wrap-reverse;
         }
+        .suggestion_remove_employee{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
 }
 
     </style>
@@ -130,6 +135,7 @@
             <div class="user_id">
                 <p>USER ID</p>
                 <input type="text" id="user_id" name="user_id">
+                
             </div>
             
             <div class="purpose">

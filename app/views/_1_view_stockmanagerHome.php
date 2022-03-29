@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
                 </a>
                 <span class="tooltip">Home</span>
             </li>
-                <!-- <li>
+            <!-- <li>
                     <a href="#">
                         <i class='bx bx-user'></i>
                         <span class="links_name">User</span>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['username'])) {
                 </li> -->
             <li>
                 <a href="../stockManager/rep_list_back">
-                <i class='bx bx-home'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Handover</span>
                 </a>
                 <span class="tooltip">Handover</span>
@@ -79,7 +79,7 @@ if (!isset($_SESSION['username'])) {
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="logout">
+                <a href="../login/logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="links_name">Logout</span>
                 </a>

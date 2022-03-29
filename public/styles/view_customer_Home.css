@@ -248,7 +248,7 @@
     padding: 10px;
     margin-right: 20px;
     text-align:center;
-  z-index: 999;
+  z-index: 0;
   cursor:pointer;
   border-radius:10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
@@ -259,7 +259,7 @@
   flex-wrap: wrap;
   top:50px;
   /* left: 50px; */
-  z-index: 999;
+  z-index: 0;
   /* margin-left: 150px; */
   justify-content: space-evenly;
  
@@ -271,7 +271,7 @@
   margin-right: 20px;
   margin-bottom : 40px;
   text-align:center;
-  z-index: 999;
+  z-index: 0;
   cursor:pointer;
   border-radius:10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);

@@ -146,6 +146,7 @@
                 .then(data => {
                     
                     console.log(data);
+                    suggestion.innerHTML = ``;
                     for(let i = 0 ; i < data.length ; i++){
                         suggestion.innerHTML += `<p><a href="#" onclick = select_rep('${data[i]['user_id']}','${data[i]['name']}')>${data[i]['user_id']} - ${data[i]['name']}</a></p>`;
                     }

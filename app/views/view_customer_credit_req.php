@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
     <style>
         
 .container{
-    z-index: 5000;
+    z-index: 0;
 }
 
 .pop-up-success{

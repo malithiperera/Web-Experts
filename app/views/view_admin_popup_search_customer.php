@@ -335,6 +335,7 @@
         const redirect_to_customer_profile_searchbar = (customer_id, shop_name) =>{
             search_customer.value = customer_id+" "+shop_name;
             window.location.href = "../admin/customerProfile?cus_id="+customer_id;
+            search_customer.value = "";
         }
 
     </script>

@@ -210,7 +210,7 @@ $userid = $_SESSION['userid'];
 
   <section class="home-section">
     <div class="header">
-      <?php require 'view_headertype2.php'; ?>
+      <?php require 'view_headertype3.php'; ?>
     </div>
 
 
@@ -365,7 +365,7 @@ $userid = $_SESSION['userid'];
         <h4>Order Id:<span id="o_id"></span></h4>
 <div class="button-div">
   <button id="confirm-delete" onclick="delete_order_func()">Yes</button>
-  <button id="cancel-delete">No</button>
+  <button id="cancel-delete" onclick="cancel_delete()">No</button>
 </div>
       </div>
 
@@ -781,19 +781,24 @@ home.load('test2.php');
         .then(data => {
            console.log(data);
           
-          //   if(data){
-          //      document.querySelector('.delete_order_pop').style.visibility="visible";
-          //     document.querySelector('.delete_order_pop').innerHTML="";
-          //     document.querySelector('#sure_id').innerHTML="Order deleted successfully";
+            if(data==true){
+               document.querySelector('.delete_order_pop').style.visibility="visible";
+              document.querySelector('#sure_id').innerHTML="<h3>Order deleted Successfully</h3>";
+              document.querySelector('.button-div').style.visibility="hidden";
+              setTimeout(function(){
+                window.location.href="http://localhost/web-Experts/public/customer/home"
 
-          //     document.querySelector('.button-div').innerHTML="";
-          //     document.querySelector('.button-div').innerHTML=`<button onclick="close_delete()">Ok</button>`
+              },1000)
+              // await delay(5)
+              
+              // document.querySelector('.button-div').innerHTML="";
+              // document.querySelector('.button-div').innerHTML=`<button onclick="close_delete()">Ok</button>`
 
-          //   }
-          // else{
-          //   document.querySelector('.delete_order_pop').innerHTML="";
-          //     document.querySelector('#sure_id').innerHTML="Error!! Try Again Shortly";
-          // }
+            }
+          else{
+            document.querySelector('.delete_order_pop').innerHTML="";
+              document.querySelector('#sure_id').innerHTML="Error!! Try Again Shortly";
+          }
 
           
         });
@@ -840,6 +845,16 @@ home.load('test2.php');
       document.querySelector('.place_order_pop').style.visibility="hidden";
           card = document.querySelector('.cards-section');
      
+     detail = document.querySelector('.detail');
+     card.style.opacity = "100%";
+      detail.style.opacity = "100%";
+    }
+
+    function cancel_delete(){
+      document.querySelector('.delete_order_pop').style.visibility="hidden";
+   
+     card = document.querySelector('.cards-section');
+    
      detail = document.querySelector('.detail');
      card.style.opacity = "100%";
       detail.style.opacity = "100%";
