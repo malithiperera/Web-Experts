@@ -181,4 +181,13 @@ class _4_stockmanager_model extends model
         return $result;
 
     }
+
+    public function compareQtyLim_mod() {
+        require '../app/core/database.php';
+
+        $sql = "SELECT product_id FROM `product` WHERE lim >= qty";
+        $result = mysqli_query($conn, $sql);
+        return "dineth";
+
+    }
 }

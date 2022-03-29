@@ -11,7 +11,9 @@ class stockManager extends controller {
 
     }
     public function product_profile() {
-        
+        $this->model('_4_stockmanager_model');
+        $this->view->var_1 = $this->model->compareQtyLim_mod();
+        // echo($this->view->var_1);    
         $this->view->render('view_stockManager_manageStocks');
 
     }

@@ -18,6 +18,26 @@
         visibility: hidden;
 
     }
+
+    .pop_up {
+        width: 100%;
+        height: 500px;
+        /* background-color: red; */
+        margin-top: -600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+
+    }
+
+    .pop_up_msg {
+        width: 500px;
+        background-color: #fff;
+        height: 300px;
+        border: 3px solid #184A78;
+
+    }
 </style>
 
 <body>
@@ -86,7 +106,9 @@
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <input class="btn_submit" type="submit" name="submit" value="Add to Products"><br>
+                <a href="../stockManager/backToSMHome"><button class="addToStocks">Add</button></a>
+
+                <!-- <input class="btn_submit" type="submit" name="submit" value="Add to Products" onclick="showHidePopUp()"><br> -->
                 <!-- <button type="submit" class="btn_submit"  name="submit" value="Add to Products"></button> -->
 
                 <div class="error">
@@ -104,8 +126,18 @@
         </div>
 
     </div>
-    <div class="pop-up-div">
+    <div class="pop_up">
+        <div class="pop_up_msg">
+            <div class="    ">
+                <h2>The Product added successfully.</h2>
 
+            </div>
+
+            <div class="divBtnOk">
+                <button class="okBtn" onclick="showHidePopUp ()">OK</button>
+
+            </div>
+        </div>
     </div>
     <!-- <div class="div_messageContainer">
         <div class="div_messageArea" id="div_messageArea">
@@ -118,11 +150,11 @@
         </div>
 
     </div> -->
-    <div class="messagecontainer">
+    <!-- <div class="messagecontainer">
         <div class="messageArea">
             <div class="checkIcon">
-                <!-- <h4>shirantha</h4> -->
-                <i class="fa-solid fa-circle-check fa-3x"></i>
+                <h4>shirantha</h4> -->
+    <!-- <i class="fa-solid fa-circle-check fa-3x"></i>
             </div>
             <div class="popUpTextArea">
                 <h2>The product added</h2>
@@ -138,20 +170,20 @@
 
         </div>
 
-    </div>
+    </div> -->
 
     <div class="div_btnBack">
         <a href="../stockManager/backToSMHome"><button class="btn_back">Back</button></a>
 
     </div>
     <script>
-        var error = "<?php echo $this->added; ?>";
-        console.log(error);
-        if (error == 1) {
-            document.querySelector('.messagecontainer').style.visibility = "visible"
-            // console.log("shir")
+        // var error = "<?php echo $this->added; ?>";
+        // console.log(error);
+        // if (error == 1) {
+        //     document.querySelector('.messagecontainer').style.visibility = "visible"
+        //     // console.log("shir")
 
-        }
+        // }
 
         function backToAddProduct() {
             document.querySelector('.messagecontainer').style.visibility = "hidden"
@@ -165,6 +197,19 @@
         function errorProductId() {
             if (productId == '') {
                 productIdError.innerHTML = "Error"
+
+            }
+        }
+
+        function showHidePopUp() {
+            var a = 1
+            if (a == 1) {
+                document.querySelector('.pop_up').style.visibility = "visible"
+                return a = 0
+
+            } else {
+                document.querySelector('.pop_up').style.visibility = "hidden"
+                return a = 1
 
             }
         }

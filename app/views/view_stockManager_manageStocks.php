@@ -184,6 +184,7 @@
                 <legend class="textNotifyLimit">Notify Limit</legend>
                 <div class="divLimit">
                     <label for="" class="lblNotifyLimit">Limit</label>
+                    <!--   -->
                     <input type="text" class="inputNotifyLimit" readonly>
                     <label for="" class="newLimitLbl">New limit</label>
                     <input type="text" class="updateLimit">
