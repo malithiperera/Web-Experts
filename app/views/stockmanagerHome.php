@@ -62,6 +62,7 @@
                         <th>Current Stock</th>
                         <th>Unit Price</th>
                         <!-- <th>description</th> -->
+                        <th>codeCheck</th>
 
                     </tr>
 
@@ -109,6 +110,7 @@
                                 <td>${data[i]['product_name']}</td>
                                 <td>${data[i]['qty']}</td>
                                 <td>${data[i]['price']}</td>
+                                <td>${data[i]['codeCheck']}</td>
                                 
                             </tr>
                         

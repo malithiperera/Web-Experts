@@ -17,10 +17,10 @@ class product_model extends model{
         return $result;
     }
 
-   public function add_product($id,$name,$des,$price,$fileName,$cat)
+   public function add_product($id,$name,$des,$price,$fileName,$cat,$codeCheck)
    {
     require '../app/core/database.php';
-    $insert = "INSERT into product (product_id,product_name,description,price,image,type) VALUES ('$id','$name','$des','$price','$fileName','$cat')";
+    $insert = "INSERT into product (product_id,product_name,description,price,image,type,codeCheck) VALUES ('$id','$name','$des','$price','$fileName','$cat','$codeCheck')";
     $result=$conn->query($insert);
     return $result;
    }

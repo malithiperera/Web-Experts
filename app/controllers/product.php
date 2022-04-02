@@ -15,6 +15,7 @@ public function add_product()
     $name=$_POST["name"];
     $des=$_POST["des"];
     $price=$_POST["price"];
+    $codeCheck =$_POST["codeCheck"];
     // File upload path
     $targetDir = "../../Web-Experts/public/images/uploads/";
     $fileName = basename($_FILES["file"]["name"]);
@@ -36,7 +37,7 @@ public function add_product()
                    
                        echo "invalid  Id";
                  }
-                 $result=$this->model->add_product($id,$name,$des,$price,$fileName,$cat);
+                 $result=$this->model->add_product($id,$name,$des,$price,$fileName,$cat, $codeCheck);
                  
             if($result){
                 $error= 1;

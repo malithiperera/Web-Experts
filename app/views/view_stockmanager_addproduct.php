@@ -92,6 +92,17 @@
                     <span></span>
 
                 </div>
+
+                <div class="radio">
+                    <label for="" class="type">Type</label>
+                    <select class="codeCheck" name="codeCheck" >
+                        <option value="perrishable">Perrishable</option>
+                        <option value="nonPerrishable">Non-perrishable</option>
+
+                    </select>
+
+                </div>
+
                 <!-- <p class="label_price">Price</p>
                 <input id="input_price" class="input_price" type="text" name="price"> -->
 
@@ -106,9 +117,9 @@
 
                 <!-- <script src="../../public/java script/view_stockManager_addProducts.js"></script> -->
 
-                <a href="../stockManager/backToSMHome"><button class="addToStocks">Add</button></a>
+                <!-- <a href="../stockManager/backToSMHome"><button class="addToStocks">Add</button></a> -->
 
-                <!-- <input class="btn_submit" type="submit" name="submit" value="Add to Products" onclick="showHidePopUp()"><br> -->
+                <input class="btn_submit" type="submit" name="submit" value="Add to Products"><br>
                 <!-- <button type="submit" class="btn_submit"  name="submit" value="Add to Products"></button> -->
 
                 <div class="error">
@@ -139,52 +150,14 @@
             </div>
         </div>
     </div>
-    <!-- <div class="div_messageContainer">
-        <div class="div_messageArea" id="div_messageArea">
-            <h4>Added Successfully</h4>
-
-            <script src="../../public/java script/view_stockManager_addProducts.js"></script>
-
-            <button onclick="popSuccessMsg ()">OK</button>
-
-        </div>
-
-    </div> -->
-    <!-- <div class="messagecontainer">
-        <div class="messageArea">
-            <div class="checkIcon">
-                <h4>shirantha</h4> -->
-    <!-- <i class="fa-solid fa-circle-check fa-3x"></i>
-            </div>
-            <div class="popUpTextArea">
-                <h2>The product added</h2>
-
-            </div>
-            <div class="popUpTextArea2">
-                <h2>Successfully</h2>
-
-            </div>
-            <div class="divDoneBTN">
-                <button class="done" onclick="backToAddProduct ()">done</button>
-            </div>
-
-        </div>
-
-    </div> -->
+    
 
     <div class="div_btnBack">
         <a href="../stockManager/backToSMHome"><button class="btn_back">Back</button></a>
 
     </div>
     <script>
-        // var error = "<?php echo $this->added; ?>";
-        // console.log(error);
-        // if (error == 1) {
-        //     document.querySelector('.messagecontainer').style.visibility = "visible"
-        //     // console.log("shir")
-
-        // }
-
+        
         function backToAddProduct() {
             document.querySelector('.messagecontainer').style.visibility = "hidden"
 
